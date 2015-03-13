@@ -1,0 +1,511 @@
+
+
+#DOC 5
+N COMBAT~
+C 5 L 0
+KW COMBAT~
+SY ~
+TX ~
+IT ~
+EX ~
+SA Tactics, Proficiency, Consider, Compare, Flee, Assist~
+End
+
+#DOC 64
+N ASSIST~
+C 5 L 0
+KW ASSIST~
+SY assist [target]
+~
+TX .
+Assists (default your group, optionally a specified target) someone
+in combat by attacking their foe.
+~
+IT ~
+EX ~
+SA Consider~
+End
+
+#DOC 65
+N COMBAT~
+C 5 L 0
+KW COMBAT~
+SY ~
+TX .
+Combat, fighting, the derring do - these are all important features
+of this game, and is the way you earn experience, capture treasure
+and gold, and further your heroic self as you adventure throughout
+the lands of Kltara and the world of Tyselorrd.
+To protect yourself, you must use armor, shields and weapons of
+varying types, sizes and quality.  Each weapon is distinct, and
+each type of armor adds to your overall ability to avoid the ultimate
+penalty in combat: death.
+Combat is very automated.  There is no 'kick' command such as in
+other text-based multiplayer games, instead you may chose to
+manipulate your tactic, which can be in a range from defensive
+to bold, even berserk.  Your tactic is your overall performance
+and is rated between highly defensive and highly offensive.
+Ranged weapons are also used in the game to fight enemies that are
+too dangerous to approach directly, or who are at some distant
+place that can be seen but not reached (such as through a window
+or otherwise).
+It is also possible to train yourself in the arts of combat, though
+the very use of weapons is challenging and the skill and proficiency
+in them is gained through experience with the weapon, and through
+combat maneuvers learned while dealing with opponents.
+Alternatively, spells can create offensive power, and some enemies
+have specialized attacks (such as the breath of dragons or the
+cold touch of the lich) which cause additional damage during melee.
+ 
+~
+IT ~
+EX ~
+SA Tactics, Weapons, Ranged, Consider, Compare, Mercy, Flee, Assist, Rescue~
+End
+
+#DOC 66
+N COMPARE~
+C 5 L 0
+KW COMPARE~
+SY ~
+TX .
+Compares two weapons.
+~
+IT ~
+EX ~
+SA Consider~
+End
+
+#DOC 67
+N CONSIDER~
+C 5 L 0
+KW CONSIDER~
+SY consider <target>
+~
+TX .
+Sizes up a prospective opponent.
+~
+IT ~
+EX ~
+SA Combat~
+End
+
+#DOC 68
+N DODGE~
+C 5 L 0
+KW DODGE~
+SY ~
+TX .
+A skill in avoiding your enemie's attacks.  You "automatically"
+dodge during combat.  To change the importance of dodge, see: Tactics
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 69
+N DRAW~
+C 5 L 0
+KW DRAW~
+SY ~
+TX .
+Syntax:  draw
+         draw <item>
+         
+  Draws an item from your belt.  Draw alone draws as many items as you
+  can hold.
+
+Example:
+
+> draw
+You draw a fine silver dagger from your belt.
+  
+   See also:  Sheathe, Wield, Hold, Remove, Wear
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 70
+N ENGAGE~
+C 5 L 0
+KW ENGAGE~
+SY ~
+TX .
+Syntax:  ENGAGE <person>
+
+  The engage command allows you to engage in combat with an enemy.  If you
+  fail to hit an enemy on your first try, you will not engage in combat
+  with that enemy unless you attempt again.  Typing this command during
+  combat does not aid the battle at all.
+
+Example:
+
+> kill ikthius
+You miss the pale dakonenne with your club.
+> kill ikthius
+You swing your club and lightly bruise the pale dakonenne's flesh.
+
+  See also:  Flee
+  Related topics:  Combat
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 71
+N FIGHT~
+C 5 L 0
+KW FIGHT~
+SY ~
+TX .
+Syntax:  fight
+         fight <posture>
+
+  This command changes your fighting posture.  Type "fight" alone to see
+  what your current posture is.
+
+       Possible postures:
+
+          elusive
+          cautious
+          normal
+          bold
+          berserk
+
+   See also:  Combat
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 72
+N FLEE~
+C 5 L 0
+KW FLEE~
+SY <direction>
+flee
+~
+TX .
+While in combat, type a direction to flee in that direction,
+or type "flee" to randomly attempt to escape combat.
+~
+IT ~
+EX ~
+SA Combat~
+End
+
+#DOC 73
+N KILL~
+C 5 L 0
+KW KILL~
+SY kill <person>
+~
+TX .
+The kill command allows you to engage in combat with an enemy.  If
+you fail to hit an enemy on your first try, you will not engage in
+combat with that enemy unless you attempt again.  Typing this command
+during combat does not aid the battle at all.
+ 
+When fighting, you may encounter ranged weapons, which are shot from
+afar at travelers.
+ 
+You may also encounter some folks you don't want to fight.  These
+characters may have special abilities or provide services, or
+they are generally helpful to adventurers in some respect.
+~
+IT ~
+EX ~
+SA Flee, Combat, Engage, Ranged Weapons~
+End
+
+#DOC 74
+N MERCY~
+C 5 L 0
+KW MERCY~
+SY mercy
+~
+TX .
+Be merciful on your enemies; expect the same.
+~
+IT ~
+EX ~
+SA Flee, Stop~
+End
+
+#DOC 75
+N PARRY~
+C 5 L 0
+KW PARRY PARRYING~
+SY ~
+TX .
+A skill in block your enemy's attacks.  You "automatically"
+parry during combat.  To change the importance of parrying,
+see: Tactics
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 76
+N POISON~
+C 5 L 0
+KW POISON~
+SY ~
+TX .
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 77
+N RANGED~
+C 5 L 0
+KW RANGED WEAPONS~
+SY ~
+TX .
+Ranged weapons are defined as weapons you aim and shoot, such as
+slings, bows, crossbows and dart-guns.  These weapons deliver a
+payload in a projectile method over long distances.
+ 
+Ranged weapon users require expertise in the Ranged Weapon Proficiency
+to remain accurate and hit effectively.
+ 
+Targets of ranged weapons may make use of a shield, which can deflect
+otherwise accurate shots.  Shields are effective when some expertise
+in the defensive skill of parry is used.
+ 
+Ranged weapons come in many varieties and types, and may require
+ammunition, which is reloaded when the weapon discharges.  Ammunition
+may be laced with poison or enhanced with special properties that
+complicate wounds from augmented ammunition.
+ 
+Ranged weapons have a maximum effective range of 2 nearby rooms.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 78
+N RELOAD~
+C 5 L 0
+KW RELOAD~
+SY reload
+~
+TX .
+This command reloads a held weapon from ammo stored in your inventory,
+held in hand or in a pack, open or closed, on your person.  It is
+possible to hold quivers of arrows, or similar collections of
+ammunition during travels.
+~
+IT ~
+EX ~
+SA Shoot, Ranged Weapons~
+End
+
+#DOC 79
+N RESCUE~
+C 5 L 0
+KW RESCUE~
+SY ~
+TX .
+rescue <target>
+Attempts to rescue someone from combat by stepping between them and
+their foe.
+~
+IT ~
+EX ~
+SA Assist, Combat~
+End
+
+#DOC 80
+N SHEATHE~
+C 5 L 0
+KW SHEATHE~
+SY ~
+TX .
+Syntax:  sheathe
+
+  Sheathing an object requires a belt and an object suitable to be sheathed.
+  If you remove your belt with sheathed objects in it, the contents of your
+  belt will fall onto the floor.
+
+Example:
+
+> sheathe
+You sheathe a sword sword in your belt.
+
+  See also:  Draw, Hold, Wield, Remove, Wear, Wield
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 81
+N SHOOT~
+C 5 L 0
+KW SHOOT FIRE~
+SY shoot <target>
+shoot <direction>
+shoot <direction> <target>
+~
+TX .
+You may shoot at a target, or in a general direction.  You may also
+shoot a specific target in a specific direction.
+To shoot, you must be holding a ranged weapon, which is loaded (readied).
+ 
+It also helps to possess some knowledge of the ranged weapon proficiency.
+~
+IT ~
+EX ~
+SA Reload, Ranged Weapons~
+End
+
+#DOC 82
+N STOP~
+C 5 L 0
+KW STOP~
+SY stop
+~
+TX .
+Type "stop" to stop fighting.
+~
+IT ~
+EX ~
+SA Flee, Combat, Mercy~
+End
+
+#DOC 83
+N TACTICS~
+C 5 L 0
+KW tactics tactic elusive berserk bold normal cautious~
+SY tactic <posture>
+~
+TX .
+There is a range of five different tactics, starting with elusive
+and ending with berserk.
+Elusive, Cautious, Normal, Bold, Berserk
+Elusive combatants attempt to evade fights and tend to flee from
+combat.  Cautious combatants are simply more defensive than
+offensive.  A normal combatant weighs the odds evenly between
+elusive and berserk, and attempts to remain in combat based
+on this strategy.  A bold combatant will rush his or her enemy,
+and is gung ho in combat, often rushing in to save others.  A
+berserk tactician directly assaults without paying attention
+to defense at all, and often is hurt more during combat, which
+occurs in less rounds, and does more damage.
+~
+IT ~
+EX ~
+SA Weapons, Ranged, Combat, Mercy, Flee, Dodge~
+End
+
+#DOC 84
+N TRAMPLE~
+C 5 L 0
+KW TRAMPLE~
+SY trample [target]
+~
+TX .
+When riding, tramples a target.  Target is optional if you are already in
+combat.  
+~
+IT ~
+EX ~
+SA Mounts, Riding~
+End
+
+#DOC 85
+N VORPAL~
+C 5 L 0
+KW 'VORPAL WEAPONS' 'VORPAL'~
+SY ~
+TX .
+Vorpal weapons are specially designed weapons for killing immortals.
+Vorpal weapons are extremely rare and due to their special qualities
+are particularly useful in the act of decapitation, which is the
+only way to kill an immortal.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 86
+N WEAPON~
+C 5 L 0
+KW WEAPON PROFICIENCIES~
+SY ~
+TX .
+Skill in combat or with weapons.  Fighting, defending your character and
+protecting your possessions is your top priority in a dangerous world,
+so outfitting your character with skills and spells is an important
+aspect of the initial game.  Defense and Offense are the primary schools
+of thought on combat and provide you with a series of tactics useful
+in battle.
+ 
+These skills can be discovered by participating in combat maneuvers,
+or by training at appropriate locations.
+~
+IT ~
+EX ~
+SA Train, Skills, Ranged Weapons~
+End
+
+#DOC 87
+N WEAPONS~
+C 5 L 4
+KW WEAPONS 'IREF WEAPONS'~
+SY ~
+TX .
+Type:
+
+table attack
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 88
+N WIELD~
+C 5 L 0
+KW WIELD~
+SY ~
+TX .
+Syntax:  wield <object>
+
+  Wield allows a weapon that only being held to be wielded instead.
+  When you wield a weapon, your strength limits you to the overall strength
+  required to successfully utilize a shield, a primary weapon and the
+  weapon you are currently trying to wield.
+
+Example:
+
+> wield battleaxe
+You wield a battleaxe.
+> wield longsword
+You are wielding too much already.
+
+  See also:  Hold, Remove, Wear, Sheathe, Draw
+
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

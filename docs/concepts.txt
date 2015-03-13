@@ -1,0 +1,84 @@
+
+Please read "Aristotle's Poetics" --one of the finest books on dramatic arts
+
+Basic game concepts:
+
+Immortal
+
+One who cannot die, who has been given special features and qualities 
+beyond that of a standard player; there are different levels of immortals, 
+including but not limited to the following:  Hero, Immortal, Diety, 
+God/Goddess, Supreme.
+
+There are roles which immortals play, these roles have specific 
+functionality in the game and define their active participation in 
+creation, being: Scripter (Writer), Builder (Editor), Director and 
+Producer (Administrative).
+
+Player
+
+A human being, controlling an actor-like object, which interacts with and 
+readily responds to the various other types of objects in some way, may 
+die, speak, advance in levels, etc.
+
+Script
+
+A set of actions which, when performed, automate a sequence of events 
+that have some conclusion, whether this be informative, or somehow change 
+qualities and aspects of an actor, player, scene or exit.
+
+Actor
+
+A semi-autonomous or autonomous creature that responds to user commands, 
+can die, produces a corpse and is active.  It may speak, move about, enter 
+into combat, die or kill, gain experience, possesses player-like 
+qualities.
+
+Prop
+
+A semi-autonomous but passive thing that responds to user commands.  
+While it may have active qualities, it cannot die, but can be destroyed 
+(purged).  On the average, props do not have very many active qualities, 
+but do have an inherent function (such as being that of a weapon, armor, 
+clothing, food, key, etc).
+
+Scene
+
+A location, sometimes active, often enclosed or not-enclosed, which 
+performs the function of being a place for containing objects and props, 
+and is considered a backdrop, passive, though it may be active, such as a 
+vehicle, the inside of a gigantic mouth, a hilltop, or something more 
+conceptual.
+
+Exit
+
+A link between two scenes which provides a transition, which may be 
+blocked or locked, perform the function of a window, may be secret or 
+concealed in some way, may be opened or closed by a script.
+
+Scripts
+
+Specialized live interpreted language for manipulating game objects and
+performing event-based actions.  Used in combat, spellcasting, persistent
+events, room-enterings, command line and many more for the purpose of
+creating skill objects, tools, technology, vehicles, automated travel,
+quests, artificial life.
+
+Spells
+
+Use of two co-existing spell systems; True Magick, a ritual-based
+alchemistry and Gem Magick, a dynamic mana system based on gem mana
+battery objects.
+
+Skills
+
+Dynamic skill system, complete with apprenticeships, online editor,
+and tuition system.
+
+Zone
+
+Really a "set" -- but actually, a collection of scenes, props, scripts,
+exits and actors.  A partitioning of the database for purposes of
+security.
+
+

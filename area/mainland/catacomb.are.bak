@@ -1,0 +1,2626 @@
+#ZONE 
+N Crystal Mines~
+B Chris~
+V 17001 17069
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#17001
+N bat~
+SD a bat~
+LD
+ A bat flaps wildly at you!
+~
+D
+ Your typical smelly, blind flying mammal.
+~
+A 35
+AB 32
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 367
+O ~
+AP 19 19 19 19 19
+At 0 10 11 10
+At 1 5 21 3
+End
+
+#17002
+N page templar~
+SD a templar page~
+LD
+ A templar page in training is here looking mildly confused.
+~
+D
+ He has lost his family and everything of his former life.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 200 E 31
+O ~
+AP 15 15 15 15 15
+At 0 10 22 10
+End
+
+#17003
+N spelunker explorer~
+SD a spelunker~
+LD
+ A spelunker knows his way around these tunnels.
+~
+D
+ He recently discovered these catacombs and wants to see where they lead.
+He just hopes he doesn't get killed in the process.  He carries only
+essential exploration gear; if there IS anything down here, he
+probably won't last long.
+~
+A 133
+AB 32
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 95
+O ~
+AP 15 15 15 15 15
+At 0 10 19 10
+End
+
+#17004
+N gravedigger digger robber graverobber~
+SD a graverobber~
+LD
+ A graverobber uncovers dead bodies.
+~
+D
+ Working for an evil necromancer isn't the greatest thing in the world.
+They seem like little more than zombie servants themselves.
+~
+A 37
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 138
+O ~
+AP 15 15 15 15 15
+At 0 10 13 7
+End
+
+#17005
+N mist swirling~
+SD some mist~
+LD
+ Some mist swirls about you here ... it seems ALIVE!
+~
+D
+ In fact it IS alive in a magical sort of sense.
+~
+A 1
+AB 1081472
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 18 14
+End
+
+#17006
+N ~
+SD It~
+LD
+ ~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 11 14
+End
+
+#17007
+N skeleton skeletal soldier~
+SD a skeleton~
+LD
+ A skeletal soldier fights in the battle of the underworld.
+~
+D
+ Even though he has died in the physical sense of the word, the battle
+continues for him in his charmed state.
+~
+A 37
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -290 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 25 2
+End
+
+#17008
+N templar~
+SD a templar~
+LD
+ A templar shouts "AKK! SLAY THE INFIDEL!"
+~
+D
+ As you peer closely he peers back at you
+
+A templar peers closely at you.
+A templar tells you, "You are an evil force trying to spread your ways!".
+A templar tells you, "You must die for your sin!".
+~
+A 37
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 23 10
+End
+
+#17009
+N wraith~
+SD a mysterious wraith~
+LD
+ A mysterious ghostly wraith forms before your eyes.
+~
+D
+ Hard to tell much about the mysterious form even upon further inspection.
+~
+A 37
+AB 1048608
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 24 8
+At 1 5 18 14
+End
+
+#17010
+N officer templar~
+SD the templar officer~
+LD
+ A templar officer keeps an eye on things here.
+~
+D
+ A templar officer tells you "Better move along evil one!"
+~
+A 33
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 700 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 20 0
+End
+
+#17011
+N zombie mage~
+SD zombie~
+LD
+ A blank-faced zombie mage joins the battle.
+~
+D
+ He seems to lack real interest in what he is doing.
+~
+A 37
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 20 14
+At 1 5 17 12
+At 2 1 15 1
+End
+
+#17012
+N shadow shadows~
+SD the shadow~
+LD
+ Eerie shadows fill the room.
+~
+D
+ Looks vaguely you-shaped.
+~
+A 1
+AB 1081376
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 15 1
+At 1 5 18 3
+At 2 1 23 14
+At 3 1 29 0
+End
+
+#17013
+N bat vampire~
+SD The vampire~
+LD
+ A bat flaps wildly at you!
+~
+D
+ A rather LARGE "bat" ...
+~
+A 35
+AB 32
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 11 9
+At 1 5 23 11
+End
+
+#17014
+N necromancer necro cleric~
+SD the evil necromancer~
+LD
+ The evil necromancer makes undead soldiers from corpses.
+~
+D
+ Though he seems absorbed in his work, you'd bet he'd take the time out
+to kill you to get a fresh corpse!
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -888 E 730
+O ~
+AP 25 25 25 25 40
+At 0 10 19 4
+At 1 5 44 13
+At 2 1 34 5
+At 3 1 16 2
+At 4 1 32 16
+At 6 5 38 3
+End
+
+#17015
+N grand templar leader~
+SD the grand templar~
+LD
+ The grand templar stands here quietly observing your actions
+~
+D
+ A slight, tolerant smile comes briefly across his face.  In the blink
+of an eye he seems stern again.
+~
+A 3
+AB 168
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 19 7
+At 1 5 21 1
+At 2 1 15 10
+End
+
+#17016
+N prism dragon prismdragon~
+SD the prism dragon~
+LD
+ The light shines off a beautiful but dangerous dragon lurking here.
+~
+D
+ The spray of colored light bouncing off his scales is almost blinding.
+~
+A 35
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -303 E 416
+O ~
+AP 25 25 25 25 25
+At 0 10 20 9
+At 1 5 7 13
+End
+
+#17017
+N darken dark beast darkenbeast~
+SD The DarkenBeast~
+LD
+ You hear and smell the presense of the darkenbeast.
+~
+D
+ You see nothing more than the sense of darkness and evil.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -1000 E 795
+O ~
+AP 25 25 25 25 40
+At 0 10 29 0
+At 1 5 93 0
+At 2 1 52 9
+At 6 5 59 11
+End
+
+#0
+
+
+
+#OBJDATA
+#17001
+N glowing key~
+SD a glowing key~
+P ~
+D
+A circular, glowing key radiates a bright aura around it.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 67
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 10000
+O ~
+V 39 0 0 0
+End
+
+#17002
+N granite plate mail platemail~
+SD a suit of granite platemail~
+P ~
+D
+A suit of platemail hewn from granite stands by itself in the corner.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 514
+W 9
+Sz 18
+Ti 0
+Wt 55
+C 42300
+O ~
+V 9 0 0 0
+End
+
+#17003
+N onyx ring~
+SD an onyx ring~
+P ~
+D
+A ring with a very dark onyx stone in it has been left in the dirt.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 512
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 11010
+O ~
+V 5 0 0 0
+End
+
+#17004
+N neutralizer sword~
+SD Neutralizer~
+P ~
+D
+A long thin sword with a wide blade makes you wonder.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 2
+W 8193
+Sz 0
+Ti 0
+Wt 9
+C 3304
+O ~
+V 35 55 5 1
+End
+
+#17005
+N sword excalibur~
+SD the sword Excalibur~
+P ~
+D
+A sword gleams by the light of its magical silvery blade.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 3137
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 12157
+O ~
+V 30 5 4 3
+End
+
+#17006
+N crown~
+SD a kingly crown~
+P ~
+D
+The crown of a long lost King lies forgotten here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 256
+W 17
+Sz 18
+Ti 0
+Wt 10
+C 15900
+O ~
+V 15 0 0 0
+End
+
+#17007
+N stone~
+SD stone~
+P ~
+D
+The stone is surrounded by a bright glow, better look closer.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 1
+W 0
+Sz 18
+Ti 0
+Wt 2000
+C 0
+O ~
+V 15 15 2006 0
+End
+
+#17008
+N holy water flask~
+SD a flask of holy water~
+P ~
+D
+A flask of holy water is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 1
+W 16385
+Sz 18
+Ti 0
+Wt 2
+C 5000
+O ~
+V 25 0 0 0
+End
+
+#17009
+N chainmail chain mail suit~
+SD a suit of chainmail~
+P ~
+D
+A nice suit of chainmail has been left behind.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 256
+W 9
+Sz 18
+Ti 0
+Wt 20
+C 1111
+O ~
+V 5 0 0 0
+End
+
+#17010
+N white cape~
+SD a white cape~
+P ~
+D
+A blazing cape of white lies in a careful pile.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 5
+Sz 18
+Ti 0
+Wt 3
+C 5000
+O ~
+V 5 0 0 0
+End
+
+#17011
+N shield defense~
+SD the shield of defense~
+P ~
+D
+A large shield lies protecting the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 513
+Sz 18
+Ti 0
+Wt 15
+C 33000
+O ~
+V 15 0 0 0
+End
+
+#17012
+N scale shield dragonscale~
+SD a dragonscale shield~
+P ~
+D
+A shield from from the scales of a large dragon lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 18
+C 8000
+O ~
+V 8 0 0 0
+End
+
+#17013
+N prism wand~
+SD a prism wand~
+P ~
+D
+A wand made of a triangular prism twinkles in the dust.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 65
+W 16385
+Sz 18
+Ti 0
+Wt 4
+C 7070
+O ~
+V 11 4 4 0
+End
+
+#17014
+N shadow cloak~
+SD a shadow cloak~
+P ~
+D
+The shadows in the corner of the room seems strange ...~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 1025
+Sz 18
+Ti 0
+Wt 1
+C 4000
+O ~
+V 10 0 0 52
+End
+
+#17015
+N misty potion~
+SD a misty potion~
+P ~
+D
+A potion of swirling mist-like substance is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 10 0 0 0
+End
+
+#17016
+N templar templars sword wooden~
+SD a templar's sword~
+P ~
+D
+A sword made of wood has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 256
+W 8193
+Sz 18
+Ti 0
+Wt 6
+C 2900
+O ~
+V 0 2 6 3
+End
+
+#17040
+N hunk gold~
+SD a hunk of gold~
+P ~
+D
+A hunk of gold is lying on the ground!
+~
+A
+~
+PD
+~
+DR
+A freshly hewn hunk of gold!
+~
+L 0
+T 8
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 100
+O ~
+V 0 2 0 0
+End
+
+#0
+
+
+
+#SCENES
+#17001
+N North entrance to the catacombs~
+Ref 0
+D
+You are almost surprised to see a tunnel leading off to the south
+into utter darkness.  The floorboards above you haven't been moved
+in a long time, yet there is life down here.  A beam of light from
+the opening above you falls upon a message scrawled on the wall here.
+
+The message reads:
+     Adventure for the strong yet calculating
+     Death for the weak and shallow
+     Treasure for the smart and lucky
+     Death for the stupid and accursed
+
+An ancient Glyph above the entrance keeps monsters from wandering up
+from the catacombs.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 17002
+~
+~
+Dr 4 0 -1 21524
+~
+floorboard board~
+End
+
+#17002
+N North/south tunnel~
+Ref 0
+D
+This part of the catacombs looked roughly hewn and man-made. There is
+a large cross painted on the floor of the tunnel.To the south it seems
+maybe a bit lighter for some odd reason.  To the north a ray of light
+comes in from a hole in the ceiling.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+ED cross paint floor~
+The cross is a Templar's cross. It seems to have had a fresh coat of
+paint recently.~
+R M 17003 2 100 1
+Dr 0 0 -1 17001
+~
+~
+Dr 2 0 -1 17007
+~
+~
+End
+
+#17003
+N Weapon training area~
+Ref 0
+D
+This is a place to keep up on there weapon skills.  Much of the
+equipment looks old and worn but upon further inspection seems quite
+sturdy in fact.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17008 12 100 1
+Dr 1 0 -1 17004
+~
+~
+Dr 2 0 -1 17008
+~
+~
+End
+
+#17004
+N Prayer training area~
+Ref 0
+D
+The templar's curious mix of religion and fighting is evident here.
+A central painting depicts a cross composed of swords.  The elders
+teach the ancient art of prayer to the young pages.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17008 12 100 1
+Dr 1 0 -1 17005
+~
+~
+Dr 3 0 -1 17003
+~
+~
+End
+
+#17005
+N Junction of hallways~
+Ref 0
+D
+Training facilities are evident to the west. To the south lies a hallway
+which has doors every couple of feet, looks like living quarters of some
+sort.  To the east the tunnel leads back into the natural catacombs.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17008 12 100 1
+Dr 1 0 -1 17006
+~
+~
+Dr 2 0 -1 17010
+~
+~
+Dr 3 0 -1 17004
+~
+~
+End
+
+#17006
+N Hallway~
+Ref 0
+D
+The hallway takes on a more indoor look to the west.  To the east it
+looks awfully dark.
+~
+C
+~
+F 268
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17008 12 100 1
+Dr 1 0 -1 17007
+~
+~
+Dr 3 0 -1 17005
+~
+~
+End
+
+#17007
+N Intersection~
+Ref 0
+D
+The tunnel continues to the north and the south, becoming less hewn and
+more natural to the south.  A passageway lined with paneling leads west.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17002
+~
+~
+Dr 2 0 -1 17012
+~
+~
+Dr 3 0 -1 17006
+~
+~
+End
+
+#17008
+N Pages' sleeping quarters~
+Ref 0
+D
+Several bunk beds are lined up across the room.  It looks rather spartan
+and there is little evidence of toys or games.  Most of the desks are
+filled with books and papers of little interest.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17002 8 100 1
+Dr 0 0 -1 17003
+~
+~
+Dr 1 0 -1 17009
+~
+~
+End
+
+#17009
+N Templar Knights sleeping quarters~
+Ref 0
+D
+This is a huge room which is filled wall to wall with beds. Apparently
+all the low level knights all sleep in this one room.  A door on the
+south wall is labelled "Elders only!".
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17002 8 100 1
+Dr 2 0 -1 17013
+~
+~
+Dr 3 0 -1 17008
+~
+~
+End
+
+#17010
+N N/S hallway~
+Ref 0
+D
+The hallway leads north an south.  A door leads to a templar's room to
+the east.  The decoration looks rather sparse here.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17002 8 100 1
+Dr 0 0 -1 17005
+~
+~
+Dr 1 0 -1 17011
+~
+~
+Dr 2 0 0 17014
+~
+~
+End
+
+#17011
+N A Middle-aged templar's room~
+Ref 0
+D
+This is a room furnished in a room becoming a low level templar scribe.
+No real amenities but better than a communal sleeping quarters. As far
+as you can tell he would be a rank equivalent to a Sargeant.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 17010
+~
+~
+End
+
+#17012
+N Humid, damp tunnel~
+Ref 0
+D
+As the tunnel leads south it gets more humid and damp.  Moss covers the
+walls and ferns even grow in the cracks here and there.  To the north it
+seems much more sterile.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17007
+~
+~
+Dr 2 0 -1 17019
+~
+~
+End
+
+#17013
+N Administration room~
+Ref 0
+D
+The elders gather here to discuss training strategies and count their
+loot.  You notice papers which look like important secret documents
+lying around. An escape passage leads west.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+ED papers documents secrets~
+It seems that the loot comes from raids on the towns in the surrounding
+areas above ground.  From the documents it seems that the pages and
+trainees are kidnapped from the villages too!
+~
+Dr 0 0 -1 17009
+~
+~
+Dr 2 0 -1 17016
+~
+~
+Dr 3 0 -1 17069
+~
+~
+End
+
+#17014
+N N/S hallway~
+Ref 0
+D
+The hallway continues to become more important-looking as you wander
+south.  A room to the east looks rather more pleasant that some of the
+others.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17010
+~
+~
+Dr 1 0 -1 17015
+~
+~
+Dr 2 0 -1 17017
+~
+~
+End
+
+#17015
+N Mid-level leader's room~
+Ref 0
+D
+A rather nice looking room considering the drab conditions down here.
+Through all the signs of decoration you can still see evidence of water
+leaks.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17010 6 100 1
+Dr 3 0 -1 17014
+~
+~
+End
+
+#17016
+N Mess hall~
+Ref 0
+D
+The a huge table with an immaculate white table cloth stretches way off
+to the south.  The room is kept immaculately clean by the nights
+themselves.  They truly belive that cleanliness is next to godliness.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17008 12 100 1
+Dr 0 0 -1 17013
+~
+~
+Dr 2 0 -1 17023
+~
+~
+End
+
+#17017
+N N/S hallway~
+Ref 0
+D
+The hallway continues north and south.  A peculiar kind of glow seems
+to come from somewhere further along the hallway to the south. The room
+to the east looks like the lap of luxury.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17014
+~
+~
+Dr 1 0 -1 17018
+~
+~
+Dr 2 0 -1 17024
+~
+~
+End
+
+#17018
+N High officer's room~
+Ref 0
+D
+First thing you notice in this room is the pleasant aroma of cedar.  All
+the paneling in the room is made of fine cedar.  A painting of an
+elegant knight hangs on the wall.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+ED painting elegant knight~
+Something oddly familiar about the knight.  He carries a glowing sword
+with a silvery blade.
+~
+R M 17010 6 100 1
+Dr 3 0 -1 17017
+~
+~
+End
+
+#17019
+N Mossy intersection~
+Ref 0
+D
+There is a turn off to the passage here.  The main passage leads north
+and south. To the south it seems to get impossibly darker.  To the east
+you hear... birds?  A small rivulet of water seeps in from the passage
+east.  The air is very humid and damp here.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17006 7 100 1
+Dr 0 0 -1 17012
+~
+~
+Dr 1 0 -1 17020
+~
+~
+Dr 2 0 -1 17026
+~
+~
+End
+
+#17020
+N The holy grove~
+Ref 0
+D
+A small grove of birches grow seem to grow from solid rock.  You hear
+birds singing but try as you might you cant see any.  A strange glow
+emanates from a place somewhere to the southeast in the grove.
+~
+C
+~
+F 520
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17021
+~
+~
+Dr 3 0 -1 17019
+~
+~
+End
+
+#17021
+N The holy grove~
+Ref 0
+D
+The trees seem real enough even though they take root in solid rock.
+You hear other small animals scampering through the light undergrowth
+yet you see nothing. The grove continues south, east and west. An out of
+place passage way for some reason heads north.
+~
+C
+~
+F 520
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17068
+~
+~
+Dr 1 0 -1 17022
+~
+~
+Dr 2 0 -1 17027
+~
+~
+Dr 3 0 -1 17020
+~
+~
+End
+
+#17022
+N The holy grove~
+Ref 0
+D
+The grove continues west and south.  The glow is roughly to the south
+somewhere.
+~
+C
+~
+F 520
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 17028
+~
+~
+Dr 3 0 -1 17021
+~
+~
+End
+
+#17023
+N Mess hall~
+Ref 0
+D
+"mess" isn't exactly the best word to describe this room.  On the
+contrary, it is immaculately clean.  A very long table stretches way off
+to the north. A hallway is to the east.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17008 12 100 1
+Dr 0 0 -1 17016
+~
+~
+Dr 1 0 -1 17024
+~
+~
+End
+
+#17024
+N End of a hallway~
+Ref 0
+D
+You hear voices coming from a room to the west.  the hallway goes north.
+To the east lies a room which seems to glow with power and piety.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17017
+~
+~
+Dr 1 0 -1 17025
+~
+~
+Dr 3 0 -1 17023
+~
+~
+End
+
+#17025
+N Grand Templar's room~
+Ref 0
+D
+All the items in this room look ancient yet strangely very powerful and
+rich.  There is an aura of great holiness about the room.
+~
+C
+~
+F 264
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17015 1 100 1
+Dr 3 0 -1 17024
+~
+~
+End
+
+#17026
+N Very dark passage~
+Ref 0
+D
+This room is so dark that even powerful magic lights seems to barely
+illuminate the ground in front of you.  If its possible it seems even
+darker to the south.  The passage also leads back north.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17012 2 100 1
+Dr 0 0 -1 17019
+~
+~
+Dr 2 0 -1 17030
+~
+~
+End
+
+#17027
+N The holy grove~
+Ref 0
+D
+The grove continues north and east.  To the east a strange humming can
+barely be heard.
+~
+C
+~
+F 520
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17021
+~
+~
+Dr 1 0 -1 17028
+~
+~
+End
+
+#17028
+N The holy grove~
+Ref 0
+D
+All of a sudden all the mysterious sounds of the grove stop. Or perhaps
+its just the strange humming and glowing from a clearing to the south
+drowning out everything else. There is a sort of magical forcefield door
+to the south.
+~
+C
+~
+F 520
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 17006 7 100 1
+Dr 0 0 -1 17022
+~
+~
+Dr 2 0 2001 17032
+a glowing forcefield with a small circular hole in it.
+~
+glow glowing field forcefield door~
+Dr 3 0 -1 17027
+~
+~
+End
+
+#17029
+N Very dark caveway~
+Ref 0
+D
+This room is so very dark that no one is quite sure whats in it, so
+there's nothing really to describe except maybe the powerful sense of
+evil coming from the east and the almost overcoming urge to run to the
+west.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17030
+~
+~
+Dr 3 0 -1 17033
+~
+~
+End
+
+#17030
+N Deep within the catacombs~
+Ref 0
+D
+It stinks like a lair in here.  A rotten smell of humanoid flesh
+lingers.  You stumble over what you think are corpses in the utter
+darkness. You sense a evil growl from somewhere in the room. maybe
+everywhere in the room. . ..
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17017 1 100 1
+Dr 0 0 -1 17026
+~
+~
+Dr 1 0 -1 17031
+~
+~
+Dr 3 0 -1 17029
+~
+~
+End
+
+#17031
+N Very dark cavern~
+Ref 0
+D
+The cavern is hard to describe due to the extreme magical darkness.
+Probing with a light source seems to reveal nothing but more darkness.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 17034
+~
+~
+Dr 3 0 -1 17030
+~
+~
+End
+
+#17032
+N The holy place~
+Ref 0
+D
+A glowing stone lies in the center of the clearing.  You recognize it as
+the stone of the Excalibur.  The strange humming glowing makes it
+difficult to see if the Excalibur is there or not. Might want to take a
+closer look if possible.
+~
+C
+~
+F 520
+S 3
+M 0
+W 0
+T 0
+O ~
+R O 17007 0 100 1
+Dr 0 0 2001 17028
+a glowing forcefield with a small circular hole in it.
+~
+glow glowing field forcefield door~
+End
+
+#17033
+N Misty passageway~
+Ref 0
+D
+Warm mist swirl about you making you feel threatened as well as
+protected at the same time.  The swirling mist makes it tough to tell
+directions quite clearly, but you seem to be able to go north or south.
+The mist gets denser to the south.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17006 7 100 1
+Dr 0 0 -1 17029
+~
+~
+Dr 2 0 -1 17042
+~
+~
+End
+
+#17034
+N Intersection of caverns~
+Ref 0
+D
+Caverns head north, south and east from this peculiar spot. Medium
+sized caverns from the east and the north join to form a huge cavern
+heading south.  The walls of the cavern are made of a bizarre mixture
+of many shiny crystals.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17031
+~
+~
+Dr 1 0 -1 17035
+~
+~
+Dr 2 0 -1 17044
+~
+~
+End
+
+#17035
+N Entrance to the burial grounds~
+Ref 0
+D
+You have entered what appears to be a burial ground of sorts. The
+templars buried their dead here.  Chills go down your spine as you feel
+something watching you.  You hear the random groan of a ghost, the howl
+of a wraith, and the dry clanking of bones.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17007 4 100 1
+Dr 1 0 -1 17036
+~
+~
+Dr 3 0 -1 17034
+~
+~
+End
+
+#17036
+N The burial grounds~
+Ref 0
+D
+Random tombs to unknown warriors were lain in rows as far as the eye
+can see.  To your horror many of the graves are empty and desecrated.
+A gap in the rows of tombs leads south and there are more graves to the
+east and west.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17006 7 100 1
+Dr 1 0 -1 17037
+~
+~
+Dr 2 0 -1 17045
+~
+~
+Dr 3 0 -1 17035
+~
+~
+End
+
+#17037
+N The burial grounds~
+Ref 0
+D
+It seems as if many of the warriors could not stop fighting even in
+death.  They fight amongst each other and flail at any living being
+that would wander near.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17007 4 100 1
+Dr 1 0 -1 17038
+~
+~
+Dr 3 0 -1 17036
+~
+~
+End
+
+#17038
+N The burial grounds~
+Ref 0
+D
+Legions of skeletal warriors wander by and battle the enemy even in
+death.  Old battlelines have been forgotten and new ones made. Its a
+gruesome scene.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17007 4 100 1
+Dr 1 0 -1 17039
+~
+~
+Dr 3 0 -1 17037
+~
+~
+End
+
+#17039
+N New graves~
+Ref 0
+D
+The tombs in this section seem somewhat more recent.  Rotting zombie
+warriors groan and wail with blank stares.  You hear sounds of digging
+off a bit to the south.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17006 7 100 1
+Dr 2 0 -1 17047
+~
+~
+Dr 3 0 -1 17038
+~
+~
+End
+
+#17040
+N Misty cavern~
+Ref 0
+D
+A chilling icy mist swirl about you.  The dampness and warmth has become
+bitter cold.  The walls of the cavern are several feet thick with ice
+here.  An icy wind blows from the south.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17006 7 100 1
+Dr 1 0 -1 17041
+~
+~
+Dr 2 0 -1 17048
+~
+~
+End
+
+#17041
+N Misty cavern~
+Ref 0
+D
+The temperature is a pleasant and mild here.  This is due to a warm wind
+blowing in from the east and a chilly breeze blowing in from the west.
+The updrafts create bizarre icy-steamy mists which dance along the
+walls.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17005 9 100 1
+Dr 1 0 -1 17042
+~
+~
+Dr 3 0 -1 17040
+~
+~
+End
+
+#17042
+N Mist cavern~
+Ref 0
+D
+A warm wind blows in from the east.  The air is still stifling hot in
+here despite the breeze.  The mist seems thick enough to be alive. . .
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17005 9 100 1
+Dr 0 0 -1 17033
+~
+~
+Dr 1 0 -1 17043
+~
+~
+Dr 3 0 -1 17041
+~
+~
+End
+
+#17043
+N Waterfall of mist~
+Ref 0
+D
+River of hot mist pour down in a cascade from a hole in the cavern.  It
+falls like water down from the heights like a waterfall and creates
+beautiful swirls.  It causes a hot wind to flow west.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+ED hole height waterfall cascade~
+The hole is much too high up for you to reach.
+~
+R M 17005 9 100 1
+Dr 3 0 -1 17042
+~
+~
+End
+
+#17044
+N Huge multicolored tunnel~
+Ref 0
+D
+The tunnel leads north and south.  To the south there is an odd
+twinkling phenomenon.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17034
+~
+~
+Dr 2 0 -1 17050
+~
+~
+End
+
+#17045
+N Desolate ruins~
+Ref 0
+D
+Several mausoleums used to grace the way here but these have been
+defiled. And most have been torn down and burned by looters. Some still
+seem to be intact to the south.  To the northwest is a seeming field of
+tombs of soldiers, now a battleground for the undead.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 17051
+~
+~
+End
+
+#17046
+N Curators place~
+Ref 0
+D
+The undertaker, the historian and the curator used to be here. Now they
+too have joined the legions of the undead.  From the looks of the place
+they seem to have starved to death.  Rickety stairs head down into a
+sort of basement.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED stairs basement~
+Surprisingly the stairs look sturdy enough.
+~
+Dr 1 0 -1 17047
+~
+~
+Dr 5 0 -1 17052
+~
+~
+End
+
+#17047
+N Fresh graves~
+Ref 0
+D
+Graves of recent casualties lie here.  Even the most recent don't seem to
+have been left undisturbed.  You hear sounds of digging in progress
+further to the south.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17009 2 100 1
+Dr 0 0 -1 17039
+~
+~
+Dr 2 0 -1 17053
+~
+~
+Dr 3 0 -1 17046
+~
+~
+End
+
+#17048
+N Twisty cavern~
+Ref 0
+D
+The way twist this way and that and its all you can do to keep your head
+from spinning.  The air is very cold here and layers of ice on the wall.
+The sounds of metal on ice echo through the cavern. A side passage leads
+east and the main passage goes north and south.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17040
+~
+~
+Dr 1 0 -1 17049
+~
+~
+Dr 2 0 -1 17056
+~
+~
+End
+
+#17049
+N Striped tunnel~
+Ref 0
+D
+The walls of the tunnels have many brilliant colors in them from the
+various veins of crystals running in them.  An odd twinkling comes from
+the east.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17006 7 100 1
+Dr 1 0 -1 17050
+~
+~
+Dr 3 0 -1 17048
+~
+~
+End
+
+#17050
+N Prism cave~
+Ref 0
+D
+The roof of this cave peaks over a hundred feet high making it one of
+the biggest in the catacombs.  Crystals of every color cast prismatic
+sprays of light everywhere.  The light from your lamp causes almost a
+blinding flare of brilliance as more light is added to the multi-colored
+twinkling phenomenon that exists here.  This is also the lair of the
+fabled and feared Prism Dragon.
+~
+C
+~
+F 8
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17016 1 100 1
+Dr 0 0 -1 17044
+~
+~
+Dr 1 0 -1 17058
+~
+~
+Dr 2 0 -1 17057
+~
+~
+Dr 3 0 -1 17049
+~
+~
+End
+
+#17051
+N Ruined monument~
+Ref 0
+D
+A monument to a famous king once stood here. Not much is left to even
+signify that is was here at all.  A building of some sort can be entered
+through a basement to the east.  The southern gate of the grounds is to
+the south.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17045
+~
+~
+Dr 1 0 -1 17052
+~
+~
+Dr 2 0 -1 17054
+~
+~
+End
+
+#17052
+N Basement~
+Ref 0
+D
+Its dark and it smells like. ...BATS down here!  All you see is a swirl
+of the darkness and lots of scratching bats madly flailing around. A set
+of stairs go up into the building and a broken window leads west.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17001 6 100 1
+Dr 3 0 -1 17051
+~
+~
+Dr 4 0 -1 17046
+~
+~
+End
+
+#17053
+N Fresh graves~
+Ref 0
+D
+The graves here seem very recent.  You notice many signs of digging and
+defilement.  There are piles of fresh bodies here awaiting burial.  A
+strange sense of evil magic from the south makes the hairs on the back
+of your neck to stand on end!
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17004 4 100 1
+Dr 0 0 -1 17047
+~
+~
+Dr 2 0 -1 17055
+~
+~
+End
+
+#17054
+N Southern gate~
+Ref 0
+D
+A rusty gate here no longer keeps anyone out or in.  You see a lonely
+E/W passage to the south.  A little used trail winds east through a
+crack in the wall.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17051
+~
+~
+Dr 1 0 -1 17066
+~
+~
+Dr 2 0 -1 17059
+~
+~
+End
+
+#17055
+N Scene of ghastly horror~
+Ref 0
+D
+An army of undead creatures of all types are lined up patiently. Their
+leader is an evil demonoid necromancer.  His plans to use his army of
+undead to take over the world seem about ready to get underway.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17004 4 100 1
+Dr 0 0 -1 17053
+~
+~
+Dr 2 0 -1 17062
+~
+~
+End
+
+#17056
+N Twisty passage~
+Ref 0
+D
+The passage bends north and east here.  To the east your not certain
+what lies ahead due to all the twists and turns you've made.  To the
+north is seems cold.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17048
+~
+~
+Dr 1 0 -1 17057
+~
+~
+End
+
+#17057
+N Cross of caverns~
+Ref 0
+D
+A little-used cavern enters from the south. A passage twists away to
+the west.  An odd twinkling comes from the cave to the north.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17050
+~
+~
+Dr 2 0 -1 17066
+~
+~
+Dr 3 0 -1 17056
+~
+~
+End
+
+#17058
+N Lonely tunnel~
+Ref 0
+D
+Something indescribable makes you feel lonesome and sad here. Its just
+a feeling you get from this tunnel.  The tunnel east and west.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17059
+~
+~
+Dr 3 0 -1 17050
+~
+~
+End
+
+#17059
+N Lonely tunnel~
+Ref 0
+D
+Something indescribable makes you feel lonesome and sad here. You see a
+gate to a burial ground to the north.  This lonesome tunnel sighs along
+west and east.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17054
+~
+~
+Dr 1 0 -1 17060
+~
+~
+Dr 3 0 -1 17058
+~
+~
+End
+
+#17060
+N Bend in the lonely tunnel~
+Ref 0
+D
+Something indescribable makes you feel lonesome and sad here. The
+tunnel bends west and south.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 17061
+~
+~
+Dr 3 0 -1 17059
+~
+~
+End
+
+#17061
+N Lonely tunnel~
+Ref 0
+D
+Something indescribable makes you feel lonesome and sad here. The very
+walls of the tunnel seems to groan.  to the north the tunnel bends and
+east is an intersection.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17060
+~
+~
+Dr 1 0 -1 17062
+~
+~
+End
+
+#17062
+N Intersection~
+Ref 0
+D
+To the north you enter the burial grounds.  a trail of blood leads that
+direction.  Also you feel an ominous sense of evil magic from there.
+The tunnel to the west creaks and sighs as if alive.  To the south you
+smell a hint of fresh air.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17055
+~
+~
+Dr 2 0 -1 17063
+~
+~
+Dr 3 0 -1 17061
+~
+~
+End
+
+#17063
+N Tunnel~
+Ref 0
+D
+The tunnel heads north and south.  North you see an intersection and
+far to the south you sense light and smell a fresh breeze.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17062
+~
+~
+Dr 2 0 -1 17064
+~
+~
+End
+
+#17064
+N Tunnel~
+Ref 0
+D
+The tunnel slopes noticeably down to the north and you sense the surface
+could be reached to the south.
+~
+C
+~
+F 265
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17003 2 100 1
+Dr 0 0 -1 17063
+~
+~
+Dr 2 0 -1 17065
+~
+~
+End
+
+#17065
+N Southern entrance to the catacombs~
+Ref 0
+D
+Through a trapdoor above you streams light.  Through a doorway to
+the south streams darkness.  A message has been scrawled upon the wall
+here.  The message reads:
+     Adventure for the strong yet calculating
+     Death for the weak and shallow
+     Treasure for the smart and lucky
+     Death for the stupid and accursed
+An ancient Glyph above the entrance keeps monsters from wandering up
+from the catacombs.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17064
+~
+~
+Dr 4 0 -1 21527
+~
+floorboard board~
+End
+
+#17066
+N Unknown passage~
+Ref 0
+D
+Oh dear you seem to have lost your way.  You look back from whence you
+came but there's no exit there anymore.  There are exits in other
+directions but you have a feeling that you are hopelessly lost.
+~
+C
+~
+F 269
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17067
+~
+~
+Dr 2 0 -1 17068
+~
+~
+End
+
+#17067
+N Unknown passage~
+Ref 0
+D
+Oh dear you seem to have lost your way.  You look back from whence you
+came but there's no exit there anymore.  There are exits in other
+directions but you have a feeling that you are hopelessly lost.
+~
+C
+~
+F 269
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 17069
+~
+~
+Dr 3 0 -1 17066
+~
+~
+End
+
+#17068
+N Unknown passage~
+Ref 0
+D
+Oh dear you seem to have lost your way.  You look back from whence you
+came but there's no exit there anymore.  There are exits in other
+directions but you have a feeling that you are hopelessly lost.
+~
+C
+~
+F 269
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17066
+~
+~
+Dr 1 0 -1 17069
+~
+~
+End
+
+#17069
+N Unknown passage~
+Ref 0
+D
+Oh dear you seem to have lost your way.  You look back from whence you
+came but there's no exit there anymore.  There are exits in other
+directions but you have a feeling that you are hopelessly lost.
+~
+C
+~
+F 269
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17067
+~
+~
+Dr 3 0 -1 17068
+~
+~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,1177 @@
+This work was prepared during the last moments of my undergraduate career.
+I am trying to make a transition to MIT ; dunno if this dream will happen,
+more interested in paying back the federal government.
+
+Some programmers may be interested.  It's my hope to use Proce55ing to
+visualize aspects of the mud.  So far, however, it has proven to be a
+pointless venture (why not use UOX?) -- 
+
+-locke
+
+
+// a manifesto for proce55ing
+// by herb gilliland
+//
+// a work of hopeful open sourcing (techno-media spelunking)
+//
+// developed over a four month period, after careful consideration,
+// including the application of research done in 1999, 2000 and 2003
+// on dynamic network collaborative environments; the intellectual
+// property contained in this document is owned in part by herb gilliland,
+// with respect given to MIT, proce55ing's creators Ben Fry and Chris Reas,
+// and includes information gathered in 2003 and 2004.
+//
+// it is the hope that these concepts will be used in upcoming versions
+// of proce55ing and will enable more complex interactive and non-interactive
+// pieces to be developed using future iterations of the proce55ing document.
+//
+// research method
+//
+// research acquired from examine proce55ing's function vocabulary, with
+// a direct comparison made to similar software packages, including features
+// present in a variety of object-oriented programming interfaces; includes
+// a similar subset of language that is related to the common issues in
+// object-oriented languages; those of heirarchy, inheritance, classification
+// and polymorphism.
+//
+// it is noted here that proce55ing in its simple form (versions 55-67, possibly
+// version 68) have not only the addictive quality of providing an introversion
+// of the concept of celebrity ("code celebrities") but also the fascinating
+// opportunity to develop a language which can be used to develop art; not
+// only applications to scientific research, but also real-time audiovisual
+// instruments of a complexity far-beyond the existing mit media lab efforts
+//
+// several metaphors are used throughout my work, which finds its way here,
+// and these are the automations of entertainment machines -- the virtualization
+// of existing methods developed in the 18th and 19th (and 20th) centuries.
+//
+// creating machines with collaborations; the orchestra as a methaphor
+// for performance
+//
+// the first metaphor is present in a project I developed called the
+// "collaborative light orchesta" a test-case where the machine and system
+// involved a set of "instrument" machines connected to a central server;
+// the instruments are clients in a client-server relationship that form
+// a single unit-- an orchestra -- this orchestra then interfaces with two
+// seperate units, a controller unit (called the "conductor") and a performer
+// unit, which displays a visualization of the efforts of all the instrumentations,
+// or perhaps is controlled partially by the conductor to influence its
+// performance.  of course in computing the word performance is usually used
+// to describe the speed and power of a processor, bus, etc, but here it is
+// used to describe a "stage" -- 
+//
+// creation immersive machines; the vocabulary of dramaturgy and motion picture
+//
+// the second metaphor present is one from dramaturgy- and is borrowed from
+// older forms of software and of dramatic arts - the idea that the stage
+// is relatively unimportant as the stage is really the technology used the
+// display some scene -- and that a scene (this is from the motion picture) 
+// is synonymous to the idea of a single closed system in which interactions
+// occur -- but due to the nature of a "scene change" -- these scenes are
+// actually contained in the concept of a "world" -- where in a world,
+// you have a collection of props, scenes, actors and these are all relative
+// and relevant; we see this already in commercial video games; an excellent
+// example of this is the pteredon studio's ptero engine, which effectively
+// creates a wargame from the role of individual, effectively simulating
+// the various "worker" roles present in the military
+//
+// the problem (or perhaps question) is do video games (or simulations) need
+// to simulate work?  it is apparant from the current paradigm supplied
+// by pterodon's ptero engine, that the military can be adequately simulated
+// in whole AND in part, and that in the interest of drama, not all parts
+// are simulated because of the relatively boring aspect of certain parts
+// of war (troops marching for days is hella boring, peeling potatoes sucks).
+//
+// so thus there is an action of a designer ( a game designer ) and
+// perhaps others who choose to simulate only the interesting aspects of
+// a particular system; however, longer-term addictions (the service
+// of addiction as being video games) 
+//
+// a question is, who defines what is interesting?  the answer is in two
+// parts: first being that interesting is usually action-based, control-based
+// or the beyond-self -- the self that cannot do what the "avatar" character
+// does within the game, and the second being public consumption determines
+// mainly what is simulated and why, which is a direct product of human
+// nature and also of social trends, which can be predicted to some degree,
+// but which are usually set by agenda-setting agencies who employ marketing
+// strategies which can effectively predict (some of the time) social
+// trends, but not all of time; it's a two-way street.  people decide
+// what products will sell, and companies decide what products to make,
+// and there is a call-response between the product's market and the economic
+// response.
+//
+// if you look at where the vast codebases of multiplayer text-based games
+// has developed, you see that it is possible to not only simulate war, but
+// also the organization, and that "virtual" organizations are the product
+// of an introverted, isolated society -- which enables developers to
+// create addiction machines ; "money making machines" -- scam machines;
+// the virtual mall -- in a way all failures because they do not adequately
+// reproduce the feeling of service; indentured slavery
+//
+// learning simulation
+//
+// it would be possible with such a machine to simulate all forms of history,
+// for instance, where you could develop an extensive database of technologies,
+// to show a change over time of the development of this history, or to
+// simulate life on other planets, or simulate the very process of life,
+// such as is present in ben's work in genetic cartography, when combined
+// with perhaps Seth Lean's work in evolutionary code; who knowz
+//
+// the difficulty is that a paradigm has not yet been reached which succeeds
+// the role of artificial intelligence in a symbolic way; and that
+// to simulate an intelligence outside oneself -- self-aware computing --
+// may not be possible beyond the intelligence of humanity's limit, and
+// thus it may take an external intelligence to effect that of humanity,
+// to improve its technology or to, perhaps, wipe us out of existence.
+//
+// and that it, in a nutshell.
+//
+// work was
+// submitted to the MIT media labs, c/o ben fry (doctoral student) february 2004
+//
+// about the author: student of lowry burgess; benjamin fry
+//
+// dedicated to the inventors of the java emmcee, b. fry and c. reas
+//
+// famous quote: "
+// 
+// how this text can be read; or you can just skip the comments
+//
+// these are the basic classes which define 3d and 2d space, relationships between
+// sound and 2d/3d -- all of these classes can be augmented .. the goal here is
+// to define the basic technologies used in media and performance technologies.
+//
+// "a message to proce55ing programmers, developers and the java community,
+// the MIT doctoral review board, folks in the media and folks who work with media
+//
+// ok well, first I'd like to say that I haven't seen a modeling program
+// hooked up to a natural language processor yet, but that this may be
+// the first step to this -- the concepts contained herein include many of
+// the basic vocabulary present in this paradigm of interactive entertainment,
+// which could be considered the macro-set, containing interactive media
+// and digital media, video game design / art, dynamic content and data
+// visualizations, artificial "life" and perhaps "artificial intelligence",
+// two esoteric forms which are essentially related -- the difficulty,
+// i feel, is that this isn't cybertron and unfortunately computers can't
+// yet procreate.  though you can program a system to include evolutionary
+// algorithms (see: Seth Lean, George Mason University), it evolves through
+// the efforts of many people (10s,100s,1000s) in the computing industry,
+// and in technical fields related to the computing industry (such as
+// electrical and computer engineering, folks who work in MEMS, 
+// Nanofabrication, and the scientists and mathematicians who prove these 
+// things."
+//
+// evolutionary: who proce55ing helps most
+//
+// proce55ing answers the call for artists to do complex systems,
+// participate in otherwise traditionally "non-artist" disciplines, 
+// which contain researched efforts of mathematicians (geometry, 
+// trigonometry, 3d calculus, discrete mathematics and logic)
+//
+// it has been in the past (depending on the time) an assumption that
+// the sculpture, painter, musician, etc, utilize mathematics in a limited
+// way, and that scientific and mathematical specialists simply are
+// proving through verification and optimization methods of describing
+// the universe, but, submitted for approval, is the argument that
+// this is a process of automating or attempting to automate the 
+// actions of artists, specifically the neurological elements related to
+// the hippocampus -- the creative center of the human mind.
+//
+// perhaps the artist is defined as a renderer (in the case of painting),
+// or perhaps the artist is defined as a machine that renders form
+// (in which case, the artist can be simulated in a variety of methods).
+//
+// well, this is true, because methods of making art (materials) are
+// simulated in popular painting programs, but it does not take into
+// account the basic geometric forms -- yet, photoshop, for instance,
+// in later years has proven to be inclusive of limited "3d" elements,
+// but that its product is ultimately static.. proce55ing's output is
+// the exact opposite -- instead it is producing dynamic, interactive
+// content -- the amount of interaction is of course related to the
+// choices made by its designer, and in this case, can range from
+// little or no interaction (such as a fractal generator) to the point
+// of interaction which could be considered highly-interactive.
+//
+// to define a language or vocabulary for this type of interactive media
+// is almost impossible, but an essential tool for deciphering and
+// categorizing the various forms that have been produced is possible.
+// this may be due to the fact that much of the vocabulary is lost
+// in translation from visual to lingual.
+//
+// though the variations are limitless, proce55ing produces only
+// dynamic web content in a java applet, limited by the java sandbox
+// and by the size limits and constrains of a browser on a screen, however
+// attempts to "escape the web page" have been made (the "fullscreen" feature)
+//
+// the problem that persists (outlined in "democratization of media: the
+// work in a box on a shelf") is that digital media forms such as proce55ing's
+// outputs are indeed "products" identical to those which are purchased,
+// but that lack commercial value due to the fact that it has been proven
+// time and time again that a large percentage of users are interested
+// solely in purchasing software from retail vendors, and that other types
+// of distribution (shareware, freeware and the like) only draw attention
+// when they push the envelope of what is available, and are careful to
+// apply effective business strategy when distributing their product.
+//
+// proce55ing has created a therapeutic outlet for artists, students
+// and other non-commercial entities to produce visualizations, a need 
+// which is inherent to science and which has previously been rendered 
+// with expensive, state-of-the-art engineering programs created by 
+// companies such as ALGOR, Inc., as well as the media content and 
+// delivery systems designed by third-party vendors such as Macromedia --
+//
+// within digital society (and international / global community) -- 
+// and that anything produced for commercial value does have its value 
+// assigned based on the target markets and the ability of the marketplace 
+// to include various; it is a virtual charity produced by MIT/Media Labs; a
+// member-only charity, in fact, which is subject to licensing from MIT.
+//
+// specific applications
+//
+// i think what we're doing here is reverse engineering the traditional
+// renderer (such as maya) so that it may be programmed, and that
+// it can produce either real-time fluid visual representations, or slower,
+// more detailed and processor intensive renderings
+// that will take time to speed up as computing increases in its potency.
+//
+// this is almost a timeless digital form, as its relevance may not
+// change from its basic level for years to come.
+//
+// perhaps it is the quality of the language that draws the attention..
+// or perhaps its the way java has been engineered by Sun; either way,
+// Proce55ing's impact on the _way the web can be approached_ (a truly
+// distributed, ubiquitous method of preparing software for a mass
+// audience) is amazing.
+//
+//------------------------------------------------------------------------=
+// who proce55ing helped least: Whistler and others like him :: an anecdote
+//
+// what this code attempts to augment is the proce55ing vocabulary as it relates
+// to the visual, but a concientious computer/digital-media person must keep
+// in mind that proce55ing is _not_ for everyone -- who is not helped by proce55ing?
+//
+// this code attempts to provide a vocabulary for the visual elements prominent
+// in visually interactive digital media forms, but does not include the lingual
+// forms that bridge gaps between the blind and the non-blind; it certainly, however,
+// helps the mutes express and the deaf to see difficult to explain visualizations
+// and relationships (arguably), but will never aid in the learning and insight
+// of Whistler.
+//
+// who is whistler?
+//
+// whistler is a computer scientist who cannot see the screen and most of it is
+// read to him with specialized image processing softwares that "read" the text
+// of a browser, or use ocr focused on real-time screen content to decipher the visual 
+// world of the web
+//
+// whistler is not to be confused with The Whistler or Captain Crunch
+//
+// he lost his eyes in the U.S. campaign in the Persian Gulf in 1993,
+// and has never seen his first-born son, who is now 13, and loves
+// video games and visualizations and could, perhaps one day, be a proce55ing
+// user.  though he once had sight, he is distinctly able to remember
+// images and their relationships and has graduated with the degree of
+// bachelor of science from an american university, and now lives in canada.
+// 
+// whistler cannot use proce55ing; it is his special circumstances which provide
+// reflective thoughts on the limits of what is an accepted digital media form;
+// what fry has done and what digital media artists continue to develop is
+// very much a mass-audience form, and that it benefits a majority of computer
+// users despite its attempt to be open, is still a closed form to some people
+// and creates a level of accessibility that is much greater than the closed-box
+// of commercial digital media creation applications (such as macromedia flash mx,
+// director shockwave studio mx, etc.)
+
+// proce55ing provides a great window to the world of the visual,
+// in an attempt to satisfy a majority desire for highly visual, consumable
+// visually interactive media forms and visualizations.  it would be interesting
+// to determine a method for describing the output from this software, but
+// perhaps its open architecture is enough to provide the computer scientist
+// Whistler with a sliver of insight into the progression of graphics processing.
+//
+// proce55ing (and java's) ability to manipulate text is still an important
+// aspect of computer and should be further explored as the symbolic of meanings
+// of text can still be manipulated -- it is my personal goal to develop a game
+// that both whistler and his son enjoy playing, though I am sure that they have
+// found the Dikumud variant Valhalla (Dikumud][) to be an adequate playing field.
+//
+// this anecdote is just an aside; an interesting insight into a person who
+// cannot "see" the Media Lab's work, and perhaps are effected by its work
+// despite Whistler's inability to watch it.  he can be contacted at valhalla.com
+//
+//----------------------------------------------------------------------------------=
+// comment: ben, i think we can eventually put the entire 20th century of computing
+//          and computational mathematics in a box called (to quote soon-to-be dr. fry) 
+//          "the proce55ing mothership" =D
+//
+// aside: you dont have to show this to your compatriots, but wouldn't that be nice
+//
+// what is most interesting is proce55ing's underlying coded components'
+// ability to escape the java sandbox (how is this done?)
+//---------------------------------------------------------------------------------
+// note on signing applets (suggestion):
+//
+// Proce55ing should come with instructions on how to sign applets that utilize
+// the java toolkit.  Proce55ing should open a dialogue which enables the user
+// to type information into the keytool, and then automatically utilizes the
+// signer to export the applet.  For those wearing black hats, proce55ing's
+// functions do most not manipulate the browsing computer, but instead,
+// utilize memory functions and non-invasive tthbtbthpppff bladi bladi blah
+//
+//---------------------------------------------------------------------------------
+// another note:
+//
+// some of this just may not be possible in java (hate to state that, but it may
+// be true-- for instance the midi components etc.. not sure, will have to research
+// that a bit more..)
+//---------------------------------------------------------------------------------
+//
+// on democratization of media: the work in a box
+//
+// It is a noted technical leap - the performance aspects of java's
+// approach to ubiquitous computing provides the programmer with an
+// infinite variation, defining it as a platform of choice from a
+// programming standpoint, but from a commercial vantage, it is impossible
+// to box a web application for retail.  the need for human beings to
+// purchase physical objects such as books, technology and consumer
+// media means that American retail businesses have not suffered greatly
+// with the democratization of media; in fact, it has done the
+// exact opposite- the desire to purchase legacy products (products
+// that are contained in a physical package) continues to define
+// the marketplace.  however, organizations like the MPAA, RIA and
+// others continue to push the bounds of authority, defining what
+// is a legitimate enterprise and what is not, how media is shared,
+// the way that digital media is packaged and distributed, and its
+// relationship to the consumer, the artist and the publisher.
+//
+// proce55ing provides both development platform and publishing platform,
+// in the context of "gallery" but also within the method of self-publication,
+// similar to other web forms, and piggybacking off the success of java
+// as a web development platform, proce55ing hopes to further the
+// efforts of programmers who have little or no java experience, but
+// do have html and web experience, namely the web designers and macromedia
+// users who develop interactive web media platforms.
+//
+// on capitalization of media: the work in a box on a shelf in a store
+//
+// this concept seems to deteriorate once a consumer has reached the 
+// college level, as the university is a protected simulation with elements
+// of all political systems (fascism, democracy, socialism,etc), it is feasible
+// that the consumer marketplace will remain dominated by physical
+// products -- the idea that a book cannot be truly replaced by a digital
+// medium -- perhaps this is the wisdom of the free market. it is a desire
+// to own which drives american business and the capitalists and is rooted
+// in the physical universe.
+//
+// because computing is caught in a bipolar metaphor- a collection
+// of bits (switches) -- which is a virtual remnant of the physical
+// dichotomy of humanity (this is a sexual reference), which is now
+// of consumer fashion and participates in the growing trend
+// to redefine computing's exterior as well as interior.
+//
+// in the spirit of Ben's work, proce55ing provides access to the useful 
+// features, simplifying the work so that an amateur or novice programmer 
+// may create impressive visualizations through planning and experimentation
+// using text, curves, lines and polygons.
+//
+// this supplement provides access to the parts of the heirarchy- no longer
+// will a proce55ing programmer be forced to construct more complex systems
+// without deconstructing the existing systems.
+//
+// but as an added feature, this component system can be accessed at many 
+// different levels, leaving open access to the various parts of the heirarchy,
+// so that a more advanced programmer may utilize components of the system to
+// describe an applet
+//
+// special attention is paid to the realm of vectorized three dimensional
+// representations -- a basic 3d environment which operates in real-time 
+// has a certain vocabulary associated.  the vocabulary has been redefined 
+// many times by its related industries, but this declaration hopes to 
+// include not only the popular culture representation of the future of 
+// computing but also a mention of its roots in dramatic and interactive arts.
+//
+// a form is defined to be consisting of a collection of polygons
+// which is a component of a model
+//
+// a model is defined to be a collection of forms which is referenced by
+// an actor, or player object.
+//
+// actors are active/passive cpu controlled models utilizing the IK
+//
+// the player is considered an interface-controlled component; while not
+// visualized (the player's form is dominated by his or her human form),
+// it follows the same vocabulary and definition of an actor, but is not cpu
+// controlled -- multiplicity forms "multi-user" interactions between
+// multi-modal units (humans)
+//
+// the player and actors are contained in a world, which is one of many worlds
+// in a universe.  to "move" from one world to another, an actor or player
+// object may be removed then added; actors and players follow a standardized
+// language (yet unwritten) which provides a set of semiphores for interaction
+//
+// a universe is a top-level class which contains a collection of worlds,
+// each world is considered to be a self-contained 3 dimensional system,
+// containing actors, scenes and players.
+//
+// ----------------------------------------------------------------- data and algorithm
+// =-
+// these classes are used first to send and receive data from web services
+// through the standard get and put functions of web browsers
+// 
+// secondly, these classes are for any proprietary languages that might
+// provide certain aspects of proce55ing's animation and gesture-based
+// language to be correctly symbolized for comparisons, etc
+//
+class variable = {     // a variable
+	String name;
+	String value;
+
+	void variable();  // defaults to blank
+	void variable( String n, String v );  // constructor
+};
+
+//
+// an expression which defines a change in a variable's state
+// this is applied as a filter
+// 
+// please keep in mind that this feature is underdeveloped
+// (this is because proce55ing will, in effect, be not only
+// a layer above java, but also provide access to a third layer,
+// which is some language unique to the proce55ing environment,
+// and i haven't yet determined if it is at all necessary)
+//
+class equation = {	// an equation to represent a change in state (cyclical)
+	String expression;     // expression
+	variable variables[];  // variables
+};
+
+// four dimensions
+
+class timecode = {
+	float time;     // where 1.0 = seconds
+
+	int milli();    // returns # milliseconds
+	int hours();    // returns # hours
+	int minutes();  // returns # minutes
+	int seconds();  // returns # seconds
+
+	String msh();   // returns a string of the form "HH:MM:SS.mm"
+
+	void timecode( float t ); // constructor
+};
+
+//
+//
+//
+
+// ---------------------------------------------------------------------- interface
+// human-computer interface sources
+//
+// Touchscreen interfaces may provide a solution to the one-button-interface
+// issue present in mice.  An issue, however, is that technically a touch screen
+// relies on an interface grid, where it functions almost identically to a mouse.
+// Ideally, a touchscreen interface should allow for simulteanous interactions
+// on a 2d surface, similar to the transporter interface in Star Trek: TNG -- 
+// allowing for two or more fingers to manipulate the interface, which allows
+// the user to control streams more effectively, and to provide access to
+// virtual machines with a variety of buttons. 
+//
+// For instance: virtual drum machines would be more effectively manipulated
+// if the user could use up to 10 simulteanous interactions at one time.
+//
+// Movements like sweeps and smears should be recorded.
+// (In some fantasy world, perhaps width or pressure)
+
+//
+// an interaction
+class pressed = {
+	int x, y;  // add support for action-based movement
+	void pressed( int x, int y ); // constructor
+};
+
+//
+// touchscreen interface
+class touchscreen = {
+	pressed interaction[];   // x,y values of interaction
+	pressed ended[];         // recent queue of interactions (may be a better way)
+	pressed interaction[];   // length of time until last interaction
+	int count;               // neutral state is 0, 1 = at least 1 interaction
+
+	void touchscreen( );     // constructor
+};
+
+//
+// Mouse and keyboard combinations
+class mouse = {
+	pressed interaction[];   // x,y values of interaction
+	timecode duration;       // length that the mouse is pressed
+	timecode last;           // length of time since last interaction
+
+	void mouse( );
+};
+
+//
+// typing
+class keyboard = {
+	timecode key[255];        // 0=off >0 duration since initially depressed in milli
+	timecode key[255];
+	String typed;             // typing buffer
+
+	int char_to_key( char c );
+	char key_to_char( int k );
+
+	void keyboard( );         // constructor
+};
+
+// midi
+
+class midi = {
+	int port;   // midi port
+	// support for controller
+};
+
+// text with specialation for ansi color codes, basic html
+// example (where < = ESC)
+// hello<[1;0m my name is <b>arnold <font color="#FFFF00">schwartzeneggar</font></b>
+
+class font = {
+// yada
+};
+
+class text = {
+	String content;
+	String strip();              // strips ansi and html-subset
+
+	image print();               // prints text to an image and returns image
+	String format( int width );  // formats the text to a certain width
+
+	void text( String c );       // constructor
+};
+
+//--------------------------------------------------------------------------------------
+// computer-peripheral and client-server interface sources
+//--------------------------------------------------------------------------------------
+// included here is a variety of other interface and data sources,
+// including files (binary or ascii) and methods of transferring data
+// across networks.
+//
+// the basic protocols addressed are the standardized variants of berkeley sockets
+// these protocols address different relationships between existing machines,
+// each for a different purpose.
+//
+// ftp   file transfer protocol, for sending and receiving files across networks
+// http  hypertext transfer protocol, for sending and receiving files across the web
+// udp   for fast point-to-point non-redundant packet sharing
+// tcpip ye olde telnet protocol
+//
+// support for peripheral interfaces
+//
+// usb->midi
+// usb->dv
+// serial
+// (parallel? / printer?)
+//
+
+// generic binary or ascii file
+class file = {
+	int type;         // 0 = ascii, 1 = binary    FILE_ASCII, FILE_BINARY	
+	int binary[];
+	String ascii[];
+	int length;
+
+	void load( String filepath );  // set or detect type?
+
+	void file( );     // constructor
+};
+
+// You know what java needs?  It needs collections.  class files = file[]; with a files.count
+//class files = {};
+
+class tcpip_connect = {
+	int port;
+	String addr;
+	/* include socket routines */
+
+	void send();
+	void receive();
+
+	void tcpip_connect( String a, port p );
+};
+
+class tcpip_listen = {  // listens on port 1025
+	int port;
+	String inbuffer;
+	String outbuffer;
+
+	void send();     // writes data to the outbuffer
+	void receive();  // reads data to the inbuffer
+
+	void tcpip_listen( int p );  // constructor
+};
+
+class tcpip = {
+	tcpip_connect remote;
+	tcpip_connect local;
+
+	void tcpip( int rp );            // starts a server
+	void tcpip( String r, int rp );  // starts a remote connection
+};
+
+class udp = {   // listens on port 99999
+	int port=99999;
+	String listen;    // listening buffer
+	String broadcast; // broadcasting buffer
+
+	//not sure exactly how to approach this
+};
+
+// 
+//
+class html = {  // whacko frames and crap; tables
+	String source;               // untouched source
+	int images;                  // counter of images
+
+	String title();              // returns page title
+	String head();               // returns head section
+	String body();               // returns body section
+	String foot();               // returns footer (rare)
+	String strip( String s );    // returns html-stripped text
+	String p( int i );           // returns paragraph (source) by number
+	image img( int i );          // returns img by tag (uses http to d/l image)
+};
+
+class browser = {
+	int port=80;
+	String history[];  // url history
+	variable get[];  // list of variables 
+	variable put[];	 // list of variables
+	html buffer;
+
+	void get( String url );
+	void put( String url );
+	void browse( String url );  // stores html in buffer above
+
+	void browser();
+	void browser( String url ); // constructor
+};
+
+//
+//
+class ftp = {   // listens on port 21
+	int port=21;
+	String url;
+	String put;
+	String get;
+
+	void put( file f );
+	file get( String path );
+	// void mput( file f[], int count );
+	// void mget( file f[], int count );
+
+	void ftp();
+	void ftp( String a, int p );  // constructor
+};
+
+//
+// 
+class serial = { // serial
+	int port=2;
+};
+
+//class firewire = {
+//};
+
+//class usb = {
+//};
+
+
+// generative routines
+
+timecode time( float length );   // generates a timecode of a certain length
+float now();                     // returns a timecode based on system time
+
+class filter = {        // aka filter
+	equation rule;   // filter rule
+};
+
+// -------------------------------------------------------------------- sonic
+// =-
+
+class sound = {
+	int samples[];   // samples
+	int length;      // # of samples
+	float pitch;     // pitch (0.0=none)
+	float volume;    // volume (1.0 = no change, 0.0 = mute)
+        int begin, end;  // cropping
+	float panning;   // left - / right + / center 0.0 
+	timecode fit;       // 0=original length
+};
+
+class note = {
+	float frequency;
+};
+
+// a collection of notes that can be played simulteanously
+class chord = {
+	note notes[];
+
+	void add_note( note n );
+	void rem_note( note n );
+};
+
+// collection of notes
+class scale = {
+	String name;
+	note notes[];
+
+	void add_note( note n );
+	void rem_note( note n );
+	scale to_key();
+	void from_key();
+};
+
+// subset of a single notation, related to scale
+class key = {
+	String name;   // name for a grouping of notes
+	note notes[];  // table of notes related to this set of notation
+
+	void add_note( note n );
+	void rem_note( note n );
+	scale to_scale();
+	void from_scale();
+};
+
+// Notation differs between Western and other forms (Eastern) of
+// music.  While notations tend to have standards (to allow musicians
+// to play with each other despite instrumentation differences), they
+// differ between cultures.  To represent all cultures most effectively,
+// notation must be fed to proce55ing in the form of tables.  It is
+// recommended here that proce55ing include basic forms of recorded
+// music notation, representing prominent cultural notations (such as
+// Western notation, moroccan scales, etc).  By providing access to
+// the notation class, proce55ing users may load their own notations,
+// experiment with generated notations, etc.
+
+// "universal" collection of notes
+class notation = {
+	String name;   // name for a grouping of notes
+	note notes[];  // table of notes related to this set of notation
+};
+
+// A musician is defined as a composition played through an instrument.
+class musician = {
+	sound instrument[]; // a collection of sounds which form instruments
+	String composition; // ordering of notes
+
+	void add_instrument( sound s );
+	void clear_instrument( sound s );
+};
+
+// --------------[mixing]---------------
+// A channel describes a set of sounds queued to play through the output device.
+class channel = {
+	sound sounds[];     // set of pointers to existing sounds
+	timecode sounds[];  // countdown to play
+	int length;         // # of sounds in the queue
+	filter rule;        // effect on channel?
+};
+
+class mixer = {
+	channel	channels[];
+	float master_volume;
+
+	// 3d sound
+	float frontrear;  // 0.0=center, - left/down/rear, + right/up/front
+	float balance;   
+	float updown;
+
+	float master_pitch;
+
+	void add_channel();  // adds a channel to the mixer (default=1?)
+	void rem_channel();  // removes a channel from the mixer (downto 0)
+	void center();       // centers all channels
+
+	void mixer();        // creates a mixer (with 1 channel?)
+};
+
+// -------------------------------------------------------------------- mathematics
+// =-
+
+class variable = {     // a variable
+	String name;
+	String value;
+};
+
+class equation = {	// an equation to represent a change in state (cyclical)
+	String expression;     // expression
+	variable variables[];  // variables
+};
+
+// -------------------------------------------------------------------- visual
+// =-
+
+// color
+
+class color = {         // a color
+	String name;    // a name
+	int red, green, blue;              // values 0-255
+	int hue, saturation, blend;        // values 0-255
+//	int cyan, magenta, yellow, black;  // values 0-255
+
+	void mix( color c );               // mixes this color with another
+	void color( int a, int b, int c );  // to generate a color -- perhaps you have
+					    // a better way (the #xxxxxx stuff)
+};
+
+// pixel
+
+class pixel = {         // a pixel on a 2d grid
+	int x, y;
+	color c;
+};
+
+// planar coordinate system
+
+class plane = {
+      pixel center;
+      pixel orientation;
+};
+
+class rectangle = {     // a pair of pixels defining a rectangular region on a 2d plane
+      pixel upleft;
+      pixel lowright;
+};
+
+
+// image
+class image = {
+      pixel pixels[];    // a set of pixels
+      int width;
+      int height;
+
+      void image( file f );        // constructor
+      void image( int x, int y );  // constructor overload
+};
+
+class video = {
+      image frame[];
+      int frames;       // length;
+      float fps;
+      int width;        // display dimensions
+      int height;
+
+      float duration();                  // returns frames*fps
+
+      void video( file f );              // constructor
+      void video( int f, int w, int h ); // constructor overload
+};
+
+// top-level display class
+class display = {
+       image screen;
+};
+
+// -----------------------------------------------------------------------= 3d
+
+// texture
+class texture = {
+      image image;
+      image bump;         // optional
+      rectangle mapping;  // UV ofset
+      float rotation;
+};
+
+// materials
+class material = {
+	float translucency;  // 1.0 = opaque, 0.0 = transparent
+	float reflectivity;  // 1.0 = reflective  0.0 = matte
+	color c;             // base color
+	texture textures[];  // texture map 
+	int solidity;        // 1=solid 0=non-solid
+};
+
+
+// three dimensions
+
+class vertex = {        // a vertex
+      float x, y, z;
+};
+
+class line = {          // a bounded vertex along a line
+      vertex start;
+      vertex end;
+      float length;
+
+      void line( vertex s, vertex e );
+};
+
+//
+// bezier curve in 3d space
+class curve = {  // bezier curve
+      vertex start;
+      vertex end;
+      float ;
+};
+
+//
+// here is a collection of curves, called a nurb -- nurbs can also be used to
+// describe waveforms, gestures, not just a surface..
+//
+// surface collections
+//
+class nurb = { // curve collection
+	curve curves[];
+	material surfaces[];
+};
+
+// a set of vertices (>2) which form a plane
+// called "SHAPE" in processing -- which isn't a bad name for it eh?
+//
+class polygon = {
+      vertex vertices[];       // a set of at least 3 points 
+      rectangle select;        // a mean rectangular region for 2d selection
+      material surfaces[];     // texture mapping / bump mapping
+};
+
+// collection of surfaces
+//
+class model = {  // note: the (lexicon) could be called prop, object or model
+      polygon surfaces[];  // a set of polygons which form a single model
+      pixel select_region[4];
+
+      rectangle region();    // combination of all surfaces[].select (2d)
+};
+
+//-----------------------------------------------------------------------= animation
+// not sure about this one
+//
+class joint = {       // two or more models "connected" at a vertex
+      int head;     // the terminant end of a joint
+      int tail;
+      float angle;  // maximum difference angle
+      float rigidity;  // rigidity of the kinematics (like friction)
+};
+
+//
+// a form or component made up of several models (a collection of models)
+class form = {
+      model models[];   // a set of models which constitute a part
+      joint joints[];   // a set of relationships which constitute an inverse kinematic system
+};
+
+//
+// for sliding a form along a path at a certain speed, certain rotation and orientation
+class movement = {       // moving a form from one place to another
+        float start_angleXY;
+        float end_angleXY;
+
+        float start_angleYZ;
+        float end_angleYZ;
+
+	line direction[];  // general movement, where 1 direction ends, next direction starts 
+	curve path[];      // where when 1 path ends, the next one starts
+};
+
+class animation = {
+      // something ik, involving targets..aack ik..
+};
+
+//---------------------------------------------------------------------------==
+// lighting for three dimensions
+class light = {
+	vertex location;
+	int type;          // 0=omni   1=spot
+	line direction;    // for spotlights
+	color hue;
+	color saturation;
+	float percent;     // percent of falloff
+	float length;      // length of falloff
+	float angle;       // beam angle
+
+	void move_relative( vertex center );
+};
+
+
+// camera for 3d display routine
+//
+class camera = {
+	vertex location;
+	line direction;
+	float FOV;
+        float yaw;
+        float pitch;
+
+	void move_relative( vertex center );
+};
+
+// multi-modal interface components (multimedia)
+
+class command = {      // a textual command which triggers a reaction
+	String expression;
+};
+
+class soundform = {
+	sound base_source;  // for heuristic waveform matching
+// insert waveform comparisons
+};
+
+class imageform = {
+	curves edges[];
+	image source;
+// 
+};
+
+// A language is needed to define movements and animations of inverse kinematic
+// relationships to create the illusion of moving parts.  actions may also
+// include calls to the sound processes, and changes to the variable subset
+// on other named objects.  A noted feature is the omittance of collision detection.
+
+// An example:
+// 
+// move modelname.part <angle> <angle> <duration>
+
+class action = {       // movements or animated ik relationships (short)
+	String script;
+	timecode duration;  // calculated on first run only, length of movement
+        
+};
+
+//--------------------------------------------- i dunno
+// an interaction between two actions
+class definition = {
+	action call;      // "code" or semiphore to initiate an interaction
+	action response;  // "response code"
+};
+
+class scene = {    // a component non-moving entity of a larger system (backdrop)
+	model form;
+	camera cameras[];  // static cameras in the scene
+};
+
+// volumetrics
+
+class volume = {
+	vertex particles[];
+	float weight[];            // weight of each particle
+	color colors[];            // standard color variations for each particle
+	int density;
+
+	model to_model();            //needs a way to find convert only surface polygons
+	void from_model( model m );  // copy vertices of a model into a volume
+
+	sound to_sound(); // convert vertex data to sample data
+};
+
+
+// world
+
+//
+// arguably unimportant, but a machine for breaking up time
+// some of this crap doesn't work (see the ml[12]?) :[
+class calendar = {
+	int day;
+	int month;
+	int year;
+	int weeklength;
+	int daylength;  // hours
+	int monthlengths[12];
+
+	void calendar( float t );
+	void calendar( int d, int m, int y, int dl, int wl, int ml[12] );
+};
+
+// weather effects (volumetrics with wind)
+// this one may be arguably unimportant, it could be done by the programmer
+// utilizing his/her own routines using the volumes class
+class atmosphere = {
+	volume current;
+	float wind;           // 0.0 = no wind
+	line direction;       // wind direction
+	timecode timeleft;
+
+	void update();        // update position of volume
+};
+
+
+// interface and animations/automations
+
+// move class for actor - cameras are relative
+// An actor is considered a computer-controlled respondant -- that is, a mobile
+// automaton which has a base state of autonomy (searching, looking, performing
+// some rudamentary task.
+class actor = {     // an active form which can be interacted with
+	String name;
+	form shape[];        // external representation of the actor
+	definition reaction[];     // reactionary actions (responses), 0= default
+        int state;             // current state
+
+	variable variables[];  // associated interal variables (some nature some nuture)
+	timecode lifespan;     // counter until actor is deconstructed
+	float weight;          // for gravity
+	camera cameras[];      // relative cameras
+	light lights[];        // relative lighting
+
+        void move();           // moves the actor and its cameras and lights
+};
+
+// When a player is deconstructed, it negates user control.
+// Players are a collection of human interfaces
+class player = {    // an interface form that is related to the user
+	String name;
+	actor costume;         // external representation of player
+	action actions[];    // set of actions
+	variable variables[];  // associated internal variables (some nature some nuture)
+	timecode lifespan;     // counter until player is deconstructed
+	float weight;          // 
+	camera cameras[];      // relative cameras
+	light lights[];
+
+	void move();   // moves the player and its cameras and lights
+};
+
+class world = {  // a set of scenes, actors and players
+	String name;
+	float gravity;       // 0.0 = no gravity / 1.0 = earth gravity, -/+ gravity
+	float friction;	     // 1.0 = standard friction
+	atmosphere weather;     // weather system / volumetric
+	calendar time[];	// time system
+	scene scenery[];        // scene list
+	actor actors[];         // actors
+	player players[];       // players
+
+	void display( scene s );   // displays 
+};
+
+
+// universe is the top-level; is referenced by the engine as "itself"
+// contains all memory management and all subsets (worlds, scenes, actors, props, etc)
+class universe = {
+	world worlds[];         // set of worlds within one universe
+	int count;              // number of worlds
+
+        void universe( );           // setup
+        void add_world( world w );  // adds a world to the world collection
+	void rem_world( world w );  // removes a world from the world collection
+	void display( world w );    // loop
+};
+
+// EXAMPLE
+
+// to create a line
+
+ line l = new line( );
+ line.start.x=2; line.end.x=1;
+ line.start.y=1; line.end.y=2;
+ line.start.z=2; line.end.z=1;
+
+// define a vertice
+
+ vertice v = new vertice();
+
+// move the vertice along a line to a certain percentage of the distance between
+// the start and end of the line
+
+ move(v,l,.5);
+
+universe.worlds[1].gravity = 0.0
+universe.worlds[1].scenery[1].model[1].surfaces[1].textures[1].vertices[0].x = 0.0

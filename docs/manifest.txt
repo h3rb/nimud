@@ -1,0 +1,43 @@
+Scripts
+
+/NiM5/recompile                  Recompiles (run only when the server down) (backup)
+/NiM5/package                    Packages files for distribution
+/NiM5/cleanup                    Cleans up the files (run when down only) (backup)
+/NiM5/startup                    Startup loop script
+
+Directories
+
+/NiM5/area                       Zone files and game data
+/NiM5/area/boards                In-game Bulletin Boards
+/NiM5/backups                    Backups directory (from /NiM5/backup)
+/NiM5/backups/*.backup           Iterative Backups
+/NiM5/bootlog                    Boot logs (copies of nohup.out from nohup)
+/NiM5/docs                       Documentation
+/NiM5/docs/imc                   Documentation and licensing information for IMC2
+/NiM5/docs/snippets              Chosen subset of Erwin's code snippets+our snips
+/NiM5/player                     Player files
+/NiM5/src                        Source files
+/NiM5/log                        Logs
+
+Files
+
+/NiM5/area/*.zone                Zone files
+/NiM5/area/*.hlp                 Help files
+/NiM5/area/*.db                  Database files
+/NiM5/area/zone.lst              Zone load list
+
+/NiM5/area/imc.*                 IMC2 v4.24b configuration files
+
+/NiM5/log/*.log                  Server log files
+/NiM5/src/*.h                    Header files
+/NiM5/src/*.c                    Source files
+/NiM5/src/*.o                    Object files (may not be present)
+
+/NiM5/src/Makefile               Makefile
+/NiM5/src/Makefile.*             Makefiles from other configurations
+
+/NiM5/src/mud.nfo                World State file
+/NiM5/src/rooms.nfo              Room contents file (for ROOM_SAVING)
+
+/NiM5/src/current                Currently running server
+/NiM5/src/nimud                  Most recently compiled

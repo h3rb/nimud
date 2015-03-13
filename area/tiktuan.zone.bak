@@ -1,0 +1,1984 @@
+#ZONE 
+N Kltaran Front~
+R The din of battle can be heard in the distance.
+~
+B All~
+V 6000 6199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#6001
+N faernkad~
+C
+label(start); do({sit rock});wait(10);do({rest});wait(30);
+do({say We were standing in the town of Okham -- or what was left of it...});
+wait(50);
+do({say All around us was the smell of burnt wood and cinder .. little rings of smoke still wandered into the skies from the remains .. and there was another smell ..});
+wait(40);
+do({say We sent a scout back to Kess and camped here.  Then it was Franwag, about a year ago ..});
+wait(45);
+do({say The Harvest moon came and we thought we'd see no more ships.});
+wait(20);
+do({say By year's end, however, the harbor was full of them, building that damn wall, chopping tree after tree and dumping oil on our troops.});
+wait(40);
+do({shout We'll fight to the bitter end!});
+wait(100);
+goto(start);
+~
+T 1
+End
+
+#6002
+N kltaran-archer~
+C
+wait(30);
+do({shoot north tiktuan});
+~
+T 1
+End
+
+#6003
+N sit-born~
+C
+do({sit rock});
+~
+T 4
+End
+
+#6004
+N Ghorlad~
+C
+wait(100);
+do({:listens intently to Faernkad's story.});
+~
+T 1
+End
+
+#6005
+N kltara-aggro~
+C
+label(start);
+wait(30);
+do({kill tiktuan});
+goto(start);
+~
+T 1
+End
+
+#6006
+N tiktuan-aggro~
+C
+wait(30);
+do({track step});
+do({put all.coins pouch});
+do({put all.coin pouch});
+wait(30);
+do({kill kltaran});
+do({assist tiktuan});
+~
+T 1
+End
+
+#6007
+N auto-mount~
+C
+wait(5);
+do({mount horse});
+~
+T 4
+End
+
+#6008
+N oliphant~
+C
+wait(100);
+do({:shimmies and wags its short brush-like tail.});
+wait(300);
+do({:scratches itself with its trunk.});
+wait(300);
+do({:wiggles its ear absently.});
+wait(300);
+do({:pants lightly.});
+~
+T 1
+End
+
+#6016
+N kltaran-cleric~
+C
+wait(20);
+%name% rndplr();
+heal(%name%,10);
+do({:performs a bit of miracle working on %name%.});
+~
+T 1
+End
+
+#6017
+N giant-throw~
+C
+wait(number_range(15,30));
+%bname% rnd_plr();
+do({emote grasps %name% by the neck and throws %name% across the battlefield!});
+wait(5);
+%dir% rnddir();
+echo(%name%,{You land on your back and clamber to your feet.});
+hurt(%name%,15);
+wait(30);
+~
+T 2
+End
+
+#6018
+N giant-history~
+C
+history(%name%,{%name% slew a Tiktuan giant in the battle of Nord Okham.});
+recho(here(),{%name%'s heroic act has been recorded in history!});
+~
+T 9
+End
+
+#6019
+N spasm~
+C
+do(:spasms.);
+wait(100);
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#6001
+N faernkad~
+SD Faernkad the Furious~
+LD
+ Faernkad the Furious grimaces at the situation.
+~
+D
+ Faernkad's face is in a furious grimace as he reprises tales of the
+battle of Okham and the Viedrad.
+~
+A 1043
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 6001
+At 0 10 16 12
+Sk 10 'camoflage'
+Sk 5 'tracking'
+Sk 35 'foraging'
+Sk 100 'stark'
+Sk 100 'stark'
+Sk 10 'poison'
+Sk 10 'lycanthropy'
+Sk 10 'sleep'
+Sk 10 'invisibility'
+Sk 10 'charm'
+Sk 10 'unknown'
+Sk 10 'none'
+Sk 10 'language'
+Sk 10 'stark'
+Sk 10 'argot'
+Sk 10 'french'
+Sk 10 'russian'
+Sk 10 'japanese'
+Sk 10 'german'
+Sk 10 'gaelic'
+Sk 10 'brood'
+Sk 10 'imarind'
+Sk 10 'offense'
+Sk 10 'dual wield'
+Sk 10 'second attack'
+Sk 10 'third attack'
+Sk 10 'fourth attack'
+Sk 10 'fifth attack'
+Sk 10 'melee'
+Sk 10 'enhanced damage'
+Sk 10 'defense'
+Sk 10 'elusion'
+Sk 10 'heroism'
+Sk 10 'dodge'
+Sk 10 'parry'
+Sk 10 'disarm'
+Sk 10 'wilderness survival'
+Sk 10 'tracking'
+Sk 10 'swimming'
+Sk 10 'fishing'
+Sk 10 'climbing'
+Sk 10 'riding'
+Sk 10 'camoflage'
+Sk 10 'stealth'
+Sk 10 'foraging'
+Sk 10 'legerdemain'
+Sk 10 'backstab'
+Sk 10 'peek'
+Sk 10 'lock picking'
+Sk 10 'pickpocketing'
+Sk 10 'weapon proficiencies'
+Sk 10 'edged'
+Sk 10 'piercing'
+Sk 10 'hafted'
+Sk 10 'bludgeons'
+Sk 10 'whips'
+Sk 10 'thrown'
+Sk 10 'ranged'
+Sk 10 'sharpshooting'
+Sk 10 'exotic'
+Sk 10 'craft'
+Sk 10 'repair'
+Sk 10 'fletching'
+Sk 10 'goldsmithing'
+Sk 10 'ironsmithing'
+Sk 10 'bronze smithing'
+Sk 10 'silversmithing'
+Sk 10 'gunsmithing'
+Sk 10 'sewing'
+Sk 10 'panning'
+Sk 10 'mining'
+Sk 10 'carpentry'
+Sk 10 'coopering'
+Sk 10 'cobbling'
+Sk 10 'san'
+Sk 10 'nelse'
+Sk 10 'kora'
+Sk 10 'zeich'
+Sk 10 'meditation'
+Sk 10 'dadro'
+Sk 10 'zad'
+Sk 10 'gana'
+Sk 10 'taug'
+Sk 10 'wodan'
+Sk 10 'nasang'
+End
+
+#6002
+N royal archer~
+SD a royal archer~
+LD
+ A royal archer crouches behind the stone parapet, his bow readied.
+~
+D
+ Of lithe and trim build, the archer is a proud member of the Kltaran
+army.  His training has given him skills with the bow beyond most adepts.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 5 13 13 18 9
+Sc 6002
+End
+
+#6003
+N resting soldier~
+SD a resting soldier~
+LD
+ A soldier stands nearby his camp.
+~
+D
+ He is young but tough looking, with a proud look on his face as he stands
+his ground for king and country.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 0 10 10 10
+Sc 6004
+Sc 6003
+End
+
+#6004
+N kltaran soldier~
+SD a kltaran soldier~
+LD
+ A kltaran soldier is guarding the parapet.
+~
+D
+ Young and proud, full of spirit and determination to defend the Crown
+and his homeland, this Kltaran soldier is ready for battle.
+~
+A 19
+AB 0
+M 10
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 5 4 4 6 4
+Sc 6005
+End
+
+#6005
+N kltaran soldier~
+SD a kltaran soldier~
+LD
+ A kltaran soldier rushes across the battlefield.
+~
+D
+ ~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 3 2 3 6 5
+Sc 6005
+End
+
+#6006
+N kltaran pikeman~
+SD a kltaran pikeman~
+LD
+ A kltaran pikeman stands nearby.
+~
+D
+ Long wavy hair flows down from his bare head.
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 4 4 4 4 4
+Sc 6005
+Sc 6007
+End
+
+#6010
+N tiktuan foot soldier~
+SD a tiktuan foot soldier~
+LD
+ A Tiktuan foot soldier runs past.
+~
+D
+ The foot soldier is the weakest infantry of the Tiktuan army, with no
+protection other than his flimsy armor, he relies on cunning and dexterity
+to avoid demise.  
+~
+A 4129
+AB 0
+M 100
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 1 E 50
+O ~
+AP 3 3 3 19 3
+Sc 6006
+End
+
+#6011
+N tiktuan swordsman~
+SD a tiktuan swordsman~
+LD
+ A tiktuan swordsman is here, sharpening his sword for battle.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 2 E 75
+O ~
+AP 4 4 4 4 4
+Sc 6006
+Sc 6007
+End
+
+#6012
+N spotted horse~
+SD a spotted horse~
+LD
+ A spotted horse with long brown hair stands here.
+~
+D
+ The horse has flecks of brown and white mixed with auburn and sandy
+colored hair.  
+~
+A 8211
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 8 8 8 8 8
+End
+
+#6013
+N blackened oliphant horse~
+SD a blackened oliphant~
+LD
+ A mud-covered oliphant is standing here.
+~
+D
+ The oliphant looks just like its larger counterpart, the elephant.  The
+tiktuan army has outfitted the oliphant for battle by covering it with a
+thick layer of black mud to protect its hide and provide camoflage.  
+~
+A 8195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -1 E 1
+O ~
+AP 8 8 8 8 8
+Sc 6008
+End
+
+#6014
+N tiktuan assassin~
+SD a tiktuan assassin~
+LD
+ A tiktuan assassin dashes across the marshes.
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 2 E 75
+O ~
+AP 6 6 6 6 6
+Sc 6006
+End
+
+#6015
+N battle-hardened kltaran~
+SD a kltaran~
+LD
+ A battle-hardened kltaran is keeping watch.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Sc 6005
+End
+
+#6016
+N tiktuan baarg~
+SD a tiktuan baarg~
+LD
+ A sniveling baarg is here, slobbering at the mouth.
+~
+D
+ A baarg is a hound employed by the Tiktuan army.  It drools and growls
+at everything in sight.
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 60
+O ~
+AP 2 2 2 2 2
+Sc 6006
+Sc 5012
+At 1 10 15 14
+At 2 5 10 10
+End
+
+#6017
+N giant~
+SD a tiktuan giant~
+LD
+ A massive tiktuan giant is attacking the kltarans.
+~
+D
+ The massive tiktuan soldier is twice as tall as a normal man.  Something
+behind his eyes tells you he's not quite natural.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 300
+O ~
+AP 20 4 4 10 20
+Sc 6018
+Sc 6017
+End
+
+#6018
+N kltaran cleric~
+SD a kltaran cleric~
+LD
+ A kltaran cleric is handing out healing ointment.
+~
+D
+ Long flowing hair falls down to her shoulders.  The Cleric is
+proud of her duties and runs about with passion.
+~
+A 1041
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+Spell 34
+AP 4 4 4 4 4
+Sc 6016
+End
+
+#6019
+N twitching body soldier kltaran~
+SD the twitching body of a kltaran soldier~
+LD
+ The body of a kltaran soldier twitches on the ground here.
+~
+D
+ Headless, the heart still beats despite the battered remnants of
+this poor kltaran's skull lacking the brain to keep him alive.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 5 E 820
+O ~
+AP 25 25 25 25 40
+Sc 6019
+At 0 10 35 14
+At 1 5 39 8
+At 2 1 73 8
+At 3 1 29 21
+At 5 1 40 18
+At 6 5 50 13
+End
+
+#0
+
+
+
+#OBJDATA
+#6001
+N pitchfork burnt charred~
+SD a burnt pitchfork~
+P ~
+D
+A charred farmer's pitchfork is here.
+~
+A
+~
+PD
+~
+DR
+An Okham farmer's pitchfork, charred from boiling oil poured on the
+village and set ablaze by Tiktuian torches.
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 5
+C 1
+O ~
+V 1 5 10 2
+End
+
+#6002
+N longbow bow long kessian~
+SD a long bow~
+P ~
+D
+A kltaran longbow is here.
+~
+A
+You pull back the string of the longbow, taut, with arrow at the ready.
+With a simple gesture, you loose the arrow and...
+~
+PD
+~
+DR
+An exceptionally crafted bow, this longbow is a standard issue for the
+royal archers of the Kltaran army.
+~
+L 0
+T 6
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 1
+C 500
+O ~
+V 6003 10 15 0
+End
+
+#6003
+N an arrow~
+SD an arrow~
+P ~
+D
+An arrow is lying nearby.
+~
+A
+an arrow~
+PD
+~
+DR
+~
+L 0
+T 7
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 1 5 0 -1
+End
+
+#6004
+N sash~
+SD a $c sash~
+P ~
+D
+A $c sash of the Kltaran military is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+Worn by the Kltaran military, the sash is made of fine imported silk.
+~
+L 0
+T 13
+E 0
+W 3073
+Sz 0
+Ti 0
+Wt 1
+C 50
+O ~
+V 0 0 0 0
+End
+
+#6005
+N quiver~
+SD a quiver~
+P ~
+D
+A quiver has been set here.
+~
+A
+~
+PD
+~
+DR
+A simple leather quiver for holding arrows.
+~
+L 0
+T 15
+E 0
+W 4227073
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 20 0 0 0
+End
+
+#6006
+N barbecue spit~
+SD a barbecue spit~
+P ~
+D
+A spit cooks meet over the fire.
+~
+A
+~
+PD
+~
+DR
+A long iron shaft is suspended over an open flame.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 65536 0 0
+End
+
+#6007
+N mutton shank~
+SD a mutton shank~
+P ~
+D
+A steaming mutton shank has been left here.
+~
+A
+You toss the bone aside.
+~
+PD
+~
+DR
+The glistening morsel of mutton is cooked to perfection.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 20 0 0 0
+End
+
+#6008
+N roast pig~
+SD a roast pig~
+P ~
+D
+A succulent roast pig is here.
+~
+A
+You ravenously devour a stuffed pig.  
+~
+PD
+~
+DR
+The pig's mouth has been stuffed with an apple.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 5
+C 100
+O ~
+V 60 0 0 0
+End
+
+#6009
+N barrel~
+SD a barrel~
+P ~
+D
+A barrel is sitting off to one side.
+~
+A
+~
+PD
+~
+DR
+The Rygorian royal seal is stamped on the side of this barrel.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 30
+C 20
+O ~
+V 50 50 0 0
+End
+
+#6010
+N rock~
+SD a rock~
+P ~
+D
+There is a rock here, perfect for sitting on.
+~
+A
+~
+PD
+~
+DR
+It's a small, flat rock perfect for sitting on by the campfire.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#6011
+N pouch small~
+SD a small pouch~
+P ~
+D
+A small pouch is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 2049
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 10 0 0 0
+End
+
+#6012
+N bronze sword~
+SD a bronze sword~
+P ~
+D
+A bronze sword is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+A hard-edged bronze sword forged for melee.
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 10 20 1
+End
+
+#6013
+N kite shield~
+SD a kite shield~
+P ~
+D
+A curved metal kite shield bearing the Kltaran emblem is here.
+~
+A
+~
+PD
+~
+DR
+A curved piece of metal bearing the Kltaran emblem, fashioned by the
+armourers of Kess and outfitted to soldiers fighting for King Rygor.
+The insignia reads "Ano Ido Urdae" in the ancient tongue of Kltara.
+Translated, it means, "For the Warrior's United" and is of the highest
+quality to defend the crown.
+~
+L 0
+T 9
+E 0
+W 4194817
+Sz 0
+Ti 0
+Wt 3
+C 0
+O ~
+V 2 20 20 0
+End
+
+#6014
+N pike~
+SD a pike~
+P ~
+D
+A pike is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 0
+C 20
+O ~
+V 0 20 30 8
+End
+
+#6015
+N healing salve~
+SD a healing salve~
+P ~
+D
+A healing salve is on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 27
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 4 1 1 10
+End
+
+#6016
+N spiked collar~
+SD a spiked collar~
+P ~
+D
+There is a spiked caller here.
+~
+A
+~
+PD
+~
+DR
+A spiked collar bound in leather.
+~
+L 0
+T 9
+E 0
+W 5
+Sz 0
+Ti 0
+Wt 3
+C 30
+O ~
+V 2 15 15 0
+End
+
+#6017
+N giant haft~
+SD a giant haft~
+P ~
+D
+A giant haft is discarded.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 20
+C 0
+O ~
+V 0 20 30 5
+End
+
+#6018
+N healing ointment~
+SD healing ointment~
+P ~
+D
+A kltaran cleric is handing out healing herbs.
+~
+A
+~
+PD
+~
+DR
+A kltaran cleric is the lifegiver of the Kltaran army.
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 50
+O ~
+V 4 1 1 25
+End
+
+#6019
+N tiktuan dagger small short-bladed~
+SD a tiktuan dagger~
+P ~
+D
+A small short-bladed dagger is lying here.
+~
+A
+~
+PD
+~
+DR
+A short-bladed dagger of Tiktuan origin.
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 6 0 8
+End
+
+#0
+
+
+
+#SCENES
+#6000
+N Outside Okham Stockhouse~
+Ref 0
+D
+The Okham stockhouse is a stone and mortar tower approximately ten
+fullspans tall, reinforced on a small hillock overlooking the Ildraan trail
+and the valley of Viedrad, the mortal stomping ground for line-pushers and
+the Kltaran guard.  
+~
+C
+(null)~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 6001
+~
+~
+Dr 1 0 0 7405
+~
+~
+Dr 9 0 0 7405
+~
+~
+End
+
+#6001
+N North Okham, Viedrad~
+Ref 0
+D
+You are standing at once was Nord Okham, a small village of fisherman a
+short travel inland along the Okhambrok, a river now filled with sludge and
+deluge from the war with Tiktui.  The charred remains of huts and farmhouses
+tell the tale of the Battle of Okham, the invasion that sparked the war and
+created this entrenchment of opposing forces.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6019 1 100 1
+R O 6012 -5 100 1
+R O 6013 -5 100 1
+R O 6001 -5 100 1
+Dr 1 0 0 6002
+~
+~
+Dr 2 0 0 6000
+~
+~
+Dr 3 0 0 7744
+~
+~
+End
+
+#6002
+N Viedrad Parapet~
+Ref 0
+D
+Along the cusp of the Viedrad valley is a long wall of stone
+reinforcements that provide defensive cover for archers and reinforcements
+for the king's brigade.  A line of banners can be seen to the east, the
+flags unfurled of the Kltaran Guard flap violently in the winds that buffet
+the Viedrad.  
+~
+C
+(null)~
+F 2
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 6008
+~
+~
+Dr 1 0 0 6023
+~
+~
+Dr 2 0 0 7405
+~
+~
+Dr 3 0 0 6001
+~
+~
+End
+
+#6003
+N High Viedrad Parapet~
+Ref 0
+D
+Entrapments and small boulders from previous assaults lie in this small
+fissure between two high sets of stone walls and ramparted barracades
+between the Tiktuian and Kltaran forces.  To the east you can see the top of
+the Kltaran stronghold.  North of you expands the Viedrad basin.  
+~
+C
+RIMAGE rocky.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6004 1 100 1
+R O 6011 27 100 1
+R O 6012 40 100 1
+R O 6012 39 100 1
+R O 6013 24 100 1
+R M 6002 2 100 1
+R O 6005 11 100 1
+R O 6003 -3 80 20
+R O 6002 35 100 1
+Dr 0 0 0 6009
+~
+~
+Dr 1 0 0 6004
+~
+~
+Dr 3 0 0 6023
+~
+~
+End
+
+#6004
+N High Viedrad Parapet~
+Ref 0
+D
+A high mark of Kltara.  Parapet is covered with shields and banners of
+the From here you can catch a glimps of the entire battlefield and the
+Viedrad to the north.  Far at the northern end of the basin, Tiktuian
+soldiers have erected a large wooden barrade to support the ships landing on
+the northern shores.  A fortress is to the northwest.  Long shadows cast an
+eerie darkness over Okham, the burnt village, an early victim in the war,
+just west of here.  
+~
+C
+RIMAGEwall.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6018 2 100 1
+R O 6004 27 100 1
+R M 6004 3 100 1
+R M 6002 2 100 1
+R O 6005 11 100 1
+R O 6003 -3 100 20
+R O 6002 35 100 1
+R O 6004 27 100 1
+Dr 0 0 0 6010
+~
+~
+Dr 1 0 0 6005
+~
+~
+Dr 3 0 0 6003
+~
+~
+End
+
+#6005
+N High Viedrad Parapet~
+Ref 0
+D
+You are standing behind high rock walls where archers are posted, ready
+to rain supporting arms down on the Tiktuian invaders.  Boulders and broken
+elements are strewn everywhere from a recent assault attempt.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6002 4 50 2
+R M 6002 1 3 100
+R O 6004 27 100 1
+R O 6003 -3 100 12
+R O 6002 35 1 100
+Dr 0 0 0 6011
+~
+~
+Dr 1 0 0 6006
+~
+~
+Dr 3 0 0 6004
+~
+~
+End
+
+#6006
+N High Viedrad Parapet~
+Ref 0
+D
+Just southeast is the Kltaran stronghold.  To the west extends a line of
+defensive walls on the cusp of the Viedrad basin.  Archers may stand watch
+here, peering north into the valley.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 512 0 6012
+~
+~
+Dr 3 0 0 6005
+~
+~
+Dr 9 1 0 6007
+~
+stone gate~
+End
+
+#6007
+N Kltaran Stronghold~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 6 1 0 6006
+~
+stone gate~
+End
+
+#6008
+N Deep Viedrad West~
+Ref 0
+D
+You are standing in the deep valley of Viedrad, just north of the Kessian
+parapet, between the lines and on the battlescarred field of the lower
+Viedrad basin.  To the north and east expands the mire and marsh of the
+valley, strewn with the littered corpses of war.  Archers, standing on the
+parapets, scan the northern fields for Tiktuians.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 6009
+~
+~
+Dr 2 0 0 6002
+~
+~
+End
+
+#6009
+N Deep Viedrad~
+Ref 0
+D
+You are amidst the marshes and mire of the Viedrad, between the lines on
+the battlescarred field of war between the Tiktuian invaders and the Kltaran
+stronghold.  To the north lies the Tiktuian barracades entrenched in the
+upper Viedrad valley.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 6015
+~
+~
+Dr 1 0 0 6010
+~
+~
+Dr 2 0 0 6003
+~
+~
+Dr 3 0 0 6008
+~
+~
+End
+
+#6010
+N Deep Viedrad~
+Ref 0
+D
+These are the marshes of the Viedrad, scored from battle.  You are caught
+between the lines of Tiktui and Kess, which lie north and south on the
+field.  The Viedrad basin is covered in thick underbrush and moss.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 6014
+~
+~
+Dr 1 0 0 6011
+~
+~
+Dr 2 0 0 6004
+~
+~
+Dr 3 0 0 6009
+~
+~
+End
+
+#6011
+N Deep Viedrad~
+Ref 0
+D
+You are in the Deep Viedrad just north of the Kltaran parapet.  To the
+east there is a small clearing away from the main battlefield.  
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 6005 5 100 3
+R O 6004 27 100 1
+R O 6012 39 100 1
+R O 6013 24 100 1
+Dr 0 0 0 6013
+~
+~
+Dr 1 0 0 6012
+~
+~
+Dr 2 0 0 6005
+~
+~
+Dr 3 0 0 6010
+~
+~
+End
+
+#6012
+N Deep Viedrad East~
+Ref 0
+D
+This small clearing was once the spot of a conclave between the King and
+the Tiktuian ambassadors.  It now lays in ruin, the banners torn and the
+meeting table splintered into a thousand pieces.  
+~
+C
+(null)~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6016 5 100 5
+R M 6016 25 5 1
+R M 6010 10 100 1
+R O 6012 39 100 1
+R M 6005 10 100 1
+R O 6012 39 100 1
+R M 6005 3 100 2
+R M 6015 4 100 1
+Dr 2 0 0 6006
+~
+~
+Dr 3 0 0 6011
+~
+~
+End
+
+#6013
+N Viedrad Marshes~
+Ref 0
+D
+A brown thicket of marshgrass and small trees stands before you, heavy
+with the smell of sulfur.  The marshes extend west.  
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 6014 1 100 1
+R O 6011 -1 100 1
+R O 6019 40 100 1
+R O 3006 24 100 1
+R O 3503 39 100 1
+Dr 0 0 0 602
+~
+~
+Dr 2 0 0 6011
+~
+~
+Dr 3 0 0 6014
+~
+~
+End
+
+#6014
+N Viedrad Marshes~
+Ref 0
+D
+The brown and blood-stained grasses of the basin fade to a light
+underbrush of small trees and fungus as the ground becomes more damp.  A
+faint smell of sulfur bubbles from a pool of mire just north of here.  
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 6012 2 100 1
+R M 6006 2 100 1
+R O 6014 39 100 1
+R O 6004 27 100 1
+R O 6013 24 100 1
+Dr 0 0 0 6016
+~
+~
+Dr 1 0 0 6013
+~
+~
+Dr 2 0 0 6010
+~
+~
+Dr 3 0 0 6015
+~
+~
+End
+
+#6015
+N Viedrad Marshes~
+Ref 0
+D
+The low brown grasses of the basin fade to a light underbrush of small
+trees and fungus as the soil becomes more damp.  The faint smell of sulfur
+is in the air and a bubbling pool of mire can be seen to the north.  
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 6014
+~
+~
+Dr 2 0 0 6009
+~
+~
+End
+
+#6016
+N Viedrad Mire~
+Ref 0
+D
+A slough of mire breaks the field here.  Strewn elements of war are
+quickly enveloped by the sludge collecting at the bottom of the basin.  A
+few arrows strike the mossy undergrowth.  
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 6010 10 50 2
+R O 6011 27 100 1
+R O 6012 39 100 1
+Dr 0 0 0 6018
+~
+~
+Dr 2 0 0 6014
+~
+~
+Dr 3 0 0 6017
+~
+~
+Dr 7 0 0 6019
+~
+~
+End
+
+#6017
+N Viedrad Mire~
+Ref 0
+D
+A slough of mire breaks the field here.  Strewn elements of war are
+quickly entrenched in the quickening mass of sludge at the bottom of the
+basin.  A few arrows strike the mossy undergrowth.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6011 30 100 1
+Dr 0 0 0 6019
+~
+~
+Dr 1 0 0 6016
+~
+~
+Dr 6 0 0 6018
+~
+~
+End
+
+#6018
+N Tiktuan Stronghold~
+Ref 0
+D
+Tiktuan battlefield engineers have constructed a massive wooden fortress
+on the western flank of their line.  The timbres used to construct the
+stronghold were torn from the neighboring forests near the northern coast of
+Kltara.  Smoke and ash filter down from the roaring blast furnaces, heating
+the metal and oil used in war.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 0 6021
+~
+iron gate~
+Dr 1 0 0 6019
+~
+~
+Dr 2 0 0 6016
+~
+~
+Dr 9 0 0 6017
+~
+~
+End
+
+#6019
+N Tiktuan Defensive Wall~
+Ref 0
+D
+Tiktui has built a wall of timbre to support their archers and defend the
+shoreline.  The Viedrad basin expands south toward the Kessian line.  To the
+east and west extends the wall.  East of here you can see the rings of smoke
+eminating from campfires north of the basin.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6017 1 100 1
+R O 6017 39 100 1
+R M 6013 2 100 1
+R M 6011 2 100 1
+R O 6011 27 100 1
+R O 6012 39 100 1
+Dr 1 0 0 6020
+~
+~
+Dr 2 0 0 6017
+~
+~
+Dr 3 0 0 6018
+~
+~
+Dr 8 0 0 6016
+~
+~
+End
+
+#6020
+N Tiktuan Camp~
+Ref 0
+D
+In a hollow crevass, Tiktuian soldiers have set up camp for the front.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6011 2 100 2
+R O 6012 39 100 1
+R O 6012 40 25 1
+R M 6010 1 100 1
+R O 6012 -1 75 100
+Dr 3 0 0 6019
+~
+~
+End
+
+#6021
+N Tiktuan Fortress - Northern Kltara~
+Ref 0
+D
+A wide space of reinforced timbres marks the fortress walls.  A standard
+Tiktuan affair, its walls are topped with sharpened iron rods bent outward
+to stop ladder assaults.  
+~
+C
+(null)~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 6010 10 100 2
+R O 6011 27 100 1
+Dr 0 0 0 6024
+~
+~
+Dr 2 1 0 6018
+~
+iron gate~
+End
+
+#6023
+N Ruins of Viedrad Tower~
+Ref 0
+D
+A decrepit ruin of the Viedrad tower dominates the landscape just south
+of the Kessian line of defense against invading Tiktuian hordes.  The
+soldiers of the Royal Guard have built a small camp inside the ruin, to keep
+the rain off their backs and an eye to the northeast.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 6010 -5 100 1
+R M 6001 1 100 1
+R M 6003 1 100 1
+R O 6006 -5 100 1
+R O 6008 -4 100 2
+R O 6007 -4 100 4
+R O 6009 -5 100 1
+R O 6010 -5 100 3
+Dr 1 0 0 6003
+~
+~
+Dr 3 0 0 6002
+~
+~
+End
+
+#6024
+N Fortress Courtyard~
+Ref 0
+D
+You are standing inside of the Tiktuan stronghold on northern Kltara, in
+the central courtyard beyond which lies the fortified marina, and north of
+the Viedrad basin.  Massive stone and mortal walls build a foundation for a
+set of high timbres that form the outer walls.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 6014 3 100 3
+Dr 0 0 0 6028
+~
+~
+Dr 2 0 0 6021
+~
+~
+Dr 4 0 0 6025
+~
+~
+End
+
+#6025
+N Scaffolds~
+Ref 0
+D
+You are standing on top of the scaffolds in the Tiktuan stronghold,
+suspended above the courtyard.  To the east and west are two platforms
+where lookouts are posted to watch the battles.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 6011 5 100 1
+R O 6012 40 50 1
+R O 6012 39 100 1
+Dr 1 0 0 6027
+~
+~
+Dr 3 0 0 6026
+~
+~
+Dr 5 0 0 6024
+~
+~
+End
+
+#6026
+N Western Parapet - Tiktuan Fortress~
+Ref 0
+D
+You are standing in the western lookout post of the tiktuan stronghold,
+overlooking the northern coasts of Kltara and the Viedrad marshes.  Kltaran
+strongholds are seen to the south and southeast, and a crater is all that
+remains of Okham to the south.  North of here is the Tiktuan fleet, docked
+securely in the fortified marina.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6010 1 100 1
+Dr 1 0 0 6025
+~
+~
+Dr 2 512 0 6008
+~
+window~
+End
+
+#6027
+N Eastern Parapet - Tiktuan Fortress~
+Ref 0
+D
+You are standing in the eastern lookout post of the tiktuan stronghold,
+overlooking the northern coasts of Kltara and the Viedrad marshes.  Kltaran
+strongholds are seen to the south and southeast, and a crater is all that
+remains of Okham to the south.  North of here is the Tiktuan fleet, docked
+securely in the fortified marina.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 6010 1 100 1
+Dr 2 512 0 6006
+~
+window~
+Dr 3 0 0 6025
+~
+~
+End
+
+#6028
+N Fortified Marina~
+Ref 0
+D
+Ships are docked along the northeastern shore of the island, surrounded
+by huge log braces that form underwater walls between the sea and the docked
+vessels.  A catwalk runs south toward the main fortress.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 6011 1 100 1
+Dr 2 0 0 6024
+~
+~
+End
+
+#6029
+N Stowed Away on a Tiktuan Freighter~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

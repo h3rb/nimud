@@ -1,0 +1,247 @@
+#ZONE 
+N Tallez Citadel~
+B None~
+V 20550 20577
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#20550
+N Village Street~
+Ref 0
+D
+You stand at the small village street in Pi'Chek-Ur.
+From here you see small houses and only few people.
+North of here the village street continues up to the small
+square where some people are gathered as always.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20551
+You look up the village street noticing nothing special at all.
+~
+~
+Dr 2 0 -1 15314
+The wide road leads south here towards the T-crossing.
+~
+~
+End
+
+#20551
+N Village Street~
+Ref 0
+D
+You are standing on the village street of Pi'Chek-Ur.
+East from here is a small alley and north you enter the village
+square. Towards the south you can leave Pi'Chek-Ur.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20552
+The village square is as usual not overcrowded.
+~
+~
+Dr 1 0 -1 20553
+The small alley looks relative peaceful.
+~
+~
+Dr 2 0 -1 20550
+You see the village street eventually becoming the wide road.
+~
+~
+End
+
+#20552
+N Village square~
+Ref 0
+D
+The village square is a place where inhabitants of Pi'Chek-Ur gather
+to talk, trade and sell items and just have a good time.
+You see a small shop to the west and the local inn to the north.
+If you leave south you go to village street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20556
+You see a local inn called 'The Pi'Chek-Ur Local Inn'. Looks nice.
+~
+~
+Dr 2 0 -1 20551
+You see the village street of Pi'Chek-Ur.
+~
+~
+Dr 3 0 -1 20555
+A small shop with the sign 'Luxan's Mixed goods' hanging in front of it.
+~
+~
+End
+
+#20553
+N The Small Alley~
+Ref 0
+D
+You are in a small, quiet alley.  From here you see the village street
+to the west and a small room lies to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15601
+You see a big intersection.
+~
+~
+Dr 2 0 -1 20554
+It looks like the future site of a training room.
+~
+~
+Dr 3 0 -1 20551
+You notice nothing but the village street.
+~
+~
+End
+
+#20554
+N The Future Training Room~
+Ref 0
+D
+This is the future site of a training room.  The only exit is north
+leading to the small alley.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20553
+You are able to see the small alley, really not very interesting.
+~
+~
+End
+
+#20555
+N Luxan's mixed shop~
+Ref 0
+D
+You are standing in a small shop, filled with all kinds of goods.
+Here you might be able to find just the thing you're looking for.
+The only exit is east to village square.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 20552
+The village square is as usual not overcrowded.
+~
+~
+End
+
+#20556
+N The Local Inn~
+Ref 0
+D
+You are in the local inn, where the peaceful citizens of Pi'Chek-Ur
+gather to have a drink or 5 if they have dry throats.
+You can't help thinking that Pi'Chek-Ur is a dry city, when you see the
+many people here.
+The only exit is south to the village square.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 20552
+The village square is as usual not overcrowded.
+~
+~
+End
+
+#20577
+N Ravan's hideout~
+Ref 0
+D
+This place is a small, cosy place where no one disturbs you all
+the time. The room has little decoration except for some pictures
+on the wall.
+You notice that there are no exits from this room.
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+ED friend friends~
+The list include such prominent names as : God, Lottie, Kurgan,
+Ezzard, Mike, Sprocket and Stormbringer.
+~
+ED foe foes enemies~
+There is only one picture yet... Dim.
+It pictures him hanging from a gallow, north of the town.
+It has the letters R.I.P. inscripted underneath.
+~
+ED pictures picture decoration~
+These pictures show the friend's and foe's of Ravan.
+They are easy to separate, as most of the foe's have the letters
+R.I.P. inscripted underneath them.
+~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,5332 @@
+#ZONE 
+N Newbieland~
+R If you get lost or afraid, type help for help!  Read all signs!
+Sick of the tutorial?  Type "home" to exit the tutorial.
+ 
+NOTE: You may activate other helpful tips by typing "set tips"
+~
+B None~
+V 500 999
+S 1
+End
+
+
+
+#SCRIPTDATA
+#500
+N dog~
+C
+wait(random(5,150)); do({:pants and begs.}); 
+wait(random(10,20)); do({:barks and wags its tail.});
+wait(random(5,150)); do({:barks at nothing in particular.});
+wait(random(5,150)); do({:rubs your leg, whimpering.});
+wait(random(5,150);
+~
+T 1
+End
+
+#501
+N pet-dog~
+C
+if ( is(%astr%,{pet}), { goto({pet}); }, { goto({end}); } );
+goto({end});
+ 
+label(pet);
+echo(%actor%,{You pet the dog: he wags his tail affectionately.});
+oecho(%actor%,{%name% pets the dog.});
+breed(504,%actor%);
+jump(25000); return(1);
+label(end);
+
+~
+T 0
+End
+
+#540
+N jester~
+C
+* jester
+wait(10);
+do({say Yes, yes!  Kara-Tur, amazing battles, blood and gore!});
+wait(60);
+do({say Yes, yes, Gates of Kara-Tur, watch to the east, fight to the north!});
+wait(80);
+do({shout Kara-Tur!}); do({:shakes his bone sceptre frantically.});
+wait(80);
+do({say Not for faint of heart, Kara-Tur the Great Arena!});
+wait(30);
+do({say Lest ye fight for your life, train inside!  Only the weak and foolish enter combat unprepared. Are you a warrior?});
+~
+T 10
+End
+
+#544
+N ferryman-vlaz~
+C
+if ( cmp(%astr%,{ticket}),{do({'Ready to go, eh? Step right this way, %name%..});
+moveall(544,545,{look});
+},
+{
+wait(1);
+             do({:examines it.});
+do({give %astr% %name%});
+} );
+~
+T 5
+End
+
+#545
+N vlazgad-to-trynt~
+C
+* ferryman2
+label(ferryman-start);
+wait(10);
+do({:quietly steers the ferry past some rocks.});
+wait(30);
+do({say I can take you only as far as Trynt.});
+wait(10);
+do({say From there, you will either have to travel by caravan.});
+wait(30);
+do({:points to the smoke up ahead.});
+wait(10);
+do({We are approaching the dock.  I will land near where the Cetbrok meets the Kyr river, where you must take the road.});
+wait(20);
+echo({The boat is approaching port.});
+wait(20);
+do({:ties the ferry to the dock.});
+wait(10);
+do({say Enjoy your journey.  It is not far to the east that you will find Trynt, a fishing village on the Cetbrok.});
+wait(15);
+do({say From there, you can walk to Kess.});
+wait(10);
+moveall(545,600,{look});
+~
+T 0
+End
+
+#549
+N tanzer-choice~
+C
+* tanzer-choice
+wait(5);
+if( cmp(%astr%,{veteran}),
+    {
+       heal( %name%, 100 ); 
+       move(%name%,551);
+       do({:sends off a veteran.});  
+       goto(end);
+    } );
+if( cmp(%astr%, {easy}),
+    {
+        heal(%name%,100);
+        do({grunt});;
+        move(%name%,552);
+        goto(end);
+    } );
+if ( cmp(%astr%, {duel}),
+     {
+         do({:nods.  Looks around for challengers.});
+         move(%name%,564);
+         goto(end);
+     } );
+if ( cmp(%astr%, {deathmatch}),
+     {
+         do({:laughs mercilessly.});
+         move(%name%, 553);
+         goto(end);
+     } );
+do({say Eh?  Easy, veteran or deathmatch?!  Or a duel?});
+do({give scroll %name%});
+label(end);
+~
+T 6
+End
+
+#550
+N tanzer-greet~
+C
+wait(10);
+do({:grunts as you approach.});
+wait(10);
+do({'Welcome to Kara-Tur!  How hard do you want it?  The bigger the risk the bigger the spoils!});
+wait(10);
+do({'Easy, veteran or deathmatch?});
+~
+T 10
+End
+
+#600
+N ferryman-greet~
+C
+wait(20);
+do({'I'm sailing up to Vlazgaadbrun soon.  Couple of copper will buy you a ticket.});
+~
+T 10
+End
+
+#601
+N ferryman-gets~
+C
+if ( cmp(%astr%,{ticket}),{do({'step right this way, %name%.});
+moveall(%name%,601);
+},
+{
+wait(1);
+ 
+             do({:examines it.});
+do({give %astr% %name%});
+} );
+
+~
+T 5
+End
+
+#602
+N ferryman-delivers~
+C
+* trynt-to-arena
+if ( cmp(%astr%,{ticket}), 
+     { 
+        do({say Ready to go, eh?  Step right this way..});
+        moveall(600,601,{look}); 
+        jump(601);
+        goto(start);
+     }, 
+     {
+     do('%astr%);
+     
+     } );
+goto(end);
+label(start);
+wait(10);
+do({:quietly steers the ferry past some rocks.});
+wait(30);
+do({say Goin' to Vlazgaadbrun, eh?});
+wait(10);
+do({say Gonna fight in the arena, eh?});
+wait(30);
+do({:points to the smoke up ahead.  Noxious clouds billow from the volcanic Ring of Fire.});
+wait(10);
+do({say Here it comes! Vlazgaadbrun, conquered land.  Pi'chek-Ur kingdom fell years ago to Tiktuian soldiers.});
+wait(20);
+echo({The dock is approaching starboard.});
+wait(20);
+do({:ties the ferry to the dock.});
+wait(10);
+do({say Vlazgaadbrun is a dangerous place if you choose to become a fighter!  You'll lose more than a tooth!});
+wait(15);
+do({say I'll be here if you need to get back.});
+wait(10);
+moveall(601,544,{look});
+jump(600);
+do({:has returned with the ferry.});
+label(end);
+
+
+~
+T 5
+End
+
+#603
+N trynt-to-arena~
+C
+* trynt-to-arena
+if ( cmp(%astr%,{ticket}), 
+     { 
+        do({say Ready to go, eh?  Step right this way..});
+        move(%name%,601); 
+        jump(601);
+        goto(start);
+     }, 
+     {
+     do('%astr%);
+     do(purge %astr%);
+     } );
+goto(end);
+label(start);
+wait(10);
+do({:quietly steers the ferry past some rocks.});
+wait(30);
+do({say Goin' to Vlazgaadbrun, eh?});
+wait(10);
+do({say Gonna fight in the arena, eh?});
+wait(30);
+do({:points to the smoke up ahead.  Noxious clouds billow from the volcanic Ring of Fire.});
+wait(10);
+do({say Here it comes! Vlazgaadbrun, conquered land.  Pi'chek-Ur kingdom fell years ago to Tiktuian soldiers.});
+wait(20);
+echo({The dock is approaching starboard.});
+wait(20);
+do({:ties the ferry to the dock.});
+wait(10);
+do({say Vlazgaadbrun is a dangerous place if you choose to become a fighter!  You'll lose more than a tooth!});
+wait(15);
+do({say I'll be here if you need to get back.});
+wait(10);
+move(%name%,544);
+jump(600);
+do({:returns the ferry to dock.});
+label(end);
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#500
+N dog~
+SD a brown dog~
+LD
+ An ordinary brown dog is here.
+~
+D
+ The dog is shaggy-looking with slobber running down his snout.  He looks
+around panting, his tongue flapping in the air, which appears like a crooked
+smile.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 4
+K 0 E 1
+O ~
+AP 5 1 2 18 4
+Sc 501
+Sc 500
+End
+
+#501
+N man~
+SD the man~
+LD
+ A man is standing idly nearby.
+~
+D
+ The man is just standing around.  He isn't really doing anything in
+particular, and doesn't appear threatening. 
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#502
+N froilan shopkeep~
+SD Froilan the shopkeep~
+LD
+ Froilan eagerly awaits his next sale.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I don't deal in such things.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#503
+N orit~
+SD orit~
+LD
+ Orit is here, spouting off about something.
+~
+D
+ Old Orit is coughing and weezing up a storm.
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 22 1
+End
+
+#504
+N dog~
+SD the dog~
+LD
+ A mangy dog is sniffing around, looking for tracks.
+~
+D
+ You can't tell what breed this dog is.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 84
+O ~
+AP 15 15 15 15 15
+Sc 500
+Sc 21
+Sc 20
+At 0 10 16 10
+End
+
+#520
+N old gaffer~
+SD an old gaffer~
+LD
+ An old gaffer is here.
+~
+D
+ The old gaffer has a long, salt-and-pepper beard and a constant squint.
+~
+A 145
+AB 0
+M 5
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 18 13 18 6 7
+End
+
+#522
+N man~
+SD the man~
+LD
+ A man is standing idly nearby.
+~
+D
+ The man is just standing around.  He isn't really doing anything in
+particular, and doesn't appear threatening.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#530
+N kale~
+SD kale~
+LD
+ Kale is tending bar.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 17 0
+End
+
+#531
+N gossig~
+SD Gossig the Gander~
+LD
+ A veteran of the arena drinks heavily.
+~
+D
+ ~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 13 11
+End
+
+#532
+N heckler~
+SD a heckler~
+LD
+ A heckler is heckling.
+~
+D
+ One of the younger fellows around the tavern-- he's heckling Gander
+about being too old.
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 15 5
+End
+
+#537
+N garhlgad great smith forgemaster~
+SD Garhlgad the Great~
+LD
+ The forgemaster smith, Garhlgad, oversees the fires.
+~
+D
+ The girth of Garhlgad's torso is like the width of the Vlezgaadbrun
+barrel - gargantuan.  His muscles ripple beneath his forgemaster's chain
+apron.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 5 21
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ Try the barrel.~
+ Str2
+ Sorry, try the barrel.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 21 13
+End
+
+#538
+N worker~
+SD a worker~
+LD
+ One of Garhlgad's workers tends a steel caundron.
+~
+D
+ He is brawn and full of fire, much like the forge.  The whites of his
+eyes contrast stark agains his soot-covered skin, black with tar and ash
+from the flames.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 19 13
+End
+
+#539
+N aod~
+SD Aod of Ur~
+LD
+ Aod is peddling his wares.
+~
+D
+ Aod is hunched over a small collection of items.  He beckons you to
+make a deal.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 0 0 0 0 18
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ What? Not now.. humm... hurm...~
+EndShop
+End
+
+#540
+N fool jester~
+SD the jester~
+LD
+ A fool shambles about, waving a bone sceptre.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 540
+At 0 10 22 12
+End
+
+#542
+N heavy bandages~
+SD a set of heavy bandages~
+LD
+ A set of heavy bandages is here.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 25 9
+End
+
+#544
+N rivermaster river master man~
+SD the man~
+LD
+ A man is tending his river ferry.
+~
+D
+ The riverman is quietly tending his modest ferry, a longboat with a pair
+of oars.  He is tying sinew around a short shod oar.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 0
+ H 6 18
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we open at %s.~
+EndShop
+Sc 544
+Sc 600
+At 0 10 23 10
+End
+
+#545
+N rivermaster riverman river man master~
+SD the man~
+LD
+ A man is here, steering his ferry clear of rapids.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 545
+At 0 10 21 4
+End
+
+#546
+N boy~
+SD the boy~
+LD
+ The boy is repairing armour, and making a mess of the workspace.
+~
+D
+ The boy is short and small, the armor dwarfs him as he hurriedly pounds
+metal and wraps leather, bandaging broken shafts and splintered bucklers.
+~
+A 1043
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 4
+ R 3
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 19 8
+End
+
+#547
+N martyr armourer~
+SD Martyr~
+LD
+ Martyr the armourer is standing here.
+~
+D
+ Martyr stands here, a stocky, proud looking man of thick build.  He gazes
+at his customers with eyes full of mischeif.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 15 17 13 18
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 6 19
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we open at %s.~
+EndShop
+End
+
+#548
+N tarhl trainer~
+SD Tarhl the trainer~
+LD
+ Tarhl is here to teach combat maneuvers.
+~
+D
+ ~
+A 1555
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 11 4
+Sk 10 'dodge'
+Sk 10 'edged'
+Sk 10 'parry'
+End
+
+#549
+N tanzer~
+SD tanzer~
+LD
+ Tanzer is here, barking out orders.
+~
+D
+ Tanzer is a fat thick bald man of average height with a mean snarl,
+moustache, and a scar across his cheek.  A broken tooth gleams in the
+torchlight of the warrens.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 550
+Sc 549
+At 0 10 16 10
+End
+
+#550
+N pit beast~
+SD a pit beast~
+LD
+ A snarling slobbering hunch-backed beast stands ready to fight.
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -1 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 25 4
+At 1 3 15 14
+At 2 10 20 13
+End
+
+#552
+N gladiator~
+SD a gladiator~
+LD
+ A gladiator rushes into combat.
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 45
+O ~
+AP 1 1 1 1 1
+End
+
+#553
+N swordsman~
+SD a swordsman~
+LD
+ An armored swordsman lunges toward battle.
+~
+D
+ A brawny swordsman with shoulder-length hair.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -1 E 35
+O ~
+AP 2 2 2 2 2
+End
+
+#554
+N roc~
+SD a roc~
+LD
+ A roc circles overhead.
+~
+D
+ ~
+A 33
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -1 E 80
+O ~
+AP 3 0 0 10 3
+At 1 10 12 14
+At 2 10 20 10
+End
+
+#555
+N orc legionnaire~
+SD an orc legionnaire~
+LD
+ An orc legionnaire snarls and spits.
+~
+D
+ ~
+A 1
+AB 0
+M 300
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 1 E 100
+O ~
+AP 5 0 0 2 4
+End
+
+#556
+N black horse~
+SD a black horse~
+LD
+ A strong black horse stands here.
+~
+D
+ ~
+A 8193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -1 E 50
+O ~
+AP 15 0 0 17 18
+End
+
+#557
+N veteran gladiator~
+SD a veteran gladiator~
+LD
+ A veteran gladiator snarls and grits his teeth.
+~
+D
+ ~
+A 33
+AB 512
+M 1000
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -1 E 150
+O ~
+AP 5 0 0 0 5
+End
+
+#558
+N scarred fighter~
+SD a scarred fighter~
+LD
+ A scarred fighter screams a wailing battle cry!
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 120
+O ~
+AP 2 0 0 0 2
+End
+
+#559
+N small dragon~
+SD a small dragon~
+LD
+ A small dragon leaps across the ground.
+~
+D
+ A scaly black dragon - probably a runt of the litter.
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 400
+O ~
+AP 20 15 10 14 20
+At 1 20 30 10
+At 2 15 20 16
+End
+
+#565
+N jester~
+SD the jester~
+LD
+ The jester screams and rants, calling out lies.
+~
+D
+ The jester screams and rants, calling out lies.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 18 0 0 0 18
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ What?~
+ Str2
+ No thanks.~
+ Str3
+ Amenities:~
+ Str4
+ I don't have any.~
+EndShop
+End
+
+#601
+N ferry man ferrymaster~
+SD the man~
+LD
+ A man tends his boat.
+~
+D
+ The ferrymaster has a tooth missing.  He is grinning evilly.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 602
+Sc 600
+At 0 10 25 2
+End
+
+#602
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 17 13
+End
+
+#606
+N attendant~
+SD the attendant~
+LD
+ The attendant is here, watching you carefully.
+~
+D
+ A short, medium-built man in his late 30s.  He appears to be very
+soft, and not a warrior-type at all.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#711
+N small brown lizard~
+SD a lizard~
+LD
+ A small brown lizard scurries across the floor.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 10
+O ~
+AP 1 1 1 1 1
+End
+
+#716
+N wimpy monster~
+SD the wimpy monster~
+LD
+ A monster is hiding in the shadows.
+~
+D
+ ~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 15
+O ~
+AP 1 1 1 1 1
+End
+
+#717
+N grey spider~
+SD a grey spider~
+LD
+ A grey spider scurries across the floor.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 1
+O ~
+AP 0 0 0 0 1
+At 1 3 5 14
+At 2 1 2 10
+End
+
+#718
+N green slime~
+SD green slime~
+LD
+ A pool of green slime oozes across the floor.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 1
+K 0 E 1
+O ~
+AP 1 1 1 1 1
+End
+
+#720
+N instructor~
+SD the instructor~
+LD
+ The instructor applauds you.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 16 11
+End
+
+#722
+N $c monster~
+SD the $c monster~
+LD
+ The $c monster attacks you!
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 50
+O ~
+AP 2 2 2 2 2
+End
+
+#0
+
+
+
+#OBJDATA
+#500
+N sign~
+SD a sign~
+P ~
+D
+There is a sign posted nearby.
+~
+A
+~
+PD
+~
+DR
+There are some interesting options available to you.
+ 
+Look at your inventory by typing "inventory" -- you'll notice you
+are carrying a shoulder pack which is closed.  Open your pack by
+typing "open" -- and then type "i" or "inv" (short for inventory)
+to see what you're carrying.
+ 
+Use "get" lets you pull things out of packs.
+Type "help get" for more information.
+ 
+Use "put" to stick things in your packs.
+Type "help put" for more information.
+ 
+Adjust your inventory how you see fit, then type "continue" to
+continue on to the next section.
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#501
+N continue~
+SD the next section~
+P ~
+D
+You can type "help <command>" for usage on specific commands!
+~
+A
+~
+PD
+~
+DR
+Type NEXT to proceed.
+
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 501
+End
+
+#502
+N next~
+SD the next section~
+P ~
+D
+Type "next" to proceed to the next section.
+~
+A
+~
+PD
+~
+DR
+Type "next" to proceed.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 502
+End
+
+#503
+N sign~
+SD a sign~
+P ~
+D
+A sign has been nailed in place.
+~
+A
+~
+PD
+~
+DR
+You can move with the following shortcuts: n, s, e, w, ne, se, sw, nw, u,
+and d.  These one- or two-letter commands are great for saving time when
+moving around the world.  It is also useful to type "exits" to view what
+exits there are around you.  By glancing a direction, for example "look
+north" -- you can see what lies in that direction, and who, if anyone, is
+lurking nearby.  
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#504
+N ready~
+SD the movement tutorial~
+P ~
+D
+Type "ready" when you want to try moving around.
+~
+A
+~
+PD
+~
+DR
+Type "out" when you want to try moving around.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 504
+End
+
+#505
+N sign~
+SD a sign~
+P ~
+D
+A sign has been posted here.
+~
+A
+~
+PD
+~
+DR
+Welcome to the movement maze!  You're goal is to find the End of the
+Maze.  To do so, you need to traverse a small maze of interconnected rooms
+until you find the right one.  You'll know it when you find it!  Use the
+movement commands (n,s,e,w,u,d,nw,ne,sw,se) and the "exits" command to
+figure out how to get to where you need to go.  
+ 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#506
+N fountain~
+SD a gurgling fountain~
+P ~
+D
+There is a gurgling fountain here with crystal clear water.
+~
+A
+~
+PD
+~
+DR
+The fountain is spewing perfectly pure drinking water, a nice cool treat
+after a long day of spelunking!  To fill your wineskin, make sure you are
+holding it, and then type "fill wineskin" -- you can then sling your
+wineskin over your shoulder by wearing it.  
+~
+L 0
+T 25
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#507
+N next~
+SD the next section~
+P ~
+D
+Type "next" to exit the Movement Maze.
+~
+A
+~
+PD
+~
+DR
+Type "next" to proceed.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 520
+End
+
+#508
+N sign~
+SD a sign~
+P ~
+D
+There is a sign nailed to the wall.
+~
+A
+~
+PD
+~
+DR
+Doors can block your path.
+ 
+To familiarize yourself with more advanced navigation features, the
+commands "look" and "open" have directional features.
+ 
+For instance, if you look "north" you'll notice there is a door.
+ 
+If you then "open north" you'll be able to then "look north" through
+the open door and check to see if anyone is on the other side.
+ 
+Go ahead and try.
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#509
+N play game~
+SD the game~
+P ~
+D
+Type "play game" when you are ready to proceed.
+~
+A
+~
+PD
+~
+DR
+Type NEXT to proceed.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 819200 0 6001
+End
+
+#510
+N sign~
+SD a sign~
+P ~
+D
+A small sign presents its wisdom from the eastern wall.
+~
+A
+~
+PD
+~
+DR
+You can view exits automatically.  By turning this option on, you will
+see the exits after the title of each room.  Type "set exits" to toggle this
+option.  
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#511
+N sign arrows strange many~
+SD a sign of arrows~
+P ~
+D
+A sign of many arrows is in the middle of the intersection.
+~
+A
+~
+PD
+~
+DR
+The sign of many arrows reads:
+ 
+Your next decision determines your path to skill.  You may either
+start by visiting a small fishing village on the river Kaer, in
+the northlands.  Typing "village" takes you there, where you can
+learn the arts of survival and start trading.
+ 
+If you wish to go to the big city, type "city" and you will begin
+your adventure in Kess, the capital of Kltara, a land of many
+opportunities and challenges.  Kltara is a land of rich resources
+and plentiful shops and stores with exotic wares.  Here you may
+learn a variety of arts and participate in local markets.  It is
+suggested that new players, who have never played The Isles before,
+start in some place other than the city.
+ 
+If you are built from a warrior's brood, and wish to challenge
+yourself in the arts of combat, you may enter the "arena" and
+begin fighting at Kara-Tur, the warrior's pit.
+ 
+Please note: these decisions lead you to different trainers and
+areas set up for specific sets of skills, which you may learn.
+It is possible, however, to travel from one city to the next
+in the realm, for a price.
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#512
+N war~
+SD the war of Viedrad~
+P ~
+D
+The din of war calls the strong and honorable warrior.
+~
+A
+~
+PD
+~
+DR
+The battle over the Viedrad Basin is the beginning of the war with
+Tiktui, as her assault on Kltara ensues, she is forced to withdraw
+her ships and leave stranded the foot soldiers of her great armies.
+ 
+Rygor's troups have held the vast landfall for almost a year, fighting
+by land and sea to keep the denizens of the Empress at bay.
+ 
+Type "war" to enter the war and fight for Kltara against the evil
+Tiktuan foot.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 6001
+End
+
+#513
+N village trynt~
+SD the village~
+P ~
+D
+A small village can be seen on the horizon, far down the road.
+~
+A
+~
+PD
+~
+DR
+You can see, down the Cetbrok to the River Kyr, a little fishing village
+known to its locals as Trynt.  Trynt is on the edge of a vast wilderness.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 6001
+End
+
+#514
+N arena~
+SD the arena~
+P ~
+D
+The roar of the fights can be heard from the arena.
+~
+A
+~
+PD
+~
+DR
+The arena looks dangerous.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 530
+End
+
+#515
+N platinum coin~
+SD a platinum coin~
+P ~
+D
+A platinum coin shines on the floor.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 1 0 0 0
+End
+
+#520
+N earphone ear phone~
+SD an earphone~
+P ~
+D
+A crusty gaffer's ear-phone is rolling back and forth on the ground.
+~
+A
+~
+PD
+~
+DR
+The earphone helps the elderly hear better.  It has a long snout and
+looks like a horn.  
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#521
+N old cane~
+SD an old cane~
+P ~
+D
+An old cane has been left on the ground.
+~
+A
+~
+PD
+~
+DR
+The old cane is made out of a light-colored wood.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 4
+C 0
+O ~
+V 0 0 0 0
+End
+
+#522
+N sign~
+SD a sign~
+P ~
+D
+A sign is hanging on the wall.
+~
+A
+~
+PD
+~
+DR
+The "shout" command shouts a phrase to the immediate area nearby,
+allowing you to alert comrades to trouble, or to find someone in a dark
+tunnel.  The "speak" command allows you to change what language you are
+speaking.  There is also a command "whisper" which allows you to attempt
+secrecy when speaking to someone directly.  You may also want to check out
+the "score" command now.  
+ 
+ You may want to walk back southeast when you've had enough,
+and find the end of the Maze.
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#523
+N next~
+SD the next section~
+P ~
+D
+You can continue by typing "next" -- make sure to read the sign.
+~
+A
+~
+PD
+~
+DR
+Type NEXT to proceed.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 523
+End
+
+#524
+N copper coins coin~
+SD the gaffer's life savings~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 30 3 0 0
+End
+
+#525
+N piece penny bread~
+SD a piece of penny bread~
+P ~
+D
+~
+A
+The bread is rather bland.
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 1
+O ~
+V 5 0 0 0
+End
+
+#526
+N canteen~
+SD a canteen~
+P ~
+D
+A tin canteen has been foolishly discarded.
+~
+A
+~
+PD
+~
+DR
+The canteen is made of a low quality tin, and possesses an olive-colored
+cloth strap for carrying over your shoulder.
+~
+L 0
+T 17
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 5
+C 10
+O ~
+V 0 40 0 0
+End
+
+#527
+N boots~
+SD a pair of boots~
+P ~
+D
+A pair of boots have been placed here.
+~
+A
+~
+PD
+~
+DR
+The boots have heavy lacings that can be worn by many sizes.  They are
+made of leather and possess a thick heel.  
+~
+L 0
+T 13
+E 0
+W 65
+Sz 0
+Ti 0
+Wt 4
+C 11
+O ~
+V 0 0 0 0
+End
+
+#528
+N flask~
+SD a flask~
+P ~
+D
+A ceramic flash has been left here.
+~
+A
+~
+PD
+~
+DR
+The flask is made out of hardened clay and has a cork stopper.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 20 20 17 0
+End
+
+#530
+N stool~
+SD a stool~
+P ~
+D
+There is a stool open by the bar.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#531
+N chair rickety~
+SD a chair~
+P ~
+D
+A rickety old chair is here.
+~
+A
+~
+PD
+~
+DR
+It's made out of wood.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#532
+N bottle beer~
+SD a bottle~
+P ~
+D
+A bottle of Kale's Ale is here.
+~
+A
+~
+PD
+~
+DR
+The bottle is marked with the words "Kale's Ale" -- it holds about a pint
+of liquid.  
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 6
+O ~
+V 10 15 1 0
+End
+
+#533
+N Kale's trash barrel~
+SD Kale's trash barrel~
+P ~
+D
+A barrel for empty bottles is at the end of the bar.
+~
+A
+~
+PD
+~
+DR
+It's marked 'The Barrel of Kale' and contains empties from customers.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 0 0 0
+End
+
+#536
+N stone gargantuan vlazgaad barrel~
+SD the Vlazgaad barrel~
+P ~
+D
+A gargantuan stone barrel has been hewn into a massive rock.
+~
+A
+~
+PD
+~
+DR
+The Vlazgaad barrel was hewn by stonecarvers in the hills nearby and
+carried by wagon to the center of town.  Inside is a testimony to the
+generosity of fighters in the arena.  The warrior's brood has donated
+spoils of conquest in the barrel, for the unskilled or unwealthy
+patrons of the arena.
+It is carefully hewn to resemble its wooden counterpart.  There is a
+plaque on the barrel.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 100
+Ti 0
+Wt 0
+C 0
+O ~
+V 1000 0 0 0
+ED plaque~
+The plaque reads:
+Ilya ilal gitar dan Vlazgaadbrun del barr.
+In the tongue of Tyselorrd and the Tiktuian empire.
+~
+End
+
+#537
+N chain apron~
+SD a chain apron~
+P ~
+D
+A chain apron used by smiths is here.
+~
+A
+~
+PD
+~
+DR
+The smith's apron is a set of tiny rivets ands links that form a lengthy
+sheet of mail to protect a smithy from the fires of the forge.  
+~
+L 0
+T 9
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 10
+C 0
+O ~
+V 10 50 50 0
+End
+
+#538
+N sign~
+SD a sign~
+P ~
+D
+A sign has been posted nearby.
+~
+A
+~
+PD
+~
+DR
+The sign reads:
+This nameless dog can become your friend; all you need to do is 'pet'
+the dog and he will follow you.
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#540
+N salve healing salves bandages~
+SD a light healing salve~
+P bandages~
+D
+Some clean bandages are carefully placed here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 10
+O ~
+V 4 1 1 5
+End
+
+#541
+N rations iron ration~
+SD an iron ration~
+P ~
+D
+An iron ration is here.
+~
+A
+~
+PD
+~
+DR
+An iron ration is a carefully packaged food product for long journeys,
+containing just enough for one hearty meal.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 15
+O ~
+V 50 0 0 0
+End
+
+#542
+N heavy bandage~
+SD a heavy bandage~
+P ~
+D
+A heavy bandage is here.
+~
+A
+~
+PD
+~
+DR
+A heavy piece of cotton bandage, ready for use.
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 20
+O ~
+V 4 1 1 15
+End
+
+#544
+N ticket~
+SD a ticket~
+P ~
+D
+A ferry ticket is here.
+~
+A
+~
+PD
+~
+DR
+It is a small square scoring of vellum with the words "redeem at Vlazgaad"
+scrawled on its back.  To use, give the ticket to the ferryman.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 100
+O ~
+V 0 0 0 0
+End
+
+#549
+N small scroll~
+SD a small scroll~
+P ~
+D
+A small scroll bearing the Kara-Tuk seal is here.
+~
+A
+~
+PD
+~
+DR
+The scroll reads:
+Welcome to the Kara-Tuk Arena.  Battles are fought here by both
+the meek and the strong, but only the strong survive.  It is recommended
+that fighters of veteran caliber fight in the hard matches, while fresh
+and inexperienced fighters choose easy.  There is a big gap between
+the two, so new fighters should stick to the easy combat until they have
+reached adept expertise in at least two offensive and two defensive
+combat tactics.
+ 
+Veteran fighters are considered those with the knowledge of several weapons,
+advanced defensive tactics, and a hearty understanding of hand to hand.
+ 
+Expert warriors are considered those with mastery of all weapons and
+many defensive maneuvers, as well as the understanding of repair and
+the ownership of an extensive armory.  Experts are given the option to
+challenge the deathmatch, a dangerous and complex fighting arena.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#550
+N few coins~
+SD a few coins~
+P ~
+D
+A few coins are scattered on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 25 4 4 1
+End
+
+#557
+N torch~
+SD a torch~
+P ~
+D
+A torch is here.
+~
+A
+~
+PD
+~
+DR
+A simple torch.
+~
+L 0
+T 1
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 20 0 0 1
+End
+
+#602
+N oar~
+SD an oar~
+P ~
+D
+A wood oar is resting here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#603
+N sign signpost~
+SD a signpost~
+P ~
+D
+A signpost is here.
+~
+A
+~
+PD
+~
+DR
+West - Vladgazbrun
+South - Kess
+East - Trynt
+Southeast - Okham
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#604
+N sign~
+SD a sign~
+P ~
+D
+A sign is posted here.
+~
+A
+~
+PD
+~
+DR
+South - Kess
+East - Trynt
+Southeast - Okham and Viedrad Moors
+West - Beach
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#661
+N grapple~
+SD a grapple~
+P ~
+D
+Someone has left a grapple on the ground.
+~
+A
+~
+PD
+~
+DR
+A heavy iron hook on the end of a long metal chain.
+~
+L 0
+T 22
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 15
+C 50
+O ~
+V 5 0 0 0
+End
+
+#718
+N small knife~
+SD a small knife~
+P ~
+D
+A small knife is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 1
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 5 9 8
+End
+
+#720
+N corpse kltaran soldier~
+SD a corpse~
+P ~
+D
+The rotting corpse of a kltaran soldier lies in a heap.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 23
+E 0
+W 0
+Sz 0
+Ti 24
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#721
+N $G ring~
+SD a $G ring~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+A fine silver ring studded with gems.
+~
+L 0
+T 32
+E 0
+W 3
+Sz 0
+Ti 0
+Wt 0
+C 100
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#500
+N Mud School 802~
+Ref 0
+D
+There is a ^Bsign^N here that you should read carefully.
+ 
+When you are ready, move ^Bsouth^N.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+You are doing well on your way through Mud School.  Keep your chin up,
+your eyes focused and your nerves about you.  
+~
+Dr 0 0 0 709
+~
+~
+Dr 2 0 0 710
+~
+~
+End
+
+#501
+N Your Equipment~
+Ref 0
+D
+Now you have discovered your inventory, now your next task is to master
+your equipment.  Typing "equipment" shows a break-down of what you're
+wearing and using, without looking into your packs or other containers. 
+Wearing and using objects on different locations is possible, too.  You can
+don a cap or wrap a scarf around you with the "^Bwear^N" command.  Type
+"help wear" for more details.  With some weapons you can "^Bdraw^N" and
+"^Bsheathe^N" using a belt, as well as "^Bremove^N" items to be stored away.
+Another, related command is "^Bswap^N" which switches objects between your
+two hands, or between one of your hands and a pack in your inventory.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 503 1 100 1
+R O 502 -5 100 1
+End
+
+#502
+N Moving Around~
+Ref 0
+D
+You can explore the world with the use of the commands "north"
+"south" "east" and "west" -- as well as nw/ne/se/sw to move
+non-cardinal directions.
+ 
+Use "up" and "down" for vertical movement.
+ 
+Please "^Bread sign^N" for more information.
+ 
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 504 -5 100 1
+R O 503 -5 100 1
+End
+
+#504
+N Maze at Sign~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 520 1 100 1
+R O 524 -3 100 1
+R O 521 36 100 1
+R O 31 10 100 1
+R O 520 35 100 1
+R O 505 -5 100 1
+Dr 1 133 0 505
+~
+door~
+Dr 2 1028 0 511
+~
+~
+Dr 3 0 0 512
+~
+~
+Dr 8 133 0 518
+~
+door~
+Dr 9 133 0 508
+~
+door~
+End
+
+#505
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 506
+~
+~
+Dr 3 133 0 504
+~
+door~
+End
+
+#506
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 516
+~
+~
+Dr 2 0 0 505
+~
+~
+Dr 3 0 0 507
+~
+~
+End
+
+#507
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 506
+~
+~
+End
+
+#508
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 509
+~
+~
+Dr 6 133 0 504
+~
+door~
+End
+
+#509
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 510 -5 100 1
+Dr 3 0 0 508
+~
+~
+Dr 8 0 0 510
+~
+~
+End
+
+#510
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 511
+~
+~
+Dr 7 0 0 509
+~
+~
+End
+
+#511
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 1028 0 504
+~
+~
+Dr 9 0 0 510
+~
+~
+End
+
+#512
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.  Faintly, you can
+hear the sound of running water to the north.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 513
+~
+~
+Dr 1 0 0 504
+~
+~
+Dr 3 133 0 519
+~
+door~
+End
+
+#513
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 514
+~
+~
+Dr 2 0 0 512
+~
+~
+End
+
+#514
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+There is a ^Bplaque^N fixed to the wall here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+ED plaque~
+The plaque mentions something about the set command.  Perhaps you should
+type 'help set' ?
+~
+Dr 1 0 0 515
+~
+~
+Dr 2 0 0 513
+~
+~
+Dr 6 0 0 522
+~
+~
+End
+
+#515
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 514
+~
+~
+Dr 5 0 0 517
+~
+~
+End
+
+#516
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 506
+~
+~
+End
+
+#517
+N End of Maze~
+Ref 0
+D
+You have navigated to the end of the maze.  If you want, you can
+drink from the fountain.
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 507 -5 100 1
+R O 506 -5 100 1
+Dr 4 0 0 515
+~
+~
+End
+
+#518
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.  Here, the maze
+turns a sharp corner.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 519
+~
+~
+Dr 7 133 0 504
+~
+door~
+End
+
+#519
+N Maze~
+Ref 0
+D
+You are in a maze of twisty little passages, all alike.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 133 0 512
+~
+door~
+Dr 9 0 0 518
+~
+~
+End
+
+#520
+N Advanced Mud School 201~
+Ref 0
+D
+Through the door to the north is a shopkeeper.  You should read the
+^Bsign^N for more information on doors.  
+Type "^Bhelp money^N" for more information.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 515 -5 100 1
+R O 508 -5 100 1
+Dr 0 5 0 521
+~
+door~
+Dr 2 0 0 723
+~
+~
+End
+
+#521
+N Froilan's Shoppe - Advanced Mud School~
+Ref 0
+D
+The Shoppe is full of merchandise.  On the eastern wall are a few items
+within your price range.  To check out what is available, type "^Blist^N" --
+ 
+To purchase something type "^Bbuy <item>^N" -- why don't you
+try typing "^Bbuy bread^N" and see how it works?
+ 
+You notice there is a back door to the "^Bnorth^N" -- go north when
+you are ready to proceed.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 502 1 100 1
+R O 527 -1 50 6
+R O 528 -1 100 1
+R O 4508 -1 100 1
+R O 4504 -1 100 1
+R O 3510 -1 100 1
+R O 3100 -1 100 2
+R O 525 -1 75 10
+Dr 0 5 0 724
+~
+back door~
+Dr 2 5 0 520
+~
+door~
+End
+
+#522
+N Communicating~
+Ref 0
+D
+When you meet someone, you may want to talk to them.  There are several
+commands to use when speaking with others.  These commands are "say,"
+"shout," and "whisper."  Try typing "say Hello" and see what happens.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 501 1 100 1
+Dr 9 0 0 514
+~
+~
+End
+
+#523
+N More About Communications~
+Ref 0
+D
+Players also talk to each other over the course of time on bulletin
+boards, posted in towns.  Bulletin boards allow characters to post
+hiring notices, seek employment, buy and sell items, and participate
+in public debates, as well as send messages to other players.
+Type 'note' to find out how to use the bulletin board.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5000 -5 100 1
+Dr 5 0 0 524
+~
+~
+End
+
+#524
+N Dusty Crossroad~
+Ref 0
+D
+You find yourself at a dusty crossroad.  From here, you may make a
+decision which affects the course of your character's life.  You
+must decide what kind of life you want for your character.
+ 
+You may go to war in the Viedrad basin, and fight for the side of
+Kltara.
+ 
+You may go to the arena and fight for fortune or fame at Kara-Tur.
+ 
+You may begin your journeys in Trynt learning skills like
+archery, hunting and wilderness survival.
+ 
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 514 -5 100 1
+R O 513 -5 100 1
+R O 512 -5 100 1
+Dr 4 0 0 523
+~
+~
+End
+
+#525
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#526
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#530
+N Dusty Road~
+Ref 0
+D
+You are walking along a dusty road on a plain deep in the ruinous spires
+of the Great Southern Plains south of the Ring of Fire.  In the distance, to
+the north, you see a towering colloseum where can be heard the sounds of
+battle and the screams of patrons.  Wisps of smoke billow into the cloudless
+sky.  
+There is a ^B^Bsign^N^N nailed to a post.
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign reads:
+ 
+Welcome to Vlazgaadbrun.  By order of the royal decree of Tiktui,
+there shall be not battles fought within its walls, lest the
+combatants are dueling in the arena.
+ 
+If you wish to leave Vledgaadbrun, there is a ferry that will
+take you elsewhere, for a price.
+~
+Dr 0 0 0 531
+To the north is Vledgaadbrun.  Beyond that, the arena of Kara-Tur.
+~
+~
+Dr 1 0 0 544
+A small dock is just east of here.
+~
+~
+End
+
+#531
+N Dusty Road Near Warrior's Tavern~
+Ref 0
+D
+To the west is an old building built of clapboard and hand-hewn hickory. 
+There is a porch out front where gaffers and veteran warriors sit and heckle
+the passersby.  Along the road to the north you can see a few more
+buildings.  Wisps of smoke billow into the cloudless sky.  
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 534
+~
+~
+Dr 2 0 0 530
+~
+~
+Dr 3 0 0 532
+There is a tavern west of here.
+~
+patch of brown grass onto the porch~
+End
+
+#532
+N Outside the Warrior's Tavern~
+Ref 0
+D
+The porch of the Warrior's Tavern is strewn with bits of meat, bone and
+empty grogs.  The clapboard flooring creeks as you step.  
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 531 -5 100 4
+R M 531 1 100 1
+R M 532 2 100 2
+Dr 1 0 0 531
+~
+patch of brown grass onto the road~
+Dr 3 1 0 533
+~
+wooden door~
+End
+
+#533
+N Warrior's Tavern~
+Ref 0
+D
+The tavern is dark and filled with smoke from various pipes you see glowing
+in the dim.  The noise from outside keeps your head spinning.  A simple
+oak bar runs along the northern side of the room, behind it are many
+bottles lining the three shelves that adorn the tavern.
+~
+C
+(null)~
+F 1024
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 533 -5 100 1
+R O 530 -5 100 4
+R M 530 1 100 1
+R O 532 -1 100 30
+Dr 1 1 0 532
+~
+wooden door~
+End
+
+#534
+N Dusty Road~
+Ref 0
+D
+You are on a dusty road that runs through the dead plains south of the
+arena.  In the distance, wisps of smoke billow into the cloudless sky from
+the Ring of Fire.  To the south, you can see a tavern along the road.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 535
+~
+~
+Dr 2 0 0 531
+~
+~
+End
+
+#535
+N Dusty Road at Vlazgaadbrun~
+Ref 0
+D
+You are at the threshold of Vlazgaadbrun, the Warrior's City, a small
+enclave of merchants and locals who have formed a village to support the
+Arena.  Vlazgaadbrun is rather small and sparce in population, but its
+services are imperative to the operations of Kazuk.  The buildings are made
+from blackened granite.  Due to the proximity of the Ring of Fire, the block
+walls are covered in a tenth-span of ash and soot.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 536
+~
+~
+Dr 2 0 0 534
+~
+~
+End
+
+#536
+N Vlazgaadbrun Square~
+Ref 0
+D
+You are standing in the center of Vlazgaadbrun.  To the northeast is a
+large, pillar-like structure called the Azbrak.  Small shops and wagons
+line the square.
+~
+C
+(null)~
+F 1088
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 506 -5 100 1
+R M 539 1 100 1
+R O 4508 -1 100 1
+R O 4503 -1 80 3
+R O 542 -1 100 20
+R O 2515 -1 80 2
+R O 540 -1 80 10
+R O 2505 -1 80 10
+R O 536 -5 100 1
+Dr 0 0 0 539
+~
+~
+Dr 1 0 0 19779
+~
+~
+Dr 2 0 0 535
+~
+~
+Dr 3 0 0 546
+~
+wooden arch~
+Dr 7 0 0 537
+~
+~
+End
+
+#537
+N The Azbrak~
+Ref 0
+D
+The Azbrak is the forge of Vlazgaadbrun.  Huge stone kilns heat the
+metal, and glass that forge the finest weapons for hundreds of miles.  The
+kilns are heated by deep cracks of surface magma that boil the earthen pits. 
+Dozens of Azbrak workers wander about forging ingots for use by the master
+smiths.  
+~
+C
+(null)~
+F 1024
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 537 1 100 1
+R O 3511 -1 75 5
+R O 3510 -1 75 5
+R O 3509 -1 75 5
+R O 3508 -1 75 5
+R O 3507 -1 75 5
+R O 3506 -1 75 5
+R O 3505 -1 75 5
+R O 3504 -1 75 5
+R O 3503 -1 75 5
+R O 3502 -1 75 5
+R O 3501 -1 75 5
+R O 3500 -1 75 5
+R O 537 10 100 1
+R M 538 3 20 1
+R O 537 10 100 1
+Dr 8 0 0 536
+~
+~
+End
+
+#539
+N Blackened Road~
+Ref 0
+D
+A dusty road leads north from Vlazgaadbrun to the south.  The road is
+well trodden and worn deep into the briar and brown patches of plains that
+surround the Ur'chek mountains.  The Ring of Fire billows about you, soot
+and the smell of sulfur in the air.  To the east and west for miles you can
+see the smoking cinders falling from the Ring, the volcanic ash in places is
+thick like a grey snow.  Black ash and porous rock crunch underfoot.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 540
+~
+~
+Dr 1 0 0 15100
+~
+~
+Dr 2 0 0 536
+~
+~
+End
+
+#540
+N Gates of Kara-Tur~
+Ref 0
+D
+Huge walls surround the arena.  To the north lies the massive stone
+doors that led to Kara-Tur, the heart of the fight.
+~
+C
+(null)~
+F 1024
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 540 1 100 1
+Dr 0 1 0 541
+~
+Grand Gate~
+Dr 2 0 0 539
+~
+~
+End
+
+#541
+N Waiting Quarter - Kara-Tur~
+Ref 0
+D
+You are standing in a wide hallway.  To the east is the training room. 
+To the north you can see the warrens.  
+~
+C
+(null)~
+F 1024
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 550
+~
+~
+Dr 1 0 0 543
+~
+~
+Dr 2 1 0 540
+~
+Grand Gate~
+End
+
+#542
+N Kara-Tur Bazaar~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#543
+N Sparring Room~
+Ref 0
+D
+The training room is a large open space designed to be a place for
+fighting.  Attack dummies and other implements for combat and martial
+art training can be seen pushed against the back wall.
+~
+C
+(null)~
+F 1026
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 548 1 100 1
+Dr 3 0 0 541
+~
+~
+End
+
+#544
+N Vlazgaad Ferry~
+Ref 0
+D
+You are near the river Cetbrok, which connects to the river Kyr, which
+flows south through the mainland to the edge of Tyselorrd, where the port of
+Kyrinn receives travelers daily.  Kyrinn is the capital of Tyselorrd, and
+seat of the throne of Tiktui, in her regency of Kyrinn.  Kyrinn is also home
+to the gemmasters guild, and is the way south, to the Archipelago known as
+Jharl.  A ferrymaster can take you there, you need only to buy his services.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 603 -5 100 1
+R M 544 1 100 1
+R O 544 -1 100 10
+Dr 3 0 0 530
+~
+~
+End
+
+#545
+N On the Ferry~
+Ref 0
+D
+You are on the Vlezgaadbrun Ferry, travelling along the Cetbrok to the
+Kyr river that flows through the mainland south of the Ring of Fire to
+Trynt, the southernmost port of the Tiktuian empire.  You are heading
+south.  
+~
+C
+(null)~
+F 1026
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 545 1 100 1
+R O 525 -1 75 20
+End
+
+#546
+N "Martyr's Armoury"~
+Ref 0
+D
+This small barn has been converted into a shop.
+Among the bales of hay are large racks containing armors and helms,
+shields and mail shirts.  A small stack of crates serves as a countertop,
+behind which you can see an obscure darkened area.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 547 1 100 1
+R O 3100 -1 70 5
+R O 3007 -1 70 3
+R O 3006 -1 70 4
+R O 3005 -1 70 3
+R O 3004 -1 70 4
+R O 3003 -1 70 4
+R O 3001 -1 75 5
+R O 3000 -1 75 5
+Dr 1 0 0 536
+~
+wooden arch~
+Dr 3 0 0 547
+~
+~
+End
+
+#547
+N Repair Shop~
+Ref 0
+D
+Tools and bits of old metal lay strewn around in several stages of
+disarray.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 546 1 100 1
+Dr 1 0 0 546
+~
+~
+End
+
+#548
+N Ferryman's Hideaway~
+Ref 0
+D
+This room is here for the ferryman to jump to.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#550
+N Warrens of Kara-Tur~
+Ref 0
+D
+You are standing in the warrens before the gates to Kara-Tur, the Arena
+of the Ring of Fire.  You can hear, from above you, the roar of the audience
+and the screams from the battlefield.  
+~
+C
+(null)~
+F 1030
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 549 1 100 1
+Dr 2 0 0 541
+~
+~
+End
+
+#551
+N The Dragon's Furnace~
+Ref 0
+D
+All around you flames shoot from holes in the field.  A metal gangway
+leads north across the platform.  You are suspended above a magma pit,
+the heat from the pit hurts your eyes and you grit your teeth.  Above you,
+you can see the High Platform near the roaring crowd.  The sound of
+the cheers is deafening.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 554
+~
+~
+End
+
+#552
+N Kara-Tur High Platform~
+Ref 0
+D
+Far below you can see the battlefield of Kara-Tur, and all around at eye
+level the citizens of the neighboring cities and lands gather to cheer for
+the victors.  You are on the High Platform, suspended above the main
+battles.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 550 1 50 1
+R O 550 -5 50 1
+R M 552 2 80 2
+R O 34 27 25 1
+R O 550 36 50 1
+R O 3503 40 20 1
+R O 3502 39 20 1
+R O 3005 24 80 1
+Dr 0 0 0 555
+~
+~
+End
+
+#553
+N Kara-Tur Deep Pit~
+Ref 0
+D
+You are standing on a black surface that stretches toward something in
+the distance.  To the west you see an orange glow coming from a huge fissure
+in the rock.  Above you, faintly, you can hear the roar of the crowd.  
+~
+C
+(null)~
+F 1
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 660
+~
+~
+End
+
+#554
+N Dragon's Platform~
+Ref 0
+D
+A tall iron dragon dominates your view.  The crowd is throwing things at
+the platform.  They bounce and sizzle into the depths of lava and molten
+rock below you.  A metal catwalk runs north and south.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 554 3 50 2
+Dr 0 0 0 558
+~
+~
+Dr 2 0 0 551
+~
+~
+End
+
+#555
+N Kara-Tur High Platform Center~
+Ref 0
+D
+A wide circle of blackened material presents you to the crowd.  In the
+center is a raised dais on which the battle ensues.  Around you, a clear
+view of the arena reveals it to be a large round battlefield surrounded by
+steep seating arrangements filled with hundreds of patrons.  Screams fill
+your ears from both the contestants and the thunderous crowd.  To the west,
+far below, you can see a rising metal gangplank which parallels the High
+Platform.  To the east, below you, is darkness.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 553 2 50 2
+R O 3512 39 100 1
+R O 3100 10 50 1
+R O 550 36 50 2
+R O 3007 24 50 1
+Dr 0 0 0 556
+~
+~
+Dr 2 0 0 552
+~
+~
+End
+
+#556
+N Kara-Tur High Platform Descending~
+Ref 0
+D
+A flight of gradually descending stairs leads down to a metal cage.  To
+the northeast, you can see a steep pile of bones which leads down into
+darkness.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 550 5 25 1
+R O 550 -1 50 1
+Dr 0 0 0 557
+~
+~
+Dr 2 0 0 555
+~
+~
+End
+
+#557
+N Gangway~
+Ref 0
+D
+You are on a narrow gangway leading to a metal cage.  A gradual set of
+stairs lead south and up to the Platform Center.  To the northeast you can
+see a steep pile of bones descending into darkness.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 565
+~
+~
+Dr 2 0 0 556
+~
+~
+End
+
+#558
+N Dragon's Bridge~
+Ref 0
+D
+A creaking metal bridge spans the chasm.  Magma below billows hot gaseous
+vapors up past your nose.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 555 1 100 1
+R O 3007 24 100 1
+R O 3003 -1 100 1
+R O 3503 39 100 1
+Dr 0 0 0 559
+~
+~
+Dr 2 0 0 554
+~
+~
+End
+
+#559
+N Dragon's Hearth~
+Ref 0
+D
+A huge fire burns its way through a portion of bridge here.  Not for the
+faint of heart, a narrow gangplank still stretches through its flames.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 558
+~
+~
+Dr 7 0 0 565
+~
+~
+End
+
+#564
+N Dueling Chamber~
+Ref 0
+D
+The warrens smell of blood, bile and sweat.  Stains on the floor tell the
+tale of survivors.  The rank smell of rotting flesh and wet stone create a
+sickly sweet odor.  Below you, you can hear the screams of the crowd and the
+dull roar of the battlefield.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 550
+~
+exit to Vledgaadbrun~
+Dr 5 5 0 565
+~
+trapdoor~
+End
+
+#565
+N Safety~
+Ref 0
+D
+A metal cage suspended by large chains links the arena's platforms to the
+main battle area.  A ladder up leads to the exit.  To the southwest is a
+roaring flame.  
+~
+C
+(null)~
+F 1026
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 565 1 100 1
+R O 542 -1 100 20
+Dr 2 0 0 557
+You see a gradual stone stair.
+~
+~
+Dr 4 5 0 564
+A ladder leads up.
+~
+trapdoor~
+Dr 8 0 0 559
+A metal gangplank leads southwest.
+~
+~
+Dr 9 0 0 662
+You see the top of a steep pile of bones.
+~
+~
+End
+
+#600
+N Trynt Pier~
+Ref 0
+D
+You are standing on Trynt Pier, a dock for those who wish to travel to
+and from the Kara-Tur Arena and the Azbrak.  The Kyr river flows south
+toward Kyrinn, meeting the Cetbrok which flows southeast from the Ring of
+Fire.  
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 604 -5 100 1
+R M 601 1 100 1
+R O 544 -1 100 30
+Dr 1 0 0 602
+~
+~
+Dr 3 0 0 7700
+~
+~
+End
+
+#601
+N Trynt Ferry~
+Ref 0
+D
+You are standing on the Trynt Ferry, going up the Cetbrok toward the
+Ring of Fire.
+~
+C
+(null)~
+F 1026
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 601 1 100 1
+End
+
+#602
+N Dirt Road~
+Ref 0
+D
+You are standing on a dirt road.  You can hear the sound of rushing water
+to the west.  Just north of here is a clearing.  
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 603
+~
+~
+Dr 1 0 0 605
+~
+~
+Dr 2 0 0 7747
+~
+~
+Dr 3 0 0 600
+~
+~
+End
+
+#603
+N Short Path~
+Ref 0
+D
+A short path leads down to a clearing by the Kyr river.
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 602
+~
+~
+Dr 3 0 0 604
+~
+~
+End
+
+#604
+N Kyr under Pier~
+Ref 0
+D
+You are standing on an embankment next to the rushing waters of the Kyr
+river, that flows from north to south through the mainland of Tyselorrd.
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10890
+~
+~
+Dr 1 0 0 603
+~
+~
+End
+
+#605
+N Trynt Marketplace~
+Ref 0
+D
+A small cobblestone square is in the center of Trynt.  The grey stones
+were quarried in the hills just east of here.  A light breeze blows from the
+river obscuring the scent of Trynt's primary export: freshwater fish.  A
+bait and tackle shop is located at the southern end of the square.  
+~
+C
+(null)~
+F 1028
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 606
+~
+~
+Dr 2 0 0 608
+~
+~
+Dr 3 0 0 602
+~
+~
+End
+
+#606
+N Trynt Trading Co.~
+Ref 0
+D
+You are standing in a small office paneled with oak from the forests near
+Trynt.  A wood countertop seperates you from the attendant.  
+~
+C
+(null)~
+F 1024
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 607
+~
+wood doorway~
+Dr 3 0 0 605
+~
+~
+End
+
+#607
+N Caravan Grounds~
+Ref 0
+D
+A wide area behind the trading company for stowing wagons for trade.
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 606
+~
+~
+End
+
+#608
+N Baddad's Bait and Tackle~
+Ref 0
+D
+A small wooden hut located south of the Trynt marketplace.  The
+walls are hung with tackle and fishing supplies.
+~
+C
+~
+F 1024
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 605
+~
+~
+End
+
+#660
+N Darkness~
+Ref 0
+D
+A smooth black surface stretches out before you.  To the north you can
+see something in the distance.  A faint orange glow permeates your vision to
+the west.  The roar of the crowd at Kara-Tur filters in from above.  
+~
+C
+(null)~
+F 1
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 556 1 100 1
+R M 557 1 100 1
+R O 3500 39 100 1
+R O 557 36 100 1
+Dr 0 0 0 661
+~
+~
+Dr 2 0 0 553
+~
+~
+End
+
+#661
+N Bottom of Bones~
+Ref 0
+D
+You are standing at the lower edge of a massive pile of charred bones.
+The blackened rock below you trembles and breaks with small fissures,
+creaking as it slides slowly into the mountain.  Massive boulders are
+strewn about, shrouding the immediate view.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 559 1 100 1
+R M 558 1 100 1
+R O 3512 40 100 1
+R O 3512 39 100 1
+R O 661 -5 100 1
+Dr 2 0 0 660
+~
+~
+Dr 4 0 0 662
+~
+~
+End
+
+#662
+N Pile of Bones~
+Ref 0
+D
+A pile of charred bones hundreds of duspans in size leads up to a metal
+cage.  Below you, the screams of battle and shrieks of death penetrate the
+roar.  
+~
+C
+(null)~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R O 540 -5 100 3
+R O 542 -5 100 1
+Dr 5 0 0 661
+~
+~
+Dr 6 0 0 565
+~
+~
+End
+
+#663
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#665
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#700
+N Entrance to Mud School~
+Ref 0
+D
+You are standing before the gates of a small red schoolhouse in
+the middle of a forest.
+ 
+Please type the letter N and press return to enter the MudSchool.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 701
+~
+~
+End
+
+#701
+N Mud School~
+Ref 0
+D
+Every person has their own reasons for playing a MUD, but the
+game itself is designed with Levels which you try to gain.
+ 
+Your game objective for now is to reach Immortality by
+becoming a Hero.  To do so, you must gain 99 levels.
+ 
+Once you become Immortal, you join the ranks of volunteers who
+help players and work on the game itself.  Angels, for example,
+have specifically volunteered to assist new players in need of
+information and help.  Type "^Bwizlist^N" to see a list
+of *some* of the immortals.
+ 
+Please type the letter E and press return to move on.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 702
+~
+~
+Dr 2 0 0 700
+~
+~
+End
+
+#702
+N Mud School 101~
+Ref 0
+D
+On The Isles, players move their characters around a map made up of
+many single rooms.  
+ 
+Each space on the map is a "room", even if it is outdoors, underground,
+or in the ocean.  When you first enter a room, you will see a
+description of the room and its contents.
+ 
+Type "^Blook^N" to see the room again.  When you are done, type
+the word "^Bsouth^N" to move on to the next room.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 703
+~
+~
+Dr 3 0 0 701
+~
+~
+End
+
+#703
+N Mud School 202~
+Ref 0
+D
+In this game you can communicate with other players in many ways.
+Two most important channels for you right now are: "^Bsay^N" and
+"^Bchat^N" -- 
+ 
+^Bsay^N is used to talk to a person in the same room with you.  If
+you see a player listed below the room description when you type
+^Blook^N you may greet them by typing "^Bsay hello^N".
+ 
+Type "^Bsay hello^N" now.  If someone is in the room, they may
+answer you.
+ 
+If there is no one here, type "^Bsouth^N" to move to the next room.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 501 1 100 1
+Dr 0 0 0 702
+~
+~
+Dr 2 0 0 704
+~
+~
+End
+
+#704
+N Mud School 301~
+Ref 0
+D
+"^Bchat^N" is a channel activated for new players and those interested
+in helping them.  It is a "public" channel and may reach several
+hundred players.  Bad language is not appropriate on public channels.
+Typing "^Bchat I need some help please^N" will usually get
+a good response but please remember:
+ 
+1. This is a family MUD.
+2. Our players range in age from children to senior citizens, and come
+   from a wide variety of countries and cultures.  Not everyone speaks
+   English well.  If you need assistance in another language you
+   might find someone by typing "^Bchat Does anyone speak French?^N"
+3. Good manners and appropriate language are valued here.
+4. Those violating these standards may be asked or forced to leave.
+ 
+We highly recommend you take some time looking at our language policy.
+Type "^Bhelp policy^N" if you want to look at that now.
+ 
+Please type "^Bwest^N" or the letter W to move to the next room.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 703
+~
+~
+Dr 3 0 0 705
+~
+~
+End
+
+#705
+N Mudschool 401~
+Ref 0
+D
+You have entered this world with some basic equipment and clothing.
+Not much, but some.  To see what you are wearing, type "^Bequipment^N"
+or just "^Beq^N" -- you may look at your equipment this way at
+any time.
+ 
+<You may need to type "^Blook^N" again when you have finished to
+see this screen again.)
+ 
+Some equipment in the game is temporary in nature and will
+disappear out of your inventory out of a period of time.  Do not
+worry or panic if this happens.  If you want a checklist
+of equipment you should seek, type "^Bhelp starting gear^N"
+ 
+Go north by typing the letter N or "^Bnorth^N".
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 706
+~
+~
+Dr 1 0 0 704
+~
+~
+End
+
+#706
+N Mud School 501~
+Ref 0
+D
+Who are you?  Type "^Bscore^N" to see some basic information
+about yourself.  Type "^Bhistory^N" to see your accomplishments.
+ 
+Go north by typing the letter N and hitting return.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 707
+~
+~
+Dr 2 0 0 705
+~
+~
+End
+
+#707
+N Mud School 601~
+Ref 0
+D
+If you type "^Bscore^N" you will see your statistics, such as
+your current settings and standings.  It also tells you how much
+experience you've collected and certain political traits about
+yourself.
+ 
+Go east to continue, by typing "^Beast^N".
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 708
+~
+~
+Dr 2 0 0 706
+~
+~
+End
+
+#708
+N Mud School 701~
+Ref 0
+D
+You may be seeing the words fine and fresh located on your
+screen.... these words represent your physical condition
+at this very moment.   The word fine refers to your
+physical health -- this could be anything from 'fine'
+to 'massacred'.
+ 
+The world 'fresh' refers to your fatigue level.  As you move,
+you tire, until you cannot move without resting.
+ 
+This prompt is something you can customize.  Type "^Bhelp prompt^N"
+if you want more information.
+ 
+Go east to continue.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 709
+~
+~
+Dr 3 0 0 707
+~
+~
+End
+
+#709
+N Mud School 801~
+Ref 0
+D
+When you move, you tire, and to refresh yourself you must wait,
+preferably while resting.
+ 
+You may type "^Bsleep^N" to sleep, then "^Bwake^N" or "^Bstand^N"
+to wake up from a nap.  You CANNOT type"^Blook^N" while sleeping,
+and you may miss events in the room.  You CAN type "^Bsco^N" (for score)
+"^Beq^N" "^Bwho^N" and "^Bhistory^N" while sleeping.
+ 
+Sleep is a good time to dream.  If you aren't having any dreams
+while you sleep, it's also a good time to read our help files.
+ 
+Go ^Bsouth^N to continue.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 500
+~
+~
+Dr 3 0 0 708
+~
+~
+End
+
+#710
+N Mud School 901~
+Ref 0
+D
+You now need to kill an "actor" or "mob" to get some more equipment.
+A mob is a general term for any computer-controlled creature in
+the game.  When you go south, you will see a Lizard.  
+ 
+You will want to "^Bconsider lizard^N" before attacking it.  It is
+unwise to fight something you have not considered.
+ 
+To initiate a fight, type "^Bkill lizard^N" -- you may type the
+name lizard, or "^Bk lizard^N" for short.
+ 
+Go south when you are ready.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 500
+~
+~
+Dr 2 0 0 711
+~
+~
+End
+
+#711
+N Mud School 1001~
+Ref 0
+D
+In this room you see an actor.  Type "^Blook lizard^N" to look at
+the lizard.  You will want to "^Bconsider lizard^N" to learn
+its strength before attacking it.  Type "^Bcon lizard^N" --
+ 
+Think about it, and, if you are ready, attack by typing "^Bk liz^N" or
+"^Bkill lizard^N"
+ 
+When the battle has ended, type "^Bget all corpse^N" and then
+move down by typing "^Bdown^N".
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 711 1 100 1
+Dr 0 0 0 710
+~
+~
+Dr 5 0 0 712
+~
+~
+End
+
+#712
+N MudSchool Basement~
+Ref 0
+D
+If you type "^Binv^N" (short for "^Binventory^N") you will see
+the items you are carrying.  Type "^Bset map^N" to see the map. 
+ 
+Type "^Bnorth^N" to continue.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 713
+~
+~
+Dr 4 0 0 711
+~
+~
+End
+
+#713
+N Mud School 1101~
+Ref 0
+D
+To remove an item from your INVENTORY you may drop it on the floor
+by typing "^Bdrop <xxx>^N" -- items on the floor are NOT safe.
+Someone could drop by and just take your item, so keep an eye on
+it.  Short periods of time in empty rooms may be safe.
+ 
+"^Bremove <xx>^N" or "^Brem <xx>^N"  take off clothing, armor or jewelry
+"^Bdrop <xx>^N"     drops an item, if you type "^Blook^N" you'll see it
+"^Bget <xx>^N"      gets something off of the floor
+ 
+Try this, and "^Blook^N" at the room before you leave to be SURE you
+have left nothing behind:
+"^Bremove belt^N", "^Bdrop belt^N", "^Blook^N", "^Bg belt^N", "^Bwear belt^N"
+ 
+Go north to continue.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 714
+~
+~
+Dr 2 0 0 712
+~
+~
+End
+
+#714
+N Mud School 1201~
+Ref 0
+D
+Your quest now is to kill mobs and to get more gold, equipment
+and items.  You will also get the experience points from your
+combat successes.  The command "^Bworth^N" or "^Bmoney^N" tells
+you how much you have.  
+ 
+Once you gain 1000 experience points, you will gain a level.
+ 
+Go north.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 715
+~
+~
+Dr 2 0 0 713
+~
+~
+End
+
+#715
+N Mud School 1301~
+Ref 0
+D
+You are in a damp, mouldy dungeon.  Moans and disturbing noises
+tell you that all is not well here.  In the next five chambers
+there are creatures for you to kill.  Each has equipment you need
+for your journey.  Make sure to "^Bconsider^N" your opponents
+and "^Bkill^N" each of them.  Watch your health!  It is
+safe to sleep here to regain health and fatigue.  Remember to
+type "^Bsleep^N" and "^Bwake^N" to do this.
+ 
+Go north.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 716
+~
+~
+Dr 2 0 0 714
+~
+~
+End
+
+#716
+N Mud School 1401~
+Ref 0
+D
+There is something to kill here, scuttling around in the shadows.
+If you don't see it, someone may have just killed it.  Wait a bit
+until it reappears, then use "^Bcon^N" and "^Bkill^N" to defeat it.
+ 
+Go west when your battle is over.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 716 1 100 1
+Dr 2 0 0 715
+~
+~
+Dr 3 0 0 717
+~
+~
+End
+
+#717
+N Mud School 1501~
+Ref 0
+D
+The smell of mildew assails your nostrils.  You see, in the dank
+darkness, an arachnid exploring a crevice.
+ 
+Check your health, "^Bcon^N" and "^Bkill^N" when you are ready.
+ 
+Go west when the battle is concluded.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 717 1 100 1
+Dr 1 0 0 716
+~
+~
+Dr 3 0 0 718
+~
+~
+End
+
+#718
+N Mud School 1601~
+Ref 0
+D
+You hear an odd swishing noise.  As your eyes adjust to the light
+you see that this room is a little tidier than the previous ones.
+ 
+Go south after the battle.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 718 1 100 1
+R O 718 -1 100 1
+Dr 1 0 0 717
+~
+~
+Dr 2 0 0 719
+~
+~
+End
+
+#719
+N Mud School 1602~
+Ref 0
+D
+At your feet is a pool of some dark red sticky liquid that
+glistens in the dim light.  Your skin crawls and you feel uneasy.
+ 
+Check your health and then "^Bget all corpse^N" --
+then move south.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 720 -5 100 1
+R O 721 -3 100 1
+Dr 0 0 0 718
+~
+~
+Dr 2 0 0 720
+~
+~
+End
+
+#720
+N Mud School 1701~
+Ref 0
+D
+Some mobs are AGGRESSIVE and attack you at the moment you enter
+the room.
+ 
+Type "^Bscan^N" and then move east.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 719
+~
+~
+Dr 1 0 0 721
+~
+~
+End
+
+#721
+N Mud School Annex~
+Ref 0
+D
+Congratulations!  You have mastered your first challenge.  You
+are now ready to proceed to the next level of Mud School.
+ 
+Once you have learned just a few more things, you'll be ready
+for adventuring!
+ 
+Type "^Bscore^N" to check your score, and see how many more points
+will add up to 1000.
+ 
+Go north when you are ready for the next challenge.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 720 1 100 1
+Dr 0 0 0 722
+~
+~
+Dr 3 0 0 720
+~
+~
+End
+
+#722
+N Advanced Mud School Lobby~
+Ref 0
+D
+You are in the Lobby of the Advanced Mud School.
+ 
+If you type "^Bset exits^N" you will be given extra
+information when you "^Blook^N" in a room.
+ 
+You may also type "^Bexits^N" to see which ways you can leave a room.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 722 1 100 1
+Dr 0 0 0 723
+~
+~
+Dr 2 0 0 721
+~
+~
+End
+
+#723
+N Advanced Mud School 101~
+Ref 0
+D
+Type "^Bhelp wear^N" for more details.  With some weapons you can
+"^Bdraw^N" and "^Bsheathe^N" using a belt, as well as "^Bput^N" items to be
+stored away.  Another, related command is "^Bswap^N" which switches objects
+between your two hands, or between one of your hands and a pack in your
+inventory.  
+ 
+Type "^Bnorth^N" when you are ready to proceed.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 520
+~
+~
+Dr 2 0 0 722
+~
+~
+End
+
+#724
+N End of Advanced Mud School~
+Ref 0
+D
+Congratulations!  You have graduated!  There is one last little
+lesson before we send you on your way:
+ 
+There is a special command called "^Bhome^N" which transports you
+back to your hometown.  You can always type "^Bhome^N" if you
+lose your bearings or end up in a tight spot.
+ 
+Keep in mind that there are reprocussions to your actions.  In
+your "^Bscore^N" there is a rating of your ^Bkarma^N, which
+is a rating of what types of enemies you are killing.  Try not
+to fight the good guys!  (Unless you want to.)
+ 
+Type ^Bhome^N to return to your hometown.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 500 1 100 1
+R O 538 -5 100 1
+Dr 2 5 0 521
+~
+back door~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,5306 @@
+#ZONE 
+N Pi'Chek-Ur~
+B None~
+V 15600 15699
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#15600
+N guardsman guard~
+SD the Pi'Chek-Ur guardsman~
+LD
+ A Pi'Chek-Ur guardsman is standing here, making sure there is no trouble.
+~
+D
+ This guard is surely a trained and skilled fighter.  He is fully armed and
+armored, and he uses his equipment with a practiced precision.  Luckily for 
+you, this guard will only use his deadly skills for the good of the citizens of
+Pi'Chek-Ur.
+~
+A 5
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 475
+O ~
+AP 25 25 25 25 25
+At 0 10 15 4
+At 1 5 6 5
+At 3 1 40 0
+End
+
+#15601
+N marshall diana~
+SD Marshall Diana~
+LD
+ Diana, the Marshall of Pi'Chek-Ur, stands here proudly.
+~
+D
+ Diana is a beautiful, powerfully built woman.  She wears platinum armor for
+three reasons.  The first is to show she is strong enough to withstand the
+weight.  The second is to show her rank of office.  The third is that platinum
+is the hardest metal she can find.  She is willing to defend Pi'Chek-Ur to her 
+death.
+~
+A 3
+AB 8328
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 33
+O ~
+AP 15 15 15 15 15
+At 0 10 12 13
+End
+
+#15602
+N derrick captain guard guardsman~
+SD Captain Derrick~
+LD
+ Derrick, Captain of the Guard, is here disciplining his guards.
+~
+D
+ Derrick is a very big man.  He has acquired this station, not by brains or
+charm, but by brute strength.  He had fought in three muidar wars and is a
+descendent of a surviving guardsman of old Thalos.  He believes that everything
+has to be hard won to be kept, and that laxity is for the weak.
+~
+A 65
+AB 8328
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 379
+O ~
+AP 19 19 19 19 19
+At 0 10 23 11
+At 1 5 21 8
+End
+
+#15603
+N jacklyn captain guard guardsman~
+SD Captain Jacklyn~
+LD
+ Jacklyn, Captain of the Citadel Guard, is here
+bringing her soldiers' morale up.
+~
+D
+ Jacklyn is pale and wiry, but then, so are most other witches.  The fact that
+Jacklyn is a mage and a warrior makes her the perfect captain of the citadel
+guards.  Jacklyn is very beautiful, but whether it is due to her pale softness
+or her magic, no one has ever found out.  She isn't very strong physically, but
+she need not be.
+~
+A 3
+AB 8200
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 476
+O ~
+AP 25 25 25 25 25
+At 0 10 16 5
+At 1 5 25 10
+End
+
+#15604
+N jim blacksmith~
+SD Jim the Blacksmith~
+LD
+ Jim the Blacksmith is here, selling his latest works of metal.
+~
+D
+ Jim is big and brawny, just like what you'd expect of a blacksmith.  He is
+smiling a very big smile, as he looks at your coins.  You wonder if he likes
+the metals or the value of the coins.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 455
+O ~
+AP 25 25 25 25 25
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 23 605
+ H 9 0
+ F 0
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ (null)~
+ Str2
+ (null)~
+ Str3
+ (null)~
+ Str4
+ (null)~
+EndShop
+At 0 10 16 14
+At 1 5 7 4
+At 3 1 25 6
+End
+
+#15605
+N sam~
+SD Sam~
+LD
+ Sam is here, selling his leather works.
+~
+D
+ Sam is a middle-aged workman.  He looks tired, but never too tired to get that
+last sale from you.  He grins at you slightly.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 22 14
+End
+
+#15606
+N madam tracy~
+SD Madam Tracy~
+LD
+ Madam Tracy is here, selling and buying little treasures.
+~
+D
+ Madam Tracy is a bit old, but not to the point of senility.  Besides, she knows
+the hard ways of this world and is ready for it.  She spends her time at the
+shop, trading little things (for a wee bit of profit).
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 845
+O ~
+AP 25 25 25 25 40
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 23 607
+ H 0 19
+ F 0
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ (null)~
+ Str2
+ (null)~
+ Str3
+ (null)~
+ Str4
+ (null)~
+EndShop
+At 0 10 59 11
+At 1 5 9 0
+At 6 5 34 3
+End
+
+#15607
+N marty~
+SD Marty~
+LD
+ Marty the meat store owner is here, selling you his choice meats.
+~
+D
+ Marty is a big man.  He used to hunt the animals he sells, but now he lets his
+son, Jim, raise and slaughter the animals for him.  Marty still knows how to
+kill, though.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 31
+O ~
+AP 15 15 15 15 15
+At 0 10 11 8
+End
+
+#15608
+N elizabeth farmer~
+SD Farmer Elizabeth~
+LD
+ Farmer Elizabeth is here, selling the latest crop.
+~
+D
+ Elizabeth is a very happy woman.  She can't believe the nice weather here in
+Pi'Chek-Ur, and the great vegetables this land produces is unbelievable to her too.
+Farmer Elizabeth smiles at you nicely, but you bet she is doing that just to
+get a good price off of you!
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 500
+O ~
+AP 25 25 25 25 25
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 23 622
+ H 0 17
+ F 0
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ (null)~
+ Str2
+ (null)~
+ Str3
+ (null)~
+ Str4
+ (null)~
+EndShop
+At 0 10 19 5
+At 1 5 13 12
+End
+
+#15609
+N granny jenkins~
+SD Granny Jenkins~
+LD
+ Granny Jenkins is here, running the still.
+~
+D
+ Granny Jenkins is a feeble woman, but she knows her brew.  She might be very
+old, but she is still in charge of the still.  She cackles lightly at herself
+every time she tastes her whiskey, which is quite often!
+Granny Jenkins cackles again.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 742
+O ~
+AP 25 25 25 25 40
+At 0 10 62 8
+At 1 5 66 5
+At 2 1 60 12
+At 6 5 58 13
+End
+
+#15610
+N jack~
+SD Jack~
+LD
+ Jack is here slaughtering away at the animals.
+~
+D
+ Jack is the son of Marty, and you can see the family resemblance (especially in
+their shared affinity for slaughtering animals.)  Jack leers at you as you
+enter.  "Came by to watch, eh?", he asks.
+~
+A 163
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 200 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 13 8
+At 1 5 16 14
+At 2 1 39 5
+End
+
+#15611
+N sara farmer~
+SD Farmer Sara~
+LD
+ Farmer Sara is here, milking the cows.
+~
+D
+ Farmer Sara is all covered with bits of straw and grime, but underneath all
+that, she doesn't look that bad.  She smiles at you demurely, and goes back to
+her work.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 800 E 532
+O ~
+AP 25 25 25 25 35
+At 0 10 17 5
+At 1 5 8 13
+End
+
+#15612
+N chicken hen~
+SD a hen~
+LD
+ A hen is here, squawking at your intrusion.
+~
+D
+ The hen has yellow feathers and small wings.  It looks like a chicken, if
+you've ever seen one.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 7366
+At 0 10 15 5
+End
+
+#15613
+N cow~
+SD the cow~
+LD
+ A cow is here, munching on grass.
+~
+D
+ The cow is here happily grazing.  It moos at you and goes back to grazing.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 257
+O ~
+AP 19 19 19 19 19
+At 0 10 11 0
+At 1 5 16 12
+End
+
+#15614
+N cow~
+SD the cow~
+LD
+ A cow is here, waiting to be milked.
+~
+D
+ The cow is just standing here.  She moos at you and otherwise ignores you.
+~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 79
+O ~
+AP 15 15 15 15 15
+At 0 10 13 7
+End
+
+#15615
+N horse young~
+SD the young horse~
+LD
+ A young horse is here, grazing.
+~
+D
+ The horse whinnies at you, then runs around you a few times, then just goes
+back to grazing.
+~
+A 2209
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 463
+O ~
+AP 25 25 25 25 25
+At 0 10 15 5
+At 1 5 16 7
+End
+
+#15616
+N pig~
+SD the pig~
+LD
+ A pig is playing here, getting itself and you dirty.
+~
+D
+ The pig looks dirty.  It snorts and sniffs at you, then goes back to its slop.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 239
+O ~
+AP 15 15 15 15 15
+At 0 10 15 11
+End
+
+#15617
+N citizen man~
+SD the citizen~
+LD
+ A citizen is here, smiling at you.
+~
+D
+ The citizen smiles at you.  He is having a great day, and he wishes the same
+for you.  He looks at you strangely, though, wondering why you are so armed and
+armored.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 332
+O ~
+AP 19 19 19 19 19
+At 0 10 22 7
+At 1 5 15 4
+End
+
+#15618
+N citizen woman~
+SD the citizen~
+LD
+ A citizen is here, smiling at you.
+~
+D
+ The citizen smiles at you.  She is having a great day, and she wishes the same
+for you.  She looks at you strangely, though, wondering why you are so armed
+and armored.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 942
+O ~
+AP 25 25 25 25 40
+At 0 10 16 3
+At 1 5 57 7
+At 3 1 34 9
+At 5 1 32 18
+At 6 5 39 3
+End
+
+#15619
+N child boy~
+SD the boy~
+LD
+ A boy is here, playing tag and other kids' games.
+~
+D
+ The little boy looks up at you and says, 'Hi.  Can I have a piece of candy?'
+He then smiles and runs away, remembering his game.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 377
+O ~
+AP 19 19 19 19 19
+At 0 10 15 5
+At 1 5 22 3
+End
+
+#15620
+N child girl~
+SD the girl~
+LD
+ A girl is here, playing jump jacks and other kids' games.
+~
+D
+ The little girl looks up at you and says, 'Hi.  Can I have a pretty little
+coin?'  She then smiles and runs away, remembering her game.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 374
+O ~
+AP 19 19 19 19 19
+At 0 10 14 3
+At 1 5 20 8
+At 2 1 20 12
+End
+
+#15621
+N maid woman~
+SD the maid~
+LD
+ A maid is here, cleaning the house and preparing the next meal.
+~
+D
+ The maid startles at your presence.  'You are ruining my floors!  Wait till
+Master and Mistress come back.  You will get me in trouble!  Shoo!', she says.
+She hits you with her broom.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 994
+O ~
+AP 25 25 25 25 40
+At 0 10 18 5
+At 1 5 88 5
+At 3 1 28 20
+At 4 1 17 2
+At 5 1 30 14
+At 6 5 65 9
+End
+
+#15622
+N nyles~
+SD Nyles the Bartender~
+LD
+ Nyles the Bartender is here, ready to serve you up a good brew.
+~
+D
+ Nyles is a hefty guy, who looks like he's waiting for the next bar fight to
+join in.  He keeps an eye on you and his glasses, making sure you don't steal
+any.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 32
+O ~
+AP 15 15 15 15 15
+At 0 10 18 13
+End
+
+#15623
+N guardsman guard~
+SD the Pi'Chek-Ur guardsman~
+LD
+ A Pi'Chek-Ur guardsman is posted here to guard the gate.
+~
+D
+ This guard is surely a trained and skilled fighter.  He is fully armed and
+armored, and he uses his equipment with a practiced precision.  Luckily for 
+you, this guard will only use his deadly skills for the good of the citizens of
+Pi'Chek-Ur.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 500
+O ~
+AP 25 25 25 25 25
+At 0 10 15 14
+At 1 5 9 8
+At 2 1 38 12
+End
+
+#15624
+N bard~
+SD a bard~
+LD
+ A bard is here, singing of the glories of Pi'Chek-Ur.
+~
+D
+ After years of traveling around the world, this bard has decided to stay in the
+peaceful city of Pi'Chek-Ur, and to sing of its unmatched glories.  He smiles at
+you, hinting toward a tip from you in ever a subtle way.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 800 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 17 5
+At 1 5 24 5
+At 2 1 38 13
+End
+
+#15625
+N servant~
+SD a servant~
+LD
+ A servant is here, carrying the duties of the Keeper of the Golden Citadel.
+~
+D
+ The servant smiles good-naturedly at you, then goes on his duties.
+~
+A 65
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 136
+O ~
+AP 15 15 15 15 15
+At 0 10 13 11
+End
+
+#15626
+N squire~
+SD a squire~
+LD
+ A squire is here, scurrying from duty to duty.
+~
+D
+ This young man smiles at you, but is too busy to chat.
+~
+A 65
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 19 13
+End
+
+#15627
+N page~
+SD a page~
+LD
+ A page is here, sending a message to his knight.
+~
+D
+ The page smiles for you, asking if he can do you a favor too.
+~
+A 65
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 74
+O ~
+AP 15 15 15 15 15
+At 0 10 13 11
+End
+
+#15628
+N priestess~
+SD the Priestess of Pi'Chek-Ur~
+LD
+ The Priestess of Pi'Chek-Ur is here, blessing you 
+with her beatific smile.
+~
+D
+ The Priestess of Pi'Chek-Ur is an old woman, perfectly at peace with herself and 
+with the world.  She devotes all her time to help teach you the ways of her
+god, Bahamut.  The dragon symbol around her neck looks almost alive.
+~
+A 3
+AB 8322
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 31
+O ~
+AP 15 15 15 15 15
+At 0 10 17 0
+End
+
+#15629
+N chaplain jerrold~
+SD Chaplain Jerrold~
+LD
+ Jerrold, the chaplain of this Citadel, is here 
+directing the activities of the people around here.
+~
+D
+ He smiles at you, with the enthusiasm of a little kid.  "What're you doing just
+STANDING here, young man?  Go help that other squire there!", he yells.  He
+turns to you and with a consipatory tone, whispers, "Kids!"
+~
+A 65
+AB 8322
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 964
+O ~
+AP 25 25 25 25 40
+At 0 10 58 8
+At 1 5 67 1
+At 6 5 46 4
+End
+
+#15630
+N dragonlord lord dragon~
+SD a Dragonlord~
+LD
+ A knight wearing the scales of a dragon stands here.
+~
+D
+ This person looks almost like a dragon itself.  His golden scales gleam with
+power.  He smiles at you with a vicious grin.  You're happy that he doesn't
+look upset at your presence. 
+~
+A 3
+AB 8322
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 15 12
+End
+
+#15631
+N dragon gold~
+SD The Ancient Gold Dragon~
+LD
+ An old dragon shimmering with the colors of this 
+cavern peers at you sleepily.
+~
+D
+ This dragon's head is taller than you.  He is annoyed at your disturbance, but
+realizing that you're no danger to him, he ignores you.  He waves to one of
+his attendants to escort you away.
+~
+A 7
+AB 8834
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 37
+O ~
+AP 15 15 15 15 15
+At 0 10 21 3
+End
+
+#15632
+N attendant~
+SD an attendant of the dragon~
+LD
+ A person robed in gold is attending to the Keeper of the Citadel.
+~
+D
+ This elder servant to the Gold Dragon is very loyal to him, willing to risk
+his life for his liege.
+~
+A 3
+AB 8194
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 233
+O ~
+AP 15 15 15 15 15
+At 0 10 14 2
+End
+
+#15633
+N dragonknight knight dragon~
+SD a Dragonknight~
+LD
+ A person dressed in the scales of a gold dragon 
+stands here, guarding the Golden Citadel.
+~
+D
+ This person looks like a dragon itself.  His golden scales gleam with power.
+He smiles at you, showing very sharp teeth.
+~
+A 65
+AB 8194
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 175
+O ~
+AP 15 15 15 15 15
+At 0 10 15 5
+End
+
+#15634
+N guardsman guard~
+SD the Pi'Chek-Ur guardsman~
+LD
+ A Pi'Chek-Ur guardsman is posted here to guard the gate.
+~
+D
+ This guard is surely a trained and skilled fighter.  He is fully armed and
+armored, and he uses his equipment with a practiced precision.  Luckily for 
+you, this guard will only use his deadly skills for the good of the citizens of
+Pi'Chek-Ur.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 475
+O ~
+AP 25 25 25 25 25
+At 0 10 15 8
+At 1 5 17 0
+At 2 1 34 9
+End
+
+#0
+
+
+
+#OBJDATA
+#15600
+N handaxe hand axe~
+SD a handaxe~
+P ~
+D
+A handaxe is on the floor here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 100
+O ~
+V 0 1 8 3
+ED handaxe hand axe~
+You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
+withstand years of use.
+~
+End
+
+#15601
+N meat cleaver~
+SD a meat cleaver~
+P ~
+D
+A sharp meat cleaver is just lying on the floor here!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 150
+O ~
+V 0 2 4 3
+ED meat cleaver~
+This meat cleaver is made of good steel.
+~
+End
+
+#15602
+N side meat beef~
+SD a side of beef~
+P ~
+D
+A side of beef is here on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 50
+O ~
+V 24 0 0 0
+End
+
+#15603
+N side meat pork~
+SD a side of pork~
+P ~
+D
+A side of pork is here on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 45
+O ~
+V 23 0 0 0
+End
+
+#15604
+N side meat horse~
+SD a side of horse~
+P ~
+D
+A side of horse is here on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 12
+C 60
+O ~
+V 30 0 0 0
+End
+
+#15605
+N meat chicken~
+SD a defeathered chicken~
+P ~
+D
+A defeathered chicken is here on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 30
+O ~
+V 16 0 0 0
+End
+
+#15606
+N emerald ring~
+SD an emerald ring~
+P ~
+D
+An emerald ring is on the floor, gathering dust.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 10000
+O ~
+V 0 0 0 0
+End
+
+#15607
+N glass trinket~
+SD a glass trinket~
+P ~
+D
+A glass trinket is on the floor, gathering dust.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 0 0 0 0
+End
+
+#15608
+N golden necklace~
+SD a golden necklace~
+P ~
+D
+A golden necklace is on the floor, gathering dust.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 2
+C 10000
+O ~
+V 0 0 0 0
+End
+
+#15609
+N cabbage~
+SD a head of cabbage~
+P ~
+D
+Some fresh cabbage is here, get it while it lasts!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 20
+O ~
+V 12 0 0 0
+End
+
+#15610
+N lettuce~
+SD a head of lettuce~
+P ~
+D
+Some fresh lettuce is here, get it while it lasts!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 20
+O ~
+V 12 0 0 0
+End
+
+#15611
+N milk bottle~
+SD a bottle of milk~
+P ~
+D
+A glass bottle of milk is on a shelf here, fresh from the cow.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 40
+O ~
+V 20 20 10 0
+End
+
+#15612
+N apple~
+SD an apple~
+P ~
+D
+An apple is on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 5
+O ~
+V 8 0 0 0
+End
+
+#15613
+N corn~
+SD an ear of corn~
+P ~
+D
+An ear of corn is on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 5
+O ~
+V 8 0 0 0
+End
+
+#15614
+N hay pile~
+SD a pile of hay~
+P ~
+D
+There is a big pile of hay here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 20
+C 0
+O ~
+V 0 0 0 0
+End
+
+#15615
+N pitchfork fork~
+SD a pitchfork~
+P ~
+D
+A pitchfork is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 50
+O ~
+V 0 3 3 11
+End
+
+#15616
+N vest~
+SD a leather vest~
+P ~
+D
+A leather vest is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 10
+C 50
+O ~
+V 2 0 0 0
+End
+
+#15617
+N sleeves~
+SD some leather sleeves~
+P ~
+D
+Some leather sleeves are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 5
+C 50
+O ~
+V 2 0 0 0
+End
+
+#15618
+N leggings~
+SD some leather leggings~
+P ~
+D
+Some leather leggings are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 5
+C 50
+O ~
+V 2 0 0 0
+End
+
+#15619
+N boots~
+SD some leather boots~
+P ~
+D
+Some leather boots are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 5
+C 50
+O ~
+V 2 0 0 0
+End
+
+#15620
+N signet ring~
+SD an Pi'Chek-Ur signet ring~
+P ~
+D
+A shiny ring of gold is in the dirt.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15621
+N plate brass~
+SD brass plate~
+P ~
+D
+A pile of brass plates is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 9
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15622
+N helm brass~
+SD a brass helm~
+P ~
+D
+A brass helm is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 17
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15623
+N leggings brass~
+SD brass leggings~
+P ~
+D
+A pile of brass plates is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 33
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15624
+N boots brass~
+SD brass boots~
+P ~
+D
+Some brass boots are against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 65
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15625
+N gauntlets brass~
+SD brass gauntlets~
+P ~
+D
+Some brass gauntlets are against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 129
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15626
+N sleeves brass~
+SD brass sleeves~
+P ~
+D
+A pile of brass plates is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 257
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15627
+N shield brass~
+SD a brass shield~
+P ~
+D
+A big plate of brass is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 513
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15628
+N girth brass~
+SD a brass girth~
+P ~
+D
+A brass girth is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 2049
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15629
+N bracer brass~
+SD a brass bracer~
+P ~
+D
+A brass bracer is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 4097
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#15630
+N claymore sword~
+SD a claymore~
+P ~
+D
+A VERY big sword is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 16
+C 1000
+O ~
+V 0 4 4 1
+End
+
+#15631
+N plate silver~
+SD silver plate~
+P ~
+D
+A pile of silver plating and chain is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 9
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15632
+N helm silver~
+SD a silver helm~
+P ~
+D
+A shiny helm is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 17
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15633
+N leggings silver~
+SD silver leggings~
+P ~
+D
+Some shiny leggings are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 33
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15634
+N boots silver~
+SD silver boots~
+P ~
+D
+Some shiny boots are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 65
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15635
+N gauntlets silver~
+SD silver gauntlets~
+P ~
+D
+Some shiny gauntlets are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 129
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15636
+N sleeves silver~
+SD silver sleeves~
+P ~
+D
+Some shiny sleeves are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 257
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15637
+N shield silver~
+SD the silver shield~
+P ~
+D
+A shiny shield is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 513
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15638
+N girth silver~
+SD the silver girth~
+P ~
+D
+A shiny girth is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 2049
+Sz 18
+Ti 0
+Wt 20
+C 2000
+O ~
+V 8 0 0 0
+End
+
+#15639
+N plate platinum~
+SD platinum plate~
+P ~
+D
+A pile of silvery metal is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 9
+Sz 18
+Ti 0
+Wt 50
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15640
+N helmet platinum~
+SD the platinum helmet~
+P ~
+D
+A silvery helmet is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 17
+Sz 18
+Ti 0
+Wt 30
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15641
+N leggings platinum~
+SD platinum leggings~
+P ~
+D
+Some silvery leggings are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 33
+Sz 18
+Ti 0
+Wt 40
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15642
+N boots platinum~
+SD platinum boots~
+P ~
+D
+Some silvery boots are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 65
+Sz 18
+Ti 0
+Wt 40
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15643
+N gauntlets platinum~
+SD platinum gauntlets~
+P ~
+D
+A pair of silvery gauntlets are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 129
+Sz 18
+Ti 0
+Wt 40
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15644
+N sleeves platinum~
+SD platinum sleeves~
+P ~
+D
+A pair of silvery sleeves are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 257
+Sz 18
+Ti 0
+Wt 40
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15645
+N shield spiked platinum~
+SD the platinum spiked shield~
+P ~
+D
+A jagged, silvery shield is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 513
+Sz 18
+Ti 0
+Wt 40
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15646
+N girth platinum~
+SD the platinum girth~
+P ~
+D
+A silvery girth is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 2049
+Sz 18
+Ti 0
+Wt 40
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#15647
+N avenger holy sword~
+SD holy Avenger~
+P ~
+D
+A glowing silvery sword is hovering here, ready to possess an owner.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1088
+W 8193
+Sz 18
+Ti 0
+Wt 25
+C 10000
+O ~
+V 30 5 6 1
+End
+
+#15648
+N whiskey shot~
+SD a shot of whiskey~
+P ~
+D
+A shot of whiskey is on the table.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 10
+O ~
+V 5 5 5 0
+End
+
+#15649
+N ale quart~
+SD a quart of ale~
+P ~
+D
+A quart of ale is on the table.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 8
+C 20
+O ~
+V 50 50 3 0
+End
+
+#15650
+N port brew quart~
+SD a quart of port brew~
+P ~
+D
+A quart of port brew is on the table.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 8
+C 20
+O ~
+V 50 50 4 0
+End
+
+#15651
+N key citadel~
+SD the citadel key~
+P ~
+D
+A key is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#15652
+N symbol holy~
+SD the Holy Symbol of Bahamut~
+P ~
+D
+A very shiny symbol is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 1000
+O ~
+V 8 0 0 0
+End
+
+#15653
+N ranseur polearm~
+SD a ranseur~
+P ~
+D
+A heavy polearm is against the wall here, ready to inflict damage.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1088
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 10000
+O ~
+V 0 5 6 2
+End
+
+#15654
+N torso dragonscale golden~
+SD a golden dragonscale torso~
+P ~
+D
+A golden dragonscale torso is on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 9
+Sz 18
+Ti 0
+Wt 25
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15655
+N dragonhelm golden~
+SD a golden dragonhelm~
+P ~
+D
+A golden dragonhelm is on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 17
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15656
+N leggings golden~
+SD golden dragonscale leggings~
+P ~
+D
+Some golden dragonscale leggings are on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 33
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15657
+N boots golden~
+SD golden dragonscale boots~
+P ~
+D
+Some golden dragonscale boots are on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 65
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15658
+N gauntlets golden~
+SD golden dragonscale gauntlets~
+P ~
+D
+Some golden dragonscale gauntlets are on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 129
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15659
+N sleeves golden~
+SD golden dragonscale sleeves~
+P ~
+D
+Some golden dragonscale sleeves are on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 257
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15660
+N shield golden~
+SD a golden dragonscale shield~
+P ~
+D
+A golden dragonscale shield is on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 513
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15661
+N girth golden~
+SD a golden dragonscale girth~
+P ~
+D
+A golden dragonscale girth is on the floor!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 2049
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15662
+N claw golden~
+SD the Golden Claw~
+P ~
+D
+A huge golden claw is on the floor~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1088
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 5000
+O ~
+V 0 5 5 5
+End
+
+#15663
+N orb dragonorb~
+SD the Gold Dragon Orb~
+P ~
+D
+A very large pearl-like sphere is in the center of this room.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 3136
+W 16385
+Sz 18
+Ti 0
+Wt 30
+C 100000
+O ~
+V 14 10 10 0
+End
+
+#15664
+N robe golden~
+SD a golden robe~
+P ~
+D
+A golden robe is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 1025
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 9 0 0 0
+End
+
+#15665
+N house key~
+SD a house key~
+P ~
+D
+A house key is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#15666
+N broom~
+SD a broom~
+P ~
+D
+A broom is against the wall here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 100
+O ~
+V 0 2 3 7
+End
+
+#15667
+N chest~
+SD a chest~
+P ~
+D
+A chest is on the floor here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 100
+O ~
+V 10000 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#15600
+N Granny's Still Room~
+Ref 0
+D
+You are in Granny Jenkins' still room.  The smell of whiskey is heady, and
+the bottles of it on the floor make your mouth water and your mind swirl.  You
+also see a very large still.  So THIS is why there are so many grain fields!
+The exit is to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15609 1 100 1
+Dr 1 0 -1 15616
+You see the storage shed.
+~
+door~
+End
+
+#15601
+N The Big Intersection~
+Ref 0
+D
+You are in the big intersection between Raff Way and Sintri Way.  Crowds 
+of people walk past you as they go on their daily tasks.  Raff Way continues
+east and west, and Sintri Way runs north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 0 0 0 15625
+Sintri Way continues north.
+~
+~
+Dr 1 0 0 15666
+Raff Way continues east.
+~
+~
+Dr 2 0 0 15602
+Sintri Way continues south.
+~
+~
+Dr 3 0 0 20553
+Raff Way continues west.
+~
+~
+End
+
+#15602
+N Sintri Way~
+Ref 0
+D
+You are on Sintri Way.  You can see a leather shop east and a blacksmith
+west.  To the north you see a big intersection, and Sintri Way continues south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15601
+You see the big intersection.
+~
+~
+Dr 1 0 0 15604
+You see the leather shop.
+~
+~
+Dr 2 0 0 15605
+Sintri Way continues south.
+~
+~
+Dr 3 0 0 15603
+You see the blacksmith.
+~
+~
+End
+
+#15603
+N The Blacksmith~
+Ref 0
+D
+You are in a black and smelly room.  Pieces of metal are strewn all over
+the floor, and a wave of heat from a big furnace hits you.  An anvil sits on 
+one side of the room, and on the other side is a workbench.  The exit is east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15604 1 100 1
+Dr 1 0 0 15602
+You see Sintri Way.
+~
+~
+End
+
+#15604
+N The Leather Shop~
+Ref 0
+D
+You are in a brown and smelly room.  Pieces of leather are strewn all over
+the floor.  The smell of burnt hide assaults your nose.  You can tell by the
+looks that the tanning is done VERY CLOSE to here!   A table is near the
+entrance.  The exit is west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 3 0 0 15602
+You see Sintri Way.
+~
+~
+End
+
+#15605
+N Sintri Way~
+Ref 0
+D
+You are on Sintri Way.  To the east is a meat store, and to the west is a
+pawn shop.  Sintri Way continues north and south.  People are rushing around you
+to go to these stores.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15602
+Sintri Way continues North.
+~
+~
+Dr 1 0 0 15607
+You see the Meat Store.
+~
+~
+Dr 2 0 0 15608
+Sintri Way continues south.
+~
+~
+Dr 3 0 0 15606
+You see the Pawn Shop.
+~
+~
+End
+
+#15606
+N Antiques~
+Ref 0
+D
+You are in a little shop filled with a lot of knick knacks and semi-
+valuable goods.  There is a display case full of little treasures that you are
+sure that you or any other little kid would like to touch!  The exit is east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15606 1 100 1
+Dr 1 0 0 15605
+You see Sintri Way.
+~
+~
+End
+
+#15607
+N The Meat Store~
+Ref 0
+D
+You are in a meat store.  Hanging on hooks are meats of many kinds of
+animals.  In the background, you can hear the sound of blade against flesh.
+It smells like meat here (which is not a good smell).  The exit is west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15607 1 100 1
+Dr 3 0 0 15605
+You see Sintri Way.
+~
+~
+End
+
+#15608
+N Sintri Way~
+Ref 0
+D
+You are on Sintri Way.  To the east is Farmer's Market, and to the west is
+Nyles' House of Ale.  Sintri Way runs north and ends south of here.  You can hear
+the sound of housewives gossiping at the market.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 0 0 0 15605
+Sintri Way continues north.
+~
+~
+Dr 1 0 0 15610
+You see the Farmer's Market.
+~
+~
+Dr 2 0 0 15611
+You see the end of Sintri Way.
+~
+~
+Dr 3 0 0 15609
+You see Nyles' House of Ale.
+~
+~
+End
+
+#15609
+N Nyles' House of Ale~
+Ref 0
+D
+This is a very busy bar, with everyone holding homemade bottles of
+ale.  You see even the more gentile persons here, laughing along with
+Nyles, who offers you a quart of ale too.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15622 1 100 1
+Dr 1 0 0 15608
+You see Sintri Way.
+~
+~
+End
+
+#15610
+N Farmer's Market~
+Ref 0
+D
+You see many carts filled with fruits and vegetables.  Many farmers are
+all trying to sell you their produce, each saying their's is better.  The exit
+is west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15608 1 100 1
+Dr 3 0 0 15608
+You see Sintri Way.
+~
+~
+End
+
+#15611
+N The End of Sintri Way~
+Ref 0
+D
+You are at the end of Sintri and of the city part of Pi'Chek-Ur.  To the east is
+a dirt road leading toward the farm animals.  West from here are fields.  Sintri
+Way continues north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15618 3 100 1
+Dr 0 0 0 15608
+Sintri Way continues north.
+~
+~
+Dr 1 0 0 15668
+You see the dirt road.
+~
+~
+Dr 3 0 0 15612
+You see the fields.
+~
+~
+End
+
+#15612
+N Fields~
+Ref 0
+D
+You are in a corn field.  You can't see far, since the corn stalks are
+taller than you are.  You remember that the end of Sintri Way is east of here, 
+and you think you see a building to the north.  The field continues south and 
+west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15616
+You think you see a building north of here.
+~
+~
+Dr 1 0 0 15611
+You remember that the end of Sintri Way is east.
+~
+~
+Dr 2 0 0 15613
+You can make a path to the fields south.
+~
+~
+Dr 3 0 0 15615
+You can make a path to the fields west.
+~
+~
+End
+
+#15613
+N Fields~
+Ref 0
+D
+You are among fruit trees in a field.  You see many apple and orange 
+trees.  You can make out the corn fields north and some vegetable patches west.
+The sight of the fruit makes your mouth water.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15612
+You see the corn fields.
+~
+~
+Dr 3 0 0 15614
+You see the vegetable fields.
+~
+~
+End
+
+#15614
+N Fields~
+Ref 0
+D
+You are among the vegetable fields.  You see many cabbage and lettuce
+patches, along with tomato bushes and potato plants.  To the east are some
+fruit trees, and north are some wheat fields.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15615
+You see the wheat fields.
+~
+~
+Dr 1 0 0 15613
+You see the fruit trees.
+~
+~
+End
+
+#15615
+N Fields~
+Ref 0
+D
+You are among the wheat fields.  The gentle caress of the wheat and the
+cool shadow from the tall stalks and scarecrow lulls you to sleep and dream
+of a little girl and little dog from a faraway place.  To the east are the corn
+stalks, and south of you are the vegetable patches.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15612
+You see the corn fields.
+~
+~
+Dr 2 0 0 15614
+You see the vegetable patches.
+~
+~
+End
+
+#15616
+N The Shed~
+Ref 0
+D
+You are in the storage shed.  Bales of wheat, corn and hay are piled
+against the wall, and some vegetables are in carts.  You see a small door
+on the west door.  The main exit is south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15612
+You see the corn fields.
+~
+~
+Dr 3 0 -1 15600
+You see the door.
+~
+door~
+End
+
+#15617
+N Slaughterhouse~
+Ref 0
+D
+You are in the slaughterhouse, where all the animals are slaughtered so
+that they can be sold or their skins be tanned.  The scream of dying animals
+makes your stomach churn.  The exit is to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15610 1 100 1
+Dr 3 0 0 15668
+You see the dirt road.
+~
+~
+End
+
+#15618
+N Dirt Road~
+Ref 0
+D
+You are on a dirt road.  To the east is a barn, and you see a big chicken
+coop south of you.  The dirt road continues north and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15668
+You see the dirt road.
+~
+~
+Dr 1 0 0 15620
+You see the barn.
+~
+~
+Dr 2 0 -1 15619
+You see the chicken coop.
+~
+coop~
+Dr 3 0 0 15621
+You see the dirt road.
+~
+~
+End
+
+#15619
+N Chicken Coop~
+Ref 0
+D
+You are in the chicken coop.  The smell of chickens and chicken droppings
+makes you gasp.  The exit is north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15612 4 100 1
+R C 127 -1 100 1
+R C 127 -5 100 1
+Dr 0 0 -1 15618
+You can sense the fresh air.
+~
+~
+End
+
+#15620
+N Barn~
+Ref 0
+D
+You are in a barn.  There are some cows here, munching on mounds of hay.
+Milk is milked and bottled here.  You see the exit west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15611 1 100 1
+Dr 3 0 0 15618
+You see the dirt road.
+~
+~
+End
+
+#15621
+N Dirt Road~
+Ref 0
+D
+You are on a dirt road.  To the north and south, you see some grass 
+fields.  There is a pigsty west, and the dirt road continues east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15622
+You see some grass fields.
+~
+~
+Dr 1 0 0 15618
+You see the dirt road.
+~
+~
+Dr 2 0 0 15623
+You see some grass fields.
+~
+~
+Dr 3 0 0 15624
+You see the pigsty.
+~
+~
+End
+
+#15622
+N Grass Field~
+Ref 0
+D
+You are in a grass field.  Fences block the way north, east, and west.
+The dirt road is to the south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 15615 4 100 1
+Dr 2 0 0 15621
+You see the dirt road.
+~
+~
+End
+
+#15623
+N Grass Field~
+Ref 0
+D
+You are in a grass field.  Fences block the way south, east, and west.
+The dirt road is to the north.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 15613 3 100 1
+Dr 0 0 0 15621
+You see the dirt road.
+~
+~
+End
+
+#15624
+N Pig Sty~
+Ref 0
+D
+For some reason, you are in a pig sty.  You wonder why you are standing in
+muck.  To realize your senses and notice the dirt road is to the east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 15616 4 100 1
+Dr 1 0 0 15621
+You see the dry dirt road.
+~
+~
+End
+
+#15625
+N Sintri Way~
+Ref 0
+D
+You are on Sintri Way.  East and west of you are big houses.  Sintri Way
+continues north and reaches a big intersection south.  Children are running to
+from home to home.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15632
+Sintri Way continues north.
+~
+~
+Dr 1 0 665 15626
+You see a big house.
+~
+door~
+Dr 2 0 0 15601
+You see a big intersection.
+~
+~
+Dr 3 0 665 15629
+You see a big house.
+~
+door~
+End
+
+#15626
+N Big House~
+Ref 0
+D
+You are in a big house.  Evidently, the owners of this house are richer
+than the average citizen, since there is more than one room to this house.  A
+door leads to the kitchen east, and a bedroom is upstairs.  The exit is to the
+west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15628
+You see the kitchen.
+~
+~
+Dr 3 0 665 15625
+You see Sintri Way.
+~
+door~
+Dr 4 0 0 15627
+You see the bedroom.
+~
+~
+End
+
+#15627
+N Bedroom~
+Ref 0
+D
+You are in the bedroom.  There isn't much of interest except for a bed and
+a closet.  The stairs lead back down.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15621 3 100 1
+Dr 5 0 0 15626
+You see the main room of the house.
+~
+~
+End
+
+#15628
+N Kitchen~
+Ref 0
+D
+You are in a kitchen.  There isn't much of interest here.  The main room
+is west of here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 15626
+You see the main room of the house.
+~
+~
+End
+
+#15629
+N Big House~
+Ref 0
+D
+You are in a big house.  Evidently, the owners of this house are richer
+than the average citizen, since there is more than one room to this house.  A
+door leads to the kitchen west, and a bedroom is upstairs.  The exit is to the
+east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15621 3 100 1
+Dr 1 0 665 15625
+You see Sintri Way.
+~
+door~
+Dr 3 0 0 15631
+You see the kitchen.
+~
+~
+Dr 4 0 0 15630
+You see the bedroom.
+~
+~
+End
+
+#15630
+N Bedroom~
+Ref 0
+D
+You are in the bedroom.  There isn't much of interest except for a bed and
+a closet.  The stairs lead back down.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 0 15629
+You see the main room of the house.
+~
+~
+End
+
+#15631
+N Kitchen~
+Ref 0
+D
+You are in a kitchen.  There isn't much of interest here.  The main room
+is east of here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15629
+You see the main room of the house.
+~
+~
+End
+
+#15632
+N Sintri Way~
+Ref 0
+D
+You are on Sintri Way.  Houses are to the east and west of here.  Sintri Way
+continues north and south.  There are many people walking along the streets.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15637
+Sintri Way continues north.
+~
+~
+Dr 1 0 -1 15633
+You see a house.
+~
+door~
+Dr 2 0 0 15625
+Sintri Way continues south.
+~
+~
+Dr 3 0 -1 15635
+You see a house.
+~
+door~
+End
+
+#15633
+N House~
+Ref 0
+D
+You are in a house.  The living room and kitchen are all bundled into
+this room.  There is a bedroom south of here.  The exit is west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15634
+You see the bedroom.
+~
+~
+Dr 3 0 -1 15632
+You see Sintri Way.
+~
+door~
+End
+
+#15634
+N Bedroom~
+Ref 0
+D
+You are in a bedroom.  There isn't much of interest here except for a bed
+and a dresser.  The main room of the house is north of here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15633
+You see the main room of the house.
+~
+~
+End
+
+#15635
+N House~
+Ref 0
+D
+You are in a house.  The living room and kitchen are all bundled into
+this room.  There is a bedroom south of here.  The exit is east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15620 2 100 1
+Dr 1 0 -1 15632
+You see Sintri Way.
+~
+door~
+Dr 2 0 0 15636
+You see the bedroom.
+~
+~
+End
+
+#15636
+N Bedroom~
+Ref 0
+D
+You are in a bedroom.  There isn't much of interest here except for a bed
+and a dresser.  The main room of the house is north of here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15635
+You see the main room of the house.
+~
+~
+End
+
+#15637
+N Sintri Way~
+Ref 0
+D
+You are on Sintri Way.  Houses are to the east and west of here.  Sintri Way
+continues south.  To the north is a big intersection.  There are many people
+walking along the streets.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 0 0 0 15642
+You see a big intersection.
+~
+~
+Dr 1 0 -1 15638
+You see a house.
+~
+door~
+Dr 2 0 0 15632
+Sintri Way continues south.
+~
+~
+Dr 3 0 -1 15640
+You see a house.
+~
+door~
+End
+
+#15638
+N House~
+Ref 0
+D
+You are in a house.  The living room and kitchen are all bundled into
+this room.  There is a bedroom south of here.  The exit is west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15639
+You see the bedroom.
+~
+~
+Dr 3 0 -1 15637
+You see Sintri Way.
+~
+door~
+End
+
+#15639
+N Bedroom~
+Ref 0
+D
+You are in a bedroom.  There isn't much of interest here except for a bed
+and a dresser.  The main room of the house is north of here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15638
+You see the main room of the house.
+~
+~
+End
+
+#15640
+N House~
+Ref 0
+D
+You are in a house.  The living room and kitchen are all bundled into
+this room.  There is a bedroom south of here.  The exit is east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 15637
+You see Sintri Way.
+~
+door~
+Dr 2 0 0 15641
+You see the bedroom.
+~
+~
+End
+
+#15641
+N Bedroom~
+Ref 0
+D
+You are in a bedroom.  There isn't much of interest here except for a bed
+and a dresser.  The main room of the house is north of here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15640
+You see the main room of the house.
+~
+~
+End
+
+#15642
+N The Big Intersection~
+Ref 0
+D
+You are on the intersection of Sintri Way and Swiftest Way.  To the north of
+you is a big house.  Swiftest Way runs east and west, and Sintri way continues
+south.  There are quite a few people on this intersection.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 0 0 665 15643
+You see the big house.
+~
+door~
+Dr 1 0 0 15646
+Swiftest Way continues east.
+~
+~
+Dr 2 0 0 15637
+Sintri Way continues south.
+~
+~
+Dr 3 0 0 15649
+Swiftest Way continues west.
+~
+~
+End
+
+#15643
+N Big House~
+Ref 0
+D
+You are in a big house.  Evidently, the owners of this house are richer
+than the average citizen, since there is more than one room to this house.  A
+door leads to the kitchen north, and a bedroom is upstairs.  The exit is to 
+the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15621 3 100 1
+Dr 0 0 0 15645
+You see the kitchen.
+~
+~
+Dr 2 0 665 15642
+You see Sintri Way.
+~
+door~
+Dr 4 0 0 15644
+You see the bedroom.
+~
+~
+End
+
+#15644
+N Bedroom~
+Ref 0
+D
+You are in the bedroom.  There isn't much of interest except for a bed 
+and a closet.  The stairs lead back down.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 0 15643
+You see the main room of the house.
+~
+~
+End
+
+#15645
+N Kitchen~
+Ref 0
+D
+You are in a kitchen.  There isn't much of interest here.  The main room
+is east of here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15902
+~
+~
+Dr 2 0 0 15643
+You see the main room of the house.
+~
+~
+End
+
+#15646
+N Swiftest Way~
+Ref 0
+D
+You are on Swiftest Way, the commoner's residential area.  Small houses
+are north and south of you.  Swiftest Way continues east, and west is a big
+intersection.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15652
+You see a small house.
+~
+~
+Dr 1 0 0 15647
+Swiftest Way continues east.
+~
+~
+Dr 2 0 0 15653
+You see a small house.
+~
+~
+Dr 3 0 0 15642
+You see a big intersection.
+~
+~
+End
+
+#15647
+N Swiftest Way~
+Ref 0
+D
+You are on Swiftest Way, the commoner's residential area.  Small houses
+are north and south of you.  Swiftest Way continues east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 0 0 0 15654
+You see a small house.
+~
+~
+Dr 1 0 0 15648
+You see the end of Swiftest Way.
+~
+~
+Dr 2 0 0 15655
+You see a small house.
+~
+~
+Dr 3 0 0 15646
+Swiftest Way continues west.
+~
+~
+End
+
+#15648
+N End of Swiftest Way~
+Ref 0
+D
+You are on Swiftest Way, the commoner's residential area.  Small houses
+are north, south, and east of you.  Swiftest Way continues west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15617 3 100 1
+Dr 0 0 0 15656
+You see a small house.
+~
+~
+Dr 1 0 0 15657
+You see a small house.
+~
+~
+Dr 2 0 0 15658
+You see a small house.
+~
+~
+Dr 3 0 0 15647
+Swiftest Way continues west.
+~
+~
+End
+
+#15649
+N Swiftest Way~
+Ref 0
+D
+You are on Swiftest Way, the commoner's residential area.  Small houses
+are north and south of you.  Swiftest Way continues west, and to the east you
+see a big intersection.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15659
+You see a small house.
+~
+~
+Dr 1 0 0 15642
+You see the big intersection.
+~
+~
+Dr 2 0 0 15660
+You see a small house.
+~
+~
+Dr 3 0 0 15650
+Swiftest Way continues west.
+~
+~
+End
+
+#15650
+N Swiftest Way~
+Ref 0
+D
+You are on Swiftest Way, the commoner's residential area.  Small houses
+are north and south of you.  Swiftest Way continues east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 0 0 0 15661
+You see a small house.
+~
+~
+Dr 1 0 0 15649
+Swiftest Way continues east.
+~
+~
+Dr 2 0 0 15662
+You see a small house.
+~
+~
+Dr 3 0 0 15651
+You see the end of Swiftest Way.
+~
+~
+End
+
+#15651
+N The end of Swiftest Way~
+Ref 0
+D
+You are on Swiftest Way, the commoner's residential area.  Small houses
+are north, south, and west of you.  Swiftest Way continues east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15663
+You see a small house.
+~
+~
+Dr 1 0 0 15650
+Swiftest Way continues east.
+~
+~
+Dr 2 0 0 15664
+You see a small house.
+~
+~
+Dr 3 0 0 15665
+You see a small house.
+~
+~
+End
+
+#15652
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15620 2 100 1
+Dr 2 0 0 15646
+You see Swiftest Way.
+~
+~
+End
+
+#15653
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15646
+You see Swiftest Way.
+~
+~
+End
+
+#15654
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15647
+You see Swiftest Way.
+~
+~
+End
+
+#15655
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15619 2 100 1
+Dr 0 0 0 15647
+You see Swiftest Way.
+~
+~
+End
+
+#15656
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15648
+You see the end of Swiftest Way.
+~
+~
+End
+
+#15657
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 15648
+You see the end of Swiftest Way.
+~
+~
+End
+
+#15658
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15648
+You see the end of Swiftest Way.
+~
+~
+End
+
+#15659
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15649
+You see Swiftest Way.
+~
+~
+End
+
+#15660
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15649
+You see Swiftest Way.
+~
+~
+End
+
+#15661
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15619 2 100 1
+Dr 2 0 0 15650
+You see Swiftest Way.
+~
+~
+End
+
+#15662
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15650
+You see Swiftest Way.
+~
+~
+End
+
+#15663
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15651
+You see the end of Swiftest Way.
+~
+~
+End
+
+#15664
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15651
+You see the end of Swiftest Way.
+~
+~
+End
+
+#15665
+N Small House~
+Ref 0
+D
+You are in a small house, owned by a commoner of Pi'Chek-Ur.  There isn't much
+of value here to you, but you'd bet that the owner really cherishes the pile
+of stuff here.  The exit is to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15651
+You see the end of Swiftest Way.
+~
+~
+End
+
+#15666
+N Raff Way~
+Ref 0
+D
+You are on Raff Way.  To the west, you can see a big intersection.  To 
+the east, you see Raff Way continue toward the Golden Citadel.  There are 
+beautiful flowers growing along the rode here, making this more of a garden
+than a rode.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15618 3 100 1
+Dr 1 0 0 15667
+Raff Way continues east.
+~
+~
+Dr 3 0 0 15601
+You see the big intersection.
+~
+~
+End
+
+#15667
+N Raff Way~
+Ref 0
+D
+You are on Raff Way.  Raff Way continues west to the city of Pi'Chek-Ur.  To 
+the east, you see Raff Way continue toward the Golden Citadel.  There are 
+beautiful flowers growing along the rode here, making this more of a garden
+than a rode.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15600 8 100 1
+Dr 1 0 0 15699
+You see the entrance of the Golden Citadel.
+~
+~
+Dr 3 0 0 15666
+Raff Way continues west.
+~
+~
+End
+
+#15668
+N Dirt Road~
+Ref 0
+D
+You are on a dirt road.  To the east is a large building with a bad smell
+emanating from it.  To the west is the end of Sintri Way, and this road continues
+south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15617
+You see the large building with the bad smell.
+~
+~
+Dr 2 0 0 15618
+The dirt road continues south.
+~
+~
+Dr 3 0 0 15611
+You see the end of Sintri Way.
+~
+~
+End
+
+#15669
+N The Temple of Pi'Chek-Ur~
+Ref 0
+D
+You are in the Temple of Pi'Chek-Ur.  Golden tiles cover the floor, and solid
+gold columns reach the twelve foot ceiling of this vast chamber.  Servants in
+golden livery wander this place, making even the raggiest messenger boy look
+richer than you are.  Exits lead to the anterooms in the cardinal directions.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15602 1 100 1
+Dr 0 0 0 15670
+~
+~
+Dr 1 0 0 15672
+~
+~
+Dr 2 0 0 15673
+~
+~
+Dr 3 0 0 15671
+~
+~
+End
+
+#15670
+N The Anteroom to the Temple of Pi'Chek-Ur~
+Ref 0
+D
+You are in an anteroom to the Temple of Pi'Chek-Ur.  Gold tiles cover the
+floor, and servants in golden livery pass you by peaceably.  The temple is to
+the south, and to the north is a hallway.  A stairways leads up.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15675
+~
+~
+Dr 2 0 0 15669
+~
+~
+Dr 4 0 0 15686
+~
+~
+End
+
+#15671
+N The Anteroom to the Temple of Pi'Chek-Ur~
+Ref 0
+D
+You are in an anteroom to the Temple of Pi'Chek-Ur.  Gold tiles cover the
+floor, and servants in golden livery pass you by peaceably.  The temple is to
+the east, and to the west is a hallway.  A stairways leads up.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15669
+~
+~
+Dr 3 0 0 15679
+~
+~
+Dr 4 0 0 15687
+~
+~
+End
+
+#15672
+N The Anteroom to the Temple of Pi'Chek-Ur~
+Ref 0
+D
+You are in an anteroom to the Temple of Pi'Chek-Ur.  Gold tiles cover the
+floor, and servants in golden livery pass you by peaceably.  The temple is to
+the west, and to the east is a hallway.  A stairways leads up.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15680
+~
+~
+Dr 3 0 0 15669
+~
+~
+Dr 4 0 0 15689
+~
+~
+End
+
+#15673
+N The Anteroom to the Temple of Pi'Chek-Ur~
+Ref 0
+D
+You are in an anteroom to the Temple of Pi'Chek-Ur.  Gold tiles cover the
+floor, and servants in golden livery pass you by peaceably.  The temple is to
+the north, and to the south is a hallway.  A stairways leads up.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15625 2 100 1
+Dr 0 0 0 15669
+~
+~
+Dr 2 0 0 15684
+~
+~
+Dr 4 0 0 15690
+~
+~
+End
+
+#15674
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead east and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15625 2 100 1
+Dr 1 0 0 15675
+~
+~
+Dr 2 0 0 15677
+~
+~
+End
+
+#15675
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead east, west, and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15676
+~
+~
+Dr 2 0 0 15670
+~
+~
+Dr 3 0 0 15674
+~
+~
+End
+
+#15676
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead west and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15633 3 100 1
+Dr 2 0 0 15678
+~
+~
+Dr 3 0 0 15675
+~
+~
+End
+
+#15677
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15674
+~
+~
+Dr 2 0 0 15679
+~
+~
+End
+
+#15678
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15627 1 100 1
+Dr 0 0 0 15676
+~
+~
+Dr 2 0 0 15680
+~
+~
+End
+
+#15679
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead to the cardinal directions, with the east leading
+toward the Temple of Pi'Chek-Ur, and west leading toward the City of Pi'Chek-Ur.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15677
+~
+~
+Dr 1 0 0 15671
+~
+~
+Dr 2 0 0 15681
+~
+~
+Dr 3 0 0 15698
+~
+~
+End
+
+#15680
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead west, north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15678
+~
+~
+Dr 2 0 0 15682
+~
+~
+Dr 3 0 0 15672
+~
+~
+End
+
+#15681
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15633 3 100 1
+Dr 0 0 0 15679
+~
+~
+Dr 2 0 0 15683
+~
+~
+End
+
+#15682
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15626 2 100 1
+Dr 0 0 0 15680
+~
+~
+Dr 2 0 0 15685
+~
+~
+End
+
+#15683
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead north and east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15626 2 100 1
+Dr 0 0 0 15681
+~
+~
+Dr 1 0 0 15684
+~
+~
+End
+
+#15684
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead east, west, and north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15673
+~
+~
+Dr 1 0 0 15685
+~
+~
+Dr 3 0 0 15683
+~
+~
+End
+
+#15685
+N A Hallway of the Golden Citadel~
+Ref 0
+D
+You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
+and rich golden tapestries drape the walls.  Servants in golden livery pass you
+by peaceably.  Exits lead west and north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15682
+~
+~
+Dr 3 0 0 15684
+~
+~
+End
+
+#15686
+N An Upper Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the upper chambers of the Golden Citadel.  The decora-
+tions of this place surpass even those of the first floor.  Gold tiles etched
+with platinum cover the floor, walls and the ceiling.  The lights from numerous
+torches reflect from these shimmering planes, giving the illusion that you are
+standing in a gem.  Stairways lead up and down, and the hall leads south. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15688
+~
+~
+Dr 4 0 0 15691
+~
+~
+Dr 5 0 0 15670
+~
+~
+End
+
+#15687
+N An Upper Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the upper chambers of the Golden Citadel.  The decora-
+tions of this place surpass even those of the first floor.  Gold tiles etched
+with platinum cover the floor, walls and the ceiling.  The lights from numerous
+torches reflect from these shimmering planes, giving the illusion that you are
+standing in a gem.  Stairways lead up and down, and the hall leads east. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15688
+~
+~
+Dr 4 0 0 15692
+~
+~
+Dr 5 0 0 15671
+~
+~
+End
+
+#15688
+N The Hall of the DragonLords~
+Ref 0
+D
+You are in a vast hall, filled with the commanders of the Golden Citadel.
+Golden tiles etched with platinum cover the floors, and weapons of all types
+are mounted on the walls of this meeting hall.  Surrounding a solid gold table
+are four sons of the Keeper of the Golden Citadel.  They smile at you and ask 
+you to join them in lunch.  Exits lead to the cardinal directions. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15629 1 100 1
+Dr 0 0 0 15686
+~
+~
+Dr 1 0 0 15689
+~
+~
+Dr 2 0 0 15690
+~
+~
+Dr 3 0 0 15687
+~
+~
+End
+
+#15689
+N An Upper Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the upper chambers of the Golden Citadel.  The decora-
+tions of this place surpass even those of the first floor.  Gold tiles etched
+with platinum cover the floor, walls and the ceiling.  The lights from numerous
+torches reflect from these shimmering planes, giving the illusion that you are
+standing in a gem.  Stairways lead up and down, and the hall leads west. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 15688
+~
+~
+Dr 4 0 0 15694
+~
+~
+Dr 5 0 0 15672
+~
+~
+End
+
+#15690
+N An Upper Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the upper chambers of the Golden Citadel.  The decora-
+tions of this place surpass even those of the first floor.  Gold tiles etched
+with platinum cover the floor, walls and the ceiling.  The lights from numerous
+torches reflect from these shimmering planes, giving the illusion that you are
+standing in a gem.  Stairways lead up and down, and the hall leads north. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15633 3 100 1
+Dr 0 0 0 15688
+~
+~
+Dr 4 0 0 15695
+~
+~
+Dr 5 0 0 15673
+~
+~
+End
+
+#15691
+N A Top Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the top chambers of the Golden Citadel.  The decorations
+of this room looks like a dragon's hoard.  The whole room is carved out of pure
+gold, and gems of all types glitter from the walls, ceiling, even the floor.
+It is obvious that this room was not meant for you to intrude upon.  A stair-
+case leads back down, and a doorway leads south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15693
+~
+~
+Dr 5 0 0 15686
+~
+~
+End
+
+#15692
+N A Top Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the top chambers of the Golden Citadel.  The decorations
+of this room looks like a dragon's hoard.  The whole room is carved out of pure
+gold, and gems of all types glitter from the walls, ceiling, even the floor.
+It is obvious that this room was not meant for you to intrude upon.  A stair-
+case leads back down, and a doorway leads east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15693
+~
+~
+Dr 5 0 0 15687
+~
+~
+End
+
+#15693
+N The Dragon Chamber~
+Ref 0
+D
+You are in a vast chamber carved from gold and platinum.  Gems the size of
+a man's fist protrude from the walls, ceiling, and the floor, making your step
+painful.  A vast open sky-light lets fresh air come in from the top.  In the
+center of this chamber, you see a great wealth of coins, and on top of that
+pile of coins, you see a golden dragon squinting at you.  Exits lead to the
+cardinal directions to the anterooms.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15631 1 100 1
+Dr 0 0 0 15691
+~
+~
+Dr 1 0 0 15694
+~
+~
+Dr 2 0 0 15695
+~
+~
+Dr 3 0 0 15692
+~
+~
+Dr 4 0 0 15696
+~
+~
+End
+
+#15694
+N A Top Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the top chambers of the Golden Citadel.  The decorations
+of this room looks like a dragon's hoard.  The whole room is carved out of pure
+gold, and gems of all types glitter from the walls, ceiling, even the floor.
+It is obvious that this room was not meant for you to intrude upon.  A stair-
+case leads back down, and a doorway leads west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 15693
+~
+~
+Dr 5 0 0 15689
+~
+~
+End
+
+#15695
+N A Top Chamber of the Golden Citadel~
+Ref 0
+D
+You are in one of the top chambers of the Golden Citadel.  The decorations
+of this room looks like a dragon's hoard.  The whole room is carved out of pure
+gold, and gems of all types glitter from the walls, ceiling, even the floor.
+It is obvious that this room was not meant for you to intrude upon.  A stair-
+case leads back down, and a doorway leads north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15695
+~
+~
+Dr 5 0 0 15690
+~
+~
+End
+
+#15696
+N Above the Dragon Chamber~
+Ref 0
+D
+You are above the Dragon Chamber.  You curiously note that this shaft that
+connects the chamber to the sky is wide enough that even a dragon can fit
+through.  This shaft leads up and down.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 15697
+~
+~
+Dr 5 0 0 15693
+~
+~
+End
+
+#15697
+N In the Shaft from the Dragon Chamber~
+Ref 0
+D
+You are in the shaft leading from the Dragon Chamber.  Below you lies the
+Dragon Chamber of the Golden Citadel.  Above you, you see the sky, but 
+currently, the way out is sealed by a layer of diamond that looks impenetrable.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 0 15696
+~
+~
+End
+
+#15698
+N Inside the Entrance to the Golden Citadel~
+Ref 0
+D
+You are inside the entrance to the Golden Citadel.  Rich golden tapestries
+line the walls, and golden tiles cover the floors.  The exit to this citadel is
+to the west, while the citadel itself is to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15634 3 100 1
+Dr 1 0 0 15679
+~
+~
+Dr 3 0 651 15699
+~
+gate~
+End
+
+#15699
+N Outside the Entrance to the Golden Citadel~
+Ref 0
+D
+You are outside the entrance to the Golden Citadel.  A great gate is to
+to the east, marking the entranceway into the citadel.  The road also leads
+back west to Raff Way.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 15603 1 100 1
+Dr 1 0 651 15698
+~
+~
+Dr 3 0 0 15667
+~
+~
+End
+
+#0
+
+
+
+#$

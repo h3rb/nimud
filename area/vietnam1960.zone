@@ -1,0 +1,1377 @@
+#ZONE 
+N Who's VC?~
+B None~
+V 7000 7199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#7173
+N nosod-enter~
+C
+wait(15);
+do({'I can teach ya a few things.});
+wait(10);
+do({'Just type 'train' and see what we can learn ya.});
+~
+T 10
+End
+
+#7000
+N pilot~
+C
+wait(30);
+do({:flies the chopper low over the treeline.});
+wait(50);
+do({say We're dropping you off in a hot LZ.});
+wait(30);
+do({say Watch for the red and green smoke!});
+wait(30);
+do({:lowers you past the canopy into the Landing Zone.});
+wait(30);
+do({say There's some supplies in that crate!});
+wait(50);
+do({say Move!});
+wait(10);
+moveall(7000,7001,look);
+~
+T 10
+End
+
+#7001
+N snipe-360~
+C
+wait(5);
+do({shoot north});
+wait(5);
+do({shoot northeast});
+wait(5);
+do({shoot east});
+wait(5);
+do({shoot southeast});
+wait(5);
+do({shoot south});
+wait(5);
+do({shoot southwest});
+wait(5);
+do({shoot west});
+wait(5);
+do({shoot northwest});
+wait(5);
+do({shoot up});
+wait(5);
+do({shoot down});
+do({hide});
+do({sneak});
+~
+T 1
+End
+
+#7002
+N snipe-enter~
+C
+wait(5);
+do({shoot %name%});
+~
+T 10
+End
+
+#7003
+N peasant-tribunal~
+C
+move(%name%,7020);
+disarm(%name%);
+~
+T 9
+End
+
+#7004
+N marine-script~
+C
+wait(45);
+do({'Time for your trial, Leiutenant.});
+wait(15);
+do({unlock north});
+wait(15);
+do({open north});
+wait(15);
+do({'Follow me. [Type 'follow guard']});
+wait(30);
+do({north});
+wait(5);
+jump(7020);
+do({close north});
+wait(1);
+do({lock north});
+~
+T 0
+End
+
+#7006
+N basler-sentence~
+C
+wait(15);
+do({'Good day, Leiutenant.  It is with great sadness that I am forced
+to relieve you of your commission.  The locals are in uproar about
+that incident with the villager.});
+wait(15);
+do({'We want you on your best behavior as you take a three day trip
+to Saigon.  We'll meet with you when you return.});
+wait(15);
+do('Find the motor pool, and talk to 2nd Leuitenant Pierce.  We'll send an envoy to Saigon with you on board.});
+wait(10);
+do('Dismissed!);
+~
+T 10
+End
+
+#7007
+N charlie~
+C
+wait(random(50));
+do({'Boin dai! Boin dai!});
+~
+T 10
+End
+
+#7008
+N radio~
+C
+if (is(%astr%,{radio}),
+     {
+          echo({The radio echos a strange static sound.});
+          wait(10);
+          echo({The radio crackles to life:});
+          echo({   "We have your position, Lieutenant."});
+          wait(11);
+          if (greater(getdir(%bstr%),0),
+              {
+                  echo({From the radio: "Coordinates confirmed."});
+                  wait(5);
+                  echo({You hear the sound of an engine overhead.});
+                  wait(15);
+                  echo({Nearby you hear explosions.});
+                  bomb(getdir(%bstr%),50);
+                  echo(getdir(%bstr%),{You are hit with an airstrike!});
+              },
+              echo({From the radio: "Say again?  We cannot confirm those coordinates."}));
+     } );
+~
+T 0
+End
+
+#7009
+N random-static~
+C
+wait(random(5,500));
+oecho({The radio emits a sudden burst of static.});
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#7000
+N helicopter pilot~
+SD the pilot~
+LD
+ An enlisted pilot is flying the helicopter.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 15
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 7000
+At 0 10 14 8
+End
+
+#7001
+N vc sniper~
+SD a north Vietnamese sniper~
+LD
+ A sniper crouches low to avoid being spotted.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 2 2 2 2 2
+Sc 7001
+Sc 7002
+End
+
+#7002
+N north vietnamese soldier~
+SD a north Vietnamese soldier~
+LD
+ A north Vietnamese solder rushes across the battlefield.
+~
+D
+ Small, under-trained and resourceful, this is the shining force of
+the Vietnamese communists.
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 2 2 2 2 2
+Sc 7002
+Sc 7001
+End
+
+#7003
+N vietnamese peasant~
+SD a peasant~
+LD
+ A Vietnamese peasant stands here.
+~
+D
+ ~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 1 1 1 1 1
+Sc 7003
+End
+
+#7004
+N peasant vietnamese~
+SD a vietnamese peasant~
+LD
+ A vietnamese peasant is here.
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 1 1 1 1 1
+Sc 7003
+End
+
+#7005
+N military policeman mp guard~
+SD a military policeman~
+LD
+ An MP is posted as a guard.
+~
+D
+ Clean shaven in knit uniform, khakis and a standard issue olive helmet.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 3 3 3 3 3
+Sc 7004
+End
+
+#7006
+N sergeant basler~
+SD Sergeant Basler~
+LD
+ A uniformed marine officer is here to sentence you.
+~
+D
+ Tall and lean, mean looking, but softer than the jungle grunts, Sergeant
+Basler is a military officer of the highest order, a prestigious figure
+among the recruits.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 7006
+At 0 10 17 3
+End
+
+#7007
+N charlie~
+SD charlie~
+LD
+ Charlie's grittin' his teeth and comin' at you.
+~
+D
+ A short, Vietnamese communist with a hungry look in his eyes.
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+Sc 7001
+Sc 7002
+Sc 7007
+End
+
+#0
+
+
+
+#OBJDATA
+#7000
+N green army crate~
+SD a green army crate~
+P ~
+D
+A green army crate is stuffed under the seats.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7001
+N AR-15 assault rifle~
+SD an AR-15 assault rifle~
+P ~
+D
+An AR-15 assault rifle is lying on the ground.
+~
+A
+You take aim with your AR-15 pressed against your shoulder.
+~
+PD
+~
+DR
+A black-matte rifle with a straight muzzle barrel and a hand grip.  It
+has a strap for shoulder carry and the safety has been worn off.  
+~
+L 0
+T 6
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 10
+C 200
+O ~
+V 7002 20 30 0
+End
+
+#7002
+N 7.62mm round bullet cartridge bullets~
+SD a 7.62mm round cartridge~
+P ~
+D
+A single 7.62mm cartridge is lying in the dirt.
+~
+A
+a 7.62mm round
+~
+PD
+~
+DR
+A high caliber bullet with a brass full metal jacket.
+~
+L 0
+T 7
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 1
+O ~
+V 1 0 0 -1
+End
+
+#7003
+N military journal~
+SD a military journal~
+P ~
+D
+A military journal is here.
+~
+A
+~
+PD
+~
+DR
+The journal reads:
+To 'shoot' effectively, soldiers should familiarize themselves with
+the shoot command, by typing 'help shoot'.
+ 
+Soldier's should be aware that ammunition is required to fire most
+ranged weapons.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7004
+N survival knife~
+SD a survival knife~
+P ~
+D
+A survival knife is on the ground.
+~
+A
+~
+PD
+~
+DR
+It has a compass and rangefinder on the handle, surrated edge and a sharp
+forward blade.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 15 10 2
+End
+
+#7005
+N ammo belt~
+SD an ammo belt~
+P ~
+D
+An ammunition belt is crumpled on the ground.
+~
+A
+~
+PD
+~
+DR
+A burlap belt for storing bullets.
+~
+L 0
+T 15
+E 0
+W 2049
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 64 0 0 0
+End
+
+#7006
+N radio~
+SD a radio~
+P ~
+D
+An army radio is here.
+~
+A
+~
+PD
+~
+DR
+An army radio bears these markings:
+Use 'radio <direction>' to call in an airstrike.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 10
+O ~
+Sc 7008
+Sc 7009
+V 1 0 0 0
+End
+
+#7007
+N red white marked crate red-cross~
+SD a red and white crate~
+P ~
+D
+An army crate marked with red-cross is here.
+~
+A
+~
+PD
+~
+DR
+It contains supplies furnished by the US military.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 50 0 0 0
+End
+
+#7008
+N medkit medical kit~
+SD a medkit~
+P ~
+D
+A medical kit is here.
+~
+A
+~
+PD
+~
+DR
+It contains bandages and healing ointments used for dressing combat
+wounds in the field.
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 4
+C 500
+O ~
+Sc 7009
+V 4 10 10 10
+End
+
+#7009
+N field survival handbook~
+SD a field survival handbook~
+P ~
+D
+A field survival handbook is here.
+~
+A
+~
+PD
+~
+DR
+The field survival handbook reads:
+Soldiers must learn to navigate, the four corners (north, south, east
+and west) as well as non-cardinal directions (northeast, northwest, etc)
+to survive in the jungle.
+ 
+Careful scrutiny of medical supplies in the field is imperative to
+a soldier's survival.  Use of medical supplies should be rationed.
+ 
+Knowledge of "shoot" and melee combat is essential.  Use of survival
+knives, bayonets and other weapons may aid combat.
+ 
+The field officer has scrawled a note at the bottom of the page:
+"Watch out grunts, Charlie's got your six.  Learn to look both
+ways before crossing the Me Kong Trail."
+ 
+On the back is a list of relevant commands:
+Shoot, Sheathe, Kill, Draw, Reload, Flee, Rescue and Assist
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7010
+N AK-47 automat kalashnikov assault rifle~
+SD an AK-47 assault rifle~
+P ~
+D
+An AK-47 assualt rifle is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 6
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 10
+C 200
+O ~
+V 7002 20 30 0
+End
+
+#7011
+N shiv simple knife~
+SD a shiv~
+P ~
+D
+A simple knife is stuck into the ground.
+~
+A
+~
+PD
+~
+DR
+It looks cheap and flimsy.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 0 5 15 1
+End
+
+#7012
+N village well~
+SD a village well~
+P ~
+D
+A village well is here for drawing water.
+~
+A
+~
+PD
+~
+DR
+A simple mud and stone well full of water.
+~
+L 0
+T 25
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7013
+N jailer's key~
+SD the jailer's key~
+P ~
+D
+The jailer's key has been dropped here.
+~
+A
+~
+PD
+~
+DR
+Inscribed in its key ring are the letters "MP Saigon"
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#7000
+N Chinook Helicopter~
+Ref 0
+D
+You are aboard a chinook inbound support helicopter for the American
+government.  The sound of the rotors are deafening.  Through the side
+door you can see the jungle below you.  The tops of the trees are
+just below the landing gear.
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7000 1 100 1
+R O 7000 -5 100 1
+R O 7001 -3 100 1
+R O 7004 -3 100 1
+R O 7005 -3 100 1
+R O 7002 -3 100 64
+End
+
+#7001
+N Hot Landing Zone~
+Ref 0
+D
+You are standing near a chinook supply helicopter that is about to take
+off, in the midst of dense jungle somewhere in Southeast Asia.  Red smoke
+billows into the air from the four corners of the thicket.  To the east you
+can see the thatched tops of huts.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 7007 -5 100 1
+R O 7009 -3 100 1
+R O 7008 -3 100 1
+R O 7006 -3 100 1
+Dr 0 0 0 7002
+~
+bush, and step over a fallen tree~
+End
+
+#7002
+N Ho Chi Mihn Trail~
+Ref 0
+D
+A dirt road leading east through the jungle.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7003
+~
+~
+Dr 2 0 0 7001
+~
+~
+End
+
+#7003
+N Ho Chi Minh Trail~
+Ref 0
+D
+The dirt road leads east and west through the jungle.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7004
+~
+opening between two trees~
+Dr 1 0 0 7005
+~
+jungle~
+Dr 3 0 0 7002
+~
+~
+End
+
+#7004
+N Sniper's Nest~
+Ref 0
+D
+A small foxhole north of the road is a perfect place for Charlie to
+hide out and take potshots at marines.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7001 5 100 1
+R M 7001 1 100 1
+R O 7010 35 100 1
+R O 7005 27 100 1
+R O 7002 -3 100 64
+Dr 2 0 0 7003
+~
+~
+End
+
+#7005
+N Bend in the Trail~
+Ref 0
+D
+The trail corners off here, heading north or west.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7006
+~
+dense jungle~
+Dr 3 0 0 7003
+~
+jungle~
+End
+
+#7006
+N Bridge Across A River~
+Ref 0
+D
+You are standing on the Ho Chi Minh Trail, on a small wooden bridge that
+crosses a thin, slow moving river.  To the north an expanse of rice paddies
+flank the road.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7007
+~
+~
+Dr 2 0 0 7005
+~
+dense jungle~
+End
+
+#7007
+N Dirt Road~
+Ref 0
+D
+Just south of here, you can see a small wooden bridge.  To the north, the
+dirt road continues.  On either side of the road are fields of rice.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7001 1 100 1
+R O 7005 27 100 1
+R O 7002 -3 100 64
+R O 7010 35 100 1
+R O 7004 40 100 1
+Dr 0 0 0 7008
+~
+~
+Dr 1 0 0 7012
+~
+~
+Dr 2 0 0 7006
+~
+~
+Dr 3 0 0 7009
+~
+~
+Dr 7 0 0 7011
+~
+~
+End
+
+#7008
+N Dirt Road~
+Ref 0
+D
+You are standing on a dirt road that runs north and south through
+rice paddies.  The jungle edge can be seen to the south.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7013
+~
+~
+Dr 1 0 0 7011
+~
+~
+Dr 2 0 0 7007
+~
+~
+Dr 3 0 0 7010
+~
+~
+Dr 8 0 0 7009
+~
+~
+Dr 9 0 0 7012
+~
+~
+End
+
+#7009
+N Rice Paddies~
+Ref 0
+D
+You are knee deep in a muddy brown water.  The residue of rice plants
+sticks to your clothes.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7001 2 100 1
+R M 7001 1 100 1
+R O 7004 40 100 1
+R O 7005 27 100 1
+R O 7002 -3 100 64
+R O 7010 35 100 1
+Dr 0 0 0 7010
+~
+~
+Dr 1 0 0 7007
+~
+~
+Dr 7 0 0 7008
+~
+~
+End
+
+#7010
+N Rice Paddies~
+Ref 0
+D
+You are knee deep in some thick rice paddy.  Mosquitoes buzz all around
+your head.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7008
+~
+~
+Dr 2 0 0 7009
+~
+~
+End
+
+#7011
+N Rice Paddies~
+Ref 0
+D
+You are standing knee-deep in a muddy brown water.  Fields of thin green
+rice plants are all around.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7002 2 100 1
+R M 7002 100 1 1
+R O 7010 35 100 1
+R O 7005 27 100 1
+R O 7002 -3 100 64
+Dr 2 0 0 7012
+~
+~
+Dr 3 0 0 7008
+~
+~
+Dr 8 0 0 7007
+~
+~
+End
+
+#7012
+N Rice Paddies~
+Ref 0
+D
+You are standing knee-deep in muddy brown water.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7011
+~
+~
+Dr 3 0 0 7007
+~
+~
+Dr 6 0 0 7008
+~
+~
+End
+
+#7013
+N Dirt Road Outside Village~
+Ref 0
+D
+South of here the road continues through a field of rice.  To the north
+is a small cluster of huts forming a village.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7014
+~
+~
+Dr 2 0 0 7008
+~
+~
+End
+
+#7014
+N Village~
+Ref 0
+D
+You are standing midst thatched-roof huts in the middle of a small
+farming village.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 7012 -5 100 1
+Dr 1 0 0 7016
+~
+~
+Dr 2 0 0 7013
+~
+~
+Dr 3 0 0 7015
+~
+~
+Dr 5 1024 0 7025
+There's a hole hidden beneath some mud and sticks.
+~
+~
+End
+
+#7015
+N Inside a Small Hut~
+Ref 0
+D
+The hut has a dirt bottom and a thatched roof.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7003 2 100 2
+Dr 1 0 0 7014
+~
+~
+End
+
+#7016
+N Thatched Hut~
+Ref 0
+D
+You are standing in a thatched hut.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7004 2 100 1
+R O 7011 40 50 1
+R O 7011 39 50 1
+Dr 3 0 0 7014
+~
+~
+End
+
+#7020
+N Military Prison~
+Ref 0
+D
+You are imprisoned in a camp outside of Saigon, held by the Military
+Police for war crimes.  You are awaiting trial.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7005 1 100 1
+R O 7013 36 100 1
+Dr 0 7 7013 7021
+~
+steel door~
+End
+
+#7021
+N Outside the Jail - Saigon Military Stockade~
+Ref 0
+D
+You are standing before a wide raised platform just outside of the Saigon
+jailhouse for Military prisoners.  
+~
+C
+(null)~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7006 1 100 1
+Dr 2 7 7013 7020
+~
+steel door~
+Dr 3 0 0 7022
+~
+~
+End
+
+#7022
+N Muoc Dar - Saigon Military Base~
+Ref 0
+D
+You are standing in the center of the basecamp in Muoc Dar, a relatively
+quiet part of the bush.  To the east is the military stockade, where they
+keep prisoners awaiting trial on war crimes.  To the north is the mess tent,
+and to the west is the hospital.  A steady flow of traffic moves in and out
+of the base to the south.  
+~
+C
+~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7023
+~
+opened tent flap~
+Dr 1 0 0 7021
+~
+~
+Dr 2 0 0 7026
+~
+~
+Dr 3 0 0 7024
+~
+~
+End
+
+#7023
+N Mess Tent - Muoc Dar~
+Ref 0
+D
+A simple one-room cafeteria with olive-drab canvas walls, a chow line and
+a bunch of hard, uncomfortable tables.  Hall's empty.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7022
+~
+~
+End
+
+#7024
+N Muoc Dar - Hospital~
+Ref 0
+D
+Patients are moved from here to the military hospitals at the mainbase
+closer to Saigon.  The Muoc Dar outpost is a bustling field outpost, often
+seeing causualties from operations within the territories.  Seems rather
+quiet today, not too many wounded.  
+~
+C
+~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7022
+~
+~
+End
+
+#7025
+N VC Rathole~
+Ref 0
+D
+A hidden hub of VC operations, carved from the dirt and filled with the
+stinking smell of Russian and Chinese supplied Vietnamese communist.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7007 1 75 1
+R M 7007 15 50 1
+R O 7011 40 100 1
+R O 7002 -1 100 1
+R O 7010 39 100 1
+Dr 4 1024 0 7014
+~
+~
+End
+
+#7026
+N Motor Pool - Muoc Dar~
+Ref 0
+D
+~
+C
+~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7022
+~
+~
+End
+
+#0
+
+
+
+#$

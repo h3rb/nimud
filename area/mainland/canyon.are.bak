@@ -1,0 +1,3153 @@
+#ZONE 
+N Near Newcost Bay~
+B None~
+V 24201 24260
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#24201
+N mountain climber mountainclimber~
+SD the mountain climber~
+LD
+ A mountain climber is making the same trek that you are.
+~
+D
+ He wants to see what's on the other side of the mountain too.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 565
+O ~
+AP 25 25 25 25 35
+At 0 10 16 3
+At 1 5 12 8
+At 2 1 25 9
+At 3 1 24 19
+At 5 1 27 5
+End
+
+#24202
+N cyclops~
+SD the cyclops~
+LD
+ A hungry cyclops snarls at you!
+~
+D
+ He looks like he's about to have dinner (maybe it's you?).
+~
+A 99
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -700 E 647
+O ~
+AP 25 25 25 25 35
+At 0 10 15 3
+At 1 5 15 0
+At 2 1 14 9
+At 5 1 16 6
+End
+
+#24203
+N roc~
+SD a roc~
+LD
+ A clawed roc is perched on a rock.
+~
+D
+ Rather small for an jroki form, looks like a reject.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 400
+O ~
+AP 13 13 13 13 13
+At 1 15 20 10
+At 2 10 30 3
+End
+
+#24204
+N jroki guardian~
+SD the jroki guardian~
+LD
+ The jroki guardian of the canyon.
+~
+D
+ You can't tell which kind of jroki it is, maybe it's a bit o' all of them?
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 49
+O ~
+AP 15 15 15 15 15
+At 0 10 25 0
+End
+
+#24205
+N small jroki~
+SD a small jroki~
+LD
+ A small, rather non-descript jroki.
+~
+D
+ A small jroki, a resident of the canyon.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 140
+O ~
+AP 15 15 15 15 15
+At 0 10 25 3
+End
+
+#24206
+N medium jroki~
+SD a medium jroki~
+LD
+ A medium-sized jroki.
+~
+D
+ A medium jroki, a resident of the canyon.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 10 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 15 1
+End
+
+#24207
+N large jroki~
+SD a large jroki~
+LD
+ A large jroki.
+~
+D
+ A large jroki, a resident of the canyon.~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 20 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 20 9
+At 1 5 19 8
+End
+
+#24208
+N earth jroki ruler~
+SD the Earth Ruler~
+LD
+ The Ruler of the earth jrokis.
+~
+D
+ He looks as old as the earth itself.  He seems to know all the 
+secrets and knowledge of the Earth.  You can't really tell where 
+he begins and the rock wall ends.
+~
+A 3
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 23 11
+At 1 5 23 5
+End
+
+#24209
+N fire jroki ruler~
+SD the Fire Ruler~
+LD
+ The Ruler of the fire jrokis.
+~
+D
+ As you look at him he seems to blend in with the fire in his throne.
+~
+A 3
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 299
+O ~
+AP 19 19 19 19 19
+At 0 10 13 1
+At 1 5 23 2
+End
+
+#24210
+N air jroki ruler~
+SD The Air Ruler~
+LD
+ The Ruler of the air jrokis.
+~
+D
+ As you peer at him you seem to be looking at the sky itself.
+~
+A 3
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 13 2
+At 1 5 16 0
+End
+
+#24211
+N lightning jroki ruler~
+SD The Lightning Ruler~
+LD
+ The Ruler of the lightning jrokis.
+~
+D
+ As you examine him there is a blinding flash of light and a deafening boom!
+You rub your eyes and look and the ruler is there grinning at you.
+~
+A 3
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 17 8
+At 1 5 22 3
+End
+
+#24212
+N water jroki ruler~
+SD The Water Ruler~
+LD
+ The Ruler of the water jrokis.
+~
+D
+ As you look at him he changes to mist, which swirls around you.  Just
+as you get scared, it reforms in jroki form.
+~
+A 3
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 298
+O ~
+AP 19 19 19 19 19
+At 0 10 19 11
+At 1 5 22 7
+End
+
+#24214
+N water puddle jroki~
+SD a puddle~
+LD
+ A small puddle of water jroki.
+~
+D
+ It trickles along the ground and gets your feet wet.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 20 7
+At 1 5 18 9
+End
+
+#24215
+N fire flame jroki~
+SD a flame~
+LD
+ A small flickering flame jroki.
+~
+D
+ It smolders along the grass aimlessly.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 454
+O ~
+AP 25 25 25 25 25
+At 0 10 18 10
+At 1 5 10 7
+At 3 1 37 4
+End
+
+#24216
+N snowflake snow flake ice jroki~
+SD a small snowflake~
+LD
+ A frozen snowflake water jroki.
+~
+D
+ It looks a little blue.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 520 E 440
+O ~
+AP 25 25 25 25 25
+At 0 10 17 5
+At 1 5 9 11
+End
+
+#24217
+N pebble rock earth stone jroki~
+SD a small rock~
+LD
+ A small rock.
+~
+D
+ It seems to be a small living pebble!
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 161
+O ~
+AP 15 15 15 15 15
+At 0 10 12 12
+End
+
+#24218
+N spark lightning energy jroki~
+SD a small spark~
+LD
+ A small spark of electricity fizzles here.
+~
+D
+ Zipping from place to place at the speed of light is tough work.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 659
+O ~
+AP 25 25 25 25 35
+At 0 10 20 7
+At 1 5 17 5
+At 2 1 19 0
+At 3 1 26 1
+End
+
+#24219
+N acid blob jroki~
+SD a small blob of acid~
+LD
+ A small blob of acid eats away at the stone aimlessly.
+~
+D
+ The magical blob of acid is a cross between lightning and water.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 16 4
+At 1 5 25 9
+At 2 1 12 5
+End
+
+#24220
+N lava jroki~
+SD a lava beast~
+LD
+ A lava beast spews from place to place.
+~
+D
+ The magical lava beast is a cross between fire and earth.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 14 1
+At 1 5 18 7
+At 2 1 28 10
+End
+
+#24221
+N mud jroki~
+SD a mud monster~
+LD
+ A mud monster slops around.
+~
+D
+ The magical mud monster is a cross between water and earth.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 24 14
+At 1 5 16 14
+At 2 1 42 10
+End
+
+#24222
+N mist jroki~
+SD an jroki mist~
+LD
+ The air is magically misty here.
+~
+D
+ The magical mist is a cross between water and air.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 443
+O ~
+AP 25 25 25 25 25
+At 0 10 17 14
+At 1 5 21 9
+End
+
+#24223
+N particle jroki~
+SD a particle~
+LD
+ A sub-atomic particle is too small for you to see.
+~
+D
+ The magical manifestation of energy.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 341
+O ~
+AP 19 19 19 19 19
+At 0 10 24 9
+At 1 5 17 5
+End
+
+#24224
+N dust jroki~
+SD a dust cloud~
+LD
+ A dust cloud blowing by makes you sneeze.
+~
+D
+ The magical dust cloud is a cross between air and earth.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 529
+O ~
+AP 25 25 25 25 35
+At 0 10 19 7
+At 1 5 23 5
+At 2 1 41 5
+At 3 1 30 21
+At 5 1 34 7
+End
+
+#24225
+N eddie jroki~
+SD an eddie~
+LD
+ A small eddie current swirls junk around here.
+~
+D
+ The magical eddie current is a manifestation of an air jroki.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 23 5
+End
+
+#24226
+N blue flame~
+SD the Blue Flame~
+LD
+ The Blue Flame burns mysteriously here.
+~
+D
+ As you look you see what seems to be a face and almost a 
+humanoid figure somehow trapped in the fire.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -100 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 13 14
+End
+
+#24227
+N magneto~
+SD the Magneto~
+LD
+ The Magneto considers zapping you for the heck of it.
+~
+D
+ A humanoid figure seems to be trapped in the field of the Magneto.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -150 E 345
+O ~
+AP 19 19 19 19 19
+At 0 10 23 8
+At 1 5 25 8
+At 2 1 13 8
+End
+
+#24228
+N ice bandit~
+SD the Ice Bandit~
+LD
+ The Ice Bandit strikes cold fear in your heart.
+~
+D
+ A humanoid figure encased in ice but still apparently alive.
+~
+A 195
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -250 E 948
+O ~
+AP 25 25 25 25 40
+At 0 10 73 11
+At 1 5 10 8
+At 4 1 28 19
+At 6 5 55 5
+End
+
+#24229
+N rock monster~
+SD the Rock Monster~
+LD
+ The Rock Monster considers you in stoney silence.
+~
+D
+ A humanoid figure trapped in stone seems alive.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -310 E 654
+O ~
+AP 25 25 25 25 35
+At 0 10 16 5
+At 1 5 18 5
+At 2 1 14 1
+At 4 1 39 10
+At 5 1 39 11
+End
+
+#24230
+N hurricane~
+SD the Hurricane~
+LD
+ A Hurricane rages across the sky.
+~
+D
+ A humanoid figure is trapped in the rushing wind.
+~
+A 67
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -10 E 198
+O ~
+AP 15 15 15 15 15
+At 0 10 12 13
+End
+
+#24231
+N magician~
+SD an jroki magician~
+LD
+ An jroki magician seeks magical stones for a spell.
+~
+D
+ The jroki magician has come here in search of the fabled
+Stone of Surrender which can be used to render opponents senseless.
+~
+A 67
+AB 2
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -50 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 17 11
+At 1 5 22 5
+At 3 1 35 2
+End
+
+#24232
+N rainbow warrior~
+SD a rainbow warrior~
+LD
+ A warrior of the Rainbow Cult swears his loyalty.
+~
+D
+ The Rainbow Cult has received special powers for their service to 
+the jroki forces.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 150 E 475
+O ~
+AP 25 25 25 25 25
+At 0 10 15 12
+At 1 5 7 4
+End
+
+#24233
+N illusionist~
+SD an illusionist~
+LD
+ The illusionist seeks the aid of the jroki forces.
+~
+D
+ He seeks their aid for a powerful new spell of deception.
+
+<wielded>            The Sword of Illusions
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -50 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 16 5
+End
+
+#24234
+N alchemist~
+SD an alchemist~
+LD
+ An alchemist wanders by in search of magical herbs.
+~
+D
+ Rare herbs are rumored to grow only in the canyon.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -50 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 24 7
+At 1 5 15 3
+At 2 1 11 7
+End
+
+#24235
+N baby rainbow dragon~
+SD a baby rainbow dragon~
+LD
+ A baby rainbow dragon plays among the elements here.
+~
+D
+ It's only a baby by dragon standards.
+~
+A 67
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 475
+O ~
+AP 25 25 25 25 25
+At 0 10 18 0
+At 1 5 20 3
+End
+
+#24236
+N imp~
+SD a little imp~
+LD
+ A little imp runs along being annoying.
+~
+D
+ The little bugger steals stuff and is generally obnoxious.
+~
+A 197
+AB 98304
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -500 E 119
+O ~
+AP 15 15 15 15 15
+At 0 10 22 0
+End
+
+#24237
+N huge jroki~
+SD a HUGE jroki~
+LD
+ A HUGE jroki form stands here.
+~
+D
+ HUGE, need i say more?
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 30 E 394
+O ~
+AP 19 19 19 19 19
+At 0 10 23 14
+At 1 5 23 9
+At 2 1 17 14
+End
+
+#24238
+N vendor~
+SD the elixir vendor~
+LD
+ A vendor is willing to sell you elixirs.
+~
+D
+ I WOULD NOT suggest you attack me ...!
+~
+A 83
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 905
+O ~
+AP 25 25 25 25 40
+At 0 10 29 1
+At 1 5 63 3
+At 2 1 19 3
+At 3 1 34 13
+At 4 1 31 17
+At 5 1 23 10
+At 6 5 8 3
+End
+
+#0
+
+
+
+#OBJDATA
+#24201
+N ring earth~
+SD the earth ring~
+P ~
+D
+A dark ring which seems to absorb all the light around it lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 256
+W 3
+Sz 18
+Ti 0
+Wt 5
+C 100000
+O ~
+V 0 0 0 0
+End
+
+#24202
+N breastplate stoney breast plate~
+SD a stoney breastplate~
+P ~
+D
+A breastplate made of the stone from deep within the earth lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 70
+C 200000
+O ~
+V 10 0 0 0
+End
+
+#24203
+N dagger fiery~
+SD a fiery dagger~
+P ~
+D
+A dagger made of fire crackles mysteriously here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 100000
+O ~
+V 37 4 4 11
+End
+
+#24204
+N cape flame flaming red~
+SD a flame red cape~
+P ~
+D
+A cape made of ethereal red fiber lies neatly folded on the ground here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 5
+Sz 18
+Ti 0
+Wt 3
+C 100000
+O ~
+V 11 0 0 11
+End
+
+#24205
+N boots wind~
+SD the wind boots~
+P ~
+D
+A pair of boots that look fast standing still are here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 65
+Sz 18
+Ti 0
+Wt 1
+C 100000
+O ~
+V 10 0 0 39
+End
+
+#24206
+N helmet hurricane~
+SD a humming hurricane helmet~
+P ~
+D
+A helmet that looks like it has weathered many storms has been set here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 2
+W 17
+Sz 18
+Ti 0
+Wt 4
+C 200000
+O ~
+V 9 0 0 52
+End
+
+#24207
+N sword lightning bolt~
+SD a sparking lightning sword~
+P ~
+D
+A lightning bolt fashioned into a sword spits sparks here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 3
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 100000
+O ~
+V 48 6 3 3
+End
+
+#24208
+N shield electric~
+SD an electric shield~
+P ~
+D
+A shield made entirely of energy buzzes here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 2
+W 513
+Sz 18
+Ti 0
+Wt 8
+C 1000000
+O ~
+V 11 0 0 10
+End
+
+#24209
+N girth icy~
+SD an icy girth~
+P ~
+D
+A girth made of magical ice has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 2049
+Sz 18
+Ti 0
+Wt 10
+C 100000
+O ~
+V 10 0 0 12
+End
+
+#24210
+N cloak waterfall~
+SD a waterfall cloak~
+P ~
+D
+A cloak fashioned from a small magical waterfall is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 6
+C 100000
+O ~
+V 10 0 0 0
+End
+
+#24211
+N amulet jroki~
+SD an jroki amulet~
+P ~
+D
+An amulet depicting fire, water, lightning, earth, and air lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 5
+Sz 18
+Ti 0
+Wt 1
+C 100000
+O ~
+V 7 0 0 0
+End
+
+#24212
+N bracelet jroki~
+SD an jroki bracelet~
+P ~
+D
+A bracelet made of jroki magic lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 4097
+Sz 18
+Ti 0
+Wt 4
+C 100000
+O ~
+V 4 0 0 0
+End
+
+#24213
+N armbands platinum bands~
+SD some platinum arm bands~
+P ~
+D
+A pair of platinum arm bands, once worn by the Cyclops, lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 4
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#24214
+N legbands platinum bands~
+SD some platinum leg bands~
+P ~
+D
+A pair of platinum leg bands, once worn by the Cyclops, lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 4
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#24215
+N wand~
+SD jroki wand of fire~
+P ~
+D
+A fire wand lies forgotten on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 1
+W 16385
+Sz 18
+Ti 0
+Wt 7
+C 1900
+O ~
+V 15 3 3 0
+End
+
+#24216
+N staff ice~
+SD an ice staff~
+P ~
+D
+A ice staff lies forgotten on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 1
+W 16385
+Sz 18
+Ti 0
+Wt 7
+C 1900
+O ~
+V 21 3 3 0
+End
+
+#24217
+N staff earthquake~
+SD jroki staff of earthquake~
+P ~
+D
+A earthquake staff lies forgotten on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 1
+W 16385
+Sz 18
+Ti 0
+Wt 7
+C 1900
+O ~
+V 7 3 3 0
+End
+
+#24218
+N wand air wind~
+SD jroki wand of wind and air~
+P ~
+D
+An air wand lies forgotten on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 1
+W 16385
+Sz 18
+Ti 0
+Wt 7
+C 1900
+O ~
+V 11 1 1 0
+End
+
+#24219
+N wand~
+SD jroki wand of lightning~
+P ~
+D
+A lightning wand lies forgotten on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 1
+W 16385
+Sz 18
+Ti 0
+Wt 7
+C 1900
+O ~
+V 9 1 1 0
+End
+
+#24220
+N stone club~
+SD a stone club~
+P ~
+D
+A large stone club lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 16
+C 1000
+O ~
+V 0 1 12 7
+End
+
+#24221
+N lode load lodestone loadstone stone~
+SD a lodestone~
+P ~
+D
+A dull red rock lies here amid the weeds.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 2
+C 5000
+O ~
+V 19 2 2 0
+End
+
+#24222
+N lava lamp~
+SD a lava lamp~
+P ~
+D
+A lantern shines into a cylinder of hot wax that bubbles and shifts.
+~
+A
+~
+PD
+~
+DR
+It's submerged wax, actually, bubbling and shifting inside a glass
+cylinder.  
+~
+L 0
+T 1
+E 1
+W 1
+Sz 18
+Ti 0
+Wt 4
+C 500
+O ~
+V -1 -1 1000 1
+End
+
+#24223
+N energy scroll~
+SD an energy scroll~
+P ~
+D
+A scroll of energy replacement lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 2
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 2100
+O ~
+V 19 0 0 0
+End
+
+#24224
+N water jug~
+SD a water jug~
+P ~
+D
+A large but surprisingly light jug of water stands here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 100
+O ~
+V 150 150 0 0
+End
+
+#24225
+N dust~
+SD magic dust~
+P ~
+D
+A pile of dust of appearance has gathered here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 20 0 0 0
+End
+
+#24226
+N flame lance~
+SD a flame lance~
+P ~
+D
+A lance of blue flame burns the ground around it.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1
+W 8193
+Sz 18
+Ti 0
+Wt 14
+C 5000
+O ~
+V 11038 2 15 3
+End
+
+#24227
+N icicle dagger ice~
+SD an icicle~
+P ~
+D
+A glowing icicle dagger lies here amid a patch of frost.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1
+W 8193
+Sz 18
+Ti 0
+Wt 1
+C 19000
+O ~
+V 12 7 3 11
+End
+
+#24228
+N avalanche~
+SD the Avalanche~
+P ~
+D
+An avalanche is about to crush you!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 16
+C 20100
+O ~
+V 0 1 30 6
+End
+
+#24229
+N star morning~
+SD the Morning Star~
+P ~
+D
+A chain with a star on the end lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1
+W 8193
+Sz 18
+Ti 0
+Wt 11
+C 8200
+O ~
+V 0 6 3 11
+End
+
+#24230
+N shock whip~
+SD the Shock Whip~
+P ~
+D
+A whip hums innocently too itself.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 2
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 10000
+O ~
+V 59 4 4 4
+End
+
+#24231
+N elixir anti~
+SD anti-cyclops elixir~
+P ~
+D
+An elixir to ward off cyclopi has been bought then left behind here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 15 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#24201
+N A Mountain Path~
+Ref 0
+D
+You are on a mountain path which ascends a steep mountainside.  The trail
+curves around the mountain so that you cannot really see what lies ahead.
+You do sense great power though coming from the area behind the mountain.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24201 3 100 1
+Dr 0 0 -1 20267
+~
+~
+Dr 2 0 0 24249
+~
+~
+End
+
+#24202
+N A Mountain Path~
+Ref 0
+D
+You are on a rocky mountain path leading up and around a steep mountainside.
+You sense a glow from the area beyond the mountain, which you cannot see yet.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24201 3 100 1
+Dr 4 0 -1 24203
+~
+~
+End
+
+#24203
+N Mountainside Tombs~
+Ref 0
+D
+There are a few stone heaps here and there, the tombs of those who did not
+last the arduous journey up the mountain.  Curiously you notice a few
+uncovered bodies which don't seem to have died of exhaustion.  The path curves
+east around the mountain.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+ED bodies body dead~
+They look as if their necks have been broken and their flesh, chewed.
+~
+ED heaps stones tombs~
+You are sure glad that YOU aren't under one of those piles!
+Many of the tombstones have the same name on them, 'Raff'.  He must come
+here a lot.
+~
+R M 24201 3 100 1
+Dr 4 0 -1 24204
+~
+~
+Dr 5 0 -1 24202
+~
+~
+End
+
+#24204
+N A Blind Curve on the Mountain Path.~
+Ref 0
+D
+This looks like a normal mountain path, but it is NOT!  This section of the
+path is habitated by a huge (and of course, man-eating) Cyclops.  The path
+makes its final ascent to an overlook.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24202 0 100 1
+Dr 4 0 -1 24205
+~
+~
+Dr 5 0 -1 24203
+~
+~
+End
+
+#24205
+N Vista~
+Ref 0
+D
+This is a stunning vista overlooking a canyon.  There is a sign here that says:
+
+	BEHOLD -- ELEMENTAL CANYON
+
+Fire leaps up from firepits in the western part of the canyon.  The sky looks
+funny, and the air seems hazy to the northwest.  Electricity sparks
+intermittently in the northeast.  To the east you see a strong, magic-looking
+river flowing through the canyon.  Also to the east you spy a cave entrance
+leading into the canyon wall.  The path descends to the north to another
+overlook.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24206
+~
+~
+Dr 5 0 -1 24204
+~
+~
+End
+
+#24206
+N The Overlook~
+Ref 0
+D
+You see various jroki servants wandering around the canyon.  The noise of
+humming coming from the canyon gets louder.  The path makes a steep descent
+into the canyon here.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 24205
+~
+~
+End
+
+#24207
+N Entrance to Elemental Canyon~
+Ref 0
+D
+You are awed by the sounds and sights of great powers at works here.
+Elemental servants bustle back and forth doing the biddings of the jroki
+rulers.  You see a sort of cross roads to the north, and you can climb up to
+the overlook here.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24205 12 100 1
+Dr 0 0 -1 24209
+~
+~
+End
+
+#24208
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at all.
+In general, it is calm, yet there is always a incessant buzz of things
+going on about.  The canyon continues north and east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24203 15 100 1
+Dr 0 0 -1 24211
+~
+~
+Dr 1 0 -1 24209
+~
+~
+End
+
+#24209
+N Elemental Gateway~
+Ref 0
+D
+To the west a path dips and winds among some flowing firepits.  To the
+northeast a path goes toward the river.  Beyond toward the northeast and
+northwest are outcrops which rise up from the canyon floor. To the east there
+is a cave mouth which leads into the canyon wall.  And to the south the path
+leads up, away, and out of the canyon.  Various pure and cross-breeds of
+jroki forms wander the canyon floor, which extends in a wide swath
+northwards.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24204 1 100 1
+Dr 0 0 -1 24212
+~
+~
+Dr 1 0 -1 24210
+~
+~
+Dr 2 0 -1 24207
+~
+~
+Dr 3 0 -1 24208
+~
+~
+End
+
+#24210
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always a incessant buzz of
+things going on about.  The canyon floor extends north and west.  There is a
+cave mouth set into the canyon wall to the east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24203 15 100 1
+Dr 0 0 -1 24213
+~
+~
+Dr 1 0 -1 24220
+~
+~
+Dr 3 0 -1 24209
+~
+~
+End
+
+#24211
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends off to the north, east,
+and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24231 5 100 1
+Dr 0 0 -1 24214
+~
+~
+Dr 1 0 -1 24212
+~
+~
+Dr 2 0 -1 24208
+~
+~
+End
+
+#24212
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends in all directions.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24206 9 100 1
+Dr 0 0 -1 24215
+~
+~
+Dr 1 0 -1 24213
+~
+~
+Dr 2 0 -1 24209
+~
+~
+Dr 3 0 -1 24211
+~
+~
+End
+
+#24213
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends north, south, and west.
+A path follows a stream to the east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24222 8 100 1
+Dr 0 0 -1 24216
+~
+~
+Dr 1 0 -1 24228
+~
+~
+Dr 2 0 -1 24210
+~
+~
+Dr 3 0 -1 24212
+~
+~
+End
+
+#24214
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about. The canyon floor extends north, east, and south.
+To the west a garden is on fire.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24217
+~
+~
+Dr 1 0 -1 24215
+~
+~
+Dr 2 0 -1 24211
+~
+~
+Dr 3 0 -1 24237
+~
+~
+End
+
+#24215
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends in all directions.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24203 15 100 1
+Dr 0 0 -1 24218
+~
+~
+Dr 1 0 -1 24216
+~
+~
+Dr 2 0 -1 24212
+~
+~
+Dr 3 0 -1 24214
+~
+~
+End
+
+#24216
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The Canyon floor extends north, south and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24231 5 100 1
+Dr 0 0 -1 24219
+~
+~
+Dr 2 0 -1 24213
+~
+~
+Dr 3 0 -1 24215
+~
+~
+End
+
+#24217
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about. The canyon floor extends east and south.  You can
+climb a rise in the canyon floor to the north.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24203 15 100 1
+Dr 0 0 -1 24253
+~
+~
+Dr 1 0 -1 24218
+~
+~
+Dr 2 0 -1 24214
+~
+~
+End
+
+#24218
+N The Floor of the Canyon~
+Ref 0
+D
+Various jroki forms wander the floor of the canyon.  Some seem to be
+going about their business, while others seem to have no business at
+all.  In general, it is calm, yet there is always an incessant buzz of
+things going on about.  The canyon floor extends east, south, and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24203 15 100 1
+Dr 1 0 -1 24219
+~
+~
+Dr 2 0 -1 24215
+~
+~
+Dr 3 0 -1 24217
+~
+~
+End
+
+#24219
+N The Floor of the Canyon~
+Ref 0
+D
+You are on the floor of a wide canyon.  To the north you can see the tops
+of hills and mesas over the top lip of the canyon.  The canyon extends west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24203 15 100 1
+Dr 0 0 -1 24254
+~
+~
+Dr 2 0 -1 24216
+~
+~
+Dr 3 0 -1 24218
+~
+~
+End
+
+#24220
+N Dark Cave~
+Ref 0
+D
+You notice a path winding east among some huge boulders.  You feel a powerful
+source of energy from that direction.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24236 15 100 1
+Dr 1 0 -1 24221
+~
+~
+Dr 3 0 -1 24210
+~
+~
+End
+
+#24221
+N Darker Caves~
+Ref 0
+D
+You can barely see your way even with a light source.  The rocks of the cave
+are even darker than the darkness.  You hear a powerful humming all around
+you.  Cave paths go south and east roughly, its hard to tell exactly when you
+can't see where you are going.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24217 15 100 1
+Dr 1 0 -1 24222
+~
+~
+Dr 2 0 -1 24223
+~
+~
+Dr 3 0 -1 24220
+~
+~
+End
+
+#24222
+N Darker Caves~
+Ref 0
+D
+You can barely see your way even with a light source.  The rocks of the cave
+are even darker than the darkness.  You hear a powerful humming all around
+you.  Cave paths go south and west roughly; it's hard to tell exactly when you
+can't see where you are going.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24205 12 100 1
+Dr 2 0 -1 24224
+~
+~
+Dr 3 0 -1 24221
+~
+~
+End
+
+#24223
+N Darker Caves~
+Ref 0
+D
+You can barely see your way even with a light source.  The rocks of the cave
+are even darker than the darkness.  You hear a powerful humming all around you.
+Cave paths go north, south and east roughly; it's hard to tell exactly when
+you can't see where you are going.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24217 15 100 1
+Dr 0 0 -1 24221
+~
+~
+Dr 1 0 -1 24224
+~
+~
+Dr 2 0 -1 24225
+~
+~
+End
+
+#24224
+N Darker Caves~
+Ref 0
+D
+You can barely see your way even with a light source.  The rocks of the cave
+are even darker than the darkness.  You hear a powerful humming all around you.
+Cave paths go north, south and west roughly, it's hard to tell exactly when you
+can't see where you are going.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24217 15 100 1
+Dr 0 0 -1 24222
+~
+~
+Dr 2 0 -1 24226
+~
+~
+Dr 3 0 -1 24223
+~
+~
+End
+
+#24225
+N Darkest Caves~
+Ref 0
+D
+Your light doesn't even seem to work here.  Even magical light sources seem
+only to illuminate about a foot ahead of you.  You suddenly realize that the
+path has descended quite a bit but you didn't notice before because of the
+darkness.  You sense a great presence off to the east aways.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24206 9 100 1
+Dr 0 0 -1 24223
+~
+~
+Dr 1 0 -1 24226
+~
+~
+End
+
+#24226
+N Darkest Caves~
+Ref 0
+D
+Your light doesn't even seem to work here.  Even magical light sources seem
+only to illuminate about a foot ahead of you.  You suddenly realize that the
+path has descended quite a bit but you didn't notice before because of the
+darkness.  You sense a great presence directly to the east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24217 15 100 1
+Dr 0 0 -1 24224
+~
+~
+Dr 1 0 -1 24227
+~
+~
+Dr 3 0 -1 24225
+~
+~
+End
+
+#24227
+N Earth Chamber~
+Ref 0
+D
+This is the abode of the Earth Ruler.  He decides about earthquakes,
+landslides, and avalanches.  The Earth Ruler sits upon a huge marble throne
+carved into the wall.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED marble throne~
+The ruler notices your stare, and doesn't like it one bit!  The whole
+earth seems to shake with his emotion.
+~
+R M 24208 1 100 1
+Dr 2 0 0 19036
+~
+~
+Dr 3 0 -1 24226
+~
+~
+End
+
+#24228
+N Near the Lagoon~
+Ref 0
+D
+To the north is a shallow pool.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24236 15 100 1
+Dr 0 0 -1 24229
+~
+~
+Dr 3 0 -1 24213
+~
+~
+End
+
+#24229
+N Lagoon~
+Ref 0
+D
+You are wading through a shallow pond deep in a valley.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24219 8 100 1
+Dr 0 0 -1 24230
+~
+~
+Dr 2 0 -1 24228
+~
+~
+End
+
+#24230
+N Pool~
+Ref 0
+D
+The water is crystal clear here and you can see the bottom of the bay 30 feet
+below you.  Then you realize you are walking on the water itself.  Truly
+magical water indeed.  Though you splash through the bay you do not get wet.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24234 6 100 1
+Dr 0 0 -1 24233
+~
+~
+Dr 1 0 -1 24231
+~
+~
+Dr 2 0 -1 24229
+~
+~
+End
+
+#24231
+N Pool~
+Ref 0
+D
+The water is crystal clear here and you can see the bottom of the bay 30 feet
+below you.  Then you realize you are walking on the water itself.  Truly
+magical water indeed.  Though you splash through the bay you do not get wet.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24214 15 100 1
+Dr 0 0 -1 24234
+~
+~
+Dr 1 0 -1 24232
+~
+~
+Dr 3 0 -1 24230
+~
+~
+End
+
+#24232
+N Pool~
+Ref 0
+D
+The water is crystal clear here and you can see the bottom of the bay 30 feet
+below you.  Then you realize you are walking on the water itself.  Truly
+magical water indeed.  Though you splash through the bay you do not get wet.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24214 15 100 1
+Dr 0 0 -1 24235
+~
+~
+Dr 3 0 -1 24231
+~
+~
+End
+
+#24233
+N Pool~
+Ref 0
+D
+The water is crystal clear here and you can see the bottom of the bay 30 feet
+below you.  Then you realize you are walking on the water itself.  Truly
+magical water indeed.  Though you splash through the bay you do not get wet.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24214 15 100 1
+Dr 1 0 -1 24234
+~
+~
+Dr 2 0 -1 24230
+~
+~
+End
+
+#24234
+N Pool~
+Ref 0
+D
+The water is crystal clear here and you can see the bottom of the bay 30 feet
+below you.  Then you realize you are walking on the water itself.  Truly
+magical water indeed.  Though you splash through the bay you do not get wet.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24205 12 100 1
+Dr 1 0 -1 24235
+~
+~
+Dr 2 0 -1 24231
+~
+~
+Dr 3 0 -1 24233
+~
+~
+End
+
+#24235
+N Pool~
+Ref 0
+D
+The water is crystal clear here and you can see the bottom of the bay 30 feet
+below you.  Then you realize you are walking on the water itself.  Truly
+magical water indeed.  Though you splash through the bay you do not get wet.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24214 15 100 1
+Dr 1 0 0 16535
+~
+short bridge~
+Dr 2 0 -1 24232
+~
+~
+Dr 3 0 -1 24234
+~
+~
+Dr 5 0 -1 24236
+~
+~
+End
+
+#24236
+N Water Chamber~
+Ref 0
+D
+This chamber was magically created here on the floor of the bay.  It looks
+like it's been here for a long, long time.  Though you are 'under water' there
+is no difficulty breathing normally, and oddly you do not feel the pressure of
+the water above you.
+~
+C
+~
+F 8
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 24212 1 100 1
+Dr 4 0 -1 24235
+~
+~
+End
+
+#24237
+N Road to Nostol~
+Ref 0
+D
+You tread carefully along a path which dips and turns among geysers of fire.
+Miniature volcanoes spew lava in rivers.  The fire is hot but not altogether
+dangerous.  The path extends east and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24236 15 100 1
+Dr 1 0 -1 24214
+~
+~
+Dr 2 0 -1 24238
+~
+~
+End
+
+#24238
+N Road to Nostol~
+Ref 0
+D
+You tread carefully along a path which dips and turns among pits of fire and
+beds of coals.  A garden to the west glows with an everlasting fire.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24226 1 100 1
+Dr 0 0 -1 24237
+~
+~
+Dr 3 0 -1 24242
+~
+~
+End
+
+#24242
+N Road to Nostol~
+Ref 0
+D
+Everywhere around you the landscape is afire; the rocks, the shrubs and even
+the air seems to be aflame.  Curiously, the magical fire does not seem to
+consume its hosts.  A path leads east among some fire pits.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24207 6 100 1
+Dr 1 0 -1 24238
+~
+~
+Dr 3 0 -1 24245
+~
+~
+End
+
+#24245
+N Road to Nostol~
+Ref 0
+D
+The fire ruler sits upon a throne made of blue flame.  Little flickers of
+flame dance to and fro for the entertainment of the ruler.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24209 1 100 1
+Dr 1 0 -1 24242
+~
+~
+Dr 3 5 0 20300
+~
+outer door~
+End
+
+#24246
+N Mountain Path~
+Ref 0
+D
+The pathway glows and hums because of the electricity pulsing through it.
+It seems almost soothing to your weary feet.  To the north there is a
+sunken-in area.  A path leads east also.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24206 9 100 1
+Dr 0 0 -1 24248
+~
+~
+Dr 1 0 -1 24253
+~
+~
+End
+
+#24247
+N Mountain Path~
+Ref 0
+D
+Though there is a seemingly carefree atmosphere here, you sense that
+something much more important takes place near by.  The electric playground
+extends north and east.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24218 15 100 1
+Dr 0 0 -1 24249
+~
+~
+Dr 1 0 -1 24248
+~
+~
+End
+
+#24248
+N Mountain Path~
+Ref 0
+D
+Though there is a seemingly carefree atmosphere here, you sense that
+something much more important takes place near by.  There is an electric
+path heading away south.  The playground extends north and west.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24218 15 100 1
+Dr 0 0 -1 24250
+~
+~
+Dr 2 0 -1 24246
+~
+~
+Dr 3 0 -1 24247
+~
+~
+End
+
+#24249
+N Mountain Path~
+Ref 0
+D
+Though there is a seemingly carefree atmosphere here, you sense that
+something much more important takes place near by.  The playground continues
+south and east.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24235 2 100 1
+Dr 0 0 0 24201
+~
+~
+Dr 1 0 -1 24250
+~
+~
+Dr 2 0 -1 24247
+~
+~
+End
+
+#24250
+N Mountain Path~
+Ref 0
+D
+Though there is a seemingly carefree atmosphere here, you sense that
+something much more important takes place near by.  The playground is
+south and west.  Something more important catches your eye to the east.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24205 12 100 1
+Dr 1 0 -1 24251
+~
+~
+Dr 2 0 -1 24248
+~
+~
+Dr 3 0 -1 24249
+~
+~
+End
+
+#24251
+N the mountain path~
+Ref 0
+D
+Up a set of stairs carved into the hill you see intermittent flashes of
+lightning.  A continuous hum also comes form that direction.  To the west
+is the electric playground.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24218 15 100 1
+Dr 3 0 -1 24250
+~
+~
+Dr 4 0 -1 24252
+~
+~
+End
+
+#24252
+N Mountain View~
+Ref 0
+D
+There is some sort of control panel here. Apparently the Lightning Ruler
+observes and controls electric forces from here.  A set of steps carved into
+the hill lead down to a causeway.
+~
+C
+~
+F 8
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24211 1 100 1
+Dr 5 0 -1 24251
+~
+~
+End
+
+#24253
+N Mesa West~
+Ref 0
+D
+An electric path starts to the west.  The mesa continues to the east.
+Or you can climb down to the canyon floor to the south.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24233 8 100 1
+Dr 1 0 -1 24254
+~
+~
+Dr 2 0 -1 24217
+~
+~
+Dr 3 0 -1 24246
+~
+~
+End
+
+#24254
+N Mesa East~
+Ref 0
+D
+A path starts to the north.  The mesa continues to the west.
+Or you can climb down to the canyon floor to the south.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24206 9 100 1
+Dr 0 0 -1 24255
+~
+~
+Dr 2 0 -1 24219
+~
+~
+Dr 3 0 -1 24253
+~
+~
+End
+
+#24255
+N Hills~
+Ref 0
+D
+Last you knew, you were walking on the mesa.  Abruptly the path dropped
+from beneath your feet much to quick for you to recover.  Instead of
+plunging to your death, you seemingly miss the ground and begin walking
+on air.  The space to the north and east seems just thin air, but you can
+walk there.  The pathway you came from is to the south.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24233 7 100 1
+Dr 0 0 -1 24257
+~
+~
+Dr 1 0 -1 24256
+~
+~
+Dr 2 0 -1 24254
+~
+~
+End
+
+#24256
+N Hills~
+Ref 0
+D
+You look down and see the ground 100 feet below you.  The wind whispering
+in your ear seems to reassure you that this is fine.  To the north aways
+you spy a portal of sorts.  To the west is more thin air.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24225 15 100 1
+Dr 0 0 -1 24258
+~
+~
+Dr 3 0 -1 24255
+~
+~
+End
+
+#24257
+N Hills~
+Ref 0
+D
+You look down and see the ground 100 feet below you.  The wind whispering
+in your ear seems to reassure you that this is fine.  To the east aways
+you spy a portal of sorts.  To the south is more thin air.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24235 2 100 1
+Dr 1 0 -1 24258
+~
+~
+Dr 2 0 -1 24255
+~
+~
+End
+
+#24258
+N Hills~
+Ref 0
+D
+You look down and see the ground 100 feet below you.  The wind whispering
+in your ear seems to reassure you that this is fine. There is a portal
+hanging in midair here. It is to the east.  You can float south or west
+if you'd like.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+ED portal~
+Through the portal you see a tunnel.
+~
+R M 24225 15 100 1
+Dr 1 0 -1 24259
+~
+~
+Dr 2 0 -1 24256
+~
+~
+Dr 3 0 -1 24257
+~
+~
+End
+
+#24259
+N Waterfall~
+Ref 0
+D
+A tunnel leads east.  To the west you can enter a portal. The wind in
+this tunnel is quite fierce, it seems as if it's forced.  
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+ED portal~
+Through the portal you see nothing but sky.
+~
+R M 24225 15 100 1
+Dr 1 0 -1 24260
+~
+~
+Dr 3 0 -1 24258
+~
+~
+End
+
+#24260
+N Pool~
+Ref 0
+D
+Tiny tornadoes come and go and dance along the ground here.  At the back
+of the chamber you notice a huge throne made of swirling clouds.
+A tunnel leads west.
+~
+C
+~
+F 8
+S 6
+M 0
+W 0
+T 0
+O ~
+ED throne clouds~
+Although the cloud throne appears solid enough to sit on, I wouldn't try
+it if I were you!
+~
+R M 24210 1 100 1
+Dr 3 0 -1 24259
+~
+~
+End
+
+#0
+
+
+
+#$

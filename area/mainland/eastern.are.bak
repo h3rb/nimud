@@ -1,0 +1,2448 @@
+#ZONE 
+N Anon    Great Eastern Desert~
+B None~
+V 20000 20070
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#20000
+N dervish raggity~
+SD The dervish~
+LD
+ The raggity dervish walks on aimlessly.
+~
+D
+ Dressed in loose fitting rags, this man looks like he could use
+some rest.
+~
+A 197
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 535
+O ~
+AP 25 25 25 25 35
+At 0 10 20 4
+At 1 5 25 2
+At 2 1 25 1
+At 3 1 20 22
+At 4 1 37 9
+At 5 1 37 1
+End
+
+#20001
+N dervish large~
+SD The dervish~
+LD
+ The large dervish watches for signs of trouble.
+~
+D
+ Dressed in loose fitting rags, this man looks like he could use
+LOTS of rest.
+~
+A 97
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 650 E 548
+O ~
+AP 25 25 25 25 35
+At 0 10 19 7
+At 1 5 6 8
+At 4 1 16 19
+End
+
+#20002
+N snake coral~
+SD The coral snake~
+LD
+ A brightly colored snake slithers along the sands.
+~
+D
+ This relatively harmless snake has bright alternating bands of red, yellow
+and black.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -10 E 374
+O ~
+AP 19 19 19 19 19
+At 0 10 17 8
+At 1 5 24 5
+At 2 1 21 3
+End
+
+#20003
+N scorpion small~
+SD The small scorpion~
+LD
+ A small, red scorpion scuttles away at your approach.
+~
+D
+ The little tail is mighty dangerous for such a small creature.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -50 E 518
+O ~
+AP 25 25 25 25 35
+At 0 10 20 5
+At 1 5 14 5
+At 2 1 30 10
+At 5 1 24 10
+End
+
+#20004
+N worm giant~
+SD The giant, purple sand worm~
+LD
+ A giant, purple sand worm thrusts up out of the sand and attacks!
+~
+D
+ He's big, mean, and purple. Watch out!
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -100 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 20 3
+At 1 5 19 10
+End
+
+#20005
+N dragon brass~
+SD the brass dragon~
+LD
+ The brass dragon steps out of the darkness and says 'Hello'.
+Then adds to it, 'Prepare to die, have a nice day!'
+~
+D
+ ~
+A 39
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 450 E 655
+O ~
+AP 25 25 25 25 35
+At 0 10 20 11
+At 1 5 24 1
+End
+
+#20006
+N nomad leader~
+SD The nomad leader~
+LD
+ The nomad leader sits silently in prayer.
+~
+D
+ He is clad in silk robes lined with gold thread. At his side
+is a large, engraved cutlass. He has an especially haughty air
+about him.
+~
+A 2241
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 950 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 14 5
+At 1 5 20 5
+At 2 1 26 5
+End
+
+#20007
+N nomad commander~
+SD The nomad commander~
+LD
+ The nomad commander stands here staring suspiciously at you.
+~
+D
+ This is the nomad leader's second in command. His clothes are richly
+woven of silk and gold thread. A nasty cutlass hangs at his side.
+~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 12 7
+End
+
+#20008
+N nomad warrior~
+SD The nomad warrior~
+LD
+ A proud nomad warrior stands here.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 700 E 989
+O ~
+AP 25 25 25 25 40
+At 0 10 39 12
+At 1 5 10 3
+At 4 1 19 14
+At 6 5 71 8
+End
+
+#20009
+N slave young~
+SD The slave~
+LD
+ A young slave sits here staring at you with pleading eyes.
+~
+D
+ ~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 632
+O ~
+AP 25 25 25 25 35
+At 0 10 19 2
+At 1 5 6 7
+At 2 1 37 11
+At 4 1 25 0
+At 5 1 16 8
+End
+
+#20010
+N dracolich lich~
+SD The dracolich~
+LD
+ A pile of bones rises up to form a skeletal dracolich.
+~
+D
+ The dracolich is now only bone with pieces of flesh hanging from it.
+Obviously it no longer fears death.
+~
+A 2083
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -1000 E 500
+O ~
+AP 25 25 25 25 25
+At 0 10 17 0
+At 1 5 12 11
+End
+
+#20011
+N drider drow~
+SD The drider~
+LD
+ The drider looks at you viciously while it draws its sword.
+~
+D
+ This half-spider, half-drow creature is a formidable opponent.
+~
+A 97
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 12 3
+At 1 5 17 9
+At 2 1 43 9
+End
+
+#20012
+N duergar dwarf~
+SD The dark dwarf~
+LD
+ A duergar is here mining precious stones with his pick.
+~
+D
+ The duergar could crush your head as easily as it does those rocks.
+~
+A 97
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -850 E 728
+O ~
+AP 25 25 25 25 40
+At 0 10 67 4
+At 1 5 65 1
+At 4 1 35 0
+At 5 1 32 12
+At 6 5 52 3
+End
+
+#20013
+N myconoid~
+SD the myconoid~
+LD
+ A myconoid lumbers along peacefully.
+~
+D
+ The myconoid looks something like a giant mushroom (and probably
+has the same effect).
+~
+A 193
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 850 E 549
+O ~
+AP 25 25 25 25 35
+At 0 10 20 2
+At 1 5 12 14
+At 4 1 20 16
+End
+
+#20014
+N myconoid shaman~
+SD The myconoid shaman~
+LD
+ A rather large myconoid stands here chanting in a strange tongue.
+~
+D
+ The shaman shoots spores into the air.
+~
+A 131
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 850 E 479
+O ~
+AP 25 25 25 25 25
+At 0 10 19 2
+At 1 5 24 9
+End
+
+#20015
+N dustdigger~
+SD The dustdigger~
+LD
+ A small oasis invites you to dive in.~
+D
+ ~
+A 39
+AB 65536
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -200 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 23 5
+At 1 5 25 8
+End
+
+#20017
+N camel~
+SD The rabid camel~
+LD
+ A very dangerous rabid camel snorts at you.
+~
+D
+ Don't mess with this animal.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -351 E 332
+O ~
+AP 19 19 19 19 19
+At 0 10 11 3
+At 1 5 24 12
+At 2 1 22 9
+End
+
+#0
+
+
+
+#OBJDATA
+#20000
+N pick~
+SD a small mining pick~
+P ~
+D
+A small mining pick made of what appears to be silver lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 512
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 600
+O ~
+V 0 1 9 11
+End
+
+#20001
+N banded mail~
+SD a glowing suit of banded mail~
+P ~
+D
+A glowing suit of banded mail lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 9
+Sz 18
+Ti 0
+Wt 0
+C 75000
+O ~
+V 7 0 0 0
+End
+
+#20002
+N halberd~
+SD the halberd~
+P ~
+D
+A mighty halberd lies against the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 320
+W 8193
+Sz 18
+Ti 0
+Wt 16
+C 12000
+O ~
+V 0 3 7 2
+End
+
+#20003
+N amulet~
+SD the amulet~
+P ~
+D
+A mushroom shaped amulet lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 5
+Sz 18
+Ti 0
+Wt 2
+C 1500
+O ~
+V 0 0 0 0
+End
+
+#20005
+N bone~
+SD a large leg bone~
+P ~
+D
+A large leg bone rests on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 300
+O ~
+V 0 1 4 7
+End
+
+#20006
+N cactus~
+SD a small cactus cup~
+P ~
+D
+A small cactus cup lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 6
+C 30
+O ~
+V 5 5 0 0
+End
+
+#20007
+N basket~
+SD a small wicker basket~
+P ~
+D
+A small wicker basket sits on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 50
+C 5000
+O ~
+V 100 5 -1 0
+End
+
+#20008
+N basket~
+SD a small wicker basket~
+P ~
+D
+A small wicker basket sits on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 50
+C 5000
+O ~
+V 100 5 -1 0
+End
+
+#20009
+N basket~
+SD a small wicker basket~
+P ~
+D
+A small wicker basket sits on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 50
+C 5000
+O ~
+V 100 5 -1 0
+End
+
+#20010
+N basket~
+SD a small wicker basket~
+P ~
+D
+A small wicker basket sits on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 50
+C 5000
+O ~
+V 100 5 -1 0
+End
+
+#20011
+N rope~
+SD a coil of rope~
+P ~
+D
+A long coil of rope lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 12
+C 450
+O ~
+V 0 0 0 0
+End
+
+#20012
+N stakes~
+SD a bunch of stakes~
+P ~
+D
+A small bundle of stakes lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 6
+C 250
+O ~
+V 0 0 0 0
+End
+
+#20013
+N map~
+SD an old, tattered map~
+P ~
+D
+An old, tattered, and much faded map lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 300
+O ~
+V 0 0 0 0
+End
+
+#20014
+N turban~
+SD a thick padded turban~
+P ~
+D
+A thick padded turban lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 192
+W 17
+Sz 18
+Ti 0
+Wt 15
+C 4300
+O ~
+V 0 0 0 0
+End
+
+#20015
+N pile treasure~
+SD a great pile of treasure~
+P ~
+D
+A great, gleaming pile of treasure lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 46270 3 0 0
+End
+
+#20016
+N sabre~
+SD a long, curved sabre~
+P ~
+D
+A long, curved sabre stands upright in the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 2048
+W 8193
+Sz 18
+Ti 0
+Wt 7
+C 1050
+O ~
+V 0 2 8 3
+End
+
+#20017
+N scimitar~
+SD a curved scimitar~
+P ~
+D
+A curved scimitar lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 2048
+W 8193
+Sz 18
+Ti 0
+Wt 6
+C 600
+O ~
+V 0 2 7 3
+End
+
+#20018
+N cutlass~
+SD a long, pointed cutlass~
+P ~
+D
+A long, pointed cutlass lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 2048
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 550
+O ~
+V 0 2 7 3
+End
+
+#20019
+N potion pink~
+SD a pink potion~
+P ~
+D
+A pink potion stands here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 6
+C 600
+O ~
+V 25 0 0 0
+End
+
+#20020
+N wand platinum~
+SD a platinum wand~
+P ~
+D
+A platinum wand lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 2
+W 16385
+Sz 18
+Ti 0
+Wt 8
+C 1900
+O ~
+V 30 10 10 0
+End
+
+#20021
+N bow energy strange~
+SD a strange energy bow~
+P ~
+D
+A strange energy bow lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 323
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 150000
+O ~
+V 0 4 5 6
+End
+
+#20022
+N scroll encrypted~
+SD an encrypted scroll~
+P ~
+D
+An encrypted scroll lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 7
+C 1500
+O ~
+V 22 0 0 0
+End
+
+#20023
+N chest~
+SD an iron bound chest~
+P ~
+D
+An iron bound chest with a shiny lock sits here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 200
+C 1000
+O ~
+V 200 13 5024 0
+End
+
+#20024
+N key golden~
+SD a golden key~
+P ~
+D
+A shiny golden key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 150
+O ~
+V 10 0 0 0
+End
+
+#20025
+N bracelet copper~
+SD a copper bracelet~
+P ~
+D
+A tarnished copper bracelet lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 192
+W 4097
+Sz 18
+Ti 0
+Wt 10
+C 23000
+O ~
+V 5 0 0 0
+End
+
+#20026
+N gem ruby~
+SD a large ruby~
+P ~
+D
+A large ruby lies on the ground collecting dust.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 9
+C 4000
+O ~
+V 20 0 0 0
+End
+
+#20027
+N gem diamond~
+SD a glittering diamond~
+P ~
+D
+A glittering diamond lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 9500
+O ~
+V 21 0 0 0
+End
+
+#20028
+N gem sapphire~
+SD a brilliant sapphire~
+P ~
+D
+A brilliant sapphire lies here twinkling.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 7
+C 3500
+O ~
+V 22 0 0 0
+End
+
+#20029
+N gem lapis~
+SD a deep blue lapis lazuli~
+P ~
+D
+A deep blue lapis lazuli gem lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 11
+C 8500
+O ~
+V 24 0 0 0
+End
+
+#20030
+N jewel tiger~
+SD the tiger jewel~
+P ~
+D
+The Tiger Jewel lies here blazing.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 256
+W 16385
+Sz 18
+Ti 0
+Wt 23
+C 3000
+O ~
+V 0 0 0 0
+End
+
+#20031
+N jewel red-eyed~
+SD the red-eyed jewel~
+P ~
+D
+The red-eyed jewel glares at you greedily.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 30
+C 5000
+O ~
+V 0 0 0 0
+End
+
+#20032
+N gem emerald~
+SD a fiery green emerald~
+P ~
+D
+A fiery green emerald sits here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 7
+C 5500
+O ~
+V 23 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#20001
+N A long tunnel~
+Ref 0
+D
+You encounter some rapids as you enter this tunnel cut out of
+the mountains by the river.
+~
+C
+~
+F 9
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20002
+~
+~
+Dr 3 0 0 18205
+~
+~
+End
+
+#20002
+N A long tunnel~
+Ref 0
+D
+The tunnel branches off north.
+~
+C
+~
+F 9
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20008
+~
+~
+Dr 1 0 0 20003
+~
+~
+Dr 3 0 0 20001
+~
+~
+End
+
+#20003
+N A long tunnel~
+Ref 0
+D
+The tunnel branches off south.
+~
+C
+~
+F 9
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20004
+~
+~
+Dr 2 0 0 20017
+~
+~
+Dr 3 0 0 20002
+~
+~
+End
+
+#20004
+N A long tunnel~
+Ref 0
+D
+The tunnel branches off to the south.
+~
+C
+~
+F 9
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20005
+~
+~
+Dr 2 0 0 20018
+~
+~
+Dr 3 0 0 20003
+~
+~
+End
+
+#20005
+N An underground lake~
+Ref 0
+D
+You are floating on a jet-black underground lake fed by dripping
+water and lime from above. The tunnel continues to the east and the river
+leads back west. To the north is a roughly-hewn hallway. There is also
+a tunnel south.
+~
+C
+~
+F 9
+S 7
+M 0
+W 0
+T 0
+O ~
+R C 61 -5 100 1
+Dr 0 0 0 20016
+~
+~
+Dr 1 0 0 20006
+~
+~
+Dr 2 0 0 20023
+~
+~
+Dr 3 0 0 20004
+~
+~
+End
+
+#20006
+N A long narrow tunnel~
+Ref 0
+D
+The tunnel rises sharply to the east.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20007
+~
+~
+Dr 3 0 0 20005
+~
+~
+End
+
+#20007
+N A wide tunnel~
+Ref 0
+D
+The tunnel continues east and west. To the east the tunnel dives
+down into a bright light.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20027
+~
+~
+Dr 3 0 0 20006
+~
+~
+End
+
+#20008
+N Cave-in~
+Ref 0
+D
+You stand at the edge of a large pile of rubble created from the last
+rockslide.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20002
+~
+~
+Dr 5 0 0 20009
+You can easily slide down the rocks without getting hurt.~
+~
+End
+
+#20009
+N At the foot of the rubble~
+Ref 0
+D
+You are at the bottom of a large pile of rubble. A tunnel branches
+off to the north and east.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 20011 3 100 1
+Dr 0 0 0 20010
+~
+~
+Dr 1 0 0 20012
+~
+~
+Dr 4 0 0 20008
+~
+~
+End
+
+#20010
+N Cave entrance~
+Ref 0
+D
+You stand in the middle of a large and beautiful cave. A path leads
+deeper into the darkness.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20009
+~
+~
+Dr 5 0 0 20011
+You look down into the cave. Bones are strewn about everywhere.~
+~
+End
+
+#20011
+N Giant cave~
+Ref 0
+D
+This cavern overwhelms you. The walls and ceiling seem miles away.
+Bones of previous adventurers lie strewn on the cavern floor.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 20010 1 100 1
+Dr 4 0 0 20010
+~
+~
+End
+
+#20012
+N Narrow bend~
+Ref 0
+D
+The tunnel turns to the south and west.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20013
+~
+~
+Dr 3 0 0 20009
+~
+~
+End
+
+#20013
+N Large cave~
+Ref 0
+D
+You are standing in a large cave. Many furs are spread out on the floor.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20012
+~
+~
+Dr 1 0 0 20014
+~
+~
+End
+
+#20014
+N Damp hallway~
+Ref 0
+D
+The walls here are extremely damp, as well as the floor.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 20012 3 100 1
+Dr 1 0 0 20015
+You hear drops of water.~
+~
+Dr 3 0 0 20013
+~
+~
+End
+
+#20015
+N Underground pool~
+Ref 0
+D
+You are wading in a knee deep pool of lime-water.
+~
+C
+~
+F 9
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20016
+~
+~
+Dr 3 0 0 20014
+~
+~
+End
+
+#20016
+N Damp hallway~
+Ref 0
+D
+The walls of the tunnel are extremely damp here. You hear the faint
+sound of running water to the south.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20015
+You hear drops of water.~
+~
+Dr 2 0 0 20005
+~
+~
+End
+
+#20017
+N Narrow crawlway~
+Ref 0
+D
+This crawlway is just big enough for a human to crawl through or a
+drev to walk through.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20003
+~
+~
+Dr 1 0 0 20018
+~
+~
+Dr 2 0 0 20019
+You smell the fragrant odor of fungus.~
+~
+End
+
+#20018
+N Large cavern~
+Ref 0
+D
+You have entered a very large cavern. The rock formations would amaze
+almost any dwarf.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20004
+~
+~
+Dr 3 0 0 20017
+~
+~
+End
+
+#20019
+N Fungus patch~
+Ref 0
+D
+As you walk through the fungus patch, you are shot at by many millions of
+spores. You can hardly breathe.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20017
+~
+~
+Dr 1 0 0 20020
+The fragrant smell of fungus spores continues to the east~
+~
+End
+
+#20020
+N Fungus path~
+Ref 0
+D
+As you walk along the path, millions of spores are shot at you. You can
+hardly breathe.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20021
+A giant mushroom temple stands to the south.~
+~
+Dr 3 0 0 20019
+The fragrant smell of spores continues to the west.~
+~
+End
+
+#20021
+N Fungus temple~
+Ref 0
+D
+You find yourself standing inside of a giant mushroom. The inside
+is decorated in the fashion of a temple.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 20013 4 100 1
+Dr 0 0 0 20020
+~
+~
+Dr 1 0 0 20022
+~
+~
+End
+
+#20022
+N Sloping passage~
+Ref 0
+D
+You follow a path sloping down from the fungus temple.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 20021
+~
+~
+Dr 5 0 0 20023
+~
+~
+End
+
+#20023
+N Sloping passage~
+Ref 0
+D
+You are on a path that gently slopes up from the underground pool.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20005
+You hear sounds of trickling water.~
+~
+Dr 4 0 0 20022
+~
+~
+End
+
+#20024
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20015 4 100 1
+Dr 0 0 0 20030
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20025
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20027
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20026
+Sand as far as the eye can see.
+~
+~
+End
+
+#20025
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20000 3 100 1
+Dr 0 0 0 20056
+You see a nomad camp by an oasis.
+~
+~
+Dr 1 0 0 20026
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20028
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20024
+Sand as far as the eye can see.
+~
+~
+End
+
+#20026
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20015 4 100 1
+Dr 0 0 0 20032
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20024
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20029
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20025
+Sand as far as the eye can see.
+~
+~
+End
+
+#20027
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20000 3 100 1
+Dr 0 0 0 20024
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20028
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20030
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20007
+You see a river flowing into the mountain.
+~
+~
+End
+
+#20028
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20003 5 100 1
+Dr 0 0 0 20025
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20029
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20031
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20027
+Sand as far as the eye can see.
+~
+~
+End
+
+#20029
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20000 3 100 1
+Dr 0 0 0 20026
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20062
+The sand is *glowing* in this direction.
+~
+~
+Dr 2 0 0 20032
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20028
+Sand as far as the eye can see.
+~
+~
+End
+
+#20030
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20015 4 100 1
+Dr 0 0 0 20027
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20031
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20024
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20032
+Sand as far as the eye can see.
+~
+~
+End
+
+#20031
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20001 1 100 1
+Dr 0 0 0 20028
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20032
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20063
+You see a tiny ledge.
+~
+~
+Dr 3 0 0 20030
+Sand as far as the eye can see.
+~
+~
+End
+
+#20032
+N The Great Eastern Desert~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifting around you.
+You feel lost.
+~
+C
+~
+F 8192
+S 10
+M 0
+W 0
+T 0
+O ~
+R M 20015 4 100 1
+Dr 0 0 0 20029
+Sand as far as the eye can see.
+~
+~
+Dr 1 0 0 20030
+Sand as far as the eye can see.
+~
+~
+Dr 2 0 0 20026
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20031
+Sand as far as the eye can see.
+~
+~
+End
+
+#20056
+N A nomad camp~
+Ref 0
+D
+This small group of desert nomads has stopped for the day to rest
+and refresh themselves beside this beautiful oasis. Three tents and some
+camels make up the party. From within two of the tents you hear muffled
+voices, obviously surprised at your visit.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20058
+You see ill-tempered camels.
+~
+~
+Dr 1 0 0 20057
+You see inside one of the tents a huddled mass of people, probably slaves.
+~
+~
+Dr 2 0 0 20025
+Sand as far as the eye can see.
+~
+~
+End
+
+#20057
+N Inside a small tent~
+Ref 0
+D
+This is a small and simple tent with few possessions in sight. Lying
+here and there are young-looking men and women, possibly slaves to the
+leader of this band.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20009 10 100 1
+Dr 3 0 0 20056
+You see the center of the nomad camp.
+~
+~
+End
+
+#20058
+N Beside the camels~
+Ref 0
+D
+Here stand about ten camels, all hitched to some stakes plugged into
+the ground. To the east you see a small tent while to the north you see a
+larger, fancier tent.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20017 1 100 1
+Dr 0 0 0 20060
+This tent seems to be the temporary abode of the nomad leader. You make a
+mental note to visit it before you leave.~
+~
+Dr 1 0 0 20059
+In this tent there are very large men, all carrying weapons.
+~
+~
+Dr 2 0 0 20056
+You see the center of the nomad camp.
+~
+~
+End
+
+#20059
+N The warrior's tent.~
+Ref 0
+D
+This tent has a few furnishings, but mainly it holds the band's
+protectors. They all stare at you coldly as you enter.
+~
+C
+~
+F 128
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20008 5 100 1
+Dr 3 0 0 20058
+Outside you see some peaceful camels.
+~
+~
+End
+
+#20060
+N The main tent~
+Ref 0
+D
+This tent is as lavishly decorated on the inside as it is on the
+outside. A fancy carpet lies on the sand and numerous baskets line the
+walls.
+~
+C
+~
+F 128
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20007 1 100 1
+Dr 1 0 0 20061
+~
+~
+Dr 2 0 0 20058
+You see some peaceful camels.
+~
+~
+End
+
+#20061
+N The main tent~
+Ref 0
+D
+This is where the leader of this band of nomads resides. He is
+definitely rich as you inspect the tapestries, baskets, and a few
+paintings as well.
+~
+C
+~
+F 128
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20006 1 100 1
+Dr 3 0 0 20060
+You see the entrance to this tent.
+~
+~
+End
+
+#20062
+N Strange Glowing Sand~
+Ref 0
+D
+A vast desert stretches for miles, the sand constantly shifts around you.
+~
+C
+~
+F 12
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20062
+~
+~
+Dr 2 0 0 20062
+~
+~
+Dr 3 0 0 20029
+Sand as far as the eye can see.
+~
+~
+Dr 6 0 0 20062
+~
+~
+Dr 7 0 0 20062
+~
+~
+Dr 8 0 0 20062
+~
+~
+Dr 9 0 0 20062
+~
+~
+End
+
+#20063
+N The wind-swept ledge~
+Ref 0
+D
+Being very careful not to lose your balance, you look around and
+find that this canyon is about a half a kilometer deep. To the west is
+a dark cave leading under the desert sands.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20031
+Sand as far as the eye can see.
+~
+~
+Dr 3 0 0 20064
+You see a dark cave.
+~
+~
+End
+
+#20064
+N The cave mouth~
+Ref 0
+D
+The air in here is MUCH cooler than outside. From the west you hear
+strange sounds, but can see nothing. The cave slopes down into the
+darkness.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20063
+Outside is lighter and very windy.~
+~
+Dr 3 0 0 20065
+~
+~
+End
+
+#20065
+N The mysterious lair.~
+Ref 0
+D
+You have stumbled upon the home of something. From the treasure
+haphazardly strewn about and the rotting carcasses, you would guess that
+this is a dragon's lair. As to what type, you can't really say. The cave
+narrows out into a tunnel to the west.
+~
+C
+~
+F 137
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 20005 1 100 1
+Dr 1 0 0 20064
+~
+~
+Dr 3 0 5024 20066
+~
+door~
+End
+
+#20066
+N A wide tunnel~
+Ref 0
+D
+This tunnel seems to go on forever into the darkness. You carefully
+feel your way along the walls.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 5024 20065
+~
+door~
+Dr 3 0 0 20067
+~
+~
+End
+
+#20067
+N A narrower tunnel~
+Ref 0
+D
+The tunnel becomes very narrow and you fight to squeeze your way through.
+The floor seems to level off a little.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20066
+~
+~
+Dr 2 0 0 20068
+~
+~
+End
+
+#20068
+N A narrow crack~
+Ref 0
+D
+This part of the tunnel is the hardest to move through as the walls
+move in to meet you.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20067
+~
+~
+Dr 3 0 0 20069
+~
+~
+End
+
+#20069
+N A small cavern.~
+Ref 0
+D
+It is dark and damp and bats hang from the ceiling. A narrow crack is
+in the east wall. The floor now slopes upwards.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20070
+~
+~
+Dr 1 0 0 20068
+~
+~
+End
+
+#20070
+N A small shaft~
+Ref 0
+D
+From within this shaft you can see a narrow hole in the roof just
+large enough for one person. Back east is the cavern.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+R O 20023 0 100 1
+Dr 2 0 0 20069
+~
+~
+Dr 4 0 0 20009
+~
+~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,686 @@
+#ZONE 
+N Zalufin~
+B None~
+V 10100 10199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#10100
+N dockmaster-zalufin-kess~
+C
+if (cmp(%astr%,{ticket}),
+   {
+    do({say Step right this way...});
+    move(%name%,10150);
+   jump(10151);
+   wait(150);
+   jump(10121);
+   do({:moors the ship at the harbor.});
+    },
+   {eat(%astr%);});
+~
+T 5
+End
+
+#10120
+N zalufin-kess-route~
+C
+label(zalufin-kess-start);
+wait(10);
+do({:offs the moorings and begins to leave the harbor.});
+wait(30);
+do({say It may take some time to reach Kess, we must sail north along the coast to the Caerbrok delta.});
+wait(10);
+do({say Perhaps you would enjoy some of our amenities in the galley.});
+wait(30);
+do({:steers the ship along a swift wind across the ocean.  The ship turns northeast.});
+wait(30);
+echo({You watch as Zalufin fades into the distance behind you.});
+wait(40);
+echo({The open water is all around you.});
+wait(40);
+echo({The ship approaches Rygor Isle, travelling northward along its eastern coast.});
+wait(200);
+do({:carefully maneuver's through the Kaerbrok delta.});
+wait(50);
+echo({In the distance you can see a marina, along the Kaerbrok.});
+wait(50);
+echo({The dock is approaching.});
+wait(20);
+do({:moors the ship at the Kessian marina.});
+wait(10);
+do({say Enjoy your journey.  Be careful, Kltara is at war and the king is not fond of charlatans.});
+wait(15);
+do({say From there, you can hire a boat back to Zalufin.});
+wait(10);
+move(%name%,5108);
+~
+T 0
+End
+
+#10150
+N speak-mudaki~
+C
+do({speak mudaki});
+~
+T 4
+End
+
+#0
+
+
+
+#ACTORS
+#10100
+N dockmaster~
+SD the dockmaster~
+LD
+ The dockmaster is selling tickets to far-off places.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 10100
+At 0 10 15 11
+End
+
+#10150
+N navigator~
+SD the navigator~
+LD
+ The navigator is here, steering the ship.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Sc 10150
+Sc 10120
+End
+
+#10153
+N zini~
+SD zini~
+LD
+ Zini is serving up some hot food.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 4 4 4 4 4
+End
+
+#0
+
+
+
+#OBJDATA
+#10100
+N ticket~
+SD a ticket to Kess~
+P ~
+D
+A ticket to Kess has been discarded.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#10100
+N Padarak Zylos~
+Ref 0
+D
+You stand at the gates of the Padarak house of Zylos, a Zylot merchant
+palace situated in the westernmost portion of the city.  It's tall white
+marble spires are adorned with various carvings, statuary and fragments of
+glittering gemstones and sands.  Unlike the Nuemor House, the Padarak House
+has been built with occasional dark or mixed marble facades, outlying the
+white marble craftwork of the higher spires.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10101
+~
+~
+Dr 3 0 0 10110
+~
+~
+End
+
+#10101
+N Nuemor Zylos~
+Ref 0
+D
+You stand at the gates of the Nuemor house of Zylos, a Zylot merchant
+palace situated in the western portion of the city.  Its tall white marble
+spires are adorned with various carvings, statuary and fragments of
+glittering gemstones and sands.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10102
+~
+~
+Dr 3 0 0 10100
+~
+~
+End
+
+#10102
+N Diofini Commons~
+Ref 0
+D
+Diofini Commons is a wide expanse of soft grasses that opens up in the
+center of the city.  Vast carved stone statuary adorns the garden portion of
+the commons located in the direct center.  An alabaster road of marble
+stones leads north and south.  To the east is a long road leading to the
+palace of the Trioskenne governor which is situated on a hill in the
+distance.  To the west are the merchant houses of the Zylots.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10103
+~
+~
+Dr 1 0 0 10111
+~
+~
+Dr 2 0 0 10105
+~
+~
+Dr 3 0 0 10101
+~
+~
+End
+
+#10103
+N Alabaster Road - Zalufin~
+Ref 10105
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10104
+~
+~
+Dr 2 0 0 10102
+~
+~
+End
+
+#10104
+N Alabaster Road - Zalufin~
+Ref 10105
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 0 10106
+~
+white marble gate~
+Dr 2 0 0 10103
+~
+~
+End
+
+#10105
+N Alabaster Road - Zalufin~
+Ref 0
+D
+Huge white marble stones softened by the shores of the Zalufini coast
+have been carefully placed in rows, lining the main thoroughfare that leads
+from the northern end of the city to its southernmost point.  Each stone
+bears a different symbol from the ancient language of the Trioskenne -- a
+beautiful flowing script that cuts a curvilinear form into each stone.  
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10102
+~
+~
+Dr 2 0 0 10107
+~
+~
+End
+
+#10106
+N Northern Gates of Zalufin~
+Ref 0
+D
+You are standing before the northern gates of Zalufin, the master city of
+the Trioskenne natives of this island.  Tall white towers mark the entrance
+to the beautiful and undisturbed Trioskenne nation, a city built on a crag
+high above the shores of the island.  The long and winding Seafarer's Trail
+leads down toward the white sandy beaches on the north edge of the isle.  A
+sloping city built on terraces leads south toward the island's southernmost
+point.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10120
+~
+~
+Dr 2 1 0 10104
+The white marble gates are hewn from marble flecked with ribbons of gold.  
+~
+white marble gate~
+End
+
+#10107
+N Alabaster Road - Zalufin~
+Ref 10105
+D
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10105
+~
+~
+Dr 2 0 0 10108
+~
+~
+End
+
+#10108
+N Alabaster Road - Zalufin~
+Ref 10105
+D
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10107
+~
+~
+Dr 2 0 0 10109
+~
+~
+End
+
+#10109
+N Alabaster Road - Zalufin~
+Ref 10105
+D
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10108
+~
+~
+End
+
+#10110
+N Western Overlook~
+Ref 0
+D
+A flat expanse of stones and mortal marks the western edge of a great
+cliff face.  From here, a patron can see all of the western shores of
+Zalufin, and the small islands just off the coast.  Far to the west, you can
+see the top of a great mountain island.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10100
+~
+~
+End
+
+#10111
+N Governor's Road~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10112
+~
+~
+Dr 3 0 0 10102
+~
+~
+End
+
+#10112
+N Governor's Road~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10113
+~
+~
+Dr 3 0 0 10111
+~
+~
+End
+
+#10113
+N Gates of Palace Zalufin~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 1 0 10114
+~
+palace gates~
+Dr 3 0 0 10112
+~
+~
+End
+
+#10114
+N Palace Zalufin~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 1 0 10113
+~
+palace gates~
+End
+
+#10120
+N Seafarer's Trail~
+Ref 0
+D
+A trail leads down from the cliff tops, toward an ocean marina for
+merchants and traveler's alike.  To the south is a short gradiant up to the
+main city of Diofini, the capital and the merchant houses.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10106
+~
+~
+Dr 6 0 0 10121
+~
+~
+End
+
+#10121
+N Seafarer's Trail~
+Ref 0
+D
+A trail leads down from the cliff tops, toward an ocean marina for
+merchants and traveler's alike.  To the southeast, the trail goes up a
+gradient toward Diofini.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10122
+~
+~
+Dr 9 0 0 10120
+~
+~
+End
+
+#10122
+N Northern Harbor - Zalufin~
+Ref 0
+D
+A wide harbor provides moorings for ships.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10100 1 100 1
+R O 544 -1 100 30
+Dr 2 0 0 10121
+~
+~
+End
+
+#10150
+N Sloop Bilaaldi - Journey to Kess~
+Ref 0
+D
+You are aboard the Trioskenne ship Bilaaldi on a paid trip to Kess, the
+capital of Kltara.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10150 1 100 1
+Dr 5 0 0 10152
+~
+~
+End
+
+#10151
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#10152
+N Sloop Bilaaldi's Galley~
+Ref 0
+D
+You are in the belly of the Bilaaldi, in an estate galley for the patrons
+of the ship.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10153 1 100 1
+Dr 4 0 0 10150
+~
+~
+End
+
+#0
+
+
+
+#$

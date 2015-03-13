@@ -1,0 +1,866 @@
+#ZONE 
+N Alvaki Ruins~
+B None~
+V 24400 24424
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#24401
+N cavern dweller~
+SD a cavern dweller~
+LD
+ A white-haired, grey-skinned cavern dweller is babbling incoherently.
+~
+D
+ It may be a traveler who wandered in here, scared to death of the
+spectres, or maybe this is what happens to an Alvaki who has managed to
+survive eating molds and fungus deep down in this crypt.  
+~
+A 225
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K -20 E 150
+O ~
+AP 16 16 16 16 16
+At 1 3 5 10
+At 2 15 25 14
+At 3 15 25 7
+End
+
+#24402
+N golem~
+SD an ancient golem~
+LD
+ An ancient Alvaki golem stands here, his head touching the ceiling.
+~
+D
+ The golem stands very tall, his eyes glow a soft blue amidst his
+blackened steel exterior.  His mouth lights up synchronously with his voice.
+~
+A 1107
+AB 168
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 60
+K 10000 E 1000
+O ~
+AP 25 50 50 25 50
+At 1 25 100 7
+At 2 100 200 12
+At 3 30 50 19
+At 4 25 75 16
+Sk 100 'enhanced damage'
+Sk 100 'heroism'
+Sk 100 'exotic'
+End
+
+#24403
+N temple spectre~
+SD a temple spectre~
+LD
+ A temple spectre floats nearby, humming its odd tune.
+~
+D
+ A ghostlike form wanders the temple, darting from here to there and
+leaving a spectral trail.  
+~
+A 225
+AB 560936
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 275
+O ~
+AP 20 0 20 20 20
+Sc 18711
+End
+
+#24404
+N undead cryptkeeper keeper~
+SD the undead cryptkeeper~
+LD
+ An undead cryptkeeper is being conhevetied by dark magicks.
+~
+D
+ Once probably the caretaker, this cryptkeeper has probably been dead for
+a thousand years.  
+~
+A 101
+AB 65576
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1 E 420
+O ~
+AP 25 0 70 25 70
+At 1 50 100 18
+At 2 25 75 20
+End
+
+#24405
+N toxic slime~
+SD the toxic slime~
+LD
+ A pool of toxic slime lies on  the floor.
+~
+D
+ A strange black ooze is steaming in a puddle on the floor.  It's
+membranous portion gyrates in a menacing manner.  
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 1
+K 0 E 500
+O ~
+AP 7 7 7 7 7
+At 1 35 60 20
+End
+
+#24406
+N lichified priest~
+SD a lichified priest~
+LD
+ The lichified priest was once a patron of this temple.
+~
+D
+ Animated by perhaps his own magicks turned on himself in desperation, the
+Alvaki priest seems to be well aware you are intruding on his eternal
+resting place.  
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 225
+O ~
+AP 15 15 15 15 15
+Sc 7730
+At 0 10 25 5
+At 1 35 70 19
+At 2 5 50 18
+At 3 5 15 17
+End
+
+#24407
+N temple serpent~
+SD a temple serpent~
+LD
+ A temple serpent hisses at you, bearing its teeth.
+~
+D
+ The serpent's eyes reflect the torchlight.
+~
+A 163
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 150 E 350
+O ~
+AP 7 7 7 7 7
+At 1 15 20 22
+At 2 35 50 12
+End
+
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#24400
+N Hall of Broken Columnades~
+Ref 0
+D
+The hall of broken columnades meets a chamber to the south with a vault
+door, where the entryway is.  Huge chunks of columns have been propped up,
+no doubt by our golem friend, creating a makeshift door to the north.  A
+broken ornate doorway leads east to the main temple.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 24401
+~
+makeshift doorway of fallen column pieces~
+Dr 1 0 0 24407
+~
+broken ornate doorway, emerging into the temple~
+Dr 2 1 0 24403
+~
+vault door~
+End
+
+#24401
+N Near Collapsed Cavern~
+Ref 0
+D
+This is where the raw materials from which mobs are manufactured are
+stored. You see sacks of sawdust, cans of pink paint, a large box
+containing wigs and a bottle mysteriously labelled "solution x". Exits
+are more of storage to the east and north, and entrance to the mob
+factory to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24405 7 100 1
+Dr 0 2048 0 24402
+Debris blocks your path.  You can see beyond it, but it is impassable.
+~
+~
+Dr 1 0 0 24406
+~
+hole in the wall~
+Dr 2 0 0 24400
+~
+makeshift doorway~
+End
+
+#24402
+N north of Collapsed Cavern~
+Ref 0
+D
+This is where the raw materials from which mobs are manufactured are
+stored. You see sacks of sawdust, cans of pink paint, a large box
+containing wigs and a bottle mysteriously labelled "solution X". Exits
+are more of storage to the east and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24401 5 100 1
+Dr 1 0 0 24405
+~
+~
+Dr 2 2048 0 24401
+The debris makes it impossible to travel in that direction.  
+~
+~
+End
+
+#24403
+N Hall of Broken Columnades~
+Ref 0
+D
+You are standing in a deep underground vault that has not been disturbed
+for centuries.  Eerie blue light can be seen from between cracks in the
+walls, and the huge columns that once held the ceiling have crumbled and
+broken, with huge chunks of the granite cavern lying on top of them,
+indicating a cave in.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24402 1 100 1
+Dr 0 1 0 24400
+~
+vault door~
+Dr 2 0 0 24404
+~
+~
+End
+
+#24404
+N Bottom of Shaft~
+Ref 0
+D
+You are standing at the bottom of a collapsed mineshaft, deep under the
+ground.  To the north you see what appears to be cut stone with Alvaki
+glyphs on them.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24405 7 100 1
+Dr 0 0 0 24403
+~
+~
+Dr 4 0 0 17316
+~
+~
+End
+
+#24405
+N Blast Crater~
+Ref 0
+D
+Something big happened here: you can tell by the charred circle that
+something was burned in this very spot.  The shape of the circle indicates a
+crater, one which is about deep enough to hide in.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 24410
+~
+~
+Dr 2 0 0 24406
+~
+~
+Dr 3 0 0 24402
+~
+~
+End
+
+#24406
+N Empty Chamber~
+Ref 0
+D
+This chamber is remarkably clean: someone must have moved everything out
+before they sealed this place in.  All that remains now is a thick layer of
+dust.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24403 9 100 1
+Dr 0 0 0 24405
+~
+~
+Dr 1 0 0 24411
+~
+~
+Dr 2 0 0 24407
+~
+~
+Dr 3 0 0 24401
+~
+~
+End
+
+#24407
+N Ancient Alvaki Temple~
+Ref 0
+D
+The ancient Alvaki temple opens up before you in all of its splendor. 
+What a place this must once have been, though now it is nowhere near the
+glory of its former days.  Many of the glyphs have been scratched off the
+remaining columns, probably by invaders or vandals throughout the centuries.
+To the east you can see endless rows of library stacks, though some areas
+appear more damaged than others.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 24406
+~
+~
+Dr 1 0 0 24412
+~
+~
+Dr 2 0 0 24408
+~
+~
+Dr 3 0 0 24400
+~
+broken ornate door~
+End
+
+#24408
+N Ancient Alvaki Catacombs~
+Ref 0
+D
+The catacombs are strewn with chunks of rock and bone, indicating a
+history of vandalism.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24405 7 100 1
+Dr 0 0 0 24407
+~
+~
+Dr 2 0 0 24409
+~
+ledge~
+End
+
+#24409
+N Inner Sanctum of the Alvaki Crypt~
+Ref 0
+D
+Something sticky is on the walls and the floor here: the walls are
+dissolved and pitted, the stones of the floor are marred and burnt.  It
+looks like something toxic has been eroding the chamber.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24405 7 100 1
+Dr 0 0 0 24408
+~
+~
+End
+
+#24410
+N Burned Chamber~
+Ref 0
+D
+You are standing in the charred archives of the Alvaki temple.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24407 4 100 1
+Dr 2 0 0 24411
+~
+~
+Dr 3 0 0 24405
+~
+~
+End
+
+#24411
+N Burned Temple~
+Ref 0
+D
+A burnt area of the temple reveals just how much damage has been done:
+not a single page remains whole in the tomes that were stored here.  Charred
+chunks of the stacks are scattered around.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24407 4 100 1
+Dr 0 0 0 24410
+~
+~
+Dr 2 0 0 24412
+~
+~
+Dr 3 0 0 24406
+~
+~
+End
+
+#24412
+N Ancient Alvaki Temple~
+Ref 0
+D
+Just east is the temple library.  A corridor extends south into darkness.
+Drops of water can be heard somewhere in the distance, echoing throughout
+the cavern.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 24411
+~
+~
+Dr 1 0 0 24417
+A grand archway leads east to the library.
+~
+grand archway~
+Dr 2 0 0 24413
+~
+~
+Dr 3 0 0 24407
+~
+~
+End
+
+#24413
+N Alvaki Catacombs~
+Ref 0
+D
+Vaulted tombs line the walls, mainly empty, with no corpses or loot to be
+found.  The doors to the crypts are broken and the catacombs are strewn with
+the bones, picked through by theives and gnawed by rats.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24404 6 100 1
+Dr 0 0 0 24412
+~
+~
+Dr 2 0 0 24414
+~
+doorway with parts of a door still hanging from its hinges~
+End
+
+#24414
+N Alvaki Crypt~
+Ref 0
+D
+A blasted vault door lies in pieces throughout the chamber.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24403 9 100 1
+Dr 0 0 0 24413
+~
+~
+End
+
+#24415
+N Burned Archives~
+Ref 0
+D
+Whatever the slime is, it's devouring the archives and will eventually
+consume this entire site if it isn't dealt with.  You wonder if this is some
+sort of failsafe, to destroy the knowledge before it falls into the wrong
+hands?  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24405 7 100 1
+Dr 1 5 0 24420
+~
+iron door~
+Dr 2 0 0 24416
+~
+~
+End
+
+#24416
+N Burned Archives~
+Ref 0
+D
+Like the archives out in the main area, these archives have been tampered
+with too.  Something toxic has been eating away at the walls and floor- what
+could it be from?  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24406 9 100 1
+Dr 0 0 0 24415
+~
+~
+Dr 2 0 0 24417
+~
+~
+End
+
+#24417
+N Alvaki Temple Library~
+Ref 0
+D
+You are at the entryway to the main temple library.  To the south you can
+see there are intact stacks here!  Perhaps not all of the information was
+lost!  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24406 9 100 1
+Dr 0 0 0 24416
+~
+~
+Dr 2 0 0 24418
+~
+~
+Dr 3 0 0 24412
+~
+grand archway~
+End
+
+#24418
+N Temple Stacks~
+Ref 0
+D
+This is the primary assembly line of the mob factory. Here, all the
+mobs seen roaming around the city of Midgaard are manufactured from
+raw materials. There is a big conveyor belt present which makes a lot
+of noise! It seems that the workers are making drunks today. Exits are
+east to the secondary assembly line, north and south to the primary
+assembly line.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24406 9 100 1
+Dr 0 0 0 24417
+~
+~
+Dr 1 0 0 24423
+~
+~
+Dr 2 0 0 24419
+~
+~
+End
+
+#24419
+N Temple Stacks~
+Ref 0
+D
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24406 9 100 1
+Dr 0 0 0 24418
+~
+~
+Dr 1 0 0 24424
+~
+~
+End
+
+#24420
+N Library Antechamber~
+Ref 0
+D
+You are in a tight antechamber that seems fairly protected from the wierd
+ooze you've been encountering.  This place looks like it was once an office,
+but someone had barracaded themselves fairly well.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24406 9 100 1
+Dr 2 5 0 24421
+~
+iron door~
+Dr 3 5 0 24415
+~
+iron door~
+End
+
+#24421
+N Forgotten Archives~
+Ref 0
+D
+This is the secondary asembly line of the mob factory. You are
+surprised to see guardsman heads come floating on the conveyor belt!
+The very sight is sickening, but the workers seem to be quite
+cheerful about their work. Exits are north and south to the secondary
+assembly line and west to the primary assembly line.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24405 7 100 1
+Dr 0 5 0 24420
+~
+iron door~
+Dr 2 5 0 24422
+~
+vaulted door~
+End
+
+#24422
+N Alvaki Scroll Archive~
+Ref 0
+D
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24403 9 100 1
+Dr 0 5 0 24421
+~
+vaulted door~
+Dr 2 0 0 24423
+~
+~
+End
+
+#24423
+N Temple Conference Chamber~
+Ref 0
+D
+This was once the central meeting place for the Alvaki priests who
+studied here.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24406 9 100 1
+Dr 0 0 0 24422
+~
+arch~
+Dr 2 0 0 24424
+~
+arch~
+Dr 3 0 0 24418
+~
+arch~
+End
+
+#24424
+N Temple Stacks~
+Ref 0
+D
+You are among what remains of the Alvaki legacy: many tomes and other
+manuals are still here, suspended from circulation and fading with letters
+of a forgotten language.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24403 9 100 1
+Dr 0 0 0 24423
+~
+~
+Dr 3 0 0 24419
+~
+~
+End
+
+#0
+
+
+
+#$

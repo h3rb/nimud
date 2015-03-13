@@ -1,0 +1,1494 @@
+#ZONE 
+N Copper  In the Air~
+B None~
+V 16000 16040
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#16000
+N fairy dragon~
+SD A fairy dragon~
+LD
+ A fairy dragon is fluttering around here looking for something to do...
+~
+D
+ It's a cute little multi-colored dragon...about 2 foot long.
+It gracefully dances around your head.
+~
+A 2113
+AB 24
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 500 E 738
+O ~
+AP 25 25 25 25 40
+At 0 10 33 11
+At 1 5 19 8
+At 3 1 20 16
+At 5 1 24 0
+At 6 5 86 9
+End
+
+#16001
+N griffin~
+SD A griffin~
+LD
+ A large black winged griffin swoops into an attack.
+~
+D
+ Golden maned and black all over.  It's quite a beautiful creature if not
+for the fact it is hungry and is attacking you!
+~
+A 2115
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 254
+O ~
+AP 19 19 19 19 19
+At 0 10 16 8
+At 1 5 21 10
+At 2 1 35 12
+End
+
+#0
+
+
+
+#OBJDATA
+#16001
+N rose~
+SD a red rose~
+P ~
+D
+A red rose is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 8
+C 0
+O ~
+V 6 0 0 0
+ED rose~
+This is no ordinary rose, as it is a gift from Dionysus to his
+dearest, Wendella.
+~
+End
+
+#0
+
+
+
+#SCENES
+#16001
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the ground north of the city.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 16006
+More of the same.
+~
+~
+Dr 2 0 0 16002
+More of the same.
+~
+~
+Dr 4 0 0 16021
+More of the same.
+~
+~
+End
+
+#16002
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 20 meters above the inside wall of West Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16001
+More of the same.
+~
+~
+Dr 1 0 0 16007
+More of the same.
+~
+~
+Dr 2 0 0 16003
+More of the same.
+~
+~
+Dr 4 0 0 16022
+More of the same.
+~
+~
+End
+
+#16003
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 20 meters above the west gate of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16002
+More of the same.
+~
+~
+Dr 1 0 0 16008
+More of the same.
+~
+~
+Dr 2 0 0 16004
+More of the same.
+~
+~
+Dr 4 0 0 16023
+More of the same.
+~
+~
+End
+
+#16004
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Wall Road.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16003
+More of the same.
+~
+~
+Dr 1 0 0 16009
+More of the same.
+~
+~
+Dr 2 0 0 16005
+More of the same.
+~
+~
+Dr 4 0 0 16024
+More of the same.
+~
+~
+End
+
+#16005
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Wall Road.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+R M 16000 10 100 1
+Dr 0 0 0 16004
+More of the same.
+~
+~
+Dr 1 0 0 16010
+More of the same.
+~
+~
+Dr 4 0 0 16025
+More of the same.
+~
+~
+End
+
+#16006
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the ground north of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 16011
+More of the same.
+~
+~
+Dr 2 0 0 16007
+More of the same.
+~
+~
+Dr 3 0 0 16001
+More of the same.
+~
+~
+Dr 4 0 0 16026
+More of the same.
+~
+~
+End
+
+#16007
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 20 meters above the magic shop.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16006
+More of the same.
+~
+~
+Dr 1 0 0 16012
+More of the same.
+~
+~
+Dr 2 0 0 16008
+More of the same.
+~
+~
+Dr 3 0 0 16002
+More of the same.
+~
+~
+Dr 4 0 0 16027
+More of the same.
+~
+~
+End
+
+#16008
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Main Street.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16007
+More of the same.
+~
+~
+Dr 1 0 0 16013
+More of the same.
+~
+~
+Dr 2 0 0 16009
+More of the same.
+~
+~
+Dr 3 0 0 16003
+More of the same.
+~
+~
+Dr 4 0 0 16028
+More of the same.
+~
+~
+End
+
+#16009
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 20 meters above the Mage Guild Hall.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16008
+More of the same.
+~
+~
+Dr 1 0 0 16014
+More of the same.
+~
+~
+Dr 2 0 0 16010
+More of the same.
+~
+~
+Dr 3 0 0 16004
+More of the same.
+~
+~
+Dr 4 0 0 16029
+More of the same.
+~
+~
+End
+
+#16010
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Poor Alley.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16009
+More of the same.
+~
+~
+Dr 1 0 0 16015
+More of the same.
+~
+~
+Dr 3 0 0 16005
+More of the same.
+~
+~
+Dr 4 0 0 16030
+More of the same.
+~
+~
+End
+
+#16011
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the ground north of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 16016
+More of the same.
+~
+~
+Dr 2 0 0 16012
+More of the same.
+~
+~
+Dr 3 0 0 16006
+More of the same.
+~
+~
+Dr 4 0 0 16031
+More of the same.
+~
+~
+End
+
+#16012
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 20 meters above the bakery.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16011
+More of the same.
+~
+~
+Dr 1 0 0 16017
+More of the same.
+~
+~
+Dr 2 0 0 16013
+More of the same.
+~
+~
+Dr 3 0 0 16007
+More of the same.
+~
+~
+Dr 4 0 0 16032
+More of the same.
+~
+~
+End
+
+#16013
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Main Street.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16012
+More of the same.
+~
+~
+Dr 1 0 0 16018
+More of the same.
+~
+~
+Dr 2 0 0 16014
+More of the same.
+~
+~
+Dr 3 0 0 16008
+More of the same.
+~
+~
+Dr 4 0 0 16033
+More of the same.
+~
+~
+End
+
+#16014
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 20 meters above Armoury.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16013
+More of the same.
+~
+~
+Dr 1 0 0 16019
+More of the same.
+~
+~
+Dr 2 0 0 16015
+More of the same.
+~
+~
+Dr 3 0 0 16009
+More of the same.
+~
+~
+Dr 4 0 0 16034
+More of the same.
+~
+~
+End
+
+#16015
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Poor Alley.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16014
+More of the same.
+~
+~
+Dr 1 0 0 16020
+More of the same.
+~
+~
+Dr 3 0 0 16010
+More of the same.
+~
+~
+Dr 4 0 0 16035
+More of the same.
+~
+~
+End
+
+#16016
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 10 meters above the temple spire of Midgaard
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 16017
+More of the same.
+~
+~
+Dr 3 0 0 16011
+More of the same.
+~
+~
+Dr 4 0 0 16036
+More of the same.
+~
+~
+End
+
+#16017
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the Temple Square.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16016
+More of the same.
+~
+~
+Dr 2 0 0 16018
+More of the same.
+~
+~
+Dr 3 0 0 16012
+More of the same.
+~
+~
+Dr 4 0 0 16037
+More of the same.
+~
+~
+Dr 5 0 0 18057
+More of the same
+~
+~
+End
+
+#16018
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Market Square.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16017
+More of the same.
+~
+~
+Dr 2 0 0 16019
+More of the same.
+~
+~
+Dr 3 0 0 16013
+More of the same.
+~
+~
+Dr 4 0 0 16038
+More of the same.
+~
+~
+End
+
+#16019
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above Market and Commons.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+R M 16000 10 100 1
+Dr 0 0 0 16018
+More of the same.
+~
+~
+Dr 2 0 0 16020
+More of the same.
+~
+~
+Dr 3 0 0 16014
+More of the same.
+~
+~
+Dr 4 0 0 16039
+More of the same.
+~
+~
+End
+
+#16020
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above ground, overlooking the Common Square.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16019
+More of the same.
+~
+~
+Dr 3 0 0 16015
+More of the same.
+~
+~
+Dr 4 0 0 16040
+More of the same.
+~
+~
+End
+
+#16021
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above the ground just north of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 16026
+More of the same.
+~
+~
+Dr 2 0 0 16022
+More of the same.
+~
+~
+Dr 5 0 0 16001
+More of the same.
+~
+~
+End
+
+#16022
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the west gate of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+R M 16000 10 100 1
+Dr 0 0 0 16021
+More of the same.
+~
+~
+Dr 1 0 0 16027
+More of the same.
+~
+~
+Dr 2 0 0 16023
+More of the same.
+~
+~
+Dr 5 0 0 16002
+More of the same.
+~
+~
+End
+
+#16023
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above west gate of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16022
+More of the same.
+~
+~
+Dr 1 0 0 16028
+More of the same.
+~
+~
+Dr 2 0 0 16024
+More of the same.
+~
+~
+Dr 5 0 0 16003
+More of the same.
+~
+~
+End
+
+#16024
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above wall road.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16023
+More of the same.
+~
+~
+Dr 1 0 0 16029
+More of the same.
+~
+~
+Dr 2 0 0 16025
+More of the same.
+~
+~
+Dr 5 0 0 16004
+More of the same.
+~
+~
+End
+
+#16025
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above wall road.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16024
+More of the same.
+~
+~
+Dr 1 0 0 16030
+More of the same.
+~
+~
+Dr 5 0 0 16005
+More of the same.
+~
+~
+End
+
+#16026
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above the ground north of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 16031
+More of the same.
+~
+~
+Dr 2 0 0 16027
+More of the same.
+~
+~
+Dr 3 0 0 16021
+More of the same.
+~
+~
+Dr 5 0 0 16006
+More of the same.
+~
+~
+End
+
+#16027
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the magic shop.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16026
+More of the same.
+~
+~
+Dr 1 0 0 16032
+More of the same.
+~
+~
+Dr 2 0 0 16028
+More of the same.
+~
+~
+Dr 3 0 0 16022
+More of the same.
+~
+~
+Dr 5 0 0 16007
+More of the same.
+~
+~
+End
+
+#16028
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above main street.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16027
+More of the same.
+~
+~
+Dr 1 0 0 16033
+More of the same.
+~
+~
+Dr 2 0 0 16029
+More of the same.
+~
+~
+Dr 3 0 0 16023
+More of the same.
+~
+~
+Dr 5 0 0 16008
+More of the same.
+~
+~
+End
+
+#16029
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the mage guild.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16028
+More of the same.
+~
+~
+Dr 1 0 0 16034
+More of the same.
+~
+~
+Dr 2 0 0 16030
+More of the same.
+~
+~
+Dr 3 0 0 16024
+More of the same.
+~
+~
+Dr 5 0 0 16009
+More of the same.
+~
+~
+End
+
+#16030
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above poor alley.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16029
+More of the same.
+~
+~
+Dr 1 0 0 16035
+More of the same.
+~
+~
+Dr 3 0 0 16025
+More of the same.
+~
+~
+Dr 5 0 0 16010
+More of the same.
+~
+~
+End
+
+#16031
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above the ground north of Midgaard.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 16036
+More of the same.
+~
+~
+Dr 2 0 0 16032
+More of the same.
+~
+~
+Dr 3 0 0 16026
+More of the same.
+~
+~
+Dr 5 0 0 16011
+More of the same.
+~
+~
+End
+
+#16032
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above bakery and cleric guild.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16031
+More of the same.
+~
+~
+Dr 1 0 0 16037
+More of the same.
+~
+~
+Dr 2 0 0 16033
+More of the same.
+~
+~
+Dr 3 0 0 16027
+More of the same.
+~
+~
+Dr 5 0 0 16012
+More of the same.
+~
+~
+End
+
+#16033
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above main street.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16032
+More of the same.
+~
+~
+Dr 1 0 0 16038
+More of the same.
+~
+~
+Dr 2 0 0 16034
+More of the same.
+~
+~
+Dr 3 0 0 16028
+More of the same.
+~
+~
+Dr 5 0 0 16013
+More of the same.
+~
+~
+End
+
+#16034
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 40 meters above the armoury.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+R M 16001 3 100 1
+Dr 0 0 0 16033
+More of the same.
+~
+~
+Dr 1 0 0 16039
+More of the same.
+~
+~
+Dr 2 0 0 16035
+More of the same.
+~
+~
+Dr 3 0 0 16029
+More of the same.
+~
+~
+Dr 5 0 0 16014
+More of the same.
+~
+~
+End
+
+#16035
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above poor alley.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16034
+More of the same.
+~
+~
+Dr 1 0 0 16040
+More of the same.
+~
+~
+Dr 3 0 0 16030
+More of the same.
+~
+~
+Dr 5 0 0 16015
+More of the same.
+~
+~
+End
+
+#16036
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 30 meters above the temple spire.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 16037
+More of the same.
+~
+~
+Dr 3 0 0 16031
+More of the same.
+~
+~
+Dr 5 0 0 16016
+More of the same.
+~
+~
+End
+
+#16037
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above the temple square.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16036
+More of the same.
+~
+~
+Dr 2 0 0 16038
+More of the same.
+~
+~
+Dr 3 0 0 16032
+More of the same.
+~
+~
+Dr 5 0 0 16017
+More of the same.
+~
+~
+End
+
+#16038
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above market square.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16037
+More of the same.
+~
+~
+Dr 2 0 0 16039
+More of the same.
+~
+~
+Dr 3 0 0 16033
+More of the same.
+~
+~
+Dr 5 0 0 16018
+More of the same.
+~
+~
+End
+
+#16039
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above market square and commons square.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16038
+More of the same.
+~
+~
+Dr 2 0 0 16040
+More of the same.
+~
+~
+Dr 3 0 0 16034
+More of the same.
+~
+~
+Dr 5 0 0 16019
+More of the same.
+~
+~
+End
+
+#16040
+N In the air ...~
+Ref 0
+D
+You are flying!
+Currently you are about 60 meters above commoners square and the dump.
+It seems like you can see forever!
+~
+C
+~
+F 0
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 16039
+More of the same.
+~
+~
+Dr 3 0 0 16035
+More of the same.
+~
+~
+Dr 5 0 0 16020
+More of the same.
+~
+~
+End
+
+#0
+
+
+
+#$

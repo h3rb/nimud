@@ -1,0 +1,719 @@
+
+
+#DOC 9
+N REACHING~
+C 9 L 0
+KW IMMORTAL IMMORTALITY~
+SY ~
+TX Immortality is the ultimate high of highs at the end of the 99
+mortal levels.  There are actually 100 mortal levels including
+level 0; the perks of immortality are too numerous to mention,
+but include the access to infinite life and expanded universal
+liberties.  Immortals reap the benefits of their sainthood and
+possess countless and unfathomable pleasures of the astral
+conciousness in which they reside, impervious to attacks, mortal
+or otherwise.
+~
+IT Immortal commands, building commands and methods / processes,
+special features for immortals and the like can be viewed
+under the 'reference' help topic.
+~
+EX ~
+SA Death~
+End
+
+#DOC 10
+N REFERENCE~
+C 9 L 5
+KW REFERENCE~
+SY ~
+TX The immortal reference is broken into several sub-topics.
+~
+IT ~
+EX ~
+SA OLC, Script, Wizhelp, Design~
+End
+
+#DOC 11
+N OLC~
+C 9 L 5
+KW OLC~
+SY ~
+TX The Online Creation system, or Building System, provides immortals
+with a method of extending the universe and adding to the game.
+ 
+Online creation uses a series of editors to manipulate each
+type of database entity used in the game.  Most, if not all,
+entries in the database have a Virtual Number or VNUM.  A VNUM
+is a unique identifier which may be repeated across entity types;
+for instance an actor may have the same Virtual Number as
+a scene.
+ 
+Help topics associated with OLC include the editors themselves:
+AEDIT (legacy: MEDIT), SEDIT (legacy: REDIT), PEDIT (legacy: OEDIT),
+ZEDIT, SPEDIT, SKEDIT, SCEDIT (For scripters, zone, spell/skill makers.)  
+ 
+As well as how-to documentation for the following topics:
+Shopkeepers, Practitioners, Automatons, Questmaking, Aggressives 
+ 
+And finally, debugger tools: TRACE, DEBUG, TABLES, NOTIFY
+~
+IT ~
+EX ~
+SA Database, Vnum, Script, Editors~
+End
+
+#DOC 12
+N DATABASE~
+C 9 L 5
+KW DATABASE~
+SY ~
+TX The database is filled with virtual-number (VNUM) indexed entries
+of types Actor, Scene and Prop, which are equivalent to Diku's
+Mob, Room and Object.
+ 
+The database also include these entity subtypes:
+Document (for HELP), Skill, Spell and Script
+ 
+A special type called a Shop is also part of the database.
+~
+IT ~
+EX ~
+SA OLC, Script, Cue~
+End
+
+#DOC 14
+N CUES~
+C 9 L 5
+KW CUE CUES~
+SY ~
+TX A cue is a special command which automates the world's initial state;
+and were referred to in Diku as Resets, and in Ultima Online as Spawns.
+ 
+A cue is a useful way to key up aggressives for a dungeon or prepare
+a scene with furniture.
+ 
+The order which the cues fall determines the outcome of the scene.
+In cases where "IN" or "ON"  are used, cues refer back to the nearest 
+prop which is a container or piece of furniture.
+ 
+In cases where "<wear-loc>" is used, cues refer back to the nearest
+previous actor in the list.
+~
+IT ~
+EX CUE <order> GOOD <gnum> <wear-loc> [chance] [num to load]
+CUE <order> GOOD <gnum> HERE  [chance] [num to load]
+CUE <order> GOOD <gnum> IN|ON [chance] [num to load]
+CUE <order> COMPONENT <cnum> <location> [chance] [num to load]
+CUE <order> COMPONENT <cnum> SCENE [chance] [num to load]
+CUE <order> COMPONENT <cnum> IN|ON [chance] [num to load]
+CUE <order> PROP <vnum> <location> [chance] [num to load]
+CUE <order> PROP <vnum> SCENE [chance] [num to load]
+CUE <order> PROP <vnum> IN|ON [chance] [num to load]
+CUE <order> ACTOR <vnum> [<max #> <chance> <num to load>]
+~
+SA Purge, Wear-Loc, Shopkeepers, Aggressives~
+End
+
+#DOC 15
+N CREATING~
+C 9 L 5
+KW SHOPKEEPERS SHOPKEEPER~
+SY ~
+TX To create an automated shopkeeper, you use the Actor Editor, the
+Cue command, and the Shop command from within the Actor Editor.
+ 
+Create a shopkeeper actor using AEDIT CREATE <vnum>
+Turn on act flags 'sentinel' and 'good' so that the shopkeeper
+cannot be attacked nor moves around.
+ 
+Describe and engender your shopkeeper, then type, from
+within the Actor Editor, 'shop create'
+ 
+This assigns a shop to the Actor.   Then, you must
+modify the shop parameters.  At the current time, the
+only working shop type is Peddler.  Type 'shop peddler'
+to assign this shop to type 'Peddler'.
+ 
+Once you have assigned the shop to type 'Peddler', you
+must set the types of items a shopkeeper is willing to
+buy.  Shopkeepers never buy TRASH items.
+ 
+To set these types, which enables the keeper to purchase
+items sold by players, type 'shop type <num> <type>'.
+ 
+See the example for a list of commands which will create a
+weapons dealer.
+ 
+After you have created the shop, you must use the cues command
+to load the actor in the scene; then load any props to be sold
+on the actor's "none" wear-loc, as designated by the cue
+command.
+~
+IT ~
+EX aed create 17002
+name gunslinger
+short the gunslinger
+long A gunslinger is selling guns.
+male
+sentinel
+good
+shop create
+shop peddler
+shop type 1 weapon
+done
+~
+SA Cues, OLC, ITEM-TYPES~
+End
+
+#DOC 16
+N QUESTMAKING~
+C 9 L 5
+KW QUESTMAKING~
+SY ~
+TX Quests are like circuits; they require several types or entities,
+and usually a few scripts.  Quests can make use of several different
+types of rewards, which are the motivations for a question.
+ 
+To create a quest first you must plan it; usually there are two
+or three actions which much be performed to retreive the skill,
+bonus or treasure reward.
+ 
+A quest can be ongoing- in that there is no set time in which
+a player must complete it, but each step along the way garners
+greater rewards.  A simple quest only has one reward and one
+action, a complex quest may be three or four of these simpler
+quests tied together to form a single item.
+ 
+First, create the scenes and actors in a quest, then create
+the items for the quest.  Finally, link all of the associated
+items together using scripts.
+ 
+The purpose or goal of a quest may be to find an item by
+killing something, and returning it to the Actor who informed
+the player about the quest.  A quest may also be the retreival
+of several items, which in themselves are the treasure.
+ 
+Using the Bounty system, quests can be similar to missions
+for a bounty hunter; or perhaps traversing a maze to locate
+a treasure is a quest.
+~
+IT ~
+EX ~
+SA Script, OLC, Design~
+End
+
+#DOC 17
+N DESIGN~
+C 9 L 5
+KW DESIGN~
+SY ~
+TX A series of articles on designing various types of interactions
+for the player.
+ 
+Shopkeepers, Aggressives, Questmaking, Practitioners,
+Automatons
+~
+IT ~
+EX ~
+SA OLC, Script~
+End
+
+#DOC 20
+N LINKING~
+C 9 L 7
+KW LINKS~
+SY ~
+TX Once a script has been made, you will need to link it to the appropriate
+actor, prop or scene.
+ 
+Scripts function differently if they are mis-appropriated.  If you
+write a prop-related script and assign it to an actor, it may not
+work as you might have expected.
+ 
+In the AEDIT, PEDIT or SEDIT, use the script command to assign,
+or clear, the scripts 'linked' to that database entry.  You may
+wish to reuse the same script on different entities later.
+~
+IT ~
+EX ~
+SA AEDIT, PEDIT, SEDIT, SCEDIT~
+End
+
+#DOC 21
+N AEDIT~
+C 9 L 5
+KW AEDIT MEDIT~
+SY ~
+TX AEDIT, previously known as MEDIT, is the Actor Editor.
+ 
+When you enter the Actor Editor, you can type a variety of commands to
+modify the Actor template you are editing.
+ 
+Use the TABLES command to view appropriate BITS.  These are the names
+of various flags that change the properties of an actor.  These names
+can be typed into the editor to 'toggle' the bit.
+ 
+Actor Related: see TABLE BITS, act_bit and affect_bit
+ 
+show                - hitting return, or 'show' shows the actor stats
+done                - exits the actor editor and returns to normal play
+timer <# of ticks>  - sets the timed age of an actor (automated self-destruct)
+name <keywords>     - sets the keywords on an actor
+short <desc>        - sets the 'name' of an actor (a sword, a fish etc)
+long                - edit long description (the one in the room)
+descr               - edit the actor's description (when looked at)
+shop                - type this command for further information
+create <vnum>       - creates actor with specified vnum
+male/female/neuter  - set the actor's sex
+level <level>       - set the actor's level
+alignment <value>   - set the actor's alignment
+money <amount>      - set the amount of gold loaded on a actor (use sparingly)
+script <vnum>       - to add a link to a script
+script kill
+attrib <value>      - set all attributes to a value
+str <value>         - set actor's strength
+int <value>         - set actor's intelligence
+wis <value>         - set actor's wisdom
+dex <value>         - set actor's dexterity
+con <value>         - set actor's constitution
+skill <name> <val>  - add a skill to the actor's known skill list
+skill <name> 0      - remove a skill / render a skill unknown
+addspell            - adds knowledge of a spell to the actor
+attack # type d1 d2     -> adds "special attacks"; see TABLE ATTACK
+~
+IT ~
+EX ~
+SA Shopkeepers, Cues~
+End
+
+#DOC 22
+N PEDIT~
+C 9 L 5
+KW PEDIT OEDIT~
+SY ~
+TX PEDIT, formerly known as OEDIT, is the Prop Editor.
+ 
+Use the TABLES command to view related BITS.  BITS are special flags
+which change the properties of a prop, and can be toggled by typing
+the name of the flag into the editor.
+ 
+The following commands are available from within the Prop Editor:
+show                - hitting return, or 'show' shows the object stats
+done                - exits the object editor and returns to normal play
+timer <# of ticks>  - sets the timed age of an object (automated self-destruct)
+name <keywords>     - sets the keywords on an object
+short <desc>        - sets the 'name' of an object (a sword, a fish etc)
+
+long                - sets long description (the one in the room)
+plurallong          - sets pluralized version of long (not always needed)
+action              - sets the action description (see ACTION-DESCR)
+desc                - sets the object's main description
+value1 <num|flag>   - sets the value '1' on the object (also abbrev.d to 'v0')
+value2 <num|flag>   - sets the value '2' on the object (also abbrev.d to 'v1')
+value3 <num|flag>   - sets the value '3' on the object (also abbrev.d to 'v2')
+value4 <num|flag>   - sets the value '4' on the object (also abbrev.d to 'v3')
+weight <stones>     - sets the weight of the object
+cost <gold>         - sets the gold value of the object
+create <vnum>       - creates object with specified vnum
+ed                  - type this for info on adding/editing extended descripts
+script <vnum>       - add a link to a script
+script kill         - remove all scripts
+~
+IT ~
+EX To set the way an item can be worn, use TABLE BITS under WEAR-BITS.
+You can also set EXTRA-BITS on items such as burning and glowing.
+~
+SA Item-Types~
+End
+
+#DOC 23
+N ITEM~
+C 9 L 5
+KW ITEM-TYPES~
+SY ~
+TX .
+ Object values.
+ Item Type            Value1       Value2       Value3       Value4
+------------------------------------------------------------------------------
+ ITEM_TRASH
+ ITEM_LIGHT         Current Light   Max Light(-1)                  Light flags
+ ITEM_SCROLL        Spell Level     Spell SN        Spell SN       Spell SN
+ ITEM_WAND          Spell Level     Min Charge      Max Charge     Spell SN
+ ITEM_STAFF         Spell Level     Min Charge      Max Charge     Spell SN
+ ITEM_WEAPON        Poison (b)      Min Damage      Max Damage     Weap Type
+ ITEM_RANGED_WEAPON Ammo Type       Min Damage      Max Damage     Ranged Type
+ ITEM_AMMO          Ammo Type       Bonus to Dam    Spell Level    Spell SN
+ ITEM_TREASURE
+ ITEM_ARMOR         Armor Bonus     Current Damage  Max Damage     Size
+ ITEM_POTION        Spell Level     Spell SN        Spell SN       Spell SN
+ ITEM_BOOK
+ ITEM_FURNITURE     Capacity        Furniture Flags Key (vnum)     Room (vnum)
+ ITEM_CLOTHING                                                     Size
+ ITEM_PAPER
+ ITEM_CONTAINER     Maximum Weight  Container Flags Key (vnum)
+ ITEM_THROWN        Spell Level     Spell SN        Spell SN       Spell SN
+ ITEM_DRINK_CON     Capacity        Current Volume  Liquid Type    Poison (b)
+ ITEM_KEY
+ ITEM_FOOD          Ticks of Food                                  Poison (b)
+ ITEM_MONEY         Amount          Type            Set
+ ITEM_GEM           Mana Flags      Current Mana    Max Mana
+ ITEM_VEHICLE       Sector Pass     Sector Pass     Sector Pass    Sector Pass
+ ITEM_CORPSE_NPC    Actor's Race
+ ITEM_CORPSE_PC
+ ITEM_FOUNTAIN      Spell Level     Spell SN        Spell SN       Spell SN
+ ITEM_PILL          Spell Level     Spell SN        Spell SN       Spell SN
+ ITEM_TOOL          Tool Flags      Number of uses  Max uses
+ ITEM_LIST          Number of vnums
+ ITEM_BOARD         Board Index
+ ITEM_COMPONENT     Component Type
+ ITEM_GOODS         Goods Type
+ ITEM_JEWELRY
+NOTE: Read HELP VALUE-FLAGS for flags on certain objects (lights, tools etc)
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 24
+N FLAGS~
+C 9 L 5
+KW VALUE-FLAGS VAL-FLAGS~
+SY ~
+TX Container bits (value 1):       Light bits (value 3):
+ 1 = open/closable               1 = lit
+ 2 = pickproof                   2 = fillable
+ 4 = closed (on load)
+ 8 = locked (on load)
+Furniture bits (value 1):       Tool bits (value 1):
+ 1 = can be sat on               1 = tinderbox
+ 2 = can be slept on             2 = lock picks
+ 4 = is a portal
+~
+IT ~
+EX ~
+SA Item-Types, PEDIT~
+End
+
+#DOC 25
+N STATS~
+C 9 L 5
+KW STATS ATTRIB~
+SY ~
+TX Strength           Intelligence   Wisdom  Dexterity  Constitution
+   +Hit +Dam Crr Wei  Skill  DB      SLv  DB  To-Hit-%  Hitp Res Shock
+ 0  -5, -4,   0,  0      0,  72       0,  48      60    -80, 20, 20
+ 1  -5, -4,   3,  1      0,  60       0,  36      50    -70, 25, 25
+    -3, -2,   3,  2      0,  48       0,  24      50    -60, 30, 30
+ 3  -3, -1,  10,  3      0,  36       0,  12      40    -50, 35, 35
+    -2, -1,  25,  4      0,  36       0,  12      30    -40, 40, 40
+ 5  -2, -1,  55,  5      1,  24       1,   6      20    -30, 45, 45
+    -1,  0,  80,  6      1,  24       1,   6      10    -30, 50, 50
+    -1,  0,  90,  7      2,  12       2,   6       0    -20, 55, 55
+     0,  0, 100,  8      3,  12       3,   6       0    -20, 60, 60
+     0,  0, 100,  9      4,   6       4,   3       0    -10, 65, 65
+10   0,  0, 115, 10      5,   0       5,   0       0    -10, 70, 70
+     0,  0, 115, 11      6,   0       6,   0       0    - 5, 75, 75
+     0,  0, 140, 12      7,   0       7,   0       0      0, 80, 80
+13   0,  0, 140, 13      8,   0       8,   0       0      5, 85, 85
+     0,  1, 170, 14      9,   0       9,   0       0     10, 88, 88
+15   1,  1, 170, 15     10,   0      10,   0    - 10     10, 90, 90
+     1,  2, 195, 16     11,  -6      11,  -3    - 15     20, 95, 95
+     2,  3, 220, 22     12,  -6      12,  -3    - 20     20, 97, 97
+18   2,  4, 250, 25     15, -12      15,  -6    - 30     30, 99, 99
+     3,  5, 400, 30     17, -12      17,  -6    - 40     30, 99, 99
+20   3,  6, 500, 35     20, -12      20,  -6    - 50     40, 99, 99
+     4,  7, 600, 40     23, -12      23,  -6    - 60     50, 99, 99
+     5,  7, 700, 45     26, -12      26,  -6    - 75     60, 99, 99
+     6,  8, 800, 50     30, -24      30, -12    - 90     70, 99, 99
+     8, 10, 900, 55     35, -48      35, -24    -105     80, 99, 99
+25  10, 12, 999, 60     40, -72      40, -36    -120     90, 99, 99
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 26
+N SEDIT~
+C 9 L 5
+KW SEDIT REDIT~
+SY sedit       <- edits the current scene
+sedit create <vnum>
+~
+TX SEDIT, formerly known as REDIT, is the Scene Editor.
+ 
+The following commands are available from within the SEDITOR:
+show                - hitting return, or 'show' shows the room stats
+done                - exists the room editor and returns to normal play
+create <vnum>       - creates a room with a certain vnum
+name <room title>   - changes the room title
+ed                  - type this command for additonal extra-description help
+desc                - edit description of room
+For exits, type the direction (north/s/e/w) followed by:
+delete             - delete this exit
+link <room vnum>   - make a two way link
+room <room vnum>   - make a one way link (use with caution)
+key <object vnum>  - makes specified object the vnum of the key required
+name <door name>   - makes the door's name/keywords = to the given name
+desc               - edit the description of the exit
+door               - makes exit a door
+closed             - defaults exit to closed
+locked             - defaults exit to locked
+eat_key            - makes exit eat keys after being unlocked
+pickproof          - lockpicks/pick command dont work on this door
+secret             - note shown when bumped/exits list
+concealed          - insures an exits visibility
+ 
+You can also use TABLE BITS to view appropriate scene-related bits.
+~
+IT ~
+EX east undig
+east 3034
+east name archway
+east door oaken door
+east locked
+east closed
+~
+SA Codes~
+End
+
+#DOC 27
+N SCEDIT~
+C 9 L 5
+KW ~
+SY scedit create <vnum>
+~
+TX SCEDIT is the Script Editor.  There are only a few things you can
+type:
+ 
+Each, Tick, Moves, Enter, Gets, Say, Born, Dies
+Toggles the trigger type.  
+ 
+Script
+Enters the script command editor.
+ 
+Trace
+Traces your actions and appends them as do() calls.
+(Type twice to toggle)
+ 
+Name [name]     <- lets you name the script, suggest no spaces
+~
+IT ~
+EX ~
+SA Script, OLC, Automatons~
+End
+
+#DOC 28
+N EDITORS~
+C 9 L 5
+KW EDITORS~
+SY ~
+TX Using <editor> <vnum> or <editor> <create> <vnum> you enter the editor.
+ 
+A number, typed into any OLC editor will switch you to that VNUM.
+ 
+Some editors have the 'copy' command.  This command enables you to
+copy values from one vnum to another, ie:  copy 1 2, copies vnum 1 to 2.
+ 
+All editors have a shortened "?" command, which stands for "help"
+ 
+Any editor may have extra "hidden" values such as BITS viewable
+by the TABLE command.
+ 
+Once you are in an editor, you may exit/save by typing 'done'
+ 
+If you lose link, make sure you log back in and type 'zsave world'
+or 'zsave changed'
+ 
+Order of Editing
+ 
+I suggest focusing your idea on the editors; if you are feeling
+like weapons, make some weapons; it will lead to other things.
+One process could be:
+ 
+First build an area of several rooms ; start with the
+background - scenes, extra descriptions on scene descriptions,
+some fancy exits; then move on to the 'characters' of this
+micro-movie.  Once you have established their relationships,
+you can move on to the 'plot' elements - props, special
+items, trace automatons, create shops and/or job-like
+duties.  Make several simple things, and create a theme
+around them; such as a small village, a cavern, a forest
+with a tower, a ship, a shipwreck, an eccentric warlock,
+a farm, a mine, a mountain fortress.
+~
+IT ~
+EX ~
+SA OLC, ZSave, Database~
+End
+
+#DOC 29
+N CODES~
+C 9 L 5
+KW codes~
+SY ~
+TX ~
+IT For Prop and Actor names, shorts and descriptions, use:
+ 
+Descriptions on actors and objects can be randomized to add flavor.
+Like the prompt command, you can place a $$ dollar sign and then a
+variable which represents a replacement.
+Ex.  a $$c object would translate to (when loaded) a blue object
+Object variables:               Actor Variables:
+$$c  - color                    $$S Capitalized syllabatic (for names)
+$$l  - random cloth             $$s lower-case syllabatic (for names)
+$$C  - fine cloth
+$$f  - random fur
+~
+EX ~
+SA ~
+End
+
+#DOC 30
+N ZEDIT~
+C 9 L 5
+KW ZEDIT~
+SY ~
+TX If you type 'generate' while in the aeditor, one of two things happen:
+a) your area, based on the map contained in the description of room one,
+is filled with rooms according to the terrain specifications of the mud's
+terrain list.
+b) your area is filled with a bad map and must be regenerated
+This command is available only in the aeditor.  The first room of your area
+should be a map room.  Its description is an ascii rendition of the area
+based on the legend of terrain found in the terrain list.  The rooms
+are generated with terrain descriptions and exits created for you, then
+you are to go back and fill in additional descriptions where needed.
+Typing 'generate overwrite' will overwrite an incorrectly generated area.
+Use with caution.  The default maximum map size for a single generation is
+400 by 400 characters.
+
+ZEDIT alone enters the AREA editor.
+The follow commands are available from within the ZEDITOR:
+show                - hitting return, or 'show' shows the area stats
+done                - exits the area editor and returns to normal play
+create              - create a brand new area and switch to it
+name <name>         - change the 'AREAS' name of this area
+filename <filename> - change the file name for the area (be careful)
+age <number>        - set the age of the area
+repop               - set the repop string (shown when a room is reset)
+security <rating>   - set the security rating for this area
+builder <player>    - toggle that builder's access
+vnum <low> <high>   - sets the vnum range
+generate            - generates a landscape (lvnum-hvnum)
+~
+IT ~
+EX ~
+SA Terrain, OLC~
+End
+
+#DOC 31
+N SPEDIT~
+C 9 L 5
+KW SPEDIT~
+SY ~
+TX ~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 33
+N IMOTD~
+C 9 L 3
+KW IMOTD~
+SY ~
+TX ---[IMMORTALS]------------------------------------------------
+The immortal bulletin board is located in room 2.
+Areas are backed up weekly.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 500
+N HEDIT~
+C 9 L 5
+KW ~
+SY ~
+TX list <vnum> <vnum>
+list <keyword>
+seealso [list]
+immtext <-enter immtext editor
+text <-enter immtext editor
+keywords [list]
+name [title]
+example <- enter example editor
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 501
+N BUILDING~
+C 9 L 5
+KW 'building scripts' 'builder scripts'~
+SY ~
+TX ~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 666
+N PROPS~
+C 9 L 5
+KW props~
+SY prop <vnum>
+oedit <vnum>
+stat <target>
+~
+TX .
+ Object values.
+ Item Type          Value[0]        Value[1]        Value[2]       Value[3]
+------------------------------------------------------------------------------
+ TRASH         -               -               -              -
+ LIGHT         Current Light   Max Light(-1)   -              Light flags
+ SCROLL        Spell Level     Spell SN        Spell SN       Spell SN
+ WAND          Spell Level     Min Charge      Max Charge     Spell SN
+ STAFF         Spell Level     Min Charge      Max Charge     Spell SN
+ WEAPON        Poison (b)      Min Damage      Max Damage     Weap Type
+ RANGEDWEAPON  Ammo Type       Min Damage      Max Damage     Ranged Type
+ AMMO          Ammo Quantity   Bonus to Dam    Spell Level    Spell SN
+ TREASURE      -               -               -              -
+ ARMOR         Armor Bonus     Current Damage  Max Damage     -
+ POTION        Spell Level     Spell SN        Spell SN       Spell SN
+ BOOK          -               -               -              -
+ FURNITURE     Capacity        Furniture Flags Key (vnum)     Scene (vnum)
+ CLOTHING      -               -               -              -
+ PAPER         -               -               -              -
+ CONTAINER     Maximum Weight  Container Flags Key (vnum)     -
+ THROWN        Spell Level     Spell SN        Spell SN       Spell SN
+ DRINKCON     Current Volume  Capacity        Liquid Type    Drink Flags
+ KEY           -               -               -              -
+ FOOD          Ticks of Food   -               Reference Vnum Poison (b)
+ MONEY         Amount          Type            Set            -
+ GEM           Mana Flags      Current Mana    Max Mana       -
+ VEHICLE       Sector Pass     Sector Pass     Sector Pass    Sector Pass
+ CORPSENPC     Actor's Race   -               -              -
+ CORPSEPC     -               -               -              -
+ FOUNTAIN      Spell Level     Spell SN        Spell SN       Spell SN
+ PILL          Spell Level     Spell SN        Spell SN       Spell SN
+ TOOL          Tool Flags      Number of uses  Max uses       -
+ LIST          Number of vnums -               -              -
+ BOARD         Board Index     -               -              -
+ COMPONENT     Component Type  -               -              -
+ GOODS         Goods Type      -               -              -
+ JEWELRY       -               -               -              -
+ 
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

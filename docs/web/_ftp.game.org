@@ -1,0 +1,2 @@
+great source for mud documentation, snippets and server software
+as well as mud clients www.game.org as well (same diff)

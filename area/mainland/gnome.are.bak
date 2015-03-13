@@ -1,0 +1,3497 @@
+#ZONE 
+N Vougon  Gnome Village~
+B None~
+V 16500 16590
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#16500
+N child drev~
+SD a drev child~
+LD
+ A drev child is playing around here.
+~
+D
+ The little tyke looks so innocent playing with his boomerang that you 
+just want to pick him up and hug him.
+~
+A 21
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 145
+O ~
+AP 15 15 15 15 15
+At 0 10 18 14
+End
+
+#16501
+N woman drev~
+SD a drev woman~
+LD
+ A drev woman is standing here, trying to look beautiful.
+~
+D
+ The woman is short and gnarled, but acts like a woman several times her beauty.
+She's starting to look pretty attractive to you ...
+~
+A 21
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 600 E 178
+O ~
+AP 15 15 15 15 15
+At 0 10 14 5
+End
+
+#16502
+N man drev~
+SD a drev man~
+LD
+ A drev man is walking here, on his way to work.
+~
+D
+ This is a prime example of a drev.  He looks short and weak, but at the
+same time an intelligent creature who could outsmart you.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 703
+O ~
+AP 25 25 25 25 40
+At 0 10 18 11
+At 1 5 37 11
+At 5 1 24 9
+At 6 5 88 14
+End
+
+#16503
+N scientist drev~
+SD a drev scientist~
+LD
+ A scientist wanders around deep in thought.
+~
+D
+ You see a drev who is lost deep into some invention that he is about
+to make.  His hair is white, but he looks fairly strong.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 549
+O ~
+AP 25 25 25 25 35
+At 0 10 16 7
+At 1 5 17 11
+At 3 1 23 10
+At 4 1 36 3
+End
+
+#16504
+N guard drev~
+SD a drev guard~
+LD
+ A drev guard stands here guarding something.
+~
+D
+ This is a well trained drev.  He might not have a lot of strength but
+he makes up for it with his weapons skill.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 400 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 19 10
+End
+
+#16505
+N chief drev~
+SD the chief drev~
+LD
+ A powerful looking drev stands here wearing ornate clothes.
+~
+D
+ The Chief looks like he could whap you hard.  He looks not only powerful
+but wise and resourceful.  You better not mess with him.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 550 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 17 4
+At 1 5 24 5
+End
+
+#16507
+N heveti small~
+SD a small heveti~
+LD
+ A small Heveti grunts as he takes a swing at you.
+~
+D
+ The small Heveti is a short and stocky beast with a human-like face
+but with the eyes and fangs of a wild beast.
+~
+A 39
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 19 7
+At 1 5 18 11
+At 2 1 35 5
+End
+
+#16508
+N mouse field~
+SD a field mouse~
+LD
+ A small mouse runs across your foot.
+~
+D
+ The Mouse is a cute little creature.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 604
+O ~
+AP 25 25 25 25 35
+At 0 10 18 5
+At 1 5 11 5
+At 3 1 32 14
+End
+
+#16509
+N rat~
+SD a rat~
+LD
+ A small rat shrieks and runs around.
+~
+D
+ The rat is a little evil creature that deserves death.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 430
+O ~
+AP 25 25 25 25 25
+At 0 10 17 11
+At 1 5 25 4
+End
+
+#16510
+N rat large~
+SD a large rat~
+LD
+ A large rat runs up to you and nibbles on your boots.
+~
+D
+ You have the urge to kill this vile creature.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 794
+O ~
+AP 25 25 25 25 40
+At 0 10 47 3
+At 1 5 68 10
+At 5 1 26 21
+At 6 5 47 7
+End
+
+#16511
+N rat giant~
+SD a giant rat~
+LD
+ A giant rat growls at you and prepares to attack.
+~
+D
+ This rat has grown up to be the size of an average dog.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 860
+O ~
+AP 25 25 25 25 40
+At 0 10 52 11
+At 1 5 7 14
+At 3 1 16 20
+At 5 1 33 22
+At 6 5 29 0
+End
+
+#16512
+N heveti~
+SD the heveti~
+LD
+ A giant Heveti lumbers around.
+~
+D
+ You see before you a huge mass of living flesh.  You cringe in fear as
+he lifts his powerful arm to bludgeon you.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -800 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 25 5
+At 1 5 23 3
+At 2 1 22 8
+End
+
+#16513
+N bat black~
+SD a black bat~
+LD
+ A black bat hangs from the ceiling.
+~
+D
+ The bat is a grotesque little creature with large wings and fangs.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -500 E 524
+O ~
+AP 25 25 25 25 35
+At 0 10 16 0
+At 1 5 21 5
+At 3 1 21 3
+At 5 1 39 13
+End
+
+#16514
+N zombie drev~
+SD the zombie drev~
+LD
+ A zombie drev shuffles his way towards you.
+~
+D
+ This is a creature which has passed away long ago.  His body has been
+pulled out of its resting place by some evil force.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -700 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 21 0
+At 1 5 20 5
+At 2 1 16 4
+End
+
+#16515
+N bat fire~
+SD the fire bat~
+LD
+ The fire bat flames brightly and prepares to attack.
+~
+D
+ You see a huge flame which resembles the shape of a bat.  The creature
+hangs from the ceiling and bites at you.
+~
+A 39
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 25 3
+End
+
+#16516
+N guard mottrak~
+SD the mottrak guard~
+LD
+ The mottrak guard attacks first, thinks later.
+~
+D
+ This is an extra large, extra ugly goblin like creature.  He grins evilly
+as he attempts to brain you.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -700 E 383
+O ~
+AP 19 19 19 19 19
+At 0 10 12 5
+At 1 5 18 11
+End
+
+#16517
+N soldier mottrak~
+SD the mottrak soldier~
+LD
+ A mottrak soldier stands here.
+~
+D
+ This is just a low life mottrak, who couldn't make it to the ranks
+of the elite guards.  He looks pissed.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -600 E 840
+O ~
+AP 25 25 25 25 40
+At 0 10 78 3
+At 1 5 87 2
+At 5 1 24 18
+At 6 5 8 2
+End
+
+#16518
+N bodyguard mottrak~
+SD the mottrak bodyguard~
+LD
+ A mottrak bodyguard guards the king with his life.
+~
+D
+ This is one of the elite mottrak guards.  He stands tall for his short
+stature.  He grins a toothy grin as he prepares to attack.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 55
+O ~
+AP 15 15 15 15 15
+At 0 10 19 13
+End
+
+#16519
+N king mottrak~
+SD the king of the mottraks~
+LD
+ There is a great king here, sitting in his throne.
+~
+D
+ The king is a silly looking mottrak whose muscles bulge out of his robes,
+destroying the sophisticated effect he was trying to create.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 14 12
+End
+
+#16520
+N miner mottrak~
+SD a mottrak miner~
+LD
+ A mottrak miner stands here looking for gold.
+~
+D
+ The miner is totally covered in dust.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 32
+O ~
+AP 15 15 15 15 15
+At 0 10 20 7
+End
+
+#16521
+N treasurer mottrak~
+SD the treasurer~
+LD
+ A treasurer is here counting out money.
+~
+D
+ The mottrak treasurer is an old goblin with glasses.  It appears that he
+can only see a couple feet in front of him.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 617
+O ~
+AP 25 25 25 25 35
+At 0 10 17 10
+At 1 5 8 3
+At 4 1 26 9
+End
+
+#16522
+N prisoner drev~
+SD a drev prisoner~
+LD
+ A drev prisoner is here resting in the straw.
+~
+D
+ The prisoner is just barely alive.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 853
+O ~
+AP 25 25 25 25 40
+At 0 10 52 12
+At 1 5 54 7
+At 2 1 43 7
+At 3 1 19 16
+At 6 5 82 9
+End
+
+#16523
+N prisoner human~
+SD a human prisoner~
+LD
+ A human prisoner is here resting in the straw.
+~
+D
+ The prisoner is just barely alive.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 100 E 649
+O ~
+AP 25 25 25 25 35
+At 0 10 17 14
+At 1 5 15 11
+At 5 1 33 19
+End
+
+#16524
+N hermit crab~
+SD a hermit~
+LD
+ A hermit crab crawls towards you.
+~
+D
+ The hermit crab is about 5 feet high and looks mad that you had the nerve
+to wake it up.
+~
+A 39
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -10 E 560
+O ~
+AP 25 25 25 25 35
+At 0 10 18 0
+At 1 5 7 11
+At 2 1 12 4
+At 4 1 40 8
+End
+
+#16526
+N cook mottrak~
+SD the cook~
+LD
+ A mottrak cook stands here cooking something.
+~
+D
+ The cook is a dirty and fat mottrak.  He burps as he stirs up something
+in a pot.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -300 E 33
+O ~
+AP 15 15 15 15 15
+At 0 10 11 12
+End
+
+#0
+
+
+
+#OBJDATA
+#16500
+N key bloody~
+SD a bloody key~
+P ~
+D
+A bloody key is stuck to the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 2 0 0 0
+End
+
+#16501
+N key dirty~
+SD a dirty key~
+P ~
+D
+A dirty key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1050
+O ~
+V 2 0 0 0
+End
+
+#16502
+N toy boomerang~
+SD a toy boomerang~
+P ~
+D
+A toy boomerang wants to be picked up.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 5
+O ~
+V 0 2 4 7
+End
+
+#16503
+N staff gnarled~
+SD a gnarled staff~
+P ~
+D
+A gnarled staff is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 600
+O ~
+V 0 1 9 7
+End
+
+#16504
+N sword drev~
+SD a drev sword~
+P ~
+D
+A drev sword catches your eye.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 4000
+O ~
+V 0 3 3 3
+End
+
+#16505
+N shield studded~
+SD a studded shield~
+P ~
+D
+A studded wooden shield lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 16
+C 3000
+O ~
+V 4 0 0 0
+End
+
+#16506
+N potion bloody~
+SD a bloody potion~
+P ~
+D
+A bloody potion lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 22
+C 1500
+O ~
+V 15 0 0 0
+End
+
+#16507
+N cloak bloody~
+SD a bloody cloak~
+P ~
+D
+A bloody cloak lies in a corner.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 5
+Sz 18
+Ti 0
+Wt 15
+C 2000
+O ~
+V 4 0 0 0
+End
+
+#16508
+N ring bat~
+SD a bat ring~
+P ~
+D
+A ring in the shape of a bat lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 2
+C 2500
+O ~
+V 3 0 0 0
+End
+
+#16509
+N necklace bead~
+SD a bead necklace~
+P ~
+D
+A string of beads is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 8
+C 4000
+O ~
+V 3 0 0 0
+End
+
+#16510
+N sword electrum~
+SD an electrum sword~
+P ~
+D
+An electrum sword lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 65
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 100000
+O ~
+V 0 4 3 3
+End
+
+#16511
+N basket wicker~
+SD a wicker basket~
+P ~
+D
+A wicker basket sits here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 45
+O ~
+V 90 0 -1 0
+End
+
+#16512
+N peanuts~
+SD some peanuts~
+P ~
+D
+Peanuts lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 9
+C 25
+O ~
+V 16 0 0 0
+End
+
+#16513
+N grain~
+SD some grain~
+P ~
+D
+There is some grain here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 8
+C 22
+O ~
+V 15 0 0 0
+End
+
+#16514
+N skiff~
+SD a skiff~
+P ~
+D
+A small skiff is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 22
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 24
+C 1500
+O ~
+V 6 7 0 0
+End
+
+#16515
+N boots drev~
+SD a pair of drev boots~
+P ~
+D
+You notice a pair of Gnome Boots.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 12
+C 12000
+O ~
+V 4 0 0 0
+End
+
+#16516
+N coins~
+SD a pile of coins~
+P ~
+D
+A pile of coins.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 1000 0 0 0
+End
+
+#16517
+N coins~
+SD a pile of coins~
+P ~
+D
+A pile of coins.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 5000 0 0 0
+End
+
+#16518
+N coins~
+SD a pile of coins~
+P ~
+D
+A pile of coins.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 1000 0 0 0
+End
+
+#16519
+N shield stone~
+SD a stone shield~
+P ~
+D
+A stone slab lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 35
+C 9000
+O ~
+V 4 0 0 0
+End
+
+#16520
+N mail heavy banded~
+SD heavy banded mail~
+P ~
+D
+A large suit of heavy banded mail is here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 30
+C 35000
+O ~
+V 6 0 0 0
+End
+
+#16521
+N club large~
+SD a large club~
+P ~
+D
+A large club sits here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 22
+C 20000
+O ~
+V 0 4 3 7
+End
+
+#16522
+N banana~
+SD a banana~
+P ~
+D
+There is a banana here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 9
+O ~
+V 6 0 0 0
+End
+
+#16523
+N life potion~
+SD a potion of life healing~
+P ~
+D
+A potion of life healing has left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 128
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 32 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#16501
+N Entrance to Gnome Village~
+Ref 0
+D
+You stand on a dusty path that leads north and east.  To the east you hear
+the sounds of a small village.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 16502
+You see a dusty path.
+~
+~
+End
+
+#16502
+N a dusty path~
+Ref 0
+D
+This is a path leading into the village.  It continues east and west and
+there is a small house to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16509
+You see a small house.
+~
+~
+Dr 1 0 -1 16503
+You see a road.
+~
+~
+Dr 3 0 -1 16501
+You see a path.
+~
+~
+End
+
+#16503
+N a road in the village~
+Ref 0
+D
+This road runs north and south through the center of the village.  There
+are a few people moving around, but not many.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 16502 3 100 1
+Dr 0 0 -1 16505
+You see a road.
+~
+~
+Dr 1 0 -1 16504
+You see a path.
+~
+~
+Dr 2 0 -1 16507
+You see a road.
+~
+~
+Dr 3 0 -1 16502
+You see a road.
+~
+~
+End
+
+#16504
+N a dusty path~
+Ref 0
+D
+You are on a dusty path on the far side of the village.  Houses are to the
+north and south, while the path continues east.  There is a sign here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Warning:  The area to the east was written mostly by Vougon
+                    (giggle)    - Sandman
+~
+Dr 0 0 -1 16512
+You see a house.
+~
+~
+Dr 1 0 -1 16559
+You see a path.
+~
+~
+Dr 2 0 -1 16513
+You see a house.
+~
+~
+Dr 3 0 -1 16503
+You see a road.
+~
+~
+End
+
+#16505
+N a road in the village~
+Ref 0
+D
+This road runs north and south through the center of the village.  There
+are a few people moving around, but not many.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 16502 3 100 1
+Dr 0 0 -1 16506
+You see a road.
+~
+~
+Dr 1 0 -1 16511
+You see a house.
+~
+~
+Dr 2 0 -1 16503
+You see a road.
+~
+~
+Dr 3 0 -1 16510
+You see a house.
+~
+~
+End
+
+#16506
+N a road in the village~
+Ref 0
+D
+This road runs north and south through the center of the village.  There
+are a few people moving around, but not many.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 16502 3 100 1
+Dr 0 0 -1 16526
+You see a road.
+~
+~
+Dr 2 0 -1 16505
+You see a road.
+~
+~
+End
+
+#16507
+N a road in the village~
+Ref 0
+D
+This road runs north and south through the center of the village.  There
+are a few people moving around, but not many.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16503
+You see a road.
+~
+~
+Dr 2 0 -1 16508
+You see a road.
+~
+~
+Dr 3 0 -1 16514
+You see a shop.
+~
+~
+End
+
+#16508
+N a road in a village~
+Ref 0
+D
+This road runs north and south through the center of the village.  There
+are a few people moving around, but not many.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16507
+You see a road.
+~
+~
+Dr 1 0 -1 16516
+You see a shop.
+~
+~
+Dr 2 0 -1 16517
+You see a small path.
+~
+~
+Dr 3 0 -1 16515
+You see a shop.
+~
+~
+End
+
+#16509
+N A Small Gnome House~
+Ref 0
+D
+This is a small suburban house made from quality wood.  You can see the
+expert workmanship that went into making it, but it lacks creativity.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16500 3 100 1
+Dr 2 0 -1 16502
+You see a path.
+~
+~
+End
+
+#16510
+N a small house~
+Ref 0
+D
+This is a small suburban house made from quality wood.  You can see the
+expert workmanship that went into making it, but it lacks creativity.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16500 3 100 1
+Dr 1 0 -1 16505
+You see a path.
+~
+~
+End
+
+#16511
+N a small house~
+Ref 0
+D
+This is a small suburban house made from quality wood.  You can see the
+expert workmanship that went into making it, but it lacks creativity.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16500 3 100 1
+Dr 3 0 -1 16505
+You see a path.
+~
+~
+End
+
+#16512
+N a small hovel~
+Ref 0
+D
+This is a small suburban house made from quality wood.  You can see the
+expert workmanship that went into making it, but it lacks creativity.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 16504
+You see a path.
+~
+~
+End
+
+#16513
+N a small house~
+Ref 0
+D
+This is a small suburban house made from quality wood.  You can see the
+expert workmanship that went into making it, but it lacks creativity.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16503 3 100 1
+Dr 0 0 -1 16504
+You see a path.
+~
+~
+End
+
+#16514
+N a small shop~
+Ref 0
+D
+You are in one of the several shops of this fine town.  The wares look fine,
+but unfortunately the drevs don't do business with outsiders.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16503 3 100 1
+Dr 1 0 -1 16507
+You see a road.
+~
+~
+End
+
+#16515
+N A Gnome Shop~
+Ref 0
+D
+You are in one of the several shops of this fine town.  The wares look fine,
+but unfortunately the drevs don't do business with outsiders.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16503 3 100 1
+Dr 1 0 -1 16508
+You see a road.
+~
+~
+End
+
+#16516
+N A Gnome Shop~
+Ref 0
+D
+You are in one of the several shops of this fine town.  The wares look fine,
+but unfortunately the drevs don't do business with outsiders.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 16508
+You see a road.
+~
+~
+End
+
+#16517
+N a path by a stream~
+Ref 0
+D
+You are on a small path leading north and west, that is surrounded on the
+other two sides by a small stream.  The water looks mighty cold.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+ED stream~
+The stream is pretty small, but it looks too cold to swim.
+~
+Dr 0 0 -1 16508
+You see a road.
+~
+~
+Dr 2 0 -1 16520
+You see the stream.
+~
+~
+Dr 3 0 -1 16518
+You see a small path.
+~
+~
+End
+
+#16518
+N a path by a stream~
+Ref 0
+D
+You are on a small east-west path.  The path shows new grass, as if it
+has stopped being used sometime in the recent past.  A river is to the south,
+and a small hut is to the west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED hut~
+The hut looks well built, but it seems to have taken some damage.
+~
+ED stream~
+The stream is pretty small, but it looks too cold to swim.
+~
+Dr 1 0 -1 16517
+You see a small path.
+~
+~
+Dr 2 0 -1 16521
+You see the stream.
+~
+~
+Dr 3 0 -1 16519
+You see a small hut that is starting to fall apart.
+~
+~
+End
+
+#16519
+N a small hut~
+Ref 0
+D
+The hut is a mess!  Blood has stained the grass walls into a dark rich
+crimson color.  Torn clothes and trash lie all around, and you think you
+see a skeleton in the corner.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED skeleton~
+The skeleton still has a little flesh clinging to it and it is definitely
+humanoid.  The skull has been cracked open, but it is otherwise undamaged,
+except by time.
+~
+R M 16504 3 100 1
+Dr 1 0 -1 16518
+You see a small path.
+~
+~
+End
+
+#16520
+N on the stream~
+Ref 0
+D
+The stream is cold and frigid, yet it supports plenty of life beneath its
+surface.  The current trickles west and there is a field to the south.
+~
+C
+~
+F 0
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16517
+You see a small path.
+~
+~
+Dr 2 0 -1 16522
+You see a grassy field.
+~
+~
+Dr 3 0 -1 16521
+You see a small stream.
+~
+~
+End
+
+#16521
+N on the stream~
+Ref 0
+D
+The current here flows from the east, but a logjam blocks you from 
+continuing onward.
+~
+C
+~
+F 0
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16518
+You see a small path.
+~
+~
+Dr 1 0 -1 16520
+You see a small stream.
+~
+~
+End
+
+#16522
+N a field of green~
+Ref 0
+D
+This is a large green field of waist high grass.  You feel something
+scurry over your feet.  There is a cave to the east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16508 2 100 1
+Dr 0 0 -1 16520
+You see a small stream.
+~
+~
+Dr 1 0 -1 16523
+You see a dark mysterious cave.
+~
+~
+Dr 2 0 0 19041
+~
+crack in a cave wall~
+End
+
+#16523
+N The Dark Cave~
+Ref 0
+D
+The cave gleams as your light reflects off of it.  As you squint your eyes
+and try to look ahead, you think you see something move.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16524
+~
+~
+Dr 3 0 -1 16522
+You see a grassy field.
+~
+~
+End
+
+#16524
+N Darker Cave~
+Ref 0
+D
+The cave gets even darker as your terror grows stronger.  You fear for your
+life as something emerges out of the shadows.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 16507 1 100 1
+Dr 2 0 -1 16523
+~
+~
+End
+
+#16526
+N a dusty path~
+Ref 0
+D
+You are on a well traveled path that leads in many directions.  To the north
+is a large house, and to the west is a fortress.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+ED fortress~
+The fortress is a large drev stronghold to defend the city.
+~
+Dr 0 0 -1 16558
+You see a large white house.
+~
+~
+Dr 2 0 -1 16506
+You see a road.
+~
+~
+Dr 3 0 -1 16527
+You see the gateway to a large fortress.
+~
+~
+End
+
+#16527
+N the iron gateway~
+Ref 0
+D
+You stand at the entrance to the drev fortress.  The place seems to be
+well fortified.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 16504 6 100 1
+Dr 1 0 -1 16526
+You see a small path.
+~
+~
+Dr 3 5 -1 16528
+You see a long hallway.
+~
+iron gate~
+End
+
+#16528
+N a long hall~
+Ref 0
+D
+You are now inside of the fortress; you must be lucky that the guards 
+haven't killed you.  As you glance around, you notice that the walls and
+floors are spotlessly cleaned.  The barracks are to the north and a
+storage room is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16530
+You see the barracks.
+~
+~
+Dr 1 5 -1 16527
+You see the gateway.
+~
+iron gate~
+Dr 2 0 -1 16532
+You see a storage room.
+~
+~
+Dr 3 0 -1 16529
+You see a long hallway.
+~
+~
+End
+
+#16529
+N the fortress interior~
+Ref 0
+D
+You are now inside of the fortress; you must be lucky that the guards 
+haven't killed you.  As you glance around, you notice that the walls and
+floors are spotlessly cleaned.  A mess hall is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 16528
+You see a long hallway.
+~
+~
+Dr 2 0 -1 16534
+You see the mess hall.
+~
+~
+Dr 3 5 -1 16535
+You see a small room.
+~
+gate~
+End
+
+#16530
+N The Barracks~
+Ref 0
+D
+You now stand in the sleeping quarters of the drev guards.  Every bed is
+made perfectly, and not single article of clothing is on the floor.  There
+is a small storage room to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16504 6 100 1
+Dr 1 0 -1 16531
+You see a small storage room.
+~
+~
+Dr 2 0 -1 16528
+You see a long hallway.
+~
+~
+End
+
+#16531
+N a storage room~
+Ref 0
+D
+This is where the drevs store all their spare clothing and armor.
+There is not much here, but you might come up with something.
+~
+C
+~
+F 72
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 16530
+You see the barracks.
+~
+~
+End
+
+#16532
+N the ready room~
+Ref 0
+D
+This is where the drevs store all their spare weapons.  A door leads off
+to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16528
+You see a long hallway.
+~
+~
+Dr 1 0 -1 16533
+You see a small room.
+~
+~
+End
+
+#16533
+N the storage room~
+Ref 0
+D
+This is yet another room for storing drev stuff.  Maps and battle plans
+are stored in neat stacks on the shelves.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 16532
+You see a small room.
+~
+~
+End
+
+#16534
+N the mess hall~
+Ref 0
+D
+You are in the room where the guards come to get their grub.  The benches 
+and tables are neatly cleaned and straightened, while shiny plates line
+the walls.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16504 6 100 1
+Dr 0 0 -1 16529
+You see a long hallway.
+~
+~
+End
+
+#16535
+N the back yard~
+Ref 0
+D
+This is a small plain room.  Its only interesting feature is a ladder down.
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 5 -1 16529
+You see a long hallway.
+~
+gate~
+Dr 3 0 0 24235
+~
+short bridge~
+Dr 5 0 -1 16536
+You see darkness.
+~
+~
+End
+
+#16536
+N A Small Unused Room~
+Ref 0
+D
+You stand in a small room in an unused section of the fortress.  The whole
+room is coated with dust and cobwebs.  The ladder leads back up, and
+a rusty door is to the east.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 1500 16537
+You see a rusty door.
+~
+rusty door~
+Dr 4 0 -1 16535
+You see a small room.
+~
+~
+End
+
+#16537
+N Dark Hallway~
+Ref 0
+D
+You find yourself in a very old section of the fortress.  You must be the
+first person to pass through here in years.  The hallway continues south
+and a door leads off to the east.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 16538
+~
+~
+Dr 2 0 -1 16539
+~
+~
+Dr 3 0 1500 16536
+You see a rusty door.
+~
+door~
+End
+
+#16538
+N Torture Chamber~
+Ref 0
+D
+This is a room that was once used to extract lies out of helpless victims.
+The machines look unused, but could still work.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED machine~
+The machine consists of a large rack with winches on each end.  You can 
+almost feel them pulling your arms out of their sockets.
+~
+Dr 3 0 -1 16537
+~
+~
+End
+
+#16539
+N Dark Hallway~
+Ref 0
+D
+The hall continues in a north-south direction.  The floor is coated with
+some kind of molded slime.  Doors lead east and west.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16537
+~
+~
+Dr 1 0 -1 16542
+~
+~
+Dr 2 0 -1 16540
+~
+~
+Dr 3 0 -1 16541
+~
+~
+End
+
+#16540
+N Dark Hallway~
+Ref 0
+D
+The hall continues in a north-south direction.  The floor is coated with
+some kind of molded slime.  Doors lead east and west.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16539
+~
+~
+Dr 1 0 -1 16544
+~
+~
+Dr 2 0 -1 16543
+~
+~
+Dr 3 0 -1 16545
+~
+~
+End
+
+#16541
+N Prison Cell~
+Ref 0
+D
+You are in a dark and nasty prison cell.  Bodies lying on the floor give off
+an unbearable stench.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16509 3 100 1
+Dr 1 0 -1 16539
+~
+~
+End
+
+#16542
+N Prison Cell~
+Ref 0
+D
+You are in a dark and nasty prison cell.  Bodies lying on the floor give off
+an unbearable stench.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16510 3 100 1
+Dr 3 0 -1 16539
+~
+~
+End
+
+#16543
+N Prison Cell~
+Ref 0
+D
+You are in a dark and nasty prison cell.  Bodies lying on the floor give off
+an unbearable stench.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16511 3 100 1
+Dr 0 0 -1 16540
+~
+~
+End
+
+#16544
+N Prison Cell~
+Ref 0
+D
+You are in a dark and nasty prison cell.  Bodies lying on the floor give off
+an unbearable stench.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 16540
+~
+~
+End
+
+#16545
+N End of the Dark Hallway~
+Ref 0
+D
+You have reached the end of the dark hallway and maybe the end of your puny
+life.  Something lumbers its way out of the shadows.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16512 1 100 1
+Dr 1 0 -1 16540
+~
+~
+Dr 3 0 1501 16546
+You see a decaying door.
+~
+door~
+End
+
+#16546
+N A Ladder~
+Ref 0
+D
+You have come into a vertical tunnel with a ladder.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 1501 16545
+You see a decaying door.
+~
+door~
+Dr 5 0 -1 16547
+~
+~
+End
+
+#16547
+N Lair~
+Ref 0
+D
+You have entered a new lair in the fortress.  Anything could be lurking
+around the corner.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 16548
+~
+~
+Dr 4 0 -1 16546
+~
+~
+End
+
+#16548
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16513 10 100 1
+Dr 0 0 -1 16547
+~
+~
+Dr 1 0 -1 16549
+~
+~
+Dr 3 0 -1 16551
+~
+~
+End
+
+#16549
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 16550
+~
+~
+Dr 3 0 -1 16548
+~
+~
+End
+
+#16550
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16513 10 100 1
+Dr 0 0 -1 16549
+~
+~
+Dr 2 0 -1 16555
+~
+~
+End
+
+#16551
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16513 10 100 1
+Dr 1 0 -1 16548
+~
+~
+Dr 2 0 -1 16552
+~
+~
+End
+
+#16552
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16551
+~
+~
+Dr 2 0 -1 16553
+~
+~
+End
+
+#16553
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16513 10 100 1
+Dr 0 0 -1 16552
+~
+~
+Dr 1 0 -1 16554
+~
+~
+End
+
+#16554
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16556
+~
+~
+Dr 1 0 -1 16555
+~
+~
+Dr 3 0 -1 16553
+~
+~
+End
+
+#16555
+N A Damp Hallway~
+Ref 0
+D
+You are wandering in a dark, damp, twisting hallway.  The temperature
+seems to be greater here, as well as your fear.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16513 10 100 1
+Dr 0 0 -1 16550
+~
+~
+Dr 3 0 -1 16554
+~
+~
+End
+
+#16556
+N The End of the Hallway~
+Ref 0
+D
+You make your way out of the hallway, just to find yourself in greater
+danger.  Before you looms the source of the great heat.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 16515 1 100 1
+Dr 1 0 -1 16557
+~
+~
+Dr 2 0 -1 16554
+~
+~
+End
+
+#16557
+N The Altar~
+Ref 0
+D
+You finally reach the end of the maze.  There is a great altar here in the
+shape of a bat.  A passageway leads off to the west.
+~
+C
+~
+F 8201
+S 2
+M 0
+W 0
+T 0
+O ~
+R O 16517 0 100 1
+Dr 3 0 -1 16556
+~
+~
+End
+
+#16558
+N a large house~
+Ref 0
+D
+You enter into a large and luxurious house.  The floor is coated with carpets
+and the walls are covered in paintings.  You feel privileged just for stepping
+inside.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16505 1 100 1
+Dr 2 0 -1 16526
+You see a path.
+~
+~
+End
+
+#16559
+N the unused path~
+Ref 0
+D
+You are now on a fairly unused path that leads east out of the village.  
+You wonder what could be out this way.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 16560
+You see a path.
+~
+~
+Dr 3 0 -1 16504
+You see a path.
+~
+~
+End
+
+#16560
+N the overgrown path~
+Ref 0
+D
+As the path continues on, the grass grows higher.  You can't imagine
+what could possibly be out this way.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 16561
+You see a clearing.
+~
+~
+Dr 3 0 -1 16559
+You see a path.
+~
+~
+End
+
+#16561
+N a clearing~
+Ref 0
+D
+Your progress is suddenly stopped by mountains on all sides.  The path leads
+back to the west, and there appears to be an old mine shaft to the north.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16562
+You see a mine shaft.
+~
+~
+Dr 3 0 -1 16560
+You see a path.
+~
+~
+End
+
+#16562
+N an entrance to a mine shaft~
+Ref 0
+D
+As you enter the mine shaft, you get a sudden fear of the walls closing
+in on you.  You are surprised to notice that you don't need a light.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 16563
+You see the shaft.
+~
+~
+Dr 2 0 -1 16561
+You see the clearing.
+~
+~
+End
+
+#16563
+N an access tunnel~
+Ref 0
+D
+This mine shaft looks stable, at least in this area.  The wooden supports are
+thick and strong.  Torches line the walls.  Exits lead in all directions.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16520 6 100 1
+Dr 0 0 -1 16582
+You see a small mine shaft.
+~
+~
+Dr 1 0 -1 16564
+You see the shaft.
+~
+~
+Dr 2 0 -1 16574
+You see the shaft.
+~
+~
+Dr 3 0 -1 16562
+You see the entrance.
+~
+~
+End
+
+#16564
+N an access tunnel~
+Ref 0
+D
+This mine shaft looks stable, at least in this area.  The wooden supports are
+thick and strong.  Torches line the walls.  Exits lead in all directions.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16583
+You see a large room.
+~
+~
+Dr 1 0 -1 16565
+You see the shaft.
+~
+~
+Dr 2 0 -1 16573
+You see a large room.
+~
+~
+Dr 3 0 -1 16563
+You see the shaft.
+~
+~
+End
+
+#16565
+N an access tunnel~
+Ref 0
+D
+This mine shaft looks stable, at least in this area.  The wooden supports are
+thick and strong.  Torches line the walls.  Exits lead in all directions
+except north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16520 6 100 1
+Dr 1 0 -1 16566
+You see the walkway.
+~
+~
+Dr 2 0 -1 16572
+You see a large room.
+~
+~
+Dr 3 0 -1 16564
+You see the shaft.
+~
+~
+End
+
+#16566
+N a narrow walkway~
+Ref 0
+D
+You are on a well built path in the middle of a mountain.  You sense something
+great up ahead, considering the hard work that must have gone into creating
+this passage.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 16567
+You see the walkway.
+~
+~
+Dr 3 0 -1 16565
+You see the shaft.
+~
+~
+End
+
+#16567
+N a narrow walkway~
+Ref 0
+D
+You are on a well built path in the middle of a mountain.  You sense something
+great up ahead, considering the hard work that must have gone into creating
+this passage.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16566
+You see the walkway.
+~
+~
+Dr 2 0 -1 16568
+You see a large hall.
+~
+~
+End
+
+#16568
+N the mining pit~
+Ref 0
+D
+You have stepped into the Grand Hall of the mottrak kingdom; your luck
+must be running low by now.  Golden pillars span the hallway, and you
+notice a red carpet beneath your feet.
+~
+C
+~
+F 8
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16567
+You see the walkway.
+~
+~
+Dr 2 0 -1 16569
+You see a large room.
+~
+~
+End
+
+#16569
+N the foreman's office~
+Ref 0
+D
+This is large bright room filled with Hobgoblins.  To the south there is
+a large golden throne against the wall.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16518 5 100 1
+Dr 0 0 -1 16568
+You see a large hall.
+~
+~
+End
+
+#16570
+N the treasury~
+Ref 0
+D
+You are inside the mottrak's treasury.  Your eyes are almost blinded by the
+gold, silver and copper coins.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16521 1 100 1
+Dr 0 0 -1 16571
+You see a large room.
+~
+~
+End
+
+#16571
+N a guarded room~
+Ref 0
+D
+You are inside a well guarded room.  The place is slightly better built than
+the mine shafts, and is lit by lanterns.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16517 30 100 1
+Dr 0 0 -1 16572
+You see a large room.
+~
+~
+Dr 2 0 -1 16570
+You see a large room.
+~
+~
+End
+
+#16572
+N a guarded chamber~
+Ref 0
+D
+You are inside a well guarded room.  The place is slightly better built than
+the mine shafts, and is lit by lanterns.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16517 30 100 1
+Dr 0 0 -1 16565
+You see a large room.
+~
+~
+Dr 2 0 -1 16571
+You see a large room.
+~
+~
+End
+
+#16573
+N the armoury~
+Ref 0
+D
+The guards store their spare weapons and armor here.  There are rusty swords
+on rotting shelves, and armor hanging from hooks or laying on the floor.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 16521 0 100 1
+Dr 0 0 -1 16564
+You see the shaft.
+~
+~
+End
+
+#16574
+N Mine Shaft~
+Ref 0
+D
+You enter a part of the mine shaft where the torches have grown dim
+and are almost ready to go out.  From what you can see, there are plenty
+of cobwebs on the walls and rats at your feet.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16563
+You see the shaft.
+~
+~
+Dr 2 0 -1 16575
+You see a dark and nasty room.
+~
+~
+End
+
+#16575
+N the jail entrance~
+Ref 0
+D
+The floor dips slightly as you walk into this dark and nasty place.  Your
+skin crawls as you look at the filth on the walls and see it move.  Most
+of the exits lead into jail cells.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16574
+You see the shaft.
+~
+~
+Dr 1 0 -1 16577
+You see a cell.
+~
+~
+Dr 2 0 -1 16576
+You see a dark and nasty room.
+~
+~
+Dr 3 0 -1 16581
+You see a cell.
+~
+~
+End
+
+#16576
+N the jail courtyard~
+Ref 0
+D
+You are in the deepest and darkest part of the mine shafts.  The light from
+the torches barely reaches to where you are.  Most directions from here
+lead to jail cells.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16575
+You see a dark and nasty room.
+~
+~
+Dr 1 0 -1 16578
+You see a cell.
+~
+~
+Dr 2 0 -1 16579
+You see a cell.
+~
+~
+Dr 3 0 -1 16580
+You see a cell.
+~
+~
+End
+
+#16577
+N a jail cell~
+Ref 0
+D
+You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+The walls glisten with slime.  You see something stir in the straw.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16522 6 100 1
+Dr 3 0 -1 16575
+You see a dark and nasty room.
+~
+~
+End
+
+#16578
+N the jail cell~
+Ref 0
+D
+You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+The walls glisten with slime.  You see something stir in the straw.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16522 6 100 1
+Dr 3 0 -1 16576
+You see a dark and nasty room.
+~
+~
+End
+
+#16579
+N a jail cell~
+Ref 0
+D
+You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+The walls glisten with slime.  You see something stir in the straw.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16522 6 100 1
+Dr 0 0 -1 16576
+You see a dark and nasty room.
+~
+~
+End
+
+#16580
+N a dirty cell~
+Ref 0
+D
+You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+The walls glisten with slime.  You see something stir in the straw.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16523 6 100 1
+Dr 1 0 -1 16576
+You see a dark and nasty room.
+~
+~
+End
+
+#16581
+N The Jail Cell~
+Ref 0
+D
+You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+The walls glisten with slime.  You see something stir in the straw.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16523 6 100 1
+Dr 1 0 -1 16575
+You see a dark and nasty room.
+~
+~
+End
+
+#16582
+N a tight mine shaft~
+Ref 0
+D
+You are in a small extension of the mine shaft.  The dust on the floor is
+undisturbed by footprints.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16588
+You see a small mine shaft.
+~
+~
+Dr 2 0 -1 16563
+You see the shaft.
+~
+~
+End
+
+#16583
+N the barracks~
+Ref 0
+D
+You are suddenly surrounded by a small army of mottrak guards.  The room
+itself is a mess with clothes and armor everywhere.  The beds are unmade and
+stained.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16517 20 100 1
+Dr 0 0 -1 16584
+You see a large room.
+~
+~
+Dr 1 0 -1 16585
+You see the mess hall.
+~
+~
+Dr 2 0 -1 16564
+You see the mine shaft.
+~
+~
+End
+
+#16584
+N the back barracks~
+Ref 0
+D
+Yech!  As you continue forward, the smell just keeps getting worse.
+What are you DOING here?
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16517 20 100 1
+Dr 2 0 -1 16583
+You see a large room~
+~
+End
+
+#16585
+N the feasting hall~
+Ref 0
+D
+You stand in the mottrak eating area.  There are a few rotting tables
+and many broken dishes scattered around the room.  You almost slip on a
+rotten piece of meat, but catch yourself just in time.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16586
+You see a small room.
+~
+~
+Dr 1 0 -1 16587
+You see a kitchen.
+~
+~
+Dr 3 0 -1 16583
+You see a large room.
+~
+~
+End
+
+#16586
+N a store room~
+Ref 0
+D
+You stand in a small room filled with flour, grain, fruit, and bat droppings.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 16585
+You see the mess hall.
+~
+~
+End
+
+#16587
+N a kitchen~
+Ref 0
+D
+This kitchen hasn't been cleaned since the creation of humans.  The trash and
+spoiled food laying on the floor reach up to your knees.  Off to the side a
+pot is boiling over.  A human hand floats in it.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16526 1 100 1
+Dr 3 0 -1 16585
+You see the mess hall.
+~
+~
+End
+
+#16588
+N a tightly-hewn cavern~
+Ref 0
+D
+You come to a place in the mine shaft where a tunnel leads down.  The
+small passage continues north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 16589
+You see an almost caved in area.
+~
+~
+Dr 2 0 -1 16582
+You see a small mine shaft.
+~
+~
+Dr 5 0 -1 16590
+You see a hole.
+~
+shaft~
+End
+
+#16589
+N a hermit's lair~
+Ref 0
+D
+You are in a small section where the mine wall has collapsed to reveal a
+tiny one-room cave.  The area is barely lit, but you can make out something
+moving towards you.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 16524 1 100 1
+Dr 2 0 -1 16588
+You see a small mine shaft.
+~
+~
+End
+
+#16590
+N a mining pit~
+Ref 0
+D
+You are in a hole.
+~
+C
+~
+F 8
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 16520 6 100 1
+Dr 4 0 -1 16588
+You see a small mine shaft.
+~
+~
+End
+
+#0
+
+
+
+#$

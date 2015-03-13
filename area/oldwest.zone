@@ -1,0 +1,1271 @@
+#ZONE 
+N American West 1870~
+B None~
+V 12200 12399
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#12200
+N old man murphy~
+SD old man murphy~
+LD
+ Old man Murphy is minding his store.
+~
+D
+ An Irish immigrant, with broad farmer's hands and control of the
+Santa Fe cattle ring.  He is a very rich and powerful man in
+Lincoln and an excellent shot with a Remington.
+~
+A 17
+AB 0
+M 10000
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 200
+O ~
+AP 18 18 18 18 18
+End
+
+#12201
+N charlie bowdry~
+SD charlie bowdry~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 19 13
+End
+
+#12202
+N chavez e. chavez~
+SD chavez e. chavez~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 5
+End
+
+#12204
+N dick brewer~
+SD Foreman Brewer~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 0
+End
+
+#12205
+N john chism~
+SD Cattle Baron John Chism~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 15 13
+End
+
+#12206
+N cayhill~
+SD cayhill~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 15 8
+End
+
+#12207
+N sheriff william brady~
+SD sheriff william brady~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 18 1
+End
+
+#12208
+N buckshot roberts~
+SD buckshot roberts~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 25 0
+End
+
+#12209
+N george coe~
+SD george coe~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 16 3
+End
+
+#12210
+N james dolan~
+SD james dolan~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 23 14
+End
+
+#12211
+N alex mcsween~
+SD alex mcsween~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 20 7
+End
+
+#12212
+N colonel nathan dudley~
+SD colonel nathan dudley~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 18 0
+End
+
+#12213
+N jesse evans~
+SD jesse evans~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 24 11
+End
+
+#12214
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 1
+End
+
+#12215
+N pat garrett~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 21 1
+End
+
+#12216
+N tom pickett~
+SD tom pickett~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 24 14
+End
+
+#12217
+N tom ofalyard~
+SD tom ofalyard~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 21 10
+End
+
+#12218
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 15 11
+End
+
+#12222
+N race horse~
+SD race horse~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 11 4
+End
+
+#12223
+N jesse evans~
+SD jesse evans~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 5
+End
+
+#12224
+N frank p. coe~
+SD frank p. coe~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 22 3
+End
+
+#12225
+N l. g. murphy~
+SD l. g. murphy~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 13 5
+End
+
+#12227
+N john tunstall~
+SD john tunstall~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 8
+End
+
+#12228
+N a ranchhand~
+SD a ranchand~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 11 9
+End
+
+#12229
+N cattle rustler~
+SD cattle rustler~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 15 9
+End
+
+#12230
+N deputy g. w. bell~
+SD deputy g. w. bell~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 23 5
+End
+
+#12231
+N lincoln courthouse~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 19 0
+End
+
+#12232
+N cardplayer~
+SD a cardplayer~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 17 2
+End
+
+#12233
+N doc skerlock~
+SD doc skerlock~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 13 14
+End
+
+#12234
+N the regulators~
+SD the regulators~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 17 8
+End
+
+#12235
+N jesus silva~
+SD Jesus Sinoma~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 11 8
+End
+
+#12236
+N frank baker~
+SD frank baker~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 0
+End
+
+#12237
+N buck morton~
+SD buck morton~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 22 9
+End
+
+#12238
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 18 1
+End
+
+#12239
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 19 5
+End
+
+#12240
+N territorial governor samual axtel~
+SD territorial governor samual axtel~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 5
+End
+
+#12241
+N george peppin~
+SD Sheriff Peppin~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 13 2
+End
+
+#12242
+N jesus silva~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 15 12
+End
+
+#0
+
+
+
+#OBJDATA
+#12202
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#12204
+N a colt six shot revolver~
+SD ~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#12205
+N winchester rifle~
+SD a Winchester rifle~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#12200
+N Murphy and Company Store~
+Ref 0
+D
+A deadwood-constructed flatboard storehouse with a single glass pane
+window and a swinging door entryway that leads out to the dusty roads of
+Lincoln.  Items from a variety of different craftsmen hang on the walls, and
+a stacks of crates are along the far wall.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 1 0 12201
+~
+swinging clapboard door~
+End
+
+#12201
+N Main Street - Lincoln~
+Ref 0
+D
+A dusty dirt road wandering through the center of town.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12203
+~
+~
+Dr 1 7 0 12202
+~
+wood door~
+Dr 3 1 0 12200
+Home of the L.G. Murphy company.
+~
+swinging clapboard door~
+End
+
+#12202
+N James Dolan Merchandising~
+Ref 0
+D
+The offices of James Dolan, an immigrant who works for the Murphy
+company.  Fairly plain, clapboard structure, but its interior is well
+finished and possesses a light but fresh coat of off-blue off-green paint.  
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 7 0 12201
+~
+wood door~
+End
+
+#12203
+N Main Street - Lincoln~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 12201
+~
+~
+Dr 3 0 0 12204
+Just west of here is the Tunstall Ranch.
+~
+~
+End
+
+#12204
+N Outside Tunstall's Store~
+Ref 0
+D
+The offices and main trade floor of the Tunstall Ranch Storehouse.  The
+windows have bars on them and there is a wide porch on which sit a variety
+of shifty, heavy handed characters.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 12203
+~
+~
+End
+
+#12205
+N Tungstel's Ranch~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12206
+N Dead Man's Canyon~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12207
+N Launder~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12210
+N Chism's Cattle Range~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12211
+N Camp Grant, Arizona~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12219
+N Stinking Springs~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12220
+N Fort Sumner~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12221
+N Messia~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12230
+N Blazer's Mill~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12231
+N Lincoln County Courthouse~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12232
+N Outhouse~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12233
+N Maxwell's Ranch~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12234
+N Maxwell's Bedroom~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12235
+N Woodshed~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12238
+N Hospital~
+Ref 0
+D
+Buckshot
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12240
+N Silver City, New Mexico~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#12250
+N Sante Fe, New Mexico~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

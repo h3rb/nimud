@@ -1,0 +1,918 @@
+#ZONE 
+N Sandman Dwarven Day Care~
+B Locke Sophocles~
+V 21600 21647
+S 1
+End
+
+
+
+#SCRIPTDATA
+#21601
+N grin-bounce-hop-flip~
+C
+do({bow});
+do({grin});
+do({hop});
+do({bounce});
+do({flip});
+~
+T 6
+End
+
+#0
+
+
+
+#ACTORS
+#21600
+N youth dwarven dwarf~
+SD the dwarven youth~
+LD
+ A young dwarf plays with a toy axe.
+~
+D
+ This is a young but not totally harmless creature.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -5 E 732
+O ~
+AP 25 25 25 25 40
+At 0 10 67 1
+At 1 5 58 14
+At 3 1 24 13
+At 6 5 31 0
+End
+
+#21601
+N teddy bear~
+SD a teddy bear~
+LD
+ A cute and fuzzy teddy bear stands here.
+~
+D
+ This is a tiny little bear with a heart on his chest.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 905
+O ~
+AP 25 25 25 25 40
+Sc 21601
+At 0 10 32 12
+At 1 5 15 0
+At 3 1 26 7
+At 4 1 22 0
+At 6 5 83 14
+End
+
+#21602
+N doll raggedy anne~
+SD a raggedy anne doll~
+LD
+ A raggedy anne doll is sitting here.
+~
+D
+ You see a small little cute rag doll.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 20 11
+End
+
+#21603
+N soldier toy~
+SD a toy soldier~
+LD
+ A toy soldier is standing here.
+~
+D
+ The toy is looking for target practice.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -300 E 729
+O ~
+AP 25 25 25 25 40
+At 0 10 38 11
+At 1 5 83 11
+At 3 1 20 6
+At 4 1 39 18
+At 6 5 46 14
+End
+
+#21604
+N bear ugly~
+SD the ugly bear~
+LD
+ An ugly stuffed bear stands here.
+~
+D
+ This is obviously a reject from the factory.
+He snarls and growls at you.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 180
+O ~
+AP 15 15 15 15 15
+At 0 10 20 5
+End
+
+#21605
+N doll old~
+SD an old doll~
+LD
+ An abused and old doll is here.
+~
+D
+ This doll has been hugged and played with until there is almost nothing left.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -2 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 19 2
+End
+
+#21606
+N nanny~
+SD the nanny~
+LD
+ An old wrinkled nanny stands here, looking over the little ones.
+~
+D
+ You see an old dwarven lady who has been hunched over with age.  However, it
+appears that there is still some fight left in her.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 10 E 425
+O ~
+AP 25 25 25 25 25
+At 0 10 19 9
+At 1 5 18 0
+At 3 1 22 6
+End
+
+#21607
+N guard~
+SD the armed guard~
+LD
+ An armed guard stands here looking lost.
+~
+D
+ This is a big mean bully who is tired of being lost in this maze.
+You suddenly think that you had better flee.
+~
+A 71
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -800 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 24 10
+End
+
+#21608
+N brat spoiled~
+SD the spoiled brat~
+LD
+ A spoiled brat is crying here.
+~
+D
+ You see a little tyke who has always gotten what he wanted.  You have the
+biggest urge to put him out of his misery.
+~
+A 71
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 557
+O ~
+AP 25 25 25 25 35
+At 0 10 20 5
+At 1 5 14 11
+At 5 1 31 18
+End
+
+#0
+
+
+
+#OBJDATA
+#21600
+N axe toy~
+SD a toy axe~
+P ~
+D
+An axe made of plastic lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 600
+O ~
+V 0 1 6 3
+End
+
+#21601
+N ring pink ice~
+SD a pink ice ring~
+P ~
+D
+A pink ice ring draws your eye.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 3
+Sz 18
+Ti 0
+Wt 8
+C 7000
+O ~
+V 1 0 0 0
+End
+
+#21621
+N robe linen~
+SD a linen robe~
+P ~
+D
+A linen robe is crumpled into a ball here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 5
+C 4000
+O ~
+V 1 0 0 0
+End
+
+#21644
+N meat steak~
+SD a juicy steak~
+P ~
+D
+A juicy steak sits on a plate here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 15
+O ~
+V 15 0 0 0
+End
+
+#21645
+N steak rotten~
+SD a rotten steak~
+P ~
+D
+A dry steak lies on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 14
+O ~
+V 4 0 0 1
+End
+
+#21646
+N potion amber~
+SD an amber potion~
+P ~
+D
+An amber potion sits in a corner.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1500
+O ~
+V 30 0 0 0
+End
+
+#21647
+N gun toy~
+SD a toy gun~
+P ~
+D
+A toy gun with a sharp bayonet lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 1700
+O ~
+V 0 2 3 7
+End
+
+#0
+
+
+
+#SCENES
+#21601
+N Road~
+Ref 0
+D
+This is where the dwarven mommies and daddies come to drop off their
+annoying little brats.  You have the urge to leave.  There is a sign here.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+This is an area for newbies, so have fun.  -- Sandman
+~
+Dr 0 0 -1 21500
+~
+~
+Dr 2 0 -1 21602
+You see a large room full of noisy brats.
+~
+~
+End
+
+#21602
+N Commons~
+Ref 0
+D
+You are in the north-east corner of the main part of the center.  Toys and
+toddlers are all over the room.  There is a kitchen to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21600 3 100 1
+Dr 0 0 -1 21601
+You see the drop off.
+~
+~
+Dr 1 0 -1 21626
+You see an extremely messy kitchen.
+~
+~
+Dr 2 0 -1 21604
+You see a large room full of noisy brats.
+~
+~
+Dr 3 0 -1 21603
+You see a large room full of noisy brats.
+~
+~
+End
+
+#21603
+N Hransoerd Hall~
+Ref 0
+D
+You are in the north-west corner of the main part of the center.  Toys and
+toddlers are all over the room.  There is a bathroom to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21600 3 100 1
+Dr 1 0 -1 21602
+You see a large room full of noisy brats.
+~
+~
+Dr 2 0 -1 21605
+You see a large room full of noisy brats.
+~
+~
+Dr 3 0 -1 21606
+You see a messy bathroom.
+~
+~
+End
+
+#21604
+N Hransoerd Hall~
+Ref 0
+D
+You are in the south-east corner of the main part of the center.  Toys and
+toddlers are all over the room.  There is a playground to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21600 3 100 1
+Dr 0 0 -1 21602
+You see a large room full of noisy brats.
+~
+~
+Dr 1 0 -1 21610
+You see the playground.
+~
+~
+Dr 3 0 -1 21605
+You see a large room full of noisy brats.
+~
+~
+End
+
+#21605
+N Hransoerd Hall~
+Ref 0
+D
+You are in the south-west corner of the main part of the center.  Toys and
+toddlers are all over the room.  There is a staircase to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21600 3 100 1
+Dr 0 0 -1 21603
+You see a large room full of noisy brats.
+~
+~
+Dr 1 0 -1 21604
+You see a large room full of noisy brats.
+~
+~
+Dr 3 0 -1 21607
+You see a staircase leading down.
+~
+~
+End
+
+#21606
+N The Messy Bathroom~
+Ref 0
+D
+You hold your nose as you realize you have made the worst mistake of your
+life.  The air is rancid and the walls are stained.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21605 3 100 1
+Dr 1 0 -1 21603
+You see a large room full of noisy brats.
+~
+~
+End
+
+#21607
+N The Staircase~
+Ref 0
+D
+You stand on top of a staircase leading down, and wonder what mystery could
+lie down under.  Beware!
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21605
+You see a large room full of noisy brats.
+~
+~
+Dr 5 0 -1 21612
+You see the entrance to something.
+~
+~
+End
+
+#21608
+N Orchard~
+Ref 0
+D
+You are in the north-west corner of the playground.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 21600 2 100 1
+Dr 1 0 -1 21609
+You see the playground.
+~
+~
+Dr 2 0 -1 21610
+You see the playground.
+~
+~
+End
+
+#21609
+N Orchard~
+Ref 0
+D
+You are in the north-east corner of the playground.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 21600 2 100 1
+Dr 2 0 -1 21611
+You see the playground.
+~
+~
+Dr 3 0 -1 21608
+You see the playground.
+~
+~
+End
+
+#21610
+N Orchard~
+Ref 0
+D
+You are in the south-west corner of the playground.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 21600 2 100 1
+Dr 0 0 -1 21608
+You see the playground.
+~
+~
+Dr 1 0 -1 21611
+You see the playground.
+~
+~
+Dr 3 0 -1 21604
+You see a large room full of noisy brats.
+~
+~
+End
+
+#21611
+N Orchard~
+Ref 0
+D
+You are in the south-east corner of the playground.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 21604 3 100 1
+Dr 0 0 -1 21609
+You see the playground.
+~
+~
+Dr 3 0 -1 21610
+You see the playground.
+~
+~
+End
+
+#21612
+N Entrance to the Mini-Maze~
+Ref 0
+D
+You stand in the entrance to a small, but confusing maze.  You really hope
+that you don't get lost.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21613
+~
+~
+Dr 4 0 -1 21607
+You see some stairs.
+~
+~
+End
+
+#21613
+N Mini-Maze~
+Ref 0
+D
+You are in a small passage that looks just like every other one.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21614
+~
+~
+Dr 2 0 -1 21615
+~
+~
+Dr 3 0 -1 21612
+~
+~
+End
+
+#21614
+N Mini-Maze~
+Ref 0
+D
+You are in a small passage that looks just like every other one.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 21616
+~
+~
+Dr 3 0 -1 21613
+~
+~
+End
+
+#21615
+N Mini-Maze~
+Ref 0
+D
+You are in a small passage that looks just like every other one.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21613
+~
+~
+Dr 1 0 -1 21616
+~
+~
+End
+
+#21616
+N Mini-Maze~
+Ref 0
+D
+You are in a small passage that looks just like every other one.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21614
+~
+~
+Dr 2 0 -1 21624
+~
+~
+Dr 3 0 -1 21615
+~
+~
+End
+
+#21624
+N End of the Mini-Maze~
+Ref 0
+D
+You stand at the end of your journey.  There is a big sign here and you had
+better read it!
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED sign~
+If you are not level 6 or above, then don't go south!!!!  It is a dangerous
+area, but congrats for getting this far - Sandman
+~
+R M 21607 1 100 1
+Dr 0 0 -1 21616
+~
+~
+Dr 2 0 -1 21631
+~
+~
+End
+
+#21626
+N Dwarven Home~
+Ref 0
+D
+You stand in the kitchen and eating area of the day care center.  Pots and
+pans are everywhere, while the toddlers continue to create chaos.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 21602
+You see a large room full of noisy brats.
+~
+~
+End
+
+#21631
+N The End?~
+Ref 0
+D
+You have reached the final lair.  It is dominated by a huge five headed
+dragon (actually an overgrown brat with a Halloween mask).
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 21608 1 100 1
+Dr 0 0 -1 21624
+~
+~
+End
+
+#0
+
+
+
+#$

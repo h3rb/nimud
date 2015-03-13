@@ -1,0 +1,580 @@
+#ZONE 
+N Merc    Troll Den~
+B None~
+V 17800 17808
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#17800
+N guardian beast~
+SD the guardian beast~
+LD
+ A guardian beast stares at you and snarls in rage.
+~
+D
+ Jet black fur covers this beast.  You stare at his two huge red eyes.  You can
+count at least 50 teeth on this monster.  You can't tell whether it is blood or
+saliva dripping from the beast's jaw.  The guardian beast snarls again.
+~
+A 103
+AB 98312
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 582
+O ~
+AP 25 25 25 25 35
+At 0 10 19 12
+At 1 5 22 8
+At 2 1 37 5
+End
+
+#17801
+N young heveti~
+SD the young heveti~
+LD
+ A young Heveti is sitting down, chewing on a bone.
+~
+D
+ He is a tall, wiry, furry humanoid.
+Your eyes lock with his.  He smiles, puts down his bone, and reaches for one
+of yours!!
+~
+A 101
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 641
+O ~
+AP 25 25 25 25 35
+At 0 10 19 13
+At 1 5 12 11
+At 2 1 29 10
+At 3 1 17 11
+At 4 1 23 0
+At 5 1 36 9
+End
+
+#17802
+N medium heveti~
+SD the medium heveti~
+LD
+ A Heveti is grooming his pet, a guardian beast.
+~
+D
+ He is a tall, lean, furry humanoid.
+He is busy licking the ticks off of his beast.
+His eyes dart toward you, as he realizes you are one third his size.
+~
+A 103
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 396
+O ~
+AP 19 19 19 19 19
+At 0 10 18 1
+At 1 5 18 9
+End
+
+#17803
+N baby heveti~
+SD a baby heveti~
+LD
+ A baby Heveti is playing Doctor with a cadaver.
+~
+D
+ He is a large, chubby, furry humanoid.
+He is trying to stuff an arm in a hole in the wall.
+He notices you and gargles "WANNA JOIN?".
+~
+A 39
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 870
+O ~
+AP 25 25 25 25 40
+At 0 10 15 14
+At 1 5 20 5
+At 3 1 25 0
+At 6 5 52 1
+End
+
+#17804
+N giant heveti~
+SD the giant heveti~
+LD
+ A giant Heveti is lying on a pile of carnage, pleasing his mistress.
+~
+D
+ He is a gigantic, muscular, furry humanoid.
+He gasps as he notices your intrusion.
+You gasp as you realize you have intruded upon his acts of passion!
+~
+A 103
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 178
+O ~
+AP 15 15 15 15 15
+At 0 10 25 11
+End
+
+#17805
+N large heveti female~
+SD the large female heveti~
+LD
+ A large female Heveti is lying on the pile of carnage, blissfully writhing.
+~
+D
+ She is a huge, grotesque, furry humanoid.
+She moans in passion but gasps as she notices you.
+Her smiles turn into snarls as she screams at you!
+~
+A 103
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -800 E 235
+O ~
+AP 15 15 15 15 15
+At 0 10 13 12
+End
+
+#17806
+N fat worm~
+SD a fat worm~
+LD
+ A fat worm scurries around, looking for food.
+~
+D
+ It is thick and long.  You can't find a head on this thing.
+It moves quickly, from corpse to corpse.
+~
+A 165
+AB 98304
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 22 2
+End
+
+#17807
+N roving beast~
+SD the roving beast~
+LD
+ A roving beast is searching for prey.
+~
+D
+ Jet black fur covers this beast.
+You stare at his two huge red eyes.  You can count at least 50 teeth on this
+beast.  You can't tell whether it is blood or saliva dripping from the beast's
+jaw.  The roving beast snarls at you.
+~
+A 103
+AB 32776
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 11 13
+At 1 5 17 4
+End
+
+#17808
+N medium heveti~
+SD the medium heveti~
+LD
+ A Heveti is wandering around, attending to his duties.
+~
+D
+ He is a tall, lean, furry humanoid.
+He notices you, and is satisfied to find what he is looking for.
+He advances toward you.
+~
+A 101
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 21 7
+End
+
+#0
+
+
+
+#OBJDATA
+#17800
+N corpse cadaver~
+SD the cadaver-toy~
+P ~
+D
+A half eaten corpse is laying here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 50
+C 0
+O ~
+V 30 0 0 0
+End
+
+#17801
+N pile rotting heap bed~
+SD the heap of carnage~
+P ~
+D
+There is a bed made of carnage here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 999
+C 0
+O ~
+V 30 0 0 0
+End
+
+#17802
+N hevetiskin Heveti skin~
+SD the Heveti skin~
+P ~
+D
+The filthy hide of a beast is laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 50
+C 50
+O ~
+V 5 0 0 0
+ED Heveti skin~
+This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
+and feels bad.
+~
+End
+
+#17803
+N ring opal~
+SD an opal ring~
+P ~
+D
+A ring of black opal lies here gathering dust.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 3 0 0 0
+ED ring opal~
+It is a full circle of opal, smooth and simple.
+~
+End
+
+#17804
+N leather belt~
+SD a leather belt~
+P ~
+D
+An old leather belt is left on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 2049
+Sz 18
+Ti 0
+Wt 5
+C 100
+O ~
+V 6 0 0 0
+ED leather belt~
+This old, smelly belt looks like it is barely better than rotting cloth.
+~
+End
+
+#17805
+N bone cracked~
+SD a cracked bone~
+P ~
+D
+A cracked piece of bone lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 3
+O ~
+V 0 3 3 7
+ED bone~
+This piece of bone looks sturdy enough to be used as a weapon, but you
+wouldn't want to entrust your life to it.
+~
+End
+
+#0
+
+
+
+#SCENES
+#17800
+N Bottom of Stair~
+Ref 0
+D
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17801
+~
+~
+Dr 4 0 0 22434
+~
+~
+End
+
+#17801
+N Hunting Shrine~
+Ref 0
+D
+The wall is filled with bone shards and fragments, hides and other items
+from past hunts.  A shrine of skulls adorns the back room.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED plaque~
+Ikti mudati aderat madu
+~
+R M 17800 2 100 1
+Dr 2 0 0 17803
+You find the stench is stronger inside.
+~
+~
+Dr 3 0 0 17800
+~
+~
+End
+
+#17802
+N Heveti Larder~
+Ref 0
+D
+This room has blood and grime all over the walls.  You see maggots and other
+insects crawling up them.  The resident is definitely uncivilized.  Half-eaten
+and rotting body parts scatter the floor, each having its own colony of flies,
+worms, and maggots.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED Half-eaten body rotting corpse~
+YUCK!  You find worms crawling in and out this poor unfortunate former human.
+~
+R M 17801 2 100 1
+Dr 1 0 0 17803
+You welcome the fresh breeze coming from the east, but wrinkle your nose when
+the stench bears down on you once more.
+~
+~
+End
+
+#17803
+N Heveti Stone Lounge~
+Ref 0
+D
+This small cave opens to the north, south, east, and west.  You are
+overcome by the stench and consider turning around.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17802 1 100 1
+Dr 0 0 0 17801
+There is a trail of bone shards and fragments leading north.
+~
+~
+Dr 1 0 0 17804
+Good God!  You spy corpses all over the floor in there.  It looks like a
+virtual graveyard in there.
+~
+~
+Dr 2 0 0 17805
+Whoa!  You reel back from the stench.  You believe you have found the source
+of this bad smell.
+~
+~
+Dr 3 0 0 17802
+You puke as you watch worms crawl between this room and the room west of here
+as they bore new holes into a corpse laying on the far wall of the west room.
+~
+~
+End
+
+#17804
+N Feasting Area~
+Ref 0
+D
+The walls are painted in blood with symbols and scenes of hunting and
+celebration.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED arm rotting~
+This reminds you of what a baby would do to its formula during dinnertime,
+plastering it on the wall.
+~
+R O 17800 0 100 1
+Dr 3 0 0 17803
+You welcome the fresh breeze coming from the west, but wrinkle your nose when
+the stench bears down on you once more.
+~
+~
+End
+
+#17805
+N Sleeping Area~
+Ref 0
+D
+The sleeping area has fur beds and stretched leather canopies
+creating areas of privacy.
+~
+C
+~
+F 5
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17804 1 100 1
+Dr 0 0 0 17803
+You welcome the fresh breeze coming from the north, but wrinkle your nose when
+the stench bears down on you once more.
+~
+~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,2756 @@
+#ZONE 
+N Kltaran Forests~
+B ~
+V 18700 18760
+S 1
+End
+
+
+
+#SCRIPTDATA
+#18700
+N songbird~
+C
+wait(random(5,150));
+do({:tweets and sings a little song.});
+wait(random(5,150));
+do({:sings a song and listens to a far off bird's response.});
+wait(random(5,200));
+do({:flutters from one branch to another.});
+wait(random(5,200));
+~
+T 1
+End
+
+#18711
+N avoider~
+C
+wait(random(5,150)); do(rnddir(here()));
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#18700
+N trapper~
+SD a trapper~
+LD
+ A trapper is here, tracking his quarry.
+~
+D
+ He is big and bad.  Don't mess with him.
+~
+A 81
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K 1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 25 7
+End
+
+#18701
+N blob~
+SD the blob~
+LD
+ The blob is here, waiting to eat you up.
+~
+D
+ He is big, he is bad.  You don't want to fight him when he isn't chained up.
+Perhaps now would be a good time to flee from him!!!  If you don't flee, you
+would really suffer the consequences.
+~
+A 67
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 300
+O ~
+AP 13 13 13 13 13
+At 1 5 25 20
+End
+
+#18702
+N wolf~
+SD the wolf~
+LD
+ There is a wolf leashed here.
+~
+D
+ He looks mean, but you feel comfortable that you can kill him, especially since
+he is leashed up, and you are not.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 9
+K 0 E 200
+O ~
+AP 12 12 12 12 12
+Sc 501
+At 1 2 4 10
+At 2 5 15 14
+End
+
+#18703
+N captured baby bear~
+SD the captured baby bear~
+LD
+ A captured baby bear licks its wounds.
+~
+D
+ He looks wimpy.  You feel comfortable that you can kill him, especially since
+he is leashed up, and you are not.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 200
+O ~
+AP 20 20 20 20 20
+End
+
+#18704
+N crazy raccoon~
+SD a crazy raccoon~
+LD
+ A rabid raccoon is spitting and hissing.
+~
+D
+ He looks mean, but you feel comfortable that you can kill him, especially since
+he is leashed up, and you are not.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 6
+K 0 E 100
+O ~
+AP 11 11 11 11 11
+At 1 4 10 14
+At 2 3 5 10
+End
+
+#18705
+N captured bear~
+SD a captured bear~
+LD
+ A captured bear is stuck in a cage.
+~
+D
+ He looks mean, but you feel comfortable that you can kill him, especially since
+he is leashed up, and you are not.
+~
+A 163
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 300
+O ~
+AP 18 18 18 18 18
+End
+
+#18706
+N bear~
+SD a bear~
+LD
+ There is a big creature hulking over your form.
+~
+D
+ He looks mean, and you just might have a small problem killing him, but he
+looks like a great prize!!!
+~
+A 35
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 100
+O ~
+AP 13 13 13 13 13
+End
+
+#18707
+N trapper~
+SD the trapper~
+LD
+ A trapper is here, sharpening his knife.
+~
+D
+ The trapper is carrying a bunch of pelts: you might be able to sell him a
+few of your latest captures.  
+~
+A 1107
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 196
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 80  CI 0  SI 110
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 7173
+At 0 10 12 5
+Sk 50 'tracking'
+Sk 90 'foraging'
+End
+
+#18709
+N leopard~
+SD the leopard~
+LD
+ A leopard darts across your view.
+~
+D
+ ~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 10
+K 100 E 75
+O ~
+AP 13 13 13 13 13
+Sc 3
+End
+
+#18710
+N lizard~
+SD the lizard~
+LD
+ A lizard slithers up to you.
+~
+D
+ It smiles at you, and tries to eat your leg.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -100 E 971
+O ~
+AP 25 25 25 25 40
+At 0 10 15 7
+At 1 5 77 8
+At 4 1 37 20
+At 6 5 56 7
+End
+
+#18711
+N raccoon~
+SD a raccoon~
+LD
+ A raccoon is eating something out of its little black hands.
+~
+D
+ It has two dark patches around its eyes.  
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 8
+K 0 E 60
+O ~
+AP 7 7 7 7 7
+Sc 18711
+End
+
+#18712
+N fox~
+SD the fox~
+LD
+ A fox is here staring at you.
+~
+D
+ His fur might be worth money.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 10
+K 100 E 1
+O ~
+AP 15 15 15 15 15
+Sc 18711
+At 0 10 25 3
+End
+
+#18713
+N deer~
+SD a deer~
+LD
+ A deer is trying to get out of your way.
+~
+D
+ It has a white tail.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 541
+O ~
+AP 25 25 25 25 35
+Sc 3
+At 0 10 15 10
+At 1 5 14 8
+At 5 1 37 17
+End
+
+#18714
+N beast~
+SD the beast~
+LD
+ A beast tries to feed off of you.
+~
+D
+ It looks mean.  You'd better run.
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 156
+O ~
+AP 13 13 13 13 13
+At 1 0 20 13
+At 2 5 15 14
+At 3 5 20 10
+End
+
+#18715
+N bear~
+SD the bear~
+LD
+ A bear is here growling at you.
+~
+D
+ The bear must be bigger than you!  It wants to rip your head off.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 905
+O ~
+AP 25 25 25 25 40
+At 0 10 15 8
+At 1 5 13 12
+At 2 1 45 3
+At 6 5 100 14
+End
+
+#18716
+N wolf~
+SD the wolf~
+LD
+ A wolf is here snarling at you.
+~
+D
+ The wolf doesn't want to be bothered.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 828
+O ~
+AP 25 25 25 25 40
+At 0 10 29 14
+At 1 5 34 2
+At 3 1 37 0
+At 4 1 23 14
+At 5 1 24 5
+At 6 5 62 12
+End
+
+#18717
+N wolf~
+SD a wolf~
+LD
+ A wolf is prowling about, growling at his prey.
+~
+D
+ It's a grey wolf.
+~
+A 225
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 149
+O ~
+AP 15 15 15 15 15
+Sc 501
+At 0 10 12 12
+End
+
+#18718
+N hunter~
+SD a hunter~
+LD
+ A hunter is here, stalking his prey.
+~
+D
+ ~
+A 1619
+AB 32904
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K 1000 E 32
+O ~
+AP 10 10 10 10 10
+Sc 7173
+Sk 10 'climbing'
+Sk 25 'swimming'
+Sk 10 'fishing'
+Sk 60 'foraging'
+Sk 45 'ranged'
+Sk 20 'tracking'
+End
+
+#18719
+N lumberjack lumber-jack~
+SD a lumberjack~
+LD
+ A lumber-jack is sitting on a log, resting from a day's hard work.
+~
+D
+ He's a lumberjack, and he's ok.
+~
+A 1107
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 21
+K 1000 E 346
+O ~
+AP 19 19 19 19 19
+Sc 7173
+At 0 10 11 8
+At 1 5 22 5
+At 2 1 13 10
+Sk 40 'carpentry'
+Sk 45 'hafted'
+End
+
+#18720
+N beast~
+SD the rabid beast~
+LD
+ A rabid mange is growling, snarling and foaming at the mouth.
+~
+D
+ The beast is probably rabid.
+~
+A 35
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 225
+O ~
+AP 11 11 11 11 11
+End
+
+#18721
+N songbird~
+SD the songbird~
+LD
+ A songbird is perched on a branch nearby.
+~
+D
+ It's a small blue songbird perched on a nearby branch.
+~
+A 3
+AB 16936
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 2
+K 1000 E 46
+O ~
+AP 15 15 15 15 15
+Sc 18700
+At 0 10 12 13
+End
+
+#0
+
+
+
+#OBJDATA
+#18700
+N mace~
+SD a sub issue mace~
+P ~
+D
+You see a sub issue mace here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 2 3 7
+ED mace~
+You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18701
+N dagger~
+SD a sub issue dagger~
+P ~
+D
+You see a sub issue dagger here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 2 3 11
+ED dagger~
+You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18702
+N sword~
+SD a sub issue sword~
+P ~
+D
+You see a sub issue sword here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 2 3 3
+ED sword~
+You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18703
+N vest~
+SD a sub issue vest~
+P ~
+D
+You see a sub issue vest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED vest~
+You see a vest of great but cheap craftsmanship.  Stamped on the side is:
+Merc Industries
+~
+End
+
+#18704
+N shield~
+SD a sub issue shield~
+P ~
+D
+You see a sub issue shield here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED shield~
+You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18705
+N cloak~
+SD a sub issue cloak~
+P ~
+D
+You see a sub issue cloak here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED cloak~
+You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18706
+N helmet~
+SD a sub issue helmet~
+P ~
+D
+You see a sub issue helmet here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED helmet~
+You see a helmet of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18707
+N leggings~
+SD a pair of sub issue leggings~
+P ~
+D
+You see a pair of sub issue leggings here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED leggings~
+You see leggings of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18708
+N boots~
+SD a pair of sub issue boots~
+P ~
+D
+You see a pair of sub issue boots here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED boots~
+You see boots of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18709
+N gloves~
+SD a pair of sub issue gloves~
+P ~
+D
+You see a pair of sub issue gloves here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED gloves~
+You see gloves of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18710
+N sleeves~
+SD a pair of sub issue sleeves~
+P ~
+D
+You see a pair of sub issue sleeves here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED sleeves~
+You see sleeves of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18711
+N cape~
+SD a sub issue cape~
+P ~
+D
+You see a sub issue cape here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED cape~
+You see a cape of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18712
+N belt~
+SD a sub issue belt~
+P ~
+D
+You see a sub issue belt here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 2049
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED belt~
+You see a belt of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18713
+N bracer~
+SD a sub issue bracer~
+P ~
+D
+You see a sub issue bracer here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 4097
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 2 0 0 0
+ED bracer~
+You see a bracer of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18714
+N key~
+SD a key~
+P ~
+D
+You see a very important key here!~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#18715
+N diploma~
+SD a mud school diploma~
+P ~
+D
+You see a mud school diploma here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED diploma~
+This document shows that you have graduated from Mud School.
+It also has magical effects on your abilities if you hold it!
+
+Hatchet the Silver Knight
+Merc Industries
+~
+End
+
+#18716
+N banner~
+SD a war banner~
+P ~
+D
+A war banner is on the floor here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 65
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 -1 0
+ED banner~
+This is the official Merc war banner to see you through the darkest realm!
+~
+End
+
+#0
+
+
+
+#SCENES
+#18700
+N Dead End Path~
+Ref 0
+D
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18721 1 100 1
+R C 125 -5 50 2
+Dr 0 0 0 18757
+~
+~
+End
+
+#18701
+N A Bend In The Path~
+Ref 0
+D
+To the south you can see the forest path continues; the forest seems to
+go on for ever.  
+~
+C
+~
+F 12
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
+now, you have just a vest, a shield, and a weapon.  As you go through Mud
+School you will acquire a complete set of equipment.
+
+To pick up items on the ground as you see them, type 'GET item'.
+To wear a piece of armor, type 'WEAR item'.
+To hold a light source, type 'HOLD item'.
+To wield a weapon, type 'WIELD weapon'.
+To wear, hold, and wield everything you have, type 'WEAR ALL'.
+To stop using a piece of equipment, type 'REMOVE item'.
+Finally, to see the items in your inventory, type 'INVENTORY'.
+
+When you are ready to continue, go west.
+~
+ED plaque~
+This zone (Mud School) is created by Hatchet for any Merc Mud.
+Copyright 1992, 1993.
+~
+R M 18700 1 100 1
+Dr 2 0 -1 18757
+You see a path into another room.
+~
+~
+Dr 3 0 -1 18702
+You see a path into another room.
+~
+~
+End
+
+#18702
+N Meeting of Paths~
+Ref 0
+D
+~
+C
+~
+F 12
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+This is the direction practicing room.  The directions you can go in any
+room are: north, south, east, west, up, or down.  Of course, not all rooms
+have all exits available.
+
+To see the obvious exits in a room, type 'EXITS'.
+
+Sometimes doors are closed, or locked, or secret.  Then you have to notice
+clues in the room description, or try going into that direction and seeing
+if you bump into a door.
+
+Try going into each direction from here.  When you are done, go NORTH.
+~
+Dr 0 0 0 18703
+You see the room north that will lead you to the next section.
+~
+~
+Dr 1 0 0 18701
+You see a room.
+~
+~
+Dr 2 0 0 18705
+You see a room.
+~
+~
+Dr 3 0 0 18704
+You see a room.
+~
+~
+End
+
+#18703
+N Leaf-strewn Path~
+Ref 0
+D
+~
+C
+~
+F 12
+S 2
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Since you are here, let us have another lesson.  You can see the statistics on
+yourself by typing 'SCORE'.  Do that right now.  At higher levels, 'SCORE'
+gives you more information.
+~
+Dr 0 0 -1 18709
+You see the next station ahead.
+~
+~
+Dr 2 0 0 18702
+You see the central room.
+~
+~
+End
+
+#18704
+N Clearing~
+Ref 0
+D
+~
+C
+~
+F 12
+S 2
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Just go east to the central room.
+~
+Dr 1 0 0 18702
+You see the central room.
+~
+~
+Dr 3 0 0 7384
+~
+~
+End
+
+#18705
+N a Dead End in the Forest~
+Ref 0
+D
+This is a dead end of a path in the forest.  Fallen logs and embankments
+make travel impossible in any direction but north.  
+~
+C
+~
+F 12
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Just go north to the central room.
+~
+Dr 0 0 0 18702
+You see the central room.
+~
+~
+End
+
+#18707
+N A Room in Mud School~
+Ref 0
+D
+You are in a square white room.  The walls are all blank, with no windows.
+Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+sign on the wall.  The only exit is up.
+~
+C
+~
+F 14
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Just go up to the central room.
+~
+End
+
+#18708
+N A Room in Mud School~
+Ref 0
+D
+You are in a square white room.  The walls are all blank, with no windows.
+Light fluoresces off the ceiling in soft white tones.  Of course, there is a
+sign on the wall.  The only exit is down.
+~
+C
+~
+F 14
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Just go down to the central room.
+~
+End
+
+#18709
+N Climbing a Massive Log~
+Ref 0
+D
+This is the eastern end of a huge fallen log which reaches higher into
+the forest canopy.  To the south is a path leading away from the area toward
+an intersection of paths.  
+~
+C
+~
+F 12
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Welcome to combat training.
+
+The first lesson is knowing whom to fight.  Use the command 'CONSIDER' to
+consider killing a monster.  Avoid fighting monsters that will kill you
+easily.
+
+The second lesson is running away.  There is a monster in the room down.
+He is too strong for you to kill, but he won't kill you.  So go 'DOWN' from
+here, then 'CONSIDER' him, then 'KILL' him.  After a while, type 'FLEE' to
+escape from him.
+
+You can also set your character to flee automatically with the 'WIMPY' command.
+Type 'HELP WIMPY' to find out more about 'WIMPY'.
+
+After you flee, you will be back in this room.  When you are ready to go on
+to the next station, go 'WEST'.
+~
+Dr 3 0 -1 18711
+You see the next station of Mud School.
+~
+~
+Dr 5 0 0 18710
+You see a cage.
+~
+~
+End
+
+#18710
+N A Dirty Cage~
+Ref 0
+D
+You are in a smelly cage.  Strangely, the walls are still clean!
+You see a sign here.  The only exit is up.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Remember, don't fight the blob to the finish!  Just type 'KILL BLOB', then
+when you are fighting, type 'FLEE', until you flee and are out of here.
+~
+R M 18701 1 100 1
+Dr 4 0 0 18709
+You see a safe room up.
+~
+~
+End
+
+#18711
+N Top of Log~
+Ref 0
+D
+This is the western end of a huge log, below you there is a platform
+which you could easily lower yourself onto.  
+~
+C
+~
+F 12
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Welcome to the next station.  Here, you will actually fight real monsters,
+without fleeing!  Kill every mob, since they hold some equipment you need.
+To start, go down.
+~
+Dr 1 0 0 18709
+You see the next station of Mud School.
+~
+~
+Dr 5 0 0 18712
+You see the combat hall.
+~
+~
+End
+
+#18712
+N Leafy Canopy~
+Ref 0
+D
+You are in the cage room.  All around are 4 cages.  Light fluoresces off the
+ceiling in soft white tones.  Of course, there is a big sign on the wall.
+Exits lead into the cardinal directions plus down.
+~
+C
+~
+F 12
+S 2
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Welcome to the cage room.  The adepts of mud school have captured some
+monsters for you to kill.  In the four cages are four monsters of various
+types.  Kill them all!
+
+After you kill each monster, get all of the equipment from their corpses
+with the command 'GET ALL CORPSE'.  You can then use the command 'WEAR ALL'
+to wear your newly won equipment.
+
+When you are done with the corpse, 'SACRIFICE CORPSE' to give it to your God.
+God will reward you for this.
+
+Between combat, you may need to rest or sleep to regenerate hit points.
+You can 'REST' to regenerate hit points, or you can 'SLEEP'.  'SLEEP' will
+refresh you faster than 'REST', but you will be less aware of your
+surroundings.
+~
+R M 18707 1 100 1
+R G 37 -1 100 1
+R G 27 -1 100 1
+R G 41 -1 100 1
+Dr 0 0 -1 18713
+You see the aggressive monster inside!
+~
+~
+Dr 1 0 -1 18716
+You see the unmodified monster inside!
+~
+~
+Dr 2 0 -1 18715
+You see the wimpy monster inside!
+~
+~
+Dr 3 0 -1 18714
+You see the aggressive wimpy monster inside!
+~
+~
+Dr 5 0 -1 18717
+You see the next station below.
+~
+~
+End
+
+#18713
+N A Cage~
+Ref 0
+D
+You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+in the upkeep here!  There is a sign on the wall.  The only exit is south.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+There is an aggressive monster in this room.  Kill him and get out of here
+fast!  Remember to loot and sacrifice the corpse.
+~
+R M 18704 1 100 1
+R G 37 -1 100 1
+Dr 2 0 -1 18712
+You see the Cage Room.
+~
+~
+End
+
+#18714
+N A Cage~
+Ref 0
+D
+You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+in the upkeep here!  There is a sign on the wall.  The only exit is east.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+There is a wimpy, aggressive monster in this room.  Kill him and get out of
+here fast!  Remember to loot and sacrifice the corpse.
+~
+R M 18705 1 100 1
+R G 26 -1 100 1
+Dr 1 0 -1 18712
+You see the Cage Room.
+~
+~
+End
+
+#18715
+N A Cage~
+Ref 0
+D
+You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+in the upkeep here!  There is a sign on the wall.  The only exit is north.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+There is a wimpy monster in this room.  Kill him and get out of here fast!
+Remember to loot and sacrifice the corpse.
+~
+R M 18703 1 100 1
+R G 26 -1 100 1
+Dr 0 0 -1 18712
+You see the Cage Room.
+~
+~
+End
+
+#18716
+N A Cage~
+Ref 0
+D
+You are in a cage.  Blood and gore are everywhere.  The keepers must be lax
+in the upkeep here!  There is a sign on the wall.  The only exit is west.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+There is a monster in this room.  Kill him and get out of here fast!
+Remember to loot and sacrifice the corpse.
+~
+R M 18702 1 100 1
+R G 51 -1 100 1
+Dr 3 0 -1 18712
+You see the Cage Room.
+~
+~
+End
+
+#18717
+N Base of a Tall Tree~
+Ref 18732
+D
+~
+C
+~
+F 12
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+By now, you must be hungry and thirsty.  Time to buy groceries!
+To the south is a store.  Inside the store, you can use these commands:
+
+    BUY    Buy an item
+    LIST   List what is for sale
+
+After buying some food and drink, you can 'EAT' and 'DRINK' it.
+
+After that, find the next exit yourself.
+~
+Dr 1 0 -1 18719
+You see the next station of Mud School.
+~
+door~
+Dr 2 0 0 18718
+You see the Shop.
+~
+~
+Dr 4 0 -1 18712
+You see the Cage room.
+~
+~
+End
+
+#18718
+N Dead End Path~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign reads:
+
+   Buy   - Buy something from the storekeeper.
+   List  - The storekeeper will tell you what's for sale.
+   Value - The storekeeper will tell you how much he will give to you for
+           that item.
+   Sell  - Sell that item to the storekeeper.
+~
+R M 18717 1 100 1
+R G 41 10 100 1
+Dr 0 0 0 18717
+You see the only exit out of here.
+~
+~
+End
+
+#18719
+N Forest Path~
+Ref 0
+D
+You can see a cave to the north under a tree covered in many vines; it
+looks dark in there.  
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+North of you is a dark room.  I hope you still have the lantern!  If not,
+you have to back to the store and buy one.
+
+In the room is a monster with a key that you need.  After killing the
+monster and getting the key, come back here, UNLOCK EAST, OPEN EAST,
+and continue east.
+~
+Dr 0 0 0 18720
+You see a darkened room inside.
+~
+~
+Dr 1 0 3714 18721
+The path curves sharply down and to the left.  
+~
+door~
+Dr 3 0 -1 18717
+You see the room you just came from.
+~
+door~
+End
+
+#18720
+N Dark Cave Under Tree~
+Ref 0
+D
+The room is dark and smells like wild animals.  
+~
+C
+~
+F 1
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18706 1 100 1
+R G 26 -1 100 1
+Dr 2 0 0 18719
+You see the room that you have come from.
+~
+~
+End
+
+#18721
+N Thicket~
+Ref 0
+D
+You stumble down the path and find yourself peering north at an expanse
+of forest.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+You have graduated from Mud School!  Get your diploma.  Go 'NORTH' from here
+to visit our arena.  There are plenty of low-level monsters, but DON'T attack
+other players.
+
+If you want to go directly back to the temple at any time, type 'RECALL'.
+
+After you raise to level two, you can 'SAVE' your character.  Your character
+will be automatically SAVE'd every few minutes.
+
+If you need more help during the game, type 'HELP'.  If you see something
+wrong or have comments, use 'BUG', 'IDEA', or 'TYPO' to report them.
+
+May your visit here be ... mercenary.
+~
+R M 18720 1 100 1
+Dr 0 0 -1 18722
+You see the Arena ahead.
+~
+gate~
+End
+
+#18722
+N Forest~
+Ref 18732
+D
+You can see tracks of animals heading off in all directions.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18729
+~
+~
+Dr 1 0 0 18725
+~
+~
+Dr 3 0 0 18723
+~
+~
+End
+
+#18723
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18728
+~
+~
+Dr 1 0 0 18722
+~
+~
+Dr 3 0 0 18724
+~
+~
+End
+
+#18724
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 18713 20 100 1
+R G 27 -1 100 1
+Dr 0 0 0 18727
+~
+~
+Dr 1 0 0 18723
+~
+~
+End
+
+#18725
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18730
+~
+~
+Dr 1 0 0 18726
+~
+~
+Dr 3 0 0 18722
+~
+~
+End
+
+#18726
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 18712 3 100 1
+R G 29 -1 50 1
+R G 28 -1 50 1
+Dr 0 0 0 18731
+~
+~
+Dr 3 0 0 18725
+~
+~
+End
+
+#18727
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18732
+~
+~
+Dr 1 0 0 18728
+~
+~
+Dr 2 0 0 18724
+~
+~
+End
+
+#18728
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18733
+~
+~
+Dr 1 0 0 18729
+~
+~
+Dr 2 0 0 18723
+~
+~
+Dr 3 0 0 18727
+~
+~
+End
+
+#18729
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18734
+~
+~
+Dr 1 0 0 18730
+~
+~
+Dr 2 0 0 18722
+~
+~
+Dr 3 0 0 18728
+~
+~
+End
+
+#18730
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18735
+~
+~
+Dr 1 0 0 18731
+~
+~
+Dr 2 0 0 18725
+~
+~
+Dr 3 0 0 18729
+~
+~
+End
+
+#18731
+N Forest~
+Ref 18732
+D
+A large boulder sits in the middle of a clearing, overgrown with ivy and
+moss.  
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18736
+~
+~
+Dr 2 0 0 18726
+~
+~
+Dr 3 0 0 18730
+~
+~
+End
+
+#18732
+N Forest~
+Ref 0
+D
+You are in a dimly lit forest, somewhere in Kltara, south of the capital
+of Rygor Isle.  The trees around you are densely packed, and you can hear
+animals rustling in the leaves around you.  This might be a good place to
+get fresh hides.  
+~
+C
+~
+F 8200
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18737
+~
+~
+Dr 1 0 0 18733
+~
+~
+Dr 2 0 0 18727
+~
+~
+Dr 3 0 0 18759
+~
+~
+End
+
+#18733
+N Forest~
+Ref 18732
+D
+To the east there is a meadow.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18738
+~
+~
+Dr 1 0 0 18734
+~
+~
+Dr 2 0 0 18728
+~
+~
+Dr 3 0 0 18732
+~
+~
+End
+
+#18734
+N A Clearing~
+Ref 0
+D
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Those with high bravery or low senses of cautiousness might wish to go below
+to the Dungeon.  However, know that there are aggressive monsters down there,
+and there is no quick escape back out of here when you are in the dungeon.
+~
+R M 18709 4 100 1
+Dr 0 0 0 18739
+~
+~
+Dr 1 0 0 18735
+~
+~
+Dr 2 0 0 18729
+~
+~
+Dr 3 0 0 18733
+~
+~
+Dr 5 0 -1 18748
+You see a dark murky dungeon below.
+~
+grate~
+End
+
+#18735
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18740
+~
+~
+Dr 1 0 0 18736
+~
+~
+Dr 2 0 0 18730
+~
+~
+Dr 3 0 0 18734
+~
+~
+End
+
+#18736
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18741
+~
+~
+Dr 2 0 0 18731
+~
+~
+Dr 3 0 0 18735
+~
+~
+End
+
+#18737
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18742
+~
+~
+Dr 1 0 0 18738
+~
+~
+Dr 2 0 0 18732
+~
+~
+End
+
+#18738
+N Forest~
+Ref 18732
+D
+To the east there is a field.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18743
+~
+~
+Dr 1 0 0 18739
+~
+~
+Dr 2 0 0 18733
+~
+~
+Dr 3 0 0 18737
+~
+~
+End
+
+#18739
+N Field~
+Ref 0
+D
+The meadow stretches out to the south where you can see a clearing
+between some trees.  
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18744
+~
+~
+Dr 1 0 0 18740
+~
+~
+Dr 2 0 0 18734
+~
+~
+Dr 3 0 0 18738
+~
+~
+End
+
+#18740
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18745
+~
+~
+Dr 1 0 0 18741
+~
+~
+Dr 2 0 0 18735
+~
+~
+Dr 3 0 0 18739
+To the west opens a field.
+~
+~
+End
+
+#18741
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18746
+~
+~
+Dr 2 0 0 18736
+~
+~
+Dr 3 0 0 18740
+~
+~
+End
+
+#18742
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 18710 3 100 1
+Dr 1 0 0 18743
+~
+~
+Dr 2 0 0 18737
+~
+~
+End
+
+#18743
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18744
+~
+~
+Dr 2 0 0 18738
+~
+~
+Dr 3 0 0 18742
+~
+~
+End
+
+#18744
+N Forest~
+Ref 18732
+D
+Just south of here the forest opens into a clearing.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18745
+~
+~
+Dr 2 0 0 18739
+~
+~
+Dr 3 0 0 18743
+~
+~
+End
+
+#18745
+N Forest~
+Ref 18732
+D
+You are in the Arena.  Remember, if you wish to get out of this Arena, just
+go up.  Ceilings can barely be seen in this huge Arena.  You feel as if you are
+being watched by some divine being.
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18746
+~
+~
+Dr 2 0 0 18740
+~
+~
+Dr 3 0 0 18744
+~
+~
+Dr 4 1024 0 18760
+You see the tops of the trees.
+~
+~
+End
+
+#18746
+N Forest~
+Ref 18732
+D
+~
+C
+~
+F 8
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 18711 3 100 1
+R G 37 -1 100 1
+Dr 2 0 0 18741
+~
+~
+Dr 3 0 0 18745
+~
+~
+End
+
+#18748
+N A Storm Drain~
+Ref 0
+D
+You are in the center of a large room.  A faint light from above shows that
+the floors are all covered with slime.  A feeling of dread comes over you as
+you notice that this is NOT a great place to go.  Exits go in all directions.
+Of special note is the one that brings you back up!!!
+~
+C
+~
+F 10
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18750
+You see the north wall.
+~
+~
+Dr 1 0 0 18753
+You see the east wall.
+~
+~
+Dr 2 0 0 18755
+You see the south wall.
+~
+~
+Dr 3 0 0 18752
+You see the west wall.
+~
+~
+Dr 4 0 -1 18734
+You see safety!
+~
+grate~
+End
+
+#18749
+N Ancient Prison~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18714 1 100 1
+Dr 1 0 0 18750
+You see the north wall.
+~
+~
+Dr 2 0 0 18752
+You see the south wall.
+~
+~
+End
+
+#18750
+N Ancient Prison~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18751
+You see the north east corner.
+~
+~
+Dr 2 0 0 18748
+You see the center of the dungeon.
+~
+~
+Dr 3 0 0 18749
+You see the north west corner.
+~
+~
+End
+
+#18751
+N Ancient Prison~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18715 2 100 1
+R G 26 -1 100 1
+Dr 2 0 0 18753
+You see the east wall.
+~
+~
+Dr 3 0 0 18750
+You see the north wall.
+~
+~
+End
+
+#18752
+N Ancient Prison~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18749
+You see the north west corner.
+~
+~
+Dr 1 0 0 18748
+You see the center of the dungeon.
+~
+~
+Dr 2 0 0 18754
+You see the south west corner.
+~
+~
+End
+
+#18753
+N Ancient Prison~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18751
+You see the north east corner.
+~
+~
+Dr 2 0 0 18756
+You see the south east corner.
+~
+~
+Dr 3 0 0 18748
+You see the center of the dungeon.
+~
+~
+End
+
+#18754
+N The South West Corner Of The Dungeon~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18716 2 100 1
+Dr 0 0 0 18752
+You see the north wall.
+~
+~
+Dr 1 0 0 18755
+You see the south wall.
+~
+~
+End
+
+#18755
+N The South Wall Of The Dungeon~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18748
+You see the center of the dungeon.
+~
+~
+Dr 1 0 0 18756
+You see the south east corner.
+~
+~
+Dr 2 0 0 7515
+~
+~
+Dr 3 0 0 18754
+You see the south west corner.
+~
+~
+End
+
+#18756
+N The South East Corner Of The Dungeon~
+Ref 0
+D
+You are against a wall in the dungeon.  It is quite dark here.  The lack of
+any windows in the area explains the smell around you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18753
+You see the east wall.
+~
+~
+Dr 3 0 0 18755
+You see the south wall.
+~
+~
+End
+
+#18757
+N A Fork In The Path~
+Ref 0
+D
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+To find out your attributes, type 'score'.  You can improve your attributes
+in Furey's Training Room to the west.  You can practice your skills and spells
+in Hatchet's Guild Room to the east.  You can continue through mud school by
+going north.
+
+If you are a new character, you should go 'WEST' from here, train your
+abilities, and then come back here and go 'NORTH'.
+~
+Dr 0 0 0 18701
+~
+~
+Dr 1 0 0 18759
+~
+~
+Dr 2 0 0 18700
+The path leads to a dead end.
+~
+~
+Dr 3 0 0 18758
+~
+~
+End
+
+#18758
+N Dense Forest~
+Ref 0
+D
+You're in a thick forest with densely packed trees all around you.  
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Welcome to Furey's Training Room.  Here you can train your attributes.  To 
+train an attribute, you need enough practices.  To find out how many practice
+sessions you have, type 'train' while you are in this room.  To train for a 
+specific attribute, type 'train <attr>' where attr is the first 3 letters of
+the attribute you want increased.  Type 'help train' for more information.
+~
+R M 18718 1 100 1
+Dr 1 0 0 18757
+You see the room you came from, and the room you should go to.
+~
+~
+End
+
+#18759
+N A Path In The Forest~
+Ref 0
+D
+You are in a room filled with weapons, books, and many combat dummies, some
+cut and stabbed many times, others burnt to a crisp.  The room is filled with
+sweat and an aura of magic.  There is a sign on the wall.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Welcome to Hatchet's Guild Room.  Here you will learn your skills and spells.
+To find out what skills and spells you can practice and how many practice
+sessions you have, type 'practice'.  To practice the specific skill, type
+'practice <skill>', where 'skill' is the skill or spell you wish to practice.
+Practicing increases the amount you know of that skill or spell, up to a
+certain maximum.  When you have practiced all you wish to practice, go west.
+~
+R M 18719 1 100 1
+Dr 1 0 0 18732
+~
+~
+Dr 3 0 0 18757
+You see the room you came from and the room you should go to.
+~
+~
+End
+
+#18760
+N Up A Tree~
+Ref 0
+D
+You're up a tree.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 1024 0 18745
+~
+rustling branch~
+End
+
+#0
+
+
+
+#$

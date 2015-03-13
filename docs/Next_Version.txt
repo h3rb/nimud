@@ -1,0 +1,28 @@
+What's Next
+-----------
+
+
+
+The next version of NiM5 will come with some major in-game systems to round out the 
+final "fifth" version of NiMUD.
+
+These systems are the "castles" system, which provides the fiefdom/kingdom-level 
+combat and rewards system, a higher-level clan-like system for hero characters who 
+wish to "rule" part of Tyselorrd, the "land of the tyrants" and serves as the main 
+motivation for becoming a hero.
+
+I considered that system to be fairly unique to fantasy mudding, and an extension of 
+existing 'housing' systems, something pretty new to multiplayer games, and different 
+that existing systems in other muds such as "owning a player-run shop" or "creating a 
+clan" -- in this case, a hero can acquire other lesser mortals as heirarchical 
+vassals, and head their own clan.
+
+The other two systems will be the 'pet' system reimplementation, which also includes a 
+"hirelings" system which is slightly different than the 'petshop' system.
+
+Finally, it will include a complete reimplementation of Diku spells, as well as some 
+"NiMUD" spells which are different and more complex; a finalized trading system and a 
+completed alchemical system, the basis of which is already present in the current 
+version and could be created "from scratch" using this version.
+
+

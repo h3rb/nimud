@@ -1,0 +1,168 @@
+NiMUD OLC has been ported to the Envy release (a post-Merc release) 
+by Jason Dinkel back during the release of Version 2-73.  It has 
+shown up in a variety of ways on Rom, Godwars (Deluxe, Shadowgames
+version and Rok2 version) and a few others, and is a continuing 
+contribution to the Merc Industries group of derivatives, as its 
+straightforward coding style and relative flexablity has made it
+a popular feature of muds today.
+
+The Merc v2.0/2.1 and 2.2 was the precursor to Envy; it existed 
+in a time when Merc 2.2 was being released, and has only recently 
+been the source of review for NiMUD and variants.
+
+Previous versions of OLC existed in the form of other softwares; 
+MUSH and MUCK, MOO all offered some sort of online coding,
+online editor, or online creation. While Diku written for speed, 
+and Merc followed suit.  OLC came as a later feature to these 
+softwares and was not inherent to its design. In fact, out of
+respect to Whistler and Dikumud][, it was the old style- write
+and submit; where a "builder" would write a file in the correct
+format and upload it to the gods for approval.
+
+LP was already in an advanced state when NiMUD was released.
+
+
+--- ftp.game.org
+
+
+To set the record straight,
+
+The Isles NIMUD OLC was written by Surreality and Locke
+together.  We stole the ideas from Hidden Worlds MUD, 
+who had the initial working concept of an OLC; a very
+advanced feature at the time for a Diku/Merc 1.0; and
+perhaps the only Merc 1.0 boasting an online zone
+building system.
+
+Surreality wrote the major framework.  It was designed
+by both Surreality and Locke by stealing ideas from
+Kalgen, who ran a mud called Zebesta with his friend
+Zlixlt.  Kalgen (Alex Dzur of University of Washington,
+Seattle, Washington) had designed an interesting
+derivation of Merc after his time as an immortal on 
+Hidden Worlds, where he was among the more prestigious 
+immortals.  Kalgen's Mud Zebesta has disappeared; sad
+but true it is lost to history.  One of the greatest
+muds ever seen, which had many of the features and
+careful considerations of a game worthy of being called
+"great" --
+
+The "Mozart" OLC software was not written at the time,
+and has come later, perhaps developed simulteanously,
+but most likely a "reinvented wheel" to avoid the NiMUD
+OLC license, which of course has been ignored by a
+great many MUD developers.  Thoric of Realms of Despair
+lends this to the fact that much of the godwars variants,
+pirate and deluxe for example, were "leaked" and being
+that this is true, often MUD developers, often in their
+secretive nature, have failed to follow Jason Dinkel's
+license which stated that those using the EnvyOLC/ILAB
+OLC ports must CONTACT LOCKE@MUGS.NET (now swerves@hotpop.com
+
+Surreality and I worked previously on BBSes, circa 1991,
+and he was a contributer to Telegard and Renegade softwares,
+where he was added to the credits of Telegard.  (He
+liked this and I was happy for him.)
+
+He and I developed code for various purposes on the MUD, 
+indeed the ideas for the OLC were not original and the 
+versions of ROM (Rogue, specifically) which use the word 
+"installed" does not adequately describe the development
+process.  In fact, Alandar (Russ Taylor) and I never
+got along, much the way Morg and I don't get along today.
+
+Surreal's most interesting combat feature was the idea for
+hit specific functions; which grew into an addition of the
+vorpal weapon, a unique feature of NiMUD, I believe
+revived from old Diku, implemented with a Merc twist
+(a severed head).
+
+We also brought ANSI color codes to muds, being the first
+source code to include ANSI color.  Our source was so
+useful, in fact, that it was taken by FreeBSD and used
+in their linux shell (Thank you!).
+
+This was the year we watched Peter Jackson's Bad Taste,
+and began playing DOOM.
+
+Chris and I worked together on this feature and the 
+version that was ported from NiMUD contained many 
+features not present in Surreality's initial version.
+
+Current Version
+---------------
+
+This version, version 5.1a, is the most recent iteration
+of the thoughts and ideas that Surreal and I had at
+the inception of the Isles, and represents also a new
+paradigm in Merc/Diku -- 
+
+It also includes much of the conceptual work I have had
+the pleasure of being a part of at Carnegie Mellon University,
+one of the more prestigious schools of Computer Science and
+related topics.  I have a Bachelor of Science in Interaction
+Design, a science dedicated to the study of media and computer
+related art.
+
+(Please see related 'concepts.txt' for more information.)
+
+Surreal's Vision
+----------------
+
+Surreal had a vision for a MUD that had multiple worlds,
+and many times we thought of ways to devise strategies for
+combining muds using RWHO like portals, where characters
+would be transferred through some standard protocol from
+one mud to another, changing stats and object specifications
+between muds, filtering unused objects in special buffers
+for reappearance in other muds.  This way we could "in
+essence" become legendary among the people, provide immortals
+with options for siphoning players, provide a unique MUD
+experience and multiple themed genres, where each mud
+would function like a single dimension in a multi-dimensoned
+multiverse. 
+
+This idea never came to fruition through NiMUD.
+
+The idea would be to use NiMUD as this launch platform,
+to create a NiMWHO service -- but then everyone would
+have to go and make NiMUDs. :)  Later came IMC.
+
+I did, however, complete the scripting language which was
+our initial hope during the advent of the MobScripts
+portion of Merc.  I will admit that the addition of the
+scripting language occured after numerous episodes on
+the original DuneMUSH, a PennMUSH. Where Chris hacked the
+infamous "x-ray glasses" which became banned and lead
+to our disinterest in the game (I later became an
+established character on DuneMUSH while Surreal went
+to college).
+
+My goal was to combine a MUD and a MUSH, and Surreal
+helped out.
+
+Enjoy it, it is quite powerful and mesmerizing.
+
+Regards, Locke of The Isles
+theisles@mugs.net
+----
+
+--------------------------------------[ NiMUD ]---------------------------
+
+OLC Editors:
+
+Basic Functionality
+
+AEDIT  (formerly MEDIT)        Actor Editor
+PEDIT  (formerly OEDIT)        Prop Editor
+SEDIT  (formerly REDIT)        Scene Editor
+
+Advanced Functionality
+
+SPEDIT                         Spell Editor
+SKEDIT                         Skill Editor
+SCEDIT                         Script Editor; live debugger
+
+Documentation Management
+
+HEDIT

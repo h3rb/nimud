@@ -1,0 +1,2381 @@
+
+                        Foerlin's Tome of the Realms
+                     (transcribed from memory by Locke)
+                      
+                         Written by Herb Gilliland
+                     
+This is a work of fiction, and is for use with Tyselorrd and The Isles,
+specifically.  It is geared to familiarize the player with the world of
+Tyselorrd.   Please note, all ascii representations were created in
+the squinched 50-line mode, where characters are contained in square boxes
+rather than in rectangular regions.  For proper aspect when viewing, use
+50 line mode.
+
+Copyright (c) 1994-1995, Herb Gilliland.  All rights reserved.
+
+-----------------------[    Table of Contents    ]-------------------------
+
+ - Introduction                        - Part 3:  Political Overview
+ - Part 1:  Geographical Atlas               The Tiktui Empire
+       Corse, The                            Fiefdoms
+       Grand Ocean                            Haedar
+       Mudak Island                           Rygor
+       Rygor Isle                             Kthana
+         Landforms                     - Part 4:  Economical Report
+          Andraius Mountains                 Economic Overview
+          Blood Lake                         Guild Breakdown
+          Broken Coast, The                    Caravan Group
+          Cape Red                             Consortium, The
+          Crystal River                        Dwarven Merchants Guild
+          Eastern Plains                       Zozzo
+          Gemrider River                       Zylots, The
+          Kltara                             Trading
+         Cities                                Goods List
+          Cape Red (Port of)                   Components
+          Kess                                  Other Goods
+           Bazaar, The Great                   Industries
+           Rygor Castle                - Part 5:  Magick
+           Coranos Lycaeum                 Gem Magick
+          Keveg                            True Magick
+          The Lighthouse               - Part 6:  Chronology (History)
+          Vesper                           Ancient
+         Places of interest                  Scribed Texts
+          Southern Forest                      The Yellowed Scrolls
+          Ruins of Wound Spire                 The Magickal Tapestry
+       Serpantine Isle, The                Recent
+         Landforms                           The First Circle
+          Serpant Mountains                  The Second Circle
+          Shadow Peak                        The Third Circle
+         Cities                            Timeline
+          Bristol                      - Part 7:  Cultural Study
+          Keep Kthana                      Council, The
+          Lovers' Nest                     Council of Elders
+       Soedar Isle                         Freemen
+         Cities                            Guildsmen
+          Kreighaad                        Nobility
+       Tyselorrd (Mainland)                Peasants
+         Newcost Bay                       Reclusives
+         Cities                            Tradesmen
+          Kyrinn                       - Part 8:  Legends and Lore
+           Athenaeum                   - Afterword
+          Nostol                       - Version History
+       Watervoid                       - Suggested Texts
+       Zalufin
+         Cities
+          Toshan Kori
+ - Part 2:  Glossary of the Realms
+       Peoples
+         Human Races
+          Human
+          Dwarf
+          Giant
+         Elven Races
+          Dakonenne
+          Thilonenne
+          Trioskenne
+         Unique Races
+          Buckawn
+          Drev
+       Faces
+         Tradesmen
+          Foerlin
+          Githryn
+          Ketra
+         Merchants
+          Aidrus
+          Gaerbryn
+          Luri, Fochan
+         Lords, Overlords and Kings
+          Kthana, Lord Luke
+          Melinthra, Lady
+          Rygor, King Coranos
+          Tiktui, Imperator
+         Religious Figures
+       Terms
+         Vernacular
+         Languages
+         Basic
+          Calendar System
+
+
+
+--------------------------[    Introduction     ]--------------------------
+
+        From the Author
+
+        This text is written solely for the purpose of outline and explaining
+    the different aspects of the Tyselorrd game, specifically the parts of
+    the world which are important to playing on The Isles MUD.  The ideas
+    contained herein are solely owned by the author, Herb Gilliland.  He
+    reserves the right to modify, omit or remove any of this at any time.
+        Foerlin's Tome of the Realms is written in the first person in order
+    to make it entertaining as well as informative.  Foerlin's persona is
+    defined in the 'From Foerlin' section of this introduction.
+
+        From Foerlin
+
+        It was upon the last day of my boyhood that I decided to set myself
+    out and visit the world, scribing its details into my battered testemony
+    of travels.  A leatherbound manual and a ink-and-quill pen were my only
+    supplies as I unhitched my father's mount from the stables, bid goodbye
+    to my mother, and set off on our short dirt drive for Keveg, a mile
+    walk later I had found my way into the town.
+        This Tome of the Realms is an organized version of my journal's
+    account.  I have compiled this information for all of my adult life,
+    and am proud to be able to offer this information to you, dear reader.
+    It describes, in detail, almost everything I have encountered during
+    my exploration of my homeland, the Southern Isles of Jharl.  Economic,
+    editorial and factual accounts are contained herein, and, to my
+    knowledge, are the complete truth as I know it.  Please excuse any
+    errors on my part; any errors are my ignorance entirely.
+        For convenience, I have alphabetized whenever possible.
+
+----------------[    Part 1:  Geographical Atlas    ]----------------------
+                     
+        Throughout my travels, it was necessary to transcribe or
+    fold and log maps of the areas in which I travelled.  Because I did
+    not travel to every location described here, some areas lack maps,
+    or I have chosen to omit a poor representation of the location.
+    Any cartography should be considered rough, not exact, and I urge
+    you to visit my shop whenever you find yourself in Keveg.  I sell
+    a myriad of useful Atlases and maps, of many denominations and
+    scales.  You are welcome to browse or buy, depending on the size
+    of your coinpurse.
+
+       \__    _           Southern End of the ___________/\          /
+          \_ / \              Continent of __/             \         )
+            "  (        .-_._  Tyselorrd  /     Newcost     \      _/
+                \      /     \__     ___./        Bay        )    /
+                 \_    \        \  A/                       /    /
+                   \   /         `./                       /  G  ) 
+                    `-'                                    \     |
+                                                            \    |
+                                                            / __.'
+                             ___.                           \/
+      Watervoid           .-'   "\        Grand Ocean
+                          |     B/
+                          /1    /
+                          \     \
+     -Islands-             \    /                    -Cities/Castles-
+ 1 - Rygor Isle             \C /                  A - Kyrinn
+ 2 - Soedar                  \/  /\               B - Kess
+ 3 - Mudak                       \/      /\       C - Cape Red
+ 4 - Zalufin         /\__       _        \//\     D - Kreighaad
+ 5 - Serpantine Isle \2 D\     / \   _____ \/     E - Toshan Kori
+ 6 - The Corse       / _/"    /5 /  /3___/        F - Keep Kthana
+                     \/  __   \  \  \/            G - Nostol
+                        /4 \  /F /    The Southern    
+          Toshan Sea    \ E/  \_/        Isles
+                        / /               of
+                       / /               Jharl
+                       \/           
+                                    
+                         ___    
+                        / 6/
+                        \_/            NOTE: Many smaller islands exist,
+                                             but are not detailed here.
+
+
+- [The Corse]
+
+        The Corse is the southernmost island in the Jharl archipelago.
+    It is on the fringe of subarctic climes, and very inhospitable.
+    There are no known settlements on The Corse.  Likewise, no one
+    has ever settled here for very long.  Legends of the island's
+    inhabitants, however, are widely known.  It is believed by many
+    that The Corse is the Isle of the Dead, where all persons lost
+    at sea may find themselves haunting.  I myself have never visit
+    the island.  I encourage you to read the Legends and Lore section
+    for more specific information.
+ 
+- [Grand Ocean]
+
+        East of the Southern Isles of Jharl and south of the lukewarm
+    waters of the Newcost Bay lies the Grand Ocean, an expanse of
+    choppy, foggy saltwater.  The Grand Ocean is a vast, landless
+    body of water that has never been traversed.  It is the belief
+    of many a scholar that there is a land on the other side of the
+    world, across the Grand Ocean, which is exactly opposite to that
+    of Tyselorrd.  I was once aboard a fisherman's sloop when we
+    drifted out from shore and were caught in a dangerous storm.  The
+    high winds blew us further away from the safety of land, until
+    we were a day's travel from any point.  By the stars, we were able
+    to guide our ship back to safety, but it was during this time
+    I first began to understand the reasons why no one had ever
+    traversed this vast ocean.  With no known goals, one could drift
+    aimlessly until short of supplies and lack of fresh water killed
+    a man.  It would take a great feat of strength, or insanity, to
+    ever cross this ocean and visit the other side of the world.
+        Aside from the awe-inspiring size of this ocean, the Grand
+    Ocean has plentiful supplies of fish near land areas, and thus
+    is a breadbasket for the fishing industry.
+
+- [Mudak Island]
+
+        Mudak Island is an uninhabited island that may have once been
+    but a sandbar.  Over time, however, this island has grown in size
+    and could support a few structures, but the sandy soil of the
+    isle is harsh and difficult to cultivate.  During the thaw, the
+    ocean levels rise slightly, causing heavy flooding on the island,
+    turning many areas to quicksand.  Once when I took to the seas
+    to apprentice navigation, the captain of the vessel stopped here
+    for repairs.  Not much vegatation grows on the sandy beaches of
+    Mudak, but what does is fruitbearing and lush.  Perhaps some
+    generations in the future may be able to cultivate the indigenous
+    crops that flourish here: and nowhere else.  I tried to transplant
+    one of the gulgafruit bushes from Mudak to the sandy shores of
+    the Serpantine Isle, but my work was to no avail.  Such a rare
+    delicacy is that of gulgafruit pie.
+       
+- [Rygor Isle]
+                                            __
+                   ____.-------.___________/  \__
+                 .'gggggggggggggggggg       HH   \
+          .--.__/ggggggggggggggggggg  HHHHHHHHHH / 
+          |ggggggggggggg         ggg HHHHHHHHHHH \___
+ The      |gggggggggggg /\mm/\ /\     HHHHHHHHHHH   /
+ Broken __|gggggggggg    m/\mm\__      HHHHHHHHHH  /
+ Coast_ \gggggggggg        mm/\  >----_________A  /
+     /.\/gggggggg         m/\m  /   1     ====a\_/    -Legend-
+     \....ggggg          /\m/\ / /\m      | ,,, \
+      \.....gg            mmm_/ mmm       | ,,, /   A Rygor Castle
+      /......    ,,,,,,,  /\m\)2/\m       | ,,,/    a Town of Kess
+     /.......    ,,,,,,,  mmmmmmmm  Kltara|   /     B Port of Cape Red
+     \......     ,,,,,,, /\m/\/\m         |  /      C Keveg
+      \.....     ,,,,D===================== /       D Vesper
+       \...      ,,,,|,,/\mm6               \       E The Lighthouse
+       /...          |   m/\                 \
+      /...           |   m3mm                 )
+      \....          |    m/\                /      1 Crystal River
+       \...   ,,,,,  |   mmmmm    Eastern    \      2 Blood Lake
+        \..   ,,,,,  |  m/\mmmm     Plains    )     3 Andraius Mountains
+         \..  ,,,,,  |  mmmmmmmm             /      4 Gemrider River
+          \.  ,,C======== mm/\mm            /       5 Kralan Pass
+           \. ,,,,,  |/\x  mmmm            /        6 Travellers Pass
+            \ ,,,,, m|5xxx  mmmm          /
+ Watervoid   \     /\|xxxx   /\m         /
+              \ /\mm\|xxx     mmm       /           ,  farmlands
+               \ xxx/|xXXx   mm/\m     /            .  desert/drylands
+                \ x4\==xXXx     mm/\  /            =|  roads
+                 \ x/x|XXXxx     mmmm/            \-_  river/coastline
+                  \ \x|XXXxx       m/               x  light forest
+                   \ \|XXXXx       /  Grand         X  dense forest
+                    \/|xxxxx      /     Ocean      /\  predominant mountains
+                     \Bxxx xx    /   __/\           m  peidmont or hills
+                      \ x   xx  /    \_E/           g  grasslands (savanna)
+                       `.__   .'                    H  cliffs/plateau
+                           \_/
+                        Cape Red
+
+        Rygor Isle is the largest and most populated island of the
+    Southern Isles of Jharl.  It is at the northern tip of the island
+    chain.  The peoples of Rygor Isle are varied and spread from its
+    most northern beaches to its most southern cape.
+        
+ ---- Landforms
+     
+   -- Andraius Mountains
+   
+        The Andraius Mountains drag a swath across the center of
+        Rygor Isle, driving a rift between the two halves of the Island.
+        The mountains are easily bypassed through the northern grasslands,
+        however both the Kralan Pass and Travellers Pass have been found
+        to make traveling more direct.  A few stray mountains can be
+        found to the southwest of the main chain.  Formerly called the 
+        Little Andraius, they are now considered to be part of the main
+        mountain range.
+   
+   -- Blood Lake
+   
+        The northern Andraius Mountains contain high deposits of iron,
+        and for this reason they are mined frequently.  Mountain streams,
+        tapped for use in mining, fill with iron dust.  The iron dust
+        soon rusts, turning the water a deep red.  This red color is
+        seen most brilliantly in the waters of Blood Lake.  Many religions
+        have risen and fallen by the shores of this freshwater lake.       
+ 
+   -- The Broken Coast
+   
+        A craggy, broken coastline follows the northwestern side of the
+        island, creating a treacherous landscape unfit for ocean faring
+        vessels.  The shore leads quickly from dangerous seas to blistering
+        hotlands, as the dry scrublands and western deserts fade east
+        into the endless western plains of Rygor Isle.  The fishless
+        expanse of the Watervoid lies west, a forboding addition to this
+        dead land.
+
+   -- Cape Red
+   
+        The southern tip of Rygor Isle forms a wide cape and breakwater,
+        creating a natural port for ships.  Inland from the cape is
+        a forest and river.  The cape's waters are rich in both saltwater
+        and freshwater sea life, and provide the second largest amount
+        of fish and seafood for the islands, seconded only to the Grand
+        Ocean.
+        
+   -- Crystal River
+   
+        A bed of spongerock creates a natural falls only a few thousand
+        yards from Blood Lake.  This waterfall serves as a natural filter,
+        removing the reddish rust hue from the waters and creating the
+        crystal clear water of the Crystal River.  The sight of the red
+        falls flowing over the spongerock and splashing, clear, into
+        the pool below is an awe-inspiring site.  One can't help feel
+        a bit of magic in the area.  It is the legends of the place that
+        pass from lips to ear in this area, local recluses always spend
+        time spinning yarns to travellers.  Flowing first north from 
+        Blood lake, then east, the Crystal River empties into the 
+        Grand Ocean, spilling thousands of freshwater fish into the small
+        delta at the shoreline. 
+        
+   -- Eastern Plains
+   
+        A dry, uncultivated spacious area lies south of the Crystal River
+        and east of the Andraius Mountains.  This area, known only as
+        the Eastern Plains, is dotted with small camps and settlements.
+        The fading lines of old roads, falling now into ruin, crisscross
+        the landscape here.  It is legend that says once a great king
+        ruled here.  But now only a few crumbling structures remain.        
+
+   -- Gemrider River
+     
+        A fast-flowing fish-infested waterway flows south from the Andraius
+        and emties into the Watervoid just northwest of Cape Red.  The
+        Gemrider River is the largest gem mine and geode site in all of
+        the Isles, containing far more precious stones than any other
+        river.  Even though the Gemrider River may not contain the largest
+        number of precious stones, the Gemmaster's Guild in Kyrinn prefers
+        Gemrider stones to others due to their unequaled perfection and
+        relatively large number of usable specimens.
+        
+   -- Kltara
+   
+        Kltara is the name given to the foothills, piedmonts and plains
+        just south of the northeastern cliffs, before the land becomes
+        harsh and barren.  Kltara is rich in vegetation and wildlife,
+        Kltara sports a rather large number of game.
+
+        It is of note that Kltara has become the name for all of the
+        land over which King Rygor sovreigns.
+
+ ---- Cities
+ 
+   -- Port of Cape Red
+   
+        The Port of Cape Red, or the Port for short, is the second
+        largest city in all of the Isles.  My travels to the Port have
+        been many.  The Port is a rich place, populated by many nobles
+        and rich merchant guilds.  It is here that the Dwarven Merchant
+        Guild is most predominant, controlling a large profit share
+        of the market.  The Port is known for its wide trading and
+        exotic flare.  While Kess has The Great Bazaar to promote
+        trading, the Port has no such pleasantry.  The Port is the main
+        shipping location.  Daily, the Port is filled with foriegn
+        travellers, journeymen, traders and diplomats, making this
+        city a multicultural location.  More languages are spoken here
+        than there are streets, it may seem, but in the end most of the
+        Port's inhabitants speak the universal language of trade.  The
+        Port is a fairly rich city, seconded only in its universities
+        to Kess.  The Port is also a big place for caravans to drop
+        off or pick up trading material to take to Kess or ship to
+        the mainland.  When your in the Port, make sure to keep a pouch
+        full of money and a dagger at your waste.  My adventures in this
+        city are numerous, and most of them involve some sort of danger,
+        so I urge newcomers to be on guard at all times.
+   
+   -- Kess
+   
+        Kess is the capital of Kltara and Rygor Isle, and very well may
+        be the capital of the entire archipelago.  It is the largest
+        and most diverse city, containing great schools of knowledge,
+        the largest number of independant craftsman, and many unique
+        local attractions.  Kess is built around the Crystal River
+        which flows through the heart of the city.  The city is split
+        into two main sections.  The first is the South Bank, where
+        most of the merchandom, artistry and cultural experiences lie.
+        The South Bank is seperated into a number of districts, far
+        too numerous and volatile to mention.  The second is the North
+        Bank, where political, government and education facilities lie.
+        It is the North Bank which contains Rygor Castle, the Coranos
+        Lycaeum and many other government facilities.  The North Bank
+        is seperated into two main districts: the High Court, containing
+        mostly government buildings (perched on a hill) and the Riverside
+        District, containing the Lycaeum and other university sites.
+        Outside the city walls, Kess sports a small crop of rye, barley,
+        oats and wheat.  A local establishment, the Hovelcove, has some
+        of the best fresh-baked bread I have ever tasted.
+        
+    - The Great Bazaar
+    
+        The huge Kess Plaza near the South Gate houses a year-round
+        festival called the Great Bazaar.  The Bazaar is both a sale
+        and an extravagant party.  An amphitheater has been constructed
+        in the western center of the Plaza, allowing the stage to be
+        used for performances.  On the outskirts of the Plaza are
+        numberous tents, wagons and buildings, many perminant, which
+        house the outlets for all the major merchant houses.  It is here
+        that one can buy, first hand, many finished goods, raw materials,
+        or sell components, spices or otherwise.  "If you can't find it
+        at the Great Bazaar," I have heard many times, "It doesn't exist."
+        
+    - Rygor Castle
+     
+        The modest King built himself a heavily fortified and open
+        castle on a gnoll on the North Bank.  The Castle is rather
+        large and well built, containing many meeting houses and
+        government buildings.  It is here that one may ask to be
+        granted audience with the King himself.  
+        
+    - Coranos Lycaeum
+
+        This structure is the second largest library in the known world,
+        second only to the Athenaeum in Kyrinn.  Many tomes are contained
+        within these walls.  I am proud to be able to say, with truth,
+        that it also contains many detailed and expensive maps which I,
+        Foerlin, have been so kind to donate.  It is said the Lycaeum's
+        basement contains the only remaining entrance to the catacombs
+        of Kess.  Whether this rumor is true, I would not be able to say.
+        Needlessly, my short time as assistant librarian in the facility
+        gave me access to certain areas which were not of public access.
+        In all my investigative efforts, I was never able to uncover
+        any secret passage that may lead to an entrance or crawlspace.    
+    
+   -- Keveg
+   
+        Ah, Keveg, my hometown.  A quaint little hamlet northwest of
+        the Port of Cape Red, Keveg is where I keep shop and spend
+        my old age resting blissfully in the land of my birth.  Keveg
+        is a village surrounded by vineyards; it has the most sweet
+        and tart wines on the isle.  Of note, Keveg has a fair number
+        of craftsman who are happy to take on an apprentice now and 
+        again.  I myself have taught many the lessons of navigation
+        and cartography.
+    
+   -- The Lighthouse
+
+        For nine generations, there has always been a fisherman and his
+        family tending the lighthouse southeast of the isle.  The current
+        owners and caretakers sell their fish to passing ships.  Though
+        fishselling on their small rocky crag is hardly enough to keep
+        them, they have been declared tax-free by Coranos Rygor.  Without
+        taxes, with a bountiful supply of fish, and with a constant
+        supplie of fuel from the Port's holding stock, the Lighthouse
+        attendants live an honest and fair life.  They welcome travellers
+        with open arms and are happy to rent out their spare lodging
+        whenever necessary.   
+
+   -- Vesper
+   
+        Vesper is a medium sized farming village along the road which leads
+        from Kess to the Port of Cape Red.  Vesper has the largest crop
+        yield in the archipelago.  Vesper's citizenry sell their food
+        surplus to both the merchant houses and the Great Bazaar every
+        year, aside from their own independant markets in the town.  My
+        visits to Vesper have always been memorable; the food their is
+        among the most excellent and hearty in the land.
+    
+ ---- Places of interest
+ 
+   -- Southern Forest
+   
+        The southern forest surrounding the road which leads to the
+        Port of Cape Red is the legendary home of the Drev and Buckawn.
+        It is filled with independant, reclusive and secretive villages,
+        usually small, and is a favored place for Thilonenne middle-age
+        purging efforts.
+
+   -- Ruins of Wound Spire
+
+        The Wound Spire is a crumbling structure which can be seen from
+        certain locations in the Andraius Mountains.  The Spire itself
+        was some sort of religious place, and is along one of the slopes
+        of the Andraius mountains.  I myself have never visited this
+        forboding place, but I have heard stories of some of the more
+        gruesome happenings that have occured here.   
+
+   -- Dakonenne City, Triev
+   
+        Beneath the northeastern plateau is Treiv, the Dakonenne capital.
+        Dakonenne are an ignorant bunch of xenophobic elves, and should
+        not be approached unless with cautionary measures taken.  I don't
+        have a very strong liking toward them, but I don't really hate
+        any Dakons either.  I just don't know them, and they don't seem
+        to want to know me.
+   
+- [The Serpantine Isle]
+                           _______.----._
+                        .-".......m/\m   `.      -Legend-
+                       /........m/\mm   g C)
+                      /.....  m/\mm   gg  /     A  Keep Kthana
+                     /....    m/\m 1 gg  /      B  Bristol
+                    (... __/B  m/\mggg  /       C  Lovers' Nest
+                    \.._/      mm/\mgg (_
+                     \/ \     m/\mmxxg   `.     1  Serpant Mountains
+                     /  /    /\mmxxxxgg    \    2  Shadow Peak
+                    /A  \   mm/\xXXxg /\2   )     
+                   /   _/  m/\mxXXXxgg     /    g  grasslands (savanna)
+                  /       /\mxxXXxxggg  _.'     x  light forest
+                 /      /\mxxxxx.------'        X  dense forest
+                (_________.-----'               m  peidmont or hills
+                                               /\  predominant mountains
+                                              \-_  river/coastline
+
+
+        The Serpantine Isle was only recently inhabited.  When Luke Kthana
+    decided to use this island for refuge, many others followed.  Today,
+    the isle is one of the more populated islands.  
+
+ ---- Landforms
+
+   -- Serpant Mountains
+
+        A snaking range of high, sharp peaks shapes its spinal sinusoidal
+        way through the middle of the island.  On the western edge is
+        dry scrublands.  To the east is lush forest and the fog-enshrouded
+        Shadow Peak.
+
+   -- Shadow Peak
+   
+        Shadow Peak is a mysterous volcanic mountain.  A blanket of
+        half-fog half-steam covers the base of the mountain and keeps the
+        forests and swamps their shrouded from view.  This base land is
+        treacherous and acts as a moat of sorts for those who wish to
+        traverse the volcano and climb to its peak.  It is speculated
+        by scholars and bards alike that great riches, powerful gems
+        and deadly creatures live within the rim of the searing magma
+        crater.
+
+ ---- Cities
+
+   -- Bristol
+    
+        Bristol is a large farming village, feeding most of the populous
+        of the Serpantine Isle.  Bristol contains a large estate owned
+        by Lord Luke Kthana, and many of the citizens of Bristol that
+        aren't farmers are actually Kthana's servants and army.
+
+   -- Keep Kthana
+    
+        A small village and keep at the mouth of the nameless river
+        which flows between bristol and the sea, Keep Kthana is
+        in a strategically sound location perched atop a high cliff.
+        The villagers are all servants of the castle, and have their
+        right place in flocking to the castle should a seige occur.
+
+   -- Lovers' Nest
+   
+        Originally a small estate for Kthana and his Queen, the
+        Lovers' Nest has grown to the size of a small city.  Catering
+        to exotic foriegn travellers seeking refuge here.  The Lovers'
+        Nest is designed to accomodate both single visitors and couples,
+        specializing in romantic hiatus.
+
+- [Soedar Isle]
+
+        Claimed by fair skinned, fair haired nomadic dwarves several
+        centuries ago, Soedar continues to be the site of dwarven
+        settlements today.  Because I am not of dwarven decent, I have
+        never been able to visit this island and its peoples.  Only
+        from rumor and common knowledge have I been able to learn
+        anything at all.
+
+ ---- Kreighaad
+ 
+        The foremost dwarven city in the Isle, and stronghold, Kreighaad
+        is supposedly an invulnerable fortress.  Perhaps more out of
+        respect than factual evidence, the Kreighaad fort has never been
+        reported to have been successfully breached in all the records
+        of Kyrinn's Athenaeum.
+
+- [Tyselorrd (Mainland)]
+
+        Tyselorrd, also known by many as the Land of the Tyrants, is
+        a vast continent spliced by fuedal fiefdoms and tribal
+        rivalries.  Over six hundred seperate groups can be found on
+        the surface of this land mass, and as many as fifty beneath
+        its surface.  Known to scholars as the Infestation of the
+        Civilized World, Tyselorrd is the largest known land mass in
+        all of the known world.  I have traveled only to Kyrinn on
+        business, and my knowledge of the continent is limited only to
+        a few rough maps I bought in the Kyrinn cartographer's office.
+        The stock of ancient maps in the Athenaeum gave me a good idea
+        of the geographic lay of the land, but the constantly shifting
+        political bounds are usually never mapped correctly.  Tyselorrd
+        is covered with mostly wetlands of low vegetation; much of the
+        soil is volcanic ash, and, while fertile, the constant eruption
+        of volcanoes usually blankets the land in new layers of ash and
+        rock every three months.  Outside of this large lava swath that
+        cuts its way across the mainland are a plethora of rivers and
+        lakes, usually surrounded by small groves of trees or thick
+        vegetation.  In the north the volcanos are not as massive but
+        remain active, keeping the area free of ice to a large degree.
+        It is here that many call home, due to the warm weather and
+        fertile, non-desctructive soil.  On the coastlines, the population
+        is the greatest.  The father away you get from the Volcano Rift
+        Valley, the more hospitable the land becomes.  The most exotic
+        trees and shrubs grow along this area, providing food for the
+        towns and mountainous terrain good for hunting, gathering and
+        war.  War is probably the most abundant raw material on the
+        Mainland, there are always one or two factions declaring war on
+        another few.  The Isles benifit from their relative peace, while
+        the Land of the Tyrants is in constant conflict with itself.
+        Dark magicians, vile knights and evil warmongers seem to populate
+        the land more than calm, civilized folk.  The constantly overcast
+        skies of the Rift Valley seem to fortell the dark future of the
+        peoples of this continent.
+
+ ---- Newcost Bay
+ 
+        A lukewarm bay laying on a continental shelf, the Newcost Bay
+        is a wide area of shallow reefs and treacherous rocky outcroppings.
+        Many small piers have been constructed along its wide C-shaped
+        banks.  I've docked at many, which are usually untended and
+        decrepit.  There are ruins along the shore here, of towns and
+        villages, castles and great buildings, buildings of which I have
+        never seen the like.  I encourage you to read the historical
+        and legendary data I have included in this tome to further your
+        knowledge of these structures.
+
+ ---- Cities
+
+   -- Kyrinn
+   
+        Capital of the known world, as it has been called, but more
+        officially capital of Tyselorrd, Kyrinn is now the site for
+        two of the world's most famous groups.  The Tiktui imperial 
+        seat has been recently moved to Kyrinn, joining the Gemmaster's
+        Guild in this ancient city.  I regret I have not seen much of
+        the city except the four walls of the Gemmaster's Guild and
+        the wonderful Athenaeum.
+
+    - Athenaeum
+    
+        The Athenaeum in Kyrinn is the largest library in the known
+        world, containing works as ancient as the first circle and as
+        recent as this tome itself.  This is the most complete library
+        to date.
+
+   -- Nostol
+   
+        A city-state ruled by King Haedar the Fourth.  Nostol is a
+        city filled with warmongers and cutthroat political ambitionists.
+        Its qualms, however, spread very little outside the reach of
+        the city-state.  At one time, before the rise of Tiktui, Nostol
+        ruled Kyrinn and all of Tyselorrd, before it was crushed and
+        contained to its home peninsula.
+
+- [Watervoid]
+ 
+        The Watervoid, at least the Watervoid along the Broken Coast
+        of Rygor Isle, is a poisonous, rough, landless sea of fishless
+        waters.  The salt content of the water is extremely high, 
+        and the lack of fish in the waters is attributed to this.  Near
+        areas where the Watervoid mingles with other waters (such as
+        river outlets or the Grand Ocean) fish are able to thrive in
+        diluted water.  The Watervoid is even more treacherous to
+        traverse than the Grand Ocean due to its lack of fish, making
+        sailors rely on cured meats and salted fish on deck; food
+        which may eventually go bad or run low.  No one has ever
+        successfully crossed this ocean.
+
+- [Zalufin]
+
+        Zalufin is the home to the noble Trioskenne elves.  It is a
+        rich mountainous island of hills and valleys, covered mainly
+        in a thick forest of conifers.  This is the only island that
+        the exotic kio sap can be found, a sweet and tart alcohol-like
+        narcotic.  
+
+ ---- Cities
+
+   -- Toshan Kori
+
+        The exotic city of Toshan Kori is home to the Trioskenne.  These
+        elves spend their days and nights civilizing each other, and
+        the task seems to be one of sheer delight to each of them.  It
+        is a magickal place, and also a place which I have travelled
+        only once.  The city is a most brilliant white color, with the
+        buildings repainted and whitewashed every few months to keep
+        the "civilized" sheen of the town.  The spires are constantly
+        increasing in height as Trioskenne nobles and dignitaries try
+        to out-build one another.
+
+----------------[    Part 2:  Glossary of the Realms    ]------------------
+
+- [Peoples]
+
+      This section describes the different races on the Isles, not in the
+      world as a whole.  There are approximately fifteen other races
+      planet-wide, not all are known to me.  In your travels in The Isles,
+      these are probably the only sentient members of society that you
+      will ever meet.  Orcs, ogres and other creatures are considered
+      animals or half-men, and are not listed in this index.  A good friend
+      of mine, Locke, has offered to write this section for me from a more
+      objective standpoint. 
+
+ ---- Human Races
+
+      Human races all share the same makeup of the root race, the human
+      being.  It is through magick or nature that certain humans are born
+      normal, while others are larger or smaller in size.  Human races
+      populate the isles far more than any other race, and human races are
+      the most diverse and varied of all the races. 
+
+   -- Human
+
+          The human is the most basic, average of all the races.  They 
+      are also the most populated amongst the islands.  Humans all have a
+      unique curiosity which many of the other races lack, and humans can 
+      range from a short, lythe elflike creature, to a large, muscular 
+      swordsman.  Humans and dwarves are the only races which are not 
+      native to the islands.
+
+      Physical traits:
+      Varied (use your humanity to hewn your character).
+      Age gracefully, living between 100 and 150 years.
+
+      How to roleplay this race:
+      This race has the most freedom and diversity, since it is not as 
+      bound to itself as the other races are known to be.  Use your own
+      experiences at being human to shape your character, or the 
+      experiences of others.  You're best at being human, so your 
+      character should be well developed.
+
+      Human, being the most diverse of races, can be pretty much any type
+      of class or occupation.
+
+      Humans are limited to a knowledge of roughly 50 skills in their 
+      lifetime.
+      Humans gain no bonuses to their initial statistics.
+      Humans suffer no penalties to their initial statistics.
+
+   -- Dwarf
+
+          Dwarves are stout, short, stocky humans with a keen eye for 
+      certain less mystical aspects of the world.  Dwarves are incredibly 
+      practical creatures.  They stand a trifle over half the size of an 
+      average human, and are very muscular.  Dwarves are as diverse as 
+      humans, aside from their limiting height and slightly less 
+      metaphysical understandings. They are extremely brazen individuals, 
+      possessing an in-born ability of infravision.
+
+      Physical traits:
+      Short, stocky and muscular.
+      Possessing thick beards and long hair of red, brown, grey, white or
+      blond denominations.
+      Eyes can range from violet to orange to green, and all colors in 
+      between, save red and white (for obvious reasons).
+      Age gracefully, living between 100 and 150 years.
+
+      How to roleplay this race:
+      Dwarves are, in part, human.  Aside from their slightly different
+      skills and their height difference, dwarves retain most all of their
+      human features.  They can participate in many activities a human 
+      would.  It is their differing personality which greatly seperates 
+      the two closely related races.
+
+      A dwarf would most likely be anything from a weaponsmith to a 
+      merchant. Several dwarven merchant guilds have joined the 
+      Consortium, and are quite effective in the markets of fine 
+      hand-crafted items.  Dwarves are very good with pragmatic 
+      situations, preferring to stay away from magical practices.  Dwarves 
+      were highly competative with the Tinkergnomes in this region,
+      and now have formed their own Dwarven Merchant's Guild.
+
+      Dwarves are closely related to humans, and are not at all related to
+      Drev or Buckawn.
+
+      Dwarves are limited to a knowledge of 40 skills in their lifetime.
+      Dwarves gain bonuses to strength and constitution.
+      Dwarves suffer penalties to dexterity, intelligence and wisdom.
+
+   -- Giant
+   
+          Giants are the product of gemmaster engineering.  Certain 
+      gemmasters have been able to affect the womb of a human mother into
+      birthing a child of giant proportions.  Giants are the product of 
+      this engineering.  Part of the main problem with Giants is their 
+      ineptitude at exact tasks such as spellcasting, gemmastering and 
+      tasks which require stealth or precision.  Their deep voices and 
+      overwelming demeanor make them charismatically ineffective.
+
+      Physical traits:
+      Really, really tall humans (like three-four meters).
+      Age gracefully, living between 100 and 125 years.
+
+      How to roleplay this race:
+      Giants tend to be hired hands.  They are good for hard labor, and are
+      even better as men of arms.  Their lack of dexterity is made up for
+      with their ability to wield a weapon to a proper degree, and to do
+      enough damage in order to slay said opponent.  Giants, however, do have
+      a bit of trouble finding proper attire, as most shops do not taylor
+      to their size.
+
+      A giant in the current age would become a bouncer for a local
+      establishment or a hired guard.  Giants lack stealth and magical
+      ability, and would not make good apprentices in these fields.  Giants
+      are extremely good fighters, weaponsmasters and specialist, and for
+      this reason they are valued above all other races for armies.
+
+      Giants are descendant from humans through magical manipulation by
+      gemmasters.
+
+      Giants are limited to a knowledge of 25 skills in their lifetime.
+      Giants gain bonuses to strength and constitution.
+      Giants suffer penalties to wisdom and dexterity.
+
+ ---- Elven Races
+
+          There are three elven races, presumably from decendant from
+      either one of the existing elven races or from a now-extinct master
+      race.  The Dakonenne, Thilonenne and Trioskenne have evolved to now
+      be totally different creatures in their personality and tendancies.
+      Elves, if you count each of the three races populations together,
+      are the second most abundant race in the populous. 
+
+   -- Dakonenne 
+
+          The Dakonenne are a race of xenophobic subterrainean humanoids
+      which have no desire to participate in the society of other races.
+      They dislike other races so inherently that they feign ignoranace 
+      to their existance on many occaisions; otherwise they are warmongers
+      and fight and pillage until their threat is abated.  Given the 
+      choice, however, Dakonenne will not go out of their way to cause
+      trouble, unless their territory or their people are threatened.  Due
+      to their underground lifestyle, Dakon possess the inate ability of
+      infravision, sensing heat as well as light.
+
+      Physical traits:
+      White, grey or black hair.
+      Dark skin, nearly pitch black.
+      Thier eyes lack iris coloration, and are spheres of pure white.
+      With a lean and stocky build, usually they possess facial hair.
+      Age slowly, living 250 to 300 years underground, 250-275 above.
+
+      How to roleplay this race:
+      Dakonenne are xenophobes, yet they do not possess a language unique
+      to their underground lifestyle.  Dakonenne dispise disturbance, and
+      are quickly moved to cold, unceasing violence when provoked.  
+      Dakonenne fight amongst themselves nearly as often as with other
+      races, but are silent creatures, usually never arguing.  Dakonenne
+      have been compared to vipers, snakes which hiss and banter, then 
+      sting with deadly poison.
+
+      Dakonenne have a diverse subculture, based around the element of 
+      Water, the major fuel of their underground mills.  Dakonenne are
+      wonderful swordcrafters, mediocre gemmasters, and a large percentage
+      of the Dakon population remain mushroom farmers.  In recent times,
+      Dakonenne have  been known to form plunder-groups to raid the
+      surrounding countryside for food to feed their hungry populous.
+
+      Dakonenne are closely related to Trioskenne and Thilonenne, and can
+      be referred to as either 'Dakonenne', a formal and widely-accepted
+      plural or singular noun, or as 'Dakon', singular, or 'Dakos', plural,
+      both being informal and rarely used.
+
+      Dakonenne are limited to a knowledge of 55 skills in their lifetime.
+      Dakonenne gain bonuses to strength, intelligence and wisdom.
+      Dakonenne suffer penalties to dexterity and constitution.
+
+   -- Thilonenne
+
+          Thilonenne are civilied forest-dwelling creatures.  They stand
+      slightly shorter than a human, and are of a lighter build.  
+      Thilonenne possess a greater dexterity in their musculature, but 
+      tend to be feeble and easily hurt.  Thilonenne are highly religous
+      and very close to the element of Earth.  Thilonenne circles of 
+      thought extend from the gemmaster's guild in Kess to the wild forests
+      of southern Kltara. The Thilonenne are born with certain detection
+      abilities, especially that of detection of hidden creatures.
+
+      Physical traits:
+      Dark coloration of skin, usually tan or dark peach.
+      Eyes are usually brown or golden, similar to that of a feline.
+      Lithe build.
+      Thilonenne relish extravagant bodypainting.
+      Age gracefully, living between 100 and 150 years.
+
+      How to roleplay this race:
+      Compared to other related races, Thilonenne tend to be more free-
+      spirited and reclusive, preferring their tribes to towns and cities.
+      Many refuse to use metal or edged weapons, preferring bows and
+      cudgels.  In addition, a thilon is known to purge himself of
+      impurities at a late age, and turn itself completely to nature,
+      going without supplies for weeks on end.
+
+      Thilonenne will usually become rangers, hunters, Earth mystics or
+      Earthen gemmasters.  While they have no qualms with Kltarian society,
+      they prefer a wild and unregulated "natural" lifestyle.
+
+      Thilonenne are closely related to Trioskenne and Dakonenne.  They
+      can be referred to as 'Thilonenne', a formal plural or singular
+      noun, as 'Thilos', a plural informal noun, or as 'Thilon(s)', an
+      informal and rarely used noun which can be singular or plural.
+
+      Thilos are limited to a knowledge of roughly 50 skills in their
+      lifetime.
+      Thilos gain bonuses in intelligence and dexterity.
+      Thilos suffer penalties in strength and constitution.
+
+   -- Trioskenne
+
+      In high society, no other race is more respected than the Trioskenne.
+      Trioskenne are masters of politics, social conquest and conspiracy.
+      They live on the upper threshold of society, in rich company.
+      Trioskenne are not the strongest of races, but possess powerful minds
+      and quick reflexes.  Trioskenne are not thrifty merchants, but high
+      society schemers, tending to enjoy the company of quality and luxury.
+      Trioskenne are slightly shorter than the average human.
+
+      Physical traits:
+      Fair skin, near white.
+      Dark, whimisical eyes of green or violet.
+      Long, unkempt blond or silver hair.
+      Lithe build, fair features.
+      Age gracefully, living between 200 and 250 years.
+
+      How to roleplay this race:
+      Trioskenne form three or four circles of power in each city, to which
+      most  elong.  Each circle is basically a seperate private conspiracy.
+      Those Triosk which choose independance are usually freelancers.
+      Trioskenne are known for their suicidal tendencies when forced to
+      succumb to poverty, after long periods of abject denial.
+
+      Trioskenne will usually become Merchants, though they prefer not to 
+      involved with actual sales.  Trioskenne like wealth and enjoy ordering
+      others around.  With due course, they are great thinkers, but have
+      tremendous egos.  Rarely do they flaunt themselves to those who are
+      of a lesser stature to them, preferring to brown-nose with those of
+      a higher position.
+
+      Trioskenne are closely related to Thilonenne and Dakonenne.
+      Trioskenne can be referred to as 'Trioskenne', a formal noun which
+      can take on the meaning of plural or singular according to context,
+      or as 'Triosk', an informal singular or plural noun also according
+      to context.
+
+      Triosk are limited to a knowledge of roughly 60 skills in their
+      lifetime. 
+      Triosk gain bonuses to wisdom, intelligence and dexterity.
+      Triosk suffer penalties to strength and constitution.
+
+ ---- Unique Races
+
+          These races are completely unique unto themselves, and are not
+      related to any other race.  They live in their own community, or
+      are starting to integrate into regular society, and are not decendant
+      within themselves or from any other living race.  The races listed
+      here are not related unto each other.
+
+   -- Buckawn
+
+          Buckawn are a race of forest brownies that have joined ordinary
+      society. They are nearly double the size of a normal brownie, nearly
+      the same height as a dwarf.  Buckawn are extremely fast, almost to
+      a mystical degree, and are extremely wise.
+
+      Physical traits:
+      Whitish hair, no exceptions save blond and near-white yellow.
+      Males usually possess mustaches.
+      Dark skin, tanned.
+      Eyes are usually brown or blue, rarely green or otherwise.
+
+      How to roleplay this race;
+      Buckawn are esoteric, but not highly secretive, and feel as though
+      they are more crafty than the other races.  Most integrated buckawn
+      are interested in stealing from society rather than contributing to
+      it.  They are freeloaders, usually lazy, and heavy drinkers.  They
+      enjoy music, living in the forest, and collecting expensive and 
+      extravagant gems.
+
+      Buckawn are not overly interested in religion or magic, and tend to
+      focus themselves on acts of stealth.  They have formed at least one
+      underground thieving guild, and their interests usually end at
+      monetary gain.
+
+      Buckawn are unique, and are not closely related to any other race.
+
+      Buckawn are limited to a knowledge of 50 skills in their lifetime.
+      Buckawn gain bonuses to wisdom and dexterity.
+      Buckawn suffer penalties to strength and constitution.
+
+   -- Drev
+   
+          The Drev race is a primitive subculture that has only recently
+      begun to integrate into society.  The Drev are highly religous,
+      showing the traits of being crude but wise, daft at times, but
+      remaining somewhat intelligent, fairly weak in strength but strong
+      in character.  Drev are exceptionally loyal, and fairly competant
+      as fighters.  Drev enjoy helping others to be pleased with them,
+      they enjoy praise, and are a bit naive about the ways of the world.
+
+      Physical traits:
+      Short with orange or tan skinned.
+      Large bodies, small heads, they are substantially smaller than
+      dwarves.
+      A profuse amount of body hair, almost like fur, usually brown.
+      Age quickly, living between 75 and 100 years.
+
+      How to roleplay this race:
+      Drev are, when very young, mentally underdeveloped.  They educate
+      themselves at a later age, starting when they are twenty, due to
+      the slow process of mental development.  Drev are little kids for
+      nearly a fourth of their lives.  Before their mental skills begin
+      to develop, however, Drev are extremely naive and easily fooled.
+      At age 20 they begin to become cultured and begin to understand
+      more complex topics.
+
+      For the first 20 years of a Drev's life, their childhood is usually
+      spent farming in the forests.  Drev's favor treehouses to ground-level
+      homes, but prefer any residence to none.  They enjoy being personal
+      assistants, loyal subjects (to their kings and leaders), and good
+      companions.  They enjoy adventuring with others, preferable adventures
+      which take them to exciting new lands and on wild dangerous voyages.  
+      Drev dislike fighting, but are good hunters nonetheless.
+
+      Drev are unique, not being closely related to any particular race.
+
+      Drev are limited to a knowledge of 30 skills in their lifetime.
+      Drev gain bonuses to strength and wisdom.
+      Drev suffer penalties to dexterity and constitution.
+
+- [Faces]
+
+      This section describes the different people of the realms who have
+      attained a sort of fame or fortune which is known throughout the
+      Isles or on the mainland.  I have met or been in the presense of
+      each of these people, so I have a fair degree of understanding of
+      their affairs.
+      
+Author's Note:  Some of these are roles played by players of The Isles.
+                If you wish to play a role that is currently not being
+                played, please contact an admin.
+
+ ---- Tradesmen
+ 
+      Notable tradesmen are those who are the forebearers of their chosen
+      field.
+
+   -- Foerlin
+   
+      Who can one know better than oneself?  I've travelled a great deal
+      and have collected or created a multitude of maps and traveling
+      aids which I sell at my shop in Keveg, on Rygor Isle.  I've been
+      in the trade for a great length of time, and I welcome you to stop
+      by, buy a map or two, and say hello.  I keep copies of my Tome on
+      hand at all times.
+
+   -- Githryn
+
+      Githryn is the head of the Gemmaster's council in Kyrinn, and is 
+      the foremost gemmaster in the world to date.  I have met with him
+      only once during my journey to Kyrinn.  I had an overly large
+      assortment of unique gems which I wanted to sell him, and was
+      granted audience.  He is a down-to-earth man despite his overwelming
+      disposition and high authority whereever one may travel.  He has
+      a modest tower in which he does most of his studies, and is always
+      kind and hospitable toward travellers.  Quite a strange combination
+      for being a mainlander for so long.  One would suspect he would
+      have long ago resigned to bloodshed that is so the custom on
+      Tyselorrd.   
+
+   -- Ketra
+   
+      Ketra is the cheif mystic, who resides in a rather primitive
+      nomadic tribe.  She teaches True Magick like no other, but finding
+      her may be difficult.  She moves from town to town, area to area
+      and place to place rather often.  If you do happen to find her
+      at some point, mention that I sent you, and she'll give you a good
+      meal and lodging.  Just don't be surprised when you wake up one
+      morning to find that your tent is the only one left.
+
+ ---- Merchants
+
+      Many great merchants have arisen in recent years.  This is truly
+      the Trader's Age.  The Consortium and the Dwarven Merchant's Guild,
+      being the largest, have attained a great amount of fame throughout
+      the known world.      
+
+   -- Aidrus
+   
+      Aidrus the dwarven merchant is a good man to know if you ever
+      travel to the Port of Cape Red.  Aside from his extravagantly
+      constructed palace and his sometimes vile dealings with other
+      merchants, Aidrus is a man of great respect and adoration. If he
+      finds merit within a person, he will offer his fortune if not
+      his life for such an individual.  Aidrus is appointed the new
+      guildmaster of the Dwarven Merchant's Guild.
+
+   -- Gaerbryn
+   
+      Gaerbryn is a merchantwoman of the Consortium who runs all foriegn
+      and exotic stores.  She is truly a sight to behold.  Aside from
+      her surpassing beauty and razor-sharp wit, she is a wonderful person
+      to get to know.  She has a fondness for minstrels, and will show
+      her greatest hospitality to them.  She keeps an inn in Cape Red
+      aside from her merchant business, and her twin sister Taylin runs
+      the establishment.  If you do happen to meet with Gaerbryn on
+      unfriendly terms, however, I wouldn't stay in the Forged Sword
+      without an armed escort and a death wish.
+
+   -- Fochan Luri
+   
+      Among the more cutthroat businessmen of the Consortium, Fochan Luri
+      owns and runs the Consortium with an iron hand.  My brief visit
+      to his abode was not wholly unpleasant, but the man is truly as
+      ingenius as he is infamous.  But, one must admit, House Luri's
+      stores are always filled to the brim with the most quality and
+      highest quantity of supplies, should one decide on a shopping spree
+      in Cape Red.
+
+ ---- Lords, Overlords and Kings
+ 
+      Among the government officials of the Isles, and of Tyselorrd, there
+      are some of note whose names you may encounter in your travels.
+
+   -- Lord Luke Kthana
+   
+      A man of honor, Lord Kthana is a true and just ruler who lives by
+      his word instead of his sword.  He has set up a republic system
+      similar to Rygor, and agrees with his old friend Coranos Rygor
+      on many things.  A long-standing unwritten alliance has formed
+      between the kingdom of Kltara and that of the Serpantine Isle.
+      Kthana is devoted first to his people and second to his wife,
+      the lovely Lady Melinthra.
+
+   -- Lady Melinthra
+   
+      Truly a lady beyond her times.  Her love for Kthana is true, but
+      her beauty and intelligence woo the hearts of most men that meet
+      her.  She runs the Serpantine Guard at Keep Kthana and is a master
+      swordswoman. And, aside from her humble beginnings, she is one of the
+      most noble and respectible women in the known world.   
+
+   -- King Coranos Rygor
+   
+      A king who has been called 'King of the People' by his loyal subjects,
+      King Coranos Rygor is the decendant of a long line of just and fair
+      rulers.  His father, Itonus Rygor, and his mother, Miyath Rygor,
+      were both well respected and loved by their subjects.  Unlike his
+      father, however, Coranos is trying to give the people more power
+      in government operations.  He has created a council system which
+      is a partial effect on his rulings.  There is a court system which
+      relies on the council to make all decisions.  Coranos has been called
+      a gift from god by the farmers of the land, but nobles don't like
+      him as much due to his love for his peoples.  I have visited with
+      King Rygor many times, and I must say I do enjoy his company
+      immensely.  He is one of the few leaders in this world that deserve
+      the respect and admiration associated with his position.
+   
+   -- Imperator Tiktui
+
+      As a mapmaker, it has never been my place to meet Her Most Highest,
+      the Imperator.  Not that I would want to.  Tiktui has been forever
+      in my mind's eye as a ruler who is up to no good.  Even though she
+      has united most of Tyselorrd, her methods have not been peaceful,
+      and the half-peace she has created on the mainland is not that
+      of completeness and superiority.  She has moved her Imperial Seat
+      to Kyrinn, a once lively city of knowledge, now cast as a city
+      of careful words and unspoken ideas.  She is a dwarf, haughty,
+      dangerous, whimsical.  Her repose is of careless evil and a vile
+      demeanor.  I've never met the creature, only seen her, but I have
+      nothing good to say for this bane of peace.   
+
+ ---- Religious Figures
+
+      Due to the secretive nature of most religions, and my lack of faith,
+      I have little to say on these matters.  Nonetheless, there are many
+      famous religious figures, gods, and living gods which one may find
+      more about on your travels or in your studies.
+ 
+- [Terms]
+
+Author's Note:  When I complete (or decide to omit) languages, this section
+                will be expanded or removed.
+
+   -- Vernacular
+
+   -- Languages
+
+   -- Basic Terms
+   
+    - Calendar System
+    
+      The Rygorian year is broken into 4 basic climes (winter, summer,
+      spring and autumn) and 17 seasons, each consisting of roughly 30
+      days.  The year ends during the season of the Freezing Spires and
+      begins during the season of the Ice Cougar.  Most seasons are named
+      after plants or animals or events of nature, except for the final
+      season of the year, the Freezing Spires, which was borrowed from
+      the original Tyselorrdian calendar.  A typical Tyselorrdian day
+      lasts 24 hours, 11 hours typically occur between dawn and dusk.
+      
+                                 Winter
+                      the Season of the Ice Cougar
+                    the Season of the Slumbering Bear
+                       the Season of the White Fox
+                          the Season of the Thaw
+                                 Spring
+                         the Season of the Robin
+                      the Season of the Crystalfish
+                       the Season of the Planting
+                                 Summer
+                       the Season of the Squirrel
+                       the Season of Burning Rock
+                               Late Summer
+                     the Season of the Changing Oak
+                                 Autumn
+                       the Season of Chilled Winds
+                         the Season of the Frost
+                          the Ancient Darkness
+                           the Freezing Spires      
+
+   
+
+-----------------[    Part 3:  Political Overview    ]---------------------
+
+
+- [The Tiktui Empire]
+
+          The dwarven warlady, Tiktui, gained control of a massive force
+      of barbaric, loyal and strong followers.  They reaped the countryside
+      for a long time, pillaging, raping, conquering.  Then, still under
+      the command of Tiktui, they changed their methods.  Instead of
+      shattering the land, they sought to unite it.
+          After years of conquest, Imperator Tiktui now controls a large
+      majority of land on Tyselorrd.  She has a massive naval fleet of
+      warships, thousands of soldiers, and her own Ungol Guard.  She
+      has assassinated many kings, destroyed many cities and overthrown
+      many governments in her long road to control.  Recently, she has
+      moved her Imperial Seat to Kyrinn, the capital of the known world.
+          She exercises military control over her subjects.  Her rule
+      is that of an iron hand.  Her steadfast and oppressive techniques
+      create an absolute control over her people.  Ungol guardsman
+      are constantly involved in incidents with the citizens of her
+      empire.  Stories are told far and wide of the death-filled dungeons
+      and prisons.  She is a great contrast to the fair and just rule
+      of the kings and lords of the Isles.
+          Tiktui's main general, a human named Drinedar, is son of the
+      ruler of the neighboring city-state Nostol.  His battles and
+      conquests are one of the reasons of Tiktui's powerful reach.
+      Her naval admiral is a Trioskenne named Kijev.
+          Tiktui has recently employed an earthen gemmaster named Garvin
+      who is known for his necromancing and earthen death magick.  Rumors
+      abound of Tiktui's interest in creating an army of walking dead,
+      but all reports remain unconfirmed.
+
+- [Fiefdoms]
+                                        
+      Aside from the empire, many fiefdoms divide the land.  There are
+      so many tribes, peoples and governments that one could not list
+      them in such a general index as this tome, but I will list the most
+      frequently encountered that pertain to your journeys in and about
+      the Southern Isles of Jharl.
+
+ ---- Haedar
+
+      It was perhaps the first empire that Tyselorrd had ever seen.
+      Since the dawn of the First Circle, never before had such a large
+      area been united under one rule.  The barbarian warlords from the
+      kingdom city-state of Nostol surged outward, screaming battlecries
+      and their king's name, King Haedar the First!  Their conquests
+      were known far and wide.  They pillaged the landscape, took the
+      dungeons of far off castles, freeing the prisoners to fight
+      amongst their ranks.  A group of kings drew their generals together,
+      and the combined effort thrust the legions of Haedar back to
+      Nostol.  Leaving the city in ruin, the barbarians were constrained
+      to their dying capital.  In recent times, however, King Haedar the
+      Twenty-Third has joined Tiktui and is fighting on her side, hoping
+      to win an advantage over the peoples and once again bring glory
+      to his country's name.  Nostol's kingdom, however, has yet to
+      see results, for Haedar still controls only his city-state and its
+      crumbling borders.
+      
+ ---- Rygor 
+
+      The Sovreign realm of King Rygor, known to its people as Kltara,
+      is perhaps the smallest kingdom to boast so many people.  While
+      city-states like Nostol and great empires such as that of Tiktui
+      contain massive areas of land, Rygor's realm contains almost
+      as many people as Tiktui's empire.  It was late in the Second
+      Circle that Rygor's grandfather fled to the Isles.  The leaders of
+      Kyrinn had ousted the government and were working along with
+      the Gemmaster's Council to overthrow what else remained.  Rygor's
+      grandfather was involved in a conspiracy to put the Council into
+      power without allowing the nobles who were helping them to get
+      any rewards.  Rygor's grandfather's plan was discovered.  In a dual
+      murder, Rygor's grandfather barely escaped with his life.  He fled in
+      a fleet with his supporters to the Southern Isles of Jharl.  The
+      islands were largely populated only with non-humans (elves,
+      drev and buckawn) and a few dwarven tribes.  Rygor's grandfather 
+      settled on the northern coast and soon his kingdom was born.
+          When Rygor's father died, his mother became regent until Rygor
+      was of age to take the throne.  On his eighteenth birthday, Rygor
+      took his father's place in the noble hierarchy of Kess.  Kess,
+      a still growing city, had expanded exponentially from the first
+      arrival of settlers.  Once the harvests were yeilding surplus,
+      trade started.  After this, the Andraius mines were discovered,
+      along with the dwarves who had built it, and the population grew.
+      The economy, now backed by silver, platinum and gold, boomed.
+      By the time Coranos Rygor was to take the throne, Kess was three
+      quarters of the way to being the size it is today.  In the last
+      twenty-odd years since Coranos Rygor's rise to the throne, Kess
+      has been gradually improved by Rygor's constant construction of
+      new establishments.  The royal mint, the Lycaeum and several
+      other North Bank structures all are the doing of Coranos Rygor
+      and his generous attitude toward his people.  The kingdom,
+      as well as the city, is flourishing under Coranos's rule.
+
+ ---- Kthana
+ 
+      Kthana's realm, or the Serpantine Isle, was a new order created
+      when Luke Kthana was expelled from the Royal Guard of King Rygor,
+      the elite warriors of Coranos's father.  Luke Kthana chose to
+      start a new settlement in the south, building his keep with his
+      inheritance.  His fiance (now wife) Melinthra helped to forge
+      his unique order of knights, the Knights of Jharl.  The kingdom
+      is now allied with Kltara in all respects, and the two kingdoms
+      function together in many respects.
+
+-----------------[    Part 4:  Economical Report    ]----------------------
+
+
+- [Guild Breakdown]
+
+      There are five guilds which control the major industries and
+      trades.  Each is controlled by a seperate organization, though
+      certain unlisted groups are partially owned by these five.  Of 
+      course new guilds are always being formed and absorbed, but they
+      are of little signfigance to these guilds.
+
+ ---- Caravan Group
+ 
+      The Caravan Group is a freeman's trading group.  Many independant
+      trading groups have joined the Caravan Group for its added
+      protection against the other antagonistic merchant consortiums.
+      The Caravan Group sports several storehouses, a private dock in
+      the Port of Cape Red and its own private guard.  The Caravan Group
+      is run by an electorate council on their estate outside of Keveg,
+      and requires dues from its members in the form of a profit
+      percentage.
+ 
+ ---- The Consortium
+ 
+      The Consortium is a large merchant's association encompassing all of
+      the known world from the most northern city on the mainland down
+      to the sparcest islands that lay even more south than the Southern
+      Isles of Jharl.  In the last few decades, the Consortium has set
+      up an estate at the Port of Cape Red, opening up Rygor Isle to its
+      dealings and it ways.  It is a highly competative organization,
+      both intro- and extrovertedly.  A class-like heirarchy has been
+      developed to keep order within the infrastructure.  
+      
+          Moddlets are the lowest ranking "officials" above the standard
+      base class of merchants. Moddlets pool resources and create small
+      "factions" of merchants serving the next higher class, Finnettes. 
+      Finnettes, in turn, are large conglomerate heads, usually with
+      elaborate homes (not estates) and large numbers of Moddlets working
+      beneath them.  Finnettes can appoint Moddlets from the merchant class.
+      The next class above Finnettes are Hivots.  Hivots, in turn, deal
+      with the vast resources of the local Consortium warehouses, appoint
+      and direct Finnettes, and maintain a modium of order and monetary
+      organization.  Bawt are the highest local officials, maintaining
+      and controlling the order of all the lower classes, and all local
+      Consortium members.  Bawt appoint all local classes, including
+      additional "partnerships" of Bawts.  Bawts answer only to Consortium
+      Ambassadors from the Consortium Headquarters at an unknown location
+      somewhere on the mainland.
+      
+      Local Consortium ranking from lowest to highest power:  Moddlets,
+      Finnettes, Hivots, Bawts and Consortium Ambassadors.
+      
+      The Consortium concern themselves mainly with exporting local items
+      and importing exotic foreign items.
+
+ 
+ ---- Dwarven Merchants Guild
+ 
+
+          The Dwarven Merchant's Guild was created by a group of dwarven
+      foriegn businessmen from Kreighaad.  The dwarves wanted a merchandom
+      which would provide a special sort of haven for dwarves who wished
+      to transcend their mining and grunt-working heritage.  The Dwarven
+      Merchants formed under the direction of the High Dwarf Caedrus of
+      West Chireminster (he town over which Vesper has been built).
+      Caedrus was a farm owner who had a love for poetry and money, and
+      desired to seek out art it in all its forms to surround himself
+      with.  Caedrus died in the year 373, and since then the two heirs,
+      Kilvek and Tranfad ruled until their double-assassination in the
+      year 452.  Since then, Aidrus of Cape Red has been appointed the
+      guildmaster.
+          There are three different levels of control in the Guild.  The
+      highest seat is guildmaster, a single presiding judge who settles
+      council desputes, regulates the Guild treasury, and appoints new
+      council members and ambassadors.  The next highest, just below
+      the guildmaster, are the council members who make up the majority
+      of the owners in the Dwarven Merchants Guild.  Council members
+      vote for changes in the Guild, are usually owners of businesses
+      and such trading facilities.  However, since the DMG is based in
+      the Port of Cape Red, Kessian merchants (and those from other
+      towns and islands) appoint their own respective councils, but
+      report all changes to the headquarters in Cape Red.  The lowest
+      rung on the DMG ladder are the journeymen and merchants who work
+      for council members and the guildmaster himself.
+            
+ 
+ ---- Zozzo
+ 
+ 
+      The Zozzo are a group of mixed races who wander in a nomadic fashion
+      across the isles selling goods they make along the journey, or
+      acquire from other towns.  Zozzo is actually just a term meaning
+      'wandering traders' . . . however, the largest group of Zozzo,
+      from which the term derives, travels an extensive wilderness route
+      between all points of civilization on Rygor Isle.  Zozzo members
+      are all equal and each gains a position according to their acquired
+      skills.  The cabinmaster, or caravan leader, is the only "leader"
+      in the group.   Zozzo memberships are predominantly human and
+      thilonenne merchants, but any race can be found among Zozzo ranks.
+ 
+ 
+ ---- The Zylots
+ 
+
+      The Zylots are trioskenne merchants from Zalufin who sell expensive
+      luxury items to the other guilds.  They import artwork, exotic
+      lotions and ointments, rare, high quality weapons, jewels, gems
+      of extraordinary power, expensive spell components and other
+      items of a higher value than the norm.  From vases to gold spheres
+      of the most perfect formation, the Zylots are known to deal in
+      only the most quality of items.  However, it is rumored the Zylots
+      also deal in illegal goods and have extensive underground operations
+      in Kess and Cape Red, selling more than just objects but information,
+      poisons and other illegal goods.
+
+ 
+- [Trading]
+
+      Trade is the main form of capital in the Isles.  It is the economy
+      of bartering which is the most successful form of monetary gain.
+      Trading resources is a tiresome job, but one of great travel and
+      great rewards.  The danger of the road, the excitement of the
+      deal and the conditions by which your coinage has been sought
+      are what makes a merchant what he is.  
+
+ ---- Goods List    
+ 
+      This is a list of goods which one can find in warehouse-type stores
+      and supplies.  These goods are mostly foodstuffs, which tend to
+      be a main source of income for merchants traveling to and from
+      farming villages.  Spices, herbs, foods, jams, corns and sweets
+      are items which no one person can do without.
+ 
+   -- Corns
+       Barley
+       Buckwheat
+       Chick peas
+       Lentils
+       Millet
+       Oats
+       Rice
+       Rye
+       Wheat berries      
+
+   -- Flours
+       Barley
+       Buckwheat
+       Rye
+       Wheat
+
+   -- Fruits/Vegetables (dried)
+       Apples
+       Apricots
+       Broad beans
+       Carrots
+       Cherries
+       Currants
+       Dates
+       Elderberries
+       Figs
+       Green beans
+       Green peas
+    -  Mushrooms 
+        Dakonenne variety
+        Dwarven
+       Onions
+       Peaches
+       Pears
+       Prunes
+       Raisins
+
+   -- Jams, Jellies, etc.
+    -  Butters
+        apple
+        blackberry
+        pear
+        quince
+        rhubarb
+        spiced crabapple
+    -  Curds
+        blackberry
+        honey
+        lemon
+        orange
+    -  Fruit cheeses
+        apple
+        blackberry
+        damson plum
+        gooseberry
+    -  Jams
+        apricot and almond
+        bramble
+        barberry
+        elderberry
+        gooseberry and elderflower
+        greengage plum
+        lingonberry
+        rose petal
+        strawberry
+    -  Jellies
+        basil
+        brambleberry
+        crabapple
+        lemon
+        medlar
+        mint
+        rosemary
+        sage
+        wine
+    -  Marmalades
+        apricot
+        ginger
+        orange
+        peach
+        quince
+    -  Preserves
+        cherry
+        raspberry
+        strawberry
+
+   -- Meat and Fish
+    -  Beef
+        corned
+        dried
+        jerked
+        sausage
+        smoked
+    -  Cod
+        salted
+        smoked
+       Finefish
+        canned eggs
+        pickled
+    -  Herring
+        pickled
+        salted
+    -  Pork
+        bacon
+        ham
+        salted
+        sausage
+    -  Salmon
+        salted
+        smoked
+       Sardines   
+
+   -- Nuts
+       Almonds
+       Cashews
+       Chestnuts
+       Hazelnuts
+       Pine nuts
+       Pistachios
+       Walnuts
+
+   -- Savories
+       Beetroot relish
+    -  Brandied 
+        cherries
+        grapes
+        mixed
+        raspberries
+        spiced pears
+        spiced plums
+        strawberries
+    -  Candied
+        angelica
+        apricots
+        carrots
+        cherries
+        citron
+        pears
+        honeyed ginger
+        lemon rind
+        mint
+        orange peal            
+        sugar-frosted rosemary
+    -  Crystallized
+        rose petals
+        grapes
+        violets
+        holly leaves
+       Chestnuts (in syrup)
+       Mustard
+    -  Olives 
+        green
+        black
+    -  Pickled
+        beets
+        cherries
+        capers
+        cornichons
+        eggs
+        garlic
+        gherkins
+        green beans
+        mushrooms
+        plums
+        spiced pears
+        sweet onions
+        walnuts
+    -  Scented water
+        jasmine
+        lavender
+        orange
+        rose
+    -  Vinegar
+        aged
+        blackberry
+        cider
+        dandelion
+        malt
+        rose petal
+        wine
+        
+   -- Seasonings
+       Angelica
+       Anise
+       Basil
+       Bergamot
+       Borage
+       Calendula
+       Caraway
+       Chervil
+       Chives
+       Clary
+       Coriander
+       Costmary
+       Cumin
+       Dillweed
+       Faggot of sweet herbs
+       Fennel seed
+       Fenugreek
+       Garlic
+       Horehound
+       Horseradish
+       Hyssop
+       Juniper
+       Laurel
+       Lemon balm
+       Liquorice root
+       Lovage
+       Marigold
+       Marjoram
+       Mint
+       Mustard seed
+       Oregano
+       Parsley
+       Poppy seed
+       Rose hips
+       Rosemary
+       Sage
+       Salt
+    -  Savory 
+        winter
+        summer
+       Sweet cicely
+       Tarragon
+       Thyme
+       Woodruff
+
+   -- Spices
+       Canella
+       Cardamon
+       Cinnamon
+       Cloves
+       Cubeb
+       Galingale
+       Ginger
+       Mace
+       Nutmeg
+    -  Pepper
+        black
+        red
+        white
+       Saffron
+       Turmeric
+
+   -- Sweeteners
+    -  Honey
+        rose petal
+        parsley
+        lavander
+       Marzipan
+       Molasses
+       Sorghum
+    -  Sugar
+        brown
+        lavender
+        loaf
+        lemon
+        mace
+        orange
+        powdered (confectioners)
+        raw
+        rose
+        violet
+
+   -- Oils
+       Almond
+       Hazelnut
+       Herbal
+       Olive
+       Rapeseed
+       Safflower
+       Sesame
+       Sunflower
+       Walnut
+
+
+
+ ---- Components (for spells)
+ 
+      
+      Should a magician be low on his stock of iron filings or acidic
+      supplies, it is easy to discover where one can go to find such
+      rarities.  Merchants who deal primarily in spell components and
+      true magick supplies are imperative to those who practice such
+      arts.  Many of the items on this are so rare that it is doubtful
+      one could find the supply at a reasonable cost, and many times
+      this is true.  While merchants in this field do not make bulk
+      sales, the transactions that are made are costly and always
+      seem to end up in the trader's favor.
+            
+      
+   -- Metals
+       Brass cylinder
+       Bronze, disk
+    -  Copper
+        square
+        wire
+    -  Gold
+        bell
+        caltrops
+        chunk
+        dust
+        needles
+        powder
+        tissue
+        wire
+    -  Iron
+        chunk
+        filings
+        powder
+        rod
+    -  Lead
+        ball
+        chunk
+       Mercury
+    -  Mica
+        chipped
+        ground
+    -  Platinum
+        chunk
+        coin
+        die
+        mirror
+        tissue
+        wire
+    -  Silver
+        pin
+        powder
+        wire
+       Tin square
+       Zinc square       
+
+   -- Liquids
+       Acid
+       Alcohol
+       Attar of roses
+       Hickory oil
+       Ink (black)
+       Molasses
+    -  Oil
+        flammable
+        nonflammable
+        spiced
+        sweet
+       Rainwater
+       Vinegar
+       Water, distilled
+
+   -- Minerals
+       Agate
+       Alkaline salt
+       Alum
+    -  Amber
+        block
+        powder
+        rod
+       Bitumen
+       Blue vitriol
+    -  Borax
+        paste
+        stone
+       Bromine salt
+    -  Carbon
+        amorphous
+        graphite
+       Chalk
+       Charcoal
+    -  Clay
+        fired spheres
+        raw
+    -  Coal (anthracite)
+        chunk
+        dust
+    -  Crystal
+        bead/marble
+        rod
+        square
+        sphere
+       Diamond
+       Emerald
+       Feldspar chunk
+       Flint
+    -  Glass
+        bead
+        cone
+        rod
+        sheet
+        sphere
+    -  Granite
+        block
+        dust
+       Gypsum
+       Iron pyrite
+       Lime powder
+       Litharge
+    -  Marble (chunk)
+        black
+        purbeck
+    -  Mineral
+        spheres
+        prisms
+       Mortar (powder)
+       Nitre
+       Nitre, salt
+    -  Obsidian
+        chunk
+        cylinder
+        sphere
+       Phosphorous
+       Pitch
+    -  Quartz
+        clear rough
+        other rough
+        powder
+       Ruby
+    -  Salt
+        block
+        granular
+       Sapphire
+       Sand, fine
+       Soot
+    -  Stalactite
+        shards
+        tiny
+       Sulfer
+       Talc
+    -  Turquoise
+        polished
+        unpolished
+       Volcanic ash
+
+   -- Animal Products
+       Bat fur
+       Bat guano
+       Beeswax
+       Bee wing
+       Bladder (balloon)
+    -  Bone (bovine)
+        powdered
+        chunks
+       Blood (bovine)
+    -  Cocoon
+        butterfly
+        moth
+        wasp
+       Coral chunk
+       Eelskin
+    -  Eggshell
+        crushed (powdered)
+        shards        
+        whole (empty)
+       Fat (bovine)
+    -  Feather
+        chicken tail  
+        eagle
+        hawk
+        owl
+        raven
+        white
+        wing
+        vulture tail       
+       Firefly (dead)
+       Fleece
+       Fish scale
+       Frog leg
+    -  Glowworm
+        tails
+        whole (dead)
+    -  Hair
+        ape
+        bear
+        camel
+        draft horse
+        child's
+        ox
+        war horse
+       Honeycomb
+    -  Insect legs
+        centipede
+        grasshopper (hind)
+        millipede
+        spider
+    -  Leather
+        strips
+        thong
+       Lime
+       Lye
+       Milk fat (solid)
+    -  Mouse
+        whiskers
+        whole (dead)
+       Musk
+    -  Ox hoof 
+        whole
+        powdered
+       Pork rind
+       Python bile
+    -  Rat
+        tail
+        whisker
+        whole (dead)
+    -  Seashell
+        shards
+        whole
+       Skunk hair
+       Snake skin
+       Silkworm eggs
+       Snake scale
+       Sponge
+       Tallow
+       Tortoise shell
+       Vellum
+       Wax (white)
+       Wool
+
+   -- Plant Products
+       Acorns
+    -  Amaryllis
+        blossom (dry)
+        bulb, common
+        bulb, hypoxis
+        stalks (dry)
+       Apple blossom petal
+       Arsenic
+       Asafoetida
+       Aster seed
+    -  Bark
+        apple
+        ash
+        beech
+        cherry
+        elm
+        maple
+        oak
+        pine
+        spruce
+        sumac
+        walnut
+       Burrs
+       Camphor resin
+       Carrot (dried)
+    -  Cassia
+        bark
+        buds
+       Castor beans
+       Citric acid
+       Cork
+       Corn extract (powdered)
+       Cotton mesh
+       Felt, white
+       Fern frond
+       Flower
+       Foxfire fungus
+       Galbanum
+    -  Garlic
+        clove
+        bud
+       Ginger
+       Ginseng
+       Gum arabic
+    -  Holly
+        berries
+        sprig
+       Incense (stick)
+    -  Leaves
+        ash
+        oak
+        poison ivy
+        poison oak
+        poison sumac
+        raspberry
+        rose
+        rhubarb
+        shamrock
+        skunk cabbage
+        stinging nettle
+        sumac
+        yew
+       Leeks (ground)
+       Legume seeds
+       Linen cloth (gold wefted)
+    -  Lotus
+        flower
+        root
+       Marigolds (dry crushed)
+       Mayz
+       Moonseed
+    -  Moss
+        green
+        phosphorescent
+    -  Mushroom
+        spores
+        whole
+       Nut shells
+       Pillow ticking
+    -  Pine
+        bark
+        cones
+        needles
+        sprig
+        tar
+       Peach pits
+       Realgar
+       Reed stalks
+       Resin
+    -  Rose
+        leaf
+        petals
+        thorn
+    -  Rhubarb
+        leaf
+        root
+       Seaweed (dry)
+       Shallot bulb
+       Soda ash
+       Stargrass
+       Tacamahac
+       Thistledown
+       Thorns
+       Tree sap
+       Vermilion
+       Willow bark
+       Wolfsbane
+       Wynchwood
+       Yam
+       Zedoary
+       
+   -- Aromatics and Spices
+       Aloeswood chips
+       Ambergris
+       Benzoin
+       Betony
+       Calmus
+       Civet
+       Emeli
+       Frankincense
+       Myrrh
+       Onycha
+       Orchid (dried)
+       Patchouli (dry)
+       Putchuk
+       Rosewater
+    -  Sandalwood oil
+        red
+        white
+       Storax
+
+ ---- Other Goods
+ 
+
+      Basic materials are the lifeblood of the realm.  What good is a 
+      tailor without cloth or a blacksmith without iron?  A silversmith's
+      teaset is hard to produce without a bar of the purest metal, and
+      the Royal Mint could not function without the gold and copper
+      trade.  Listed here are furs, cloths and metals found and sold
+      throughout the realm.
+
+   
+   -- Cloths
+       Cotton
+       Linen
+       Patchcloth
+       Satin
+       Silk
+       Wool
+       
+   -- Furs
+    -  Bear
+        black
+        brown
+        polar
+       Beaver
+       Ermine
+       Ferret
+    -  Fox
+        grey
+        red
+        white
+       Mink
+    -  Rabbit
+        brown
+        grey
+        spotted
+        white
+       Raccoon
+       Weasel
+
+   -- Metals
+       Bezaintum
+       Brass
+       Bronze
+       Copper
+       Gold
+       Iron
+       Lead
+       Platinum
+       Silver
+       Tin
+       Zanthium
+       Zinc
+
+   -- Ores
+       Coal
+       Marble
+       Obsidian
+       Sandstone
+
+
+ ---- Industries
+ 
+
+      Basic industries in the realm are the professions practiced by
+      guilds, independant craftsmen and conglomerates.  The following
+      is a loose compilation of possible occupations one could encounter
+      in your travels.  By far this is not a complete list.  For those
+      not familiar with all the terms mentioned, I've included a brief
+      summary of each profession.
+      
+   -- Arts
+       
+      The artists of the realms range widely.  Painters using ox hair
+      brushes and sap-oil paints, sculpters ranging from red clay
+      to marble and obsidian, and bards playing instrument from
+      asterflute to zither.  Not to mention the novelists and, ahem,
+      other writers of our realm.
+      
+      Architect (ornamentary, general)
+      Actor/Actress (performance group, traveling)
+      Minstrel (traveling)
+      Novelist (long works)
+      Painter (tapestries, murals, pictures, portraits)
+      Pagent Wagon Performer (traveling)
+      Poet (lyrical, sonnet, ballad, haiku)
+      Scribe (magical works, literary works)
+      Sculpter (statues, statuettes, building ornamentation)
+      Sketcher (portrait, general)
+      Soloist (traveling, local)
+      
+   -- Crafts
+   
+      The craftsmen of the realm create quality handmade goods used in
+      everyday life.  From furniture to shoes, the craftsman of the
+      lands are important to everyone.
+      
+      Armourer (armor crafter)      
+      Butcher (meat seller)
+      Cobbler (shoemaker)
+      Cooper (barrelmaker)
+      Grocer (vegetable seller)
+      Musicman (instrument crafter)
+    - Smithys
+       Axesmith (axes)
+       Blacksmith (iron items)
+       Goldsmith (gold items)
+       Silversmith (silver items)
+       Swordsmith (swords)
+       Weaponsmith (general weapons)
+      Tailor (clothes maker)
+       
+   -- Other
+    
+      Cleric (elemental priest)
+      Farmer
+      Furrier (fur trapper)
+      Gemmaster (elemental magician)
+      Gypsy (carnival vagabonds)
+      Hunter
+      Magician (student of True Magick)
+       Conjurer (magicks of creation)
+       Malaclyptic (magicks of nuisance)
+       Necromancer (magicks of death)
+       Sorcerer (magicks of power and nature)
+       Warlock (magicks of combat)
+      Mercenary (hired soldier)
+      Woodsman (logger, axeman)
+      
+
+ 
+ 
+-------------------------[    Part 5:  Magick    ]-------------------------
+
+
+- [Gem Magick]
+
+      The oldests texts in the land have always included the use of gems
+      for magick.  Scholars and gemmasters have puzzled over the years
+      in the secret of why certain gems are bestowed with mystical powers
+      while others are not.  In the traditional sense, all gems at one
+      time had power, but through the use of eager young magicians, the
+      mana dwindled from the land and less and less gems were produced.
+      It is theorized that someday, no gems will hold value other than
+      their luster and crystaline perfection.
+
+- [True Magick]
+
+      True magick is a more recently devised magickal art.  True magick
+      involves the creation of magickal talismans by the mystical binding
+      of certain properties in specialized mixing devices of magickal
+      origin.  True Magick is not tied to any certain element, and is
+      in cases more powerful, though requires careful preparation and
+      expensive spell components.
+
+
+-----------------[    Part 6:  Chronology (History)    ]-------------------
+
+
+- [Ancient]
+
+      These ancient texts were once preserved by the Great Monks of the
+      Southern Shore, exumed from the ashes of the ruins along the shores
+      of Nostol and near the site of present-day Kyrinn.  In fact, the
+      city itself was named in memory of the Great Abbot, Kyrrinus.
+
+ ---- Scribed Texts
+
+      These texts were transferred from an older, now lost manuscript.
+      They were no doubt copied and recopied over countless generations
+      by the Great Monks.  Their teachings are old, and were at one
+      point translated from an old tongue current unfound amongst one's
+      travels in the world.  One can only guess at what the true meanings
+      of the texts can be.
+
+   -- The Yellowed Scrolls
+   
+      The Yellowed Scrolls are thusly named due to their layout.  Upon
+      discovery, it was shown that the Yellowed Scrolls were endless
+      reems of paper or papyrus.  Stained only with the tests of time,
+      these scrolls were mainly historical and chronological accounts.
+      They were found in vaults, deep beneath the Valley of the Ashes,
+      near the volcanic rift valley on the mainland. 
+
+            ------------[  The First Scroll  ]------------
+            
+      Yea one would come that should live and die within my teachings.
+      The world is nothing but a stage of countless actors, acting their
+      pointless plays upon the deaf ears of the audiences which behold them.
+      One must not easily join the ranks of these cutthroats.  They hold
+      kingdoms in their power, but yet possess no understandings more or
+      less fragile than that of the old ones.  History must go forth to
+      find it's own repeating circlets in time.  Time, the jester, finds
+      us all the victim of a long, sick practical joke.
+          The masters are gathering at the Great City.  They plan for more
+      than just a conference this time; they plan for much more.  War is
+      in their minds and deceit and murder lie like vipers in their hearts.
+      Spiked with angled claws and fangs, they are lying in limbo: waiting.
+      Their plans, like cobras, are poised to strike at the neck and suck
+      from it the lifeblood of our families, replacing it only with the
+      sickly venom which flows from their everlasting hatreds.  Who can
+      forget the old ties?  No one seems to remember why they hate the
+      ones they hate, but without cause people are labelled and forever
+      they wear their masks.  An earthly facade of sharading fools.  Who
+      will find the True Light within them?  Hardly but one stops for a
+      moment to listen to the birds sing or the moths flutter from flower
+      to flower.        
+      
+            -----------[  The Second Scroll   ]-----------
+            
+            ------------[  The Final Scroll  ]------------
+               
+      
+
+   -- The Magickal Tapestry
+- [Recent]
+
+      History is divided into three circles, the Lost Circle, the Chosen
+      Circle, and the Modern Circle.  I have acquired this delicately
+      arranged text through various personal sources, tomes and other
+      guidebooks.  I spent much time in research at the Kess Lycaeum in
+      order to further improve this compilation.  
+
+ ---- The First Circle:   The Age of Chaos   (Grummet)   [years 1   - 134]
+ 
+
+ 
+ ---- The Second Circle:  The Age of New Beginnings      [years 135 - 319]
+
+ 
+
+ ---- The Third Circle:   The Age of Tyranny             [years 320 -    ]
+ 
+
+- [Timeline]
+
+
+
+--------------------[    Part 7:  Cultural Study     ]---------------------
+
+
+- [The Council]
+- [Council of Elders]
+- [Freemen]
+- [Guildsmen]
+- [Nobility]
+- [Peasants]
+- [Reclusives]
+- [Tradesmen]
+
+
+
+--------------------[    Part 8:  Legends and Lore    ]--------------------
+
+
+
+--------------------------[    Afterword    ]------------------------------
+
+
+
+

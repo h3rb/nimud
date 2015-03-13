@@ -1,0 +1,4 @@
+[*****] [*****] FILE: config.db LINE: 4
+[*****] [*****] FILE: config.db LINE: 4
+[*****] [*****] FILE: config.db LINE: 4
+[    4] Locke: Shutdown by Locke. 

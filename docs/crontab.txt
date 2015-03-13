@@ -1,0 +1,10 @@
+
+Use crontab -e to add this line to your crontab file, for autobooting:
+
+@reboot    nohup /path/NiM5/startup port &
+
+Example:
+
+crontab -e <user>
+
+@reboot   nohup /path/NiM5/startup 4242 &

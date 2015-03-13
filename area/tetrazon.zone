@@ -1,0 +1,652 @@
+#ZONE 
+N Caves of Tetrazon~
+R You hear the sound of water somewhere nearby.
+~
+B None~
+V 11600 11999
+S 1
+End
+
+
+
+#SCRIPTDATA
+#11610
+N tetrazon-summon~
+C
+wait(50);
+%vnum% = random(1,5);
+if ( random(0,1), 
+   {
+       goto(%vnum%);
+   }, goto(end) );
+ 
+label(1);
+do({mload 11611});
+goto(end);
+ 
+label(2);
+do({:cackles with insane, unearlthy glee!});
+do({mload 11612});
+goto(end);
+ 
+label(4);
+do({:utters an arcane signature.});
+do({mload 11614});
+goto(end);
+ 
+label(3);
+do({mload 11613});
+goto(end);
+ 
+label(5);
+do({:grins evilly!});
+do({mload 11615});
+goto(end);
+ 
+label(end);
+wait(60);
+~
+T 2
+End
+
+#0
+
+
+
+#ACTORS
+#11601
+N bone fighter~
+SD a bone fighter~
+LD
+ The animated remains of a human fighter shuffles along.
+~
+D
+ ~
+A 33
+AB 0
+M 10
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 75
+O ~
+AP 10 0 0 10 10
+End
+
+#11602
+N skeleton~
+SD a skeleton~
+LD
+ An animated skeleton stalks the living.
+~
+D
+ Just bones.
+~
+A 33
+AB 512
+M 11
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 100
+O ~
+AP 13 0 0 10 20
+At 1 5 10 17
+At 2 5 10 14
+At 3 5 10 10
+End
+
+#11608
+N ghast~
+SD a ghast~
+LD
+ A gruesome ghast is gnashing its teeth in the dark.
+~
+D
+ ~
+A 33
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 125
+O ~
+AP 13 0 0 13 20
+At 1 5 10 10
+At 2 5 15 17
+End
+
+#11610
+N tetrazon lich gnarled~
+SD Tetrazon~
+LD
+ A gnarled lich is here, muttering incantations.
+~
+D
+ ~
+A 33
+AB 0
+M 6
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 200
+O ~
+AP 13 13 13 13 13
+Sc 11610
+At 1 5 15 17
+End
+
+#11611
+N animated corpse~
+SD an animated corpse~
+LD
+ An animated corpse claws at you from the darkness.
+~
+D
+ Mummified remains animated by dark magicks.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 50
+O ~
+AP 15 0 0 13 20
+At 1 5 10 17
+At 2 3 13 10
+At 3 2 5 14
+End
+
+#11612
+N skeletal lord~
+SD a skeletal lord~
+LD
+ A skeletal lord gnashes its teeth.
+~
+D
+ The animated remains of a nobleman, brought into being by dark magicks.
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 250
+O ~
+AP 18 0 0 18 25
+At 1 3 5 14
+At 2 4 15 10
+At 3 6 12 17
+End
+
+#11613
+N elder daemon~
+SD an elder daemon~
+LD
+ An elder daemon whips its tail at you.
+~
+D
+ ~
+A 33
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 10 E 250
+O ~
+AP 20 13 13 13 20
+At 1 5 15 17
+At 2 10 20 10
+At 3 5 15 4
+End
+
+#11614
+N bone dragon~
+SD a bone dragon~
+LD
+ A fiendish bone dragon animated by dark magicks snarls at you!
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 450
+O ~
+AP 16 0 0 16 16
+At 1 10 20 4
+At 2 10 20 17
+At 3 5 15 10
+At 4 5 15 10
+End
+
+#11615
+N bile creature~
+SD a bile creature~
+LD
+ A disgusting bile creature is stuck to the floor.
+~
+D
+ A nasty mesh of human organs, not quite enough body to go around;
+the bile creature spits nasty acidic foam that spoils your appetite.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 50
+O ~
+AP 5 0 0 10 10
+At 1 5 10 20
+At 2 3 5 14
+At 3 1 4 17
+End
+
+#0
+
+
+
+#OBJDATA
+#11600
+N torn clothing shreds~
+SD torn shreds of clothing~
+P ~
+D
+Torn shreds of clothing are strewn about here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#11608
+N bone key~
+SD a bone key~
+P ~
+D
+You can make out a bone key buried in the dust.
+~
+A
+~
+PD
+~
+DR
+A key hewn from bone.
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#11611
+N black robe~
+SD a black robe~
+P ~
+D
+A black robe with gold fringe is here.
+~
+A
+~
+PD
+~
+DR
+The black robe is fringed with gold; it was probably worn by a
+spellcaster.  
+~
+L 0
+T 15
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 1
+C 50
+O ~
+V 10 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#11600
+N Columnade at Cave Entrance~
+Ref 0
+D
+A crumbling columnade adorns the edges of what once must have been a
+spectacular underground temple, now falling into ruin.  The ground is
+gravel, mixed with flecks of rusted metal, possibly the remains of a set of
+iron doors.  
+~
+C
+(null)~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 11601
+~
+~
+Dr 2 0 0 10013
+~
+~
+End
+
+#11601
+N Dark Tunnel~
+Ref 0
+D
+A long hall possibly partially natural mostly implement formed, carved
+into bedrock and floored in limestone block.  Strange archaic symbols adorn
+the architectural supports.  A dim light can be seen to the south.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 11602
+~
+~
+Dr 2 0 0 11600
+~
+~
+End
+
+#11602
+N Vaulted Room~
+Ref 0
+D
+High limbstone columnades provide support for a vaulted ceiling
+hewn into the bedrock.  You are deep under the mountain now;
+strange markings are on the floor blocks.
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 11605
+~
+~
+Dr 1 0 0 11604
+~
+~
+Dr 2 0 0 11601
+~
+~
+Dr 3 0 0 11603
+~
+~
+End
+
+#11603
+N Tomb~
+Ref 0
+D
+You are in a dank tomb, hewn into the bedrock.
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 11608 8 100 2
+R O 11600 13 100 1
+Dr 1 0 0 11602
+~
+~
+End
+
+#11604
+N Tomb~
+Ref 0
+D
+A desolate tomb, strewn with ashes.
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 11608 8 100 2
+R O 11600 13 50 1
+R O 11600 9 50 1
+Dr 3 0 0 11602
+~
+~
+End
+
+#11605
+N Narrow Passage~
+Ref 0
+D
+Cracked stone blocks and crumbling walls are the main features of this
+narrow causeway between the previous chamber and the next; the long narrow
+passage widens slightly at its northern end.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 11606
+~
+~
+Dr 2 0 0 11602
+~
+~
+End
+
+#11606
+N Narrow Passage~
+Ref 0
+D
+Cracked stone blocks and crumbling walls are the main features of this
+narrow causeway between the previous chamber and the next; the long narrow
+passage widens slightly at its northern end.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 11601 8 40 2
+R O 7011 39 75 2
+Dr 0 0 0 11607
+~
+~
+Dr 2 0 0 11605
+~
+~
+End
+
+#11607
+N Pillared Hall~
+Ref 0
+D
+A series of tall columns forces the narrow hall into a wider space.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 11608
+~
+~
+Dr 2 0 0 11606
+~
+~
+End
+
+#11608
+N Shattered Mosoleum~
+Ref 0
+D
+A massive fissure has broken the cavern in two; broken sarcophagi and the
+remnants of burial chambers clutter the floor, mixed with the bones of the
+dead.  The smell of the remains is overpowering; and the room's corners are
+dark and obscured.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 11602 1 100 1
+R O 7515 -5 100 1
+R O 50 -3 75 3
+Dr 0 7 11608 11611
+~
+stone door~
+Dr 1 0 0 11610
+~
+~
+Dr 2 0 0 11607
+~
+~
+Dr 3 0 0 11609
+~
+~
+End
+
+#11609
+N Tomb~
+Ref 0
+D
+A desolate tomb, strewn with ashes.
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 11602 1 100 1
+R M 11614 2 100 1
+R O 11608 -1 100 1
+Dr 1 0 0 11608
+~
+~
+End
+
+#11610
+N Tomb~
+Ref 0
+D
+You are in a dank tomb, hewn into the bedrock.
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 11602 5 100 2
+R O 7011 39 100 1
+Dr 3 0 0 11608
+~
+~
+End
+
+#11611
+N Vault~
+Ref 0
+D
+A low-ceiling burial pit made with carefully hewn limestone rock quarried
+from the mountain nearby and fit with exacting precision to form the walls
+and floor of this room.  The ground is strewn one layer thick with a strange
+mix of bones varying in size and shape.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 11610 1 100 1
+R O 11611 10 100 1
+Dr 2 7 0 11608
+~
+stone door~
+End
+
+#0
+
+
+
+#$

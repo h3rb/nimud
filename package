@@ -1,0 +1,88 @@
+#!/bin/csh
+# Packages the server files for distribution.
+# Written by Locke.
+
+set filepath = /home/locke/NiM5
+
+set filedate=`date +%m-%d-%Y-%Hh-%Mm`
+
+cd $filepath
+
+rm NiM5.$filedate.tar.gz
+rm -rf NiM5_packaged
+rm nohup.out
+
+mkdir packaging
+
+#"universal" translator
+#mkdir packaging/lingua
+#mkdir packaging/lingua/Charsets
+#mkdir packaging/lingua/Tongues
+#mkdir packaging/lingua/Tools
+#cp lingua/* packaging/lingua
+#cp lingua/Charsets/* packaging/lingua/Charsets
+#cp lingua/Tongues/* packaging/lingua/Tongues
+#cp lingua/Tools/* packaging/lingua/Tools
+
+#mud-related
+mkdir packaging/src
+mkdir packaging/area
+mkdir packaging/area/mainland
+mkdir packaging/area/scripts
+mkdir packaging/area/boards
+mkdir packaging/devo
+mkdir packaging/devo/mainland
+mkdir packaging/devo/scripts
+mkdir packaging/devo/boards
+mkdir packaging/export
+mkdir packaging/export/html
+mkdir packaging/export/scripts
+mkdir packaging/log
+mkdir packaging/bootlog
+mkdir packaging/player
+mkdir packaging/backups
+
+
+#documentation
+mkdir packaging/docs
+mkdir packaging/docs/web
+mkdir packaging/docs/snippets
+mkdir packaging/docs/imc
+mkdir packaging/docs/snippets/nimbot
+mkdir packaging/docs/game
+cp docs/*  packaging/docs
+cp docs/web/* packaging/docs/web
+cp docs/snippets/* packaging/docs/snippets
+cp docs/snippets/nimbot/* packaging/docs/snippets/nimbot
+cp docs/imc/* packaging/docs/imc
+cp docs/game/* packaging/docs/game
+
+cp src/*.c packaging/src
+cp src/*.h packaging/src
+cp src/Makefile packaging/src
+cp src/Makefile.* packaging/src
+cp area/* packaging/area
+cp area/mainland/* packaging/area/mainland
+cp player/Locke packaging/player
+cp player/Unixgod packaging/player
+cp * packaging
+
+#switch imc.config to password-empty config
+cp area/imc.config2 packaging/area/imc.config
+
+rm packaging/*.gz
+rm packaging/*.tar
+mv packaging NiM5
+ls -laR NiM5 > NiM5/manifest.txt
+tar -cvf NiM5.$filedate.tar ./NiM5
+
+#move it over to the live web site
+rm -rf ~/public_html/files/NiM5
+mv NiM5 ~/public_html/files/NiM5
+gzip NiM5.$filedate.tar
+
+echo Removing packaged copy, retaining NiM5.$filedate.tar.gz
+rm -rf NiM5_packaged
+
+#cp NiM5.src.tar.gz ~/html/files
+cp NiM5.$filedate.tar.gz ~/html/files

@@ -1,0 +1,2515 @@
+#ZONE 
+N Alvaki Ruins~
+B None~
+V 15900 15954
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#15901
+N zeus god~
+SD Zeus~
+LD
+ Zeus sits here on a throne.
+~
+D
+ You see before you the greatest of the Olympians.  It seems as if he could
+destroy you with a thought.  Every glance penetrates deep into your soul.
+You now know what true fear is.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 33
+O ~
+AP 15 15 15 15 15
+At 0 10 13 7
+End
+
+#15902
+N prometheus~
+SD Prometheus~
+LD
+ Prometheus is here, playing with a match.
+~
+D
+ This mortal risked the wrath of Zeus to give the gift of fire to humans.  He
+looks up at you and smiles.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 32
+O ~
+AP 15 15 15 15 15
+At 0 10 19 5
+End
+
+#15903
+N hermes~
+SD Hermes~
+LD
+ Hermes is busy, delivering a message.
+~
+D
+ This is the messenger of the Gods.  He wears a winged helm and boots, and
+darts from place to place.  He looks very busy, and it seems as if he doesn't
+even notice your presence.
+~
+A 5
+AB 565418
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 32
+O ~
+AP 15 15 15 15 15
+At 0 10 18 3
+End
+
+#15904
+N poseidon~
+SD Poseidon~
+LD
+ Poseidon is dining here.
+~
+D
+ He is the brother of Zeus himself, chosen to rule the seas.  He must be
+visiting Mount Olympus.  He nods at you and motions for you to enter and
+have a seat.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 36
+O ~
+AP 15 15 15 15 15
+At 0 10 16 4
+End
+
+#15905
+N apollo~
+SD Apollo~
+LD
+ Apollo is here, playing a tune.
+~
+D
+ This jovial God is strumming on a lyre.  He smiles at you and asks you to
+join him.  You notice a dangerous looking bow by his side, however, and think
+that he knows more than music.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 36
+O ~
+AP 15 15 15 15 15
+At 0 10 22 7
+End
+
+#15906
+N ares~
+SD Ares~
+LD
+ Ares is here, kicking your ass.
+~
+D
+ The God of War is here, studying some maps.  He scowls at you as you enter
+and says 'I am very busy.  What do you want?'
+~
+A 39
+AB 524458
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 35
+O ~
+AP 15 15 15 15 15
+At 0 10 19 10
+End
+
+#15907
+N athena~
+SD Athena~
+LD
+ Athena is relaxing here.
+~
+D
+ Zeus' favorite daughter is sitting on a couch eating grapes.  She smiles at
+you and invites you to join her.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 33
+O ~
+AP 15 15 15 15 15
+At 0 10 15 1
+End
+
+#15908
+N hephaestus smith~
+SD Hephaestus~
+LD
+ Hephaestus the Smith is here, crafting a fine weapon.
+~
+D
+ This God is the only one who is not physically perfect.  He is lame and very
+ugly.  You get the impression that he is kind, however, and would go out of his
+way to help you.  He is attended by three golden maidens.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 31
+O ~
+AP 15 15 15 15 15
+At 0 10 23 1
+End
+
+#15909
+N handmaid golden~
+SD A Golden Maiden~
+LD
+ A Handmaid of gold is here, assisting the smith.
+~
+D
+ As you gaze upon this creation, you realize that she is made from solid
+gold.  She seems to be very lifelike as she assists the smith in his work.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 18 2
+At 1 5 18 13
+At 2 1 31 10
+End
+
+#15910
+N soldier~
+SD A Soldier~
+LD
+ A soldier is here, assisting Ares.
+~
+D
+ This man is waiting on Ares.  Although he does not look very strong, you
+realize that Ares would not have any weaklings working for him.
+~
+A 39
+AB 524458
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 57
+O ~
+AP 15 15 15 15 15
+At 0 10 20 7
+End
+
+#15911
+N musician apprentice~
+SD an apprentice musician~
+LD
+ A musician is here, learning from Apollo.
+~
+D
+ This man has mastered his first profession, and is now studying music from the
+immortal Apollo.
+~
+A 1031
+AB 524458
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 14 5
+End
+
+#15912
+N boy serving servant~
+SD A serving boy~
+LD
+ A servant is here, feeding Athena her grapes.
+~
+D
+ This boy is truly lucky to be able to serve Athena herself.
+~
+A 7
+AB 524458
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 964
+O ~
+AP 25 25 25 25 40
+At 0 10 41 5
+At 1 5 19 2
+At 5 1 18 1
+At 6 5 64 10
+End
+
+#15913
+N hound dog war~
+SD A hound of war~
+LD
+ A large hound snarls at you.
+~
+D
+ This great beast can barely be called a dog.  It has been bred to cause fear
+on the battle field, and you have no doubt that it does its job well.
+~
+A 39
+AB 524458
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -600 E 800
+O ~
+AP 25 25 25 25 40
+At 0 10 77 5
+At 1 5 38 5
+At 4 1 27 22
+At 5 1 35 14
+At 6 5 53 14
+End
+
+#15914
+N odin~
+SD odin~
+LD
+ Odin is resting here.
+~
+D
+ As you gaze at Odin, you realize how insignificant you truly are.  He towers
+over you, and is so intent on his activities that he barely recognizes your
+presence.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 36
+O ~
+AP 15 15 15 15 15
+At 0 10 16 11
+End
+
+#15915
+N grocer greengrocer julius~
+SD Julius the Green Grocer~
+LD
+ Julius the Green Grocer stands here.
+~
+D
+ This jovial man has devoted his life to selling fruit and other foods to the
+inhabitants of this city.  Although he may seem like a wimp, it would be wise
+not to underestimate him.  He smiles warmly at you and shows you his selection
+of delicious looking foods.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 16 8
+End
+
+#15916
+N alchemist~
+SD the Alchemist~
+LD
+ The ancient, wizened Alchemist stands here.
+~
+D
+ Skilled in all manner of magic, as well as the ancient art of alchemy, he
+stands ready to supply the citizens here (but not you) with all manner of
+arcane supplies.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 34
+O ~
+AP 15 15 15 15 15
+At 0 10 23 4
+End
+
+#15917
+N clive~
+SD Clive the Weapons Master~
+LD
+ Clive the Weapons Master is practicing with his bow and axe.
+~
+D
+ Clive looks VERY big and VERY tough.  All those years in the army must have
+paid off.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 22 14
+End
+
+#15918
+N armourer samuel~
+SD Samuel the Armourer~
+LD
+ Samuel the Armourer glares at you.
+~
+D
+ Samuel looks just like Clive the Weapons Master: VERY big and VERY tough.
+He doesn't like what you've been doing in his city.
+~
+A 39
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 500
+O ~
+AP 25 25 25 25 25
+At 0 10 18 13
+At 1 5 9 1
+End
+
+#15919
+N ra sun god~
+SD Ra the Sun God~
+LD
+ Ra the Egyptian Sun God is resting here.
+~
+D
+ Ra is very bright!  It hurts your eyes to look at him, so you can tell little
+about his appearance.  What you can tell, however, suggests that he is no one
+to be trifled with.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 34
+O ~
+AP 15 15 15 15 15
+At 0 10 25 11
+End
+
+#15920
+N chimera~
+SD a chimera~
+LD
+ A chimera prowls the cell.
+~
+D
+ This bizarre creature has three heads - one of a goat, one of a lion, and one
+of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
+~
+A 39
+AB 524458
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 827
+O ~
+AP 25 25 25 25 40
+At 0 10 24 7
+At 1 5 89 7
+At 2 1 87 2
+At 6 5 43 0
+End
+
+#15921
+N hera~
+SD Hera~
+LD
+ Hera is here.
+~
+D
+ Hera, the wife of Zeus is here.  She smiles at you as you enter and invites you
+to rest and sit for a while.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 36
+O ~
+AP 15 15 15 15 15
+At 0 10 25 2
+End
+
+#15922
+N roc~
+SD a roc~
+LD
+ A roc is here.
+~
+D
+ This is a giant bird.  It looks at you quizzically, then makes a noise and
+looks away.
+~
+A 5
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 15 2
+At 1 5 23 1
+End
+
+#15923
+N citizen resident~
+SD A citizen~
+LD
+ A citizen of this town is shevetiing down the street here.
+~
+D
+ He looks happy and carefree.  He smiles and tips his hat to you.
+~
+A 5
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 178
+O ~
+AP 15 15 15 15 15
+At 0 10 18 2
+End
+
+#15924
+N pegasus horse~
+SD a pegasus~
+LD
+ A large horse with wings is here.
+~
+D
+ This horse is snow white with large wings.  Although it doesn't look very
+threatening, it seems as though it would be dangerous if provoked.
+~
+A 2053
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 893
+O ~
+AP 25 25 25 25 40
+At 0 10 27 7
+At 1 5 44 2
+At 2 1 49 11
+At 3 1 36 1
+At 4 1 37 3
+At 6 5 38 10
+End
+
+#15925
+N cook~
+SD A Cook~
+LD
+ A cook is here, hard at work.
+~
+D
+ This man looks as is he has been spending WAY too much time in the kitchen.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 191
+O ~
+AP 15 15 15 15 15
+At 0 10 16 3
+End
+
+#15926
+N jailer~
+SD The Jailer~
+LD
+ The jailer is here, watching for intruders.
+~
+D
+ He looks as though he has spent a lot of time underground, guarding the
+prisoners.
+~
+A 7
+AB 532650
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 75
+O ~
+AP 15 15 15 15 15
+At 0 10 16 10
+End
+
+#0
+
+
+
+#OBJDATA
+#15900
+N aegis plate~
+SD the Aegis~
+P ~
+D
+A powerful breast plate has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 9
+Sz 18
+Ti 0
+Wt 50
+C 300000
+O ~
+V 10 0 0 0
+End
+
+#15901
+N hammer thunder bolt thunderbolt~
+SD the Thunder Bolt~
+P ~
+D
+A huge hammer has been carelessly dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1120
+W 8193
+Sz 18
+Ti 0
+Wt 24
+C 200000
+O ~
+V 48 6 5 8
+End
+
+#15902
+N helmet winged~
+SD a Winged Helmet~
+P ~
+D
+A helmet with small wings lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 150000
+O ~
+V 10 0 0 39
+End
+
+#15903
+N spear ares~
+SD the Spear of Ares~
+P ~
+D
+A wicked spear rests on the ground here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 608
+W 8193
+Sz 18
+Ti 0
+Wt 18
+C 200000
+O ~
+V 0 5 5 2
+End
+
+#15904
+N sandals winged~
+SD a pair of winged sandals~
+P ~
+D
+A pair of well made sandals lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 65
+Sz 18
+Ti 0
+Wt 5
+C 100000
+O ~
+V 8 0 0 39
+End
+
+#15905
+N staff ivory~
+SD an ivory staff~
+P ~
+D
+An ivory staff.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 1120
+W 16385
+Sz 18
+Ti 0
+Wt 8
+C 70000
+O ~
+V 30 3 3 0
+End
+
+#15906
+N trident poseidon~
+SD poseidon's Trident~
+P ~
+D
+A huge three pronged spear lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1120
+W 8193
+Sz 18
+Ti 0
+Wt 16
+C 100000
+O ~
+V 0 3 8 2
+End
+
+#15907
+N bow silver~
+SD a silver bow~
+P ~
+D
+A silver bow.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1120
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 40000
+O ~
+V 0 4 4 7
+End
+
+#15908
+N gauntlets flaming~
+SD flaming gauntlets~
+P ~
+D
+A pair of metal gauntlets flame here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 129
+Sz 18
+Ti 0
+Wt 6
+C 60000
+O ~
+V 7 0 0 0
+End
+
+#15909
+N vial potion ambrosia~
+SD ambrosia~
+P ~
+D
+A vial of ambrosia lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 1120
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 20000
+O ~
+V 30 0 0 0
+End
+
+#15910
+N necklace glowing~
+SD a glowing necklace~
+P ~
+D
+A necklace with an inner glow lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 5
+Sz 18
+Ti 0
+Wt 2
+C 10000
+O ~
+V 4 0 0 57
+End
+
+#15911
+N ring sapphire~
+SD a sapphire ring~
+P ~
+D
+A sapphire ring lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 40000
+O ~
+V 5 0 0 0
+End
+
+#15912
+N shield glowing~
+SD a brightly glowing shield~
+P ~
+D
+A shield lies here, filling the room with its aura.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 513
+Sz 18
+Ti 0
+Wt 10
+C 200000
+O ~
+V 9 0 0 57
+End
+
+#15913
+N axe notched~
+SD a notched axe~
+P ~
+D
+A notched axe.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1120
+W 8193
+Sz 18
+Ti 0
+Wt 12
+C 10000
+O ~
+V 0 4 4 1
+End
+
+#15914
+N grapes~
+SD a bunch of grapes~
+P ~
+D
+A bunch of grapes.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 50
+O ~
+V 24 0 0 0
+End
+
+#15915
+N fan~
+SD a fan made of peacock feathers~
+P ~
+D
+A fan made of peacock feathers.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 0 0 0 0
+End
+
+#15916
+N lute~
+SD a lute~
+P ~
+D
+A lute.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 0 0 0 0
+End
+
+#15917
+N nugget gold~
+SD a gold nugget~
+P ~
+D
+A gold nugget lies gleaming here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 10000
+O ~
+V 0 0 0 0
+End
+
+#15918
+N apple~
+SD an apple~
+P ~
+D
+An apple is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 24 0 0 0
+End
+
+#15919
+N pear~
+SD a pear~
+P ~
+D
+A pear is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 24 0 0 0
+End
+
+#15920
+N orange~
+SD a orange~
+P ~
+D
+A orange is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 24 0 0 0
+End
+
+#15921
+N kiwi~
+SD a kiwi~
+P ~
+D
+A kiwi is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 24 0 0 0
+End
+
+#15922
+N amulet~
+SD the Amulet of Ra~
+P ~
+D
+A sun shaped medallion is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 5
+Sz 18
+Ti 0
+Wt 1
+C 10000
+O ~
+V 2 0 0 45
+End
+
+#15923
+N sun sword~
+SD the Sword of the Sun~
+P ~
+D
+A beautiful sword with the rising sun etched on the pommel is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1120
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 1000000
+O ~
+V 68 6 5 3
+End
+
+#15924
+N robe blue~
+SD a blue robe~
+P ~
+D
+A deep blue robe is on the ground here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 1025
+Sz 18
+Ti 0
+Wt 10
+C 50000
+O ~
+V 6 0 0 0
+End
+
+#15925
+N hat~
+SD a wide brimmed hat~
+P ~
+D
+A hat is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1120
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 5000
+O ~
+V 4 0 0 0
+End
+
+#15926
+N nectar~
+SD nectar~
+P ~
+D
+A vial of nectar is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 80000
+O ~
+V 12 0 0 0
+End
+
+#15927
+N key cell~
+SD a Cell key~
+P ~
+D
+A key has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#15901
+N Mountain~
+Ref 0
+D
+You are climbing a large mountain which towers over Tallez.  The path
+continues up the mountain, but part of it is gone.  There is no way to
+continue by land.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 15324
+~
+~
+End
+
+#15902
+N Mountain Path~
+Ref 0
+D
+You are making your way up the mountain.  The rigorous climb has left you
+tired, and you are ready to take a break.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15903
+~
+~
+Dr 2 0 0 15645
+~
+~
+End
+
+#15903
+N Mountain Path~
+Ref 0
+D
+You have finally reached the top of the mountain.  The air here is so thin
+that you must gasp for breath.  To the north, you see what seems to be the
+entrance to a city.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15904
+~
+~
+Dr 2 0 0 15902
+~
+~
+End
+
+#15904
+N Entrance~
+Ref 0
+D
+You are at the entrance to a huge city.  As you look around, you realize
+that the inhabitants of this city must be very wealthy indeed - you have never
+seen a city with such beautiful buildings.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15923 10 100 1
+Dr 0 0 -1 15905
+~
+~
+Dr 2 0 -1 15903
+~
+~
+End
+
+#15905
+N Zeus Street~
+Ref 0
+D
+You are walking down a huge street.  You notice that there are not many
+people in this town.  On a corner, you see a sign marked 'Zeus Street'.
+To the west, you see a small store.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15923 10 100 1
+Dr 0 0 -1 15906
+The street continues.
+~
+~
+Dr 2 0 -1 15904
+~
+~
+Dr 3 0 -1 15924
+~
+~
+End
+
+#15906
+N Zeus Street~
+Ref 0
+D
+You are walking down what appears to be the main street of this city.
+You see large residences to the east and west, while the street continues
+to the north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15923 10 100 1
+Dr 0 0 -1 15907
+~
+~
+Dr 1 0 -1 15925
+~
+~
+Dr 2 0 -1 15905
+The street continues.
+~
+~
+Dr 3 0 -1 15926
+~
+~
+End
+
+#15907
+N Zeus Street~
+Ref 0
+D
+You are on the main street of this town, called Zeus street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15923 10 100 1
+Dr 0 0 -1 15908
+~
+~
+Dr 2 0 -1 15906
+~
+~
+Dr 3 0 -1 15927
+~
+~
+End
+
+#15908
+N Zeus Street~
+Ref 0
+D
+You are still on the main thoroughfare of this town.  To the north, you see
+a large castle.  To the east there is a smaller road, while there is some sort
+of store to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15923 10 100 1
+Dr 0 0 -1 15909
+~
+~
+Dr 1 0 -1 15928
+~
+~
+Dr 2 0 -1 15907
+~
+~
+End
+
+#15909
+N Castle Entryway~
+Ref 0
+D
+You are in the entryway of a large castle.  It is very beautiful, with
+large paintings and a lovely carpet.  You hear jovial laughter to the north,
+while smaller corridors branch off to the east and west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15910
+~
+~
+Dr 1 0 -1 15915
+~
+~
+Dr 2 0 -1 15908
+~
+~
+Dr 3 0 -1 15911
+~
+~
+End
+
+#15910
+N Throne Room~
+Ref 0
+D
+You stop dead in your tracks as you enter this room.  Before you is Zeus,
+in all his glory, sitting on a huge golden throne.  You had thought him to be 
+just a myth, but here he is ... you wonder who else lives in this castle.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED throne~
+This huge golden throne looks as if it has been here for ages.  As you study it
+carefully, you notice that it is not firmly attached to the floor ... perhaps
+you could slide it?
+~
+R M 15901 1 100 1
+Dr 0 0 -1 15923
+~
+~
+Dr 2 0 -1 15909
+~
+~
+Dr 5 0 -1 15918
+~
+throne trapdoor~
+End
+
+#15911
+N Western Wing~
+Ref 0
+D
+You are in the western wing of the castle.  You see the entrance to the
+east, while this hallway continues to the west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 15909
+~
+~
+Dr 3 0 -1 15912
+~
+~
+End
+
+#15912
+N Western Wing~
+Ref 0
+D
+You are in the western wing of the castle.  The hallway continues to the
+north, while there are private rooms to the west and south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15913
+~
+~
+Dr 1 0 -1 15911
+~
+~
+Dr 2 0 -1 15930
+~
+~
+Dr 3 0 -1 15929
+~
+~
+End
+
+#15913
+N Western Wing~
+Ref 0
+D
+You are in the western wing of the castle.  This hallway continues to the
+south, and you hear pots and pans rattling to the north.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15914
+~
+~
+Dr 2 0 -1 15912
+~
+~
+End
+
+#15914
+N Kitchen~
+Ref 0
+D
+You have entered the kitchen of this castle, and it is a hotbed of
+activity.  Servants are bustling about, preparing food for the Gods themselves.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15925 4 100 1
+Dr 2 0 -1 15913
+~
+~
+End
+
+#15915
+N Eastern Wing~
+Ref 0
+D
+You are in the eastern wing of the castle.  The hall continues to the
+east, while the entrance is back to the west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 15916
+~
+~
+Dr 3 0 -1 15909
+~
+~
+End
+
+#15916
+N Eastern Wing~
+Ref 0
+D
+You are in the eastern wing of the castle.  The hall turns to the north
+here, while there are private rooms to the east and the south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15917
+~
+~
+Dr 1 0 -1 15931
+~
+~
+Dr 2 0 -1 15932
+~
+~
+Dr 3 0 -1 15915
+~
+~
+End
+
+#15917
+N Eastern Wing~
+Ref 0
+D
+You are in the eastern wing of the castle.  You hear animals to the north,
+while the hallway continues to the south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15933
+~
+~
+Dr 2 0 -1 15916
+~
+~
+End
+
+#15918
+N Dungeon~
+Ref 0
+D
+You are in Zeus's Dungeon.  You wonder what creatures are so terrible that
+even mighty Zeus fears them enough to imprison them.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15926 1 100 1
+Dr 0 0 -1 15919
+~
+~
+Dr 4 0 -1 15910
+~
+trapdoor throne~
+End
+
+#15919
+N Dungeon~
+Ref 0
+D
+You are in Zeus's Dungeon.  There are cells to the north, west, and east. 
+From the east and west, you hear guttural noises.  From the north, nothing ...
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 927 15920
+~
+~
+Dr 1 0 927 15922
+~
+~
+Dr 2 0 -1 15918
+~
+~
+Dr 3 0 927 15921
+~
+~
+End
+
+#15920
+N Cell~
+Ref 0
+D
+You are in a small, cramped, dirty cell.  It is a horrid place.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15902 1 100 1
+Dr 2 0 927 15919
+~
+~
+End
+
+#15921
+N Cell~
+Ref 0
+D
+You are in a small, cramped, dirty cell.  It is a horrid place.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15920 2 100 1
+Dr 1 0 927 15919
+~
+~
+End
+
+#15922
+N Cell~
+Ref 0
+D
+You are in a small, cramped, dirty cell.  It is a horrid place.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15920 2 100 1
+Dr 3 0 927 15919
+~
+~
+End
+
+#15923
+N Stairway~
+Ref 0
+D
+You have come to a large stairway leading up.  To the south, you see the
+throne room of Zeus.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 15910
+~
+~
+Dr 4 0 -1 15939
+~
+~
+End
+
+#15924
+N Bakery~
+Ref 0
+D
+You are in the small store which supplies the residents of this town with
+their food.  It smells wonderful in here!
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15915 1 100 1
+Dr 1 0 -1 15905
+~
+~
+End
+
+#15925
+N Residence~
+Ref 0
+D
+You are in the residence of one of the inhabitants of this town.  She
+looks vaguely familiar, but you can't place her name ...
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15907 1 100 1
+Dr 3 0 -1 15906
+~
+~
+End
+
+#15926
+N Residence~
+Ref 0
+D
+You are in the residence of one of the inhabitants of this town.  He looks
+vaguely familiar, but you can't place his name ...
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15905 1 100 1
+Dr 1 0 -1 15906
+~
+~
+End
+
+#15927
+N Mystic Shop~
+Ref 0
+D
+You are in the store which provides the citizens here with whichever
+arcane objects they may need.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15916 1 100 1
+Dr 1 0 -1 15907
+~
+~
+End
+
+#15928
+N Ares Street~
+Ref 0
+D
+You are on a smaller road which branches off from the main street.  On a
+sign, you notice that the name of this road is Ares Street.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15923 10 100 1
+Dr 1 0 -1 15934
+~
+~
+Dr 3 0 -1 15908
+~
+~
+End
+
+#15929
+N Guest Quarters~
+Ref 0
+D
+You have entered private quarters which are reserved for visitors to the
+castle.  You nearly faint as you recognize the occupant of this chamber as Odin
+himself, patron God of Midgaard.  He must be visiting Zeus.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15914 1 100 1
+Dr 1 0 -1 15912
+~
+~
+End
+
+#15930
+N Storage Room~
+Ref 0
+D
+You are in a storage room of the castle.  There isn't much here, just a
+few boxes filled with old junk.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15912
+~
+~
+End
+
+#15931
+N Guest Quarters~
+Ref 0
+D
+You have entered a room reserved for visitors to this castle.  You are
+amazed as you recognize the occupant - Ra, the Egyptian Sun God.  He must be
+visiting Zeus.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15919 1 100 1
+Dr 3 0 -1 15916
+~
+~
+End
+
+#15932
+N Storage Room~
+Ref 0
+D
+You are in a storage room of the castle.  There isn't much here, just a lot
+of dust.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15916
+~
+~
+End
+
+#15933
+N Stable~
+Ref 0
+D
+You are in the stable of the castle.  Rather than the horses which you
+expected to find, it is filled with a wide variety of creatures which you
+thought were mythical.  Obviously, you were wrong.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15922 3 100 1
+Dr 2 0 -1 15917
+~
+~
+End
+
+#15934
+N Ares Street~
+Ref 0
+D
+You have reached the end of Ares Street.  To the south you see an armoury,
+while there is a weapons shop to the east.  To the north, you hear the sounds
+of a blacksmith.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15923 10 100 1
+Dr 0 0 -1 15937
+~
+~
+Dr 1 0 -1 15936
+~
+~
+Dr 2 0 -1 15935
+~
+~
+Dr 3 0 -1 15928
+~
+~
+End
+
+#15935
+N Armoury~
+Ref 0
+D
+This small store is almost empty.  It seems as if there is not much here,
+but the shopkeeper doesn't want to do business with you anyways.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15918 1 100 1
+Dr 0 0 -1 15934
+~
+~
+End
+
+#15936
+N Weapon Shop~
+Ref 0
+D
+You have entered a small store with a modest selection of weapons.  You
+get the feeling that there is not a very wide selection here, but the
+shopkeeper doesn't want to do business with you anyways.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15917 1 100 1
+Dr 3 0 -1 15934
+~
+~
+End
+
+#15937
+N Smithy~
+Ref 0
+D
+This large room is so noisy, you can barely hear yourself think.  All the
+occupants are hard at work, crafting high quality weapons and armor.  Something
+is strange about the west wall, although you can't quite tell what it is.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15908 1 100 1
+Dr 2 0 -1 15934
+~
+~
+Dr 3 0 -1 15938
+You see a concealed door!
+~
+door concealed~
+End
+
+#15938
+N The Planning Room~
+Ref 0
+D
+You have entered a large room dominated by a huge table with a large map
+on it.  Several men are gathered around the table, studying the map carefully.
+You hear the barking of dogs to the north.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15906 1 100 1
+Dr 0 0 -1 15954
+~
+~
+Dr 1 0 -1 15937
+~
+~
+End
+
+#15939
+N Second Floor~
+Ref 0
+D
+You are on the second floor of this castle.  You are numb from your
+discoveries on the first floor, and wonder what secrets the upper floor of this
+castle holds.  Hallways extend in all directions, and you see a small, closed 
+hatch above you.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15940
+~
+~
+Dr 1 0 -1 15943
+~
+~
+Dr 2 0 -1 15941
+~
+~
+Dr 3 0 -1 15942
+~
+~
+Dr 4 0 -1 15948
+You see a sign on the hatch.  It reads 'Private Property. No trespassing!'
+~
+hatch~
+Dr 5 0 -1 15923
+~
+~
+End
+
+#15940
+N Northern Hall~
+Ref 0
+D
+You are in the northern hallway.  There is a private room to the north,
+and the stairs leading down are to the south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15947
+~
+~
+Dr 2 0 -1 15939
+~
+~
+End
+
+#15941
+N Southern Hall~
+Ref 0
+D
+You are in the southern hallway.  There is a private room to the south,
+and the stairs leading down are to the north.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15939
+~
+~
+Dr 2 0 -1 15944
+~
+~
+End
+
+#15942
+N Western Hall~
+Ref 0
+D
+You are in the western hallway.  There is a private room to the west, and
+the stairs leading down are to the east.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 15939
+~
+~
+Dr 3 0 -1 15945
+~
+~
+End
+
+#15943
+N Eastern Hall~
+Ref 0
+D
+You are in the eastern hallway.  There is a private room to the east, and
+the stairs leading down are to the west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 15946
+~
+~
+Dr 3 0 -1 15939
+~
+~
+End
+
+#15944
+N Bed Room~
+Ref 0
+D
+You are in the bed room of a God!  This one seems to be empty.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15941
+~
+~
+End
+
+#15945
+N Bed Room~
+Ref 0
+D
+You are in the bed room of a God!
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15921 1 100 1
+Dr 1 0 -1 15942
+~
+~
+End
+
+#15946
+N Bed Room~
+Ref 0
+D
+You are in the bed room of a God!
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15904 1 100 1
+Dr 3 0 -1 15943
+~
+~
+End
+
+#15947
+N Bed Room~
+Ref 0
+D
+You are in the bed room of a God!
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15903 1 100 1
+Dr 2 0 -1 15940
+~
+~
+End
+
+#15948
+N Hall of Gods~
+Ref 0
+D
+You have entered the most sacred of places, the hall of true Gods.  If you
+are a mortal, it would probably be a good idea to leave NOW!  Exits leave in
+all directions.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15951
+~
+~
+Dr 5 0 -1 15939
+~
+hatch~
+End
+
+#15951
+N The Portal~
+Ref 0
+D
+A sign reads: Beware of the unexpected and don't expect too much.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 15948
+~
+~
+End
+
+#15954
+N The Believer~
+Ref 0
+D
+A voice whispers, 'before the time has passed, enjoy your life.'
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15913 5 100 1
+Dr 2 0 -1 15938
+~
+~
+End
+
+#0
+
+
+
+#$

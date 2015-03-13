@@ -1,0 +1,329 @@
+
+                          Aladro's Island Almanac
+                    (transcribed from memory by Locke)
+                           
+This is a work of fiction, and is for use with Tyselorrd and The Isles,
+specifically.  It is geared to familiarize the player with the world of
+Tyselorrd.   Please note, all ascii representations were created in
+the squinched 50-line mode, where characters are contained in square boxes
+rather than in rectangular regions.  For proper aspect when viewing, use
+50 line mode.
+
+Copyright (c) 1995, Herb Gilliland.  All rights reserved.
+
+-----------------------[    Table of Contents    ]-------------------------
+
+ - Introduction                        - A Linguistic Look at the Realms
+ - Unitary Systems                         Zengalli
+       Monetary Units                      Haanstaed
+       Weight, Length and Volume           Olani
+       Time                                Mudaki
+       A Note on Calendars                 Zalufini
+ - Weather on the Isles                    Haesni
+ - Trader's Almanac                        
+       Index of Goods and Services         
+       
+
+--------------------------[    Introduction     ]--------------------------
+        
+        From the Author
+
+        This text is written solely for the purpose of outline and explaining
+    the different aspects of the Tyselorrd game, specifically the parts of
+    the world which are important to playing on The Isles MUD.  The ideas
+    contained herein are solely owned by the author, Herb Gilliland.  He
+    reserves the right to modify, omit or remove any of this at any time.
+        Aladro's Island Almanac is written in the first person to make it
+    entertaining as well as informative.  Aladro's persona is defined in
+    the 'From Aladro' section of this introduction.
+
+        From Aladro
+        
+        This would be my first written log of events and information
+    ever published by my own hand.  For years I've studied the oldest
+    tomes in the lycaeum here in Kess, but I've never taken to writing
+    well, and this has taken me much effort to produce.
+        I grew up in the city, in the service of my lord Coranos Rygor,
+    and his father Ikthius Rygor.  I am an old man, having lived for the
+    length of two kings, and I know a bit of lore has passed before mine
+    eyes plenty of times.
+        This compilation contains my notes to the newcomer.  I have read
+    of many lands far and wide across our great oceans, and this text is
+    offered unto the traveler; use it well, for it shall familiarize you
+    with the parts of these islands that, for natives, are like second
+    nature to us.
+    
+
+
+------------------------[    Unitary Systems    ]--------------------------
+
+ - [Monetary Units] 
+ 
+        Each kingdom, it seems, has had its own currency.  The Rygor
+        line has standardized the money system throughout these islands,
+        much to the appreciation of the merchant class.  I have ranked
+        the coins according to the currency value (c's).
+        
+ 10000c Bezain are coins made from precious metal alloys, usually platinum
+        and gold, though sometimes gold and silver (commonly known as
+        electrum).  Each bezain is one-half halfspan across and as thick
+        as a thumbnail. A bezain is worth one ten thousand units of currency.
+        
+  1000c Platinum coins are hand-pressed coins with a diameter equal to a
+        dwarf's smallest finger, or about one third handspan (see below).
+        Each platinum piece is worth one thousand units of currency.
+        
+   100c Gold pieces, rich man's tokens, are smaller than platinum coins,
+        but thicker, to even out their weight with platinum pieces.  They
+        are stamped with the visage of the current king, in this case,
+        Coranos Rygor.  A gold piece is worth one hundred units of currency.
+        
+    10c Silver coins rank as ten currency units.  They are the same size and
+        thickness as gold coins.
+        
+     1c Copper pieces, the most common coins, are standard sized coins that
+        rank the same size and thickness as gold and silver coins.  Each
+        copper is equal to one currency unit.
+        
+ - [Weight, Length and Volume]
+ 
+        The standard units of measurement across the Isles and on the
+        mainland of Tyselorrd are as follows.
+ 
+        Weight:       (english equivalent)
+        
+          halfstone             1/2 pound
+          stone                 1 pound
+          dustone               2 pounds
+          
+        Metals:
+        
+          halfbar               1/2 bar
+          bar                   1 handspan by 1 halfspan by 2 qetspans
+          durbar                2 bars worth
+          
+        Lengths:
+        
+          qetspan               1 inch
+          halfspan              3 inches
+          handspan              6 inches
+          duspan               12 inches
+          
+        Volume (solid):
+        
+          halfskal              3 cubic inches
+          handskal              6 cubic inches
+          duskal               12 cubic inches
+          
+          halfbral            1/2 brals   (50 duskals)
+          bral                100 duskals
+          dubral                2 brals   (200 duskals)
+
+        Volume (liquid):
+        
+          halfswil              1 cup
+          handswil              1 pint
+          duswil                1 quart
+          
+          halfcask              1/2 cask (2 duswils)
+          undcask               4 duswils
+          ducask                2 casks  (8 duswils)
+          
+ - [Time]
+ 
+        Time on the isles is seperated into years, months, weeks, days,
+        hours and, for those with clockwork timepieces, minutes and seconds.
+
+             The days are as follows: Great Hawk (Lexo), Falcon (Franto), 
+             Owl (Halag), Black Crow (Ruz), Phoenix (Kalamak), 
+             Golden Eagle (Aedo), Grey Gull (Franwag).
+             
+             The months are as follows:
+             Season of the Ice Cougar    (Iak)
+             Season of the White Fox     (Vod)
+             Season of the Robin         (Lin)
+             Season of the Crystalfish   (Nemi)
+             Crop Wind                   (Grez)
+             Season of the Squirrel      (Po)
+             Dry Winds                   (Rani)
+             Dragon's Breath             (Falak)
+             Harvest Moon                (Kae)
+             Season of the Changing Oak  (Ret)
+             New Frost                   (Jal)
+             Ice Weaver                  (Yun)
+             
+        According to the Rygor calendar, the year is 452 (as of the
+        date of this writing) from the day of the foundation of our
+        lord's realm, the year 1.
+        
+        Each day is divided into twenty-four hours.  There are seven days
+        in a week, thirty days per month.  There is a total of twelve
+        months in a year, from winter to winter.
+        
+    ---- A Note on Calendars
+    
+        This text is from Dremmen's History of Calendars.
+        
+            "Calendars, throughout the chronology of Tyselorrd, have been
+             sited as based on the kingdom you are in.  As one year varies
+             from the next, a standard calendar was adopted long ago from
+             the Vlattensintri calendar, which marks all days and months
+             the same, regardless of what year the particular king declares
+             it to be.
+             
+             The days of the Vlattensintri calendar are as follows:
+             Lexo, Franto, Halag, Ruz, Kalamak, Aedo, Franwag.
+             
+             The months of the Vlattensintri calendar are as follows:
+             Iak, Vod, Lin, Nemi, Grez, Po, Rani, Falak, Kae, Ret, 
+             Jal and Yun."
+             
+
+
+             
+----------------------[    Weather on the Isles    ]------------------------
+
+     
+            Scientifically, the Southern Isles of Jharl lie to the south
+        of the mainland, and are generally displaced from the tropical and
+        temperate climes that one sees on the mainland.  This southern
+        region is relatively colder, though not harshly so, and sports an
+        extended winter season.  Due to the ocean proximity, the isles
+        are often buffeted by powerful blizzards that come suddenly.
+        During the milder months, heavy thunderstorms are a common sight.
+            On the other hand, there are occasional dry seasons during
+        the winter, summer and autumn.  Droughts can occur, forcing the
+        rationing of water and other supplies.
+            Twice in recent history great gails have erupted from the
+        deep ocean to descend upon the isles, particularly the smaller,
+        more vulnerable ones.  These hurricanes are devastating to local
+        populations.
+        
+
+--------------------------[   Trader's Almanac   ]--------------------------
+
+        I have slowly compiled this section from merchant reports over the
+        last few years.  I have kept merchant ledgers from various
+        establishments whom let me have access to their records.
+        
+
+        Caravan Group
+           
+            Services
+              Trade escorts
+              Exotic, common imports
+              Exporting of local goods
+              
+        Consortium, The
+        
+            Services
+              Exotic imports
+              Exporting of local goods
+              
+        Dwarven Merchants Guild
+        
+            Services
+              Mining trade
+              Exporting of refined and raw metals
+              Importing of gems
+              
+        Zozzo
+        
+            Services
+              Importing of exotic goods
+              Exporting of art and local crafts
+              Importing of rare items
+              Usually buy stock and supplies
+              
+        Zylots, The
+        
+            Services
+              Import artwork and luxury items, rare weapons and jewels
+              Deal in some contraband
+              Export local luxuries, rare items, gems
+              
+
+        Goods
+          
+          Cape Red (The Port of)
+          
+            Goods
+              Exotic imports are high.
+              Local exports include fish, rare spices and herbs.
+              Fine luxury items abound within the city walls.
+              Largest agricultural importer.
+
+          Blood Lake Mines
+          
+            Goods
+              Refined metals.
+              Raw ore.
+              Some mushrooms and fungus.
+              Exports are primarily oil, metal and gems.
+              
+          Kess
+          
+            Goods
+              Fine weapons, foods and preserved items.
+              Main imports include preservatives and spices.
+              Exports include herbs, rare components.
+              Imports gems.
+              
+          Keveg
+          
+            Goods
+              Exports mainly wheat, corn, rye, barley and other foods.
+              Main luxury imports are Keveg wines.
+              
+          Vesper
+          
+            Goods
+              Largest agricultural exporter.
+              Imports fish, some meats, luxury items (some), weapons,
+              ores, metals, wines and exotic ales.
+              
+              
+
+-------------------[  A Linguistic Look at the Realms  ]--------------------
+
+ - [Zengalli]
+ 
+    The Zengalli, historically, was the most prevailent humanic tribe that
+    conquered much of northern Tyselorrd during the tribal succession
+    wars of the earlier millenia.  It is a common spoken language among
+    all humans now, as well as a similar form of tradespeak and localspeak
+    that is associated with each region.
+
+ - [Haanstaed]
+
+    Haanstaed is the language of those dwarves involved with the fortress
+    at Kreighaad, on Soedar.  Haanstaed is a gutteral speak, befitting of
+    the dwarven race.  All other forms of dwarven languages are derived
+    from an ancient version of Haanstaed that was localized on Tyselorrd,
+    and not on Soedar itself. 
+
+ - [Olani]
+ 
+    The language Olani is that of the thilonenne of the southlands on
+    Rygor Isle.  It is a newer language, passed down between the forest
+    dwelling villages of thilonenne.
+
+ - [Mudaki]
+ 
+    Mudaki is the main thilonenne language of the thilonenne.  Its name,
+    bearing great similitude to the isle Mudak, is derived from a common
+    word of old, dead languages used once by thilonenne.
+
+ - [Zalufini]
+ 
+    The Zalufini is the language of trioskenne.  Its speech is light
+    and delicate.  A graceful language, Zalufini continues to be considered
+    a lyrical language.  Its roots are based lightly on Mudaki, though
+    much of the accent and pronunciations are drastically changed.
+
+ - [Haesni]
+ 
+    The enigmatic grunting language of the drev.  No roots, this is the
+    first onset of the primitive language of this race.
+
+

@@ -1,0 +1,147 @@
+==14078== Memcheck, a memory error detector.
+==14078== Copyright (C) 2002-2007, and GNU GPL'd, by Julian Seward et al.
+==14078== Using LibVEX rev 1854, a library for dynamic binary translation.
+==14078== Copyright (C) 2004-2007, and GNU GPL'd, by OpenWorks LLP.
+==14078== Using valgrind-3.3.1, a dynamic binary instrumentation framework.
+==14078== Copyright (C) 2000-2007, and GNU GPL'd, by Julian Seward et al.
+==14078== For more details, rerun with: -v
+==14078== 
+==14078== My PID = 14078, parent PID = 20215.  Prog and args are:
+==14078==    ../src/nimud
+==14078== 
+==14078== Invalid write of size 4
+==14078==    at 0x4490AD: new_prop_index (mem.c:1308)
+==14078==    by 0x426F02: fread_prop_index (load.c:1621)
+==14078==    by 0x427440: load_props (load.c:1773)
+==14078==    by 0x42A4AD: boot_db (load.c:288)
+==14078==    by 0x4511E6: main (net.c:282)
+==14078==  Address 0x5637c78 is 0 bytes after a block of size 131,072 alloc'd
+==14078==    at 0x4C23424: calloc (vg_replace_malloc.c:397)
+==14078==    by 0x447E00: alloc_perm (mem.c:2102)
+==14078==    by 0x4480A3: new_scene_index (mem.c:1114)
+==14078==    by 0x426A17: fread_scene (load.c:1791)
+==14078==    by 0x426ECF: load_scenes (load.c:1963)
+==14078==    by 0x42A4F1: boot_db (load.c:291)
+==14078==    by 0x4511E6: main (net.c:282)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x44DEBE: nanny (nanny.c:1206)
+==14078==    by 0x450E3A: process_input (net.c:479)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Invalid free() / delete / delete[]
+==14078==    at 0x4C2434F: free (vg_replace_malloc.c:323)
+==14078==    by 0x4486F1: free_mem (mem.c:2059)
+==14078==    by 0x44873A: free_string (mem.c:2152)
+==14078==    by 0x4749AE: format_string (string.c:589)
+==14078==    by 0x455965: cmd_score (info.c:2812)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078==  Address 0x7feff76d0 is on thread 1's stack
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x45E683: cmd_home (move.c:1512)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x461DD7: move_char (move.c:783)
+==14078==    by 0x462060: cmd_east (move.c:822)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x461DD7: move_char (move.c:783)
+==14078==    by 0x46203A: cmd_west (move.c:824)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x461DD7: move_char (move.c:783)
+==14078==    by 0x46204D: cmd_south (move.c:823)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x461DD7: move_char (move.c:783)
+==14078==    by 0x462073: cmd_north (move.c:821)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x415F11: cmd_config (config.c:656)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x45B925: show_list_to_actor (info.c:537)
+==14078==    by 0x45D3FA: cmd_look (info.c:2289)
+==14078==    by 0x45F210: cmd_enter (move.c:1030)
+==14078==    by 0x468AB6: interpret (parser.c:874)
+==14078==    by 0x450D93: process_input (net.c:470)
+==14078==    by 0x450ED6: game_loop_unix (net.c:662)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== Conditional jump or move depends on uninitialised value(s)
+==14078==    at 0x478E3A: time_update (update.c:435)
+==14078==    by 0x47A353: update_handler (update.c:1759)
+==14078==    by 0x450EDC: game_loop_unix (net.c:671)
+==14078==    by 0x451211: main (net.c:285)
+==14078== 
+==14078== ERROR SUMMARY: 300 errors from 12 contexts (suppressed: 18 from 3)
+==14078== malloc/free: in use at exit: 4,913,700 bytes in 5,128 blocks.
+==14078== malloc/free: 15,314,595 allocs, 15,309,470 frees, 308,048,069 bytes allocated.
+==14078== For counts of detected errors, rerun with: -v
+==14078== searching for pointers to 5,128 not-freed blocks.
+==14078== checked 6,380,896 bytes.
+==14078== 
+==14078== 
+==14078== 11,070 bytes in 2,888 blocks are definitely lost in loss record 2 of 5
+==14078==    at 0x4C2564E: malloc (vg_replace_malloc.c:207)
+==14078==    by 0x448A75: alloc_mem (mem.c:2022)
+==14078==    by 0x448ACB: str_dup (mem.c:2133)
+==14078==    by 0x42A1C5: boot_db (load.c:205)
+==14078==    by 0x4511E6: main (net.c:282)
+==14078== 
+==14078== LEAK SUMMARY:
+==14078==    definitely lost: 11,070 bytes in 2,888 blocks.
+==14078==      possibly lost: 0 bytes in 0 blocks.
+==14078==    still reachable: 4,902,630 bytes in 2,240 blocks.
+==14078==         suppressed: 0 bytes in 0 blocks.
+==14078== Reachable blocks (those to which a pointer was found) are not shown.
+==14078== To see them, rerun with: --leak-check=full --show-reachable=yes

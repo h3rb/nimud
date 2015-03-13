@@ -1,0 +1,119 @@
+NEW RELEASE INFORMATION and FAQ
+
+            Look for the next version coming soon, with graphical client support!
+
+Actual quotes from users:
+
+"I'd like to begin by thanking you for submitting NiMUD 2000 to the public.This code base has 
+given me a reason to go on living. Your programming talent and creative genius exists 
+throughout the code, and your years of hard work will bring joy to many exhausted MUD 
+administrators (and their players!)"
+-Tain, NiMUD Player
+
+"TheIsles, also known as NiMUD by some . . . is one of the more advanced code bases, yet is 
+rather compact and not overwhelming."
+-ftp.game.org
+
+"I'd like to take this opportunity to congratulate you on writing a wonderful piece of 
+software (virtual novel? roleplaying arena?), and thank you for allowing the masses to examine 
+it's internals."
+-RaVeN/Aberlon, NiMUD Coder
+
+"For several months now, I have been looking for an RP intensive MUD that satisfied my needs 
+... Thank you for all the work you've done to help inhance the RP world. The most important 
+thing to me in a MUD is the people, and too often have I found an "RP" enforced MUD where the 
+people just don't seem to get into to it ... It is my hopes that your creation truely succeeds 
+in becoming the best MUD around."
+
+-Miordikkus M'Darron of the house of 'Ghurwyn, Avid Roleplayer
+
+Frequently asked questions:
+
+1) What is NiMUD?
+
+NiMUD is a multi-user gaming server, published by Locke. The code has its roots in the popular 
+Diku-mud variety mudding software, though its current build has only a few systemic 
+similarities to the original software. The server readily compiles on the following systems: 
+
+Macintosh, Windows95/DOS (using DJ Delorie's GNU C Compiler for MS-DOS Systems, single player 
+only), varieties of Ultrix, Andrew UNIX, UNIX, AIX, BSD, Linux (Redhat and others), NextStep, 
+and some other forms of unix (Irix, for instance).
+
+NiMUD was originally developed on an Intel 486 in MS-DOS using DJ Delorie's GNU C Compiler, 
+and the original NiMUD, The Isles, runs on a Linux box using a recent version of Redhat.
+
+2) What does "Ni" mean?
+
+The N and I in NiMUD stand for "Nameless Incarnate." The server's publisher, Locke, grew up on 
+a Dikumud named NamelessMUD.
+
+Someone once asked if the name is commemorating the Knights who say "Ni" -- no, because they 
+are the Knights who say "Nih."
+
+3) As a prospective MUD administrator, why should I choose NiMUD over other game servers?
+
+NiMUD has been designed very specifically as a mud server that is not ready out-of-the-box. 
+
+NiMUD is a server designed for roleplay intensive (RPI) mudding. Many modules of the code base 
+are not complete and do not work as they should, but there are many interesting and 
+conceptually useful systems in place that can provide a firm basis for an administrator that 
+doesn't mind fixer-upper server software.
+
+As with all MUDs, this is a work in progress. Due to the relatively low cash level in the MUD 
+market (ie: zero to nil), the software is provided AS IS with no warranty expressed or 
+implied. While bug reports are appreciated, often there is some delay between software updates 
+(see history.doc in /docs/ directory of latest release).
+
+The following features are included with this release in partial or full implementation:
+
+    * Online Creation (OLC)
+
+      Administrators and immortals with certain access levels can access various in-game 
+editors to modify the game world. This includes creating and modifying procedural scripts 
+(procs) as well as assigning hard-coded special functions (spec_funs). Rooms, objects, actors 
+(mobiles) and procs can all be modified while playing the game, chatting or conferring. 
+Modifications take effect globally, and immediately.
+
+    * Leveless Character Advancement
+
+      An alternative, skill-based system has been implemented to alleviate certian class and 
+level restraints present in previously used systems. Characters approach masters and become 
+students of skills that they wish to pay for or are interested in. Various in-game guilds can 
+be created using this system, to create a class or occupational division between players. 
+Skills also improve by use, allowing a slow development when they are used.
+
+    * Real-time Calendar and Ecosystem
+
+      The calendar system in place advances between reboots. Weather systems are seasonal, and 
+could be used to modify the prices of items in shops.
+
+    * Merchant System
+
+      Aside from standard retail establishments, shopkeepers can trade bulk items to players. 
+Prices can vary from shop to shop, creating trade-routes between cities for player economy.
+
+    * Gem-based Spell System
+
+      A gem-based spell system creates a need for the trade and acquisition of gem items. This 
+system also allows for widespread magic use which is independant of skill level or statistics.
+
+    * Procedural Scripts (procs)
+
+      Mobiles, objects and rooms can be brought to life with the use of procedural scripts. 
+Automatons can be created to simulate in-game systems such as town criers, lamplighters, 
+special levers, spinning rooms and ambient effects.
+
+    * Fuzzy-generation and Anti-Powerplayer Routines
+
+      The Isles comes equipped with fuzzified objects and a numeric-to-descriptive string 
+generator. This forces players to read what they are seeing, which gets more attention drawn 
+to those carefully described rooms!
+
+4) What other mud software is out there like NiMUD?
+
+Aldara is an excellent piece of software, with some similarities to NiMUD.
+
+Armageddon is, of course, an inspiration.
+
+Other that, there are the homegrown varieties of Four Lands and Harshlands, 
+and Armageddon ...

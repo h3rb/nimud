@@ -1,0 +1,25 @@
+Linguaphile 0.2 is used in this release.
+
+If you want, you can find Linguaphile on sourceforge.net
+
+To update, simply untar and ungzip the Linguaphile .pls into
+the /NiM5/lingua directory, then modify translate.c in the
+NiMUD source, but only if the linguaphile.pl has changed.
+
+(There will be some "hooking it up again" work to do if
+they changed the structure of this.)
+
+One step you will have to take is a change to Linguaphile.pl,
+where these lines are:
+
+my $default_src_lang = 'en';
+my $default_dst_lang = 'es';
+
+Replace with these lines:
+
+my $default_src_lang = $ARGV[1];
+my $default_dst_lang = $ARGV[2];
+
+I did not write Linguaphile, but others did.  Please read
+their docs; and if you're interested and know a second
+language, contact them, they could use your support.

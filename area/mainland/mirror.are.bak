@@ -1,0 +1,4491 @@
+#ZONE 
+N Nostol~
+B Zealus~
+V 20300 20549
+S 9
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#20300
+N baby beholder~
+SD the baby beholder~
+LD
+ You meet a baby beholder's cute gaze!
+~
+D
+ It has a large central eye that blinks like a guppy and eyestalks atop the 
+round body which can charm you with its cuteness.  Baby beholders are known for
+their playful personality.  Hmmm....  It looks like the baby is teething!
+~
+A 135
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 500 E 796
+O ~
+AP 25 25 25 25 40
+At 0 10 20 7
+At 1 5 29 1
+At 6 5 26 7
+End
+
+#20301
+N lamia pet~
+SD the pet lamia~
+LD
+ A pet lamia stands here waiting for her next command.
+~
+D
+ This is a creature with the upper torso of a beautiful woman, but the lower
+body of a four-legged beast.
+~
+A 133
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 463
+O ~
+AP 25 25 25 25 25
+At 0 10 15 14
+At 1 5 19 2
+End
+
+#20302
+N $n $n of nostol~
+SD a citizen of Nostol~
+LD
+ A citizen of Nostol is here, conversing with everyone.
+~
+D
+ He smiles at you, almost as if he knows you.  He is so friendly, you have no
+choice but to reciprocate.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 808
+O ~
+AP 25 25 25 25 40
+At 0 10 48 0
+At 1 5 38 0
+At 4 1 32 2
+At 6 5 32 13
+End
+
+#20303
+N guard imperial guardsman~
+SD an imperial guardsman~
+LD
+ An imperial guardsman is here, watching over the citizens of Nostol.
+~
+D
+ He is dressed in plate, and he looks quite formidable.  At the moment, though,
+he is just giggling with a kid running about.
+~
+A 69
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 200
+O ~
+AP 18 18 18 18 18
+At 1 1 10 13
+End
+
+#20304
+N citizen woman female~
+SD a satyr of Nostol~
+LD
+ A satyr of Nostol is here, showing off her new dress.
+~
+D
+ She is beautiful, dressed in a sundress that sparkles with gems sown in.  She
+smiles at you, and your heart flutters at the thought that you have her
+attention, if only for a moment.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 796
+O ~
+AP 25 25 25 25 40
+At 0 10 56 10
+At 1 5 45 7
+At 6 5 62 4
+End
+
+#20305
+N gordon defender~
+SD Gordon the Brave~
+LD
+ Gordon the Brave, the Defender of Thalos, is here, looking at no
+one but you, the only stranger in town.
+~
+D
+ Gordon is dressed in full mithril plate, and he looks indestructible.  He eyes
+you suspiciously not only because you are a stranger, but because you are an
+ARMED stranger.  Better not do any funny stuff in his presence.
+~
+A 1
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 36
+O ~
+AP 15 15 15 15 15
+At 0 10 14 14
+End
+
+#20306
+N priest~
+SD the fanatic priest~
+LD
+ A fanatic priest is here, foretelling the destruction of Tiktui.
+~
+D
+ The priest must have lost his mind.  He keeps saying that one day, evil will
+prevail and take over Nostol and bring the whole city down.  Obviously, no one
+listens to this fool.  The priest's right fist is covered in golden silk,
+and he clenches it at you.  Other than that, he is dressed all in black.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 16 10
+End
+
+#20307
+N priest~
+SD the priest of Nostol~
+LD
+ The priest of Nostol preaches of the glories of religion.
+~
+D
+ He stands here gloriously telling of Nostol's history, how it is now referred by
+the world as 'The City of Peace'.  He is very happy to be the high priest here.
+~
+A 3
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 23 4
+End
+
+#20308
+N golem stone~
+SD the stone golem~
+LD
+ A sturdy glass cabinet is here.
+~
+D
+ It is a big chunk of rock that has been magically formed into a giant
+stone creature.  It stands here guarding the city.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 21 0
+End
+
+#20309
+N lord~
+SD the lord of Nostol~
+LD
+ The lord of Nostol is sitting here, doing paperwork.
+~
+D
+ He looks very busy, but he takes the time to say, 'Hi!  Welcome to Nostol!'
+He looks very proud of his work.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 800 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 17 1
+End
+
+#20310
+N dan barkeep~
+SD Dan the Barkeep~
+LD
+ Dan the Barkeep stands by the counter wiping a glass.
+~
+D
+ He looks at you, and says, 'What's your poison, stranger?'
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 31
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 23 5311
+ H 5 17
+ F 0
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ (null)~
+ Str2
+ (null)~
+ Str3
+ (null)~
+ Str4
+ (null)~
+EndShop
+At 0 10 22 9
+End
+
+#20311
+N george butcher~
+SD George the Butcher~
+LD
+ George the Butcher is here whacking away at a side of beef.
+~
+D
+ Looking down at you with blood splattered all over his face and apron,
+he asks, 'How much you want?'
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 32
+O ~
+AP 15 15 15 15 15
+At 0 10 18 10
+End
+
+#20312
+N farmer betty~
+SD Farmer Betty~
+LD
+ Farmer Betty looks at you sweetly offering you some apples.
+~
+D
+ She smiles at you meekly.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 650 E 30
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 19 5313
+ H 5 9
+ F 0
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ (null)~
+ Str2
+ (null)~
+ Str3
+ (null)~
+ Str4
+ (null)~
+EndShop
+At 0 10 22 2
+End
+
+#20313
+N thaellor dwarf~
+SD Thaellor the dwarf~
+LD
+ Thaellor is here selling his metal wares.
+~
+D
+ Thaellor sweats rivers and complains about the heat as he pounds the
+metal into items of defense and destruction.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 550 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 13 3
+End
+
+#20314
+N ben smith~
+SD Ben the Smith~
+LD
+ Ben the Smith sells metal odds and ends to anyone interested.
+~
+D
+ Ben tries to pawn his various wares to you.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 228
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 18 5317
+ H 2 3
+ F 0
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ (null)~
+ Str2
+ (null)~
+ Str3
+ (null)~
+ Str4
+ (null)~
+EndShop
+At 0 10 16 10
+End
+
+#20315
+N librarian~
+SD the librarian~
+LD
+ The librarian is here shelving books away neatly.
+~
+D
+ The librarian looks busy and whispers, 'Shhh!'
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 12 4
+End
+
+#20316
+N scholar boy~
+SD a young scholar~
+LD
+ A young scholar studies quietly in the corner.
+~
+D
+ This young scholar is studying to be a priest.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 523
+O ~
+AP 25 25 25 25 35
+At 0 10 20 8
+At 1 5 15 4
+At 4 1 32 15
+At 5 1 21 15
+End
+
+#20317
+N wizard~
+SD an old wizard~
+LD
+ An old wizard sits quietly at the counter waiting for a sale.
+~
+D
+ This old wizard almost looks like he is about to fall over and sleep.
+~
+A 3
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 550 E 229
+O ~
+AP 15 15 15 15 15
+At 0 10 18 7
+End
+
+#20318
+N masseuse woman~
+SD a beautiful masseuse~
+LD
+ A beautiful woman is here offering you a massage.
+~
+D
+ She is beautiful, dressed in a sundress that sparkles with gems sown in.  She
+smiles at you, and your heart flutters at the thought that you have her
+attention, and you jump to her offer for a massage.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 700 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 19 4
+At 1 5 22 12
+At 2 1 43 12
+At 3 1 24 14
+End
+
+#20319
+N bather man~
+SD a man~
+LD
+ A man is here bathing.
+~
+D
+ He smiles at you, almost as if he knows you.  He is so friendly, you have no
+choice but to reciprocate and join him and the others in the soothing pool.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 650 E 966
+O ~
+AP 25 25 25 25 40
+At 0 10 27 1
+At 1 5 35 4
+At 2 1 58 14
+At 3 1 24 14
+At 6 5 25 1
+End
+
+#20320
+N guard imperial guardsman~
+SD An imperial guardsman~
+LD
+ An imperial guardsman overseeing patrols in the city.
+~
+D
+ He is dressed in plate, and he looks quite formidable.  At the moment,
+he is looking at a map of Thalos aside his fellow co-workers keeping
+track of each city patrol.
+~
+A 71
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 20 9
+At 1 5 6 12
+At 3 1 17 11
+End
+
+#20321
+N guard guardsman~
+SD an imperial guardsman~
+LD
+ An imperial guardsman guards the Grand Gate.
+~
+D
+ He is dressed in plate, and he looks quite formidable.  At the moment,
+he is watching the children play with amusement.
+~
+A 71
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 16 10
+At 1 5 17 4
+At 2 1 31 9
+End
+
+#20322
+N doe~
+SD a doe~
+LD
+ A doe munches on grass.
+~
+D
+ This peaceful creature looks at you with big dark eyes.  Her nose twitches as
+she sniffs at you, but she goes back to chewing some grass.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 478
+O ~
+AP 25 25 25 25 25
+At 0 10 16 1
+At 1 5 20 4
+At 2 1 28 7
+End
+
+#20323
+N deer~
+SD a deer~
+LD
+ A deer stares back at you.
+~
+D
+ The deer looks angered at your intrusion.  He butts his head against you, 
+albeit ineffectively.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 398
+O ~
+AP 19 19 19 19 19
+At 0 10 24 13
+At 1 5 21 11
+At 2 1 38 0
+End
+
+#20324
+N stag deer~
+SD a stag~
+LD
+ A large deer stag protects his territory.
+~
+D
+ He eyes you with contained anger.  You'd better leave him alone!
+~
+A 225
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 923
+O ~
+AP 25 25 25 25 40
+At 0 10 63 10
+At 1 5 88 14
+At 2 1 74 12
+At 3 1 35 1
+At 6 5 94 8
+End
+
+#20325
+N bunny rabbit~
+SD a small bunny~
+LD
+ A small bunny pokes from bush to bush.
+~
+D
+ This bunny looks so adorable, you wished you had one just like this!
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 316
+O ~
+AP 19 19 19 19 19
+At 0 10 17 0
+At 1 5 19 5
+End
+
+#20326
+N snake~
+SD a harmless snake~
+LD
+ A small snake slithers between the grass.
+~
+D
+ Upon careful inspection, you are sure it is NOT a cobra!
+~
+A 225
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 614
+O ~
+AP 25 25 25 25 35
+At 0 10 18 12
+At 1 5 12 4
+At 3 1 37 8
+End
+
+#20327
+N druid~
+SD a druid~
+LD
+ A druid is here in meditation.
+~
+D
+ He doesn't like you bothering him, but is too polite to ask you to leave.
+~
+A 193
+AB 8200
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 527
+O ~
+AP 25 25 25 25 35
+At 0 10 15 13
+At 1 5 6 0
+At 2 1 35 5
+End
+
+#20328
+N druidess~
+SD a druidess~
+LD
+ A druidess peers at you.
+~
+D
+ She wonders why you are staring at her, and how you got in here.
+~
+A 193
+AB 8200
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 13 5
+End
+
+#20329
+N musician bard~
+SD bard of Thalos~
+LD
+ A bard sings of the glory of Thalos.
+~
+D
+ This musical fellow plays a happy song with his fellow comrades.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 450 E 368
+O ~
+AP 19 19 19 19 19
+At 0 10 14 14
+At 1 5 21 7
+At 2 1 28 2
+End
+
+#20330
+N musician bard~
+SD bard of Thalos~
+LD
+ This bard merrily skips along singing of the glory of Thalos.
+~
+D
+ This musical fellow wanders the world singing of the glory of Thalos.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 550 E 248
+O ~
+AP 15 15 15 15 15
+At 0 10 17 5
+End
+
+#20331
+N guardsman guard~
+SD the guardsman~
+LD
+ A guardsman stands here.
+~
+D
+ A big, strong, helpful, trustworthy guard.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 806
+O ~
+AP 25 25 25 25 40
+At 0 10 15 9
+At 1 5 50 9
+At 3 1 23 12
+At 4 1 17 13
+At 6 5 41 2
+End
+
+#20332
+N janitor~
+SD the janitor~
+LD
+ A janitor is walking around, cleaning up.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 592
+O ~
+AP 25 25 25 25 35
+At 0 10 15 12
+At 1 5 14 0
+At 2 1 40 0
+At 4 1 25 1
+End
+
+#20333
+N fido dog~
+SD the beastly fido~
+LD
+ Beastly Fido is here.
+~
+D
+ Fido is a small dog that has a foul smell and pieces of rotted meat hanging
+around his teeth.
+~
+A 161
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 13 1
+End
+
+#20334
+N guardsman guard~
+SD the guardsman~
+LD
+ A guardsman is here, guarding the gate.
+~
+D
+ A big, strong, helpful, trustworthy guard.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 17 5
+At 1 5 23 12
+End
+
+#20335
+N velkor~
+SD Velkor, the barman~
+LD
+ Velkor, the barman stands here
+~
+D
+ Velkor is a man of average lenght, and his dark hair and beard are both
+groomed to perfection. He has a broad smile all but carved into his
+face, but his green eyes are stark and merciless.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 1 1 1 1 1
+Shop
+ T 0 17
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 10 50
+ H 9 0
+ F 1
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#0
+
+
+
+#OBJDATA
+#20300
+N collar~
+SD a lamia collar~
+P ~
+D
+A lamia collar is on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 100
+O ~
+V 3 0 0 0
+End
+
+#20301
+N breast plate iron~
+SD a beautiful iron breast plate~
+P ~
+D
+A beautiful iron breast plate lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 125
+C 20000
+O ~
+V 7 0 0 0
+End
+
+#20302
+N staff serpentine~
+SD a green serpentine staff~
+P ~
+D
+A green serpentine staff has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 96
+W 16385
+Sz 18
+Ti 0
+Wt 12
+C 7600
+O ~
+V 20 2 2 0
+End
+
+#20304
+N scroll magic~
+SD a scroll of enchantment~
+P ~
+D
+A scroll of magical enchantment has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 15
+C 20000
+O ~
+V 30 0 0 0
+End
+
+#20305
+N scroll bound~
+SD a bound scroll~
+P ~
+D
+A bound scroll of detection lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 15
+C 5000
+O ~
+V 30 0 0 0
+End
+
+#20306
+N fountain~
+SD a large beautiful fountain~
+P ~
+D
+An elaborate white marble fountain is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 25
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 10 0 0 0
+ED fountain~
+You see the most beautiful fountain in the world.  The white marble glistens
+as sunlight hits its wet surfaces.  Fish swim around in the inner fountain, and
+an exterior fountain is reserved just for drinking.
+~
+End
+
+#20307
+N desk~
+SD the curved desk~
+P ~
+D
+A beautiful desk made from a gigantic sea shell is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 13 5224 0
+ED desk~
+The sea shell desk here is just gorgeous.  The creamy white of the table
+surface makes you dream of being in a pool swimming among mermaids.
+~
+End
+
+#20308
+N cabinet~
+SD the glass cabinet~
+P ~
+D
+A sturdy glass cabinet is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 50
+C 200
+O ~
+V 5000 13 5226 0
+ED cabinet~
+A cabinet made of oak and mahogany, this piece of woodmanship is just splendid 
+to view.  The wood is varnished with a very strong stain that looks as if it
+would last longer than the cabinet itself.
+~
+End
+
+#20309
+N mandolin~
+SD a mandolin~
+P ~
+D
+A mandolin lies against the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 20
+C 6000
+O ~
+V 18 5 5 0
+End
+
+#20310
+N harp golden~
+SD a golden harp~
+P ~
+D
+A beautiful golden harp is waiting to be played.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 100
+C 2500
+O ~
+V 30 1 1 0
+End
+
+#20311
+N flute silver~
+SD a silver flute~
+P ~
+D
+A brilliant silver flute glimmers from its holster.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 65
+W 16385
+Sz 18
+Ti 0
+Wt 6
+C 10500
+O ~
+V 30 1 1 0
+End
+
+#20312
+N potion green~
+SD a green potion~
+P ~
+D
+You see a green potion on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 100
+O ~
+V 20 0 0 0
+End
+
+#20313
+N herbs~
+SD some bluish herbs~
+P ~
+D
+Some bluish herbs are scattered here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 15 0 0 0
+End
+
+#20314
+N herbs~
+SD some purplish herbs~
+P ~
+D
+Some purplish herbs are scattered here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 15 0 0 0
+End
+
+#20315
+N herbs~
+SD some grayish herbs~
+P ~
+D
+Some grayish herbs are scattered here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 5 0 0 0
+End
+
+#20316
+N herbs~
+SD some orangish herbs~
+P ~
+D
+Some orangish herbs are scattered here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 5 0 0 0
+End
+
+#20317
+N sword~
+SD an imperial sword~
+P ~
+D
+You see an imperial sword here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 3 4 3
+ED sword~
+You see a sword of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20318
+N mace~
+SD an imperial mace~
+P ~
+D
+You see an imperial mace here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 4 4 7
+ED mace~
+You see a mace of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20319
+N chest plate~
+SD an imperial chest plate~
+P ~
+D
+You see an imperial chest plate here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED chest plate~
+You see a chest plate of great craftsmanship.  Stamped on the side is:
+Merc Industries
+~
+End
+
+#20320
+N shield~
+SD an imperial shield~
+P ~
+D
+You see an imperial shield here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED shield~
+You see a shield of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20321
+N cloak~
+SD an imperial cloak~
+P ~
+D
+You see an imperial cloak here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED cloak~
+You see a cloak of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20322
+N helm~
+SD an imperial helm~
+P ~
+D
+You see an imperial helm here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED helm~
+You see a helm of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20323
+N plate leggings~
+SD a pair of imperial plate leggings~
+P ~
+D
+You see a pair of imperial plate leggings here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED plate leggings~
+You see plate leggings of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20324
+N plate boots~
+SD a pair of imperial plate boots~
+P ~
+D
+You see a pair of imperial plate boots here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED plate boots~
+You see plate boots of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20325
+N plate gloves~
+SD a pair of imperial plate gloves~
+P ~
+D
+You see a pair of imperial plate gloves here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED plate gloves~
+You see plate gloves of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20326
+N plate sleeves~
+SD a pair of imperial plate sleeves~
+P ~
+D
+You see a pair of imperial plate sleeves here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED plate sleeves~
+You see plate sleeves of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20327
+N cape~
+SD an imperial cape~
+P ~
+D
+You see an imperial cape here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED cape~
+You see a cape of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20328
+N belt~
+SD an imperial belt~
+P ~
+D
+You see an imperial belt here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 2049
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED belt~
+You see a belt of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20329
+N metal bracer~
+SD an imperial metal bracer~
+P ~
+D
+You see an imperial metal bracer here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 4097
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED metal bracer~
+You see a metal bracer of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#20330
+N ring signet~
+SD an imperial city guard signet ring~
+P ~
+D
+You see a ring with a strange symbol on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#20331
+N imperial banner~
+SD an imperial war banner~
+P ~
+D
+An imperial war banner is on the floor here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 65
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 -1 0
+ED banner~
+This is the official Merc war banner to see you through the darkest realm!
+~
+End
+
+#0
+
+
+
+#SCENES
+#20300
+N The Grand Gate of Nostol~
+Ref 0
+D
+You stand in the archway of a gigantic stone archway. The two
+steel gates look indestructible, yet they are elaborate in engravings.  You can
+hear laughter and good cheer from the other side of these gates.  Obviously, 
+the city is teeming with activity!  There is a small gold plaque on mounted
+on the archway.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED plaque sign~
+Abandon All Hope Ye Who Enter Here
+~
+R M 20301 20 100 1
+Dr 1 5 0 24245
+~
+outer door~
+Dr 3 5 0 20301
+You see happiness everywhere. Houses cover your vision. You see strange cute
+beasts walking hand in hand with people.
+~
+inner door~
+End
+
+#20301
+N Main Street~
+Ref 0
+D
+This is a magnificent street, immaculate all over. The streets are filled
+with people rushing from building to building and a balmy zephyr blows by
+you.  The whole city is teeming with activity.  A cobbled alley leads north
+and south.  Children run pass you as they play tag.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20339
+It's a cobbled alley.
+~
+~
+Dr 1 5 0 20300
+The entrance to the city lies this way.
+~
+inner door~
+Dr 2 0 0 20355
+It's a cobbled alley.
+~
+~
+Dr 3 0 0 20302
+Main Street lies this way.
+~
+~
+End
+
+#20302
+N Main Street~
+Ref 0
+D
+This is a magnificent street, immaculate all over.  The streets are filled
+with people rushing from building to building and a balmy zephyr blows by you.
+The whole city is teeming with activity.  On one side is a beautiful house 
+while on the other is the entrance to a large mansion.  Sounds of people hard
+at work echo within the mansion.  Near the center of town you see a large 
+domed building, magnificent and immense.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20336
+A store lies this way.
+~
+~
+Dr 1 0 0 20301
+Main Street continues back east.
+~
+~
+Dr 2 0 0 20332
+The main building in the city, the City Hall is there.
+~
+~
+Dr 3 0 0 20303
+A lush, green garden path lies this way.
+~
+~
+End
+
+#20303
+N A Garden Path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center
+of the city. Flowers grow on the sides of the path and the lush trees are 
+laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+temple truly a blend of nature and man's work of art.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20304
+The garden path continues around the building.
+~
+~
+Dr 1 0 0 20302
+This is the main street leading to the city's entrance.
+~
+~
+Dr 2 0 0 20306
+The garden path continues around the building.
+~
+~
+Dr 3 0 0 20350
+You can hear music coming from within the temple.
+~
+~
+End
+
+#20304
+N A Garden Path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center
+of the city. Flowers grow on the sides of the path and the lush trees are
+laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+temple truly a blend of nature and man's work of art.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20311
+A side street leads off to the northern half of the city.
+~
+~
+Dr 2 0 0 20303
+The garden path continues around the building.
+~
+~
+Dr 3 0 0 20305
+The garden path continues around the building.
+~
+~
+End
+
+#20305
+N A garden path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center
+of the city. Flowers grow on the sides of the path and the lush trees are
+laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+temple truly a blend of nature and man's work of art.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20304
+The garden path continues around the building.
+~
+~
+Dr 2 0 0 20350
+You can hear music coming from within the temple.
+~
+~
+End
+
+#20306
+N A Garden Path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center
+of the city. Flowers grow on the sides of the path and the lush trees are
+laden with fruit.  Vines and ivy snake up the sides of the temple, making this
+temple truly a blend of nature and man's work of art.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20303
+The garden path continues around the building.
+~
+~
+Dr 2 0 0 20312
+A small side street leads to the southern half of the city.
+~
+~
+End
+
+#20307
+N The market place~
+Ref 0
+D
+You stand in the middle of a large square lined on each side with
+baskets, carts, and stands of all shapes and sizes.  The little shops are 
+filled with goods sold to the demanding public.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20303 11 100 1
+Dr 0 0 0 20325
+A small table is here, laden with fine jewelery and gems sold by the jeweler.
+~
+~
+Dr 2 0 0 20320
+Fruits and vegetables are piled on boxes waiting to be sold and eaten.
+~
+~
+Dr 3 0 0 20308
+The market place continues.
+~
+~
+End
+
+#20308
+N The market place~
+Ref 0
+D
+You stand in the middle of a large square lined on each side with
+baskets, carts, and stands of all shapes and sizes.  The little shops are
+filled with goods sold to the demanding public.
+To the west, the square ends, and continues in a broad paved road.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20322
+Beautiful carpets and enormous bales of silk are being stared with awe by
+the citizens.
+~
+~
+Dr 1 0 0 20307
+The center of the market lies this way.
+~
+~
+Dr 2 0 0 20317
+>From the great smell, the meat and poultry stand must be south!
+~
+~
+Dr 3 0 0 20387
+~
+~
+End
+
+#20309
+N A Side Street~
+Ref 0
+D
+This small side street leads east and west into back alleys while
+to the south you see a beautifully designed temple. Shrieks of little
+children playing games in the distance catch your attention.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20343
+~
+~
+Dr 2 0 0 20310
+~
+~
+Dr 3 0 0 20328
+~
+~
+End
+
+#20310
+N A Side Street~
+Ref 0
+D
+You are in the common section of the city. More buildings made of
+clay and stone be dazzles you. Most of these homes are designed so
+beautifully you just cant keep your eyes off them.  The street
+continues north and south and buildings line the street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20309
+~
+~
+Dr 1 0 -1 20344
+A small doorway leads into a little humble dwelling.
+~
+~
+Dr 2 0 0 20311
+~
+~
+Dr 3 0 0 20326
+A small clay dwelling sits here.
+~
+~
+End
+
+#20311
+N A Side Street~
+Ref 0
+D
+This small side street leads away from the garden path to the south.
+Around you stand large numbers of commoners' houses.  Many citizens
+pass by you with a friendly hello.  You almost feel like home here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20310
+~
+~
+Dr 1 0 0 20337
+An unusually tall dwelling stands looming over you.
+~
+~
+Dr 2 0 0 20304
+A garden path circles around the temple.
+~
+~
+Dr 3 0 0 20327
+Here lies a small stone house with a thatched roof.
+~
+~
+End
+
+#20312
+N A side street~
+Ref 0
+D
+This small side street leads south away from the temple into the business
+section of town.  To the east is the famous Grand Hall of Nostol.  Well
+disciplined guards stand at attention, watching over the city hall, but you
+don't see any source of threats in this city.  North is a garden path, west
+is a smithy, and this side street continues south.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20306
+A small garden path encircles the temple.
+~
+~
+Dr 1 0 -1 20332
+You see what is most definitely city hall.  This building is the most
+elaborate of all the building here in Thalos.
+~
+~
+Dr 2 0 0 20313
+~
+~
+Dr 3 0 0 20321
+Inside the building you see long pieces of metal, an oven, and some
+anvils.  Obviously a smithy.
+~
+~
+End
+
+#20313
+N A side street~
+Ref 0
+D
+This small side street is lined with great beautifully designed
+buildings. To the north is the magnificent temple while to the
+south lies the entrance to a small friendly tavern. The street continues
+north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20303 11 100 1
+Dr 0 0 0 20312
+~
+~
+Dr 1 0 0 20330
+>From the looks of it, this is a very impressive two story abode.
+The entire first floor is covered with a huge marble bar with merry men
+telling tall tales and drinking their fill.
+~
+~
+Dr 2 0 0 20314
+~
+~
+Dr 3 0 0 20319
+This seems to be the only guild house in the entire city. You feel uneasy
+about this building.  For some reason it seems not to belong.
+~
+~
+End
+
+#20314
+N A side street~
+Ref 0
+D
+You are at the end of a long street leading to the center of the city.
+A long alley runs east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20313
+~
+~
+Dr 1 0 0 20351
+~
+~
+Dr 2 0 0 20329
+~
+~
+Dr 3 0 0 20318
+~
+~
+End
+
+#20315
+N Under another grand watchtower~
+Ref 0
+D
+You stand at the base of a tall ivy covered watchtower built to
+protect the city from invaders.  You get the feeling of safety here in
+Nostol.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20303 11 100 1
+Dr 0 0 0 20316
+~
+~
+Dr 1 0 0 20318
+~
+~
+Dr 4 0 0 20347
+~
+~
+End
+
+#20316
+N A back alley~
+Ref 0
+D
+This alley leads to the rear of meat stand. The aroma of fresh and
+char-broiled meat catches your sense of smell.  You wipe the drool
+off your chin the instant you know it is there.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20317
+You see the back-side of the market place meat stand.
+~
+~
+Dr 2 0 0 20315
+A tall watchtower stands a silent vigil over the city.
+~
+~
+End
+
+#20317
+N The meat stand~
+Ref 0
+D
+A large stand has been set up here with metal hooks and wooden racks
+in the background.  Hanging on the hooks are huge slabs of meat
+and other game.  This stand is packed with produce, and a sudden burst
+of laughter catches you by surprise as little children play around
+your ankles.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20311 1 100 1
+Dr 0 0 0 20308
+The market place lies this way.
+~
+~
+Dr 1 0 0 20320
+This is a cart full of fresh vegetables and fruits.  You are almost
+tempted to take some.
+~
+~
+Dr 2 0 0 20316
+~
+~
+End
+
+#20318
+N A back alley~
+Ref 0
+D
+A narrow alley leads east to a wider street and west to one of
+the city watchtowers.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 1 0 0 20314
+A small side street welcomes you.
+~
+~
+Dr 3 0 0 20315
+A tall watchtower stands a silent vigil over the city.
+~
+~
+End
+
+#20319
+N The guild house~
+Ref 0
+D
+You are standing in this city's only guild house.  Tables and chairs
+are set about for the occupants' comfort.  Weapons are stacked neatly on the
+weapons rack.  Each weapon looks polished, sharpened, and oiled.
+Draped along the back wall is the proud banner of Thalos in all its glory.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20306 1 100 1
+Dr 1 0 0 20313
+A small side street runs past the building.
+~
+~
+End
+
+#20320
+N The produce stand~
+Ref 0
+D
+A large cart sits here carrying fresh fruit and vegetables.
+Hungry children swarm all about the tasty treats the merchants are
+giving out for free.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20307
+The market place is jammed packed with people scurrying about.
+~
+~
+Dr 3 0 0 20317
+A strong aromatic smell emanates from the meat stand next to you.
+~
+~
+End
+
+#20321
+N The smithy~
+Ref 0
+D
+In here you find tools and anvils used to make various weapons
+and items. The walls are fully stocked with pieces of armor and weaponry.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20314 1 100 1
+Dr 1 0 0 20312
+A small side street runs past the building.
+~
+~
+End
+
+#20322
+N The tapestry stand~
+Ref 0
+D
+Beautiful tapestries and rugs hang all over the walls.  Fancy
+robes and various articles of clothing hang about for sale. You stare with
+awe at how much work must have been put into these cloths.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20323
+~
+~
+Dr 1 0 0 20325
+A fine jewelry stand lies majestically next to you.
+~
+~
+Dr 2 0 0 20308
+The market place is swarming with people scurrying about.
+~
+~
+End
+
+#20323
+N A back alley~
+Ref 0
+D
+A narrow alley leads north to one of the city watchtowers while
+to the south there lies a market stand full of expensive clothes and rugs.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20324
+A tall watchtower stands a silent vigil over the city.
+~
+~
+Dr 2 0 0 20322
+~
+~
+End
+
+#20324
+N Under the watchtower~
+Ref 0
+D
+You stand under one of the city watchtowers built to protect
+the city from invaders.  You know that you are safe from any danger.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 1 0 0 20328
+~
+~
+Dr 2 0 0 20323
+~
+~
+Dr 4 0 0 20346
+Above you stands a tall watchtower.
+~
+~
+End
+
+#20325
+N The jewelery stand~
+Ref 0
+D
+A table stands covered with fine jewelery and gems.  The jeweler
+stands proudly over his collection as he polishes and cleans each one.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20307
+The market place is packed with people scurrying about doing their
+business.
+~
+~
+Dr 3 0 0 20322
+Next to you is a stand full of fine clothes and expensive rugs.
+~
+~
+End
+
+#20326
+N A simple clay dwelling~
+Ref 0
+D
+This is a very plain house with a few chairs and a bed.
+A warmed and lit fireplace suggests that the dwelling is currently
+occupied.  You should leave before the owner finds you here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 1 0 0 20310
+Outside is a small side street.
+~
+~
+End
+
+#20327
+N A stone dwelling~
+Ref 0
+D
+This small house is the dwelling of a humble citizen of Thalos.
+A few rafters stand with thatched straw blowing with the wind gusts
+blowing through the city.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20302 9 100 1
+Dr 1 0 0 20311
+A small side street runs past the house.
+~
+~
+End
+
+#20328
+N A back alley~
+Ref 0
+D
+A narrow alley leads east to one of the city watchtowers and west to
+a small side street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 1 0 0 20309
+~
+~
+Dr 3 0 0 20324
+~
+~
+End
+
+#20329
+N A busy shop~
+Ref 0
+D
+From the outside this place looks like an ordinary building,
+but inside these cramped quarters you discover a shop filled with
+armor, weapons, and various other goods. A small sign posted on the wall
+flutters in the wind.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20313 1 100 1
+Dr 0 0 0 20314
+A small side street runs past the shop.
+~
+~
+End
+
+#20330
+N The Tavern of the Sun~
+Ref 0
+D
+A glorious place, this tavern is second home for many citizens of
+Thalos.  Tables and chairs are set in rows, bottles and glasses filled, and
+a small performance stage teaming with dazzling entertainment. Musical
+instruments and personal belongings lie in piles belonging to each member
+of this room.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 3 0 0 20313
+A small side street runs past the tavern.
+~
+~
+End
+
+#20331
+N South wing of the city hall~
+Ref 0
+D
+You stand in a large room attached to this end of the hallway which
+leads back north to the reception area. Pedestals and columns stand
+faithfully.  Valuable items hang from the walls each to be admired
+by onlookers.  Chairs lie around, and a large curved desk. To the east
+is a vine-covered archway leading out into a private courtyard.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20309 1 100 1
+Dr 0 0 0 20332
+The long hallway leads back to the main reception area of the city hall.
+~
+~
+Dr 1 0 0 20334
+~
+~
+End
+
+#20332
+N The city hall~
+Ref 0
+D
+This is the main reception area of Thalos' city hall. The walls have
+been painted in pure white and thick lush carpet line the floor wall to wall.
+A side door on the west wall allows you to go out to one of the city's side 
+streets.  Hallways lead south and east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20302
+Main street runs past the city hall.
+~
+~
+Dr 1 0 0 20333
+A hallway leads to the east wing of the city hall.
+~
+~
+Dr 2 0 0 20331
+A hallway leads to the south wing of the city hall.
+~
+~
+Dr 3 0 -1 20312
+~
+~
+End
+
+#20333
+N East wing of the city hall~
+Ref 0
+D
+Here lies fancy office, possibly the mayor's. A few green plants
+and pieces of furniture make this place breathtaking.  There is a large
+glass cabinet along the wall. A long hallway leads west back to the
+reception area and an ivy-covered archway leads south into a private
+courtyard.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 20308 0 100 1
+Dr 2 0 0 20334
+~
+~
+Dr 3 0 0 20332
+~
+~
+End
+
+#20334
+N The private gardens and courtyard of Thalos~
+Ref 0
+D
+You stare in awe as the beauty of this place takes you by
+surprise.  Exotic flowers and trees are planted in neat rows and lawn
+benches line the walk ways.  A large marble fountain in the center of the
+courtyard stands. Above stands one of the four watchtowers. Archways
+north and west lead back into the city hall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20333
+~
+~
+Dr 3 0 0 20331
+~
+~
+End
+
+#20335
+N A small guard house~
+Ref 0
+D
+This is the barracks for Thalos' guardsmans.  Guards populate this
+shack ready, willing, and able to ward off any trouble.  This small
+shack stands guarding both to the entrance to the city and to the city hall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20320 3 100 1
+Dr 1 0 0 20355
+The alley runs by this building.
+~
+~
+End
+
+#20336
+N An impressive house~
+Ref 0
+D
+This house houses the Defender of Thalos.  He represents all that
+is good and right in this city.  As the most skilled fighting machine,
+he is the commander of the guard.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20305 1 100 1
+Dr 2 0 0 20302
+Main street runs past this dwelling.
+~
+~
+End
+
+#20337
+N A Public Library~
+Ref 0
+D
+This seems to be the tallest structure in the city.  Rows and rows of books
+line the 20 foot tall bookcases, and a quiet serenity can be felt by all here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20315 1 100 1
+Dr 1 0 0 20338
+Another room in the library is here.
+~
+~
+Dr 3 0 0 20311
+A small side street winds past this building.
+~
+~
+Dr 4 0 0 20345
+You see a second floor to the library.
+~
+~
+End
+
+#20338
+N The Library Addition~
+Ref 0
+D
+There are more shelves and tables here.  Vials of strange potions line a
+section of the wall, and books and other items of power line another.  The exit
+is to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 3 0 0 20337
+The main room of the library is there.
+~
+~
+End
+
+#20339
+N A back alley~
+Ref 0
+D
+A narrow back alley goes south to main street and north towards
+a watchtower.  People quietly pass you by.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20340
+You see a mighty watchtower north.
+~
+~
+Dr 2 0 0 20301
+Main street runs past here.
+~
+~
+End
+
+#20340
+N A back alley~
+Ref 0
+D
+A narrow back alley leads north to one of the city watchtowers
+and south towards main street.  The shade cast by the watchtower is very
+refreshing.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20341
+A tall watchtower stands a silent vigil over the city.
+~
+~
+Dr 2 0 0 20339
+The cobbled alley continues on.
+~
+~
+End
+
+#20341
+N Under a watchtower~
+Ref 0
+D
+You stand under a tall watchtower. Narrow back alleys lead west and
+south and a sturdy ladder leads up into the tower.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20303 11 100 1
+Dr 2 0 0 20340
+~
+~
+Dr 3 0 0 20343
+~
+~
+Dr 4 0 0 20348
+You see up the powerful watchtower.
+~
+~
+End
+
+#20342
+N A bath house~
+Ref 0
+D
+This is the bath house for the commoners of the city. Hot steamy water 
+wells up from a hole in the floor. Obviously there is a hot spring located 
+under the city (making the decision to put a city here seem much more 
+reasonable). To the west is another room.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20343
+A cobbled alley is there.
+~
+~
+Dr 3 0 0 20344
+Another resting room is here.
+~
+~
+End
+
+#20343
+N A back alley~
+Ref 0
+D
+A narrow back alley leads west to a small side street and east to one
+of the city watchtowers. Great amounts of steam issue forth from the
+building to the south.  It looks very inviting.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20341
+A watchtower stands a silent vigil over the city.
+~
+~
+Dr 2 0 0 20342
+You hear laughter and splashing.
+~
+~
+Dr 3 0 0 20309
+A side street greets you.
+~
+~
+End
+
+#20344
+N A Resting Room~
+Ref 0
+D
+You are in a resting room.  Soft mats line the floor, and you see many
+people just relaxing on them.  The comfort of this place is so inviting, you 
+want to join them.  Great amounts of steam issue forth from the hole in the 
+east wall.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 1 0 0 20342
+~
+~
+Dr 3 0 0 20310
+A small side street runs past the building.
+~
+~
+End
+
+#20345
+N On the second floor of the library~
+Ref 0
+D
+You see more books here.  Through windows, you have a glorious view of
+a nearby bay.  Birds fly by your window.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20316 2 100 1
+Dr 5 0 0 20337
+~
+~
+End
+
+#20346
+N The north-west watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here and you can see all the way to the western mountains.  You are 
+confident nothing can touch this tower.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 5 0 0 20324
+The city lies below.
+~
+~
+End
+
+#20347
+N The south-west watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here and you can see all the way to the western mountains. To the
+south bay stretches to the horizon.  You are confident nothing can touch this
+tower.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20308 8 100 1
+Dr 5 0 0 20315
+The city lies below.
+~
+~
+End
+
+#20348
+N The north-east watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here.  Green fields stretch to the horizon.  You are confident nothing
+can touch this tower.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 5 0 0 20341
+The city lies below.
+~
+~
+End
+
+#20350
+N the Temple of Nostol~
+Ref 0
+D
+You stand within one of the most holy places in the realm. This stunning 
+domed temple houses the city's worshipers en masse. Long benches line the 
+aisles and the altar glistens with the gold and platinum inlay.The walls and 
+roof are all made of ceramic, making this place reflect the sun well.  
+    The greenery around the temple itself makes this place a great blend of
+nature and man's works of art.
+~
+C
+~
+F 136
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20300 1 100 1
+Dr 0 0 0 20305
+A side street leads to the northern half of the city.
+~
+~
+Dr 1 0 0 20303
+Main street leads out to the main gate of the city.
+~
+~
+End
+
+#20351
+N A back alley~
+Ref 0
+D
+A narrow alley leads east to a wider street and west to one of
+the city watchtowers.  Little kids play tag around you.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20352
+A tall watchtower stands a silent vigil over the city.
+~
+~
+Dr 3 0 0 20314
+A small side street greets you.
+~
+~
+End
+
+#20352
+N Under a watchtower~
+Ref 0
+D
+You stand at the base of a tall watchtower built to protect the city
+from invaders.  From the looks of things, its doing a great job.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 0 0 0 20353
+~
+~
+Dr 3 0 0 20351
+~
+~
+Dr 4 0 0 20354
+~
+~
+End
+
+#20353
+N A back alley~
+Ref 0
+D
+A narrow alley leads south to one of the city watchtowers.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20355
+The alley continues to the north.
+~
+~
+Dr 2 0 0 20352
+A tall watchtower stands a silent vigil over the city.
+~
+~
+End
+
+#20354
+N The south-east watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here and you can see all the way to the western mountains. To the
+south the you see the bay.  You're confident nothing can touch this tower.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20301 20 100 1
+Dr 5 0 0 20352
+The city lies below.
+~
+~
+End
+
+#20355
+N A back alley~
+Ref 0
+D
+A narrow alley leads north to the main street, and south toward a tall
+watchtower.  A building is to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20301
+You see main street.
+~
+~
+Dr 2 0 0 20353
+~
+~
+Dr 3 0 0 20335
+You see a little building.
+~
+~
+End
+
+#20356
+N A trail at the end of the darkwood forest~
+Ref 0
+D
+The trail ends here, with tall, leafy, green trees all around you.
+To the west, you can see a huge beautiful and radiant city.  Something
+about it gives you a relaxed feeling.  To the east is your way back home.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20326 4 100 1
+R C 170 -1 100 10
+R C 168 -1 100 1
+Dr 1 0 0 20357
+You see the trail.
+~
+~
+End
+
+#20357
+N A trail at the end of the darkwood forest~
+Ref 0
+D
+A side trail here leads from the darkwood forest.  It is definitely milder
+here.  The trail continues to the east from here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20358
+You see the bend ahead of you.
+~
+~
+Dr 3 0 0 20356
+You see the trail continue on.
+~
+~
+End
+
+#20358
+N The Dwarf Forest~
+Ref 0
+D
+You see tall, healthy green trees here.  The trail bends north to
+west from here.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 20323 3 100 1
+R G 27 -1 100 1
+Dr 0 0 0 20359
+You see the trail bend north.
+~
+~
+Dr 3 0 0 20357
+You see the trail bend west.
+~
+~
+End
+
+#20359
+N The Dwarf Forest~
+Ref 0
+D
+You see more big green trees here.  It looks almost as if this place was
+blessed by a god to be green and mild.  The trail leads north and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20360
+You see the trail continue north.
+~
+~
+Dr 2 0 0 20358
+You see the trail continue south.
+~
+~
+End
+
+#20360
+N The Dwarf Forest~
+Ref 0
+D
+You see more big green trees here.  It looks almost as if this place was
+blessed by a god to be green and mild.  The trail leads north and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20361
+You see the trail continue north.
+~
+~
+Dr 2 0 0 20359
+You see the trail continue south.
+~
+~
+End
+
+#20361
+N The Dwarf Forest~
+Ref 0
+D
+You see many big green trees here.  You see many leaves on these huge
+trees.  Grass layer the ground with 2 inches of padding.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 20304 9 100 1
+Dr 0 0 0 20362
+You see the trail continue north.
+~
+~
+Dr 2 0 0 20360
+You see the trail continue south.
+~
+~
+End
+
+#20362
+N The Cross Roads~
+Ref 0
+D
+The roads cross here.  Midgaard is to the west.  To the east, you see the
+stately oaks and poplars of the holy grove.  A wide path leads south through
+the dwarven forest.  To the north is a very desolate trail.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20363
+~
+~
+Dr 1 0 0 20369
+~
+~
+Dr 2 0 0 20361
+~
+~
+End
+
+#20363
+N The Lane~
+Ref 0
+D
+You are shevetiing along a pleasant, shady lane. The road is lined on both
+sides by tall, stately trees which lend the scene with a sense of quiet
+serenity. You can follow the road north or south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20365
+~
+~
+Dr 2 0 0 20362
+~
+~
+End
+
+#20364
+N City Entrance~
+Ref 0
+D
+You stand on the outskirts of a construction site - Midgaard; the capital
+of this land. The road leads east into the peace and quiet - and dangers -
+of the forest; and to the west it becomes the main street of the town;
+surrounded by building foundations of unfinished shops, houses, and temple. 
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 20385
+~
+~
+End
+
+#20365
+N The Plains~
+Ref 0
+D
+You are standing on the plains. This is a vast desolate place where the
+wind can howl undisturbed since nothing but you bars its way. However you
+are not the first to wander here. Before you somebody has left footprints.
+The footprints make a path that looks rather bewildered and is not the kind
+of path to lead to anywhere significant or important but it seems to have
+made up its mind to enter the hills far away north.  A little distance
+further, you lose the trail and decide not to get lost.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20363
+~
+~
+End
+
+#20366
+N The holy grove~
+Ref 0
+D
+You are standing amidst the ancient oaks and poplars in the holy grove. You
+can feel a strange sensation of contentedness and relief seeping through You,
+as if great burdens have been lifted from Your shoulders. From here, friendly-
+looking paths lead east and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 20367
+The path wind its way through the tall trees, disappearing out of sight.
+~
+~
+Dr 2 0 -1 20369
+The path wind its way through the tall trees, disappearing out of sight.
+~
+~
+End
+
+#20367
+N The holy grove~
+Ref 0
+D
+You are standing amidst the ancient oaks and poplars in the holy grove. You
+feel unusually happy here, as if great burdens have been lifted from Your
+shoulders. From here, pleasant-looking paths lead east, west and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 20302 9 100 1
+Dr 1 0 -1 20368
+The path wind its way through the tall trees, towards a clearing faintly seen.
+~
+~
+Dr 2 0 -1 20370
+The path wind its way through the tall trees, towards an open area barely
+visible in the distance.
+~
+~
+Dr 3 0 -1 20366
+The path wind its way through the tall trees, disappearing out of sight.
+~
+~
+End
+
+#20368
+N A clearing in the woods~
+Ref 0
+D
+You are standing in a clearing in the light woods. Somehow, this place
+seems powerfully DIFFERENT from the rest of the forest, as if something is
+severely strained in the fabric of reality here.
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 20327 1 100 1
+Dr 0 0 -1 20375
+A small, narrow path winds north, and is quickly lost in the bushes. It
+looks quite a wilderness there!
+~
+~
+Dr 2 0 -1 20371
+There is a path winding its way south through the tall poplars, disappearing
+out of sight some 100 yds. away.
+~
+~
+Dr 3 0 -1 20367
+There is a friendly-looking path leading west through the tall trees.
+~
+~
+End
+
+#20369
+N The holy grove~
+Ref 0
+D
+You are standing amidst the ancient oaks and poplars in the holy grove. You
+feel calm and relaxed here, as if great burdens have been lifted from Your
+shoulders. From here, pleasant-looking paths lead east, north and south. To
+the west, through the trees, You can see the road to Midgaard's construction
+site.
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 20324 1 100 1
+R G 27 -1 100 1
+Dr 0 0 -1 20366
+The path wind its way through the tall trees, disappearing out of sight.
+~
+~
+Dr 1 0 -1 20370
+The path wind its way through the tall trees, towards a clearing faintly seen.
+~
+~
+Dr 2 0 -1 20372
+The path wind its way through the tall trees, into the grove.
+~
+~
+Dr 3 0 -1 20362
+Through the trees, you can see the Midgaard road. Far to the west, You can
+barely glimpse the construction of the city itself.
+~
+~
+End
+
+#20370
+N The sacred glade~
+Ref 0
+D
+You are standing in the middle of the sacred glades, where the citizens of
+Thalos come to celebrate the spring, where farmers give thanks for bountiful
+harvest in the fall, and where lovers sheveti in summer. You feel seasons of
+remembered happiness and joy taking Your sorrows and worries away from You,
+leaving You calm and invigorate, ready for the world. Paths lead into the
+holy grove to the east, north and west, while to the south a wide, sunny field
+slopes down to a sparkling lake.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 20323 3 100 1
+R G 27 -1 100 1
+Dr 0 0 -1 20367
+The path wind its way north, disappearing through the tall trees.
+~
+~
+Dr 1 0 -1 20371
+The path wind its way through the tall trees, disappearing out of sight.
+~
+~
+Dr 2 0 -1 20373
+To the south, a wide, sunny field stretch out, sloping down towards a brightly
+glittering lake.
+~
+~
+Dr 3 0 -1 20369
+The path wind its way west between stately poplars and oaks.
+~
+~
+End
+
+#20371
+N The holy grove~
+Ref 0
+D
+You are standing amidst the ancient oaks and poplars in the holy grove. You
+can feel a strange sensation of joy and calm seeping through You, as if great
+burdens have been lifted from Your shoulders. To the south, You glimpse an open
+area through the trees, while paths lead away north and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED foundation~
+The foundation looks like it is for a sprawling, two-story affair with three
+wings.  On the ground is some building material, marble would do, if marble
+changed color slowly, continuously, through the entire spectrum.  There are
+also large panes of glass stacked over near one of the corners of the
+foundation.
+~
+R M 20327 2 100 1
+Dr 0 0 -1 20368
+The path wind its way through the tall trees, disappearing out of sight.
+~
+~
+Dr 2 0 -1 20374
+To the south, just beyond the trees, you can see a wide green lawn, and past
+the lawn, a softly shimmering, rainbow-colored dome covering the foundation
+for a structure.
+~
+~
+Dr 3 0 -1 20370
+The path wind its way through the tall trees, disappearing out of sight.
+~
+~
+End
+
+#20372
+N The holy grove~
+Ref 0
+D
+You are standing amidst the tall, majestic trees in the southern end of the
+holy grove. Paths lead north and east. To the east, You can see a wide, open
+field, sloping gently down towards a bright, glittering lake. Somehow, here
+you feel an inexplicable happiness, as if the world's troubles no longer
+really matter to you.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED foundation construction~
+The foundation looks like it is for a sprawling, two-story affair with three
+wings.  On the ground is some building material, marble would do, if marble
+changed color slowly, continuously, through the entire spectrum.  There are
+also large panes of glass stacked over near one of the corners of the
+foundation.
+~
+R M 20328 2 100 1
+Dr 0 0 -1 20369
+The path leading north is soon lost out of sight amongst the ancient oaks and
+poplars.
+~
+~
+Dr 1 0 -1 20373
+To the east, the path leads out into a wide, sunny summer's field, sloping
+south towards a beautiful lake. Past the field You can see the construction
+of a large foundation for a structure shimmering gently in all the rainbow's
+colours.
+~
+~
+End
+
+#20373
+N The sunny field~
+Ref 0
+D
+You are standing in the middle of a wide, summery, sunlit field. There is a
+fragrance of spring in the air, a sound of summer and a feeling of eternal
+Saturday afternoon. To the south is a clear, sparkling lake, and to the north
+and west is the holy grove. In the wood's edge, to the east, is construction,
+shimmering softly through the colors of the rainbow. You feel as if You
+could spend the rest of your life here, lying on your back and looking at the
+patterns of the clouds as they gently drift across the sky.
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+ED dome construction structure east e~
+The foundation looks like it is for a sprawling, two-story affair with three
+wings.  On the ground is some building material, marble would do, if marble
+changed color slowly, continuously, through the entire spectrum.  There are
+also large panes of glass stacked over near one of the corners of the
+foundation.
+~
+R M 20325 3 100 1
+Dr 0 0 -1 20370
+There is a path leading north towards the sacred glade.
+~
+~
+Dr 3 0 -1 20372
+There is a small path leading into the woods to the west.
+~
+~
+End
+
+#20374
+N The croquet lawn~
+Ref 0
+D
+You are standing on a immaculately manicured green lawn, the kind you only
+get after 200 years of meticulous work. There is a winding stone path leading
+from the wood's edge to the north, to the softly shimmering, rainbow-colored
+dome covering construction to the south. This place enjoys a perpetual cool,
+sunny summers after-noon.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+ED dome construction south s~
+The foundation looks like it is for a sprawling, two-story affair with three
+wings.  On the ground is some building material, marble would do, if marble
+changed color slowly, continuously, through the entire spectrum.  There are
+also large panes of glass stacked over near one of the corners of the
+foundation.
+~
+R M 20328 1 100 1
+Dr 0 0 -1 20371
+To the north, the winding stone path leads into the holy grove.
+~
+~
+End
+
+#20375
+N The Void~
+Ref 0
+D
+You are standing in the middle of something you cannot explain.  You see
+stars yet you cannot see what you are standing on.  You are not standing
+on any sort of physical 'ground' as you can see yet you are not floating
+either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+rainbow then back to its normal state.  In the middle of this room is
+a ladder standing vertical.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20378
+You see stars.
+~
+~
+Dr 2 0 0 20368
+You see a fuzzy portal of some sort and a little green.
+~
+~
+Dr 3 0 0 20378
+You see stars.
+~
+~
+Dr 4 0 0 20376
+You see stars.
+~
+~
+Dr 5 0 0 20376
+You see stars.
+~
+~
+End
+
+#20376
+N The Void~
+Ref 0
+D
+You are standing in the middle of something you cannot explain.  You see
+stars yet you cannot see what you are standing on.  You are not standing
+on any sort of physical 'ground' as you can see yet you are not floating
+either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+rainbow then back to its normal state.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20377
+You see stars.
+~
+~
+Dr 1 0 0 20376
+You see stars.
+~
+~
+Dr 2 0 0 20377
+You see stars.
+~
+~
+Dr 3 0 0 20376
+You see stars.
+~
+~
+Dr 4 0 0 20375
+You see stars.
+~
+~
+Dr 5 0 0 20375
+You see stars.
+~
+~
+End
+
+#20377
+N The Void~
+Ref 0
+D
+You are standing in the middle of something you cannot explain.  You see
+stars yet you cannot see what you are standing on.  You are not standing
+on any sort of physical 'ground' as you can see yet you are not floating
+either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+rainbow then back to its normal state.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20376
+You see stars.
+~
+~
+Dr 1 0 0 20377
+You see stars.
+~
+~
+Dr 2 0 0 20376
+You see stars.
+~
+~
+Dr 3 0 0 20377
+You see stars.
+~
+~
+Dr 4 0 0 20378
+You see stars.
+~
+~
+Dr 5 0 0 20378
+You see stars.
+~
+~
+End
+
+#20378
+N The Void~
+Ref 0
+D
+You are standing in the middle of something you cannot explain.  You see
+stars yet you cannot see what you are standing on.  You are not standing
+on any sort of physical 'ground' as you can see yet you are not floating
+either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
+rainbow then back to its normal state.  In the middle of this room is
+a ladder standing vertical.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20375
+You see stars.
+~
+~
+Dr 2 0 0 23903
+You see a fuzzy portal of some sort and a little green.
+~
+~
+Dr 3 0 0 20375
+You see stars.
+~
+~
+Dr 4 0 0 20377
+You see stars.
+~
+~
+Dr 5 0 0 20377
+You see stars.
+~
+~
+End
+
+#20379
+N The Temple Of Midgaard~
+Ref 0
+D
+You are in the southern end of the temple hall in the Temple of Midgaard.
+The temple has been constructed from giant marble blocks, eternal in
+appearance, and most of the walls are covered by ancient wall paintings
+picturing Gods, Giants and peasants.
+   Large steps lead down through the grand temple gate, descending the huge
+mound upon which the temple is built and ends on the temple square below.
+   You notice that this building is quite new.  A small plaque is on this wall.
+~
+C
+~
+F 1036
+S 0
+M 0
+W 0
+T 0
+O ~
+ED plaque~
+This entire world has been integrated, modified, debugged, and enhanced by
+Hatchet, Kahn, and Furey of MERC Industries to be run by any MERC Mud.
+1992 December 17
+~
+Dr 0 0 -1 20386
+At the northern end of the temple hall is a statue and a huge altar.
+~
+~
+Dr 2 0 -1 20380
+You see the temple square.
+~
+~
+End
+
+#20380
+N The Temple Square~
+Ref 0
+D
+You are standing on the temple square.  Huge marble steps lead up to the
+temple gate.  The ground is just dirt but there are plans to make the road
+cobble stone.  Just south of here you see a blooming market square, the
+center of Midgaard.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20332 2 100 1
+Dr 0 0 -1 20379
+You see the temple.
+~
+~
+Dr 2 0 -1 20381
+You see the Market Square.
+~
+~
+End
+
+#20381
+N Market Square~
+Ref 0
+D
+You are standing on the market square, the Square of Midgaard.  It seems
+that a large, peculiar looking statue is being built here in the middle of
+the square.  Roads lead to the north and east, north to the temple square,
+east is the main street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED statue~
+What you see is an uncompleted statue of what you think is the Midgaard
+mascot.
+~
+R M 20331 1 100 1
+Dr 0 0 -1 20380
+You see the temple square.
+~
+~
+Dr 1 0 -1 20382
+You see the main street.
+~
+~
+End
+
+#20382
+N The Main Street~
+Ref 0
+D
+You are on Main Street crossing through this booming town.  The main
+street continues east.  To the west you see and hear a small market place.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 20383
+You see Main Street.
+~
+~
+Dr 3 0 -1 20381
+You see the market square.
+~
+~
+End
+
+#20383
+N The Main Street~
+Ref 0
+D
+The main street, to the east you leave town and to the west the street
+leads to the market square.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 20384
+You see the city gate.
+~
+~
+Dr 3 0 -1 20382
+You see the main street leading to the market square.
+~
+~
+End
+
+#20384
+N Inside the East Gate of Midgaard~
+Ref 0
+D
+You are by two small newly built towers that have been built into the
+city wall and connected with a footbridge across the heavy wooden gate.
+Main Street leads west from here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+R M 20334 1 100 1
+Dr 1 0 3133 20385
+You see the city gate.
+~
+gate~
+Dr 3 0 -1 20383
+You see Main Street.~
+~
+End
+
+#20385
+N Outside the East Gate of Midgaard~
+Ref 0
+D
+You are by two small towers that have been built into the city wall and
+connected with a footbridge across the heavy wooden gate.  To the east the
+plains stretch out in the distance.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+Dr 1 0 -1 20364
+You see the plains.~
+~
+Dr 3 0 3133 20384
+You see the city gate.
+~
+gate~
+End
+
+#20386
+N By the Temple Altar~
+Ref 0
+D
+You are by the temple altar in the northern end of the Temple of Midgaard.
+A huge altar made from white polished marble is standing in front of you and
+behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
+~
+C
+~
+F 1032
+S 0
+M 0
+W 0
+T 0
+O ~
+ED statue odin king god~
+The statue represents the one-eyed Odin sitting on a his throne.  He has
+long, grey hair and beard and a strict look on his face.  On top of the
+throne, just above his shoulders, his two ravens Hugin and Munin are sitting
+and at his feet are his wolves Gere and Freke.
+~
+ED altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
+~
+Dr 2 0 -1 20379
+You see the southern end of the temple.
+~
+~
+End
+
+#20387
+N Market street~
+Ref 0
+D
+You stand in the middle of a broad street. The paving of this street is
+clearly well looked after. From the east, you hear the sounds of
+the market place, and several merchant run past you, heading along on
+their bussiness.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20308
+~
+~
+Dr 3 0 0 20388
+~
+~
+End
+
+#20388
+N Merchant Street~
+Ref 0
+D
+You stand in the middle of a broad street lined by several expensive looking
+houses. The houses are build of stone, some sporting exquisite marble
+decorations. Some partols walk past occationally, their boots
+clinking on the pavement.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20387
+~
+~
+Dr 3 0 0 20389
+~
+~
+End
+
+#20389
+N Merchant Street~
+Ref 0
+D
+You walk along Merchant Street. You can see several people walking over
+to a building wich has a sign marked "The Nobleman's refuge" hanging
+above its doors. The sound of several voices can be heard from it.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20390
+~
+exquisite iron wrought door~
+Dr 1 0 0 20388
+~
+~
+End
+
+#20390
+N The Nobleman's refuge~
+Ref 0
+D
+You stand in a spacious inn, lit by several exquisit wrought metal lamps.
+There are several people here, sitting at the various tables scattered
+around the inn. The counter is made of darkwood, and richly decorated
+with intriguing carvings of various animals, being hunted by richly
+dressed people.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20335 1 100 1
+R O 18001 -1 100 50
+R O 18601 -1 100 50
+R O 18002 -1 100 50
+Dr 2 0 0 20389
+~
+~
+End
+
+#0
+
+
+
+#$

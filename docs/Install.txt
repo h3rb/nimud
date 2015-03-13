@@ -1,0 +1,28 @@
+First, it is important that you do not follow these instructions if you
+are logged in as root.  Log in as a different user, and then follow
+these instructions.  If you don't have root access on the machine you
+are on, don't worry about this comment.
+
+Installation Notes
+------------------
+
+There are four steps to this process, follow each one carefully:
+
+1. Extract files (if you are reading this you already have) using:
+tar -zxvf archive_name.tar
+
+2. Modify filepath and port variables in file 'startup' in the main
+directory you've installed the software into.
+
+3. Modify filepath variable in files 'recompile', 'refresh' and 'package'
+to reflect the full path and directory of the location of the software
+and all of its related files.
+
+4. Add to crontab or type from the command line:
+nohup ./startup &
+
+NOTE: To stop a runaway startup process, a 'stop' script has been
+provided in the same directory as the above scripts.
+
+--
+swervez@hotpop.com

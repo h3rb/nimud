@@ -1,0 +1,663 @@
+
+
+	
+A Classification of MUDs
+
+
+   Martin Keegan
+   Grandmaster Data Services Ltd
+   Cambridge, U.K.
+
+martin@cam.sri.com
+
+		
+
+ABSTRACT
+
+Muds have evolved into many varied forms since their creation in 1979. The Internet has 
+facilitated the distribution of both mud software and ideas, and accelerated the pace of mud 
+development. Today, most muds are derived from publicly available software. Muds derived from 
+the same software will exhibit similarities which may be used to deduce which muds are 
+related. This paper presents a breakdown of The Mud Tree (a diagram by the author displaying 
+the relationships between different types of mud), and offers a classification system based on 
+the type of world modelled by a mud.
+
+INTRODUCTION
+
+In the mid 1980s, most muds were either dial-up systems, or existed on proprietary (i.e. 
+non-Internet) networks. Playing most muds involved connecting with a modem to an online 
+service such as Compuserve or Micronet, and paying a telephone company, the proprietary 
+network or the mud (and possibly all three) for access. When Bartle (1990) conducted the first 
+systematic description of muds and mud types, his classification reflected the preponderance 
+of the proprietary networks which existed before the spread of the Internet in the early 
+1990s.
+
+Those new to mudding may notice that there are strong similarities between certain muds, and 
+weaker relationships between others. Between some muds there is seemingly no relationship at 
+all. However, this paper will demonstrate that almost all muds are related to one of two 
+original sources.
+
+This paper examines two methods for classifying mud systems. One, the "genealogical" 
+classification (dealt with in the Genealogical Classification section), is based on the fact 
+that most muds were created from ideas and/or software borrowed from earlier muds and thus 
+bear a family resemblance to their parents. The second, "typological", method groups muds 
+together according to certain characteristics - what the muds are, rather than how they came 
+to be that way. This is investigated in the Typological Classification section.
+
+A substantial proportion of the relational information in this paper was gathered as part of 
+"The Mud Tree". The Mud Tree was a diagram of the inheritance relationships between muds 
+(inspired by a diagram showing the inheritance relationships between Indo-European languages), 
+which I posted to Usenet newsgroups such as rec.games.mud.misc as a request for more 
+information. The Mud Tree was first posted in March 1996, and reposted a number of times in 
+1996 and 1997 incorporating new material and revisions. [1]
+
+BACKGROUND
+
+HISTORICAL INFORMATION
+
+Written as part of an attempt to sell MUD2 to British Telecom, Bartle's (1990) paper 
+concentrated almost exclusively on commercial muds. Since then, the growth of the Internet has 
+encouraged the expansion and evolution of muds into many different forms, by reducing the 
+costs of both playing and running them. It has also given muds international reach and brought 
+an influx of users from a range of backgrounds wider than the mainly academic communities who 
+played the early muds. No reliable statistical data is available concerning the total number 
+of users; I take fifty thousand as a ballpark figure for the number of people regularly 
+playing muds today. At the time of writing there are approximately 800 muds listed as being 
+publicly available on the Internet. Internet muds now constitute the vast majority of muds, 
+the older dialup (modem) muds now largely extinct.
+
+Until the release of the software for games like AberMUD and Monster in 1988, there normally 
+existed only a single running copy of each mud. The release of the source code for AberMUD 
+prompted the creation not merely of several other muds using the AberMUD server software, but 
+also of many imitators, such as LPMud, TinyMUD, DikuMUD and DUM. [2] Instead of a "virtual 
+community" coming into being on a mud, communities now sprang up based around *families* of 
+muds - there was a DikuMUD community, a TinyMUD community, and so on. Muds which were similar 
+naturally attracted similar sorts of user, and these users would often play several muds of 
+the same type, forming communities which spanned multiple (but similar) muds.
+
+DIFFICULTIES FOR RESEARCH
+
+One of the problems faced by researchers in this area, despite the relatively abundant 
+historical evidence available, is that some mud authors and users have a habit of disguising 
+or denying the origins and influences of their muds, for political or commercial reasons. This 
+practice may manifest itself in the renaming of the server to make it appear that it was 
+entirely written by the administrators, or the removal of the credits and licensing 
+information. The converse of this phenomenon, authors claiming that other muds are derived 
+from theirs, is also prevalent.
+
+Another difficulty is that a portion of mudding history has been lost as the memories of mud 
+creators and users have faded. Some of these muds *did* have an influence on mud development - 
+texts on mud history (Various authors, 1990) wistfully recount a "nameless mud" from which 
+Aspnes borrowed the use of the " symbol as an abbreviation for "say". Further complication is 
+introduced by "apocryphal muds", which in all likelihood never actually existed outside the 
+imaginations of those who claim to have authored or played them.[3]
+
+GENEALOGICAL CLASSIFICATION
+
+A simple classification of muds may be made on the basis of the server software [4] used to 
+run them. In general, this software is freely available and anyone with sufficient resources 
+(network connectivity, time, programming knowledge, etc.) may use it to run a mud. Muds 
+created using the same software will have many features in common - an individual mud's 
+distinctive flavour will spring from what modifications the mud's administrators choose to 
+make to the software. Given that most mud server software was influenced by, inspired by or 
+derived from that of previous muds, it is possible to create a "family tree" of relationships 
+between mud server types, extending (in the case of most server software) back to Trubshaw and 
+Bartle's MUD1.
+
+There are two distinct mechanisms by which a mud or mud type may inherit features from 
+previous muds (its "parents" or "ancestors", as it were). Using biological organisms as an 
+analogy, I name these mechanisms "genetic inheritance" (using the *code* of previous muds) and 
+"grafting" (using the *ideas* of other muds). Genetic inheritance can be seen as the natural 
+evolution of a system's DNA (or software, for our purposes); Firstly, a programmer may take 
+the software for a mud and rewrite large sections of it, rereleasing it to the public (and 
+generally renaming it too). The resultant software will have many similarities with the 
+parent, and will usually be subject to a superset of the parent's licensing restrictions. For 
+example, all Merc muds have (or *should* have) the original DikuMUD license and credits 
+present, and generally look and feel relatively similar to original DikuMUD.
+
+Grafting, on the other hand, is like taking a branch of a tree and attaching it to a different 
+tree altogether. In muds, grafting takes place when a programmer copies, for instance, a 
+combat system from another mud, reimplementing it in his or her own code. Either the ideas and 
+features are added to an existing system, or form the basis of a new one. The creators of Diku 
+and DUM saw AberMUD and wanted to write their own versions, incorporating the good ideas and 
+omitting the rest.[5] They had access to the AberMUD code, but decided to write their own.
+
+The closer the genetic relationship between two muds, the more features they are likely to 
+have in common. Many cosmetic features (the initial connection sequence, the formatting of 
+text with prompts, punctuation and spacing, the commandline parser etc) are often similar if 
+not identical between muds of the same or closely related types, and may be used by 
+experienced mudders to determine what type a mud is in cases where this is in doubt or 
+contention. In the case of some types of mud software, large sections of the database may also 
+be held in common.
+
+DETERMINING INHERITANCE
+
+Knowledge of the strength of the similarities between related muds can in theory enable us to 
+deduce the inheritance relationships between almost all of them. Such an approach to 
+classification is necessary in disciplines such as palaeontology, where there is but limited 
+skeletal evidence from which to extrapolate. With muds, however, the wealth and recency of 
+information available has enabled us to use the simpler methods of contacting the authors, and 
+gathering historical material from the Web, ftp sites, and Usenet news.
+
+The more usual taxonomic systems take one or more characteristics of an entity and classify on 
+those properties. Such a classification is undertaken in the Typological Classification 
+section of this paper, and considered alongside other typological classification criteria. 
+Genealogical classification is best represented by a "family tree" demonstrating which muds 
+inherit portions of software from which others.
+
+BUILDING THE TREE
+
+Prior to the widespread release of muds in source-code form, muds were generally created from 
+scratch (MUD1, Scepter) or by large-scale grafting of ideas. Bartle's MUD spawned a stable of 
+"Essex muds", all using the Bartle and Trubshaw code, chief amongst which were MUD1 itself and 
+MIST. Alan Cox took the ideas of MUD1 and wrote AberMUD in 1988, releasing the code to the 
+'Net community. Likewise, the authors of Mordor adapted ideas from Scepter of Goth for their 
+publicly distributed (in 1993) mud server software.
+
+The release in source-code form permitted *genetic* evolution to take place, and "families" of 
+mud server types sprang up around the descendents of AberMUD. These families constitute the 
+majority of muds today.[6]
+
+The following mud servers were grafted from version 3 of AberMUD: LPMud, DUM, Diku and 
+TinyMUD.[7] These developments took place between 1988 and 1990. Since 1990, most mud 
+evolution has been by the genetic mechanism. DUM was rewritten to make DUMII. TinyMUD and 
+DikuMUD spawned myriad rewrites. LP was grafted from both AberMUD and TinyMUD. Grafting 
+henceforth only took place on a limited scale, *within* families. The separation of mudding 
+into separate communities based around server code families discouraged the flow of ideas 
+between the different groups.
+
+A basic tree detailing these developments could be drawn as follows:
+
+
+      Essex MUDs                       
+           :                          Scepter 
+           :                             : 
+     Early AberMUD                       : 
+      |        :                         : 
+      |        :                         : 
+      |        :                         : 
+   AberMUD   +=+===+====+======+         : 
+      |      :     :    :      :         :    
+      |    Diku   DUM   :     Tiny       : 
+     Dirt          |    :      :      Mordor 
+                 DUMII  +==>+<=+    
+                            :    
+                            LP 
+
+In this tree (and those below), double lines (consisting of colons and equal signs) denote 
+grafting, and single lines genetic inheritance. The lines connecting Early AberMUD, AberMUD 
+and Dirt therefore represent genetic mutation; Dirt is therefore the only extant major family 
+genetically related to AberMUD. [8]
+
+SUBTREES
+
+Let us now examine the families in more detail.
+
+THE DIKU FAMILY
+
+Muds of the Diku family are likely to resemble each other more strongly than members of other 
+families resemble each other. This is largely because Diku muds, moreso than other types, are 
+distributed as fully working games, with prewritten worlds, rather than as platforms upon 
+which one must expend much effort to create a passable system. Whether this is a strength or a 
+weakness is a question beyond the scope of this paper.
+
+One interesting effect of the distribution method is that Diku muds have a much stronger sense 
+of a common culture, rooted in a combination of Norse mythology and Dungeons & Dragons. Many 
+of the more common regions of Diku muds are well known to experienced players, and have even 
+spawned parodies. Diku muds are therefore well suited to cater to players who prefer to be 
+able to assume a passing acquaintance with a mud before playing it in earnest.
+
+
+                  DikuMUD[9]
+                     |               
+    +---------+------+-------+------+ 
+    |         |      |       |      | 
+  Silly   Pirate  Copper    Vie   Circle 
+    |                |    
+ DaleMUD           Merc   
+                     |    
+          +----+-----+-----+-----+ 
+          |    |     |     |     | 
+         ROM  Ack  Envy  Smaug NiMUD 
+          |          | 
+      +---+----+   Mythran 
+      |        | 
+  Oblivion   Ember 
+
+THE LP FAMILY (MUDLIBS AND DRIVERS)
+
+LP muds are more complicated to classify as they consist of two layers, a "driver" and a 
+"mudlib". The driver is responsible for handling the low-level management of the game -- 
+network connections and interpreting LPC (the internal language of LP muds), and so on. The 
+mudlib, written in LPC, defines the mud's "look and feel" - it contains the parser, the 
+database, the command set and the cosmetic features. Some mudlibs may be used with more than 
+one driver. The drivers are only dealt with here for historical interest.
+
+Due to the inherent flexibility of LP muds, it is possible to write almost any type of mud in 
+it (not to mention web servers), whereas most other server software varieties heavily favour a 
+particular type of game (Dikus favour a gradually restocking, combat-based game with limited 
+building ability). This hinders attempts at typological classification as undertaken in the 
+Typological Classification Section.
+
+LP Drivers
+
+
+               LP v1 
+                 | 
+             +---+---+ 
+             |       | 
+            DGD   LPMUD 2.4.5 
+                     | 
+           +---------+-----------+ 
+           |         |           | 
+        UriMUD    LPMud 3.0  Shattered 
+                     |        Worlds 
+                     | 
+     +-----------+---+------------+ 
+     |           |                | 
+   CD (LPMud)  LPMud 3.1.2   LPMud 3.1.2-DR 
+                 |                | 
+          LPMud 3.2 (Amylaar)  MudOS (LPMud) 
+
+LP Mudlibs
+
+Developments in the drivers for LP muds (indicated in square brackets) influenced the 
+evolution of the individual mudlibs.[10]
+
+
+                       [MudOS][11]
+                          : 
+          +===============+==============+ 
+          :                              : 
+        TMI-1                       [MudOS v20] 
+         | :                             : 
+    +----+ +=+=========+                 :  [LPMud 2.4.5] 
+    |        :         :                 :        : 
+  TMI-2  Discworld  Nightmare 1-2        :        : 
+                     |      |            :        : 
+                 +---+      |            +=====+  : 
+                 |          |            :     |  : 
+             Nightmare 3   Foundation 1  :     Lima 
+                                 :       :
+                                 :       :
+                               Foundation II
+                                    |
+                               Nightmare IV
+
+THE TINY FAMILY
+
+TinyMUD was heavily influenced by Monster, a VMS game written by Rich Skrenta, by the IRC 
+version of Wumpus and by AberMUD.
+
+
+                          TinyMUD[12]
+                             | 
+          +---------+--------+---------+--------+-----+ 
+          |         :        |         |        :     | 
+       TinyMOO   UberMUD     |      TinyMUCK  Teeny  SMUG 
+        |   :     :   :      |       :   |      :    
+        |   +==+==+   +======+=======+   |   PerlMUD 
+        |      :             |           |       
+   LambdaMOO CoolMUD      TinyMUSH       |       
+          :   |              |           |       
+         ColdMUD     +-------+-----+--+  |           
+            |        |       |     |  |  |          
+           Cold    MUSE  PennMUSH  | TinyMAGE       
+                     |       :     | 
+                   MARE      +==+--+ 
+                                | 
+                               MUX 
+
+N.B.: TinyMOO and TinyMUSH are often known as MOO and MUSH respectively.
+
+THE MORDOR FAMILY
+
+
+                    Scepter[13]
+                       : 
+                       : 
+                    Quest for 
+                     Mordor 
+                       | 
+                 +-----+-----+ 
+                 |           | 
+              Chalacyn       | 
+               Nights    Isengard 
+                             | 
+                          Mordor 
+                     (public releases) 
+
+Notes: Chalacyn Nights and Isengard are single muds, rather than families.
+
+THE ABERMUD FAMILY
+
+
+                  MUD1      MIST[14]
+                   :         : 
+                   +====+====+ 
+                        : 
+                        : 
+                     AberMUD 
+                        | 
+            Lance    AberMUD3 
+              :         | 
+              :   +-----+------+ 
+              :   |            | 
+             AberMUD5      AberMUD4 
+                               | 
+                              Dirt 
+                               | 
+                          +----+----+ 
+                          |         | 
+                         Dyrt     idirt 
+
+Notes: AberMUD4 was written by Richard Salz during a year when Alan Cox was away from the 
+Internet. AberMUD5 is by Cox, and incorporates ideas from Lance, written by Leon Thrane, 
+another AberMUD coder.
+
+MISCELLANEOUS MUDS
+
+There exists a handful of miscellaneous muds not classified genetically. The lineages of 
+commercial systems such as Avalon, Shades and Terris are notoriously controversial, as 
+commercial muds' owners and their detractors can have public relations or financial interests 
+in the systems' perceived origins. Other notable muds which are not members of the 
+aforementioned families include Gemstone III, and Island.
+
+This paper concerns itself almost exclusively with text-based muds, as opposed to text-based 
+talkers or graphical muds. The number of graphical muds is now increasing steadily, yet no 
+source code for them is publicly available, so large families are yet to form.
+
+For further information on miscellaneous muds, see The Mud Tree.
+
+OTHER INFLUENCES ON THE TREE
+
+Some of the personal email I received in relation to the Tree cited actual programming 
+languages (like C and LPC) as parents of muds, in addition to other muds (personal 
+communication from Brandon Gillespie, 1996). Certainly, in cases such as LPs, TinyMOO, 
+UberMUD, and Cold, the mud's internal language is the dominant and defining feature. In 
+contrast, the bulletin-board systems in the early days of JANET[15] were also mentioned 
+(personal communication from Alec Muffett, 1996), as were "talkers" and single-user adventures 
+like Zork and Colossal Cave. Coincidentally, since beginning work on The Mud Tree, I 
+discovered not only Bartle's (1990) tree but also a tree charting the evolution of versions of 
+the Colossal Cave program.
+
+TYPOLOGICAL CLASSIFICATION
+
+Comparing muds with other systems capable of evolution, we find that the mechanisms by which 
+muds evolve make their evolution more like that of languages than species of animals or 
+families of humans. Some mud types are formed from the combination of other mud types: such 
+convergence can occur with languages.[16] Similarly, intermarriage is possible between members 
+of the same human family. However, by definition, different species cannot in general produce 
+offspring, or in the few instances where they can, the offspring are infertile.[17] Muds, 
+languages and human families are capable of recombinative generation; species are not. In 
+addition, new muds and languages can be created without any direct influence from others[18]; 
+families and species cannot spontaneously spring into existence without forebears.
+
+To build a workable taxonomy for classifying a group of entities, it is necessary to have a 
+means of measuring their differences and similarities. Aristotle's system of taxonomy chose 
+one characteristic of an organism for classifying species into families, and the Swedish 
+taxonomist Linnaeus adopted a similar approach in the eighteenth century. The result of such 
+approaches was that species with little in common other than the characteristic selected for 
+examination would be grouped together, and similar species which differed in this respect were 
+kept apart. At the beginning of the nineteenth century, Cuvier and de Candolle devised systems 
+which examined many characteristics and weighted them appropriately. This methodology forms 
+the basis of the taxonomy system used by botanists and zoologists today.
+
+Until now, typological classification of muds has primarily been carried out using a single 
+discriminating criterion, which separated muds into two groups, "social-oriented" and 
+"combat-oriented". Whereas an obvious distinction does exist between such muds, this 
+distinction served only to separate TinyMUD and its derivatives from all other muds. The 
+subconscious tendency to take as one's characteristics for classification those features of 
+one's favourite mud type which most distinguish it from all others is quite strong, and may 
+well be responsible for the stressing of a "disk-based" versus "memory-based" division in 
+documents such as The MUD FAQ and The MUD Timeline (both written by users of the first 
+memory-based muds) or the frequent mention of "gender pronoun substitution" in Bartle (1990). 
+Pavel Curtis, who was involved in the creation of TinyMOO, enumerated criteria which a system 
+must meet to be called a mud. He asserted that muds must be capable of self-modification and 
+not be "goal oriented":
+
+
+        A MUD is not goal-oriented; it has no beginning or end, 
+        no 'score', and no notion of 'winning' or 'success'. 
+        In short, even though user of MUDs are commonly called
+        players, a MUD isn't a really a game at all. 
+
+        A MUD is extensible from within; a user can add new objects
+        to the database ... (Curtis & Nichols, 1993)
+
+This definition of muds is not used in this paper as it disqualifies most non-TinyMUDs! By 
+using a single discriminating criterion, the shortcomings of Aristotle's and Linnaeus' 
+taxonomies were repeated.
+
+The characteristics I have chosen for classifying muds involve an examination of aspects of a 
+mud's world. They are:
+
+(1) The degree to which the mud permits modification of its world by users and administrators, 
+and
+
+(2) How the mud's world replenishes itself.
+
+These features I regard as more fundamental than what sort of users a mud attracts or any 
+consideration of its low-level mechanics or cosmetic grammatical features. Similarly, the 
+"skills-based" versus "experience" distinction sometimes made (concerning how personal 
+advancement occurs in the mud) is not particularly useful, as a substantial proportion of muds 
+don't involve personal advancement.
+
+SELF MODIFICATION
+
+Some muds (such as TinyMUD and its derivatives) permit users to build new rooms and objects on 
+a grand scale; indeed one might even call this their raison d'etre. Others restrict this 
+significantly, or do not possess such a feature. In the first TinyMUD, all users could build 
+new locations and objects (though the means of easily removing them had not been created!). LP 
+muds permit high-ranking characters (usually called wizards) to create and destroy parts of 
+the mud world.
+
+On the more traditional Dikus and Abermuds, no such facility existed.[19] Acquiring the 
+permission to create new parts of the mud did not require months of dedication on the early 
+TinyMUDs. On other systems, the ability to modify the mud world may be restricted to the 
+highest levels of the mud administration - or it may not even be possible from within the mud.
+
+What is critical for the purpose of classification is whether the permission to "build" is 
+available to anyone, may be earned through playing, or must be conferred by the actions of an 
+administrator.
+
+RESETTING
+
+In real life, once something is dead, it stays dead. If the population of a village is wiped 
+resources are depleted through killing and plunder, the dead non-playing characters (NPCs), 
+the food which has been eaten, the ale drunk, and the shattered shields and broken spears must 
+all be replenished, otherwise the mud will quickly become stagnant when all the resources are 
+used up. Finding a realistic method of replenishing the resources in a mud world is a great 
+challenge, since by its very nature the process cannot hope to be realistic. Muds in the 1980s 
+tended to favour what I call the "Groundhog Day"[20] system: periodically, the game undergoes 
+a "reset" (either initiated by the users or the system itself), where all the elements of the 
+mud's world (excluding the users) are reset to some predefined state. Users retained only 
+their scores, knowledge and experience when entering the newly recreated world.[21] The main 
+alternative to this system, favoured by Dikus and LPs, is one of continuous restocking of the 
+world. Once an entity is destroyed, a replacement will shortly be created in its place. In 
+muds oriented towards building and socialising rather than competition and combat, the world 
+may not need to be reset at all. (If it did, this would be counter-productive were it tng")? 
+No-one ("no building")?
+
+Muds derived from the same software will tend to have nearly identical reset and building 
+characteristics, so plotting the set of, say, all AberMUDs on a diagram whose axes represent 
+these characteristics will produce a cloud concentrated in the "Groundhog Day, no building" 
+corner. In fact, this corner is quite crowded, as it must also accommodate MUD1, DUMII, 
+Island, and YAMud. This area has been marked as containing "AberMUD" and "DUM" on the figure.
+
+Figure 1 attempts to give a rough outline of the relative positions of some of the major mud 
+types, and should be taken as nothing more than an approximation. In particular, LPMuds and 
+UberMUDs are probably capable of emulating the behaviour of most of the others on the figure. 
+However, *in general*, they occupy the positions indicated.
+
+Muds types which are more closely related in these two characteristics will appear closer 
+together on the figure. Though one might assume there to be an inverse relationship between 
+the amount of building and resetting in a mud (or "creation" and "destruction") the 
+characteristics are not completely interdependent. Obviously, muds where *anyone* may add 
+objects to the database are not likely to involve the competitive point-scoring typical of 
+"destruction" muds, lest users create themselves immensely powerful weapons and valuable 
+treasure, and muds where there is no building *or* resetting are quite rare - Federation II 
+was one such. Instead of creating and/or consuming resources, users redistributed their 
+resources through trade.
+
+The origin of the "social versus combat" distinction may be seen in the figure - muds where 
+resources are consumed through battle and plunder (and which hence require resetting) attract 
+a different sort of person from that attracted by muds which revolve around creation of 
+complex scenarios, either through programming and building, or role-playing. The Socialisers 
+and Explorers in Bartle (1996) are attracted to muds in the TinyMUD mould, and that the 
+Achievers and Killers are drawn to Dikus and AberMUDs.
+
+MUD SURVIVAL AND FURTHER EVOLUTION OF THE TREE
+
+Learning to play a new mud requires an expenditure of effort - first-time users of a mud must 
+familiarise themselves with a set of commands, much of the mud world, wrestle with the mud's 
+parser and so on. The amount of effort necessary (and hence, presumably, the *time* necessary) 
+decreases if users are already familiar with similar muds. Over time this often generates a 
+preference for one particular type of mud, if not a blanket refusal to play or try any other 
+sort. [22]
+
+Partially as a result of this, users tend to form communities which congregate on muds of the 
+same type. They may be able to bring pressure to bear on mud coders to make their muds 
+resemble other muds their users frequent. Assuming coders are interested in the size of their 
+userbase, it is in their muds' interests to conform.
+
+The much greater number of muds in existence (compared with previous populations) requires 
+muds to compete for users. This gives the users more influence - they are now "consumers" or 
+"customers" of the mud. A deleterious effect of this new-found muscle is that users may use it 
+to pressure admins to reduce the amount of effort required for playing (making the mud 
+"easier"). Groundhog Day resets are unpopular,[23] and the ability to build is popular. This 
+trend ought to propel muds towards the TinyMUD corner of the Figure, and some evidenode to 
+enable the creation of more copies of their muds. The diversity of the overall system will be 
+restored, and genetic evolution may begin again.
+
+Bartle's tree (1990) listed approximately fifty systems. Ten of these were actually genetic 
+families of muds (AberMUD, TinyMUSH, TinyMOO, UberMUD, DUMII, SMUG, YAMA), around thirty were 
+individual muds (most of them related to MUD1 by grafting, and most constituted single-member 
+"families"), and a further ten were other miscellaneous mud-like systems. Were his list 
+rewritten today, it would contain a mere handful of individual systems (MUD2, Avalon, Gemstone 
+III, Terris) and large sections on the six families: TinyMUD, LPMud, Diku, AberMUD, Mordor, 
+and DUMII. This represents a significant decrease in the overall diversity of mudding, though 
+the new muds (especially the LPs and some forms of TinyMUD) are considerably more flexible 
+than those they have replaced.
+
+CONCLUSIONS
+
+The motivation for this paper was to provide an explanation of the manner in which muds are 
+related and how they have evolved.
+
+The Tree has grown over time, with new layers of muds being added at the bottom. This will 
+doubtless continue, and this paper has suggested how this might happen.
+
+It was argued that muds whose source code is readily accessible have a better survival chance 
+than those which don't. It is no coincidence that the almost all muds today are descended from 
+the first publicly available muds written for Unix in C.
+
+Using two characteristics for typological classification is anlso be found on the DejaNews 
+Usenet archive.
+
+[2] Taken together, muds based on DikuMUD, TinyMUD and LPMud software account for well over 
+half the muds now available.
+
+[3] For example, muds which were said to have been run using software which was not available 
+at the time the muds were claimed to have been played.
+
+[4] The term "software" is used here to mean the programs *and* data required for running a 
+mud, and includes the database of a mud's world.
+
+[5] Indeed, Christer Holgersson (DUM author), wrote "I liked AberMUD but not the code." -- 
+DUMII documentation
+
+[6] It must also be observed that families whose source code was not as widely distributed 
+(DUM, YAMud) do not contain many muds, relative to the larger families.
+
+[7] I list TinyMUD here because all sources except TinyMUD's author insist (some in quite 
+strong terms) that TinyMUD was influenced by (if not derived from) AberMUD
+
+[8] Sources: LPMud FAQ, DikuMUD FAQ, DUMII internal documentation, "Mud History", personal 
+communication (1996 & 1997) with Richard Bartle, Alan Cox, Jim Aspnes, Brooke Paul, George 
+Reese, Alex Fletcher, Christer Holgersson, Elizabeth Reid, Dan Koepke, Alec Muffett
+
+[9] Sources: DikuMUD FAQ, the source code for Merc, Circle, NiMUD, Pirate, Copper and Silly, 
+personal communication (1996 & 1997) from Dan Koepke, Alex Fletcher, Kane Dudgeon and Erwin 
+Andreasen
+
+[10] LP also inspired Ogham, a seldom-used mud server by Neil Robertson, author of the NUTS 
+talker system.
+
+[11] Sources: The LPMud Timeline (George Reese, 1995-1996), The LPMud FAQ, personal 
+communication (1996 & 1997) and Usenet articles (1996) from Tim Hollebeek and George Reese
+
+[12] Sources: personal communication (1996 & 1997) with Jim Aspnes, Jennifer Smith, Alan 
+Schwartz, Chris Lawrence, and Elizabeth Reid
+
+[13] Sources: Usenet posts by Brooke Paul (1997) and personal communication from the same 
+(1996)
+
+[14] Sources: YAMA documentation, personal communication (1996 & 1997) with Alan Cox and Anna 
+Eklund
+
+[15] The UK's academic computer network
+
+[16] For example, English has been heavily influenced by Norman French
+
+[17] mules and tigons, for example. Were the offspring fertile, the parents could not have 
+been separate species in the first place.
+
+[18] There are many synthetic languages in existence today; not all of them follow Esperanto 
+in clearly drawing on other languages for vocabulary and structure
+
+[19] "OLC" (online creation) is however now gaining in popularity on Dikus.
+
+[20] After the film of the same name, in which the protagonist is condemned to repeat one day 
+of his life forever.
+
+[21] This system was favoured by AberMUD, DUM, Mundi, Island and YAMud
+
+[22] Many Usenet posts requesting addresses of muds contain a (sometimes strongly worded) 
+preference for server type
+
+[23] An AberMUD called Asylum even advertises that it has abolished them
+
+REFERENCES
+
+Bartle, R. (1996). Hearts, Clubs, Diamonds, Spades: Players who suit MUDs. Available: 
+http://journal.pennmush.org/v1n1/bartle.html
+
+Bartle, R. A. (1990). Interactive Multi-Player Computer Games. MUSE Ltd, Colchester, Essex, 
+UK. Available:
+ftp://ftp.lambda.moo.mud.org/pub/MOO/papers/mudreport.txt
+
+Burka, L.P. (1995). The MUDline. Available: 
+http://www.opensite.com.br/random/servicos/muds/mudline.html
+
+Curtis, P. (1995). Talking with Dinos. Available: 
+http://vesta.physics.ucla.edu/~smolin/lambda/laws_and_history/thesisw.html
+
+Curtis, P. & Nichols, D.A. (1993). MUDs Grow Up: Social Virtual Reality in the Real World. 
+Available:
+http://www.oise.on.ca/~jnolan/muds/about_muds/mudsgrowup
+
+Reese, G. (1994-1997). LPMud FAQ. Available: http://www.imaginary.com/LPMud/lpmud_faq.html
+
+Reese, G. (1995-1997). LPMud Timeline. Available: http://www.imaginary.com/LPMud/timeline.html
+
+Reid, E. (1994). Cultural Formations in Text-Based Virtual Realities. Available: 
+http://www.ee.mu.oz.au/papers/emr/cult-form.html
+
+Smith, J.D. (1993-1997). The MUD FAQ. Available: http://www.cs.okstate.edu/~jds/mudfaq-p1.html
+
+Various authors (1990). Early MUD History. Available: 
+http://www.ludd.luth.se/mud/aber/mud-history.html
+
+Much of the information in this paper was drawn from personal communication with the 
+following: Richard Bartle, Alan Cox, George Reese, Dan Koepke, Chris Lawrence, Tim Hollebeek, 
+Jennifer Smith, Andrew Cowan, Michael Lawrie, Alec Muffett, Christer Holgersson, Jim Aspnes, 
+Alan Schwartz, Alex Fletcher, Neil Robertson, Anna Eklund, Brandon Gillespie, Dave Austin, 
+Orjan Stromberg, Brooke Paul, Ed Carroll, Erwin Andreasen, Derek Snider, and Kane Dudgeon. 
+Copies of these communications may be obtained from the author subject to the consent of the 
+correspondent.
+
+The Mud Tree is available at
+http://camelot.cyburbia.net.au/~martin/cgi-bin/mud_tree.cgi
+	
+

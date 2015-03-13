@@ -1,0 +1,139 @@
+#HELPS
+
+
+0 WEATHER~
+
+    Exerpted from Aladro's Island Almanac:
+    
+           "Scientifically, the Southern The Isles: Dreams of Kltara of Jharl lie to the south
+        of the mainland, and are generally displaced from the tropical and
+        temperate climes that one sees on the mainland.  This southern
+        region is relatively colder, though not harshly so, and sports an
+        extended winter season.  Due to the ocean proximity, the isles
+        are often buffeted by powerful blizzards that come suddenly.
+        During the milder months, heavy thunderstorms are a common sight.
+            On the other hand, there are occasional dry seasons during
+        the winter, summer and autumn.  Droughts can occur, forcing the
+        rationing of water and other supplies.
+            Twice in recent history great gails have erupted from the
+        deep ocean to descend upon the isles, particularly the smaller,
+        more vulnerable ones.  These hurricanes are devastating to local
+        populations."        
+
+~
+
+0 CALENDAR~
+
+    Exerpted from Aladro's Island Almanac:
+
+        Time on the isles is seperated into years, months, weeks, days,
+        hours and, for those with clockwork timepieces, minutes and seconds.
+
+             The days are as follows: Great Hawk (Lexo), Falcon (Franto), 
+             Owl (Halag), Black Crow (Ruz), Phoenix (Kalamak), 
+             Golden Eagle (Aedo), Grey Gull (Franwag).
+             
+             The months are as follows:
+             Season of the Ice Cougar    (Iak)
+             Season of the White Fox     (Vod)
+             Season of the Robin         (Lin)
+             Season of the Crystalfish   (Nemi)
+             Crop Wind                   (Grez)
+             Season of the Squirrel      (Po)
+             Dry Winds                   (Rani)
+             Dragon's Breath             (Falak)
+             Harvest Moon                (Kae)
+             Season of the Changing Oak  (Ret)
+             New Frost                   (Jal)
+             Ice Weaver                  (Yun)
+             
+        According to the Rygor calendar, the year is 452 (as of the
+        date of this writing) from the day of the foundation of our
+        lord's realm, the year 1.
+        
+        Each day is divided into twenty-four hours.  There are seven days
+        in a week, thirty days per month.  There is a total of twelve
+        months in a year, from winter to winter.
+        
+
+    A Note on Calendars:
+    
+        This text is from Dremmen's History of Calendars.
+        
+            "Calendars, throughout the chronology of Tyselorrd, have been
+             sited as based on the kingdom you are in.  As one year varies
+             from the next, a standard calendar was adopted long ago from
+             the Vlattensintri calendar, which marks all days and months
+             the same, regardless of what year the particular king declares
+             it to be.
+             
+             The days of the Vlattensintri calendar are as follows:
+             Lexo, Franto, Halag, Ruz, Kalamak, Aedo, Franwag.
+             
+             The months of the Vlattensintri calendar are as follows:
+             Iak, Vod, Lin, Nemi, Grez, Po, Rani, Falak, Kae, Ret, 
+             Jal and Yun."
+
+~
+
+0 REBOOTS~
+
+  Reboots occur every 24 hours by default.  Certain administrators have
+  the power to speed up or slow down the time between reboots.  The 'who'
+  command shows you how long it is until the next reboot.  When a reboot
+  occurs, almost everything is saved.  Any rooms marked to save their
+  contents, save their contents.  The world database file is saved.
+  
+  Most importantly, all connected players are saved, except those who are
+  in the middle of character generation.
+  
+  Players are notified during the last hour before a reboot many times
+  before the reboot occurs, reminding them of this event.
+  
+  Don't fret about a reboot!  It's an every day occurance (mostly).
+  
+  Finally, there is one further thing of note: the time it takes between
+  reboots.  Reboots take between one and five minutes to occur.  Usually
+  this time is less than two minutes, but this time is not gauranteed.
+  There are many failsafes in the code that stop a reboot in progress if
+  there is a problem with the mud and try to repair that problem, but
+  in the event that something has drastically been screwed up, the mud
+  may not reboot.  If the mud hasn't been rebooted within 15 minutes,
+  there may be an external reason for this delay.
+
+~
+
+0 POISON~
+
+~
+
+0 MOVEMENT~
+
+~
+
+
+0 TRADING~
+
+~
+
+0 COMBAT~
+
+~
+
+0 SCAN~
+
+~
+
+
+0 APPRENTICING~
+
+~
+
+
+0 'SKILL GROUPS'~
+
+~
+
+0 $~
+
+#$

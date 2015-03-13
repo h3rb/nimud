@@ -1,0 +1,6547 @@
+#ZONE 
+N Port of Cape Red~
+B None~
+V 18000 18372
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#18000
+N wizard~
+SD the wizard~
+LD
+ A wizard walks around behind the counter, talking to himself.
+~
+D
+ The wizard looks old and senile, and yet he looks like a very powerful
+wizard. He is equipped with fine clothing, and is wearing many fine
+rings and bracelets.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 18 4
+End
+
+#18001
+N baker~
+SD the baker~
+LD
+ The baker looks at you calmly, wiping flour from his face with one hand.
+~
+D
+ A fat, nice looking baker. But you can see that he has many scars on his
+body.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 223
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 19
+ Tr 0 1
+ T 1 0
+ Tr 1 1
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 1
+ T 8 0
+ Tr 8 1
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 21 2
+Sk 100 'stark'
+End
+
+#18002
+N grocer~
+SD the grocer~
+LD
+ A grocer stands at the counter, with a slightly impatient look on his face.
+~
+D
+ A tall grocer, who moves two 200 pounds bag of flour around on his shoulders.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 222
+O ~
+AP 15 15 15 15 15
+At 0 10 17 4
+End
+
+#18003
+N bilfed weaponsmith~
+SD the weaponsmith~
+LD
+ Bilfed wipes the sweat from his browng it covered in soot.
+~
+D
+ A young weaponsmith, who still has lots to learn.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 224
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 1
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 130 100
+ H 0 23
+ F 1
+ R 0
+ BI 110  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 21 7
+End
+
+#18004
+N armourer armorer~
+SD the armourer~
+LD
+ An armourer stands here.
+~
+D
+ An old but very strong armourer, he has made more armours in his
+lifetime than you have ever seen.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 223
+O ~
+AP 15 15 15 15 15
+At 0 10 12 8
+End
+
+#18005
+N thief~
+SD the thief~
+LD
+ A thief, all dressed in black.
+~
+D
+ Well COUNT your money!
+~
+A 133
+AB 98304
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 22 11
+End
+
+#18006
+N captain~
+SD the captain~
+LD
+ A retired captain stands here, selling boats.
+~
+D
+ This captain has killed more sharks than you have eaten peas.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 222
+O ~
+AP 15 15 15 15 15
+At 0 10 24 5
+End
+
+#18007
+N sailor~
+SD the sailor~
+LD
+ A sailor stands here, waiting to train you.
+~
+D
+ He looks like a strong, fit sailor.
+~
+A 515
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 18 0
+End
+
+#18008
+N boy~
+SD the pet shop boy~
+LD
+ A pet shop boy is here, humming gently.
+~
+D
+ He is young and close-cropped and looks quite happy.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 221
+O ~
+AP 15 15 15 15 15
+At 0 10 15 5
+End
+
+#18009
+N jeweller~
+SD the jeweller~
+LD
+ The jeweller is standing behind the desk.
+~
+D
+ He is fat and has a content although watchful look on his face.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 223
+O ~
+AP 15 15 15 15 15
+At 0 10 12 14
+End
+
+#18010
+N leather worker~
+SD the leather worker~
+LD
+ The leather worker is sitting by the table, sewing a leather cap.
+~
+D
+ He looks as an honest, hard-working artisan who only just earns enough to
+keep himself going.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 224
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 1
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 22 7
+End
+
+#18011
+N $n-$n $n $n$n guard captain dwarf~
+SD $n-$n the dwarf~
+LD
+ The dwarf captain stands guard along the road to Cape Red.
+~
+D
+ He's a very muscular dwarf, very wide and tall for one as well.  
+~
+A 19
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 12
+K 1000 E 51
+O ~
+AP 25 50 50 18 50
+End
+
+#18012
+N healer~
+SD the healer~
+LD
+ A healer is here.
+~
+D
+ Although retired from adventuring, the healer still lends a hand.
+~
+A 67
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 39
+O ~
+AP 15 15 15 15 15
+At 0 10 19 10
+End
+
+#18020
+N guildmaster master~
+SD the guildmaster~
+LD
+ Your guildmaster is standing here.
+~
+D
+ Even though your guildmaster looks old and tired, you can clearly see the
+vast amount of knowledge she possesses. She is wearing fine magic clothing,
+and you notice that she is surrounded by a blue shimmering aura.
+~
+A 1027
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 17 11
+End
+
+#18021
+N guildmaster master~
+SD the guildmaster~
+LD
+ Your guildmaster is standing here.
+~
+D
+ You are in no doubt that this guildmaster is truly close to your god; he has
+a peaceful, loving look. You notice that he is surrounded by a white aura.
+~
+A 1027
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 224
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 1
+ T 2 0
+ Tr 2 1
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 1
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 1
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 1
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 23 5
+End
+
+#18022
+N merchant guildmaster~
+SD the merchant guildmaster~
+LD
+ The merchant guildmaster is standing nearby.
+~
+D
+ You realize that whenever your guildmaster moves, you fail to notice it:
+the way of the true thief.  She is dressed in poor clothing, having
+the appearance of a beggar.
+~
+A 1027
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 222
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 5
+ Tr 0 0
+ T 1 13
+ Tr 1 0
+ T 2 15
+ Tr 2 0
+ T 3 9
+ Tr 3 0
+ T 4 31
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 19 12
+End
+
+#18024
+N addad sorcerer~
+SD Addad the Sorcerer~
+LD
+ A sorcerer is guarding the entrance.
+~
+D
+ He is an experienced mage who has specialized in the field of Combat
+Magic.  He is here to guard the Caravan Group and his superior knowledge of
+offensive as well as defensive spells make him a deadly opponent.  
+~
+A 19
+AB 2
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K 800 E 100
+O ~
+AP 15 15 15 15 15
+At 1 100 110 19
+End
+
+#18025
+N templar~
+SD the knight templar~
+LD
+ A knight templar is guarding the entrance.
+~
+D
+ He is a specially trained warrior belonging to the military order of the Faith.
+His duty is to protect the faithful from persecution and infidel attacks and
+his religious devotion combined with his superior skill makes him a deadly
+opponent.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 800 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 17 2
+End
+
+#18026
+N mercenary merc $n~
+SD $N the Merc~
+LD
+ A mercenary is guarding the entrance.
+~
+D
+ He is a merc who has specialized in killing others as effectively as possible,
+using all sorts of weapons.  His superior knowledge of how and where to use
+them combined with his extraordinary stealth makes him a deadly opponent.
+~
+A 3
+AB 0
+M 100
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 800 E 100
+O ~
+AP 18 18 18 18 18
+At 1 35 65 7
+End
+
+#18027
+N knight~
+SD the knight~
+LD
+ A knight is guarding the entrance.
+~
+D
+ He is an expert warrior who has attained knighthood through countless
+chivalrous deeds.  His duty is to protect the Guild of Swordsmen and his
+extreme skill combined with his experience in warfare makes him a deadly
+opponent.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 800 E 222
+O ~
+AP 15 15 15 15 15
+At 0 10 18 13
+End
+
+#18040
+N bartender~
+SD the bartender~
+LD
+ A bartender watches you calmly, while he skillfully mixes a drink.
+~
+D
+ A tired looking Bartender who hates trouble in his bar.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 13 5
+End
+
+#18041
+N waiter~
+SD the waiter~
+LD
+ A waiter is going around from one place to another.
+~
+D
+ A tired looking waiter.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 222
+O ~
+AP 15 15 15 15 15
+At 0 10 21 1
+End
+
+#18042
+N bartender~
+SD the bartender~
+LD
+ A bartender stands behind the bar, polishing a glass.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 222
+O ~
+AP 15 15 15 15 15
+At 0 10 21 12
+End
+
+#18043
+N waiter~
+SD the waiter~
+LD
+ A waiter who seems to have reached contact with God.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 223
+O ~
+AP 15 15 15 15 15
+At 0 10 12 8
+End
+
+#18044
+N waiter~
+SD the waiter~
+LD
+ A waiter who knows where all his customers keep their money.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 20 8
+End
+
+#18045
+N waiter~
+SD the waiter~
+LD
+ A waiter who easily could kill you, and still carry quite a few firebreathers.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 17 7
+End
+
+#18046
+N filthy~
+SD Filthy~
+LD
+ Filthy is standing here, eager to serve you a special drink.
+~
+D
+ Filthy looks real, ehm, dirty. He likes to keep his costumers happy,
+but do not mess with him or else he'll get upset.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 600 E 223
+O ~
+AP 15 15 15 15 15
+At 0 10 17 4
+End
+
+#18050
+N $n $n trader~
+SD $n $N the trader~
+LD
+ A trader is standing nearby.
+~
+D
+ It's a tradesmen, perhaps a journeyman merchant, who is selling a few
+odds and ends in the streets before returning to his caravan.  
+~
+A 85
+AB 552
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 629
+O ~
+AP 25 25 25 25 35
+At 0 10 20 1
+At 1 5 19 11
+At 2 1 29 4
+End
+
+#18060
+N guard~
+SD a guard~
+LD
+ A guard is standing here, keeping the peace.
+~
+D
+ A big, strong, helpful, trustworthy guard.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 18 2
+At 1 5 13 11
+End
+
+#18061
+N janitor~
+SD the janitor~
+LD
+ A janitor is walking around, cleaning up.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 19 2
+End
+
+#18062
+N fido dog~
+SD a dog~
+LD
+ A dog is running through the streets, barking.
+~
+D
+ It is a small dog that has a foul smell and pieces of rotted meat hanging
+around his teeth.  
+~
+A 161
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 10
+K -200 E 50
+O ~
+AP 4 4 4 4 4
+Sc 501
+Sc 500
+End
+
+#18063
+N merchant guard~
+SD merchant guard~
+LD
+ A merchant guard watches you from the corner of his eye.
+~
+D
+ He looks pretty mean.
+~
+A 21
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 810
+O ~
+AP 25 25 25 25 40
+At 0 10 26 12
+At 1 5 56 3
+At 2 1 82 0
+At 5 1 35 10
+At 6 5 57 7
+End
+
+#18064
+N drunk~
+SD the drunk~
+LD
+ A singing, happy drunk.
+~
+D
+ A drunk who seems to be too happy, and to carry too much money.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 400 E 91
+O ~
+AP 15 15 15 15 15
+At 0 10 13 8
+End
+
+#18065
+N beggar~
+SD the beggar~
+LD
+ A beggar is here, asking for a few coins.
+~
+D
+ The beggar looks like she is fed up with life.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 400 E 44
+O ~
+AP 15 15 15 15 15
+Sc 5221
+Sc 5222
+At 0 10 13 9
+End
+
+#18066
+N cat~
+SD an alley cat~
+LD
+ An alley cat hisses at you.
+~
+D
+ The alley cat is half starved and more than a little feral.
+~
+A 161
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 20 8
+End
+
+#18067
+N guard~
+SD a guard~
+LD
+ A guard is here, watching the gate.
+~
+D
+ A big, strong, helpful, trustworthy guard.
+~
+A 83
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 400
+O ~
+AP 25 50 50 25 50
+End
+
+#18068
+N guard~
+SD a guard~
+LD
+ A guard is here, guarding the gate.
+~
+D
+ A big, strong, helpful, trustworthy guard.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 17 11
+At 1 5 12 5
+At 3 1 40 12
+End
+
+#18069
+N guardsman guard~
+SD the guardsman~
+LD
+ A guardsman is here, guarding the mayor.
+~
+D
+ A big, strong, helpful, trustworthy guard.
+~
+A 67
+AB 65538
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 500
+O ~
+AP 25 25 25 25 25
+At 0 10 19 8
+At 1 5 22 1
+At 3 1 30 0
+End
+
+#18090
+N kitten~
+SD the kitten~
+LD
+ A small loyal kitten is here.
+~
+D
+ The kitten looks like a cute, little, fierce fighter.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 400 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 18 0
+End
+
+#18091
+N puppy~
+SD the puppy~
+LD
+ A small loyal puppy is here.
+~
+D
+ The puppy looks like a cute, little, fierce fighter.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 400 E 977
+O ~
+AP 25 25 25 25 40
+At 0 10 37 12
+At 1 5 75 3
+At 4 1 33 8
+At 6 5 67 4
+End
+
+#18092
+N beagle~
+SD the beagle~
+LD
+ A small, quick, loyal beagle is here.
+~
+D
+ The beagle looks like a fierce fighter.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 400 E 361
+O ~
+AP 19 19 19 19 19
+At 0 10 19 3
+At 1 5 16 13
+End
+
+#18093
+N rottweiler~
+SD the rottweiler~
+LD
+ A large, loyal rottweiler is here.
+~
+D
+ The rottweiler looks like a strong, fierce fighter.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 400 E 790
+O ~
+AP 25 25 25 25 40
+At 0 10 27 12
+At 1 5 24 11
+At 3 1 33 13
+At 4 1 40 12
+At 6 5 98 4
+End
+
+#18094
+N wolf~
+SD the wolf~
+LD
+ A large, trained wolf is here.
+~
+D
+ The wolf looks like a strong, fearless fighter.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 11 2
+At 1 5 23 0
+At 2 1 21 5
+End
+
+#18100
+N maid~
+SD the maid~
+LD
+ The maid is waiting for your order.
+~
+D
+ She is very beautiful with golden hair, and deep blue eyes. A good reason
+for coming here more often.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 22 7
+End
+
+#18120
+N sexton~
+SD the sexton~
+LD
+ A sexton is sitting here, drinking hot tea.
+~
+D
+ The sexton looks like he is relaxing after another grave-digging job.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 800 E 506
+O ~
+AP 25 25 25 25 35
+At 0 10 18 2
+At 1 5 16 5
+At 4 1 20 21
+At 5 1 35 0
+End
+
+#18121
+N swan~
+SD the swan~
+LD
+ A swan is swimming around in the pond.
+~
+D
+ The white swan is very elegant.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 1000 E 758
+O ~
+AP 25 25 25 25 40
+At 0 10 42 13
+At 1 5 74 11
+At 4 1 16 9
+At 5 1 17 18
+At 6 5 25 0
+End
+
+#18122
+N duckling~
+SD the duckling~
+LD
+ A duckling is swimming around in the pond.
+~
+D
+ The duckling is adorable, it looks most of all like a tiny furball.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 1000 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 13 9
+End
+
+#18123
+N sparrow~
+SD the sparrow~
+LD
+ A sparrow is flapping around on the ground.
+~
+D
+ The sparrow looks like it is enjoying life.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 1
+K 1000 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 11 5
+End
+
+#18124
+N duck~
+SD the duck~
+LD
+ A duck is here, quacking happily.
+~
+D
+ The duck is quite fat.  It looks like it is enjoying life.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 1000 E 685
+O ~
+AP 25 25 25 25 35
+At 0 10 15 14
+At 1 5 8 3
+At 3 1 38 21
+End
+
+#18140
+N captain~
+SD the captain~
+LD
+ The captain of the guard is looking very upset.
+~
+D
+ A big, strong, angry captain.
+~
+A 39
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 18 0
+At 1 5 9 3
+End
+
+#18141
+N guardsman guard~
+SD the guardsman~
+LD
+ A guardsman stands here, looking very upset.
+~
+D
+ A big, strong, angry guard.
+~
+A 39
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 15 5
+At 1 5 24 7
+End
+
+#18142
+N secretary~
+SD the secretary~
+LD
+ A secretary is sitting at the desk.
+~
+D
+ She looks very busy.
+The Secretary says 'Sorry, but the Mayor is extremely busy today'.
+The Secretary says 'Please sit down and have a seat in the meantime'.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 900 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 13 9
+End
+
+#18143
+N mayor~
+SD the mayor~
+LD
+ The mayor is here.  He shakes your hand.
+~
+D
+ He is a stocky, middle-aged man with thin, grey hair.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 222
+O ~
+AP 15 15 15 15 15
+At 0 10 13 7
+End
+
+#18144
+N crier~
+SD the town crier~
+LD
+ The town crier is here, weeping quietly.
+~
+D
+ He is very good at his job - completely dissolved in tears.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 688
+O ~
+AP 25 25 25 25 35
+At 0 10 18 14
+At 1 5 17 1
+At 3 1 22 21
+End
+
+#0
+
+
+
+#OBJDATA
+#18000
+N barrel beer~
+SD a barrel of beer~
+P ~
+D
+A beer barrel has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 65
+C 300
+O ~
+V 50 50 1 0
+End
+
+#18001
+N bottle beer~
+SD a bottle of beer~
+P ~
+D
+A beer bottle has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 20
+O ~
+V 8 8 1 0
+End
+
+#18002
+N bottle ale~
+SD a bottle of ale~
+P ~
+D
+A dark bottle of ale has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 10
+O ~
+V 8 8 3 0
+End
+
+#18003
+N bottle firebreather~
+SD a bottle of firebreather~
+P ~
+D
+A firebreather has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 50
+O ~
+V 8 8 7 0
+End
+
+#18004
+N bottle local~
+SD a bottle of local specialty~
+P ~
+D
+A dark bottle has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 20
+O ~
+V 8 8 8 0
+End
+
+#18005
+N axe blade~
+SD an executioner's axe~
+P ~
+D
+An executioner's axe is here waiting to possess its next user.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 3072
+W 8193
+Sz 18
+Ti 0
+Wt 30
+C 30000
+O ~
+V 57030 5 6 1
+ED axe blade~
+It is quite heavy.  The blade is made of some metal that you can't even
+spell.  The edge of the blade looks as if it could cut through anything
+or anyone.
+~
+End
+
+#18009
+N potpie pot pie~
+SD a big pot pie~
+P ~
+D
+A big pot pie has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 100
+O ~
+V 40 0 0 0
+End
+
+#18010
+N pit~
+SD the donation pit~
+P ~
+D
+A pit for sacrifices is in front of the altar.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 10000 0 0 0
+ED pit~
+This is where you put money and items to help Doz expand this shrine and
+convert more people to the belief of Eru our creator.
+~
+End
+
+#18020
+N dagger~
+SD a dagger~
+P ~
+D
+A dagger with a long thin blade is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 2 4 11
+End
+
+#18021
+N sword small~
+SD a small sword~
+P ~
+D
+A small sword lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 60
+O ~
+V 0 2 5 11
+End
+
+#18022
+N sword long~
+SD a long sword~
+P ~
+D
+A long sword has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 100
+O ~
+V 0 2 6 3
+End
+
+#18030
+N torch~
+SD a torch~
+P ~
+D
+A large torch.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 0 24 0
+End
+
+#18031
+N lantern~
+SD a hooded brass lantern~
+P ~
+D
+A hooded brass lantern has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 4
+C 60
+O ~
+V 0 0 100 0
+ED letters~
+They say, "Use 'hold lantern' to activate."
+~
+ED lantern~
+It is a large and robust but somewhat battered oil lantern made from brass,
+equipped with a handle to make it handy and a hood to protect its flame.
+Some letters have been scratched on its bottom.
+~
+End
+
+#18032
+N bag~
+SD a bag~
+P ~
+D
+A small bag.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 20
+O ~
+V 50 0 0 0
+End
+
+#18033
+N box~
+SD a box~
+P ~
+D
+A small box.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 50
+O ~
+V 10 0 0 0
+End
+
+#18040
+N scroll identify~
+SD a scroll of identify~
+P ~
+D
+A scroll has carelessly been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 2000
+O ~
+V 12 0 0 0
+ED scroll identify~
+The scroll has a magic formula drawn upon it:
+     ???
+    ?   ?
+       ?
+      ?
+      ?
+      *
+~
+End
+
+#18041
+N potion yellow~
+SD a yellow potion of see invisible~
+P ~
+D
+A small yellow potion has carelessly been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 400
+O ~
+V 12 0 0 0
+ED potion yellow~
+The potion has a small label 'Detect The Invisible'.
+~
+End
+
+#18042
+N scroll recall~
+SD a scroll of recall~
+P ~
+D
+A scroll has carelessly been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 4
+C 2000
+O ~
+V 12 0 0 0
+ED scroll~
+The scroll has written a formulae of 'Word of Recall' upon it.
+~
+End
+
+#18045
+N jacket scale mail~
+SD a scale mail jacket~
+P ~
+D
+A scale mail jacket is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 40
+C 1000
+O ~
+V 4 0 0 0
+End
+
+#18046
+N bronze breast plate~
+SD a bronze breast plate~
+P ~
+D
+A bronze breast plate is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 80
+C 7000
+O ~
+V 6 0 0 0
+End
+
+#18050
+N raft~
+SD a raft~
+P ~
+D
+A raft has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 22
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 75
+C 400
+O ~
+V 0 0 0 0
+ED raft~
+The raft looks very primitive.
+~
+End
+
+#18051
+N canoe~
+SD a canoe~
+P ~
+D
+A canoe has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 22
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 32
+C 1000
+O ~
+V 0 0 0 0
+ED canoe~
+The canoe is fairly light.
+~
+End
+
+#18060
+N jerkin~
+SD a leather jerkin~
+P ~
+D
+A leather jerkin is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 5
+C 100
+O ~
+V 2 0 0 0
+End
+
+#18061
+N cap~
+SD a leather cap~
+P ~
+D
+A leather cap is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 1
+C 50
+O ~
+V 2 0 0 0
+End
+
+#18062
+N pants~
+SD a pair of leather pants~
+P ~
+D
+A pair of leather pants is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 5
+C 50
+O ~
+V 2 0 0 0
+End
+
+#18063
+N boots~
+SD a pair of leather boots~
+P ~
+D
+A pair of leather boots lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 3
+C 50
+O ~
+V 2 0 0 0
+End
+
+#18064
+N gloves~
+SD a pair of leather gloves~
+P ~
+D
+A pair of leather gloves is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 1
+C 50
+O ~
+V 2 0 0 0
+End
+
+#18065
+N sleeves~
+SD a pair of leather sleeves~
+P ~
+D
+A pair of leather sleeves is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 3
+C 50
+O ~
+V 2 0 0 0
+End
+
+#18066
+N jerkin~
+SD a studded leather jerkin~
+P ~
+D
+A studded leather jerkin is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 10
+C 200
+O ~
+V 3 0 0 0
+End
+
+#18067
+N cap~
+SD a hard leather cap~
+P ~
+D
+A hard leather cap is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 2
+C 100
+O ~
+V 3 0 0 0
+End
+
+#18068
+N pants~
+SD a pair of studded leather pants~
+P ~
+D
+A pair of studded leather pants is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 8
+C 100
+O ~
+V 3 0 0 0
+End
+
+#18069
+N boots~
+SD a pair of hard leather boots~
+P ~
+D
+A pair of hard leather boots lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 4
+C 100
+O ~
+V 3 0 0 0
+End
+
+#18070
+N gloves~
+SD a pair of hard leather gloves~
+P ~
+D
+A pair of hard leather gloves is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 3 0 0 0
+End
+
+#18071
+N sleeves~
+SD a pair of studded leather sleeves~
+P ~
+D
+A pair of studded leather sleeves is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 4
+C 100
+O ~
+V 3 0 0 0
+End
+
+#18072
+N jerkin scale mail~
+SD a scale mail jerkin~
+P ~
+D
+A scale mail jerkin is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 20
+C 500
+O ~
+V 4 0 0 0
+End
+
+#18073
+N coif scale mail~
+SD a scale mail coif~
+P ~
+D
+A scale mail coif is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 4
+C 250
+O ~
+V 4 0 0 0
+End
+
+#18074
+N skirt scale mail~
+SD a long scale mail skirt~
+P ~
+D
+A long scale mail skirt is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 20
+C 250
+O ~
+V 4 0 0 0
+End
+
+#18075
+N boots reinforced~
+SD a pair of reinforced boots~
+P ~
+D
+A pair of reinforced boots lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 6
+C 250
+O ~
+V 4 0 0 0
+End
+
+#18076
+N gloves reinforced~
+SD a pair of reinforced gloves~
+P ~
+D
+A pair of reinforced gloves is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 2
+C 250
+O ~
+V 4 0 0 0
+End
+
+#18077
+N sleeves scale mail~
+SD a pair of scale mail sleeves~
+P ~
+D
+A pair of scale mail sleeves is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 8
+C 250
+O ~
+V 4 0 0 0
+End
+
+#18097
+N shield small metal~
+SD a small metal shield~
+P ~
+D
+A small metal shield is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 3
+C 500
+O ~
+V 4 0 0 0
+End
+
+#18100
+N tea cup~
+SD a cup of tea~
+P ~
+D
+A cup has been set here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 3
+C 5
+O ~
+V 2 2 11 0
+ED cup~
+It is a small simple cup.
+~
+End
+
+#18101
+N coffee cup~
+SD a cup of coffee~
+P ~
+D
+A cup has been set here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 3
+C 7
+O ~
+V 2 2 12 0
+ED cup~
+It is a small simple cup.
+~
+End
+
+#18102
+N water cup~
+SD a cup of water~
+P ~
+D
+A cup has been set here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 3
+C 2
+O ~
+V 2 2 0 0
+ED cup~
+It is a large simple cup.
+~
+End
+
+#18105
+N bracer bronze~
+SD a bronze bracer~
+P ~
+D
+A bronze bracer is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 4097
+Sz 18
+Ti 0
+Wt 8
+C 2500
+O ~
+V 6 0 0 0
+End
+
+#18106
+N bracer iron~
+SD an iron bracer~
+P ~
+D
+An iron bracer is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 4097
+Sz 18
+Ti 0
+Wt 8
+C 5000
+O ~
+V 7 0 0 0
+End
+
+#18120
+N key iron~
+SD a key~
+P ~
+D
+An iron key has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED key iron~
+The iron key is not special.
+~
+End
+
+#18121
+N key rusty~
+SD a key~
+P ~
+D
+A rusty key has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED key rusty~
+The key is a fairly large rusty key.  You notice some fresh dirt on it.
+~
+End
+
+#18122
+N key wooden~
+SD a key~
+P ~
+D
+A wooden key has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED key wooden~
+The wooden key is not special.
+~
+End
+
+#18123
+N key brass~
+SD a key~
+P ~
+D
+A brass key has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED key brass~
+The brass key is small and looks like it fits a very complicated lock.
+~
+End
+
+#18124
+N sword long~
+SD a long sword~
+P ~
+D
+A long sword has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 600
+O ~
+V 0 3 8 3
+ED sword long~
+This is the ceremonial sword of the Mayor of Midgaard.
+~
+End
+
+#18129
+N hand cuffs~
+SD a pair of hand cuffs~
+P ~
+D
+A pair of hand cuffs has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 4
+C 200
+O ~
+V 0 0 0 0
+End
+
+#18130
+N desk drawer~
+SD the desk~
+P ~
+D
+A desk is set against the western wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 100
+C 0
+O ~
+V 34 15 3122 0
+ED drawer~
+You notice a keyhole in the drawer.
+~
+End
+
+#18131
+N safe~
+SD the safe~
+P ~
+D
+A safe is placed in a dark corner of the room.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 100
+C 0
+O ~
+V 34 15 3123 0
+ED safe~
+The safe is very heavy.
+~
+End
+
+#18132
+N gold coins~
+SD the gold~
+P ~
+D
+A lot of gold is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 52385
+O ~
+V 52385 0 0 0
+End
+
+#18133
+N city key~
+SD the City Key~
+P ~
+D
+The very big City Key is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 10000
+O ~
+V 0 0 0 0
+End
+
+#18134
+N bench~
+SD the Bench~
+P ~
+D
+A white-painted wooden bench is standing here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 100
+C 600
+O ~
+V 0 0 0 0
+ED bench~
+It is a quite heavy but very comfortable bench.  It is placed with its front
+towards the river so you can sit and watch the river and the houses on the
+other side.
+~
+End
+
+#18135
+N fountain water~
+SD a fountain~
+P ~
+D
+A small white fountain gushes forth here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 25
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 500
+C 3000
+O ~
+V 50 0 0 0
+ED fountain~
+It is very nice.  Made from fine white marble.
+~
+End
+
+#18136
+N coins gold~
+SD a small pile of gold coins~
+P ~
+D
+A small pile of gold coins lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 20 0 0 0
+End
+
+#18137
+N key steel~
+SD a steel key~
+P ~
+D
+A large steel key has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED key steel~
+A key of this size must fit a very strong lock.
+~
+End
+
+#18138
+N skin water buffalo~
+SD a buffalo water skin~
+P ~
+D
+A bloated dead buffalo is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 30
+O ~
+V 100 100 0 0
+End
+
+#18139
+N letter resignation~
+SD the receptionist's letter of resignation~
+P ~
+D
+The receptionist's letter of resignation is taped to the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 999
+C 0
+O ~
+V 0 0 0 0
+ED letter resignation~
+The letter is written in a bold and feminine Carolinian hand.
+
+    To whom it may concern,
+
+        Merc Industries has installed a new no-rent save and quit
+        system.  Apparently one can now save and quit at any time
+        from anywhere inside a town or out.  My services here are
+        no longer required.
+
+    Diana the Receptionist
+~
+End
+
+#18140
+N notice liquidation bank~
+SD the bank's notice of liquidation~
+P ~
+D
+The bank's notice of liquidation is taped to the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 999
+C 0
+O ~
+V 0 0 0 0
+ED notice liquidation bank~
+The letter is written in a reserved and dignified Spencer hand.
+
+    To whom it may concern,
+
+        Merc Industries has charmed your money.  Apparently one's
+        gold will remain close, even beyond death. We are closing
+        down our offices and ATM machines.  Our services here are
+        no longer required.
+
+    Midgaard City Bank
+~
+End
+
+#18141
+N copy book 'this old mud' mud~
+SD a copy of 'this old mud'~
+P ~
+D
+You see that someone has foolishly left behind a copy of 'This Old Mud'
+~
+A
+~
+PD
+~
+DR
+A special autographed copy of 'This Old Mud' -- the volume number
+is obscured by a smudgy fingerprint.
+ 
+You open the tome and begin reading one of the articles:
+"You're stuck in old Diku, and you're wondering what to do now.
+ Well, I'll tell ya, and this is from an avid mudder, to an
+ avid mudder (as it always is in THIS book) -- you might not
+ want to set your recall point in This Old Mud, because then
+ you'll be stuck!  Rumor has it there's a way out of this
+ awful place, but good luck trying to find it!  The Gods want
+ you to know that this isn't _really_ old Diku, in fact
+ its a big sham of old Diku -- the mobs are weak as heck!
+ We figured you'd have a fun old time runnin' around the
+ areas, stomping the mobs you loved so much as a kid-- but
+ if you want out, its as easy as 1, 2, 3...!  Be careful!
+ And happy mudding..!"
+~
+L 0
+T 11
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#18142
+N 'This Old Mud' copy book mud~
+SD another copy of 'this old mud'~
+P ~
+D
+Hey look, it's another copy of 'this old mud'!
+~
+A
+~
+PD
+~
+DR
+The cover article draws your attention:
+"NiM5 to include statistics for other dikus!"
+ 
+You flip it open immediately and begin reading in earnest:
+"When you kill a mob in This Old Mud, you gain experience equal
+ to the Mob's level in Diku!  No shops are in This Old Mud,
+ but the items aren't either, so who cares!  Boy, this mud
+ is OLD!"
+~
+L 0
+T 11
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#18350
+N sword~
+SD a standard issue sword~
+P ~
+D
+You see a standard issue sword here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 3 4 3
+ED sword~
+You see a sword of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18351
+N dagger~
+SD a standard issue dagger~
+P ~
+D
+You see a standard issue dagger here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 4 4 11
+ED dagger~
+You see a dagger of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18352
+N mace~
+SD a standard issue mace~
+P ~
+D
+You see a standard issue mace here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 4 4 7
+ED mace~
+You see a mace of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18353
+N vest~
+SD a standard issue vest~
+P ~
+D
+You see a standard issue vest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED vest~
+You see a vest of great craftsmanship.  Stamped on the side is:
+Merc Industries
+~
+End
+
+#18354
+N shield~
+SD a standard issue shield~
+P ~
+D
+You see a standard issue shield here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED shield~
+You see a shield of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18355
+N cloak~
+SD a standard issue cloak~
+P ~
+D
+You see a standard issue cloak here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED cloak~
+You see a cloak of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18356
+N helmet~
+SD a standard issue helmet~
+P ~
+D
+You see a standard issue helmet here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED helmet~
+You see a helmet of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18357
+N leggings~
+SD a pair of standard issue leggings~
+P ~
+D
+You see a pair of standard issue leggings here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED leggings~
+You see leggings of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18358
+N boots~
+SD a pair of standard issue boots~
+P ~
+D
+You see a pair of standard issue boots here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED boots~
+You see boots of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18359
+N gloves~
+SD a pair of standard issue gloves~
+P ~
+D
+You see a pair of standard issue gloves here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED gloves~
+You see gloves of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18360
+N sleeves~
+SD a pair of standard issue sleeves~
+P ~
+D
+You see a pair of standard issue sleeves here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED sleeves~
+You see sleeves of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18361
+N cape~
+SD a standard issue cape~
+P ~
+D
+You see a standard issue cape here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED cape~
+You see a cape of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18362
+N belt~
+SD a standard issue belt~
+P ~
+D
+You see a standard issue belt here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 2049
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED belt~
+You see a belt of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18363
+N bracer~
+SD a standard issue bracer~
+P ~
+D
+You see a standard issue bracer here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 4097
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 5 0 0 0
+ED bracer~
+You see a bracer of great craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+End
+
+#18364
+N ring signet~
+SD a city guard signet ring~
+P ~
+D
+You see a ring with a strange symbol on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#18365
+N banner~
+SD a war banner~
+P ~
+D
+A war banner is on the floor here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 65
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 -1 0
+ED banner~
+This is the official Merc war banner to see you through the darkest realm!
+~
+End
+
+#18371
+N ring diamond wedding~
+SD a diamond wedding ring.~
+P ~
+D
+Vanya's diamond wedding ring has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 256
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 1 0 0 0
+ED ring diamond wedding~
+A slender gold band set with a marquise-cut four carat blue-white solitaire.
+Inscribed on the inside of the band is: 'Your loving husband, House'.
+~
+End
+
+#18372
+N band gold wedding~
+SD a gold wedding band.~
+P ~
+D
+House's gold wedding band has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 256
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 1 0 0 0
+ED band gold wedding~
+A wide, plain circle of gold inscribed: 'Your loving wife, Vanya'.
+~
+End
+
+#0
+
+
+
+#SCENES
+#18001
+N Road to Cape Red~
+Ref 0
+D
+You are almost to the gates of the port of Cape You can see the outer
+city wall and the spires that rise behind it just south f here.  In fact,
+just west and south is the Port itself, a reat many ships appear coming in
+and out of the harbor.  
+~
+C
+~
+F 12
+S 1
+M 0
+W 0
+T 0
+O ~
+ED plaque~
+This entire world has been integrated, modified, debugged, and enhanced by
+Hatchet, Kahn, and Furey of MERC Industries to be run by any MERC Mud.
+1992 December 17
+~
+R M 18011 1 100 1
+R O 18141 -5 100 1
+Dr 0 0 -1 18054
+In the distance you see the outskirts of Keveg.
+~
+~
+Dr 2 0 -1 18005
+You see the Port of Cape Red.
+~
+~
+End
+
+#18002
+N Merchant's Meeting Room~
+Ref 0
+D
+This is the inner sanctum.  A picture of the mighty Thor, is hanging on
+the wall, just above the altar which is set against the western wall.  A well
+in the middle of the floor leads down into darkness.  Vile smells waft from
+the depths.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18021 1 100 1
+Dr 1 0 -1 18003
+You see your favorite place, the bar of divination.
+~
+~
+End
+
+#18003
+N Merchant's House~
+Ref 0
+D
+The bar is one of the finest in the land, lucky it is members only.  Fine
+furniture is set all around the room.  A small sign is hanging on the wall.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign reads:
+Free instructions provided by the waiter:
+
+   Buy  - Buy something (drinkable) from the waiter.
+   List - The waiter will show you all the different drinks and
+          specialties, and tell the price of each.
+~
+R M 18043 1 100 1
+Dr 2 0 -1 18004
+You see the entrance.
+~
+~
+Dr 3 0 -1 18002
+You see the inner sanctum.
+~
+~
+End
+
+#18004
+N Merchant's Guild Entrance~
+Ref 0
+D
+The entrance hall is a small modest room, reflecting the true nature of
+the Clerics.  The exit leads east to the temple square.  A small entrance to
+the bar is in the northern wall.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18025 1 100 1
+Dr 0 0 -1 18003
+You see the bar, richly decorated with really stylish furniture.
+~
+~
+Dr 1 0 -1 18005
+You see the Temple Square.
+~
+~
+End
+
+#18005
+N Outskirts of Cape Red~
+Ref 0
+D
+You are on the outskirts of the city, where the wall seperates the
+surrounding lands from the city itself.  To the south is he main gate and
+the bazaar is beyond.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18001
+You see the guardhouse, and the road leading to Keveg.
+~
+~
+Dr 1 0 -1 18006
+You see the good old Grunting Boar Inn.
+~
+~
+Dr 2 0 -1 18014
+You see the Market Square.
+~
+~
+Dr 3 0 -1 18004
+To the west is the Merchant's Guild.
+~
+~
+End
+
+#18006
+N Grunting Boar Inn~
+Ref 0
+D
+You are standing in the entrance hall of the Grunting Boar Inn.  The hall
+has been wisely decorated with simple but functional furniture.  A small
+staircase leads up to the defunct reception room and the bar is to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18061 5 100 1
+Dr 1 0 -1 18007
+Surprise! You see the bar.
+~
+~
+Dr 3 0 -1 18005
+You see the temple square.
+~
+~
+Dr 4 0 -1 18008
+You see the defunct reception room.
+~
+~
+End
+
+#18007
+N The Grunting Boar~
+Ref 0
+D
+You are standing in the bar.  The bar is set against the northern wall, old
+archaic writing, carvings and symbols cover its top.  A fireplace is built into
+the western wall, and through the southeastern windows you can see the temple
+square.  This place makes you feel like home.
+A small sign with big letters is fastened to the bar.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED writing carving carvings symbols symbol~
+Although it is very hard to understand, you think it looks a lot like beer,
+poems about beer, and small beer-mugs.
+~
+ED sign~
+The sign reads:
+Free instructions provided by the Grunting Boar Inn.
+
+   Buy  - Buy something (drinkable) from the bartender.
+   List - The bartender will show you all the different drinks and
+          specialties, and tell the price of each.
+~
+R M 18040 1 100 1
+Dr 3 0 -1 18006
+You see the exit to the entrance hall.
+~
+~
+End
+
+#18008
+N The Defunct Reception~
+Ref 0
+D
+You are standing in a dusty, defunct reception.  The staircase leads
+down to the entrance hall.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 18139 0 100 1
+Dr 5 0 -1 18006
+You see the entrance hall.
+~
+~
+End
+
+#18009
+N Cape Red Baked Goods~
+Ref 0
+D
+You are standing inside the small bakery.  A sweet scent of Danish and
+fine bread fills the room.  The bread and Danish are arranged in fine order
+on the shelves, and seem to be of the finest quality.
+A small sign is on the counter.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Free instructions provided by the store:
+
+   Buy  - Will buy you some bread or pastry.
+   List - The baker will kindly tell you the price and sort of the bread in
+          his bakery.
+~
+ED danish pastry~
+You see that this is truly delicious pastry.  Must be made by a Dane from
+Denmark (which surely is not the capital of Sweden!).  Former ruler of
+Scandinavia, England, Northern Germany, Northern France, Russia, Greenland,
+Iceland, Estonia etc. etc.
+   The sight of those large, wholesome chokoladeboller makes your mouth water
+and your soul sing.
+
+~
+R M 18001 1 100 1
+Dr 2 0 -1 18013
+You see the main street.
+~
+~
+End
+
+#18010
+N Odmod's Harvest Grocer and Trade Depot~
+Ref 0
+D
+You are inside the general store.  All sorts of items are stacked on shelves
+behind the counter, safely out of your reach.
+A small note hangs on the wall.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED note~
+The note reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+R M 18002 1 100 1
+Dr 2 0 -1 18015
+You see the main street.
+~
+~
+End
+
+#18011
+N Bilfed's Forge~
+Ref 0
+D
+You are inside the weapon shop.  There is a small note on the counter.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED note~
+The note reads:
+
+  List  - Show which various items are in the store.
+  Buy   - Buy an item.
+  Value - The shopkeeper will (free of charge) tell how much he will
+          pay for your item.
+  Sell  - Sell an item.
+~
+R M 18003 1 100 1
+Dr 2 0 -1 18016
+You see the main street.
+~
+~
+End
+
+#18012
+N Market Street~
+Ref 0
+D
+You are at the end of the main street of Midgaard.  South of here is the
+entrance to the Guild of Magic Users.  The street continues east towards the
+market square.  The magic shop is to the north and to the west is the city
+gate.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18033
+You see the magic shop.
+~
+~
+Dr 1 0 -1 18013
+You see the main street.
+~
+~
+Dr 2 5 -1 18017
+You see the entrance to the Guild of Magic Users.
+~
+wood door that has been painted with the symbol of the Caravan Group~
+Dr 3 0 -1 18040
+You see the city gate.
+~
+~
+End
+
+#18013
+N Market Street~
+Ref 0
+D
+You are on the main street passing through the City of Midgaard.  South of
+here is the entrance to the Armoury, and the bakery is to the north.  East of
+here is the market square.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18009
+You see the bakery.
+~
+~
+Dr 1 0 -1 18014
+You see the market square.
+~
+~
+Dr 2 0 -1 18020
+You see the armoury.
+~
+~
+Dr 3 0 -1 18012
+You see the main street.
+~
+~
+End
+
+#18014
+N Market Square~
+Ref 0
+D
+You are standing on the market square, the famous market of Cape Red..  A
+large, peculiar looking statue is standing in the middle of the square. 
+Roads lead in every direction, north to the temple square, south to the
+common square, east and westbound is the main street.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED statue~
+What you see is the army of the kingdom, stretching around Castle Rygor.  
+~
+R M 18060 12 100 1
+Dr 0 0 -1 18005
+You see the Merchant's Guild, and the northern gate; across from the
+Grunting Boar Inn.
+~
+~
+Dr 1 0 -1 18015
+You see the main street.
+~
+~
+Dr 2 0 -1 18025
+You see the square.  
+~
+~
+Dr 3 0 -1 18013
+You see the main street.
+~
+~
+End
+
+#18015
+N Market Street~
+Ref 0
+D
+You are on Main Street crossing through town.  To the north is the general
+store, and the main street continues east.  To the west you see and hear the
+market place and to the south is the Jeweller's Shop.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18010
+You see the general store.
+~
+~
+Dr 1 0 -1 18016
+You see Main Street.
+~
+~
+Dr 2 0 -1 18034
+You see the Jeweller's Shop.
+~
+~
+Dr 3 0 -1 18014
+You see the market square.
+~
+~
+End
+
+#18016
+N Market Street~
+Ref 0
+D
+The main street, to the north is the weapon shop and to the south is the
+Guild of Swordsmen.  To the east you leave town and to the west the street
+leads to the market square.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18011
+You see the weapon shop.
+~
+~
+Dr 1 0 -1 18041
+You see the city gate.
+~
+~
+Dr 2 0 -1 18021
+You see the swordsmen's guild.
+~
+~
+Dr 3 0 -1 18015
+You see the main street leading to the market square.
+~
+~
+End
+
+#18017
+N Caravan Group Offices~
+Ref 0
+D
+The entrance hall is a small, poor lighted room.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18024 1 100 1
+Dr 0 5 -1 18012
+You see the main street.
+~
+wood door that has been painted with the symbol of the Caravan Group~
+Dr 2 0 -1 18018
+There's a bar out back which leads to the offices.
+~
+~
+End
+
+#18018
+N Caravan Group's Tavern~
+Ref 0
+D
+A wide bar near the back of the room is built on a huge tree hewn in
+half.  The top of the bar is polished and carefully managed by its tenders. 
+Items from the sea have been hung on the walls to signify that the Port of
+Cape Red is where the caravan becomes the caravel.  
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18042 1 100 1
+Dr 0 0 -1 18017
+You see the lobby.
+~
+~
+Dr 1 0 -1 18019
+You see the laboratory.
+~
+~
+End
+
+#18019
+N Caravan Group Offices~
+Ref 0
+D
+Owned and operated by the Vindercass Estate, the Carvan Group's main
+office in the Port of Cape Red is functional, without much touch of
+elegance.  
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18020 1 100 1
+Dr 3 0 -1 18018
+You see the bar.
+~
+~
+End
+
+#18020
+N War and Roses Curio Shoppe~
+Ref 0
+D
+The armoury with all kinds of armours on the walls and in the window.  You
+see helmets, shields and chain mails.  To the north is the main street.
+On the wall is a small note.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED note~
+You can use these commands for trading:
+
+  value <item>     To get the price of an item in your possession.
+  sell <item>      To sell something.
+  buy <item>       To buy something (provided that the shop has it in store).
+  list             Gives you a listing of the shop's inventory.
+
+        WE DON'T GIVE CREDIT; WE DON'T EXPECT TO RECEIVE CREDIT!
+                             NO HAGGLING
+~
+R M 18004 1 100 1
+Dr 0 0 -1 18013
+You see the main street.
+~
+~
+End
+
+#18021
+N Consortium Office~
+Ref 0
+D
+The entrance hall to the Guild of Swordsmen.  A place where one has to be
+careful not to say something wrong (or right).  To the east is the bar and to
+the north is the main street.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18027 1 100 1
+Dr 0 0 -1 18016
+You see the main street.
+~
+~
+Dr 1 0 -1 18022
+You see the swordsmen's bar, many noises comes from there.
+~
+~
+End
+
+#18022
+N Consortium Bar~
+Ref 0
+D
+The bar of swordsmen, once upon a time beautifully furnished.  But now the
+furniture is all around you in small pieces.  To the south is the yard, and
+to the west is the entrance hall.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18045 1 100 1
+Dr 2 0 -1 18023
+You see the practice yard.
+~
+~
+Dr 3 0 -1 18021
+You see the entrance hall to the thieves guild.
+~
+~
+End
+
+#18023
+N Consortium Guild Room~
+Ref 0
+D
+The practice yard of the fighters.  To the north is the bar.  A well leads
+down into darkness.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18022
+You see the bar.
+~
+~
+Dr 5 1024 -1 22048
+A narrow shaft leads down to the sewer; it looks like it would be
+impossible to climb back up.
+~
+~
+End
+
+#18024
+N Barren Courtyard~
+Ref 0
+D
+You are at the poor alley.  South of here is the Grubby Inn and to the
+east you see common square.  The alley continues further west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18062 2 100 1
+Dr 1 0 -1 18025
+You see the common square.
+~
+~
+Dr 2 0 -1 18048
+You see the Inn.
+~
+~
+Dr 3 0 -1 18044
+You see the poor alley.
+~
+space between two buildings~
+End
+
+#18025
+N South Market Square~
+Ref 0
+D
+The common square, people pass you, talking to each other.  To the west is
+the poor alley and to the east is the dark alley.  To the north, this square
+is connected to the market square.  From the south you notice a nasty smell.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18050 1 100 1
+Dr 0 0 -1 18014
+You see the market square.
+~
+~
+Dr 1 0 -1 18026
+You see the dark alley.
+~
+space between two buildings~
+Dr 2 0 -1 18030
+You see the city dump.
+~
+trellace~
+Dr 3 0 -1 18024
+You see the poor alley.
+~
+~
+End
+
+#18026
+N Alley Off Market~
+Ref 0
+D
+You are standing in a cramped alley leading from Market Square to the
+Levee.  A few buildings to the south are accessible from here.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED guild~
+It is the thieves guild, don't enter if you care about your health or money.
+~
+R M 18063 5 100 1
+Dr 1 0 -1 18045
+The alley continues east.
+~
+alley~
+Dr 2 0 -1 18027
+To the south is the Independent Merchant's Bureau.  
+~
+~
+Dr 3 0 -1 18025
+You see the common square.
+~
+space between two buildings~
+End
+
+#18027
+N Independent Trade Bureau~
+Ref 0
+D
+The entrance hall to the Trader's guild.  A place where you can lose both
+your wife and your money, if you are not careful.  To the north is the alley
+and to the east is the Trader's bar.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18026 1 100 1
+Dr 0 0 -1 18026
+You see the alley.
+~
+~
+Dr 1 0 -1 18028
+You see the bar, where stress disappears.  
+~
+~
+End
+
+#18028
+N Trader's Bar~
+Ref 0
+D
+The bar is ornate, furnished with dark paneling and classic tavern decor.
+In the booths are hung paintings of majestic seafaring scenes, indicating
+the business that is undoubtably conducted here in the Guild.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+ED furniture~
+As you look at the furniture, the chair you sit on disappears.
+~
+R M 18044 1 100 1
+Dr 2 5 -1 18029
+A door in the back leads to an office.
+~
+back door~
+Dr 3 0 -1 18027
+You see the entrance hall to the guild.  
+~
+~
+End
+
+#18029
+N Back Office~
+Ref 0
+D
+This office is for the head of the independent merchants.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18022 1 100 1
+Dr 0 5 -1 18028
+You see the bar.
+~
+back door~
+Dr 5 1024 -1 22043
+You can't see what is down there, it is too dark.  Looks like it would be
+impossible to climb back up.
+~
+grating~
+End
+
+#18030
+N The Port Garden~
+Ref 0
+D
+Neatly trimmed hedges are trimmed with domesticated wildflowers.  A path
+of cobblestones leads south to the greenhouse.  
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18025
+You see the common square.
+~
+trellace~
+Dr 2 261 -1 18504
+A modest greenhouse is set near the back of the garden.  
+~
+glass door~
+End
+
+#18031
+N Dervin's Animal Companions~
+Ref 0
+D
+The Pet Shop is a small crowded store, full of cages and animals of
+various sorts and sizes.  There is a sign on the wall.
+~
+C
+~
+F 4104
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign reads:
+
+  Use 'List' to see the available pets.
+  Use 'Buy <pet> <name>' to buy yourself a pet and name it.
+
+  You can use 'order <pet> <instructions>' to order your pets around.
+  If you abuse your pet, it will no longer regard you as its master.
+  If you have several pets you may use 'order all <instructions>'
+
+ Regards,
+
+   The Shopkeeper
+~
+R M 18008 1 100 1
+Dr 2 0 -1 18045
+You see the Alley.
+~
+~
+End
+
+#18032
+N Pet Shop Store~
+Ref 0
+D
+This is the small dark room in which the Pet Shop Boy keeps his pets.
+It is vital that this room be immediately after the pet shop.
+~
+C
+~
+F 14
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18090 1 100 1
+End
+
+#18033
+N Alister's Alchemy~
+Ref 0
+D
+You are in a small room that smells of rare chemicals and spices.
+Dividing the room in two is a large desk, and on the wall behind it are
+numerous shelves crammed with jars, bottles, books and scrolls of all
+sorts and sizes.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED scrolls~
+Each scroll is stored in a leather tube that protects it from moist.
+~
+ED books~
+Most of them appear to be very old and dusty.
+~
+ED jars bottles~
+Some of them are transparent enabling you to see that some contain colored
+powders while others contain body parts of various animals.
+~
+R M 18000 1 100 1
+Dr 2 0 -1 18012
+You see the main street.
+~
+~
+End
+
+#18034
+N Jeweller's Shop~
+Ref 0
+D
+You are in a small, beautifully furnished room.  The warm light emanating
+from the small oil lamps on the walls is reflected in the hard, polished
+surface of the big mahogany desk that stands in the centre of the room.
+A small sign with golden letters stands on the desk.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The golden letters say :-
+
+    Use 'list' to see what is in store,
+        'buy <item>' to buy an item,
+        'sell <item>' to sell an item and
+        'value <item>' to make the jeweller evaluate an item.
+~
+ED desk~
+Your face is reflected in its surface.
+~
+ED oil lamps~
+They are made from polished gold and looks as if they are securely fastened
+to the smooth stone walls.
+~
+R M 18009 1 100 1
+Dr 0 0 -1 18015
+You see Main Street.
+~
+~
+End
+
+#18035
+N Leather Worker~
+Ref 0
+D
+An acrid smell fills this large room.  Along the walls are numerous
+shelves containing all sorts of animal hide and in the crackling fireplace
+hangs a big iron pot with boiling water.  In the middle of the room is a
+large oak table.
+A wooden sign is hanging above the fireplace.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The wooden sign says :-
+
+    Use 'list' to see what is in store,
+        'buy <item>' to buy an item,
+        'sell <item>' to sell an item and
+        'value <item>' to make the leather worker evaluate an item.
+~
+ED pot~
+Several large pieces of leather hide are boiling in the iron pot.
+~
+ED table~
+It is made from solid oak but appears to be very used.  Its surface is
+covered in marks and scratches.  A large burning candle stands directly on
+the table surface, tallow flowing down its sides.
+~
+ED fireplace~
+It is a rather large fireplace made from heavy granite rocks.
+~
+R M 18010 1 100 1
+Dr 2 0 -1 18044
+You see the alley.
+~
+~
+End
+
+#18040
+N Port of Cape Red - Gold Exchange~
+Ref 0
+D
+You are by two small towers that have been built into the city wall and
+connected with a footbridge across the heavy wooden gate.  Main Street leads
+east and Wall Road leads south from here.
+~
+C
+~
+F 64
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+R M 18068 2 100 1
+Dr 1 0 -1 18012
+You see Main Street.
+~
+~
+Dr 2 0 -1 18042
+You see the road running along the inner side of the city wall.  You notice
+that it is called Wall Road.
+~
+~
+Dr 3 0 3133 18052
+The city gate is to the west.
+~
+gate~
+End
+
+#18041
+N Market Street~
+Ref 0
+D
+You are by two small towers that have been built into the city wall and
+connected with a footbridge across the heavy wooden gate.  Main Street leads
+west from here.  South of here is the wall road, but it looks dirty and 
+not too safe.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+R M 18067 2 100 1
+Dr 1 0 3133 18053
+You see the city gate.
+~
+gate~
+Dr 2 0 0 17171
+You see the slums of Midgaard.
+~
+~
+Dr 3 0 -1 18016
+You see Main Street.~
+~
+End
+
+#18042
+N Dock Road~
+Ref 0
+D
+You are walking next to the western city wall.  The road continues further
+south and the city gate is just north of here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+Dr 0 0 -1 18040
+You see the city gate.
+~
+~
+Dr 2 0 -1 18043
+The road continues further south.
+~
+~
+End
+
+#18043
+N Dock Road~
+Ref 0
+D
+You are walking next to the western city wall.  Wall Road continues
+further north.  A small, poor alley leads east.  Some letters have been
+written on the wall here.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED letters~
+It says 'Who watches the watchmen?'
+~
+Dr 0 0 -1 18042
+The road continues further north.
+~
+~
+Dr 1 0 -1 18044
+The alley leads east.
+~
+~
+End
+
+#18044
+N Dirty Alley~
+Ref 0
+D
+You are in narrow and dirty alley leading east and west.  The leather shop
+is to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18065 2 100 1
+Dr 0 0 -1 18035
+The leather shop is to the north.
+~
+~
+Dr 1 0 -1 18024
+The alley leads east.
+~
+space between two buildings~
+Dr 3 0 -1 18043
+The alley leads west.
+~
+alley~
+End
+
+#18045
+N Alley at Levee~
+Ref 0
+D
+You are standing in the alley which continues east and west.  South of
+here you see the levee.  North is the Pet Shop.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18031
+You see, hear, and smell the pet shop.
+~
+~
+Dr 1 0 -1 18046
+The alley leads east.
+~
+alley~
+Dr 2 0 -1 18049
+You see the levee.
+~
+alley~
+Dr 3 0 -1 18026
+The alley leads west.
+~
+alley~
+End
+
+#18046
+N Eastern End of Alley~
+Ref 0
+D
+You are standing at the eastern end of the alley.  An old three-story
+warehouse is directly south of here, and the Mob Factory is east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 1 -1 18050
+You see the warehouse.
+~
+vaulted door~
+Dr 3 0 -1 18045
+You see the alley.
+~
+alley~
+End
+
+#18047
+N Wall Road~
+Ref 0
+D
+You are standing on the road next to the western city wall which
+continues north.  South of here is a bridge across the river.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+Dr 2 0 -1 18051
+You see the bridge.
+~
+~
+End
+
+#18048
+N Rusty Barnacle Inn~
+Ref 0
+D
+You are inside the old grubby Inn.  This place has not been cleaned for
+several decades, vile smells make you dizzy.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18046 1 100 1
+Dr 0 0 -1 18024
+You see the alley.
+~
+~
+End
+
+#18049
+N Levee~
+Ref 0
+D
+You are at the levee.  South of here you see the river gently flowing west.
+The river bank is very low making it possible to enter the river.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18006 1 100 1
+Dr 0 0 -1 18045
+You see the Alley.
+~
+~
+End
+
+#18050
+N Warehouse~
+Ref 0
+D
+You are inside the only room in the old warehouse.  The place is very dusty
+and appears to have been unused for many years.  The skylight spills
+violet-tinged light.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18007 1 100 1
+Dr 0 1 -1 18046
+You see the alley.
+~
+vaulted door~
+End
+
+#18051
+N On the Bridge~
+Ref 0
+D
+You are standing on the stone bridge crosses the river.  The bridge is
+built out from the western city wall and the river flows west through an
+opening in the wall ten feet below the bridge.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED opening~
+You cannot really see it from here as it is somewhere beneath your feet.
+~
+ED bridge~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar, just like the wall.
+~
+Dr 0 0 -1 18047
+You see the road.
+~
+~
+Dr 2 0 -1 18100
+You see the Concourse.
+~
+~
+End
+
+#18052
+N Port of Cape Red~
+Ref 0
+D
+You are by two small towers that have been built into the city wall and
+connected with a footbridge across the heavy wooden gate.  To the west you
+can see the endless ocean.  The dock concourse is to the north.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+Dr 0 0 -1 18900
+The trail continues around the City of Midgaard.
+~
+~
+Dr 1 0 3133 18040
+The city gate is to the east.
+~
+gate~
+Dr 2 0 0 18906
+~
+~
+End
+
+#18053
+N Court of Colburn~
+Ref 0
+D
+You are by two small towers that have been built into the city wall and
+connected with a footbridge across the heavy wooden gate.  To the east the
+plains stretch out in the distance. To the north a small dusty trail follow
+the city wall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+Dr 1 0 -1 18503
+You see the plains.~
+~
+Dr 3 0 3133 18041
+You see the city gate.
+~
+gate~
+End
+
+#18054
+N Road to Cape Red~
+Ref 0
+D
+The road is wide and well traveled; many merchants seem to be coming rom
+Keveg to sell things in the Port.  I'm sure stock flows this way to the
+mountains and beyond.  
+~
+C
+~
+F 1032
+S 1
+M 0
+W 0
+T 0
+O ~
+ED statue odin king god~
+The statue represents the one-eyed Odin sitting on a his throne.  He has
+long, grey hair and beard and a strict look on his face.  On top of the
+throne, just above his shoulders, his two ravens Hugin and Munin are sitting
+and at his feet are his wolves Gere and Freke.
+~
+ED altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
+~
+R O 18010 0 100 1
+Dr 0 0 0 10074
+In the distance is the temple of Dumandra, in the town of Keveg.
+~
+~
+Dr 2 0 -1 18001
+You can see the spires of Cape Red in the distance.
+~
+~
+End
+
+#18057
+N In the air...~
+Ref 0
+D
+WOW you can fly!  You are floating in the air above Temple Square of Midgaard.
+~
+C
+~
+F 4
+S 9
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 16017
+More of the same.
+~
+~
+End
+
+#18100
+N Northwest end of Concourse~
+Ref 0
+D
+You are at the concourse, the city wall is just west.  A small promenade
+goes east, and the bridge is just north of here.  The concourse continues
+south along the city wall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18051
+You see the Bridge.
+~
+~
+Dr 1 0 -1 18101
+You see the promenade.
+~
+~
+Dr 2 0 -1 18127
+The promenade continues far south.
+~
+~
+End
+
+#18101
+N Promenade~
+Ref 0
+D
+The river gently flows west just north of here.  The promenade continues
+further east and to the west you see the city wall.  Park Road leads south
+from here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18134 0 100 1
+Dr 1 0 -1 18102
+The promenade.
+~
+~
+Dr 2 0 -1 18131
+Park Road leads south.
+~
+~
+Dr 3 0 -1 18100
+You see the Concourse.
+~
+~
+End
+
+#18102
+N Promenade~
+Ref 0
+D
+The river gently flows west just north of here.  The promenade continues
+both east and west.  South of here you see the entrance to the park, and a
+small building seems to be just west of the entrance.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18134 0 100 1
+Dr 1 0 -1 18103
+You see the promenade.
+~
+~
+Dr 2 0 -1 18105
+You see the park entrance.
+~
+~
+Dr 3 0 -1 18101
+You see the promenade.
+~
+~
+End
+
+#18103
+N Promenade~
+Ref 0
+D
+The river gently flows west just north of here.  The promenade continues
+both east and west.  A small path leads south.  Looking across the river you
+see the levee.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18134 0 100 1
+Dr 1 0 -1 18104
+You see the Concourse.
+~
+~
+Dr 2 0 -1 18132
+The small path leads south.
+~
+~
+Dr 3 0 -1 18102
+You see the promenade.
+~
+~
+End
+
+#18104
+N Northeast end of Concourse~
+Ref 0
+D
+You are at the Concourse.  The city wall is just east and a small
+promenade goes west.  Looking across the river you see a building that
+resembles a warehouse.  The Concourse continues south along the city wall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
+Dr 2 0 -1 18130
+The Concourse continues south.
+~
+~
+Dr 3 0 -1 18103
+You see the promenade.
+~
+~
+End
+
+#18105
+N Park Entrance~
+Ref 0
+D
+You are standing just inside the small park of Midgaard.  To the north is
+the promenade and a small path leads south into the park.  To your east is
+the famous Park Cafe.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18102
+You see the promenade.
+~
+~
+Dr 1 0 -1 18106
+You see Park Cafe.
+~
+~
+Dr 2 0 -1 18108
+You see the park.
+~
+~
+End
+
+#18106
+N Park Cafe~
+Ref 0
+D
+You are inside Park Cafe, a very well lighted, cosy place. The cafe
+is built from large logs. Through the windows in the northern wall you
+see the river, and through the southern window you see many vigorous
+colorful plants.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18100 1 100 1
+Dr 3 0 -1 18105
+You see the park entrance.
+~
+~
+End
+
+#18107
+N Small path through the park~
+Ref 0
+D
+You are walking along a small path through the park.  The path continues
+south and east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18108
+~
+~
+Dr 2 0 -1 18113
+~
+~
+End
+
+#18108
+N Small path in the park~
+Ref 0
+D
+You are standing on a small path inside the park.  The park entrance is
+just north of here, and Park Cafe is just east of the entrance.  The path
+leads further east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18105
+You see the northern park entrance.
+~
+~
+Dr 1 0 -1 18109
+~
+~
+Dr 3 0 -1 18107
+~
+~
+End
+
+#18109
+N Small path in the park~
+Ref 0
+D
+You are on a small path running through the park.  It continues west and
+south and just north of here you see the southern wall of Park Cafe.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18123 1 100 1
+Dr 2 0 -1 18115
+~
+~
+Dr 3 0 -1 18108
+~
+~
+End
+
+#18110
+N Guardhouse~
+Ref 0
+D
+You are inside a tidy office.  A big desk made from dark wood is standing
+in the centre of the room.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18111
+You see Park Road.
+~
+door~
+Dr 3 0 3120 18142
+You see a sign saying 'KEEP OUT'.
+~
+door~
+End
+
+#18111
+N Park Road~
+Ref 0
+D
+The road continues north and south.  A building is just west of here, you
+notice a sign on the door.  The park entrance is to the east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED building door sign~
+The sign on the door says:-
+
+                 Cityguard Head Quarters
+~
+R M 18060 20 100 1
+Dr 0 0 -1 18131
+~
+~
+Dr 1 0 -1 18112
+You see the park entrance.
+~
+~
+Dr 2 0 -1 18118
+~
+~
+Dr 3 0 -1 18110
+You see the guardsman head quarters.
+~
+door~
+End
+
+#18112
+N Western Park Entrance~
+Ref 0
+D
+You are standing at the western end of the park.  A small path leads east
+into the park and going west through the entrance you will reach Park Road.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18113
+~
+~
+Dr 3 0 -1 18111
+~
+~
+End
+
+#18113
+N A path in the park~
+Ref 0
+D
+You are in the park.  The paths lead north and west.  Westwards is the
+park entrance and to the east you see a small pond.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18124 2 100 1
+Dr 0 0 -1 18107
+~
+~
+Dr 1 0 -1 18114
+You see the pond.
+~
+~
+Dr 3 0 -1 18112
+You see the western park entrance.
+~
+~
+End
+
+#18114
+N The Pond~
+Ref 0
+D
+You are swimming around in the pond, feeling rather stupid.  You can get
+back on the path from the eastern and western end of the pond.
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 18121 1 100 1
+Dr 1 0 -1 18115
+~
+~
+Dr 3 0 -1 18113
+~
+~
+End
+
+#18115
+N A path in the park~
+Ref 0
+D
+You are in the park.  The paths lead north and east.  Eastwards is the
+park entrance and to the west you see a small pond.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18124 2 100 1
+Dr 0 0 -1 18109
+~
+~
+Dr 1 0 -1 18116
+~
+~
+Dr 3 0 -1 18114
+~
+~
+End
+
+#18116
+N Eastern Park Entrance~
+Ref 0
+D
+You are standing at the eastern end of the park.  A small path leads west
+into the park.  Going east through the entrance you will reach Emerald
+Avenue.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18117
+~
+~
+Dr 3 0 -1 18115
+~
+~
+End
+
+#18117
+N Emerald Avenue~
+Ref 0
+D
+You are at Emerald Avenue which continues north and south.  To the west is
+the park entrance and to the east is the not very big Town Hall of Midgaard.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18132
+~
+~
+Dr 1 0 -1 18137
+~
+~
+Dr 2 0 -1 18119
+~
+~
+Dr 3 0 -1 18116
+~
+~
+End
+
+#18118
+N Park Road~
+Ref 0
+D
+You are on Park Road which leads north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18111
+~
+~
+Dr 2 0 -1 18135
+~
+~
+End
+
+#18119
+N Emerald Avenue~
+Ref 0
+D
+You are standing at a bend on Emerald Avenue.  The road leads north and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18117
+~
+~
+Dr 3 0 -1 18133
+~
+~
+End
+
+#18120
+N Road Crossing~
+Ref 0
+D
+You are in the middle of the road cross.  Roads lead in all directions.
+A huge black iron chain as thick as a tree trunk is fastened into the ground
+at the centre of the road cross.  Its other end leads directly upwards towards
+the sky.
+A road sign is here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED chain~
+The the chain reaches the clouds high above you.  It must take some really
+powerful magic to hold such a chain in place.
+~
+ED sign~
+The sign points in all directions:
+
+   North - Emerald Avenue.
+   East  - Park Road.
+   South - Emerald Avenue.
+   West  - Park Road.
+
+Someone has added the following with red paint:
+
+   Up    - Redferne's Flying Citadel.
+~
+R M 18144 1 100 1
+Dr 0 0 -1 18133
+~
+~
+Dr 1 0 -1 18136
+~
+~
+Dr 2 0 -1 18134
+~
+~
+Dr 3 0 -1 18135
+~
+~
+End
+
+#18121
+N Emerald Avenue~
+Ref 0
+D
+You are standing at a bend on Emerald Avenue.  The road leads south and
+east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18134
+~
+~
+Dr 2 0 -1 18125
+~
+~
+End
+
+#18122
+N Park Road~
+Ref 0
+D
+You are on Park Road which leads south and north.  Elm Street is east of
+here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18136
+~
+~
+Dr 1 0 -1 18123
+~
+~
+Dr 2 0 -1 18126
+~
+~
+End
+
+#18123
+N Elm Street~
+Ref 0
+D
+You are on Elm street.  Park Road is to the west and Elm Street continues
+in eastward direction.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18124
+~
+~
+Dr 3 0 -1 18122
+~
+~
+End
+
+#18124
+N End of Elm Street~
+Ref 0
+D
+You are at the end of Elm Street.  An old elm tree grows here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED elm tree~
+The fresh young leaves of the elm tree wave gently in the wind.
+~
+Dr 3 0 -1 18123
+~
+~
+End
+
+#18125
+N Emerald Avenue~
+Ref 0
+D
+You are on Emerald Avenue which continues north.
+The Concourse is south of here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18121
+~
+~
+Dr 2 0 -1 18128
+~
+~
+End
+
+#18126
+N Park Road~
+Ref 0
+D
+You are on Park Road which continues north.  The Concourse is south of here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18122
+~
+~
+Dr 2 0 -1 18129
+~
+~
+End
+
+#18127
+N On the Concourse~
+Ref 0
+D
+You are at the southwest corner of the city wall.  The Concourse leads
+both north and east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18100
+~
+~
+Dr 1 0 -1 18128
+~
+~
+End
+
+#18128
+N On the Concourse~
+Ref 0
+D
+The Concourse continues both east and west.  Emerald Avenue is north of
+here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18005 5 100 1
+Dr 0 0 -1 18125
+~
+~
+Dr 1 0 -1 18129
+~
+~
+Dr 3 0 -1 18127
+~
+~
+End
+
+#18129
+N On the Concourse~
+Ref 0
+D
+The Concourse continues both east and west.  Park Road is north of here
+and an iron grate leads south to the graveyard.
+A bronze sign has been set on the wall next to the grate.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign says :-
+
+                          Graveyard of Midgaard
+
+    Many brave adventurers have found their final resting place here.
+          Please show respect and do not desecrate their tombs.
+~
+ED grate~
+Looks heavy.
+~
+Dr 0 0 -1 18126
+~
+~
+Dr 1 0 -1 18130
+~
+~
+Dr 3 0 -1 18128
+~
+~
+End
+
+#18130
+N On the Concourse~
+Ref 0
+D
+You are at the southeast corner of the city wall.  The Concourse leads
+both north and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18104
+~
+~
+Dr 3 0 -1 18129
+~
+~
+End
+
+#18131
+N Park Road~
+Ref 0
+D
+You are at Park Road which continues north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18101
+~
+~
+Dr 2 0 -1 18111
+~
+~
+End
+
+#18132
+N Emerald Avenue~
+Ref 0
+D
+You are standing on the north end of Emerald Avenue.  To the north is the
+promenade and to the east is the small street Penny Lane.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18103
+~
+~
+Dr 1 0 -1 18139
+~
+~
+Dr 2 0 -1 18117
+~
+~
+End
+
+#18133
+N Emerald Avenue~
+Ref 0
+D
+You are standing at a bend on Emerald Avenue.  To the east the road goes on
+and to the south is the Road Crossing.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18119
+~
+~
+Dr 2 0 -1 18120
+~
+~
+End
+
+#18134
+N Emerald Avenue~
+Ref 0
+D
+You are standing at a bend on Emerald Avenue.  To the west the road goes on
+and to the north is the Road Crossing.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18120
+~
+~
+Dr 3 0 -1 18121
+~
+~
+End
+
+#18135
+N Park Road~
+Ref 0
+D
+You are at a bend on Park Road.  To the north the road goes on and to the
+east is the Road Crossing.  To the south, the ancient cliffs rise from deep
+under the ground, forming a wall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18118
+~
+~
+Dr 1 0 -1 18120
+~
+~
+End
+
+#18136
+N Park Road~
+Ref 0
+D
+You are at a bend on Park Road.  To the south the road goes on and to the
+west is the Road Crossing.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 18122
+~
+~
+Dr 3 0 -1 18120
+~
+~
+End
+
+#18137
+N The Waiting Room~
+Ref 0
+D
+You are standing in the waiting room at the town hall.  Wooden chairs stand
+along the walls and a long desk is placed in the middle of the room.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18142 1 100 1
+Dr 1 0 -1 18138
+It looks like some kind of office.
+~
+~
+Dr 3 0 -1 18117
+The exit west leads to Emerald Avenue.
+~
+~
+End
+
+#18138
+N The Mayor's Office~
+Ref 0
+D
+You are in the not very big office of the Mayor of Midgaard.  A large and
+polished but completely empty desk is standing in front of an armchair that
+looks so comfortable that it most of all resembles a bed with the head end
+raised slightly.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED chair armchair~
+This chair is really a masterpiece.  A chair where one can sit as comfortably
+as in a bed.  All lecture halls should be equipped with these things.
+~
+R M 18143 1 100 1
+Dr 3 0 -1 18137
+The waiting room is to the west.
+~
+~
+End
+
+#18139
+N Penny Lane~
+Ref 0
+D
+You are on Penny Lane.  Emerald Avenue is to the west and Penny Lane
+continues in eastward direction.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18140
+~
+~
+Dr 3 0 -1 18132
+~
+~
+End
+
+#18140
+N Penny Lane~
+Ref 0
+D
+You are on Penny Lane.  The narrow road continues north and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18141
+~
+~
+Dr 3 0 -1 18139
+~
+~
+End
+
+#18141
+N End of Penny Lane~
+Ref 0
+D
+You are at the end of Penny Lane.  The only exit appears to be south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18135 0 100 1
+Dr 2 0 -1 18140
+~
+~
+End
+
+#18142
+N Captain's Office~
+Ref 0
+D
+You are in the Office of the Captain of the Guard.  The Midgaard Coat of
+Arms is hanging on the north wall and a heavy steel door is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED arms~
+Although a bit dusty the Coat of Arms is an excellent piece of work.
+~
+R M 18140 1 100 1
+Dr 1 0 3120 18110
+You see the Cityguard Head Quarters.
+~
+door~
+Dr 2 0 3137 18143
+You see the heavy steel door.
+~
+door~
+End
+
+#18143
+N The Jail~
+Ref 0
+D
+You are in a dark and humid jail.  The dark stone walls are hard and cold
+to the touch.  A heavy steel door is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED wall walls~
+The walls are marked with lots of scratches.  Some of them spell sentences
+like "JAIL IS BETTER THAN SQL" and "INGRES STRIKES AGAIN".
+~
+Dr 0 0 3137 18142
+You see the heavy steel door.
+~
+door~
+End
+
+#18200
+N Under the Bridge~
+Ref 0
+D
+The arch under the bridge is covered by seaweed for one foot above the
+surface of the river.  The water gently flows through an opening in the lower
+part of the city wall.
+~
+C
+~
+F 0
+S 7
+M 0
+W 0
+T 0
+O ~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  Looks pretty solid.
+~
+Dr 1 0 -1 18201
+~
+~
+End
+
+#18201
+N On the River~
+Ref 0
+D
+North of here you see the miserable buildings of the poor alley.  The
+river flows west towards the bridge.  The riverbanks are too steep to climb.
+~
+C
+~
+F 0
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18202
+~
+~
+Dr 3 0 -1 18200
+~
+~
+End
+
+#18202
+N On the River~
+Ref 0
+D
+North of here you see the dump.  The river flows from east to west.  The
+riverbanks are too steep to climb.
+~
+C
+~
+F 0
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18203
+~
+~
+Dr 3 0 -1 18201
+~
+~
+End
+
+#18203
+N On the River~
+Ref 0
+D
+The levee is directly north of here.  The river flows in an east west
+direction.
+~
+C
+~
+F 4
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18204
+~
+~
+Dr 3 0 -1 18202
+~
+~
+End
+
+#18204
+N On the River~
+Ref 0
+D
+You see the warehouse on the northern riverbank.  East of here you see the
+city wall.  The river flows west towards the levee.
+~
+C
+~
+F 0
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18205
+~
+~
+Dr 3 0 -1 18203
+~
+~
+End
+
+#18205
+N On the River~
+Ref 0
+D
+The river enters from a hole in the eastern city wall.  The hole has been
+blocked by several vertically positioned iron bars set into the wall.
+~
+C
+~
+F 0
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 20001
+The iron bars are broken, allowing passage through the hole in the wall.
+Beyond the bars you see a dark tunnel.
+~
+~
+Dr 3 0 -1 18204
+~
+~
+End
+
+#0
+
+
+
+#$

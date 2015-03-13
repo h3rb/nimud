@@ -1,0 +1,2669 @@
+#ZONE 
+N Wench   Dragon Tower~
+B None~
+V 17200 17299
+S 1
+End
+
+
+
+#SCRIPTDATA
+#17245
+N dragon-staff~
+C
+* area effect staff
+if ( is(%astr%,{zap}), { goto({zap}; } );
+goto({end});
+label(zap);
+echo(%actor%,{^B^4 You slam the bottom of the staff on the ground and an expanding shockwave});
+echo(%actor%,{ of magic fire emits from the staff along the ground, growing to engulf});
+echo(%actor%,{ your enemies!^N});
+oecho(%actor%,{^B^4%name% invokes a staff of the dragon, creating an expanding shockwave});
+oecho(%actor%,{ of fire engulfing all enemies!^N});
+return(1);
+%here% here();
+bomb(%actor%,{350});
+if ( check(10), { goto({destroyme}); } );
+goto({end});
+label(destroyme);
+echo(%actor%,{^B^4Your staff is expended and it fades from this plane of existence.^N}); 
+destroy;
+label(end);
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#17200
+N hatchling dragon baby~
+SD the dragon hatchling~
+LD
+ A dragon hatchling is here, chewing on a bone.
+~
+D
+ This small dragon hisses at you as you enter the room.  Although it is only a
+few feet long, its sharp teeth make you think twice about petting it.
+~
+A 67
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -900 E 460
+O ~
+AP 25 25 25 25 25
+At 0 10 16 11
+At 1 5 24 8
+End
+
+#17201
+N draconian~
+SD the Draconian~
+LD
+ The Draconian is standing here.
+~
+D
+ This horrible creature is a bizarre cross between a man and a dragon.  He 
+has black scales and a seven foot wingspan.  He scowls at you and hefts his 
+spear as you enter the room.
+~
+A 39
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 16 1
+At 1 5 18 9
+At 2 1 28 5
+End
+
+#17202
+N master~
+SD the dragon master~
+LD
+ The lord of this crypt is here.
+~
+D
+ He doesn't look happy to see you.
+~
+A 39
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 493
+O ~
+AP 25 25 25 25 25
+At 0 10 16 11
+At 1 5 24 3
+At 2 1 42 12
+End
+
+#17203
+N man mage wizard~
+SD a powerful mage~
+LD
+ A man is here, studying some books.
+~
+D
+ A powerful looking mage is standing in this room studying his spells.  You are
+surprised at the fact that he is human, and realize that he must be very
+powerful to have been accepted by the creatures which live here.
+~
+A 3
+AB 138
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 218
+O ~
+AP 15 15 15 15 15
+At 0 10 13 14
+End
+
+#17204
+N cleric draconian~
+SD the holy Draconian~
+LD
+ A Draconian is here, deep in thought.          
+~
+D
+ A Draconian stands here, dressed in simple robes.  Around his neck you 
+notice a golden medallion in the shape of a five headed dragon.  
+~
+A 39
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 901
+O ~
+AP 25 25 25 25 40
+At 0 10 59 8
+At 1 5 49 13
+At 2 1 28 12
+At 6 5 79 12
+End
+
+#17205
+N king draconian~
+SD the Draconian King~
+LD
+ A Draconian wearing fine clothes is here, pondering his greatness.          
+~
+D
+ The king of the draconians sits here on a golden throne.  He looks as 
+though he could crush your head with a single blow.  Yet you sense that he 
+is conhevetied by a greater power. 
+~
+A 7
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 797
+O ~
+AP 25 25 25 25 40
+At 0 10 58 14
+At 1 5 73 7
+At 3 1 22 6
+At 6 5 18 0
+End
+
+#17206
+N concubine draconian~
+SD a concubine~
+LD
+ A concubine is resting here. 
+~
+D
+ This is a concubine of the king.  She is lounging here, wearing nothing at 
+all.  You find yourself strangely repulsed as she draws a knife and 
+prepares to defend herself. 
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -500 E 41
+O ~
+AP 15 15 15 15 15
+At 0 10 19 11
+End
+
+#17207
+N bodyguard draconian~
+SD A bodyguard~
+LD
+ A bodyguard is here, staring at you menacingly. 
+~
+D
+ This creature has devoted its life to defending the king.  Your intrusion has
+not pleased it.
+~
+A 35
+AB 44
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -800 E 500
+O ~
+AP 25 25 25 25 25
+At 0 10 18 10
+At 1 5 5 0
+At 3 1 34 18
+End
+
+#17220
+N tiamat dragon~
+SD Tiamat~
+LD
+ A five headed dragon hisses at you as you enter this room.
+~
+D
+ You see before you the master of this Tower, Tiamat.  She frowns at you as she
+prepares to make you pay for your insolence ... with your lives!
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 35
+O ~
+AP 15 15 15 15 15
+At 0 10 15 13
+End
+
+#17221
+N dragon red~
+SD the Great Red Dragon~
+LD
+ A red dragon is here, contemplating your existence. 
+~
+D
+ This huge red dragon dominates the chamber.  As you turn to flee, he grins at
+you and invites you to stay ... forever! 
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 140
+O ~
+AP 15 15 15 15 15
+At 0 10 25 10
+End
+
+#17222
+N dragon black~
+SD the Great Black Dragon~
+LD
+ A black dragon is here, laughing at your insolence. 
+~
+D
+ This huge black wyrm laughs at your puny weapons.  You realize that he is not
+going to roll over and die for you.
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 12 5
+End
+
+#17223
+N dragon white~
+SD the Great White Dragon~
+LD
+ A white dragon is here, waiting for you. 
+~
+D
+ This dragon towers over you.  Recalling your previous experiences with white
+dragons, you are not afraid.  She smiles at you and says 'I think you will find
+me a greater challenge than my offspring.'
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 314
+O ~
+AP 19 19 19 19 19
+At 0 10 11 9
+At 1 5 19 2
+End
+
+#17225
+N dragon green~
+SD the Ancient Green Dragon~
+LD
+ A green dragon is here, looking distraught. 
+~
+D
+ This huge beast appears to be the most directly related to the draconians. 
+She looks at you with sorrow in her eyes and says 'You have slaughtered my 
+children.  Prepare to die.'
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 32
+O ~
+AP 15 15 15 15 15
+At 0 10 17 3
+End
+
+#17226
+N hydra~
+SD a large hydra~
+LD
+ A hydra is here, blocking the doorway. 
+~
+D
+ A hydra is here, guarding the entrance to a sealed vault.  You have the feeling
+it isn't happy to see you.
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -800 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 17 1
+At 1 5 9 8
+At 3 1 24 2
+End
+
+#17227
+N slave human~
+SD A human slave~
+LD
+ A Human slave is here, hard at work.          
+~
+D
+ He looks like he's under a lot of stress.  He would probably like it if you
+left him alone.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 832
+O ~
+AP 25 25 25 25 40
+At 0 10 68 1
+At 1 5 77 4
+At 3 1 19 20
+At 6 5 94 8
+End
+
+#17240
+N zombie draconian~
+SD a Draconian zombie~
+LD
+ A Draconian zombie is here, staring at nothing in particular.
+~
+D
+ This used to be one of the warriors of this tribe.  He was denied his final
+rest, however, and now guards this corridor tirelessly as a zombie.
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -400 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 11 2
+End
+
+#17241
+N dragon phase~
+SD the phase dragon~
+LD
+ A Phase Dragon is darting around the room.          
+~
+D
+ This small dragon looks like he's up to no good. 
+~
+A 229
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -300 E 150
+O ~
+AP 15 15 15 15 15
+At 0 10 16 5
+End
+
+#17242
+N fool draconian~
+SD the draconian fool~
+LD
+ A Fool is here, making fun of you.          
+~
+D
+ This dragon man looks VERY foolish, dressed in a green and blue striped 
+suit.  As you enter the room, he points at you and laughs. 
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 891
+O ~
+AP 25 25 25 25 40
+At 0 10 28 10
+At 1 5 64 0
+At 2 1 71 5
+At 4 1 20 0
+At 6 5 54 5
+End
+
+#17243
+N queen draconian~
+SD the Draconian Queen~
+LD
+ A Female Draconian sits, here, looking very important.          
+~
+D
+ This draconian looks VERY busy as she orders her slaves around.  You think 
+it might be a good idea to leave her alone. 
+~
+A 7
+AB 168
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -600 E 50
+O ~
+AP 15 15 15 15 15
+At 0 10 16 0
+End
+
+#0
+
+
+
+#OBJDATA
+#17200
+N spear jagged~
+SD a jagged spear~
+P ~
+D
+A jagged spear has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 4000
+O ~
+V 0 2 5 11
+End
+
+#17201
+N dagger silver~
+SD a silver dagger~
+P ~
+D
+A silver dagger is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 0 2 4 11
+End
+
+#17202
+N knife tooth dragon~
+SD a dragon's tooth knife~
+P ~
+D
+A dangerous looking knife made from a dragon's tooth has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 100000
+O ~
+V 68 3 5 11
+End
+
+#17203
+N bracer dragon strength~
+SD a bracer of dragon strength~
+P ~
+D
+A mighty looking bracer lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 4097
+Sz 18
+Ti 0
+Wt 10
+C 40000
+O ~
+V 6 0 0 0
+End
+
+#17204
+N dragon dragonskin girth~
+SD a dragonskin girth~
+P ~
+D
+A thick girth made of dragonskin is hanging here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 2049
+Sz 18
+Ti 0
+Wt 25
+C 10000
+O ~
+V 6 0 0 0
+End
+
+#17210
+N belt silk white~
+SD a white silk belt~
+P ~
+D
+A white belt made of the finest silk is hanging here.
+~
+A
+~
+PD
+~
+DR
+Upon first glance you do not notice, but upon further inspection the belt
+is obviously magical in nature.  It has a compartment for storing far more
+than one would expect from a belt of this elegance and size.  
+~
+L 0
+T 15
+E 64
+W 2049
+Sz 18
+Ti 0
+Wt 25
+C 10000
+O ~
+V 600 0 0 0
+End
+
+#17211
+N bracelet platinum~
+SD a platinum bracelet.~
+P ~
+D
+A tarnished platinum bracelet has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 4097
+Sz 18
+Ti 0
+Wt 5
+C 50000
+O ~
+V 7 0 0 0
+End
+
+#17220
+N symbol holy~
+SD a holy symbol~
+P ~
+D
+A golden holy symbol is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 16389
+Sz 18
+Ti 0
+Wt 2
+C 50000
+O ~
+V 4 0 0 0
+End
+
+#17221
+N robe black~
+SD a plain black robe~
+P ~
+D
+A black robe is hanging on a hook on the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 3
+C 50000
+O ~
+V 5 0 0 0
+End
+
+#17222
+N sword emerald~
+SD an emerald sword~
+P ~
+D
+An emerald long sword is leaning against the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 24
+C 200000
+O ~
+V 53 3 6 3
+End
+
+#17223
+N club stone~
+SD a stone club~
+P ~
+D
+A heavy looking stone club is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 18
+C 7500
+O ~
+V 0 3 5 8
+End
+
+#17224
+N ring diamond~
+SD a diamond ring~
+P ~
+D
+A diamond ring lies gleaming on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 3
+Sz 18
+Ti 0
+Wt 6
+C 50000
+O ~
+V 4 0 0 0
+End
+
+#17230
+N ring copper~
+SD a copper ring~
+P ~
+D
+A copper ring is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 100000
+O ~
+V 1 0 0 0
+End
+
+#17231
+N key steel~
+SD a steel key~
+P ~
+D
+A steel key.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#17232
+N key ruby~
+SD a ruby key~
+P ~
+D
+A ruby key.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#17233
+N key white~
+SD a white key~
+P ~
+D
+A white key.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#17234
+N key grey~
+SD a grey key~
+P ~
+D
+A grey key is resting on the ground here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#17237
+N key stone~
+SD a stone key~
+P ~
+D
+A stone key.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#17240
+N key black~
+SD a black key~
+P ~
+D
+A black key.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#17241
+N key platinum~
+SD a platinum key~
+P ~
+D
+A platinum key.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#17242
+N shield crested~
+SD a crested shield~
+P ~
+D
+A large crested shield draws your attention.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 20
+C 200000
+O ~
+V 8 0 0 0
+End
+
+#17243
+N wand golden~
+SD a golden wand~
+P ~
+D
+A golden wand has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 1
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 10000
+O ~
+V 25 10 10 0
+End
+
+#17244
+N staff silver~
+SD a silver staff~
+P ~
+D
+A silver staff.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 65
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 10000
+O ~
+V 25 20 20 0
+End
+
+#17245
+N staff dragon~
+SD the staff of the dragon~
+P ~
+D
+A powerful oak staff has been left here.
+~
+A
+~
+PD
+~
+DR
+The staff is embued with the power of dragon fire.  You can activate this
+magic item during combat by typing 'zap'.  
+~
+L 0
+T 5
+E 65
+W 16385
+Sz 0
+Ti 0
+Wt 5
+C 10000
+O ~
+Sc 17245
+V 25 10 10 0
+End
+
+#17246
+N mail scale~
+SD scale mail~
+P ~
+D
+A set of scale mail has been abandoned here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 9
+Sz 18
+Ti 0
+Wt 20
+C 100000
+O ~
+V 8 0 0 0
+End
+
+#17250
+N staff black~
+SD a black staff~
+P ~
+D
+You notice the faint outline of a staff.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 513
+W 16385
+Sz 18
+Ti 0
+Wt 25
+C 75000
+O ~
+V 30 3 3 0
+End
+
+#17251
+N potion cyan~
+SD a cyan potion~
+P ~
+D
+A small cyan potion has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 40000
+O ~
+V 30 0 0 0
+End
+
+#17252
+N potion magenta~
+SD a magenta potion~
+P ~
+D
+A magenta potion.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 128
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 2000
+O ~
+V 30 0 0 0
+End
+
+#17254
+N gauntlets spiked~
+SD a pair of spiked gauntlets~
+P ~
+D
+A pair of spiked gauntlets.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 129
+Sz 18
+Ti 0
+Wt 10
+C 50000
+O ~
+V 4 0 0 0
+End
+
+#17260
+N scimitar golden~
+SD a golden scimitar~
+P ~
+D
+A golden scimitar.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 40000
+O ~
+V 0 3 5 3
+End
+
+#17261
+N brooch diamond~
+SD a diamond brooch~
+P ~
+D
+A diamond brooch.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 5
+Sz 18
+Ti 0
+Wt 2
+C 10000
+O ~
+V 4 0 0 57
+End
+
+#17270
+N scroll~
+SD a runed scroll~
+P ~
+D
+A runed scroll.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 5000
+O ~
+V 30 0 0 0
+End
+
+#17271
+N gloves dragon~
+SD a pair of dragon skin gloves~
+P ~
+D
+A pair of dragon skin gloves are lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 5
+C 40000
+O ~
+V 6 0 0 0
+End
+
+#17275
+N helm dragon~
+SD a helm of dragon kind~
+P ~
+D
+A helm made of a dragon's skull is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 15
+C 30000
+O ~
+V 5 0 0 0
+End
+
+#17276
+N fur cloak~
+SD a fur cloak~
+P ~
+D
+A large mound of fur is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 10
+C 25000
+O ~
+V 6 0 0 0
+End
+
+#17280
+N leggings dragon scale~
+SD a pair of dragon scale leggings~
+P ~
+D
+A pair of dragon scale leggings is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 15
+C 35000
+O ~
+V 7 0 0 0
+End
+
+#17281
+N sleeves dragon scale~
+SD a set of dragon scale sleeves~
+P ~
+D
+A set of dragon scale sleeves is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 12
+C 30000
+O ~
+V 7 0 0 0
+End
+
+#17285
+N whip dragon tail~
+SD a dragon tailed whip~
+P ~
+D
+A dragon tailed whip is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 514
+W 8193
+Sz 18
+Ti 0
+Wt 14
+C 40000
+O ~
+V 0 4 5 4
+End
+
+#17286
+N hammer copper~
+SD a copper hammer~
+P ~
+D
+A copper hammer is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 12
+C 30000
+O ~
+V 0 3 5 8
+End
+
+#17299
+N key gold tarnished~
+SD a tarnished gold key~
+P ~
+D
+A tarnished gold key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 500
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#17201
+N The Tower Gates~
+Ref 0
+D
+You are at the entrance to a tall tower.  Lightning flashes periodically and
+it is raining.  You think it might be a good idea to turn back into the grove.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+ED gate~
+The gate is tall and secure.  Whoever built it values privacy.
+~
+R M 17200 5 100 1
+Dr 0 0 2231 17202
+You see a large steel gate.  Beyond is the Foyer of the Tower.
+~
+gate steel~
+Dr 1 0 0 16304
+The shadows cloud your vision.
+~
+~
+End
+
+#17202
+N The Foyer~
+Ref 0
+D
+This is the entrance to the Tower.  The hallway continues to the north,
+leading towards a staircase.  You notice a grim painting on the wall,  and 
+quickly look away.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+ED painting~
+This painting depicts the grisly death of a foolish human.  You hope you do 
+not share his fate.
+~
+R M 17200 5 100 1
+Dr 0 0 -1 17203
+You see a long hallway. 
+~
+~
+Dr 2 0 -1 17201
+You see the gate. 
+~
+~
+End
+
+#17203
+N Hallway~
+Ref 0
+D
+This hallway seems to stretch on forever.  You notice a stairway in  
+the distance. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17200 5 100 1
+Dr 0 0 -1 17204
+The hall continues. 
+~
+~
+Dr 2 0 -1 17202
+You see the foyer. 
+~
+~
+End
+
+#17204
+N Hallway~
+Ref 0
+D
+You trudge down the hallway.  You notice doors to the east and west. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED inscription~
+It says "STORAGE"
+~
+ED sign~
+The sign says "NURSERY" in bold letters.     
+~
+R M 17201 7 100 1
+Dr 0 0 -1 17207
+The hall continues. 
+~
+~
+Dr 1 0 -1 17205
+You see a door.  You notice a sign. 
+~
+door~
+Dr 2 0 -1 17203
+The hall continues.
+~
+~
+Dr 3 0 -1 17206
+You see an oak door.  There is an inscription on it. 
+~
+oak~
+End
+
+#17205
+N Nursery~
+Ref 0
+D
+It looks like a tornado has been through here.  Toys are scattered everywhere,
+and a small group of dragon hatchlings are fighting over a bone. 
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17200 5 100 1
+Dr 1 0 2297 17223
+You see a large stone door.
+~
+door stone~
+Dr 3 0 -1 17204
+You see the hallway. 
+~
+~
+End
+
+#17206
+N Storage Room~
+Ref 0
+D
+This room is covered with dust, it looks as if no one has been here in ages.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED dust~
+As you look closely at the dust, you notice the outline of a trapdoor!       
+~
+R M 17200 5 100 1
+Dr 1 0 -1 17204
+You see the hallway. 
+~
+~
+Dr 5 0 -1 17208
+You see nothing special. 
+~
+trapdoor~
+End
+
+#17207
+N End of the Hallway~
+Ref 0
+D
+You have finally reached the end of the hallway.  A huge staircase leads up.
+You see a sign at the base of the staircase. 
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign reads:
+    This area is kind of tough.  You probably shouldn't go up these stairs 
+    alone if you are under 18th level, or at all if you under 14th level.  
+    Have fun! -- Wench
+~
+R M 17200 5 100 1
+Dr 2 0 -1 17204
+The hall continues. 
+~
+~
+Dr 4 0 -1 17210
+The second floor.
+~
+~
+End
+
+#17208
+N Guardian's Room~
+Ref 0
+D
+You climb down the rickety stairs and find yourself face to face with a 
+gargantuan hydra.  How fast can you climb UP stairs? 
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17226 1 100 1
+Dr 2 0 2234 17209
+A large grey door.
+~
+grey~
+Dr 4 0 -1 17206
+You see the storage room. 
+~
+door trap trapdoor~
+End
+
+#17209
+N The Treasure Room~
+Ref 0
+D
+You have made it past the hydra into the vault.  You are astounded by 
+the treasure here.  Not only are you now rich, you can probably rest here
+safely.  The west wall seems to have a large door made entirely of ruby.
+~
+C
+~
+F 12
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 2234 17208
+You see nothing special. 
+~
+grey~
+Dr 3 0 2232 17218
+You see a ruby door!
+~
+door ruby~
+End
+
+#17210
+N The Second Floor~
+Ref 0
+D
+You have made it up to the second floor.  You hear hissing and see several
+dragon men rushing you.  You wonder how long you will be staying here.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17201 7 100 1
+Dr 2 0 1 17211
+You see the court.
+~
+~
+Dr 5 0 -1 17207
+You see the first floor.
+~
+~
+End
+
+#17211
+N The Court~
+Ref 0
+D
+You have entered what seems to be a large court.  The people guarding it
+don't seem happy to see you ...
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17207 10 100 1
+Dr 0 0 -1 17210
+You see nothing special.
+~
+~
+Dr 1 0 -1 17212
+You see a wooden door. 
+~
+door wooden~
+Dr 2 0 -1 17213
+You see the court.
+~
+~
+End
+
+#17212
+N Hall O' Pleasure~
+Ref 0
+D
+You stop dead in your tracks as you enter this ornately decorated room - it
+is populated with the king's harem.  
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17206 5 100 1
+Dr 3 0 -1 17211
+You see the Court.
+~
+~
+End
+
+#17213
+N The Court~
+Ref 0
+D
+You are continuing down the hall.  To the east and west you see ornate doors.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17211
+You see the court.
+~
+~
+Dr 1 0 2240 17214
+You see a black door.
+~
+door black~
+Dr 2 0 -1 17216
+You see the court.
+~
+~
+Dr 3 0 2233 17215
+You see a white door.
+~
+door white~
+End
+
+#17214
+N The Library~
+Ref 0
+D
+You have entered a huge room, filled with books.  A peaceful man is
+sitting at a table, studying.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17203 1 100 1
+Dr 3 0 2240 17213
+You see the court.
+~
+door black~
+End
+
+#17215
+N The Sanctum~
+Ref 0
+D
+This small room is modestly decorated with small dragon icons.  Its sole
+occupant is deep in thought.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 2233 17213
+You see the Court.
+~
+door white~
+End
+
+#17216
+N The Court Ends~
+Ref 0
+D
+You have reached the end of the court.  A huge Draconian is sitting in a
+chair here.  As you enter, he motions with his hand and you are rushed by three
+of his bodyguards.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17205 1 100 1
+Dr 0 0 -1 17213
+You see the court.
+~
+~
+Dr 1 0 -1 17217
+You see a private chamber.
+~
+~
+End
+
+#17217
+N bedroom~
+Ref 0
+D
+This is the personal room of the draconian king.  It is not empty.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17243 1 100 1
+Dr 3 0 -1 17216
+You see Court.
+~
+~
+End
+
+#17218
+N Entrance to the Crypt~
+Ref 0
+D
+You have entered a large room which smells heavily of reptile.  You wonder
+what awaits you here.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17240 5 100 1
+Dr 1 0 2232 17209
+You see the Treasure Vault.
+~
+door ruby~
+Dr 3 0 -1 17219
+You see the Crypt.
+~
+~
+End
+
+#17219
+N Crypt~
+Ref 0
+D
+You are in a large room which continues to the west.  You notice many
+coffins here.  Open coffins reveal remains of something other than man.  
+The smell of reptile is very strong here.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17240 5 100 1
+Dr 1 0 -1 17218
+You see the entrance.
+~
+~
+Dr 3 0 -1 17222
+You see nothing special.
+~
+~
+End
+
+#17220
+N The Lair~
+Ref 0
+D
+You have entered a large room dominated by a great white dragon.  It growls
+at you before it attacks.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17223 1 100 1
+Dr 2 0 0 17235
+You the cave opening.
+~
+~
+End
+
+#17221
+N A Lair~
+Ref 0
+D
+You have entered a large room dominated by a great black dragon.  It looks
+as though it is amused by your presence.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17222 1 100 1
+Dr 0 0 0 17241
+You the cave opening.
+~
+~
+End
+
+#17222
+N The Crypt Ends~
+Ref 0
+D
+You have come to the end of the Crypt.  It seems deserted.  There is a 
+strange coffin lying against the wall.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED coffin~
+A coffin lies a against the east wall.  It is closed.
+~
+R M 17202 1 100 1
+Dr 1 0 -1 17219
+You see the Crypt.
+~
+~
+Dr 3 0 0 17232
+~
+coffin~
+End
+
+#17223
+N Entrance to the Great Hall~
+Ref 0
+D
+You have entered a huge hall.  It has been carefully decorated with
+beautiful tapestries depicting a great battle between dragons and men.  The
+dragons appear to be the victors.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17224
+The Hall continues.
+~
+~
+Dr 3 0 2297 17205
+You see the Nursery.
+~
+door stone~
+End
+
+#17224
+N The Great Hall~
+Ref 0
+D
+You are working your way down the Hall.  To the north, you notice a smaller
+passageway, while the main hall continues to the east.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17225
+You see a narrow passageway.
+~
+~
+Dr 1 0 -1 17229
+You see the Hall.
+~
+~
+End
+
+#17225
+N A Narrow Passageway~
+Ref 0
+D
+This Passageway branches off from the main hall and leads somewhere ... where?
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17226
+You see a large Lair.  It looks dangerous.
+~
+~
+Dr 2 0 -1 17224
+You see the great hall.
+~
+~
+End
+
+#17226
+N Lair~
+Ref 0
+D
+You have entered a large lair with bones strewn about the ground.  You
+notice the source of these as you come face to face with a rather large red
+dragon.  You notice a trap door in the floor.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17221 1 100 1
+Dr 2 0 -1 17225
+The narrow passageway.
+~
+~
+Dr 5 0 -1 17227
+You see a trap door.
+~
+door trap trapdoor~
+End
+
+#17227
+N Underground Tunnel~
+Ref 0
+D
+You have entered an underground tunnel.  It is dark and dirty, and you find
+yourself wishing you were back in Midgaard.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17228
+You see the tunnel.
+~
+~
+Dr 4 0 -1 17226
+You see the red dragon's lair.
+~
+door trap trapdoor~
+End
+
+#17228
+N Underground Tunnel~
+Ref 0
+D
+This tunnel has come to a dead end.  You feel nervous about being trapped here.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 17227
+You see the tunnel.
+~
+~
+End
+
+#17229
+N The Great Hall Ends.~
+Ref 0
+D
+You have come to the end of the great hall.  You see before you a huge
+golden door, it must be at least twenty feet tall!  It has beautiful etchings
+of dragons.  You see a sign on the door.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Congratulations on making it this far!  Watch out, it gets a little
+    nasty here... :) - Wench
+~
+Dr 1 0 2299 17230
+You see a great golden door.
+~
+door great golden~
+Dr 3 0 -1 17224
+You see the hall.
+~
+~
+End
+
+#17230
+N THE Lair~
+Ref 0
+D
+You have entered a huge lair.  You feel that something big lives here or at least did.  The golden door lies back to the west.
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17225 1 100 1
+Dr 3 0 2299 17229
+You see a great golden door.
+~
+door golden great~
+End
+
+#17231
+N The End...~
+Ref 0
+D
+You have reached the final lair.  It is dominated by a huge five headed
+dragon.  You suddenly realize that you have SERIOUS problems...
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 2241 17243
+You see the top of the mountain.
+~
+~
+End
+
+#17232
+N Stairwell~
+Ref 0
+D
+This is an old decrepit stairwell that leads to the wine cellar.  It looks
+like it hasn't been used for decades.  Well, at least not by anything living.
+~
+C
+~
+F 8
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17240 5 100 1
+Dr 1 0 0 17222
+The crypt~
+~
+Dr 5 0 0 17233
+A wine cellar~
+~
+End
+
+#17233
+N Wine cellar~
+Ref 0
+D
+This is the old wine cellar of the Dragon Tower.  The shelves are empty.
+Nothing living has been in here for a long time.  You see a tunnel leading
+off to the east and boy does it smell bad.  Kinda of like rotting flesh.
+~
+C
+~
+F 1
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17240 5 100 1
+Dr 1 0 0 17234
+A tunnel
+~
+~
+Dr 4 0 0 17232
+The stairwell
+~
+~
+End
+
+#17234
+N Tunnel~
+Ref 0
+D
+This tunnel seems to stretch for miles.  You try to distinguish the end but
+your eyes soon tire from the strain.  The smell here has increased two fold.
+The tunnel continues to go to the east.  The wine cellar lies back to the 
+west.
+~
+C
+~
+F 257
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17240 5 100 1
+Dr 0 0 0 17235
+A cave opening
+~
+~
+Dr 1 0 0 17236
+A tunnel
+~
+~
+Dr 3 0 0 17233
+A tunnel
+~
+~
+End
+
+#17235
+N A cave opening~
+Ref 0
+D
+You stand at the opening of a giant cave.  There are many bones strewn across
+the room.  Some human, some indistinguishable.  It smells very bad in here.
+You can hear movement in the cave to the north.  The tunnel goes back to the
+south.
+~
+C
+~
+F 257
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17220
+The lair
+~
+~
+Dr 2 0 0 17234
+The tunnel
+~
+~
+End
+
+#17236
+N The End of the tunnel~
+Ref 0
+D
+You have finally come to the end of the tunnel.  Back to the west lies
+the miles of tunnels you have walked through.  You see the faint outline of
+a trapdoor above you.  A bride over an underground river lies to the south.
+~
+C
+~
+F 257
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17240 5 100 1
+Dr 2 0 0 17237
+bridge
+~
+~
+Dr 3 0 0 17234
+The tunnel
+~
+~
+Dr 4 0 0 17202
+trapdoor
+~
+~
+End
+
+#17237
+N The Bridge~
+Ref 0
+D
+You are walking along an old wooden bridge.  Its not that secure.  You 
+might want to hurry along.  To the south, on the other side of the bridge,
+lies a small opening.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17236
+The tunnel end
+~
+~
+Dr 2 0 0 17238
+A small opening
+~
+~
+End
+
+#17238
+N A small opening~
+Ref 0
+D
+You are standing in a small opening.  To the north lies the old wooden
+bridge.  To your south the you can see a clearing.  You can see sunlight
+again.  What a welcome relief!
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17237
+bridge
+~
+~
+Dr 2 0 0 17239
+clearing
+~
+~
+End
+
+#17239
+N Clearing~
+Ref 0
+D
+You stand out in a clearing.  Mountains are all around you.  There is a 
+well in the middle of the clearing.  Lying against the well is a sign.  A
+path leads up the mountain.  The small opening is back to the north.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign reads:
+         This is a bottomless pit cleverly disguised as a well.  People have
+fallen in and never been heard from again.  Trust me, you don't want to go 
+down there.
+                        The All Powerful Well Keeper
+~
+ED well~
+You peer over the side of the well.  It looks VERY, VERY deep.  It appears
+to be ENDLESS.
+~
+R M 17200 5 100 1
+Dr 0 0 0 17238
+the small opening
+~
+~
+Dr 4 0 0 17240
+A path
+~
+~
+Dr 5 0 0 17244
+The well
+~
+~
+End
+
+#17240
+N A path~
+Ref 0
+D
+This path leads up the side of the mountain.  A clearing lies below you.
+There is a cave opening to the west.  The path continues up the mountain.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 17241
+cave opening
+~
+~
+Dr 4 0 0 17242
+the path continues
+~
+~
+Dr 5 0 0 17239
+clearing
+~
+~
+End
+
+#17241
+N A cave opening~
+Ref 0
+D
+You stand before a huge cave opening.  You hearing heavy breathing from
+within the cave.  There are a few skeletons lying about.  The cave lies to 
+the south.  The path is back to the east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17200 5 100 1
+Dr 1 0 0 17240
+the path
+~
+~
+Dr 2 0 0 17221
+A lair
+~
+~
+End
+
+#17242
+N The path continues~
+Ref 0
+D
+The path continues up the mountain to the top.  The path also goes down.
+Thats it, nothing more to see.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 17243
+top of the mountain
+~
+~
+Dr 5 0 0 17240
+path
+~
+~
+End
+
+#17243
+N The top of the mountain~
+Ref 0
+D
+You are standing at the top of the mountain.  It feels more like the top of
+the world.  To your north lies a huge platinum door.  You hear very pronounced
+grumbling from behind the doors.  It sounds like something huge and hungry.
+But if you don't have the key you don't have to worry because you can't get it.
+If you do have the key I would suggest not going in.  Some believe the Five
+Headed dragon Tiamat was imprisoned here by the gods.  But who believes in 
+fairy tales.  Well, if you're scared, you can always go down the mountain.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED door platinum~
+A huge platinum door separates you from harm~
+Dr 0 0 2241 17231
+The platinum door
+~
+door platinum~
+Dr 5 0 0 17242
+The path continues
+~
+~
+End
+
+#17244
+N Well~
+Ref 0
+D
+O
+ h
+   !
+
+     N
+      o
+       !
+
+   I warned you!  You have fallen into the bottomless pit.  You life flashes
+right before your eyes.  Pretty pathetic isn't it?  Next time you'll know
+to listen to the God of Laughs.
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

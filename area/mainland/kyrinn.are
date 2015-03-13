@@ -1,0 +1,1311 @@
+#ZONE 
+N Soudkyr~
+R A flash of heat lightning catches the corner of your eye from the
+southwest.  
+~
+B None~
+V 15100 15129
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#15101
+N smurf~
+SD a smurf~
+LD
+ A smurf is singing and walking along.
+~
+D
+ A cute little blue smurf with a white hat and white boots.  You have a sudden
+urge to crush him.
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 1
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15102
+N smurf~
+SD a smurf~
+LD
+ A smurf is here, picking berries.
+~
+D
+ A small smurf is quietly picking berries.  He seems to hardly notice you.
+~
+A 131
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 1
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15103
+N brainy smurf~
+SD Brainy Smurf~
+LD
+ Brainy Smurf is here, mumbling something to himself.
+~
+D
+ Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
+other smurfs.  They fear his knowledge.  Knowledge is power!
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 4
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15104
+N laborer~
+SD a laborer~
+LD
+ A dirty laborer wanders home from his lord's lands.
+~
+D
+ Muscular and trim, the laborer seems to see much work and little
+time for play.  His mind is set and he is tired.
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 75
+AP 13 13 13 13 13
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15105
+N sleepy smurf~
+SD Sleepy Smurf~
+LD
+ Sleepy Smurf is sleep walking here.
+~
+D
+ Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
+if he has ever stayed up a whole night without sleeping.
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 4
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15106
+N hefty smurf~
+SD Hefty Smurf~
+LD
+ Hefty Smurf is lifting weights here.
+~
+D
+ Hefty is a total health nut.  He lifts weights, eats right, and exercises all
+the time.  Won't do him much good when he's DEAD.
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 4
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15107
+N grumpy smurf~
+SD Grumpy Smurf~
+LD
+ Grumpy Smurf is here, swearing.
+~
+D
+ Grumpy has never been happy in his whole life.  So why don't you just end it?
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 3
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15108
+N jokey smurf~
+SD Jokey Smurf~
+LD
+ Jokey Smurf is here, holding a present.
+~
+D
+ Jokey loves to give people presents.  Too bad the present explodes when opened.
+Oh well, to each his own.
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 3
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15109
+N smurfette~
+SD Smurfette~
+LD
+ Smurfette is here, looking beautiful.
+~
+D
+ Smurfette is the cutest little smurf you've ever seen.  If only she were your
+size.  I wonder how much she charges the other smurfs.
+~
+A 193
+AB 0
+M 0
+S 2
+Sz 18
+K 100 E 5
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15110
+N papa smurf~
+SD Papa Smurf~
+LD
+ Papa Smurf is practicing magic here.
+~
+D
+ Yep, its Papa Smurf all right.  Red hat and boots and the funny little white
+beard.  Papa Smurf treats his fellow smurfs with dignity and respect.  That
+is why Papa Smurf is so popular among the ladies.
+~
+A 193
+AB 0
+M 0
+S 1
+Sz 18
+K 100 E 225
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15111
+N gargamel~
+SD Gargamel~
+LD
+ Gargamel is here, cursing out the smurfs.
+~
+D
+ Gargamel has never done anything right in his life.  He has caught smurfs
+before but always lets them escape.  He brings true meaning to the word moron.
+~
+A 131
+AB 0
+M 0
+S 1
+Sz 18
+K -100 E 200
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#15112
+N azreal cat~
+SD Azreal~
+LD
+ Azreal is here, licking himself.
+~
+D
+ Gargamel's worthless cat.  He is just about as dumb as Gargamel.  He should
+just grab a smurf in his teeth and chew away.
+~
+A 131
+AB 0
+M 0
+S 1
+Sz 18
+K -100 E 6
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#0
+
+
+
+#OBJDATA
+#15100
+N bunch berries smurfberries~
+SD a bunch of smurfberries~
+P ~
+D
+A bunch of delicious looking smurfberries lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 50
+V 8 0 0 0
+End
+
+#15101
+N glasses~
+SD a pair of glasses~
+P ~
+D
+An odd pair of glasses has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W -32767
+Sz 18
+Ti 0
+Wt 2
+C 500
+V 1 0 0 0
+End
+
+#15102
+N smurf hat~
+SD a smurf hat~
+P ~
+D
+A smurf hat has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 2
+C 50
+V 3 0 0 0
+End
+
+#15103
+N axe small~
+SD a small axe~
+P ~
+D
+A small axe has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 2000
+V 0 2 5 3
+End
+
+#15104
+N necklace~
+SD a small necklace~
+P ~
+D
+A small necklace is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 5
+Sz 18
+Ti 0
+Wt 2
+C 500
+V 1 0 0 0
+End
+
+#15105
+N pink potion~
+SD a pink potion~
+P ~
+D
+A pink potion is barely visible on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 500
+V 6 0 0 0
+End
+
+#15106
+N wand~
+SD a small wand~
+P ~
+D
+A small wand lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 2
+C 500
+V 5 1 1 0
+End
+
+#15107
+N key~
+SD a tiny key~
+P ~
+D
+A tiny key is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 50
+V 2 0 0 0
+End
+
+#15108
+N well~
+SD a smurf well~
+P ~
+D
+A small smurfy well is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 25
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 500
+C 3000
+V 50 0 0 0
+End
+
+#15109
+N key~
+SD a small key~
+P ~
+D
+A key to Gargamel's door lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 50
+V 2 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#15100
+N Black Gravel Road~
+Ref 0
+D
+A black gravel road leads east from Vladgadbrun.  To the northwest,
+the rim of the great colloseum frames wisps of smoke that billow
+into the clouds.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 1 0 0 15101
+~
+~
+Dr 3 0 0 539
+~
+~
+End
+
+#15101
+N Turn in Black Gravel Road~
+Ref 0
+D
+This path is made of crushed granite with curious blue streaks in it.
+The path continues north to a village, or south to the west gate.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+Dr 0 0 -1 15102
+The path continues toward the village.
+~
+~
+Dr 3 0 0 15100
+~
+~
+End
+
+#15102
+N Dimly Lit Path~
+Ref 0
+D
+This section of the road is badly worn and frequently traversed.  There is
+faint singing to the north.  The road back to the arena lies to the south.
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+Dr 0 0 -1 15103
+The path continues toward the village.
+~
+~
+Dr 2 0 -1 15101
+The dimly lit path.
+~
+~
+End
+
+#15103
+N Road to Soudkyr, South of Kyrinn~
+Ref 0
+D
+This section of the road is badly worn and frequently traversed.  Singing is
+getting stronger to the north.  The road back to the arena lies to the south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+Dr 0 0 -1 15104
+The entrance to smurf village.
+~
+~
+Dr 2 0 -1 15102
+The dimly lit path.
+~
+~
+End
+
+#15104
+N Entrance to Soudkyr~
+Ref 0
+D
+The southern edge of Soudkyr is a shanty town, full of huts and
+lean-tos, with crunchy gravel underfoot.  A black gravel road
+leads south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+R M 15101 3 100 1
+Dr 0 0 -1 15105
+Smurfy Road
+~
+~
+Dr 2 0 -1 15103
+Dimly Lit Path
+~
+~
+End
+
+#15105
+N Kyr Road~
+Ref 0
+D
+ 
+The Kyr river flows past the road here, as it meanders through
+the blackened earth east of the Ring of Fire.  Billowing clouds
+of ash loom on the horizon.  Small huts and lean-tos form the
+ranshackle streets of Soudkyr, the small warren south of
+the capital city of Kyrinn, the seat of all power in Central
+Tyselorrd.  To the east and west is a long row of dilapidated
+dwellings that line the Laborer's Path.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15101 3 100 1
+Dr 0 0 -1 15106
+Smurfy Road
+~
+~
+Dr 1 0 -1 15110
+Smurfy Road
+~
+~
+Dr 2 0 -1 15104
+Entrance to smurf village
+~
+~
+Dr 3 0 -1 15111
+Smurfy Road
+~
+~
+End
+
+#15106
+N Kyr Road~
+Ref 0
+D
+You continue to travel down Smurfy Road.  Isn't it just smurfy?  Smurfy road
+continues its smurfy path to the smurfy north, smurfy west, and smurfy south.
+A smurfy home lies to the smurfy east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+Dr 0 0 -1 15107
+Smurfy Road
+~
+~
+Dr 1 0 -1 15120
+Smurfy Home
+~
+~
+Dr 2 0 -1 15105
+Smurfy Road
+~
+~
+Dr 3 0 -1 15112
+Smurfy Road
+~
+~
+End
+
+#15107
+N Kyr Road~
+Ref 0
+D
+Oh boy, another smurfy road!  Smurfy Road goes north and south here.  There
+is a smurfy, mushroom home to the west.  A beautiful smurfberry patch is to
+the east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15101 3 100 1
+Dr 0 0 -1 15108
+Smurfy Road
+~
+~
+Dr 1 0 -1 15116
+Smurfberry Patch
+~
+~
+Dr 2 0 -1 15106
+Smurfy Road
+~
+~
+Dr 3 5 -1 15129
+A Smurfy Home
+~
+bolt-harnessed door~
+End
+
+#15108
+N Artisan Square~
+Ref 0
+D
+Smurfy Road continues to smurf here.  It smurfs to the south and smurfs to
+an end to the north.  A smurfberry patch is to the east.  A stone path lies
+to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15101 3 100 1
+Dr 0 0 -1 15109
+Smurfy Road
+~
+~
+Dr 1 0 -1 15117
+Smurfberry patch
+~
+~
+Dr 2 0 -1 15107
+Smurfy Road
+~
+~
+Dr 3 0 -1 15113
+A stone path
+~
+~
+End
+
+#15109
+N Artisan Square~
+Ref 0
+D
+A smurfy well lies here in the middle of Smurfy Road.  A fence separates
+the smurfs from harm to the north.  A berry patch is to the east.  Smurfy
+Road continues to to the south and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+ED smurfy well~
+A small well is here.  Just the right size if you're a smurf.  But big
+enough for you to get some water from.  I'm sure the smurfs wont mind.
+~
+R O 15108 0 100 1
+Dr 1 0 -1 15118
+Smurfberry Patch
+~
+~
+Dr 2 0 -1 15108
+Smurfy Road
+~
+~
+Dr 3 0 -1 15114
+Smurfy Road
+~
+~
+End
+
+#15110
+N Laborer's Path~
+Ref 0
+D
+The laborer's path is a soot-covered dustbowl in the southern
+districts of Soudkyr, a small village south of Kyrinn.  Dirty
+houses and lean-tos line the narrow, soiled street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15101 3 100 1
+Dr 0 1 -1 15119
+Smurfy Home
+~
+dusty wood door~
+Dr 3 0 -1 15105
+Smurfy Road
+~
+~
+End
+
+#15111
+N Laborer's Path~
+Ref 0
+D
+The narrow soot-covered road called Laborer's Path turns at
+a pair of mud-covered buildings, larger than the small lean-tos
+that are the norm in this warren.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15101 3 100 1
+Dr 0 0 -1 15112
+Smurfy Road
+~
+~
+Dr 1 0 -1 15105
+Smurfy Road
+~
+~
+Dr 2 0 -1 15121
+Smurfy Home
+~
+~
+End
+
+#15112
+N Laborer's Path~
+Ref 0
+D
+There's no place like smurf.  There's no place like smurf.  Sorry wrong
+movie.  A smurfy home is to the west.  Papa Smurf's backyard is to the
+north but you can't go there.  Smurfy Road continues to the south and
+east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15101 3 100 1
+Dr 1 0 -1 15106
+Smurfy Road
+~
+~
+Dr 2 0 -1 15111
+Smurfy Road
+~
+~
+Dr 3 0 -1 15122
+Smurfy Home
+~
+~
+End
+
+#15113
+N Stone Courtyard~
+Ref 0
+D
+You are walking along a cute little stone path.  To the south lies Papa
+Smurf's house.  A Smurfy house is to the west.  Smurfy road is to the east.
+Everything is so peaceful here.  You could stay forever.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+Dr 1 0 -1 15108
+Smurfy Road
+~
+~
+Dr 2 0 107 15125
+Papa Smurf's House
+~
+door~
+Dr 3 0 -1 15123
+Smurfy House
+~
+~
+End
+
+#15114
+N Soudkyr Road~
+Ref 0
+D
+Yet another part of Smurfy Road.  Hey if you go west its the last
+section of Smurfy Road.  You can go back to the smurfy well to the east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+Dr 1 0 -1 15109
+Smurfy Road
+~
+~
+Dr 3 0 -1 15115
+Smurfy Road
+~
+~
+End
+
+#15115
+N Soudkyr Road~
+Ref 0
+D
+The last piece of Smurfy Road.  You can go back to Smurfy Road to the east.
+A nice, beautiful, smurfy, mushroom home is to the south.  In the distance to
+the north you can see Gargamel's Castle.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+Dr 0 0 -1 15126
+Path to Gargamel's Castle
+~
+~
+Dr 1 0 -1 15114
+Smurfy Road
+~
+~
+Dr 2 0 -1 15124
+Smurfy Home
+~
+~
+End
+
+#15116
+N Delicatessan~
+Ref 0
+D
+Delicious smurfberries grow here.  You could probably eat a year's worth of
+smurfberries in one sitting.  Smurfy Road is back to the west.  Another
+smurfberry patch is to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15102 3 100 1
+Dr 3 0 -1 15107
+Smurfy Road
+~
+~
+End
+
+#15117
+N Soudkyr Gardens~
+Ref 0
+D
+Another patch of smurfberries is growing here.  The smell is driving your
+nostrils crazy.  It almost, ALMOST, makes you forget all the singing going
+on.  Smurfy Road is to the west, while smurfberry patches are to the north
+and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15102 3 100 1
+Dr 0 0 -1 15118
+Smurfberry Patch
+~
+~
+Dr 3 0 -1 15108
+Smurfy Road
+~
+~
+End
+
+#15118
+N Artisan Square~
+Ref 0
+D
+The northernmost of the smurfberry patches grows here.  It looks just
+as scrumptious as all the rest.  Just take a few; they'll never know.  Smurfy
+Road is to the west.  A smurfberry patch is to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15102 3 100 1
+Dr 2 0 -1 15117
+Smurfberry Patch
+~
+~
+Dr 3 0 -1 15109
+Smurfy Road
+~
+~
+End
+
+#15119
+N Apothecary~
+Ref 0
+D
+A dusty apothecary located in Soudkyr, financed by the Council
+and placed here to stop the spread of disease.  It is manned
+by a single shopkeeper, who mixes elixirs and ointments from
+scratch.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+R M 15103 1 100 1
+Dr 2 1 -1 15110
+Smurfy Road
+~
+dusty wood door~
+End
+
+#15120
+N Laborer's Path Inn~
+Ref 0
+D
+This home was well built.  Of course, until you rip it apart you big meany
+you.  Tools are all over the place.  Too small for you to use.  Smurfy Road is
+back to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15104 1 100 1
+Dr 3 0 -1 15106
+Smurfy Road
+~
+~
+End
+
+#15121
+N Laborer's Hut~
+Ref 0
+D
+A cramped flat on the Laborer's Path in southern Soudkyr.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15106 1 100 1
+Dr 0 0 -1 15111
+Smurfy Road
+~
+~
+End
+
+#15122
+N "Soudkyr Cooper"~
+Ref 0
+D
+Be vewy vewy quiet.  Sleepy Smurf is probably sleeping.  You see so many
+beds you can't even tell if he is here.  Maybe you should quietly go back to
+Smurfy Road to the east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15105 1 100 1
+Dr 1 0 -1 15112
+Smurfy Road
+~
+~
+End
+
+#15123
+N Jail~
+Ref 0
+D
+This is Grumpy Smurf's home.  He is pissed at you.  Of course, he is pissed
+at everyone.  So don't take it bad.  Maybe you'd better leave before he really
+gets mad.  Smurfy Road to the east is your only salvation.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15107 1 100 1
+Dr 1 0 -1 15113
+Smurfy Road
+~
+~
+End
+
+#15124
+N Occulus Enchantments~
+Ref 0
+D
+You pull the top of his house and it explodes in your face.  That Jokey
+Smurf, what a kidder.  You can hear his laughter as you wipe the ashes off
+your face.  You better get even.  Smurfy Road is to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15108 1 100 1
+Dr 0 0 -1 15115
+Smurfy Road
+~
+~
+End
+
+#15125
+N Sheriff's Office~
+Ref 0
+D
+It's the home of the leader of the smurfs.  Papa Smurf has a nicely decorated
+home.  He takes pride in his work.  You could get to know him or just squash
+him.  If Papa Smurf is not here he is probably at Smurfette's putting the
+moves on her.  A stone path lies to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15110 1 100 1
+Dr 0 0 107 15113
+Stone Path
+~
+door~
+End
+
+#15126
+N Soudkyr Road~
+Ref 0
+D
+You are walking along a path to Gargamel's Castle to the North.
+Smurfy Road lies to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+Dr 0 0 -1 15127
+Outside Gargamel's Castle
+~
+~
+Dr 2 0 -1 15115
+Smurfy Road
+~
+~
+End
+
+#15127
+N Outside Keep Soudkyr~
+Ref 0
+D
+You are standing outside Gargamel's Castle.  You can hear him screaming at
+Azreal from inside.  You can also him cursing out those wretched smurfs.
+His Castle is to the north while Smurfy Road is to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+Dr 0 0 109 15128
+Gargamel's Castle
+~
+door~
+Dr 2 0 -1 15126
+Path to Gargamel's Castle
+~
+~
+End
+
+#15128
+N Great Hall - Keep Soudkyr~
+Ref 0
+D
+This is Gargamel's Castle.  His big black kettle is in the middle of the room.
+Where else would he put it?  The place has only one room.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+R M 15111 1 100 1
+Dr 2 0 109 15127
+Outside Gargamel's Castle
+~
+door~
+End
+
+#15129
+N Harem Bar~
+Ref 0
+D
+A dark and sultry atmosphere pervades the Harem Bar; filled with
+smoke from a dozen pipes, it's dimly lit quarter is dancing with
+shadows.  The windows are all painted black - no light enters
+nor escapes this pit.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+R M 15109 1 100 1
+Dr 1 5 -1 15107
+Smurfy Road
+~
+bolt-harnessed door~
+End
+
+#0
+
+
+
+#$

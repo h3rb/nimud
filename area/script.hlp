@@ -1,0 +1,1606 @@
+
+
+#DOC 8
+N SCRIPT~
+C 8 L 0
+KW SCRIPT~
+SY ~
+TX NiM5 employs an interpreted scripting language to provide an
+extensible, life-like world.  This language is an artificial
+life meta-language for C.
+ 
+The language is function-based, simple to understand, and
+has a set of live tools which aid scripters develop new
+scripts; including a full-screen debugger, virtual actor
+studio and debug notification system.
+~
+IT ~
+EX func( { literal }, parameter );
+if ( conditional, 
+        {
+          code
+      },
+    {
+            else
+      } );
+label(end);
+~
+SA Functions, Reserved, Links, Triggers, Design~
+End
+
+#DOC 18
+N AUTOMATONS~
+C 8 L 7
+KW AUTOMATONS TRACE~
+SY ~
+TX From within the SCEDITOR, an immortal may wish to generate a quick
+scripted set of actions for an Actor.
+ 
+First, clear the script's command list, or enter a few commands
+to the beginning of the script, including the Autowait() function.
+Autowait sets the pace of the executed commands following
+this call.  
+ 
+Exit the script command editor, but still from within SCEDITOR,
+use "TRACE" to toggle "action tracing" features of the SCEDITOR.
+Begin to perform the actions, walking around the map, talking,
+drawing and sheathing your sword, performing socials, etc.
+ 
+When you are finished, stop recording your actions by typing
+"TRACE" again.  This deactivates the command and allows you
+to begin examining the script it has recorded.
+ 
+This is a useful way of creating simple actions for non-aggressive,
+action oriented "bystanders" or simple repetitive actions.
+You may want to set "Traced" scripts to trigger on Each, Tick,
+Enter, Say or Moves.
+~
+IT ~
+EX (of a traced script)
+autowait(14);
+do({n});
+do({e});
+do({say Hello!});
+do({draw});
+do({:growls angrily.});
+do({k dragon});
+~
+SA SCEDIT, Autowait()~
+End
+
+#DOC 19
+N TRIGGERS~
+C 8 L 7
+KW TRIGGERS~
+SY ~
+TX Different triggers can be used in combination to create an active Actor
+or Prop.  Command scripts respond to a special command typed by the
+player; while a Say script listens for text spoken nearby to the scripted
+entity.  
+ 
+Each script is written for this single purpose, and the type of
+trigger defines the type of script you will write.
+ 
+For a command script, an if() statement is used to test the incoming
+text stream.  This is almost identical to a Say script.
+ 
+In the case of Enter or Moves, scripts are triggered based on
+the actions of each individual in the scene.
+ 
+Other types of scripts include 'Each' which is triggered constantly
+each pulse, and 'Tick' which is only triggered when reset.
+ 
+There are also the Dies and Born scripts, which are related to Cues
+and to Combat.
+ 
+There are also special trigger types 'Spell', used for spell-related
+scripts triggered by the 'Invoke' or 'Cast' command, as well as the
+'Combat' script, which is triggered during combat.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 423
+N ACT()~
+C 8 L 0
+KW ACT() OUT()~
+SY act(phrase, source, object, target, type);
+~
+TX .
+Similar to the mud's internal routine of the same name, act() is
+an output function.  Use with caution.  Act() codes are special
+codes using dollar signs ($$) to denote special characters.
+act(phrase, character, object1, object2, act-type);
+Act codes and act types:
+Types: 0=scene, 1=notvict, 2=vict, 3=char, 4=all
+Codes: $$n v p s c t m
+       $$N V P S C T M
+ 
+~
+IT Act codes (addendum):
+0-7 colors; R normal text, B bold text, F flashing, I inverse
+t or T: target is string, n or N name, e or E he or she, m or M him/her
+s or S his/her, i are/is, v or V "" or s (for verb plurality),
+w or W "" or "es" (for verb plurality for words ending in s),
+x or X "y" or "ies" (for verb plurality ending in y such as carry),
+y or Y, used in conjunction with a name, returns "r" or "'s" to show
+ownership; for instance $$n$$y may display your or Harold's,
+k or K, similar to i, are/is, p or P, returns object name,
+d, returns direction.
+ 
+Lower case refers to "object" or "source", upper case refers to target
+or object2.
+ 
+This function is rather complicated and should be used with caution.
+Double-dollar-sign displays a regular dollar sign ($$$$)
+~
+EX ~
+SA ~
+End
+
+#DOC 424
+N AUTOWAIT()~
+C 8 L 0
+KW AUTOWAIT()~
+SY autowait(#pulses);
+~
+TX .
+Sets the autowait timer to the number of pulses specified.
+ 
+The autowait timer is a script-based timer that automatically paces
+a script by a certain number of pulses, delaying each line.
+~
+IT ~
+EX ~
+SA Functions, Functions2, Wait()~
+End
+
+#DOC 425
+N CLOSE()~
+C 8 L 0
+KW CLOSE()~
+SY close(location,direction);
+~
+TX .
+Closes a door.
+~
+IT ~
+EX close(here(),east);
+close(here(),5);
+~
+SA Open(), Functions~
+End
+
+#DOC 426
+N DATE~
+C 8 L 0
+KW 'DATE FUNCTIONS' Day() Month() Year() DayofWeek() Moon() Weather()~
+SY .
+date();
+time();
+weather();
+moon();
+dayofweek();
+month();
+year();
+~
+TX .
+A series of functions which provide access to the values stored in
+the game's weather, date and time functions.  These are not the
+system time, or the user's system time, but rather the game's ongoing
+calendar and weather system.
+~
+IT ~
+EX ~
+SA Math Functions, Functions, Functions2~
+End
+
+#DOC 427
+N DEATH()~
+C 8 L 5
+KW DEATH()~
+SY Death( target, vnum )
+~
+TX .
+Sets the death vnum of a target.
+(Room vnums only)
+~
+IT ~
+EX death(%name%, 1)   -> when a player dies, he/she reincarnates in limbo
+~
+SA Home(), Functions~
+End
+
+#DOC 428
+N DISARM()~
+C 8 L 0
+KW DISARM()~
+SY ~
+TX .
+Disarm( target );
+ 
+Removes all top-layer weapons from a actor.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 429
+N DISPENSE()~
+C 8 L 0
+KW DISPENSE()~
+SY dispense(target,vnum);
+~
+TX .
+Dispenses an object to the target.
+~
+IT ~
+EX dispense(rndplr(here()),11113);
+~
+SA ~
+End
+
+#DOC 430
+N DO()~
+C 8 L 5
+KW DO()~
+SY do( command );
+~
+TX .
+Caller of the script performs a command.  Caller must be a actor.
+~
+IT ~
+EX do({'Hello!});
+do(dance);
+do(kill fido);
+~
+SA Functions~
+End
+
+#DOC 431
+N DREAM()~
+C 8 L 0
+KW DREAM()~
+SY dream(text);
+~
+TX .
+The dream() function sends a string of text to any actor who is
+asleep in the same area as the caller.
+(For objects, in the area it was created.)
+~
+IT ~
+EX dream({You dream of little wooley lambs jumping over fences.});
+~
+SA Functions, Functions2~
+End
+
+#DOC 432
+N EAT()~
+C 8 L 5
+KW EAT()~
+SY ~
+TX .
+EAT( target );
+ 
+     The eat() function quietly disposes of an object.
+ 
+           Syntax:
+              eat(sword);
+              eat(ticket);
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 433
+N ELUDE()~
+C 8 L 0
+KW ELUDE()~
+SY elude();
+~
+TX .
+If this function is called by an actor, actor's followers
+cease following.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 434
+N EVENT()~
+C 8 L 0
+KW EVENT()~
+SY ~
+TX .
+Not yet implemented.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 435
+N FORCE()~
+C 8 L 0
+KW FORCE()~
+SY ~
+TX .
+Function acts like a force() command.  Usage:
+force( <target> <command> );
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 436
+N FUNCTIONS~
+C 8 L 5
+KW FUNCTIONS 'SCRIPT FUNCTIONS' FUNCTIONS1~
+SY ~
+TX SCRIPT-FUNCTIONS
+MATH-FUNCTIONS
+LIST-FUNCTIONS
+ 
+PROP-FUNCTIONS
+ACTOR-FUNCTIONS
+SCENE-FUNCTIONS
+ 
+SPELL-FUNCTIONS
+ 
+GRAPHICS-FUNCTIONS
+VALUE-FUNCTIONS
+ 
+Type 'help <TYPE>-FUNCTIONS' for a breakdown of functions and parameters.
+~
+IT To get help on a particular function, type 'HELP FUNCTION()'
+~
+EX ~
+SA master-list~
+End
+
+#DOC 437
+N FUNCTIONS2~
+C 8 L 0
+KW FUNCTIONS2 FUNCTIONS_2 'FUNCTIONS 2'~
+SY ~
+TX .
+Newly added game functions:
+ 
+mana();      event();       mix();        reagents();
+dispense();  skill();       alert();      tname();
+dig();       undig();       rnddir();     rtitle();
+reverb();    emit();        transform();  getdir();
+rndplr();    bomb();        spawn();      pay();
+level();     setskill();    queue();      props();
+commands();  act();
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 438
+N GOTO()~
+C 8 L 5
+KW GOTO()~
+SY ~
+TX .
+GOTO( label );
+
+    The function goto() jumps to a label defined with the label() function.
+
+        Syntax:
+
+          label(start);
+          do({say Hello!});
+          wait(1000);
+   -->    goto(start);
+
+~
+IT To use a goto() function from within an if() conditional, make sure
+to use {, } curlie brackets surrounding that call, otherwise, the
+code will execute immediately.
+~
+EX ~
+SA ~
+End
+
+#DOC 439
+N HOME()~
+C 8 L 5
+KW HOME()~
+SY Home( target, vnum )
+~
+TX .
+Sets the home vnum for a player.
+~
+IT ~
+EX home(%name%, 500)  -> sets a player's home to room vnum 500
+~
+SA Death()~
+End
+
+#DOC 440
+N IF()~
+C 8 L 5
+KW IF()~
+SY ~
+TX .
+IF( expression, iftrue, iffalse );
+
+    The if() function acts as a conditional statement.
+
+        Syntax:
+
+          if( %variable%, {do(stand)}, {goto(start)} );
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 441
+N IN()~
+C 8 L 0
+KW IN()~
+SY in(a,b);
+~
+TX .
+Similar to str_infix(), returns if string a matches any substring of
+string b.  Almost identical to strstr(), but lacks case sensitivity.
+~
+IT ~
+EX in({bbbb},{aaaabbbbcccc});    *returns true
+in({xxx},{aaaabbbccc});       *returns false
+~
+SA Pre(), Cmp(), Strstr(), Functions, Functions2~
+End
+
+#DOC 442
+N JUMP()~
+C 8 L 5
+KW JUMP()~
+SY ~
+TX .
+JUMP( dest );
+ 
+    The jump() function moves the script caller to a destination.
+ 
+       Syntax:
+           jump(601);
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 443
+N LABEL()~
+C 8 L 5
+KW LABEL()~
+SY ~
+TX .
+LABEL( name );
+
+    The label() function defines a label to jump to with the goto() function.
+
+        Syntax:
+
+   -->    label(start);
+          do({say Hello!});
+          wait(1000);
+          goto(start);
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 444
+N MACRO-FUNCTIONS~
+C 8 L 0
+KW 'Macro Functions' MACRO-FUNCTIONS~
+SY ~
+TX .
+These functions (which are not yet fully implemented) enable
+macro-functions, local or master functions, to be created and
+manipulated.
+ 
+vset();      vget();     vcpy();    return();    halt();
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 445
+N MANA()~
+C 8 L 0
+KW MANA()~
+SY ~
+TX .
+Mana( target, gain );
+ 
+Gain, either positive or negative, an amount of mana on the target.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 446
+N MATH~
+C 8 L 0
+KW 'MATH FUNCTIONS' BOR() BXOR() NOT() OR() AND() LESS() GREATER() RANDOM() BAND() ADD() SUB() MULT() DIV() MOD()~
+SY .
+ 
+bor(a,b);      binary or
+bxor(a,b);   binary xor
+not(a);      inversion
+or(a,b);     or
+and(a,b);    and
+less(a,b);   less than
+greater(a,b);   greater than
+random(a,b);    returns a random integer
+band(a,b);   binary and
+add(a,b);    addition of a and b
+sub(a,b);    subtraction of a and b
+mult(a,b);   multiplication of a and b
+div(a,b);    division of a by b
+mod(a,b);    modula of a by b
+~
+TX .
+A series of functions to perform simple arithmetic operations.
+~
+IT ~
+EX ~
+SA Functions, Functions2, Scripts~
+End
+
+#DOC 447
+N MOVE()~
+C 8 L 5
+KW MOVE()~
+SY ~
+TX .
+MOVE( target, dest );
+ 
+    The function move() moves a target actor to a destination location.
+ 
+       Syntax:
+ 
+         move(%name%, 500);
+         move(me, 500);    <-- equivalent to jump(500);
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 448
+N MOVEALL()~
+C 8 L 5
+KW MOVEALL()~
+SY ~
+TX .
+Moveall( from, to );
+ 
+This function moves all players from one location to another.
+ 
+Syntax:  Moveall(500,501);
+~
+IT ~
+EX ~
+SA Move()~
+End
+
+#DOC 449
+N NUMW()~
+C 8 L 0
+KW NUMW()~
+SY numw(list);
+~
+TX .
+Returns the number of words in a string.  Words are defined as strings
+delineated by spaces.
+~
+IT ~
+EX numw({you me them us});      *returns 4
+~
+SA ~
+End
+
+#DOC 450
+N OPEN()~
+C 8 L 0
+KW OPEN()~
+SY open(location,direction);
+~
+TX .
+Opens a door.
+~
+IT ~
+EX open(here(),rnddir());
+open(here(),east);
+open(here(),3);
+~
+SA Close(), Functions, Functions2~
+End
+
+#DOC 451
+N PAY()~
+C 8 L 0
+KW PAY()~
+SY ~
+TX .
+Pay( target, amount );
+ 
+Tenders money to a target.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 452
+N PERMHALT()~
+C 8 L 0
+KW HALT() PERMHALT()~
+SY Permhalt();    Halt(value);
+~
+TX .
+Permhalt(); perminantly halts a script for debugging purposes.
+ 
+Halt(value) halts a script returning a value.
+~
+IT ~
+EX halt(10);
+permhalt();
+~
+SA Notify, Functions, Functions2, Scripts~
+End
+
+#DOC 453
+N POS()~
+C 8 L 0
+KW POS()~
+SY ~
+TX .
+POS( target, value );
+ 
+Sets the position of a actor target.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 454
+N PRE()~
+C 8 L 0
+KW PRE()~
+SY ~
+TX .
+Similar to str_prefix(), returns a "true" (>0) value for strings
+which match their prefixes.
+~
+IT ~
+EX pre(abba,abbadabba);     *returns true
+pre(aabb,xaabb);         *returns false (0)
+~
+SA Cmp(), Functions, Functions2~
+End
+
+#DOC 455
+N PURGE()~
+C 8 L 0
+KW PURGE()~
+SY ~
+TX .
+Function that deletes an object, room or actor.
+ 
+purge( target );
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 456
+N RANDOM()~
+C 8 L 5
+KW RANDOM()~
+SY add( a, b )
+~
+TX .
+Function returns a random number in a range from a to b.
+~
+IT ~
+EX random(0,7)         -> returns random number between 0 and 7
+random(%astr%,7)    -> returns random number in the range %astr% to 7
+~
+SA Add(), Variables, Functions~
+End
+
+#DOC 457
+N RETURN()~
+C 8 L 0
+KW RETURN()~
+SY return(#value);
+~
+TX .
+Sets the return value for a script.  This is to be integrated into
+multi-script parser, which is not fully implemented yet.
+ 
+The idea is that scripts can be stored as functions in a master or
+local command list.  This provides an on-the-fly creation of functions
+or macro-functions to aid the language.  Similar to encapsulation,
+a feature of polymorphic (object-oriented) languages.
+~
+IT ~
+EX return(10);
+~
+SA Functions, Functions2, Macro-Functions~
+End
+
+#DOC 458
+N RNDDIR()~
+C 8 L 0
+KW RNDDIR()~
+SY ~
+TX .
+Rnddir() returns a random direction.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 459
+N RTITLE()~
+C 8 L 0
+KW RTITLE()~
+SY ~
+TX .
+ 
+syntax: rtitle( room, {newtitle} );
+ 
+Sets the title of a room in a script.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 460
+N SAMEROOM()~
+C 8 L 0
+KW SAMEROOM() SAMESCENE()~
+SY samescene(target);
+~
+TX .
+Function returns 0 or 1 (false or true) if the caller is in the same
+scene as the target.  May be samescene();
+~
+IT ~
+EX ~
+SA Functions, Functions2~
+End
+
+#DOC 461
+N SCRIPTS~
+C 8 L 0
+KW SCRIPTS~
+SY ~
+TX .
+NiM5 includes a proprietary script interpreter.  A memory hog, NiM5's
+scripts are parsed on the fly.
+~
+IT ~
+EX ~
+SA Script Language, Functions, Math Functions, Functions2~
+End
+
+#DOC 462
+N SCRIPT_LANGUAGE~
+C 8 L 5
+KW 'SCRIPT LANGUAGE' SCRIPTS SCRIPT~
+SY ~
+TX .
+The proc/script language is designed to provide somewhat flexible
+artificial life routines.  NIM scripts are versatile enough to produce
+many varied applications including: levers, doors, responsive actors,
+scenes that change their description, vaults, automatons, et cetera.
+
+The language is function-based and superior in versatility to previous
+versions.  Scripts can be written for actors, props and rooms.
+
+   See also: FUNCTIONS, VARIABLES, TRIGGERS, EXAMPLES
+
+ 
+Note, read "help curlies" for information on syntax of the
+interpreter.  It helps!
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 463
+N SELF()~
+C 8 L 0
+KW SELF()~
+SY self();
+~
+TX .
+Function returns the name of the caller.
+~
+IT ~
+EX %myname% self();
+do({'Hello, my name is %myname%.});
+~
+SA master-list,~
+End
+
+#DOC 464
+N STRIP()~
+C 8 L 0
+KW STRIP()~
+SY ~
+TX .
+Strip( target );
+ 
+Removes all of the possessions of an actor.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 465
+N STRSTR()~
+C 8 L 0
+KW STRSTR()~
+SY strstr(a,b);
+~
+TX .
+Finds substrings.  Case sensitive.  Returns a value equal to the
+substring's index within the string.  0 (false) means not found.
+~
+IT ~
+EX ~
+SA Functions, Functions2, Cmp(), In(), Pre()~
+End
+
+#DOC 466
+N TIME()~
+C 8 L 0
+KW TIME()~
+SY Time( );
+~
+TX .
+Returns the game's hour.
+~
+IT A number from 0-23.
+~
+EX ~
+SA Day(), DayOfWeek(), Month(), Weather()~
+End
+
+#DOC 467
+N TRIGGERS~
+C 8 L 5
+KW TRIGGERS~
+SY ~
+TX .
+A script is called by an acting trigger which supplies the proc with needed
+information.  Triggers are called from a variety of sources denoted below:
+
+ Triggers       Types        Events
+
+ COMMAND        All          When a Command is Typed
+ EACH_PULSE     Actors/Objs    Triggered Each Pulse
+ COMBAT         All          Each Round
+ TICK_PULSE     All          Tick             Room = When Reset
+ BORN           All          Creation         Room = On Startup
+ GETS           Objs         When Taken
+ SAY            All          Any communications (Not Fully Implemented)
+
+ KILLS          Actors/Objs    Kills
+ DIES           Objs/Room    Dies Nearby      Actor = Upon Death
+ ENTER          All          Someone Enters
+ MOVES          Actors/Room    Someone Leaves
+
+ LOOKS          All          Called when looked at.
+
+~
+IT ~
+EX ~
+SA Parameters~
+End
+
+#DOC 468
+N VARIABLES~
+C 8 L 5
+KW VARIABLES~
+SY ~
+TX .
+Variables in NIM scripts are dynamically created when referred to.  If
+a variable does not already exist in a running script's memory, it is created
+with the name given.  Variables are parsed in the code as any alphanumeric
+string contained within percentage symbols.  Variables are either strings,
+objects, rooms, actors or numerics.  There is no delineation between string
+variables and parsed numerics.
+
+    Syntax:
+
+         %name% = {citizen};
+         %afoo% = {Hello, %name%};
+         do({say %afoo%});
+
+    See also: POINTERS
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 469
+N WAIT()~
+C 8 L 0
+KW WAIT()~
+SY wait(#pulses);
+~
+TX .
+Delays / pauses a script for a certain number of pulses.
+ 
+Pulses are not very long.  There are 3 pulses per combat round,
+and 4 per update tick, which is about one second.
+~
+IT ~
+EX do({'I say this immediately.});
+wait(10);
+do({'I say this after 10 pulses.});
+~
+SA Autowait(), Functions, Functions2~
+End
+
+#DOC 600
+N MASTER-LIST~
+C 8 L 0
+KW master-list~
+SY ~
+TX month or month()   Returns the current game month.
+setmonth(#)        Sets the current game month.
+day or day()       Returns the current game day.
+setday(#)          Sets the current game day.
+dayofweek()        Returns the current game day of the week.
+time or time()     Returns the current game time (hour of day).
+settime(#)         Sets the current game time (hour of day).
+year or year()     Returns the current game year.
+sky or sky()       Returns the current sky (weather) value.
+setsky(#)          Sets the current game sky (weather) value.
+moon or moon()     Returns the current lunar status (set/rise)
+setmoon(#)         Sets the current lunar status (set/rise)
+temperature()      Returns the current game temperature.
+settemperature(#)  Sets the current game temperature.
+phase or phase()   Returns the current game phase.
+setphase(#)        Sets the current lunar phase.
+not(a)             !a       not
+or(a,b)            a||b     or
+and(a,b)           a&&b     and
+less(a,b)          a<b      less than
+lt(a,b)            a<b      less than (shorthand)
+greater(a,b)       a>b      greater than
+gte(a,b)           a>b      greater than (shorthand)
+bor(a,b)           a|b      binary or
+xor(a,b)           a^^^^b     xor
+bxor(a,b)          a^^b      binary xor
+band(a,b)          a&b       binary and
+add(a,b)           a+b      arithmetic addition
+mult(a,b)          a*b      multiplication
+sub(a,b)           a-b      subtraction
+mod(a,b)           a%b      a modula b
+div(a,b)           a/b      division, div0 returned for divide by zero err
+inc(a)             a++      increment
+dec(a)             a--      decrement
+eq(a,b)            a==b     integer operation "equals"
+random(a)          Returns a random value 0-a
+random(a,b)        Returns a random value in range a-b
+range(a,b)         Returns a random value in range a-b
+gelify             Randomly "gelatinously" modifies a number
+fuzzy              Puts some fuzz on a number.
+dice(a,b)          Roll dice of sides a, b times
+int(a,b,c)         Linear interpolation.
+interpolate(a,b,c) Linear interpolation.
+min(a,b)           Returns the minimum, or if b is greater, b
+max(a,b)           Returns the maximum, or if b is less, then b
+urange(a,b,c)      Unsigned range, a-c
+lineate(a,b,c)     Performs a lineation algorithm.
+Ratio(a,b)         Generates a percentage of a/b*100
+box(x,y,dx,dy)     Draw a box using the current line style
+rect(x,y,dx,dy)    Draw a rectangle using the current brush
+line(x,y,dx,dy)    Draw a line using the current brush
+circle(x,y,r)      Draw a circle of radius r at x,y using current brush
+color(a)           Returns a color code, 255 if MXP, 16 colors if ansi
+stroke(a)          Set the color for drawing (see above)
+point(x,y)         Draws with current brush at x,y
+draw or draw()     Displays the current contents of the frame buffer
+blank or blank()   Blanks the frame buffer, redraws ruler (see rulers)
+gmode(x,y)         Sets the resolution of the framebuffer, x-size, y-size
+                   By default, the frame buffer is usually 77x25
+mode(0|1)          same as below (?)
+style(0|1)         boxstyle setting, 0=thin 1=thick
+ruler(0|1)         toggles debug ruler; 0=off  1=on, mud-boot default=1
+rulers or rulers() Returns the current value of the rulers toggle
+clear or clear()   Clears the screen, determined by 'set clrscr'
+brush(c)           Sets the 'brush' character
+hline(y)           Draws a horizontal line with the current brush
+vline(x)           Draws a verticle line with the current brush
+column(x,y,w,{t})  display text in a formatted column (unimplemented)
+wrap({text})       Wordwrap standard formatting 77 character
+fill(x,y,dx,dy)    Fill an area with the current brush character (?)
+fills(x,y,dx,dy,s) Fill an area with a string, used w/ column (?)
+text(x,y,{content})            Draws text content at x,y
+textline(x,y,dx,dy,{content})  Draws text content along a line x,y->dx,dy
+popup(x,y,w,h,{title})  Display a box with a title
+button(x,y,{label})     Display an MXP button
+here or here()     Returns the vnum of the current room.
+pset(a,b)          Set variable a to b (see prop command for names)
+propname()         Return a prop name
+propdesc()         Return a prop description
+propshort()        Return the prop's short description
+proplong()         Return the prop's long description
+propaction()       Return the prop's action description
+setpropshort(s)    Set's a prop's short description
+setproplong(s)     Set a prop's long description
+setpropname(s)     Set a prop's name (keywords)
+setpropaction(s)   Do not use on weapons.
+v1 or v1()         Return the value of the prop's value1
+v2 or v2()         Return the value of the prop's value2
+v3 or v3()         Return the value of the prop's value3
+v4 or v4()         Return the value of the prop's value4
+itemtype           Return the Item Type Number
+setitemtype(#)     Set Item Type Number
+setextraflags      Set Extra Flags by Number
+extraflags         Extra Flags
+setwearloc(#)      Set the wear location by Number
+wearloc            Return the wear location by Number
+setweight(#)       Set the weight
+weight             Set the weight
+setcost(#)         Set the value of the cost
+cost or cost()     Return the cost associated with an object
+settimer(#)        Set the prop's timer
+timer(#)           Return the timer's value
+size or size()     Return the prop's size
+setsize(#)         Set the prop's size value
+dispense(t,v#)     Dispenses a prop of v# to target t; called on any type
+transform(v#)      When called on a prop, transforms itself to new v#
+broadcast({txt})   When called on a prop script, sends txt to all props
+                   in existence with the same vnum as the prop
+do()       Up to six seperate parameters; executes mud commands as though
+           typed works primarily on Mobs
+setskill(t,v#,v)   Sets a skill to a certain skill level on a target
+step(v#)   Take a step toward scene v#, uses subset of track command
+aset(a,b)  Sets a to the value of b, similar to pset but for actors
+jump(v#)           Moves the owner to the scene v#
+samescene(t)       Returns TRUE if owner is in the same scene as target
+foe() or foe       Returns the name of the actor's foe
+has(t,v#)          Returns TRUE if target is in possession of v#
+skill(t,v#)        Returns the skill level of the target's skill (vnum)
+disarm(t)          Removes weapons from the target actor
+strip(t)           Removes all items in possession of the target actor
+pos(t,g)
+pay(t,g)
+elude or elude()   Removes all followers from the actor-owner
+home(t,v#)         Changes a target's home to a new destination vnum
+death(t,v#)        Changes a target's destination upon death
+heal(t,g)          Heals a target t for an amount g
+hurt(t,g)          Hurts a target t for an amount g
+damage(t,g)        Damages a target t for an amount g
+bomb(v#,g)         Bombs a target scene for amount g - all players hurt
+actorname()        Returns the actor name
+setactorname(s)    Sets the actor keywords
+setdescription(s)  Sets the description
+description(s)     Returns the description
+short(s)           Returns the short description
+setlong(s)         Sets the long description on an actor
+long(s)            Returns the long description
+level(t)           Returns the level of the target
+setposition(t,#)   Sets the position
+position(t)        Position
+setkarma(t,#)      Sets the karma
+karma or karma(t)  Returns karma
+modstr(t)          Returns the strength modifier
+setmodstr(t,#)     Sets the mod strength
+modint(t)          Returns the intelligence modifier
+setmodint(t,#)     Sets the mod intelligence
+moddex(t)          Returns the dexterity modifier
+setmoddex(t,#)     Sets the dexterity modifer
+modwis(t)          Returns the wisdom modifier
+setmodwis(t,#)     Sets the wisdom modifier
+armor or armor(t)  Returns the armor class of a target
+setarmor(t,#)      Sets the armor class of a target
+hitroll(t)         Returns the hitroll of the target
+sethitroll()       Set the hitroll on a target
+damroll()          Returns the damroll of the target
+setdamroll()       Sets the damroll on a target
+exp()              Returns the experience gained on a target
+setexp()           Sets the experience gained on a target
+dispense(t,v#)     Dispenses a prop of v# to target t; called on any type
+create(v#,tv#)     Dispenses a prop of v# to scene tv#
+eat(t)             Disposes of a target prop
+eat or eat()       Dispose of self, useful for consumable objects
+here or here()     Returns the vnum of the current room.
+purge(t)           Purges the contents of v#, or a specific prop by name
+cue(v#)            Cues (resets,spawns) a scene of v#
+move(t,v#)         Moves a target actor or prop to a vnum
+moveall(v#,tv#,{cmd})  Moves actors from v# to tv#, forcing cmd on actors
+rndplr or rndplr(v#)   Returns a random player in the current scene or v#
+rnddir             Returns a random valid direction from the owner's scene
+getdir(v#,n|s|e..) Returns a valid direction index (number) by name at v#
+dig(v#,n|s|e..,tv#)Digs a normal exit from v# to tv# in specified direction
+undig(v#,n|s|e...) "Undigs" an exit at v# in a specified direction
+open(v#,n|s|e..)   Opens a door in a specified direction if a door+exists
+close(v#,n|s|e..)  Closes a door in a specified direction if a door+exists
+setscenetitle(v#,s)Sets string s to be the title of scene v#
+scenetitle(v#)     Returns the scene's title
+setscenedesc(v#,s) Sets the scene's description
+scenedesc(v#)      Returns a string of the scene's description
+setscenepos(v#,n)  Sets the scene position to n
+scenepos(v#)       Returns the scene's position
+settemplate(v#,n)  Sets the template reference of v# to n
+maxpeople(v#)      Returns the scene's max occupancy
+setmaxpeople(v#,n) Sets the scene's max occupancy
+setlight(v#,n)     Sets the light level (# of lights) in a v#
+light(v#)          Returns the # of lights in a scene
+setsector(v#,n)    Sets the scene's sector to n
+sector(v#)         Returns the sector number of a given scene v#
+setterrain(v#,n)   Sets the terrain type of v#
+terrain(v#)        Returns the current terrain index of v#
+setwagon(v#,n)     Sets the wagon reference number of v# (see wagons)
+wagon(v#)          Returns the wagon reference number of v#
+dispense(t,v#)     Dispenses a prop of v# to target t; called on any type
+mana(t,g)          Modifies the mana of a target t by gain g
+mix(t,types,quantities)           Attempt to mix reagents
+reagents(t,types,quantities)      Check for existing reagents
+label({label})     Specify a label for reference with goto function.
+goto({label})      Go to a specified label in a script.
+if( exp,               A conditional expression, useful
+         { *true       in filtering incoming data,
+           do-this;    randomizing events and decision
+         },            trees.  Also can be used to build
+         { *else       case statements by nesting.
+           do-that;
+         } );          The second parameter is optional.
+return(#)          Sets the return value and halts the script. <-COMMANDS
+halt or halt(#)    Halts a script, with optional return value.
+permhalt(#)        Permanent halting of a script with optional return value
+wait(#)            Delays the progression of the parser for # of pulses
+autowait(#)        Sets a repeating delay of # pulses, useful with TRACE
+call(name,target)  Not yet implemented.  Attempts to trigger a script.
+install(target,v#)   Installs a script on a target; triggering it.
+uninstall(target,v#) Removes all instances of a script v# from a target.
+self or self()       Returns a pointer/name to the owner of the script.
+vcpy(o,n,name)       Not yet implemented.  Copies variables.
+pcmp(a,b)            Pointer comparison for non-string variables.
+null or null()       Returns 0
+eval(v)              Evaluates a scripting language expression
+cmp(a,b)           Returns TRUE if a is identical to b
+pre(a,b)           Returns TRUE if a is a prefix of b
+in(a,b)            Returns TRUE if a is an infix of b
+strstr(a,b)        Returns an integer index of the start of b in a
+cat(a,b)           Returns a concatenation.
+word(a,#)          Splits the string into individual words, returns word
+echo(t,{txt})      Displays text to a given target; see multityping
+oecho(t,{txt})     Displays text to surroundings of a target; see multityping
+dream({txt})       Displays text to all sleeping players in a zone
+history(t,{txt})   Adds a text entry to target's history, by name or an actor
+numw(#)            Returns the numberized version of given number
+strp(s,o,n)        Replaces in a string s all o with n, returns new string
+push(s,v)          pushes string v onto stack s
+pop(s)             pops the top value off the stack and returns it
+lrem(s,v)          similar to strp(), removes all occurances of v from s
+sort(s,m)          not implemented
+lrnd(s)            returns a random value from stack s
+lshift(s)          shifts all values of the stack one left
+rshift(s)          shifts all values of the stack one right
+empty(s)           returns true if stack s is empty
+users              returns a stack of all of the connected users
+foreach(s,c)       not implemented, executes code c with %stack% variable s
+each(s)            not implemented
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 602
+N VALUE-FUNCTIONS~
+C 8 L 0
+KW value-functions~
+SY ~
+TX Set or get values stored in the game mechanics.  Value functions
+provide access to information about scenes, actors and props,
+as well as the game's weather and time systems.
+month or month()   Returns the current game month.
+setmonth(#)        Sets the current game month.
+day or day()       Returns the current game day.
+setday(#)          Sets the current game day.
+dayofweek()        Returns the current game day of the week.
+time or time()     Returns the current game time (hour of day).
+settime(#)         Sets the current game time (hour of day).
+year or year()     Returns the current game year.
+sky or sky()       Returns the current sky (weather) value.
+setsky(#)          Sets the current game sky (weather) value.
+moon or moon()     Returns the current lunar status (set/rise)
+setmoon(#)         Sets the current lunar status (set/rise)
+temperature()      Returns the current game temperature.
+settemperature(#)  Sets the current game temperature.
+phase or phase()   Returns the current game phase.
+setphase(#)        Sets the current lunar phase.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 604
+N MATH-FUNCTIONS~
+C 8 L 0
+KW math-functions~
+SY ~
+TX to perform quick arithmetic and boolean operations to integer values.
+All are integer-only functions; floating point functions are not
+implemented.  For PI, use 3.
+not(a)          !a       not
+or(a,b)         a||b     or
+and(a,b)        a&&b     and
+less(a,b)       a<b      less than
+lt(a,b)         a<b      less than (shorthand)
+greater(a,b)    a>b      greater than
+gte(a,b)        a>b      greater than (shorthand)
+bor(a,b)        a|b      binary or
+xor(a,b)        a^^^^b     xor
+bxor(a,b)       a^^b      binary xor
+band(a,b)       a&b       binary and
+add(a,b)        a+b      arithmetic addition
+mult(a,b)       a*b      multiplication
+sub(a,b)        a-b      subtraction
+mod(a,b)        a%b      a modula b
+div(a,b)        a/b      division, div0 returned for divide by zero err
+inc(a)          a++      increment
+dec(a)          a--      decrement
+eq(a,b)         a==b     integer operation "equals"
+random(a)       Returns a random value 0-a
+random(a,b)     Returns a random value in range a-b
+range(a,b)      Returns a random value in range a-b
+gelify          Randomly "gelatinously" modifies a number
+fuzzy           Puts some fuzz on a number.
+dice(a,b)       Roll dice of sides a, b times
+int(a,b,c)            Linear interpolation.
+interpolate(a,b,c)    Linear interpolation.
+min(a,b)        Returns the minimum, or if b is greater, b
+max(a,b)        Returns the maximum, or if b is less, then b
+urange(a,b,c)   Unsigned range, a-c
+lineate(a,b,c)  Performs a lineation algorithm.
+Ratio(a,b)      Generates a percentage of a/b*100
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 605
+N GRAPHICS-FUNCTIONS~
+C 8 L 0
+KW graphics-functions~
+SY ~
+TX Graphics functions work with the internal graphics buffer and are grouped
+under the sub-system 'Ascii Graphics Engine' - a specialized MXP-enabled
+ascii GUI/typesetting renderer.  Utilizes a frame buffer with dynamic
+resolution to store a screen buffer, which can be displayed to the user.
+box(x,y,dx,dy)     Draw a box using the current line style
+rect(x,y,dx,dy)    Draw a rectangle using the current brush
+line(x,y,dx,dy)    Draw a line using the current brush
+circle(x,y,r)      Draw a circle of radius r at x,y using current brush
+color(a)           Returns a color code, 255 if MXP, 16 colors if ansi
+stroke(a)          Set the color for drawing (see above)
+point(x,y)         Draws with current brush at x,y
+draw or draw()     Displays the current contents of the frame buffer
+blank or blank()   Blanks the frame buffer, redraws ruler (see rulers)
+gmode(x,y)         Sets the resolution of the framebuffer, x-size, y-size
+                   By default, the frame buffer is usually 77x25
+mode(0|1)          same as below (?)
+style(0|1)         boxstyle setting, 0=thin 1=thick
+ruler(0|1)         toggles debug ruler; 0=off  1=on, mud-boot default=1
+rulers or rulers() Returns the current value of the rulers toggle
+clear or clear()   Clears the screen, determined by 'set clrscr'
+brush(c)           Sets the 'brush' character
+hline(y)           Draws a horizontal line with the current brush
+vline(x)           Draws a verticle line with the current brush
+column(x,y,w,{t})  display text in a formatted column (unimplemented)
+wrap({text})       Wordwrap standard formatting 77 character
+fill(x,y,dx,dy)    Fill an area with the current brush character (?)
+fills(x,y,dx,dy,s) Fill an area with a string, used w/ column (?)
+text(x,y,{content})            Draws text content at x,y
+textline(x,y,dx,dy,{content})  Draws text content along a line x,y->dx,dy
+popup(x,y,w,h,{title})  Display a box with a title
+button(x,y,{label})     Display an MXP button
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 606
+N PROP-FUNCTIONS~
+C 8 L 0
+KW prop-functions~
+SY ~
+TX Prop-related functions that examine or manipulate the interior data stored
+on a prop; values and bonuses, prop-related or prop-command functions.
+here or here()   Returns the vnum of the current room.
+pset(a,b)        Set variable a to b (see prop command for variable names)
+propname()       Return a prop name
+propdesc()       Return a prop description
+propshort()      Return the prop's short description
+proplong()       Return the prop's long description
+propaction()     Return the prop's action description
+setpropshort(s)  Set's a prop's short description
+setproplong(s)   Set a prop's long description
+setpropname(s)   Set a prop's name (keywords)
+setpropaction(s) Do not use on weapons.
+It is impossible to change a prop's description at this time.
+v1 or v1()       Return the value of the prop's value1
+v2 or v2()       Return the value of the prop's value2
+v3 or v3()       Return the value of the prop's value3
+v4 or v4()       Return the value of the prop's value4
+itemtype         Return the Item Type Number
+setitemtype(#)   Set Item Type Number
+setextraflags    Set Extra Flags by Number
+extraflags       Extra Flags
+setwearloc(#)    Set the wear location by Number
+wearloc          Return the wear location by Number
+setweight(#)     Set the weight
+weight           Set the weight
+setcost(#)       Set the value of the cost
+cost or cost()   Return the cost associated with an object
+settimer(#)      Set the prop's timer
+timer(#)         Return the timer's value
+size or size()   Return the prop's size
+setsize(#)       Set the prop's size value
+ 
+dispense(t,v#)   Dispenses a prop of v# to target t; called on any type
+transform(v#)    When called on a prop, transforms itself to new v#
+broadcast({txt}) When called on a prop script, sends txt to all props
+                 in existence with the same vnum as the prop
+breed(t,v#)      Creates a p follower for target t of vnum v, returns p
+inside(t,v#)     Creates prop o of vnum v for target t, returns o
+equip(t,v#,L)    Creates prop o of vnum v on target t at wear-bit L, rtrns o
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 607
+N ACTOR-FUNCTIONS~
+C 8 L 0
+KW actor-functions~
+SY ~
+TX Actor-related functions that examine or manipulate the interior data
+stored on an actor; values and bonuses, actor-related actions and
+movement commands.
+do()       Up to six seperate parameters; executes mud commands as though
+           typed works primarily on Mobs
+setskill(t,v#,v)  Sets a skill to a certain skill level on a target
+step(v#)   Take a step toward scene v#, uses subset of track command
+aset(a,b)  Sets a to the value of b, similar to pset but for actors
+jump(v#)      Moves the owner to the scene v#
+samescene(t)  Returns TRUE if owner is in the same scene as the target
+foe() or foe  Returns the name of the actor's foe
+has(t,v#)     Returns TRUE if target is in possession of v#
+skill(t,v#)   Returns the skill level of the target's skill (vnum)
+disarm(t)     Removes weapons from the target actor
+strip(t)      Removes all items in possession of the target actor
+pos(t,g)
+pay(t,g)
+elude or elude()  Removes all followers from the actor-owner
+home(t,v#)    Changes a target's home to a new destination vnum
+death(t,v#)   Changes a target's destination upon death
+heal(t,g)     Heals a target t for an amount g
+hurt(t,g)     Hurts a target t for an amount g
+damage(t,g)   Damages a target t for an amount g
+bomb(v#,g)    Bombs a target scene for amount g - all players hurt
+actorname()        Returns the actor name
+setactorname(s)    Sets the actor keywords
+setdescription(s)  Sets the description
+description(s)     Returns the description
+short(s)           Returns the short description
+setlong(s)         Sets the long description on an actor
+long(s)            Returns the long description
+level(t)           Returns the level of the target
+setposition(t,#)   Sets the position
+position(t)        Position
+setkarma(t,#)      Sets the karma
+karma or karma(t)  Returns karma
+modstr(t)          Returns the strength modifier
+setmodstr(t,#)     Sets the mod strength
+modint(t)          Returns the intelligence modifier
+setmodint(t,#)     Sets the mod intelligence
+modint(t)          Returns the intelligence modifier
+setmodint(t,#)     Sets the mod intelligence
+moddex(t)          Returns the dexterity modifier
+setmoddex(t,#)     Sets the dexterity modifer
+modwis(t)          Returns the wisdom modifier
+setmodwis(t,#)     Sets the wisdom modifier
+armor or armor(t)   Returns the armor class of a target
+setarmor(t,#)       Sets the armor class of a target
+hitroll(t)     Returns the hitroll of the target
+sethitroll()   Set the hitroll on a target
+damroll()      Returns the damroll of the target
+setdamroll()   Sets the damroll on a target
+exp()          Returns the experience gained on a target
+setexp()       Sets the experience gained on a target
+dispense(t,v#) Dispenses a prop of v# to target t; called on any type
+create(v#,tv#) Dispenses a prop of v# to scene tv#
+eat(t)         Disposes of a target prop
+eat or eat()   Dispose of self, useful for consumable objects
+breed(t,v#)      Creates a p follower for target t of vnum v, returns p
+* - see also, PROP-FUNCTIONS equip() and inside()
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 609
+N SPELL-FUNCTIONS~
+C 8 L 0
+KW spell-functions~
+SY ~
+TX Spell-related functions for use with both elemental and alchemical
+systems.
+mana(t,g)       Modifies the mana of a target t by gain g
+mix(t,types,quantities)
+    Attempts to mix reagents of mage t, returns TRUE if succeeds, types
+    and quantities quantify 1:1, ex:
+    mix(Locke, 10 2 33 201 222,     * mixes components 10,2,33,201,222
+                1 1  1   2   1 );   * one of each, 2 of component 201
+reagents(t,types,quantities)
+    Checks to see if a mage t has the required reagents, returns TRUE if
+    quantities are in the possession of the mage t
+    reagents(Locke, 10 2 33 201 222,     * components index list
+                    1 1  1   2   1 );    * one of each, 2 of component 201
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 610
+N COMMAND-FUNCTIONS~
+C 8 L 0
+KW command-functions~
+SY ~
+TX Command-related functions for use with objects and actor-instantiated
+aliases (command scripts on actors/players).
+A command must use the return(1); statement if it is successfully
+executed.  Command scripts usually take the form:
+* begin command script
+if ( pre(%astr%,{command_name}),
+         {
+            * successful
+            do({:the command.});
+            return(1);
+         } );
+* end command script
+If the above form is not used, the command script will execute
+regardless of any specific triggering command name or phrase,
+and is essentially a way to trigger a script if someone is in
+the scene and types any command.  Without the return(1) statement,
+other commands will attempt to execute if the triggering input phrase
+matches the command phrase of command table commands, or of other
+scripted command objects.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 611
+N SCRIPT-FUNCTIONS~
+C 8 L 0
+KW ~
+SY ~
+TX These functions are the basic structure of the language.
+label({label})    Specify a label for reference with goto function.
+goto({label})     Go to a specified label in a script.
+if( exp,               A conditional expression, useful
+         { *true       in filtering incoming data,
+           do-this;    randomizing events and decision
+         },            trees.  Also can be used to build
+         { *else       case statements by nesting.
+           do-that;
+         } );          The second parameter is optional.
+return(#)           Sets the return value and halts the script. <-COMMANDS
+halt or halt(#)     Halts a script, with optional return value.
+permhalt(#)         Permanent halting of a script with optional return value.
+wait(#)             Delays the progression of the parser for # of pulses
+autowait(#)         Sets a repeating delay of # pulses, useful with TRACE
+call(name,target)    Not yet implemented.  Attempts to trigger a script.
+install(target,v#)   Installs a script on a target; triggering it.
+uninstall(target,v#) Removes all instances of a script v# from a target.
+self or self()       Returns a pointer/name to the owner of the script.
+vcpy(o,n,name)       Not yet implemented.  Copies variables.
+pcmp(a,b)            Pointer comparison for non-string variables.
+null or null()       Returns 0
+eval(v)              Evaluates a scripting language expression
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 612
+N STRING-FUNCTIONS~
+C 8 L 0
+KW string-functions~
+SY ~
+TX String manipulation and analysis.
+cmp(a,b)       Returns TRUE if a is identical to b
+pre(a,b)       Returns TRUE if a is a prefix of b
+in(a,b)        Returns TRUE if a is an infix of b
+strstr(a,b)    Returns an integer index of the start of b in a
+cat(a,b)       Returns a concatenation.
+word(a,#)      Splits the string into individual words, then returns word #
+echo(t,{txt})  Displays text to a given target; see multityping
+oecho(t,{txt}) Displays text to surroundings of a target; see multityping
+dream({txt})   Displays text to all sleeping players in a zone
+history(t,{txt})  Adds a text entry to target's history, by name or an actor
+numw(#)        Returns the numberized version of given number
+strp(s,o,n)    Replaces in a string s all o with n, returns new string
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 613
+N LIST-FUNCTIONS~
+C 8 L 0
+KW list-functions~
+SY ~
+TX Functions that manipulate string lists (list/stacks); lists are
+space-seperated and can use double quotes (") to contain multiple words in
+a single list entry; similar to an array or linked list, but for strings.
+example: word word "multiple words" words
+index:    1    2     3               4
+push(s,v)      pushes string v onto stack s
+pop(s)         pops the top value off the stack and returns it
+lrem(s,v)      similar to strp(), removes all occurances of v from s
+sort(s,m)      not implemented
+lrnd(s)        returns a random value from stack s
+lshift(s)      shifts all values of the stack one left
+rshift(s)      shifts all values of the stack one right
+empty(s)       returns true if stack s is empty
+users          returns a stack of all of the connected users
+foreach(s,c)   not implemented, executes code c with %stack% variable s
+each(s)        not implemented
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

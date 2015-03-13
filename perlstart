@@ -1,0 +1,8 @@
+#!/bin/csh
+
+perl /home/theisles/isles/mudstart.pl
+
+#while ( 1 )
+    nohup perl mudstart.pl 
+#    sleep 600
+#end

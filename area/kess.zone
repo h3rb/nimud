@@ -1,0 +1,12648 @@
+#ZONE 
+N Kess~
+B None~
+V 5000 5499
+S 1
+End
+
+
+
+#SCRIPTDATA
+#5166
+N librarian~
+C
+wait(30);
+do('Welcome to the Kess Lycaeum.  Please do not steal our books.);
+wait(100);
+do(:stacks a book upon the shelf.);
+wait(200);
+do(:organizes a stack of books.);
+wait(50);
+do(:tidies up a bit.);
+~
+T 10
+End
+
+#5167
+N librarian-hush~
+C
+wait(50);
+do(:shushes you.);
+wait(25);
+do({'Please be quiet, %name%, people are trying to read.});
+~
+T 6
+End
+
+#5174
+N unused~
+C
+~
+T 6
+End
+
+#5175
+N assistant~
+C
+label(begin);
+do({:quickly pulls something out of the oven and moves it to the cooling rack.});
+wait(50);
+do({:grabs a tray and slides it into the oven.});
+wait(150);
+do({:tests some bread with a wooden fork.});
+wait(200);  do({:adjusts her hat and blows hair from her eyes.});
+wait(random(1000,2000));
+
+goto(begin);
+~
+T 6
+End
+
+#5180
+N sniff-snuff~
+C
+if ( and(is(%astr%,{sniff}), is(%bstr%,{snuff})), {echo(%actor%,{You take a sniff of snuff.}); return(1); });
+~
+T 0
+End
+
+#5181
+N cigarette~
+C
+* cigarette
+if ( is(%astr%,{smoke}), {echo(%actor%,{You smoke a cigarette.});
+oecho(%actor%,{%name% smokes a cigarette.});
+destroy;
+return(1);
+} );
+~
+T 0
+End
+
+#5201
+N unused~
+C
+~
+T 0
+End
+
+#5221
+N begger-ask~
+C
+wait(15);
+do({'spare some copper?});
+~
+T 10
+End
+
+#5222
+N begger-gives~
+C
+wait(5);
+do({thank %name%});
+~
+T 5
+End
+
+#5245
+N ressat-greeting~
+C
+wait(5);
+do({'Welcome to Ressat's Clothing!  Feel free to browse ours stock, we have a tailor if anything appears too small or too big.  Please find me if you have any questions.});
+~
+T 10
+End
+
+#5301
+N royal-guard-1~
+C
+if ( greater(bounty(%name%),0),
+     { 
+          wait(5);
+          do({'Guards, a ruffian and knave approaches!});
+          wait(10);
+          force({guard kill %name%}); 
+          force({2.gaurd kill %name%});
+     },
+     {
+          wait(9); 
+          do({'Hail %name%!  You approach King Coranos Rygor, lord of the Lands!}); 
+     } );     
+ 
+%day% day(); %year% year();
+history(%name%,{%name% visited the Court of King Rygor on day %day% of year %year%.});
+~
+T 10
+End
+
+#5303
+N king-pay~
+C
+%o% owed(%name%);
+if ( greater(%o%,0),
+    {
+    pay(%actor%,%o%);
+    addowed(%name%,sub(0,%o%));
+    do({:pays a reward of %o% gold.});
+    do({'Your service to the crown is amiably noted, %name%.});
+    history(%name%,{%name% is rewarded by the king for service to the crown.});
+   },
+   {
+     goto(inform);
+   }
+ );
+goto(end);
+label(inform);
+wait(30);
+do({look %name%});
+wait(50);
+do({'To seek a reward, find and slay the rogue king Hardial Bains.});
+wait(10);
+do({'Perhaps only then will his reign of bullduggery will bother us no longer!  He is wanted for treason and attempted murder on myself, Lord Coranos Rygor!});
+label(end);
+~
+T 10
+End
+
+#5305
+N tersa-greet~
+C
+wait(10);
+do({'Hallo %name%, here to buy somethin'?});
+wait(40);
+do({'Look around, I'm sure you'll find something that will tickle your fancy.});
+wait(80);
+do(:keeps a watch on you from the corner of her eye.);
+~
+T 10
+End
+
+#5499
+N adventurer~
+C
+wait(50);
+do({'I'm leaving soon to go on a great adventure!  If you want to come along, I'll be able to lead you.  All you have to do is choose to come with me.  I'm leaving in just a minute or two.});
+wait(25);
+do({'If you want to come along, just 'follow adventurer' and I'll lead the way.});
+wait(100);
+autowait(10);
+do({wave});
+do({open west});
+do({w}); do({close east});
+do({open south});
+do({s});
+do({open south});
+do({s});
+do({'Yes, I need some stuff for the road.});
+do({l});
+do({list});
+do({buy taper});
+do({put taper pack});
+do({buy steel});
+do({put steel pack});
+do({buy bandages});
+do({put bandages pack});
+do({buy torch});
+do({put torch pack});
+do({tip});
+do({tip});
+do({:tips his hat gallantly.});
+do({l});
+do({n});
+do({e});
+do({e});
+do({e});
+do({n});
+do({e});
+do({e});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({draw});
+do({look recruit});
+do({'The Kltarans are fighting a war...});
+do({n});
+do({n});
+do({nw});
+do({nw});
+do({n});
+do({nw});
+do({n});
+do({get sword});
+do({wield sword});
+do({w});
+do({w});
+do({e});
+do({e});
+do({e});
+do({n});
+do({e});
+do({e});
+do({n});
+do({e});
+do({e});
+do({n});
+do({w});
+do({'We must take this boat to Vlazgaadbrun.});
+do({'First buy a ticket, using 'buy ticket' then 'give ticket man' to take the ferry.});
+do({buy ticket});
+do({give ticket man});
+do({l});
+do({w});
+do({w});
+do({say I'll leave you here on the beach.  See you at the Inn.});
+do({:returns to the Hovelcove.});
+jump(5005);
+elude(%actor%);
+~
+T 6
+End
+
+#5000
+N asynthia-dishwasher~
+C
+label(begin);
+do({:shouts toward the kitchen.});
+wait(random(0,50));
+do({force dishwasher open south});
+do({force dishwasher south});
+wait(random(0,50));
+do({:gets a stack of plates from the dishwasher's arms.});
+wait(random(10,20)));
+do(force dishwasher open north});
+do(force dishwasher north);
+wait(random(10,20);
+do(force dishwasher close south});
+wait(random(2000,5000));
+goto(begin);
+~
+T 1
+End
+
+#5002
+N dishwasher~
+C
+do({:slops some soapy water onto the floor.});
+wait(100);
+do({:clangs a dish into the basin.});
+wait(100);
+do({:wipes something off the floor.});
+wait(100);
+do({open south});
+do({south});
+wait(5);
+do({:gets a stack of plates from Asynthia's hands.});
+wait(5);
+do({open north});
+do({north});
+wait(10);
+do({close south});
+wait(10);
+jump(2000);
+wait(2000);
+jump(2000);
+~
+T 1
+End
+
+#5003
+N hovelcovel-dreams~
+C
+wait(30);
+dream({You dream of a great castle in the clouds.});
+wait(40);
+dream({You dream of the fields of Kltara, covered with golden grasses.});
+wait(40);
+dream({In your dreams, you see the smiling face of Callista, the ray of hope
+in the heavens.});
+wait(40);
+dream({You dream of walking by Arond's keep.});
+wait(60);
+dream({It is dark and night has come.  You are walking down dagger alley.});
+wait(30);
+dream({The moon is full and there is the sound of a crow in the distance.});
+wait(50);
+dream({A cockral flies toward the western twilight.});
+wait(40);
+dream({You dream of the fields of Kltara, a mounted horseman.});
+wait(40);
+dream({Three villians approach the horseman, there is an argument.});
+wait(40);
+dream({Suddenly the horseman takes off riding south across the plains!});
+wait(60);
+dream({The men on foot jump on their horses and give chase!});
+wait(30);
+dream({The horses close in, there is a great battle, swords are drawn.});
+wait(30);
+dream({You dream of the victor riding west toward the mountains.});
+wait(40);
+dream({In your dream you realize he is Kralan, fleeing the merchants caravan.});
+wait(40);
+dream({One of his defeated foes clutches a single gold coin.});
+wait(40);
+dream({Your mind rests as you fall into a deeper sleep.});
+wait(100);
+dream({Your mind stirs for a moment, you think pleasant thoughts as you heal.});
+wait(60);
+dream({You feel as though you are floating above your body on a cushion of air.});
+wait(30);
+dream({Your mind falters and you return to a deep, restful sleep.});
+wait(40);
+dream({You dream of the fields of Kltara, covered with golden grasses.});
+wait(40);
+dream({In your dream you see the five-starred ring of Arond high in the heavens.});
+wait(40);
+dream({You dream of the fresh baked bread of the Hovelcove.});
+wait(60);
+dream({You dream of the far off islands of Mudak and Zalufin.});
+wait(40);
+dream({A great mind has entered your dream, speaking to you of knowledge and strength.});
+wait(50);
+~
+T 1
+End
+
+#5004
+N innkeeper-greet~
+C
+wait(15);
+do({'Rooms are available upstairs.});
+~
+T 10
+End
+
+#5005
+N citizen-killed~
+C
+addbounty(%name%,500);
+~
+T 9
+End
+
+#5006
+N sit~
+C
+wait(10);
+do({sit chair});
+~
+T 4
+End
+
+#5007
+N cit-weather~
+C
+if ( greater(random(0,4),3), {goto(start);}, {goto(end);} );  label(start);
+
+wait(random(0,100));
+if ( cmp(weather(),0), { do({say Nice day, isn't it?}); } );
+if ( cmp(weather(),1), { do({say Looks a bit overcast.}); } );
+if ( cmp(weather(),2), { do({say Gonna storm harder I bet.}); } );
+if ( cmp(weather(),3), { do({say Now we're in for it!}); } );
+if ( cmp(weather(),4), { do({say Bit of a storm, isn't it?}); } );
+wait(20);
+} );
+label(end);
+~
+T 10
+End
+
+#5010
+N vagabond-bounty~
+C
+addowed(%name%,50);
+~
+T 9
+End
+
+#5011
+N vagabond-steal~
+C
+do({steal %name%});
+wait(30);
+~
+T 10
+End
+
+#5012
+N fast-mover~
+C
+wait(20); if ( foe(), { goto({end}); } );
+%dir% rnddir();
+do(%dir%);
+
+label({end});
+~
+T 1
+End
+
+#5020
+N baillion-born~
+C
+wait(10);
+do({sit stool});
+do({sit chair});
+do({rest});
+~
+T 4
+End
+
+#5022
+N baillion-enter~
+C
+if ( cmp(word(%name%,2),{adventurer}), { goto({end}); }, {} );
+wait(200);
+do({'Psst.  If you need hirelings, just say the word.});
+label(end);
+wait(5);
+~
+T 10
+End
+
+#5023
+N baillion-hirelings~
+C
+wait(random(30));
+if ( cmp(%astr%,{bard}),      { goto({bard}); },    {} );
+if ( cmp(%astr%,{monk}),      { goto({monk}); },    {} );
+if ( cmp(%astr%,{ranger}),    { goto({ranger}); },  {} );
+if ( cmp(%astr%,{fighter}),   { goto({fighter}); }, {} );
+if ( cmp(%astr%,{hirelings}), { goto({explain}); }, {} );
+if ( cmp(%astr%,{hireling}), { goto({explain}); }, {} );
+goto({end});
+label(explain);
+    do({'Well, %name%, I can offer the services of a hireling.
+         You can be helped by a bard, a fighter, a monk or a ranger.  I know enough people
+         that you could hire as many as you can afford.  Just say the profession of your
+         desired adventurer. Each costs 10 gold.});
+goto({end});
+label(bard);
+if ( charge(%name%,{1000}),  {goto({breed_bard}); },  {goto({no}); }  );
+goto({end});
+label(breed_bard);
+breed(5021,%actor%);
+goto({end});
+label(monk);
+if ( charge(%name%,{1000}),   {goto({breed_monk}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_monk);
+breed(5022,%actor%);
+goto({end});
+label(ranger);
+if ( charge(%name%,{1000}),   {goto({breed_ranger}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_ranger);
+breed(5023,%actor%);
+goto({end});
+label(fighter);
+if ( charge(%name%,{1000}),   {goto({breed_fighter}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_fighter);
+breed(5024,%actor%);
+goto({end});
+label(no);
+do({'I'm afraid I cannot help you: you do not have enough money to support a hireling.});
+label(end);
+~
+T 6
+End
+
+#5030
+N guard-citizen-assist~
+C
+wait(60);
+do({assist citizen});
+~
+T 1
+End
+
+#5031
+N move-four-west~
+C
+wait(30);
+do({west});
+wait(30);
+do({west});
+wait(30);
+do({west});
+wait({30});
+do({west});
+~
+T 0
+End
+
+#5050
+N stablehand-sell~
+C
+wait(random(30));
+if ( cmp(%astr%,{camel}),      { goto({camel}); },    {} );
+if ( cmp(%astr%,{camels}),     { goto({camel}); },    {} );
+if ( cmp(%astr%,{burrow}),      { goto({burrow}); },    {} );
+if ( cmp(%astr%,{burrows}),     { goto({burrow}); },    {} );
+if ( cmp(%astr%,{llama}),      { goto({llama}); },    {} );
+if ( cmp(%astr%,{llamas}),     { goto({llama}); },    {} );
+if ( cmp(%astr%,{horse}),      { goto({horse}); },  {} );
+if ( cmp(%astr%,{horses}),     { goto({horse}); },  {} );
+ 
+if ( cmp(%astr%,{spotted horse}),      { goto({spotted_horse}); },  {} );
+if ( cmp(%astr%,{spotted}),            { goto({spotted_horse}); },  {} );
+if ( cmp(%astr%,{mare}),      { goto({mare}); },  {} );
+if ( cmp(%astr%,{black}),            { goto({black_horse}); },  {} );
+if ( cmp(%astr%,{black horse}),      { goto({black_horse}); },  {} );
+if ( cmp(%astr%,{mustang}),    { goto({mustang}); }, {} );
+if ( cmp(%astr%,{mustangs}),   { goto({mustang}); }, {} );
+if ( cmp(%astr%,{bronco}),    { goto({bronco}); }, {} );
+if ( cmp(%astr%,{dragon}),          { goto({dragon}); }, {} );
+if ( cmp(%astr%,{green dragon}),    { goto({dragon}); }, {} );
+if ( cmp(%astr%,{shivabeast}),  { goto({shivabeast}); }, {} );
+if ( cmp(%astr%,{shivabeasts}), { goto({shivabeast}); }, {} );
+if ( cmp(%astr%,{ostok}),      { goto({ostok}); }, {} );
+if ( cmp(%astr%,{ostoks}),     { goto({ostok}); }, {} );
+if ( cmp(%astr%,{pack horse}),  { goto({pack}); }, {} );
+if ( cmp(%astr%,{pack}),        { goto({pack}); }, {} );
+if ( cmp(%astr%,{pack horses}), { goto({pack}); }, {} );
+if ( cmp(%astr%,{kirin}),      { goto({kirin}); }, {} );
+if ( cmp(%astr%,{kirins}),     { goto({kirin}); }, {} );
+if ( cmp(%astr%,{multicolored kirin}),     { goto({kirin}); }, {} );
+if ( cmp(%astr%,{multi-colored kirin}),    { goto({kirin}); }, {} );
+ 
+if ( cmp(%astr%,{oliphant}),   { goto({oliphant}); }, {} );
+if ( cmp(%astr%,{oliphants}),  { goto({oliphant}); }, {} );
+if ( cmp(%astr%,{oliphant}),   { goto({oliphant}); }, {} );
+if ( cmp(%astr%,{oliphants}),  { goto({oliphant}); }, {} );
+if ( cmp(%astr%,{oliphant}),   { goto({oliphant}); }, {} );
+if ( cmp(%astr%,{oliphants}),  { goto({oliphant}); }, {} );
+goto({end});
+label(explain);
+    do({'Well, %name%, I can offer you a variety of pack animals and other exotic creatures.
+         In stock today we have several horses, a mustang, a bronco, multicolored kirin, ostoks, oliphants and camels. Each of those costs 10 gold.
+         I also sell burrows, pack llamas and pack horses for 1 gold.  We have a few other creatures available, but you'll
+         pay handsomely for them.  A shivabeast costs 20 gold, a dragon costs 50 gold and a unicorn costs 45 gold.
+         If you need livestock, I suggest visiting the Vadmet farm south of Kess near the Ostinbrok. });
+    wait(5);
+    do({'Just say the name of the animal you'd like, and we can do business.});
+goto({end});
+label(horse);
+    do({'Well, %name%, I can offer you a black one, a mustang, a bronco, a chocolate mare, or a spotted horse. Each of those costs 10 gold.
+         Which would you like?});
+goto({end});
+label(camel);
+if ( charge(%name%,{1000}),  {goto({breed_camel}); },  {goto({no}); }  );
+goto({end});
+label(breed_camel);
+breed(5049,%actor%);
+goto({end});
+ 
+label(burrow);
+if ( charge(%name%,{100}),   {goto({breed_burrow}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_burrow);
+breed(5051,%actor%);
+goto({end});
+label(pack);
+if ( charge(%name%,{100}),   {goto({breed_pack}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_pack);
+breed(5042,%actor%);
+goto({end});
+label(llama);
+if ( charge(%name%,{100}),   {goto({breed_llama}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_llama);
+breed(5052,%actor%);
+goto({end});
+ 
+label(spotted_horse);
+if ( charge(%name%,{1000}),   {goto({breed_shorse}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_shorse);
+breed(6012,%actor%);
+goto({end});
+label(mare);
+if ( charge(%name%,{1000}),   {goto({breed_mare}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_mare);
+breed(5041,%actor%);
+goto({end});
+label(black_horse);
+if ( charge(%name%,{1000}),   {goto({breed_bhorse}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_bhorse);
+breed(556,%actor%);
+goto({end});
+ 
+label(kirin);
+if ( charge(%name%,{1000}),   {goto({breed_kirin}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_kirin);
+breed(5040,%actor%);
+goto({end});
+label(mustang);
+if ( charge(%name%,{1000}),   {goto({breed_mustang}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_mustang);
+breed(5047,%actor%);
+goto({end});
+ 
+label(bronco);
+if ( charge(%name%,{1000}),   {goto({breed_bronco}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_bronco);
+breed(5053,%actor%);
+goto({end});
+label(ostok);
+if ( charge(%name%,{1000}),   {goto({breed_ostok}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_ostok);
+breed(5046,%actor%);
+goto({end});
+ 
+label(shivabeast);
+if ( charge(%name%,{2000}),   {goto({breed_s}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_s);
+breed(5048,%actor%);
+goto({end});
+label(unicorn);
+if ( charge(%name%,{4500}),   {goto({breed_unicorn}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_unicorn);
+breed(5044,%actor%);
+goto({end});
+ 
+label(dragon);
+if ( charge(%name%,{5000}),   {goto({breed_dragon}); } ,  {goto({no}); }  );
+goto({end});
+label(breed_dragon);
+breed(5045,%actor%);
+goto({end});
+label(no);
+do({'I'm afraid I cannot help you: you do not have enough money.});
+label(end);
+ 
+~
+T 6
+End
+
+#5051
+N stablehand-enter~
+C
+wait(50);
+do({'If you need a horse or other animal, just say the word.});
+label(end);
+wait(5);
+~
+T 10
+End
+
+#5058
+N town-crier~
+C
+autowait(25);
+do({l});
+do({say Hereye, hereye!});
+do({say The King has proclaimed today not a holiday, so get to work!});
+do({rofl});
+do({east});
+do({shout Here-ye, hear-ye!});
+do({shout King Rygor has decreed that anyone killing vagabonds will be placed on the list of criminals!  If ye see a vagabond wandering, and they attack you, you are to flee!  Repeat!  None shall kill the vagabonds!});
+do({shout Bounty will be assessed to those who kill vagabonds!});
+do({shout Report any wrongdoings to the nearest guard.});
+do({east});
+do({shout Here-ye, Hear-ye!  The Grand Bazaar is open for those wishing to purchase the fine goods of this realm!});
+do({east});
+do({east});
+do({shout Hear-ye, here-ye!  The Hovelcove has been awarded the merit of finest rye bread by Sheb the baker!});
+do({east});
+do({east});
+do({bow citizen});
+do({east});
+do({east});
+do({shout Here-ye, hear-ye!  Bards shall be at the ampitheatre today to perform great musics from the world over!  });
+do({shout Free concert!});
+do({giggle});
+do({n});
+do({shout Hear-ye, here-ye!  Kala's Candies sells taffies and treats, come one come all -- prices that cannot be beat!});
+do({east});
+do({east});
+do({s});
+do({shout Hear-ye, here-ye!  Citizens of Kess may purchase homes in the Ruthridge and Staedler areas!});
+do({s});
+do({nw});
+do({n});
+do({n});
+do({n});
+do({bow citizen});
+do({n});
+do({n});
+do({n});
+do({shout Hear-ye, here-ye!  The finest domestic goods available here on Staedler!  See Bald the Furrier or Ressat the Tailor for fine clothing and amenities!});
+do({n});
+do({n});
+do({bow citizen});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({w});
+do({w});
+do({w});
+do({s});
+do({shout Here-ye, hear-ye!  Finest ales at the Scallywag!  Come visit the Seacaptain Milad to find the nearest mariner hiring sailors!  Arrr!});
+do({giggle});
+do({s});
+do({w});
+do({s});
+do({s});
+do({shout Hear-ye, here-ye!  Finest shoes in Kess here at the Soothsayer Cobbler!});
+do({s});
+do({s});
+do({s});
+do({n});
+do({n});
+do({n});
+do({n});
+do({n});
+do({east});
+do({n});
+do({n});
+do({e});
+do({e});
+do({e});
+do({s});
+do({s});
+do({s});
+do({s});
+do({n});
+do({shout Fine goods at Alad's Butcher Shop and Buttery!});
+do({s});
+do({s});
+do({s});
+do({s});
+do({s});
+do({s});
+do({s});
+do({s});
+do({s});
+do({s});
+do({s});
+do({shout Finest baked goods in all the land at Sheb's bakery!});
+do({w});
+do({nw});
+do({w});
+do({w});
+do({w});
+do({w});
+do({w});
+do({w});
+do({w});
+do({s});
+do({s});
+do({s});
+do({s});
+do({shout Swodsrud Square!  Finest arms and armors!  Come one come all to visit the fletcher, armourer, swordsmith and silversmithery!});
+do({dance});
+do({n});
+do({n});
+do({n});
+do({n});
+do({:rests before heading back on his rounds.});
+~
+T 1
+End
+
+#5059
+N town-crier-2~
+C
+wait(1000);
+%t% time();
+if ( greater(%t%,12), { %t% sub(%t%,12); }, {} );
+do({shout %t% o'clock and all is well!});
+~
+T 1
+End
+
+#5100
+N proc-citizen~
+C
+do({:whistles tunelessly.});
+wait(random(100,200));
+do({yawn});
+wait(random(1000,2000));
+do({'Good day.});
+wait(20);
+do({:tips his cap to you.});
+~
+T 11
+End
+
+#5108
+N kess-zalufin-route~
+C
+label(kess-zalufin-start);
+wait(10);
+do({:steers the ship along the Kaerbrok to the eastern edge of Rygor Isle.});
+wait(30);
+do({say It may take some time to reach Zalufin, we must sail south along the Island.});
+wait(10);
+do({say Perhaps you would enjoy some of our amenities in the galley.});
+wait(30);
+do({:steers the ship along a swift current to the Kaerbrok delta.  The ship turns southeast.});
+wait(30);
+echo({You watch as Rygor Isle slowly moves past you from the port side.});
+wait(40);
+echo({You round the tip of the southern edge of Rygor Isle and the ship heads toward the open waters.});
+wait(40);
+echo({Rygor Isle fades into the distance behind you.});
+wait(200);
+echo({In the distance you can see the white tips of the spires of a palace situated on a craggy cliff.});
+wait(50);
+echo({The dock is approaching.});
+wait(20);
+do({:moors the ship at the harbor.});
+wait(10);
+do({say Enjoy your journey.  It is not far to the south that you will find
+Zalufin, the atop the great cliffs, and home of the Trioskenne nation.});
+wait(15);
+do({say From there, you can hire a boat back to Kess.});
+wait(10);
+move(%name%,10120);
+~
+T 0
+End
+
+#5109
+N dockmaster-zalufin-kess~
+C
+if (cmp(%astr%,{zalufin ticket}),
+   {
+    do({say %name%, step right this way...});
+    move(%name%,5261);
+   
+   
+   
+   do({:escorts %name% to a ship bound for Zalufin.});
+    },
+   {eat(%astr%);});
+~
+T 5
+End
+
+#0
+
+
+
+#ACTORS
+#5166
+N librarian~
+SD the librarian~
+LD
+ The librarian is stacking books on the shelf.
+~
+D
+ A quiet woman in her later years, enjoying the very gracious gift of
+knowledge the King has bestowed upon his people.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sc 5166
+Sc 5167
+End
+
+#5173
+N rogue $n~
+SD the rogue $n~
+LD
+ The rogue $n stands behind the bar, hunched over with an eyepiece.
+~
+D
+ The ever-changing barhand is scrying a piece of jewelry.
+~
+A 1043
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 25 25 25 25 25
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sk 75 'pickpocketing'
+Sk 20 'legerdemain'
+Sk 35 'lock picking'
+End
+
+#5174
+N sheb baker~
+SD Sheb~
+LD
+ A rotund baker slaves over a hot stone-fired oven.
+~
+D
+ Sheb is a master baker who has been open at the shop for many years. 
+When he first came to Kess, he impressed the citizens by making the longest
+baguette in Rygor history, and fed them all in a great feast.  He has moved
+here from Kyrinn, where he was already reknowed.  He is a rather stocky man,
+with a huge belly and tanned, rosy cheeks.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 10 15 9 18
+End
+
+#5175
+N assistant kessa~
+SD the assistant~
+LD
+ Kessa, Sheb's assistant, runs back and forth about the oven.
+~
+D
+ Kessa has brown hair and grey eyes.  She is a rather thin woman, with
+taut muscles, and she is young.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 10 14 12 19 17
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 1
+ T 8 0
+ Tr 8 1
+ T 9 0
+ Tr 9 0
+ P 100 120
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 5175
+End
+
+#5181
+N bellin~
+SD bellin~
+LD
+ Bellin bangs on a plate of metal.
+~
+D
+ A tall, weathered gentleman with a stern look and bulging forearms.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+Shop
+ T 0 9
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 1
+ T 6 0
+ Tr 6 1
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 80 120
+ H 0 23
+ F 7
+ R 75
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5182
+N faldrad~
+SD Faldrad, son of Ghorlad~
+LD
+ Faldrad, son of Ghorlad, sells his father's wares.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 5
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 75 125
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5183
+N $n tobacconist~
+SD $n~
+LD
+ The tobacconist stands ready to serve.
+~
+D
+ A heavy set man in his late fifties. He smiles at you broadly from
+behind a set of pointed whiskers a color like slate.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5184
+N fodder axe-smith~
+SD fodder~
+LD
+ A muscular, balding man with a goatee sharpens a new axe-head.
+~
+D
+ The axe-smith is a burly, short man with a long goatee.  His head is
+shiny and bald, and dripping with sweat.  A huge scar runs the length of his
+left arm.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 25 5
+End
+
+#5185
+N qi'odden fletcher~
+SD Qi'Odden~
+LD
+ Qi'Odden is puttin' the quills on a couple.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 5 5 5 5 5
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5187
+N fodder~
+SD fodder~
+LD
+ Fodder is making a brand new crossbow.
+~
+D
+ ~
+A 1043
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 6
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sk 50 'ranged'
+End
+
+#5189
+N halad~
+SD Halad the silversmith~
+LD
+ A silversmith looks down on his luck.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 13 14
+End
+
+#5190
+N keod~
+SD keod~
+LD
+ Keod hammers away on a stubborn piece of metal.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 4 4 4 4 4
+Shop
+ T 0 5
+ Tr 0 0
+ T 1 9
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 1
+ T 6 0
+ Tr 6 1
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 7
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5192
+N brevan renatt~
+SD the pale, raven-haired man~
+LD
+ A raven-haired man of average height stands here, with an almost constant smirk on his face.
+~
+D
+ You see a raven-haired man of average height before you; a man comfortable
+enough with his place and environment to have a relaxed stance and an
+easy-going, tenor timbre to his voice.  He is not thin, nor is he particularly
+bulky, although he has a thick sinew to his arms-- a wiry strength.  His
+hands are more delicate than you might expect them to be; they certainly have
+few callouses to them, and they are well-manicured. 
+~
+A 1
+AB 0
+M 43
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 12 13 14
+End
+
+#5193
+N zarahlynn~
+SD the short, green-eyed woman~
+LD
+ A short, fiery-haired woman sits right in front of the fireplace, playing a mandolin.
+~
+D
+ Fiery auburn hair flies out in most directions, framing this short, pale
+woman's face, and she moves with a grace that seems as natural as flowing
+water.  Her well-calloused hands are often fidgeting, as if she were not at all used to them being idle.  Her voice is a melodic mezzosoprano, and
+although it is soft, it has a steady power to it.  She stares at
+something constantly, and shifts her gaze infrequently.  Regardless of what
+she is studying, however, the look she gives it is the same-- an intense,
+emerald-eyed stare, as if she were trying to reach the core of her target.
+~
+A 1
+AB 0
+M 2
+Credits 0
+Bucks 0
+S 2
+Sz 21
+K 0 E 1
+O ~
+AP 14 17 15 15 13
+End
+
+#5200
+N ket chuk ket'chuk bones champion old man haggard~
+SD Ket'chuk the bones champion~
+LD
+ A haggard old man is hunched over a bones table.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 16 13 13 14 18
+End
+
+#5220
+N $n housewife wife~
+SD $n~
+LD
+ A housewife is hanging the laundry across the alley.
+~
+D
+ Young but showing premature signs of age, this hard-working housewife is
+probably married to a laborer or apprentice journeyman.  She has $c eyes
+that appear haunting and distant, as if she is thinking about her husband.  
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 100 E 1
+O ~
+AP 14 14 14 14 14
+End
+
+#5221
+N vagrant monk~
+SD a vagrant monk~
+LD
+ A vagrant monk is wandering around begging.
+~
+D
+ Balding with a wire black beard, the vagrant has dirty feet and
+smells a bit of chicken broth.
+~
+A 1
+AB 0
+M 2
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 11 11 11 11 11
+Sc 5221
+Sc 5222
+Sc 5012
+End
+
+#5245
+N ressat~
+SD ressat~
+LD
+ A well-dressed clothier fusses with the mannequins.
+~
+D
+ Ressat is a rather friendly gentleman with a very thin line of hair on
+his upper lip and a short cropping of greyish-white hair.  He is constantly
+tonguing the pushpins in his mouth, and fiddling with a long length of
+measuring tape.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 14 14 18 17
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 1
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 150
+ H 0 18
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I am truly sorry, I don't have anything like that, but I will check next week to see if we can get it.~
+ Str2
+ I'm afraid I can't allow myself to indulge in that.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 5245
+Sk 100 'stark'
+End
+
+#5250
+N gald furrier~
+SD Gald~
+LD
+ A burly furrier is standing in a back corner.
+~
+D
+ Gald works during the spring and late summer as a hunter and trapper for
+the King.  His shop is open during the fall and winter to sell furs and
+pelts as clothing, which he tailors himself.  
+~
+A 1043
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 17 13 14 13 18
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 1
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 100  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5253
+N merkistad~
+SD merkistad~
+LD
+ Merkistad is the proprietor's name.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 90 120
+ H 10 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 25 1
+End
+
+#5259
+N rat~
+SD a rat~
+LD
+ A rat scurries around.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 5 E 20
+O ~
+AP 3 3 3 3 3
+At 1 4 10 14
+End
+
+#5299
+N $n~
+SD $n~
+LD
+ $N is selling cures.
+~
+D
+ She tends the apothecary.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K -20 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5300
+N esul~
+SD esul~
+LD
+ Nodnod Sriadriad's nephew Esul tends the family shoppe.
+~
+D
+ Esul is thin with a large snauze, gaunt complexion.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+End
+
+#5301
+N royal crier~
+SD the royal crier~
+LD
+ The royal crier calls for the king.
+~
+D
+ A young boy whose family has serviced the crown for generations.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 5301
+At 0 10 16 3
+End
+
+#5302
+N royal guard~
+SD a royal guard~
+LD
+ A royal guard eyes you carefully.
+~
+D
+ The royal guard are conditioned by the king's war master.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 25 25 25 25 25
+End
+
+#5303
+N king rygor coranos~
+SD King Rygor~
+LD
+ King Rygor sits on his alabaster throne.
+~
+D
+ King of Kltara, lord of the Realm and crowned prince of Ikthius, his
+father, Coranos Rygor is the primary lawgiver and a just ruler of the
+island.  
+~
+A 1027
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 25 25 25 25 25
+Sc 5303
+Sk 35 'exotic'
+Sk 20 'piercing'
+Sk 20 'thrown'
+Sk 20 'heroism'
+Sk 30 'melee'
+Sk 40 'enhanced damage'
+Sk 20 'edged'
+End
+
+#5305
+N tersa~
+SD tersa~
+LD
+ Tersa is selling a few items of interest.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K -3 E 1
+O ~
+AP 13 13 13 13 13
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 5305
+End
+
+#5306
+N rotund gemcutter~
+SD $n~
+LD
+ A rotund gemcutter scries his latest find.
+~
+D
+ An elderly gentleman holding a scrying piece.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 20 20 20 20 20
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 70 110
+ H 5 18
+ F 2
+ R 0
+ BI 70  CI 0  SI 100
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5307
+N merchant~
+SD the cloth merchant~
+LD
+ A merchant is standing here, eager to trade.
+~
+D
+ A suave, tanned gentleman with a wide black mustache.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 15
+K 0 E 1
+O ~
+AP 25 25 25 25 25
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 1
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 1
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 80 80
+ H 0 23
+ F 1
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5499
+N $n adventurer~
+SD $n the adventurer~
+LD
+ An adventurer is standing nearby.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+Sc 5499
+End
+
+#5000
+N asynthia barmaid~
+SD Asynthia~
+LD
+ A barmaid eagerly prepares to serve customers.
+~
+D
+ Asynthia is a young beauty who has worked for her father for many years. 
+The Hovelcove is at once both her place of business and her home.  She helps
+out as much as she can, between her apprenticeships at various Kessian
+guilds, and she is eagerly prepared to help you.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 20
+K 0 E 1
+O ~
+AP 9 10 9 13 9
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 75 125
+ H 6 22
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I'm so sorry, but we don't serve that here.~
+ Str2
+ I'm sorry but I'm afraid I have no need for an item like that.  Why not try the Bazaar?~
+ Str3
+ ~
+ Str4
+ #observe We're open from %s to %s.~
+EndShop
+Sc 5000
+Sk 100 'stark'
+End
+
+#5001
+N astagio~
+SD astagio~
+LD
+ A sickly thin man stands behind a table, cutting fabric with long shears.
+~
+D
+ Astagio is a gaunt man of slight build.  His frame is as straight as a
+rail, and seems to be drowning in the lengthly clothes that hang from him. 
+He has grown accustomed to the heavy job of tending a cloth trading shop.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 0
+K 0 E 1
+O ~
+AP 10 10 12 12 9
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 75 125
+ H 6 21
+ F 1
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I deal only in cloth and fabric.~
+ Str2
+ I deal only in cloth, dye and fabric.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5002
+N dishwasher~
+SD a dishwasher~
+LD
+ A dishwasher is washing dishes in a big basin.
+~
+D
+ A dishwasher is young and muscular, but extremely sweaty from washing
+dishes.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 9 9 13 13
+Sc 5002
+End
+
+#5003
+N $n $n citizen~
+SD $n $N~
+LD
+ $n $N is here.
+~
+D
+ $n is a happy citizen of Kess.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -1 E 1
+O ~
+AP 15 15 15 15 15
+Sc 5007
+Sc 5005
+At 0 10 24 12
+End
+
+#5004
+N innkeeper~
+SD the innkeeper~
+LD
+ The innkeeper is standing behind the counter.
+~
+D
+ An old man with a stubby hand holds a quill and pours over an opened
+ledger.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I only sell keys for the rooms.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ Keys available:~
+ Str4
+ Sorry, come back soon.~
+EndShop
+Sc 5004
+Sc 5003
+End
+
+#5005
+N barkeep~
+SD the barkeep~
+LD
+ The barkeep is wiping down the bar.
+~
+D
+ A thin barkeep with a bald head and a scruffy beard.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ Can I get you something else?~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5006
+N patron $n~
+SD $n~
+LD
+ $n is a patron of the Inn.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 4 4 4 4 4
+Sc 5006
+End
+
+#5007
+N kala~
+SD kala~
+LD
+ A buxom Kala hands out candies.
+~
+D
+ Kala has short brown hair, a mischevious look in her eye, and a strange
+smirk across her lips.  She is a little pudgy, with a coy look, buxom
+breasts and a cute dimple.  
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#5010
+N vagabond~
+SD a vagabond~
+LD
+ A vagabond preys on the unsuspecting citizens of Kess.
+~
+D
+ The vagabond is scruffy and unkempt.
+~
+A 4257
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 1 E 50
+O ~
+AP 3 3 3 3 3
+Sc 5011
+Sc 5010
+Sc 5012
+End
+
+#5020
+N baillion~
+SD baillion~
+LD
+ Baillion the manager is here.
+~
+D
+ Baillion manages the adventurers who wish to be hired to adventure.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 25 25 25 25 25
+Sc 5020
+Sc 5022
+Sc 5023
+End
+
+#5021
+N bard $n $n~
+SD $n $N~
+LD
+ $n the Bard is standing here.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sc 20
+End
+
+#5022
+N monk $n~
+SD Frere $n~
+LD
+ Frere $n is praying nearby.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sc 20
+End
+
+#5023
+N ranger $n~
+SD $n the Ranger~
+LD
+ $n stands nearby.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sc 20
+End
+
+#5024
+N fighter $n~
+SD $n the Brave~
+LD
+ $n is standing here looking valiant.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sc 20
+End
+
+#5030
+N kessian guard~
+SD a Kessian guard~
+LD
+ A Kessian guard looks for signs of trouble.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 7 7 7 7 7
+Sc 5012
+Sc 5030
+End
+
+#5040
+N $c kirin~
+SD a $c kirin~
+LD
+ A $c-coated kirin is elegantly preening.
+~
+D
+ ~
+A 8195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 4 4 4 4 25
+End
+
+#5041
+N chocolate mare~
+SD a chocolate mare~
+LD
+ A chocolate mare whinneys and bays.
+~
+D
+ ~
+A 8195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#5042
+N pack horse~
+SD a pack horse~
+LD
+ A pack horse is idling here.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#5043
+N pack llama~
+SD a pack llama~
+LD
+ A pack llama is standing here.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 11 11 11 11 11
+End
+
+#5044
+N a winged unicorn~
+SD a winged unicorn~
+LD
+ A winged unicorn is standing here!
+~
+D
+ ~
+A 8195
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+End
+
+#5045
+N lesser green dragon~
+SD a lesser green dragon~
+LD
+ A lesser green dragon has been fitted with a rider's mount.
+~
+D
+ ~
+A 8195
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 20 20 20 20 20
+End
+
+#5046
+N $c ostok~
+SD a $c ostok~
+LD
+ An ostok fitted with a rider's mount is here.
+~
+D
+ ~
+A 8195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 25 25
+End
+
+#5047
+N mustang~
+SD a mustang~
+LD
+ A mustang is prancing about, hard to tame.
+~
+D
+ ~
+A 8195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#5048
+N shivabeast~
+SD a massive shivabeast~
+LD
+ A massive shivabeast grunts and drools.
+~
+D
+ Known for its incredible ability to carry tons of weight, the shivabeast
+is a preferred pack animal for extra-dinemsional travelers.  
+~
+A 8195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 25 18 18 10 10
+End
+
+#5049
+N camel~
+SD a camel~
+LD
+ A camel is idle.
+~
+D
+ A single-humped camel used for riding.
+~
+A 8195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 14 15 14 14 14
+End
+
+#5050
+N stable hand stablehand samantha~
+SD Samantha the stablehand~
+LD
+ Samantha is here to sell you horses.
+~
+D
+ ~
+A 1041
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 5050
+Sc 5051
+At 0 10 13 3
+Sk 50 'riding'
+End
+
+#5051
+N burrow~
+SD a burrow~
+LD
+ A burrow is here, holding its weight on its back.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 16
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+End
+
+#5052
+N pack llama~
+SD a pack llama~
+LD
+ A pack llama is waiting here.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 16
+K 0 E 1
+O ~
+AP 11 11 11 11 11
+End
+
+#5053
+N bronco~
+SD a bronco~
+LD
+ There is a bucking bronco snorting and kicking.
+~
+D
+ ~
+A 8193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 5012
+End
+
+#5058
+N town crier~
+SD the town crier~
+LD
+ The town crier of Kess wanders the streets shouting the news.
+~
+D
+ A young lad with a big scroll that he is reading from.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 5058
+Sc 5059
+At 0 10 15 3
+End
+
+#5100
+N citizen kessian~
+SD a citizen~
+LD
+ A citizen of Kess is nearby.
+~
+D
+ ~
+A 1
+AB 0
+M 5
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 11 12 12 14 12
+Sc 5100
+End
+
+#5108
+N dockmaster~
+SD the dockmaster~
+LD
+ A dockmaster is standing here, accepting passes for travel.
+~
+D
+ The dockmaster is a balding fellow with taut skin stretched over his
+bones.  His face is sunburned from hours standing on the dock, and from the
+looks of his tattoos, he's been places.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 0 0 0 10
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 5109
+End
+
+#0
+
+
+
+#OBJDATA
+#5120
+N bookshelf~
+SD a bookshelf~
+P ~
+D
+There's a bookshelf against one wall.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 65536 0 0
+End
+
+#5160
+N breastplate~
+SD a breastplate~
+P ~
+D
+A large metal breastplate is here.
+~
+A
+~
+PD
+~
+DR
+A large metal breastplate has been fashioned by Bellin to
+withstand direct attacks.  It has a leather strap for
+a harness and is very heavy.
+~
+L 0
+T 9
+E 0
+W 524289
+Sz 0
+Ti 0
+Wt 15
+C 200
+O ~
+V 30 10 10 0
+End
+
+#5161
+N chain leggings~
+SD a pair of chain leggings~
+P ~
+D
+A pair of chain leggings has been placed here.
+~
+A
+~
+PD
+~
+DR
+A heavy set of chain leggings, made with a fine mark by Bellin.
+~
+L 0
+T 9
+E 0
+W 33
+Sz 0
+Ti 0
+Wt 10
+C 0
+O ~
+V 20 5 5 0
+End
+
+#5162
+N iron shod boots~
+SD a pair of iron shod boots~
+P ~
+D
+A pair of iron shod boots are sitting here.
+~
+A
+~
+PD
+~
+DR
+Iron shod boots are made of tough leather and shod with flecks
+of iron sheet.  These were crafted in Bellin's forged and are
+marked with his brand.
+~
+L 0
+T 9
+E 0
+W 65
+Sz 0
+Ti 0
+Wt 0
+C 100
+O ~
+V 10 4 4 0
+End
+
+#5163
+N ringmail sleeves~
+SD a set of ringmail sleeves~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+A pair of leather sleeves shod with metal rings.
+~
+L 0
+T 9
+E 0
+W 257
+Sz 0
+Ti 0
+Wt 6
+C 180
+O ~
+V 8 4 4 0
+End
+
+#5164
+N chainmail coif~
+SD a chainmail coif~
+P ~
+D
+A chainmail coif is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 4
+C 150
+O ~
+V 10 4 4 0
+End
+
+#5165
+N timeline~
+SD a timeline~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+Notes on this Timeline
+
+    Calenders throughout the realms on Tyselorrd have changed dramatically
+    over the centuries.  In addition to the standard calenders of each age,
+    many kingdoms had adopted their own timekeeping system.  For the
+    modern reader, we have simplified the timeline as much as possible
+    while still retaining the original dates of each individual kingdom
+    or age which is the focus of that particular passage of the timeline.
+    The number in the far left column contains the date in relation to the
+    first entry in the timeline.  The number in the next column to its
+    right is the local date, followed by the passage.
+
+
+  First Age Cities        First Age Tribes
+
+     New Olgin               Vlattensintri
+     Olgin                   Zengalli
+     Frestole                Heveti
+     Keskali
+     Cetvin
+     Soudbrun
+     Tallez
+     Gallus
+     Northalg
+     Savet
+     Cinae
+
+  Year   Date
+     1   1 of Vlattensintri     - This is the year of the completion of
+                                  the warrior Vlattensintri's grand citadel
+                                  on the river Tyre in the northlands, along
+                                  the coast of the great ocean called Moerd.
+                                  Four other kingdoms exist in the realm,
+                                  newly founded from manors of now forgotten
+                                  lords.  They are Northalg, Savet and
+                                  Soudbrun.  Vlattensintri's yet unnamed
+                                  citadel is stocked for the winter just in
+                                  time.  The King is set to arrive the
+                                  following year.
+
+     2   2 of Vlattensintri     - Upon the arrival of the King in early spring
+
+                                  thus is named the grand citadel Tallez, and
+                                  the city the same.
+
+
+~
+L 0
+T 11
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 5
+O ~
+V 0 0 0 0
+End
+
+#5166
+N abridged copy aladro "Aladro's Island Almanac" almanac~
+SD an abridged copy of "Aladro's Island Almanac"~
+P ~
+D
+You see a copy of 'Aladro's Island Almanac' placed here.
+~
+A
+~
+PD
+~
+DR
+Aladro's Island Almanac
+                    (transcribed from memory by Locke)
+                           
+This is a work of fiction, and is for use with Tyselorrd and The Isles,
+specifically.  It is geared to familiarize the player with the world of
+Tyselorrd.   Please note, all ascii representations were created in
+the squinched 50-line mode, where characters are contained in square boxes
+rather than in rectangular regions.  For proper aspect when viewing, use
+50 line mode.
+
+Copyright (c) 1995, Herb Gilliland.  All rights reserved.
+
+-----------------------[    Table of Contents    ]-------------------------
+
+ - Introduction                        - A Linguistic Look at the Realms
+ - Unitary Systems                         Zengalli
+       Monetary Units                      Haanstaed
+       Weight, Length and Volume           Olani
+       Time                                Mudaki
+       A Note on Calendars                 Zalufini
+ - Weather on the Isles                    Haesni
+ - Trader's Almanac                        
+       Index of Goods and Services         
+       
+
+--------------------------[    Introduction     ]--------------------------
+        
+        From the Author
+
+        This text is written solely for the purpose of outline and explaining
+    the different aspects of the Tyselorrd game, specifically the parts of
+    the world which are important to playing on The Isles MUD.  The ideas
+    contained herein are solely owned by the author, Herb Gilliland.  He
+    reserves the right to modify, omit or remove any of this at any time.
+        Aladro's Island Almanac is written in the first person to make it
+    entertaining as well as informative.  Aladro's persona is defined in
+    the 'From Aladro' section of this introduction.
+
+        From Aladro
+        
+        This would be my first written log of events and information
+    ever published by my own hand.  For years I've studied the oldest
+    tomes in the lycaeum here in Kess, but I've never taken to writing
+    well, and this has taken me much effort to produce.
+        I grew up in the city, in the service of my lord Coranos Rygor,
+    and his father Ikthius Rygor.  I am an old man, having lived for the
+    length of two kings, and I know a bit of lore has passed before mine
+    eyes plenty of times.
+        This compilation contains my notes to the newcomer.  I have read
+    of many lands far and wide across our great oceans, and this text is
+    offered unto the traveler; use it well, for it shall familiarize you
+    with the parts of these islands that, for natives, are like second
+    nature to us.
+    
+
+
+------------------------[    Unitary Systems    ]--------------------------
+
+ - [Monetary Units] 
+ 
+        Each kingdom, it seems, has had its own currency.  The Rygor
+        line has standardized the money system throughout these islands,
+        much to the appreciation of the merchant class.  I have ranked
+        the coins according to the currency value (c's).
+        
+ 10000c Bezain are coins made from precious metal alloys, usually platinum
+        and gold, though sometimes gold and silver (commonly known as
+        electrum).  Each bezain is one-half halfspan across and as thick
+        as a thumbnail. A bezain is worth one ten thousand units of currency.
+        
+  1000c Platinum coins are hand-pressed coins with a diameter equal to a
+        dwarf's smallest finger, or about one third handspan (see below).
+        Each platinum piece is worth one thousand units of currency.
+        
+   100c Gold pieces, rich man's tokens, are smaller than platinum coins,
+        but thicker, to even out their weight with platinum pieces.  They
+        are stamped with the visage of the current king, in this case,
+        Coranos Rygor.  A gold piece is worth one hundred units of currency.
+        
+    10c Silver coins rank as ten currency units.  They are the same size and
+        thickness as gold coins.
+        
+     1c Copper pieces, the most common coins, are standard sized coins that
+        rank the same size and thickness as gold and silver coins.  Each
+        copper is equal to one currency unit.
+        
+ - [Weight, Length and Volume]
+ 
+        The standard units of measurement across the Isles and on the
+        mainland of Tyselorrd are as follows.
+ 
+        Weight:       (english equivalent)
+        
+          halfstone             1/2 pound
+          stone                 1 pound
+          dustone               2 pounds
+          
+        Metals:
+        
+          halfbar               1/2 bar
+          bar                   1 handspan by 1 halfspan by 2 qetspans
+          durbar                2 bars worth
+          
+        Lengths:
+        
+          qetspan               1 inch
+          halfspan              3 inches
+          handspan              6 inches
+          duspan               12 inches
+          
+        Volume (solid):
+        
+          halfskal              3 cubic inches
+          handskal              6 cubic inches
+          duskal               12 cubic inches
+          
+          halfbral            1/2 brals   (50 duskals)
+          bral                100 duskals
+          dubral                2 brals   (200 duskals)
+
+        Volume (liquid):
+        
+          halfswil              1 cup
+          handswil              1 pint
+          duswil                1 quart
+          
+          halfcask              1/2 cask (2 duswils)
+          undcask               4 duswils
+          ducask                2 casks  (8 duswils)
+          
+ - [Time]
+ 
+        Time on the isles is seperated into years, months, weeks, days,
+        hours and, for those with clockwork timepieces, minutes and seconds.
+
+             The days are as follows: Great Hawk (Lexo), Falcon (Franto), 
+~
+L 0
+T 11
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 30
+O ~
+V 0 0 0 0
+End
+
+#5167
+N copy warcant 'the warcant' leather-bound~
+SD a leather-bound copy of 'The Warcant'~
+P ~
+D
+There is a leather-bound copy of 'The Warcant' here.
+~
+A
+~
+PD
+~
+DR
+What lies before you in the following moments is an excerpt from
+    several works-in-progress which help to lay out an epic tale that
+    takes place in the fictional world called Tyselorrd, land of
+    the Tyrants.  It is a work of fantastic fiction: that is, it is
+    created completely in the mind of its author-- myself.
+    
+ 
+        The forgotten lore of the northland forests,
+        Told of the great city-states of old,
+        Now upon only the times of history rest,
+        And those who would be so adventurous and bold;
+        Could find these cities: Soudbrun, Cetvin, Tallez and Mordel,
+        The ruinous spires of the forbidden cities,
+        The ancient war-kings and their ancient citadel,
+        Now shrouded more in mists than mysteries,
+        Yet still one can find a tale to be told.
+        
+     I now begin the War Cant, a historical tale of the final battle
+     between King Coranos Rygor of the Southern Isles of Jharl and
+     the great dwarven empress Tiktui who rules all of Tyselorrd,
+     the land of the Tyrants.  Tiktui had come to power by allying
+     herself with the malignant city-state of Nostol and its haenous
+     leader, King Haedar.  Slowly, her power grew to encompass the
+     southlands of Tyselorrd and much of the southern mainland itself.
+     Eventually, Tiktui was able to capture the city Kyrinn -- the
+     largest city in the known world and the seat of great power.
+        With the beseigement of Kyrinn, Tiktui now had control over
+     what was known as the Gemmaster's Guild -- a group of supernatural
+     magicians who were able to wield enormous natural energies that
+     could coelesce into numerous forms of both healing and destruction.
+     With this, Tiktui would seem unstoppable.  In fact, all but the
+     Southern Isles had sworn allegance to her in fear of her wrath.     
+       It is through the revealment of two ancient artifacts (the Crown
+     of the Zengalli and the Sword of Vlattensintri) that gives King Rygor
+     the power to overthrow the tyranness Tiktui and her hosts of undead
+     soldiers.  The Crown is uncovered by an enigmatic race of forest-
+     dwelling mystics, called Thilonenne, while the Sword is found and
+     brought before the King by a curious young squire searching in the
+     ruins of an ancient underground catacomb.
+     
+     The War Cant is thus:
+ 
+ 
+        Epic battles pressing kings,
+        War-horns blowing warnings,
+        Yet the darkling hour has yet to come,
+        For they have sought twice then thrice the chosen one.
+        
+        Ere the dwarven mistress, now empress,
+        Sitting on her throne of bone,
+        In the northlands of the Tyrants,
+        She waits now with armies of her own.
+        
+        The enigma of the thilons,
+        South they live in forests deep,
+        They've moved northward to the King,
+        And parleyed for his wonderous Keep.
+        
+        The One race, so they seem,
+        Ancient mysteries left unsought,
+        These the thilonenne have awakened,
+        From the iron of ancient kings:
+        They found the Crown that was wrought.
+        
+        First only the sound of horn,
+        Now the war banners are unfurled,
+        Marching south the undead wrath forsaken,
+        Rygor's judgement fates the world.
+        
+        The squire found in forgotten chambers,
+        The sword of Vlattensintri concealed,
+        Before the King the squire came,
+        And to him the sword now revealed.
+        
+        Yea the monsters would perish on fields,
+        And in Kltara all would bear arms,
+        The King himself thrice as strong,
+        Come forth to protect his peasants' farms.
+        
+        Drawing quick from ancient splendors,
+        Tiktui now had nothing to boast,
+        Living gods of Valor ventured,
+        Northward fleets would seek Her hosts.
+        
+        To the Elder Days once taken,
+        Jharl revealed as more than a few,
+        The coming told now of the new tribes,
+        And the revival brought Zengalli anew.
+        
+        So it would be the greatest epoch,
+        The ancient humans now resurrected,
+        Coming forth to challenge the tyrant,
+        The Leader, the Chosen, the Host of the War-Cant.
+        
+
+~
+L 0
+T 11
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 50
+O ~
+V 0 0 0 0
+End
+
+#5168
+N treatise Zengalli~
+SD a treatise on Zengalli~
+P ~
+D
+Someone has written a treatise on Zengalli.
+~
+A
+~
+PD
+~
+DR
+.
+                                    GLOSSARY
+                                    
+ Prefixes/Suffixes
+
+   -brok       river
+   -brun       town, city, fortress
+   -el         of death; deserted
+   -iestra     nobility
+   -mord       death; dead
+   necro-      deathly; unearthly
+   ras         fire
+   ros         fiery
+   sintri-     father; king, prince
+   -vin        if life; on water
+   -den        without
+   vesti       of an army
+
+
+ Words
+
+   al          of
+   ardov       after
+   ast         east
+   braer       forest
+   cot         court;square
+   da          from
+   dal         in
+   das         son
+   faer        fairy;faery;fey
+   faerbrok    fairytale
+   fen         dark
+   flod        flood
+   foudra      before
+   grad        great;large
+   il          he   
+   illum       light;enlighten   
+   kam         out
+   niedros     nation
+   nord        north
+   ost         west
+   quan        and
+   quon        and also
+   quo         or
+   rio         royal
+   bral        lake
+   brok        river
+   soud        south
+   tal         large; long
+   thuud       wilderness   
+   ud          out;outer;outward
+   vesti       legion; army
+   vidden      lifeless;dead
+   zien        sea
+
+
+ Conjugation
+  (The letter E is dropped from verb infinitives.)
+
+  Past Tense (-ad)
+
+   Vlan alabad da vincask.                  [Vlan drank from the water cask.]
+
+  Past Tense, Previous (-ra)
+
+   Vlan alabra da vincask foudra. [Vlan has drunk from the water cask before]
+
+  Subjunctive (-ait)
+
+   Vlan alabait da vincask.         [Vlan used to drink from the water cask.]
+
+  Present Tense (-as)
+
+   Vlan alabas da vincask.            [Vlan is drinking from the water cask.]
+
+  Future Tense (-o)
+
+   Alabo Vlan da vincask.              [Vlan will drink from the water cask.]
+
+
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 10
+O ~
+V 0 0 0 0
+End
+
+#5169
+N copy "edigzorr's chronology" chronology~
+SD a copy of "Edigzorr's Chronology"~
+P ~
+D
+A copy of "Edigzorr's Chronology," his master-work, is here.
+~
+A
+~
+PD
+~
+DR
+electrum).  Each bezain is one-half halfspan across and as thick
+        as a thumbnail. A bezain is worth one ten thousand units of currency.
+        
+  1000c Platinum coins are hand-pressed coins with a diameter equal to a
+        dwarf's smallest finger, or about one third handspan (see below).
+        Each platinum piece is worth one thousand units of currency.
+        
+   100c Gold pieces, rich man's tokens, are smaller than platinum coins,
+        but thicker, to even out their weight with platinum pieces.  They
+        are stamped with the visage of the current king, in this case,
+        Coranos Rygor.  A gold piece is worth one hundred units of currency.
+        
+    10c Silver coins rank as ten currency units.  They are the same size and
+        thickness as gold coins.
+        
+     1c Copper pieces, the most common coins, are standard sized coins that
+        rank the same size and thickness as gold and silver coins.  Each
+        copper is equal to one currency unit.
+        
+
+          In the earliest reaches of modern history on and about
+      the continent of Tyselorrd, there were three great periods of
+      history.  These episodes were:  The Great Uniting and Exodus,
+      The Rise of the Guild and the Wrath of Tiktui.  
+      
+         The Great Uniting (1-52)
+         
+      Out of the great midcontinental basin, to the northwest of
+      the Ring of Fire on the mainland, three tribes vied for power
+      amongst the masses of human civilization.  The most powerful
+      of the tribal leaders was Vlattensintri, the great warrior
+      king who conquered the northlands along the rivers Tallez and
+      Fodbrok, and later settled areas encompassing much of the
+      northlands.
+          A team of colonists travel southward to explore and settle
+      an area south of the Ring of Fire.  Seperate from the great
+      empire is the town of Nostol, on the southern shores.
+          In the midst of Vlattensintri's glorious reign, a rival
+      tribe by bloodmark, called the Zengalli, arose from the basin
+      to oppose Vlattensintri.  The Zengalli are weak and unable
+      to greatly threaten Vlattensintri's stranglehold on his kingdom.
+      The great citadel at Tallez remains in the hands of its creator,
+      Vlattensintri.
+          Vlattensintri weds Maesha and his heir, Vlan, is born.
+      Maesha dies in childbirth.  Later, Vlattensintri takes his
+      second wife, Vassentra, and to them are born two daughters, 
+      Iret and Nemi.
+      
+         The Exodus (52-211)
+
+          After Overlord Vlattensintri's death, Vlan seizes control
+      of the kingdom.  Mismanagement and greed cause the greater
+      downfall of Vlattensintri's reign.  In the end, Vlan is overthrown
+      by his rival sisters efforts with a revolutionary group called
+      the Pi'chek-Ur.  The Pi'chek-Ur dissolve into the armies of the
+      coastal kingdom, the Iak-paro, longtime allies with Vlattensintri.
+      In its weakened state, the empire wrought by Vlattensintri begins
+      to crumble and is eventually conceded by the Zengalli.  At this
+      time a great Crown is wrought by a mysterious race called the
+      Alvak, a mysterious people who keep temples in the Ring of Fire.
+      The favored sword of the dead King Vlattensintri is also reforged
+      here at this time.  The Alvak, after seeing the uniting of the
+      human tribes by the Zengalli, take the Crown and the Sword and
+      disappear across the Watervoid.
+
+          The Rise of the Guild (211-1109)
+
+          The Iak-paro eventually fades with time and the Zengalli declare
+      control of the northlands.  The Zengalli are a proud and noble
+      race now-- their blood has mixed with the crafty Iak-paro and the
+      valorous and hardy Vlattensintri.  They rediscover the southern
+      city of Nostol and its neighboring dwarven city, Hransoerd.  This
+      is the first real contact with dwarves.  Hransoerd is a great
+      mining establishment south of the Ring of Fire that yeilds great
+      ore supplies.  Great ties are founded between the Hransoerd dwarves
+      and the people of Nostol, and thus these ties move to the Zengalli.
+          The Hransoerd dwarves reveal a great cache of mysterious gems
+      with strange inate properties.  The great philosopher, Kyrinnus,
+      founds a small enclave to the west of Nostol called Kyrinn, dedicated
+      to the study of the nature of these gems.  Upon his death his closest
+      students formed a guild dedicated to the proper use of these elemental
+      crystals, called the Welkyn, the Gemmaster's Guild.  Kyrinn's 
+      population grew at an alarming rate.  It soon became larger than
+      the northern cities and was a great southern seaport.
+          A great age of exploration begins.  Many ships sail in all
+      directions to discover what lies outward upon the oceans of Watervoid
+      and the Great Ocean.  Many never return.  To the south, a great
+      archipelago is discovered by the human explorer Jharl of Kyrinn.
+      A few small settlements appear on the northern coast as refueling
+      depots for southward-bound expeditions.  Eventually a great port on
+      the southwestern side of the island, south of what is referred to as
+      the Broken Coast, is established.  Due to the color of the sands along
+      the cape which it flanks, the town is called the Port of Cape Red.
+          The thilonenne are discovered inland on Rygor Isle, and later
+      more are discovered to the south on the island of Mudak.  These
+      thilonenne, strikingly similar to the Alvak, live in stone structures
+      in the deep forests of Cape Red.  They coexist with a primitive
+      tribal people called the drev.
+~
+L 0
+T 11
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 100
+O ~
+V 0 0 0 0
+End
+
+#5170
+N abridged glossary~
+SD an abridged glossary~
+P ~
+D
+Someone has left behind a glossary.
+~
+A
+~
+PD
+~
+DR
+M5: later dude
+ 
+-----------------------[    Table of Contents    ]-------------------------
+
+ - Introduction                        - A Linguistic Look at the Realms
+ - Unitary Systems                         Zengalli
+       Monetary Units                      Haanstaed
+       Weight, Length and Volume           Olani
+       Time                                Mudaki
+       A Note on Calendars                 Zalufini
+ - Weather on the Isles                    Haesni
+ - Trader's Almanac                        
+       Index of Goods and Services         
+       
+
+--------------------------[    Introduction     ]--------------------------
+        
+        From the Author
+
+        This text is written solely for the purpose of outline and explaining
+    the different aspects of the Tyselorrd game, specifically the parts of
+    the world which are important to playing on The Isles MUD.  The ideas
+    contained herein are solely owned by the author, Herb Gilliland.  He
+    reserves the right to modify, omit or remove any of this at any time.
+        Aladro's Island Almanac is written in the first person to make it
+    entertaining as well as informative.  Aladro's persona is defined in
+    the 'From Aladro' section of this introduction.
+
+        From Aladro
+        
+        This would be my first written log of events and information
+    ever published by my own hand.  For years I've studied the oldest
+    tomes in the lycaeum here in Kess, but I've never taken to writing
+    well, and this has taken me much effort to produce.
+        I grew up in the city, in the service of my lord Coranos Rygor,
+    and his father Ikthius Rygor.  I am an old man, having lived for the
+    length of two kings, and I know a bit of lore has passed before mine
+    eyes plenty of times.
+        This compilation contains my notes to the newcomer.  I have read
+    of many lands far and wide across our great oceans, and this text is
+    offered unto the traveler; use it well, for it shall familiarize you
+    with the parts of these islands that, for natives, are like second
+    nature to us.
+    
+
+
+------------------------[    Unitary Systems    ]--------------------------
+
+ - [Monetary Units] 
+ 
+        Each kingdom, it seems, has had its own currency.  The Rygor
+        line has standardized the money system throughout these islands,
+        much to the appreciation of the merchant class.  I have ranked
+        the coins according to the currency value (c's).
+        
+ 10000c Bezain are coins made from precious metal alloys, usually platinum
+        and gold, though sometimes gold and silver (commonly known as
+        electrum).  Each bezain is one-half halfspan across and as thick
+        as a thumbnail. A bezain is worth one ten thousand units of currency.
+        
+  1000c Platinum coins are hand-pressed coins with a diameter equal to a
+        dwarf's smallest finger, or about one third handspan (see below).
+        Each platinum piece is worth one thousand units of currency.
+        
+   100c Gold pieces, rich man's tokens, are smaller than platinum coins,
+        but thicker, to even out their weight with platinum pieces.  They
+        are stamped with the visage of the current king, in this case,
+        Coranos Rygor.  A gold piece is worth one hundred units of currency.
+        
+    10c Silver coins rank as ten currency units.  They are the same size and
+        thickness as gold coins.
+        
+     1c Copper pieces, the most common coins, are standard sized coins that
+        rank the same size and thickness as gold and silver coins.  Each
+        copper is equal to one currency unit.
+        
+ - [Weight, Length and Volume]
+ 
+        The standard units of measurement across the Isles and on the
+        mainland of Tyselorrd are as follows.
+ 
+        Weight:       (english equivalent)
+        
+          halfstone             1/2 pound
+          stone                 1 pound
+          dustone               2 pounds
+          
+        Metals:
+        
+          halfbar               1/2 bar
+          bar                   1 handspan by 1 halfspan by 2 qetspans
+          durbar                2 bars worth
+          
+~
+L 0
+T 11
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 5
+O ~
+V 0 0 0 0
+End
+
+#5171
+N arond's key~
+SD Arond's key~
+P Arond's keys~
+D
+Arond's key is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5173
+N lockpicks~
+SD a set of lockpicks~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 50
+O ~
+V 2 5 5 0
+End
+
+#5180
+N snuff tin~
+SD some snuff~
+P ~
+D
+A small tin of snuff tobacco is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+Sc 5180
+V 0 0 0 0
+End
+
+#5181
+N cigarette~
+SD a cigarette~
+P ~
+D
+There's a fresh cigarette on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 1
+O ~
+Sc 5181
+V 0 0 0 0
+End
+
+#5183
+N light bolt~
+SD a light bolt~
+P ~
+D
+A light bolt is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 7
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 1 2 0 -1
+End
+
+#5184
+N light crossbow~
+SD a light crossbow~
+P ~
+D
+A light crossbow for compact storage and use.
+~
+A
+~
+PD
+~
+DR
+It is small and light with iron hinges and a mechanism for firing.
+~
+L 0
+T 6
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 100
+O ~
+V 5183 5 15 0
+End
+
+#5185
+N soft leather boots~
+SD a pair of soft leather boots~
+P ~
+D
+A pair of soft leather boots is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 4 4 4 0
+End
+
+#5186
+N heavy crossbow~
+SD a heavy crossbow~
+P ~
+D
+A heavy crossbow for use in warfare is here.
+~
+A
+~
+PD
+~
+DR
+A large and heavy version of a crossbow, with an iron firing mechanism.  
+~
+L 0
+T 6
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 4
+C 1000
+O ~
+V 5187 15 30 0
+End
+
+#5187
+N heavy bolt~
+SD a heavy bolt~
+P ~
+D
+A heavy crossbow bolt is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 7
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 10
+O ~
+V 1 7 0 -1
+End
+
+#5192
+N a tiny steel wolf's head~
+SD a tiny steel wolf's head necklace~
+P ~
+D
+A long, thin chain of silver links with a lumpy pendant hanging from it lies here.
+~
+A
+~
+PD
+~
+DR
+You see before you a lengthy chain of thin silver links.  Although the links
+are tiny, they do not at all seem delicate or fragile.  An unusually large
+pendant-- a chunk of steel-- hangs from the chain; it is a wolf's head, with
+tiny and detailed feathers hanging from it.  The feathers are large and
+grooved, and they all seem to move as one unit.
+~
+L 0
+T 18
+E 0
+W 5
+Sz 0
+Ti 0
+Wt 1
+C 81
+O ~
+V 0 0 0 0
+End
+
+#5200
+N bones table~
+SD a bones table~
+P ~
+D
+A bones table is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5201
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5202
+N $c leather dagger~
+SD a $c-leather dagger~
+P ~
+D
+A dagger was left here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 20 0 0
+End
+
+#5210
+N cask~
+SD a cask~
+P ~
+D
+A cask of wine is here.
+~
+A
+~
+PD
+~
+DR
+It has a peach stamped on the side.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 50
+C 1000
+O ~
+V 100 100 30 12
+End
+
+#5211
+N cask~
+SD a cask~
+P ~
+D
+A cask of wine is here.
+~
+A
+~
+PD
+~
+DR
+The side is marked with a dandilion.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 50
+C 2000
+O ~
+V 100 100 31 0
+End
+
+#5212
+N cask~
+SD a cask~
+P ~
+D
+A cask of wine is here.
+~
+A
+~
+PD
+~
+DR
+The side is marked with an apricot.
+~
+L 0
+T 17
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 50
+C 2500
+O ~
+V 100 100 32 0
+End
+
+#5220
+N $l dress~
+SD a $l dress~
+P ~
+D
+Someone dropped her dress.
+~
+A
+~
+PD
+~
+DR
+A simple dress sewn from $l.
+~
+L 0
+T 13
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5221
+N tattered robes~
+SD some tattered robes~
+P ~
+D
+Some tattered robes are here.
+~
+A
+~
+PD
+~
+DR
+A tattered rough fabric makes a long flowing robe.
+~
+L 0
+T 15
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 5
+C 15
+O ~
+V 10 0 0 0
+End
+
+#5222
+N rope belt~
+SD a rope belt~
+P ~
+D
+A rope belt is coiled up on the ground.
+~
+A
+~
+PD
+~
+DR
+A simple piece of rope used for a belt.
+~
+L 0
+T 13
+E 0
+W 268437505
+Sz 0
+Ti 0
+Wt 1
+C 2
+O ~
+V 0 0 0 0
+End
+
+#5223
+N wooden staff~
+SD a wood staff~
+P ~
+D
+A wood staff for walking.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 2 10 0 0
+End
+
+#5226
+N brass key~
+SD a brass key~
+P ~
+D
+A brass key is lying in the dust.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 5
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5250
+N desk~
+SD a small desk~
+P ~
+D
+A small desk is at the back of the shop.
+~
+A
+~
+PD
+~
+DR
+The desk is made of stained maple, with elaborate carvings on the front
+and sides of many different animals.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 50 65536 0 0
+End
+
+#5299
+N healing salve herbs~
+SD a healing salve~
+P ~
+D
+A healing salve has been foolishly discarded.
+~
+A
+~
+PD
+~
+DR
+Some herbs specially prepared for healing wounds.
+~
+L 0
+T 27
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 100
+O ~
+V 4 1 0 20
+End
+
+#5305
+N bedroll~
+SD a bedroll~
+P ~
+D
+A bedroll has been opened up for sleeping.
+~
+A
+~
+PD
+~
+DR
+A roll of soft down-filled cotton, wrapped in a spiral for storage
+and fastened with leather straps for carrying on the shoulder
+or on the back.
+~
+L 0
+T 12
+E 0
+W 4227073
+Sz 0
+Ti 0
+Wt 6
+C 50
+O ~
+V 200 24576 0 0
+End
+
+#5306
+N hooded brass lantern~
+SD a hooded brass lantern~
+P ~
+D
+A hooded brass lantern lights the room.
+~
+A
+~
+PD
+~
+DR
+It is a finely crafted hooded lantern made of brass.
+~
+L 0
+T 1
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 20
+O ~
+V 100 100 0 30
+End
+
+#5307
+N wooden torch~
+SD a wooden torch~
+P ~
+D
+A wooden torch is here, burning.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 10
+O ~
+V 30 30 0 0
+End
+
+#5308
+N $c wax taper~
+SD a $c wax taper~
+P ~
+D
+A $c wax taper burns here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 5
+O ~
+V 10 10 0 0
+End
+
+#5309
+N oil flask~
+SD a flask~
+P ~
+D
+A flask of lamp oil is here.
+~
+A
+~
+PD
+~
+DR
+A small flask of lamp oil.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 8
+O ~
+V 30 30 17 0
+End
+
+#5310
+N cask oil~
+SD a cask~
+P ~
+D
+A cask of lamp oil is here.
+~
+A
+~
+PD
+~
+DR
+A large, sealed and fireproofed cask.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 5
+C 20
+O ~
+V 100 100 17 0
+End
+
+#5311
+N flint steel set~
+SD flint and steel set~
+P ~
+D
+There is some flint and steel here.
+~
+A
+~
+PD
+~
+DR
+Used for striking to create fires.
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 1 25 25 0
+End
+
+#5320
+N Kileem's key~
+SD Kileem's key~
+P ~
+D
+Kileem has foolishly discarded his key here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 384
+W 5
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5000
+N public board~
+SD a public bulletin board~
+P ~
+D
+(OOC) Hanging from a wall is a public bulletin board.
+~
+A
+~
+PD
+~
+DR
+The board possesses several notes which have been tacked up to its corked
+surface.  
+~
+L 0
+T 29
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 2 0 0 0
+End
+
+#5001
+N chair~
+SD a chair~
+P ~
+D
+There is a chair here.
+~
+A
+~
+PD
+There are %s empty chairs here.
+~
+DR
+The chair is made of maple.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#5002
+N barrel-top bar~
+SD a barrel-top bar~
+P ~
+D
+A barrel-top bar fills the majority of the room.
+~
+A
+~
+PD
+~
+DR
+A huge barrel top bar is covered with a thick coat of lacker.  The wood
+looks to be of the highest quality.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 550 65536 0 0
+End
+
+#5003
+N stool~
+SD a stool~
+P ~
+D
+A stool is near the bar.
+~
+A
+~
+PD
+%s empty stools are near the bar.
+~
+DR
+A nice wooden stool from the Hovelcove.
+~
+L 0
+T 12
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 30
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#5004
+N table~
+SD a table~
+P ~
+D
+A table is here.
+~
+A
+~
+PD
+~
+DR
+The table is made of oak.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 99 65536 0 0
+End
+
+#5005
+N flagon~
+SD a flagon~
+P ~
+D
+A flagon has been set here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 50 50 0 0
+End
+
+#5006
+N out exit~
+SD the exit~
+P ~
+D
+There is an exit out to the plaza here.
+~
+A
+~
+PD
+~
+DR
+Outside of Kala's Candies is the hustle-bustle of Kess Plaza.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 5035
+End
+
+#5007
+N Kala's Candies wagon candy shop~
+SD Kala's Candies~
+P ~
+D
+A red-and-white painted wagon is here.
+~
+A
+~
+PD
+~
+DR
+The wagon has a sign on it which reads "Kala's Candies."  It is a quaint,
+older wagon that seems to have taken up perminant residence here in the
+Plaza.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 5187
+End
+
+#5008
+N marble fountain white-marble white~
+SD a white marble fountain~
+P ~
+D
+There is a fine white fountain shaped like a hand here.
+~
+A
+~
+PD
+~
+DR
+The fountain is made of carefully carved ivory marble.  It is the purest
+white, with fine light blue veins that flow through it.  The fountain is
+shaped like an open hand, and water pours down its wrist into the base.  
+~
+L 0
+T 25
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5009
+N plaque~
+SD a plaque~
+P ~
+D
+A plaque is displayed at the base of the mound.
+~
+A
+~
+PD
+~
+DR
+The plaque reads 'Iad-nual'
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5010
+N list hovelcove foods~
+SD list - hovelcove foods~
+P ~
+D
+5011 5012 5013 5014 5015
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 28
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5011
+N a poached trout~
+SD a poached trout~
+P ~
+D
+A piece of cooked fish has been foolishly discarded.
+~
+A
+The trout has a flavorful palette and is very filling.
+~
+PD
+~
+DR
+The fish has been carefully prepared on a stone-fired hearth.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 20 0 0 0
+End
+
+#5012
+N loaf rye bread~
+SD a loaf of rye bread~
+P loaves of rye bread~
+D
+A freshly baked loaf of rye bread is in the dust.
+~
+A
+The bread is semi-sweet and semi-sour, but completely delicious.
+~
+PD
+~
+DR
+The top of the loaf was carefully coated with butter and molasses to
+create a semi-sweet mixture.  The bread itself is a dark rye with a rich
+flavor.  The carroway seeds are very large and hand-picked.  
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 20 0 0 0
+End
+
+#5013
+N lemon-basted basted lemon chicken~
+SD a lemon-basted chicken~
+P ~
+D
+A rather delicious looking cooked chicken is here.
+~
+A
+The chicken is extremely moist and almost melts on your tongue.
+~
+PD
+~
+DR
+The chicken is softly marinated in lemon juice and fine white wine and
+then spiced with licorice pieces and onion.  
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 30
+O ~
+V 25 0 0 0
+End
+
+#5014
+N roast mutton chop~
+SD a roast mutton chop~
+P ~
+D
+Several roast mutton chops are lying here.
+~
+A
+The tender bits of lamb assault your mouth with spicy flavors.
+~
+PD
+~
+DR
+The mutton is carefully seasoned with a ruch, spicy barbeque sauce and
+roasted over an open flame to perfection.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 30 0 0 0
+End
+
+#5015
+N boiled crawfish~
+SD a boiled crawfish~
+P ~
+D
+A small boiled crawfish is here.
+~
+A
+The salty seafood taste is enjoyable as you taste the buttery tender
+crawfish meat inside its hard red shell.  
+~
+PD
+~
+DR
+The crawfish fits on your palm and has been carefully boiled to
+tenderness.  
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 5 0 0 0
+End
+
+#5016
+N flute~
+SD a flute~
+P ~
+D
+A flute has been set here.
+~
+A
+~
+PD
+~
+DR
+The flute is handcrafted by a glass blower outside Kess.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 10 10 7 -2
+End
+
+#5017
+N snifter~
+SD a snifter~
+P ~
+D
+A snifter has been placed here.
+~
+A
+~
+PD
+~
+DR
+The grog bears the name 'Hovelcove'.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 10 10 29 -2
+End
+
+#5018
+N grog~
+SD a grog~
+P ~
+D
+A grog has been placed here.
+~
+A
+~
+PD
+~
+DR
+The grog bears the name 'Hovelcove'.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 15
+O ~
+V 10 10 26 -2
+End
+
+#5019
+N bed soft~
+SD a soft bed~
+P ~
+D
+A soft bed is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 24576 0 0
+End
+
+#5020
+N brass key~
+SD a brass key~
+P ~
+D
+A brass key is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+A simple brass key bears the name 'Hovelcove'
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 24
+Wt 0
+C 10
+O ~
+V 0 0 0 0
+End
+
+#5021
+N silver key~
+SD a silver key~
+P ~
+D
+A silver key is here.
+~
+A
+~
+PD
+~
+DR
+A small silver key bears the name 'Hovelcove'
+~
+L 0
+T 8
+E 0
+W 1
+Sz 0
+Ti 24
+Wt 0
+C 100
+O ~
+V 0 0 0 0
+End
+
+#5022
+N iron key~
+SD an iron key~
+P ~
+D
+Someone has dropped an iron key.
+~
+A
+~
+PD
+~
+DR
+An iron key bears the name 'Hovelcove'
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 24
+Wt 0
+C 20
+O ~
+V 0 0 0 0
+End
+
+#5047
+N red gate key~
+SD a red gate key~
+P red gate keys~
+D
+A red gate key is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+The key is large and heavy.  It has been painted red, and has a Kessian
+symbol on its handle.  
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5048
+N natural well~
+SD a flowing, natural well~
+P ~
+D
+A natural well sprays water like a fountain in the center of the marketplace.
+~
+A
+~
+PD
+~
+DR
+The fountain was discovered shortly after Kess's expansion, and has been
+a symbol of Kltarian abundance and fertility since the capital was rebuilt. 
+An underground tributary of the nearby crystal river, Kaerbrok, forces water
+through an opening in earth, spraying a fenced in area ten handspans in
+diameter.  
+~
+L 0
+T 25
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5049
+N fountain blackened~
+SD a blackened fountain~
+P ~
+D
+A blackened fountain is situated in the middle of the square.
+~
+A
+~
+PD
+~
+DR
+The fountain was once pure white marble, but has been blackened with the
+soot and fire of powerful gem magicks.  The fountain was placed here early
+in the century as a reminder of what war can bring.  
+~
+L 0
+T 25
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5050
+N barrel~
+SD a barrel~
+P ~
+D
+A barrel is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 30
+C 40
+O ~
+V 100 0 0 0
+End
+
+#5051
+N taffy~
+SD some taffy~
+P ~
+D
+Someone dropped some taffy; you are careful not to step in it.
+~
+A
+Num num num num....mmm, good taffy.  It tastes like orange.
+~
+PD
+~
+DR
+Some orange taffy, probably made by Kala.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 1
+O ~
+V 2 0 0 0
+End
+
+#5071
+N well stone old~
+SD an old stone well~
+P ~
+D
+An old stone well is in the middle of the road.
+~
+A
+~
+PD
+~
+DR
+The Dunlock well has been in place since long before Kess was founded. 
+It was rebuilt when it flooded during the first years of the city.  
+~
+L 0
+T 25
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5100
+N kris ebony dagger~
+SD an ebony kris~
+P ~
+D
+A dagger with a serpentine blade is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 2
+C 40
+O ~
+V 0 10 20 8
+End
+
+#5101
+N ragged cap torn~
+SD a ragged cap~
+P ~
+D
+A torn and ragged cap is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 1
+C 3
+O ~
+V 0 0 0 0
+End
+
+#5108
+N zalufin ticket~
+SD a ticket to Zalufin~
+P ~
+D
+A ticket has been carelessly left behind.
+~
+A
+~
+PD
+~
+DR
+A small stubby piece of vellum with the word "Zalufin" marked on it.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 40
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#5120
+N Southern Marketplace~
+Ref 5118
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5003 20 100 3
+Dr 0 0 0 5118
+~
+~
+Dr 2 0 0 5121
+~
+~
+Dr 3 5 0 5253
+~
+door on brass hinges~
+Dr 6 0 0 5117
+~
+~
+Dr 7 0 0 5119
+~
+~
+End
+
+#5121
+N Merchants Way~
+Ref 5496
+D
+The northern end of Merchants Way leads to the Marketplace, while
+northeast of here is a side avenue called the Merchants Crescent, a
+high-profile section of the merchant's district.  West of here lies a small
+clothing shop.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5120
+~
+~
+Dr 2 0 0 5122
+~
+~
+Dr 3 5 0 5245
+A small clothier is just west of here.  The sign outside the
+establishment reads "Ressat's Clothing."  
+~
+ornate oak door~
+Dr 7 0 0 5136
+~
+~
+End
+
+#5122
+N Merchants Way~
+Ref 5496
+D
+On the eastern side of Merchant's Way there lies a furrier's shop.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5121
+~
+~
+Dr 1 5 0 5250
+~
+thick oak door~
+Dr 2 0 0 5123
+~
+~
+End
+
+#5123
+N Merchants Way at Staedler~
+Ref 5496
+D
+West and east of here is Staedler, a residential district.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5122
+~
+~
+Dr 1 0 0 5132
+~
+~
+Dr 2 0 0 5124
+~
+~
+Dr 3 0 0 5134
+~
+~
+End
+
+#5124
+N Merchants Way~
+Ref 5496
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5003 30 100 1
+Dr 0 0 0 5123
+~
+~
+Dr 2 0 0 5125
+~
+~
+End
+
+#5125
+N Merchants Way at South Staedler~
+Ref 5496
+D
+To the east and west extends South Staedler, a residential district.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5124
+~
+~
+Dr 1 0 0 5128
+~
+~
+Dr 2 0 0 5126
+~
+~
+Dr 3 0 0 5130
+~
+~
+End
+
+#5126
+N Merchants Way~
+Ref 5496
+D
+Just south of here, Merchant's way opens into the Kess Plaza.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5003 20 100 2
+Dr 0 0 0 5125
+~
+~
+Dr 2 0 0 5038
+~
+~
+End
+
+#5127
+N Ruthridge Road~
+Ref 5482
+D
+~
+C
+RIMAGE architecture2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5003 20 100 2
+Dr 1 0 0 5141
+~
+~
+Dr 3 0 0 5037
+~
+~
+End
+
+#5128
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5125
+~
+~
+End
+
+#5129
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5140
+~
+~
+End
+
+#5130
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5125
+~
+~
+End
+
+#5131
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5139
+~
+~
+End
+
+#5132
+N Staedler Avenue~
+Ref 5488
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5133
+~
+~
+Dr 3 0 0 5123
+~
+~
+End
+
+#5133
+N Staedler Avenue~
+Ref 5488
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5132
+~
+~
+Dr 7 0 0 5204
+~
+~
+End
+
+#5134
+N Staedler Avenue~
+Ref 5488
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5123
+~
+~
+End
+
+#5135
+N Staedler Avenue~
+Ref 5488
+D
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+End
+
+#5136
+N Merchant's Crescent~
+Ref 5465
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 7 0 0 5137
+~
+~
+Dr 8 0 0 5121
+~
+~
+End
+
+#5137
+N Merchant's Crescent~
+Ref 5465
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 5138
+~
+~
+Dr 8 0 0 5136
+~
+~
+End
+
+#5138
+N Merchant's Crescent~
+Ref 5465
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 5113
+~
+~
+Dr 9 0 0 5137
+~
+~
+End
+
+#5139
+N South Staedler Avenue~
+Ref 5489
+D
+The street ends here in a row of houses, no different from the others, to
+the west.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5131
+~
+~
+End
+
+#5140
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5232
+~
+~
+Dr 3 0 0 5129
+~
+~
+End
+
+#5141
+N Ruthridge Road~
+Ref 5482
+D
+~
+C
+RIMAGE architecture.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5142
+~
+~
+Dr 3 0 0 5127
+~
+~
+End
+
+#5142
+N Ruthridge at Ionobrun~
+Ref 5482
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5143
+~
+~
+Dr 2 0 0 5144
+~
+~
+Dr 3 0 0 5141
+~
+~
+End
+
+#5143
+N Ruthridge at Duonobrun~
+Ref 5482
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5259 10 25 1
+Dr 1 0 0 5146
+~
+~
+Dr 2 0 0 5145
+~
+~
+Dr 3 0 0 5142
+~
+~
+End
+
+#5144
+N Ionobrun Warrens~
+Ref 5471
+D
+You are standing at the northern end of Ionobrun, near apartments 1 and 2.  
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5142
+~
+~
+Dr 2 0 0 5150
+~
+~
+Dr 3 7 5320 5320
+You can see this is 1 Ionobrun; the first apartment in the row.
+~
+simple wood door~
+End
+
+#5145
+N Duonobrun Warrens~
+Ref 5470
+D
+Duono-Dran is the name of the crumbling tenement block to the east, while
+Duono-Ir lies to the west.
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5143
+~
+~
+Dr 2 0 0 5153
+~
+~
+End
+
+#5146
+N Ruthridge at Trenobrun~
+Ref 5482
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5148
+~
+~
+Dr 2 0 0 5147
+~
+~
+Dr 3 0 0 5143
+~
+~
+End
+
+#5147
+N Trenobrun Warrens~
+Ref 0
+D
+The decrepit structures of the Trenobrun warrens are lower class
+dwellings that provide shelter for much of the poorer Kessians.  Many of the
+structures, in fact, are owned by farmers from the countryside who need a
+place to stay during the harvest season, and have found housing cheaper than
+repetative stays at an Inn or other nightly establishment.  West is
+Treno-Ir, while east is Treno-Dran.  
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5146
+~
+~
+Dr 2 0 0 5156
+~
+~
+End
+
+#5148
+N Ruthridge at Queduobrun~
+Ref 5482
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5213
+~
+~
+Dr 2 0 0 5149
+~
+~
+Dr 3 0 0 5146
+~
+~
+End
+
+#5149
+N Queduobrun Warrens~
+Ref 0
+D
+The Queduobrun citizen's warrens is a squalor of low quality tenement
+housing.  Queduobrun leads north and south from here, with squat structures
+lining the street.  Debris has collected along the sides of the dirt
+thoroughfare.  Queduo-Ir is on the western side of the street, with
+Queduo-Dran falling opposite.  
+~
+C
+RIMAGE warrens2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5148
+~
+~
+Dr 2 0 0 5159
+~
+~
+End
+
+#5150
+N Ionobrun Warrens~
+Ref 5471
+D
+To the west is Iono-Duon, while to the east is the Iono-Qod complex.
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5144
+The Ionobrun continues north.
+~
+~
+Dr 2 0 0 5151
+The Ionobrun continues south.
+~
+~
+End
+
+#5151
+N Ionobrun Warrens~
+Ref 5471
+D
+To the west is Iono-Dur and to the east is Iono-Ono.
+~
+C
+RIMAGE warrens2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5150
+The Ionobrun continues north.
+~
+~
+Dr 2 0 0 5152
+~
+~
+End
+
+#5152
+N Carthage at Ionobrun~
+Ref 5483
+D
+You are standing at the southern end of the Ionobrun warren, where an
+acrid smell of neglect permeates the road.  The street becomes more broken
+and crumbly to the east, where the warrens continue.
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5259 15 15 1
+Dr 0 0 0 5151
+~
+~
+Dr 1 0 0 5155
+~
+~
+Dr 3 0 0 5162
+~
+~
+End
+
+#5153
+N Duonobrun Warrens~
+Ref 5470
+D
+West is Duono-Duon, while to the east lies Duono-Qod.  
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5145
+~
+~
+Dr 2 0 0 5154
+~
+~
+End
+
+#5154
+N Duonobrun Warrens~
+Ref 5470
+D
+To the west is Duono-Dur, with Duono-Ono across the street to the east.
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5153
+~
+~
+Dr 2 0 0 5155
+~
+~
+End
+
+#5155
+N Carthage at Duonobrun~
+Ref 5483
+D
+This lonely dark alley is covered with sewage and filth.  To the south is an
+old abandoned lot.  Weeds overflow the gravel surface and old pieces of wood
+and trash lay desolate on the ground.  To the north is Duonobrun Warren.  
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5154
+~
+~
+Dr 1 0 0 5158
+~
+~
+Dr 3 0 0 5152
+~
+~
+End
+
+#5156
+N Trenobrun Warrens~
+Ref 0
+D
+Locally owned tenements flank the Trenobrun warrens, providing cheaply
+constructed shelter for many of the lower class Kessians.  The squalor is
+dusty and debris-strewn, with pock-marked walls and rough roadways.  The
+warrens continue north and south.  Just west of here is a rather poorly
+constructed tenement called Treno-Duon, while a tenement of equal quality,
+labeled Treno-Qod, lies east.  
+~
+C
+RIMAGE warrens2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5147
+~
+~
+Dr 2 0 0 5157
+~
+~
+End
+
+#5157
+N Trenobrun Warrens~
+Ref 0
+D
+The decrepit structures of the Trenobrun warrens are lower class
+dwellings that provide shelter for much of the poorer Kessians.  Many of the
+structures, in fact, are owned by farmers from the countryside who need a
+place to stay during the harvest season, and have found housing cheaper than
+repetative stays at an Inn or other nightly establishment.  The tenement
+Treno-Dur is to the west, while Treno-Ono lies east.  
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5156
+~
+~
+Dr 2 0 0 5158
+~
+~
+End
+
+#5158
+N Carthage at Trenobrun~
+Ref 5483
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5157
+~
+~
+Dr 1 0 0 5161
+~
+~
+Dr 3 0 0 5155
+~
+~
+End
+
+#5159
+N Queduobrun Warrens~
+Ref 0
+D
+Locally owned tenements flank the Queduobrun warrens, providing cheaply
+constructed shelter for many of the lower class Kessians.  The squalor is
+dusty and debris-strewn, with pock-marked walls and rough roadways.  The
+warrens continue north and south.  Just west of here is a rather poorly
+constructed tenement called Queduo-Duon, while a tenement of equal quality,
+labeled Queduo-Qod, lies east.  
+~
+C
+RIMAGE warrens2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5149
+~
+~
+Dr 2 0 0 5160
+~
+~
+End
+
+#5160
+N Queduobrun Warrens~
+Ref 5468
+D
+To the east is the Queduo-Ono block of housing; the west side of the
+street is Queduo-Dur.
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5159
+~
+~
+Dr 2 0 0 5161
+~
+~
+End
+
+#5161
+N Carthage at Queduobrun~
+Ref 5483
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5160
+~
+~
+Dr 1 0 0 5220
+~
+~
+Dr 3 0 0 5158
+~
+~
+End
+
+#5162
+N Carthage Road~
+Ref 5483
+D
+To the south, a building that looks sturdy and intact sticks out like a
+sore thumb amongst its crumbling neighbors.  The door is large and 
+completely unadorned darkwood.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5152
+~
+~
+Dr 2 3 0 5198
+To the south, a building that looks sturdy and intact sticks out like a
+sore thumb amongst its crumbling neighbors.  The door is large and 
+completely unadorned darkwood.
+~
+darkwood door~
+Dr 3 0 0 5163
+~
+~
+End
+
+#5163
+N Carthage Road~
+Ref 5483
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5162
+~
+~
+Dr 3 0 0 5164
+~
+~
+End
+
+#5164
+N Carthage Road~
+Ref 5483
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5163
+~
+~
+Dr 3 0 0 5165
+~
+~
+End
+
+#5165
+N Carthage Road~
+Ref 5483
+D
+To the west is the newly constructed Library.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5164
+~
+~
+Dr 3 0 0 5166
+~
+vaulted archway~
+End
+
+#5166
+N Kessian Lycaeum~
+Ref 0
+D
+You are inside the Kessian library, a tall vaulted structure located at
+the end of Carthage Road.  Recently build by the King's coffers, the library
+has many books in it which describe various aspects of the world, written of
+course and then copied by the monks in Kyrinn, imported via ship and set
+here by the librarians.  King Rygor is happy to have offered such a great
+opportunity to his people despite the growing conflict in the north and his
+need for more soldiers, the King wants his people to be happy and educated
+and literate so they may be better citizens.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5120 -5 100 1
+R O 5170 -4 100 1
+R O 5169 -4 100 1
+R O 5168 -4 100 1
+R O 5167 -4 100 1
+R O 5166 -4 100 1
+R O 5165 -4 100 1
+R M 5166 1 100 1
+Dr 1 0 0 5165
+~
+vaulted archway~
+End
+
+#5167
+N Brestol Thoroughfare~
+Ref 5490
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5067
+~
+~
+Dr 3 0 0 5066
+~
+~
+End
+
+#5168
+N Brestol Thoroughfare~
+Ref 5490
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 7 0 0 5169
+~
+~
+End
+
+#5169
+N Brestol Thoroughfare~
+Ref 5490
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5170
+~
+~
+Dr 8 0 0 5168
+~
+~
+End
+
+#5170
+N Brestol Thoroughfare~
+Ref 5490
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5169
+~
+~
+End
+
+#5171
+N Arond's Quarters~
+Ref 0
+D
+A large chamber of quarried rock wall and hewn timbre.  A window to the
+north views the Bazaar, which is draped in fine ivory linens with gold leaf
+trim.  A set of sconces light the room.  
+~
+C
+(null)~
+F 68
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 5019 -5 100 1
+Dr 2 7 5171 5172
+~
+massive oak door~
+End
+
+#5172
+N The Keep of Arond~
+Ref 0
+D
+Wide flatstones for flooring and a large hall with a ceiling supported by
+hewn timbres.  A series of sconces light the room with a dazzling display of
+light.  
+~
+C
+(null)~
+F 68
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 7 5171 5171
+~
+massive oak door~
+Dr 2 0 0 5090
+~
+~
+End
+
+#5173
+N Dark Tavern~
+Ref 0
+D
+You have entered a dark tavern with eyes all around you.  The mark
+of the Thieves Guild is on etched on one wall.
+~
+C
+(null)~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5173 1 100 1
+R O 5173 -1 100 1
+Dr 2 1 0 5027
+~
+darkwood door~
+End
+
+#5174
+N "Sheb's Bakery"~
+Ref 0
+D
+A huge oven dominates the rear of the shop.  It is a grey-brick
+stone-fired oven with a huge baking rack.  Inside are many loaves of breads
+and pastries.  Sheb and his assistants are running back and forth pulling
+things out of the oven.  A wide counter displays breads and pies, and
+wonderful steaming creations.  The heat from the oven is considerable.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5174 1 100 1
+R M 5175 1 1 100
+R O 2000 -1 80 5
+R O 2000 -1 80 1
+R O 2001 -1 75 5
+R O 2001 -1 75 5
+Dr 0 0 0 5033
+~
+~
+End
+
+#5177
+N "The Cloth Shop"~
+Ref 0
+D
+The shop is filled with bolts of various cloth.  The variety of fabrics
+is astounding, with a variety of colors and sizes.  A small runway provides
+access to the front of the shop.  A table sits at the far end of the room,
+which is covered with scraps of cut cloth and pieces of parchment with
+orders scrawled on them.  
+~
+C
+RIMAGE clothshop.jpg
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5307 1 100 1
+Dr 1 0 0 5023
+~
+~
+End
+
+#5178
+N "Umut's Musica"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 5 0 5066
+~
+small painted door~
+End
+
+#5179
+N "Farbek the Cobbler"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 5 0 5064
+~
+wooden door~
+End
+
+#5180
+N "Anad's Sacks and Cooper"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 5 0 5062
+~
+door~
+End
+
+#5181
+N "The Tabac"~
+Ref 0
+D
+A dark pine-paneled room beset inside a narrow building located
+at the end of Truncot Avenue.  A single seven paned window looks
+out onto the intersection.  Light streams from this window onto
+a variety of glass and ceremic jars filled with the aromatic
+stock of pipeweed familiar to the lands.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5183 1 100 1
+R O 5180 -1 100 5
+R O 5181 -1 100 20
+Dr 1 5 0 5058
+~
+oak door~
+End
+
+#5182
+N "Ghorlad's Armoury"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5182 1 100 1
+R O 6012 -1 100 1
+R O 3512 -1 75 2
+R O 3509 -1 75 3
+R O 3507 -1 75 4
+Dr 1 5 0 5053
+~
+steel door~
+End
+
+#5183
+N "Halad the Silversmith"~
+Ref 0
+D
+~
+C
+RIMAGE forge2.jpg
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5189 1 100 1
+Dr 1 0 0 5052
+~
+open archway~
+End
+
+#5184
+N "Fodder's Crank-Bows"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5187 1 100 1
+R O 6005 -1 100 1
+R O 6004 -1 100 1
+R O 5187 -1 100 30
+R O 5186 -1 75 2
+R O 5184 -1 75 4
+R O 5183 -1 100 27
+R O 5183 -1 100 3
+Dr 0 5 0 5052
+~
+wooden door~
+End
+
+#5185
+N "Qi'Odden the Fletcher"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5185 1 100 1
+R O 5185 -1 100 2
+R O 6002 -1 100 5
+R O 6004 -1 100 1
+R O 6005 -1 100 1
+R O 6003 -3 100 12
+R O 6003 -1 100 30
+Dr 2 5 0 5053
+~
+reed wicker door~
+End
+
+#5186
+N "Keod's Chains and Shields"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5190 1 100 1
+R O 3101 -1 100 1
+R O 3100 -1 75 2
+R O 3006 -1 75 2
+R O 3005 -1 75 2
+R O 3003 -1 75 2
+R O 3002 -1 75 2
+R O 3001 -1 75 2
+Dr 3 0 0 5052
+~
+open archway~
+End
+
+#5187
+N "Kala's Candies"~
+Ref 0
+D
+The small wagon is filled with shelves of various sweets and savories. 
+In the back of the wagon is a table, on which candies are prepared for the
+day's sale.  Beautiful ribbons, foils and papers are stacked behind the
+table for packaging the candies.  A selection of jams and other items are
+stacked in a rack placed in the corner.  
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5007 1 100 1
+R O 5051 -1 100 30
+R O 5006 -5 100 1
+End
+
+#5192
+N "Bellin's Forge"~
+Ref 0
+D
+This building appears much smaller on the inside than it did from the
+street; the low ceiling and abundance of racks and shelves seem to
+accentuate that fact.  The racks and shelves used seem sturdy enough, but
+they are entirely plain-- completely without embellishment or polish.  The
+store lighting is dim as well, with very few lamps and candles putting out
+barely enough light to read by.  The wares for sale, however, are anything
+but plain.  Although there are quite a few unadorned weapons, even they are
+of the utmost quality, forged from fine materials.  
+~
+C
+RIMAGE forge.jpg
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5181 1 75 1
+R O 5164 -1 100 1
+R O 5163 -1 100 3
+R O 5162 -1 100 3
+R O 5161 -1 100 1
+R O 5160 -1 100 1
+Dr 3 0 0 5053
+~
+~
+End
+
+#5198
+N Renatt Pub~
+Ref 0
+D
+Lit by a few tall tapers and the glow of the fireplace, the inside of
+Renatt Pub has a dark but warm feel to it.  The walls are wood paneling for
+the first few duspans, and a dark taupe beyond that, all the way up to the
+high paneled ceiling.  The rafters are bare, old darkwood, which lend the
+structure an air of stability.  What little light there is in this pub tends
+to focus around two main areas-- the bar itself, a long shiny-topped slab of
+oak with numerous stools surrounding it, and the fireplace, a rough stone
+structure that always seems to have a roaring fire in it.  The bar smells of
+porter, smoke and cedar; the air is thick, but breathable.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 3 5192 5162
+~
+darkwood door~
+End
+
+#5200
+N Bones Room~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5200 -1 75 1
+R M 5200 1 75 1
+End
+
+#5201
+N Dock Concourse at Oestel~
+Ref 5485
+D
+To the southwest lies a narrow cobbled road that appears to be split down
+the middle by some short, jagged structure.  To the east, very few of the
+buildings sport any signs or banners-- there are almost no external indications of what the buildings do.  The quality of the structures is still reasonably
+comparable to the remainder of the concourse buildings, but there are
+more scratches and gouges in their facades, and more chips in the glass
+and on the door frames.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5202
+~
+~
+Dr 3 0 0 5115
+~
+~
+End
+
+#5202
+N Oestel Avenue~
+Ref 5475
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5201
+~
+~
+Dr 2 0 0 5203
+~
+~
+End
+
+#5203
+N Oestel Avenue~
+Ref 5475
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5202
+~
+~
+Dr 2 0 0 5208
+~
+~
+End
+
+#5204
+N Triad at Staedler~
+Ref 5469
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5206
+~
+~
+Dr 7 0 0 5205
+~
+~
+Dr 8 0 0 5133
+~
+~
+End
+
+#5205
+N Triad at Wall~
+Ref 5469
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 5206
+~
+~
+Dr 7 0 0 5207
+~
+~
+Dr 8 0 0 5204
+~
+~
+End
+
+#5206
+N Triad at Oestel~
+Ref 5469
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5212
+~
+~
+Dr 2 0 0 5204
+~
+~
+Dr 9 0 0 5205
+~
+~
+End
+
+#5207
+N Wall Road~
+Ref 5474
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5244
+~
+~
+Dr 3 0 0 5111
+~
+~
+Dr 8 0 0 5205
+~
+~
+End
+
+#5208
+N Oestel Avenue~
+Ref 5475
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5203
+~
+~
+Dr 2 0 0 5209
+~
+~
+End
+
+#5209
+N Oestel Avenue~
+Ref 5475
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5208
+~
+~
+Dr 2 0 0 5210
+~
+~
+End
+
+#5210
+N Oestel Avenue~
+Ref 5475
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5209
+~
+~
+Dr 2 0 0 5211
+~
+~
+End
+
+#5211
+N Oestel Avenue~
+Ref 5475
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5210
+~
+~
+Dr 2 0 0 5212
+~
+~
+End
+
+#5212
+N Oestel Avenue~
+Ref 5475
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5211
+~
+~
+Dr 2 0 0 5206
+~
+~
+End
+
+#5213
+N Ruthridge At Qodbrun~
+Ref 5482
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5214
+~
+~
+Dr 2 0 0 5217
+~
+~
+Dr 3 0 0 5148
+~
+~
+End
+
+#5214
+N Ruthridge At Cetbrun~
+Ref 5482
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5215
+~
+~
+Dr 2 0 0 5222
+~
+~
+Dr 3 0 0 5213
+~
+~
+End
+
+#5215
+N Ruthridge at Carthage~
+Ref 5479
+D
+~
+C
+RIMAGE warrens2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5240
+~
+~
+Dr 1 0 0 5310
+~
+~
+Dr 2 0 0 5225
+~
+~
+Dr 3 0 0 5214
+~
+~
+End
+
+#5216
+N Carthage Road~
+Ref 5483
+D
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5225
+~
+~
+Dr 2 0 0 5226
+~
+~
+End
+
+#5217
+N Qodbrun Warrens~
+Ref 5467
+D
+Qod-Ir is the western block of tenements, while the Qod-Dran block lies
+to the east.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5221 10 100 1
+R O 5223 35 100 1
+R O 5222 -1 100 1
+R O 5221 10 100 1
+Dr 0 0 0 5213
+~
+~
+Dr 2 0 0 5218
+~
+~
+End
+
+#5218
+N Qodbrun Warrens~
+Ref 5467
+D
+Qod-Qod seems a bit more sturdy and clean than Qod-Duon, its crumbling
+counterpart to the east.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5217
+~
+~
+Dr 2 0 0 5219
+~
+~
+End
+
+#5219
+N Qodbrun Warrens~
+Ref 5467
+D
+Qod-Ono is the western block of buildings, with Qod-Dur just east of the
+warren street.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5218
+~
+~
+Dr 2 0 0 5220
+~
+~
+End
+
+#5220
+N Carthage At Qodbrun~
+Ref 5483
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5219
+~
+~
+Dr 1 0 0 5221
+~
+~
+Dr 3 0 0 5161
+~
+~
+End
+
+#5221
+N Carthage at Cetbrun~
+Ref 5483
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5224
+~
+~
+Dr 1 0 0 5227
+~
+~
+Dr 3 0 0 5220
+~
+~
+End
+
+#5222
+N Cetbrun Warrens~
+Ref 5466
+D
+A rough piece of clapboard serves as the front door for Cet-Duon, to the
+west.  The east side of the street is the Cet-Qod complex.
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5214
+~
+~
+Dr 2 0 0 5223
+~
+~
+End
+
+#5223
+N Cetbrun Warrens~
+Ref 5466
+D
+Someone has scrawled Cet-Ir in charcoal along the western edifice, while
+the Cet-Dran tenement lies to the east.
+~
+C
+RIMAGE warrens2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5220 1 100 1
+R O 5220 10 100 1
+Dr 0 0 0 5222
+~
+~
+Dr 2 0 0 5224
+~
+~
+End
+
+#5224
+N Cetbrun Warrens~
+Ref 5466
+D
+East of here lies the Cet-Ono block, while Cet-Dur is the western side
+of the warren street.
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5223
+~
+~
+Dr 2 0 0 5221
+~
+~
+End
+
+#5225
+N Carthage Road~
+Ref 5483
+D
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5215
+~
+~
+Dr 2 0 0 5216
+~
+~
+End
+
+#5226
+N Carthage Road~
+Ref 5483
+D
+~
+C
+RIMAGE warrens.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5216
+~
+~
+Dr 2 0 0 5227
+~
+~
+End
+
+#5227
+N Carthage Road~
+Ref 5483
+D
+~
+C
+RIMAGE ghetto.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5226
+~
+~
+Dr 3 0 0 5221
+~
+~
+End
+
+#5228
+N Carthage Road~
+Ref 5479
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5229
+~
+~
+End
+
+#5229
+N Carthage Road~
+Ref 5479
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5230
+~
+~
+Dr 2 0 0 5228
+~
+~
+End
+
+#5230
+N Carthage at South Staedler~
+Ref 5479
+D
+To the west, the road becomes more evenly paved, as large brown cobblestones
+and intact, filled lampposts lead away from this broken street.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5231
+~
+~
+Dr 2 0 0 5229
+~
+~
+Dr 3 0 0 5238
+~
+~
+End
+
+#5231
+N Carthage Road~
+Ref 5479
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5239
+~
+~
+Dr 2 0 0 5230
+~
+~
+End
+
+#5232
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5233
+~
+~
+Dr 3 0 0 5140
+~
+~
+End
+
+#5233
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5234
+~
+~
+Dr 3 0 0 5232
+~
+~
+End
+
+#5234
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5235
+~
+~
+Dr 3 0 0 5233
+~
+~
+End
+
+#5235
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5236
+~
+~
+Dr 3 0 0 5234
+~
+~
+End
+
+#5236
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5237
+~
+~
+Dr 3 0 0 5235
+~
+~
+End
+
+#5237
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5238
+~
+~
+Dr 3 0 0 5236
+~
+~
+End
+
+#5238
+N South Staedler Avenue~
+Ref 5489
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5230
+~
+~
+Dr 3 0 0 5237
+~
+~
+End
+
+#5239
+N Carthage Road~
+Ref 5479
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5231
+~
+~
+End
+
+#5240
+N Before the Castle~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5301
+~
+~
+Dr 1 5 0 10753
+Nearby the castle is the Tax Office.
+~
+heavy ornate door~
+Dr 2 0 0 5215
+~
+~
+End
+
+#5241
+N Wall Road~
+Ref 5474
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5242
+~
+~
+End
+
+#5242
+N Wall Road~
+Ref 5474
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5241
+~
+~
+Dr 3 0 0 5243
+~
+~
+End
+
+#5243
+N Wall Road~
+Ref 5474
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5242
+~
+~
+Dr 3 0 0 5244
+~
+~
+End
+
+#5244
+N Wall Road~
+Ref 5474
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5243
+~
+~
+Dr 3 0 0 5207
+~
+~
+End
+
+#5245
+N "Ressat's Clothing"~
+Ref 0
+D
+The shop is very neat and well stocked, with mannequins lining the
+northern and southern walls, displaying clothing of various sizes and
+styles.  To the east, an ornate oak door leads out to Merchants way.  A
+doorway west leads to the back of the shop.  Colorful ribbons hang from the
+rafters.  A small sign is posted on the wall.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+ED mannequins mannequin~
+The mannequins are made of a light-weight wood and plaster compound.
+~
+ED ribbons~
+The ribbons are various bright colors.
+~
+ED small sign~
+The sign reads 'No Loitering.'
+~
+R M 5245 1 100 1
+R G 18 -1 100 10
+R O 2508 9 100 1
+R O 2507 12 100 1
+R O 2506 -1 50 4
+R O 2504 -1 50 4
+R O 2503 -1 50 4
+R O 2502 -1 50 4
+R O 2512 -1 50 5
+R O 2511 -1 50 5
+R O 2515 -1 50 5
+R O 2505 -1 50 5
+R O 2513 -1 50 5
+R O 2514 -1 50 5
+R O 2510 -1 50 5
+R O 2509 -1 50 5
+R O 2508 -1 50 5
+R O 2507 -1 50 5
+R O 2501 -1 100 1
+R O 2500 -1 100 1
+Dr 1 5 0 5121
+~
+ornate oak door~
+End
+
+#5246
+N Second Floor Hall~
+Ref 0
+D
+This is the southern end of a short hall in the upstairs of the
+Hovelcove.  There are varnished wood panels on the walls and several doors
+that lead to various rooms.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5004
+~
+~
+Dr 1 1 5020 5248
+~
+wooden door~
+Dr 2 7 5022 5249
+~
+mahogany door~
+Dr 3 7 5021 5247
+~
+simple door~
+End
+
+#5247
+N Boarder's Room~
+Ref 0
+D
+You are in a neatly furnished room provided for boarders at the Inn.
+~
+C
+(null)~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5019 -5 100 1
+Dr 1 7 5021 5246
+~
+simple door~
+End
+
+#5248
+N Boarder's Room~
+Ref 0
+D
+You are in a modestly furnished room provided for patrons of the Inn.
+~
+C
+(null)~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5019 -5 100 1
+Dr 3 1 5020 5246
+~
+wooden door~
+End
+
+#5249
+N Luxurious Room~
+Ref 0
+D
+You are in a lavishly furnished room provided for special guests
+of the Inn.
+~
+C
+(null)~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5019 -5 100 1
+Dr 0 7 5022 5246
+~
+mahogany door~
+End
+
+#5250
+N "Gald the Furrier"~
+Ref 0
+D
+Many pelts of various styles hang from the ceiling and walls.  The room
+is made of fine wood paneling, and the trophies here are quite exotic and
+extraordinary.  Toward the back of the shop is a wide table, behind which is
+a work area.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5250 -5 100 1
+R M 5250 1 100 1
+R O 2521 -1 100 3
+R O 2520 -1 100 6
+Dr 3 5 0 5122
+~
+thick oak door~
+End
+
+#5251
+N "Alad the Butcher"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 9 0 0 5116
+~
+~
+End
+
+#5252
+N "The Buttery"~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 8 0 0 5116
+~
+~
+End
+
+#5253
+N "Tauton's Fine Wines"~
+Ref 0
+D
+Wine casks and enormous packing crates line the walls on three sides.  A
+short fellow is here, standing behind a table, examining the contents of a
+flute.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5253 1 100 1
+R O 5212 -1 100 10
+R O 5211 -1 100 10
+R O 5210 -1 100 10
+Dr 1 5 0 5120
+~
+door on brass hinges~
+Dr 5 5 0 5254
+~
+trapdoor~
+End
+
+#5254
+N Wine Cellar~
+Ref 0
+D
+The cellar is musty and low-ceilinged.  Although the confines seem close
+and cramped, the cellar extends for quite a ways, with rack upon rack of
+wines.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 4 5 0 5253
+~
+trapdoor~
+End
+
+#5255
+N Ivory Garden~
+Ref 0
+D
+At the eastern edge of the Marketplace is a secluded garden with many
+beautiful white marble statues.  Finely cut stones mark a circular path
+around a center mound, on which is planted a variety of flowers.  Flowing
+ivy and berry vines hang down from wooden trellaces.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED vines ivy berry~
+Ivy and berry vines have overgrown their wooden trellaces and are hanging
+down from the tops.  
+~
+ED statues~
+Many statues of naked children lie about in gothic poses.  
+~
+R O 5009 -5 100 1
+R O 5008 -5 100 1
+Dr 3 0 0 5119
+~
+~
+End
+
+#5256
+N Observation Point~
+Ref 0
+D
+A wide boardwalk with railings has been built off and away from the Dock
+Concourse.  There is a glorious view of the Kessian Great Bridge to the
+east.  To the southeast, the point connects to the Dock.  Ships pass by
+occasionally to the north, under the tall supporting pillars of the bridge.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5257
+~
+~
+Dr 8 0 0 5107
+~
+~
+End
+
+#5257
+N Observation Point~
+Ref 0
+D
+Below you are the fast-moving currents of the Kaerbrok, which runs west
+to east through Kess.  To the east is constructed the Great Bridge, a
+massive undertaking by Rygor to connect the castle with the city.  To the
+north of here you can see, across the river, the tall tops of Gythanyr's
+Watch, the ruins atop the plateau to the north of the capital.  A ways west
+and underneath the observation deck, lie the intakes and outflows of the
+city aqueduct.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5256
+~
+~
+Dr 5 7 5047 5258
+~
+trapdoor~
+End
+
+#5258
+N Wooden Stair~
+Ref 0
+D
+You are halfway down a wooden staircase, on a narrow landing.  You can
+see the huge intake and outake pipes of the city aquaduct, and a small
+station at the base of the stair.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 4 7 5047 5257
+~
+trapdoor~
+Dr 5 0 0 5259
+~
+~
+End
+
+#5259
+N Station Entrance~
+Ref 0
+D
+A high wall blocks your view of the river here.  There is a tall, wooden
+staircase that leads up to an observation deck.  To the north, the sound of
+the river's rushing waters comes from behind the high wall.  A gate leads
+west to the aquaduct station.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5259 5 100 1
+R M 5259 1 100 1
+Dr 3 7 5047 5260
+~
+wrought-iron gate~
+Dr 4 0 0 5258
+~
+~
+End
+
+#5260
+N Aquaduct Station~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 7 5047 5259
+~
+wrought-iron gate~
+End
+
+#5261
+N Merchant Flute~
+Ref 0
+D
+You are riding aboard the merchant flute Albazaar headed south to the
+isles of Zalufin, home of the Trioskenne.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5300
+N Apothecary~
+Ref 0
+D
+As you enter the dark shrouded store, you smell the aroma of salts and
+strange incense, unfamiliar to your nose.  Bottles line the shelves of
+varying sizes and colors, mixed with other items such as mortar and pestil,
+fagots of scented sticks and jars of exotic spices.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5299 1 75 1
+R O 5299 -1 100 10
+Dr 1 5 0 5086
+~
+wooden door~
+End
+
+#5301
+N Gates of Castle Rygor~
+Ref 0
+D
+You stand before the high gates to Castle Rygor, the oldest structure
+built by the settlers who came to Kess long ago.  A massive structure of
+parapets watches the Caerbrok and the Ocean beyond.  The castle is built
+from massive granite blocks, fitted together with mortar and supported in
+places by timbres that have been replaced recently.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5302
+The grand castle of King Rygor stands before you.  
+~
+gate, leading to Castle Rygor~
+Dr 2 0 0 5240
+~
+~
+End
+
+#5302
+N Throne Room~
+Ref 0
+D
+A massively ornamented hall is before you, held with the Kltaran coat of
+arms and guarded by the King's royal order.  Finely crafted flatstones form
+the floors of this room.  In the distance is a wide dais at the end of a
+long red carpet.  The hall is dimly lit by sconces on the walls made of
+iron.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5303 1 100 1
+R O 1000 39 100 1
+R M 5302 2 100 1
+R M 5301 1 100 1
+Dr 2 0 0 5301
+~
+~
+End
+
+#5305
+N Inside the General Store~
+Ref 0
+D
+A general store full of supplies for the adventurer, merchant and
+traveler alike.  All sorts of gear for improving your performance on the
+road has been stored here for sale.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5305 1 100 1
+R O 6204 -1 100 1
+R O 661 -1 100 1
+R O 5309 -1 75 3
+R O 5311 -1 100 2
+R O 5310 -1 75 3
+R O 5308 -1 75 3
+R O 5307 -1 100 4
+R O 5306 -1 100 2
+R O 4500 -1 100 1
+R O 4505 -1 100 1
+R O 4503 -1 100 2
+R O 5305 -1 100 1
+Dr 0 1 0 5006
+~
+door~
+End
+
+#5306
+N Gemcutter~
+Ref 0
+D
+A workbench is seen on the far wall, under a small window that peers back
+into an alley behind the building.  Stretched black velvet hangs over a
+display table on the far right, behind which stands a short, rotund and
+elderly gentleman with a scrying piece.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5306 1 100 1
+R O 50 -4 40 2
+Dr 2 5 0 5032
+~
+oak door~
+End
+
+#5310
+N Inside The Eastern Bailey~
+Ref 0
+D
+The city walls loom above you.  Directly north is the oldest part of
+Kess, where the great gates of Castle Rygor can be seen to the north.  To
+the east is the eastern exit of the Kessian city, the East Gatehouse, a wide
+gateway for offloading merchant caravans to ship their goods northward.  To
+the west is Ruthridge Road, leading past the warrens to the Plaza.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5259 10 25 1
+Dr 1 0 0 5311
+~
+~
+Dr 3 0 0 5215
+~
+~
+End
+
+#5311
+N Eastern Bailey Gatehouse - Kess~
+Ref 0
+D
+You stand outside the eastern wall of Kess, the tall protective
+city wall is above you, topped with the banners of Rygor.
+A wide, cart-ridden road leads east along the Caerbrok river.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10700
+~
+~
+Dr 3 0 0 5310
+~
+~
+End
+
+#5320
+N Ionobrun Flat~
+Ref 0
+D
+This is a ramshackle apartment in the Ionobrun warrens, cheap rent but
+lots of loud neighbors.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 7 5320 5144
+~
+simple wood door~
+End
+
+#5465
+N Merchant's Crescent template~
+Ref 0
+D
+A finely-paved red brick road curves through the area known as the Merchant's
+Crescent.  The stones are polished smooth and relatively clean, which given the
+traffic along the street, is amazing.  Wrought-iron lampposts sculpted in the
+shape of twisty vines line the curvy avenue, their oil bulbs immaculate and 
+full.  In fact, there is nothing about this road that is not kept in pristine
+condition-- an amazing fact for such a frequented area.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5466
+N Cetbrun~
+Ref 0
+D
+The rough tenements to either side of the Cetbrun block are surprisingly
+well-kept, for the warrens.  The dirt road is still filthy, although
+the scent of rotting food seems to overpower the typical warren stench
+of flithy people.  Here and there, you can still notice a few cracks in
+each of the buildings, but for the most part, these structures will keep
+their residents dry.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5467
+N Qodbrun~
+Ref 0
+D
+Sandwiched in between other streets packed with warrens, the Qodbrun
+row is more overcrowded and rancid than its counterparts.  The air is
+ripe with human and animal waste.  There are places where people are
+sleeping in large piles, both inside and outside the tenements.
+In between the tenement buildings, a number of lean-tos have been 
+constructed out of clapboard and the occasional hide.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5468
+N Queduobrun~
+Ref 0
+D
+Sandwiched in between many other streets packed with warrens, the 
+Queduobrun row seems more crowded and filthy than many of the others.
+There are places where people are sleeping in large piles; waste and
+refuse permeate the air and the unpaved soil of the warren street.
+Some structures have no wall facing the street-- they are merely three walls
+and a leaky roof.  Other buildings are more intact, but their integrity is
+more than a bit questionable.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5469
+N Triad Template~
+Ref 0
+D
+This square is paved with stones that have been rubbed smooth with time;
+large pale grey cobbles that appear to have faded to that color from a
+dark charcoal.  A triangular plaza, modest in comparison to the Great Bazaar
+but wide nonetheless, the Triad is mostly a monument to what Kess was in
+the past.  Shops and guilds line the plaza, housed in buildings that have not
+changed a bit in the past two centuries.  Old stones and weathered wood
+look at once stately and tired.  
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5470
+N Duonobrun~
+Ref 0
+D
+Crumbling, neglected tenements are all that exist of the Duonobrun 
+warren blocks.  The oily dirt road is rough, but here and there you see
+a resident of the warrens sleeping atop it.  The buildings are old,
+and were poorly constructed in the first place, yet they still provide
+some shelter from the cold and the rain.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5471
+N Ionobrun~
+Ref 0
+D
+Roughly-built structures line Ionobrun, the first-built of the city
+warrens.  Charcoal soot and grease coat the walls of the buildings in
+patches, turning the stucco and stone from ivory to dull gray.  The street
+is unpaved, and deep grooves have been carved into the dirt road.  The
+buildings are filthy and stink of overuse, but they are stable enough
+structures-- reasonable shelter in a storm.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5472
+N Bridge Road Template~
+Ref 0
+D
+Huge, pentagonal slate-gray stones pave this short, wide road.  In the
+distance to the north, you see the slight curvature and massive span of 
+the Great Stone Bridge.  Every so often, the stones to the far east and
+west of the road are carved; they seem to have various coats of arms and
+sigils of past rulers and foreign dignitaries.  Small trees line the sides
+of the road at even intervals; apparently these are new additions to this
+stately, but short, thoroughfare.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5473
+N Welkyn Road Template~
+Ref 0
+D
+You are on a wide street, which is paved with rough-cut gray stones of
+remarkable cleanliness.  Street lamps are sparse, but larger than usual,
+and they appear to provide a fair bit of light to the road.  Large, blocky
+buildings line the street; although they are not at all ornamented, they
+appear to be reasonably old.  Very few of the structures are short-- most
+are two or three stories tall-- and almost none of them have any windows
+facing the street on the first level.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5474
+N Wall Road Template~
+Ref 0
+D
+This street, although quite obviously paved to be a real avenue, is 
+scarcely wider than most of the spindly alleys that weave their way
+through the whole of Kess-- and a number of those alleys can boast more
+traffic.  Although the street appears clean enough, it is desolate most
+of the time.  A few shops sport signs, but the indicators are weathered
+and faded with age, seemingly put up as an afterthought.  The city wall that
+enshrouds this narrow road in shadow most of the day is as old as the 
+street itself, and elaborately carved with scrollwork and patterns that have
+not been in common use in centuries.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5475
+N Oestel Avenue Template~
+Ref 0
+D
+A short wall, jagged and broken with crumbling rocks runs down the center 
+of this narrow avenue; it is the last vestige of the Old Kessian Western wall,
+which fell long ago, in the Siege of '32.  The street built around the old
+monument is crowded and narrow, packed tightly with two-story structures
+which are thin and old buildings with spire-like rooves.  These structures
+are quite varied, despite their similar age and shape-- they appear to be a
+liberal mixture of houses and shops, with guild insignias carved or painted
+upon quite a few doors as well.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5476
+N Truncot Template (revised)~
+Ref 0
+D
+Carefully crafted cobblestones, all exactly the same size, are fit together
+as tightly as possible along this wide, well-traveled road.  The shops and
+residences to the north and south of the road are all very obviously old
+buildings-- the detailing along the rooves and doorways are older patterns,
+rarely used in construction these days.  All of the buildings, though in good
+repair, seem to have a faded countenance, as though they wished to show off 
+their age.  The pigments of stone and wood are sedate and dark, very stately
+colors.  You can still hear the bustle of the bazaar from the plaza, to the 
+east, although this road has plenty of traffic on its own.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5477
+N Havenstok Road Template~
+Ref 0
+D
+Paved in round graystones, the wide path of Havenstok Road 
+stretches out before you.  To either side of the thoroughfare, you see
+lush gardens, fragrant and flowering at any time of year.  The gardens
+are manicured, but not to extremes-- there are places where a tree or ivy
+has been allowed to flow over its surroundings like a free-flowing creek.
+Here and there along the Road there are urns the size of a large well, filled
+with plants of varying sizes and shapes.  Although the road never seems
+to be overly crowded, there are usually a few people scattered around its
+path, examining a plant or just wandering around.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5478
+N Plaza (revised)~
+Ref 0
+D
+The brown cobblestones paving the road are well-cut, irregular shapes that
+fit the run of the twisty street.  Buildings line the road, stuck so
+closely together that they would seem as one structure, if it were not for the
+fact that they all vary in color and height.  The buildings are all carefully 
+crafted, sturdy structures, made of materials both familiar and foreign, and
+they all house shops of one sort or another.  Signs adorn the outside of just
+about every store, either painted on the window or carved into the door, or
+else some banner or hanging plaque. 
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5479
+N Carthage Template 2 (Upper Carthage)~
+Ref 0
+D
+Small cobbles, scraps from other cut stones of varying types, pave this wide
+and dirty street.  All of the stones seem to have the same chalky-gray color,
+stained with soot and oil in splotchy black streaks.  In some places, the road
+has come loose, leaving ruts strewn with gravel and glass in its wake.
+The buildings along the street seem to have been restored relatively
+recently, although they are still made of poor materials, and show quite
+a bit of wear and tear.  Most of the buildings are reasonably intact, though
+every so often you see a place where the quality of the materials and 
+construction have given in to the inevitable.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5480
+N South/North Dunlock Boulevard Template~
+Ref 0
+D
+Tall, old trees tower above the boulevard, shading the sides of this
+wide, unpaved path.  The dirt road is well-groomed, and reasonably
+soft on the feet.  Off to the sides of the road, beyond the manicured shrubs and
+short flowers, there are wrought iron gates and fences of varying styles.
+Beyond some of the fences you can see expanses of lush grasses, although
+other estates have allowed the shrubs and ivies to grow wild, obscuring
+the view.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5481
+N Port Road Template~
+Ref 0
+D
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5482
+N Ruthridge Road Template~
+Ref 0
+D
+The rough, sooty cobbles of this road have obviously not been maintained
+in some time.  Given the condition of the buildings to either side of the
+broken street, the maintenance level seems adequate.   The sparse lampposts
+along the road are almost all defaced, and those that are intact are 
+empty.  Even in this condition, however, there are tenanted buildings amidst
+the broken glass and stone.  Lights can be seen through the paneless windows
+in a few of these edifices, and there are even a couple of dilapidated 
+signs denoting businesses that have made their place here.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5483
+N Carthage Road Template 1~
+Ref 0
+D
+Small cobbles, scraps from other cut stones of varying types, pave this wide
+and dirty street.  All of the stones seem to have the same chalky-gray color,
+stained with soot and oil in splotchy black streaks.  In some places, the road
+has come loose, leaving ruts strewn with gravel and glass in its wake.
+The buildings along this street are old, cheaply made structures, and no small
+number of them are in ill-repair. Every so often there is a house or store
+that has clouded glass in the windows and intact walls, but they are
+exceptionally few and far between.  There are many gaps in the rows of 
+buildings, where particularly dilapidated structures have been knocked down,
+or fell down on their own.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5484
+N Havenstok Riverfront Template~
+Ref 0
+D
+Wildly different colored stones pave this section of the riverfront, 
+although all of them are covered with a very light patina-- an inevitability
+of life close to the water.  Some of the cobbles are carved with intricate
+patterns, and some of the colors are bright and unique enough to be quite
+curious.  Even the lamp posts along this wide avenue are of many different
+makes, so it is no small wonder that the buildings are even more varied and
+unusual.  The pigments used in some of the storefronts are exotic enough to
+be expensive for use in small scarves and garments, let alone whole doors
+or building facades.  Lush violets and rich crimsons are visible in quite a
+few places, and the level of workmanship of the buildings is impeccable.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5485
+N Dock Concourse template~
+Ref 0
+D
+The Kaerbrok, with its rapid current and fierce winds, flows west to east
+to the north of the concourse.  Although the shops and hostels to the south
+try various methods of attracting the attention of passersby, it is the
+vast, furious water that inevitably wins out.  The planks of the dock are
+sturdy and lacquered-- despite their obvious age, they are well-maintained.
+The lamps along the dock are shorter and squatter than most, and their
+flames are encased by thicker bubbles of glass, to shield the light from
+the constant wind.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5486
+N Port Road Template~
+Ref 0
+D
+The scent of waters, both salty and fresh, pervade the air and a soft
+breeze is almost a constant along this curved road.  All of the buildings
+along the street are pale in color, faded by the wind, weather and salt.
+The road is wide, and comprised of loose gray stones covered with the
+typical grime of a well-traveled path.  The salt has faded even the stones
+of the street, covering them in a light patina.  Faint tones can be heard,
+as some of the buildings have small metal chimes hanging from the doorways.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5487
+N Dunlock Road Template~
+Ref 0
+D
+The well-packed graystone road looks wider than it actually is, as the
+houses which line it on either side are all somewhat recessed from
+its path.  Voluminous trees and shrubs form an uneven wall, lush with myriad
+greens, shading the homes from the street.  The houses are not ornate, but
+by no means plain; they all have the subtle feel of extreme quality. Although
+a bit of scrollwork and detail is seen on practically every housefront,
+the feeling goes deeper than that-- to the cut of the stone, or the pigment
+on the wood, even the types of wood, stone and brick themselves.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5488
+N Staedler Template~
+Ref 0
+D
+Houses line the street to the north and south, varying in height only
+slightly from structure to structure, like uneven teeth.  The shades of 
+stone, brick and stucco represent a goodly portion of the spectrum, grays 
+and greens, browns and reds-- although rarer pigments, mostly blues and
+violets, are not seen at all.  The buildings have a little bit of space 
+around them, but not too much; perhaps enough for a small garden, or a
+porch that doesn't quite face the road.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5489
+N S Staedler Template~
+Ref 0
+D
+Rough-hewn brown stones are widely spaced but well-packed to form this 
+narrow residential street.  Unadorned but functional iron lamp posts
+line the street on both sides.  The buildings to the north and south of
+the street are reasonably plain brick and stone structures-- mostly boxy
+and close together, but clean and straight.  Some houses have a small 
+flowerbox outside or a bit of drapery in the windows-- some small element
+of personalization.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5490
+N Brestol Thoroughfare Template~
+Ref 0
+D
+The wide expanses of this road are lined with tall, broad trees of old
+growth.  There are no few places shaded by these giants, planted by the road
+builders so long ago.  The street is curved gently, but the soft grey stones 
+are so closely and perfectly fitted together that few people realize that
+the street is not straight.  Most buildings on either side of the road are
+recessed from the walkway, and some even have small gardens and courtyards
+outside their front doors.  No expense has been spared along this road,
+although the opulence is very subtle and tasteful.  Delicate scrollwork on 
+the metals and wood denote the finery in soft and neutral colors.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5491
+N Dvoxkin Alley Template~
+Ref 0
+D
+The street is not paved, rather it is a narrow expanse of loose gravel and
+dirt, shadowed by the immense southern wall of the city.  A number of the
+buildings on the side of the road have neither door nor windows facing the
+street, as if this alley were something that they would rather not
+acknowledge.  Still, however, there are a  few buildings-- the shorter
+ones-- that use this alley as their main entry point, and a few wheel-ruts
+and sets of foot depressions in the gravel indicate that this darkened
+athway gets some traffic.  Glass and soot are mixed in with the rough
+stones in patches along the alley.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5492
+N Dagger Alley Template~
+Ref 0
+D
+The narrowness of this pathway-- it could hardly be called a street-- is
+overpowering, and even though the buildings to either side of it are not
+large, they loom over the spindly alley like massive towers.  Scant light is
+available here; even during the brightest part of the day, shadows enshroud
+everything.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5493
+N Soothsayer Template2 (Lower Soothsayer)~
+Ref 0
+D
+The stones beneath you vary in color and origin, but all of them have
+the same worn, oft-used feel to them.  Dusty and covered with a thin layer of
+dirt, the grey and brown cobbles form patterns that are only somewhat 
+visible. The buildings to either side of the street are reasonably modest, 
+lacking much in the way of ornamentation.  Brightly painted signs and
+handcrafted banners attempt to make up for what the edifices lack, each one
+attempting to set itself, in some strong way, aside from its neighbors.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5494
+N Swodsrud Template~
+Ref 0
+D
+Sooty and blackened with the grime of countless travelers, the large
+rough-hewn cobbles that line the street are layed out in tightly spaced
+and even rows.  The occasional cart lines the street; some overburdened with
+raw materials-- ore, woods and hides.  There is a bustle to the road, 
+although it is not the boisterous noise of a marketplace, rather it is the
+solemn sound of business being done.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5495
+N Soothsayer Template~
+Ref 0
+D
+The stones beneath you vary in color and origin, but all of them have
+the same worn, oft-used feel to them.  Dusty and covered with a thin layer of
+dirt, the grey and brown cobbles form patterns that are only somewhat 
+visible.  To either side of the road there are tall iron lamps, which
+embody both functionality and craftsmanship.  The buildings, though somber
+in color and modest in materials, attempt the same, with a bit of scrollwork
+on the wooden doors, or a bit of leaded glass on a storefront window.
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5496
+N Merchants Way Template~
+Ref 0
+D
+A well-traveled route, Merchants Way is a wide flatstone road that
+travels between the Kess Plaza and the Marketplace.  The road is made of
+beautifully ornate stones carefully carved from quarries in the Andraius
+mountains, which reflect the richness of the merchant district.  Along
+either side of the road are many stores and workshops of various artisans
+and merchants here.  
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5497
+N Traveler's Road Template~
+Ref 0
+D
+This dusty road is the main entrance to southern Kess.  Aside from river
+traffic, all visitors to the city who arrive via land travel must find their
+way down this dusty road of crumbled cobblestones and deep rutted curves. 
+Traveler's Road is lined with very basic structures, and has a constant
+screen of acrid dirt hanging in the air.  Due to the high amount of wagon
+traffic, the King has given up replacing the once adequate cobblestone
+paving here, since the stones are pulverized into gravel frequently.  
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5498
+N Plaza Template~
+Ref 0
+D
+A year round festival, the Great Bazaar, makes the Kessian Plaza a hub of
+merchant activity.  Craftsmen and merchant companies line the fringes of the
+plaza, selling goods from their local depots and shops, while wagons move in
+and out of the plaza daily.  There are many year-round peddlers who live out
+of their wheeled-homes, permanent fixtures of the city.  
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5499
+N Truncot Template~
+Ref 0
+D
+To the east and west runs a narrow road called Truncot.  To the east, you
+can still hear the bustle of activity at the plaza.  Truncot itself is made
+of carefully crafted cobblestones, which are fit together as tight as
+possible.  Along its northern and southern sides are small shops and
+residences, lining this historic Kessian avenue.  
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5000
+N The Hovelcove Inn~
+Ref 0
+D
+You are standing inside the Hovelcove Inn in the middle of its lobby. 
+The ancient stonework and carefully ornamented wooden paneling is beginning
+to show its age.  To the west is a dining area from which you can smell the
+scent of fresh bread and simmering stew.  To the east is a darker room,
+through a pair of swinging double doors.  An arched doorway leads north.  To
+the south, the large steel door that leads to the streets is set into the
+wall on thick hinges.  
+~
+C
+RIMAGE hovelcove1.jpg.jpg
+SHOWIMAGE bulletin.jpg
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5000 -5 100 1
+Dr 0 0 0 5003
+~
+arched doorway~
+Dr 1 5 0 5005
+~
+double door~
+Dr 2 5 0 5006
+~
+steel door~
+Dr 3 0 0 5001
+A wide doorway leads west to the dining room.
+~
+wide doorway~
+End
+
+#5001
+N Around The Hearth~
+Ref 0
+D
+A weary traveller can find himself a good meal here at the Hovelcove.  In
+the middle of the room is a large stonefired hearth.  A couldron of gigantic
+proportions steams profusely above the glowing coals of the cookfire. 
+Several tables are situated in different areas of the room.  A small door is
+in the north wall.  To the east is a wide doorway.  
+~
+C
+RIMAGE hearth.jpg
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5020 1 75 1
+R M 5006 1 100 1
+R M 5000 1 100 1
+R O 5010 -1 75 20
+R O 5004 -5 75 1
+R O 5001 -5 100 5
+Dr 0 5 0 5002
+A heavily varnished swinging door leads into the Hovelcove's kitchen.
+~
+swinging door~
+Dr 1 0 0 5000
+A wide doorway leads east to the main foyer.
+~
+wide doorway~
+End
+
+#5002
+N Kitchen~
+Ref 0
+D
+A dry sink is situated along the north wall.  This room serves both as a
+kitchen and pantry, supplying the patrons of the Hovelcove with all their
+culinary needs.  Fresh produce is loaded in through the back door which
+leads out into the alley behind the Hovelcove; the door is situated in the
+northern wall.  To the south and east are identical small doors that swing
+inward and outward.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5002 1 100 1
+Dr 0 5 0 5029
+~
+back door~
+Dr 1 5 0 5003
+~
+small door~
+Dr 2 5 0 5001
+A heavily varnished swinging door leads to the hearth.  
+~
+swinging door~
+End
+
+#5003
+N First Floor Landing~
+Ref 0
+D
+A set of wide, travel-worn oak stairs leads up to the loft where inn
+patrons can find their rooms.  A small door is in the west wall, and a
+doorway leads south to the main lobby.  
+~
+C
+RIMAGE hovelcove1.jpg
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 5004 1 100 1
+R O 5020 -1 100 1
+R O 5021 -1 100 1
+R O 5022 -1 100 1
+Dr 2 0 0 5000
+The main lobby is a few paces south.
+~
+arched doorway~
+Dr 3 5 0 5002
+~
+small door~
+Dr 4 0 0 5004
+The travel-worn oak stairs lead up to the loft.
+~
+staircase~
+End
+
+#5004
+N Second Floor Landing~
+Ref 0
+D
+This is the second floor of the Hovelcove, where a short hall leads south
+to various rooms.  The stair continues upward to the third floor.  A potted
+plant is in the cornern of the room, framing the paned window which looks
+out on the rooftops behind the inn.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5246
+~
+~
+Dr 5 0 0 5003
+The stairs descend to the first floor landing.
+~
+staircase~
+End
+
+#5005
+N Tavern~
+Ref 0
+D
+A barrel-top bar fills the majority of this room.  Secluded booths can
+been seen in various locations about the room.  To the west, a pair of
+double doors leads to the lobby of the Hovelcove.  
+~
+C
+RIMAGE tavern.jpg
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5002 -5 100 1
+R M 5005 1 100 1
+R O 5017 -1 100 10
+R O 5018 -1 100 10
+R O 5016 -1 100 10
+R O 5003 -5 100 4
+R M 5499 1 100 1
+Dr 3 5 0 5000
+~
+double door~
+End
+
+#5006
+N Truncot at Hovelcove~
+Ref 5476
+D
+Just north of you is a large inn which bears the famous name Hovelcove--
+the smell of bread baking almost overwhelms you.  
+   Just south is the General Store.
+~
+C
+RIMAGE hovelcove.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 5000
+~
+steel door~
+Dr 1 0 0 5007
+~
+~
+Dr 2 1 0 5305
+~
+door~
+Dr 3 0 0 5008
+~
+~
+End
+
+#5007
+N Truncot Road~
+Ref 5476
+D
+To the east, Truncot opens into the Kess Plaza.  
+~
+C
+RIMAGE cobble.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5019
+~
+~
+Dr 3 0 0 5006
+~
+~
+End
+
+#5008
+N Truncot Road~
+Ref 5476
+D
+To the west, Truncot meets at an intersection.  
+~
+C
+RIMAGE city4.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5006
+~
+~
+Dr 3 0 0 5009
+~
+~
+End
+
+#5009
+N Intersection Of Truncot And Welkyn~
+Ref 5476
+D
+A reasonably wide street intersects Truncot here, running north and south
+with rough-cut, clean cobblestones.  It seems to have some traffic to the
+north, but the southern traffic is light at best.
+~
+C
+RIMAGE city.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 11105 -5 1 1
+Dr 0 0 0 5031
+~
+~
+Dr 1 0 0 5008
+~
+~
+Dr 2 0 0 5010
+~
+~
+Dr 3 0 0 5032
+~
+~
+Dr 5 5 0 24501
+~
+sewer grate~
+End
+
+#5010
+N Welkyn Road~
+Ref 5473
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5009
+~
+~
+Dr 2 0 0 5011
+~
+~
+End
+
+#5011
+N Welkyn Road~
+Ref 5473
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5010
+~
+~
+Dr 2 0 0 5084
+~
+~
+End
+
+#5012
+N Welkyn at the Wall~
+Ref 5491
+D
+~
+C
+(null)RIMAGE alley.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5084
+~
+~
+Dr 1 0 0 5013
+~
+space between two buildings~
+Dr 3 0 0 5014
+~
+space between two buildings~
+End
+
+#5013
+N East Dvoxkin Alley~
+Ref 5491
+D
+~
+C
+(null)RIMAGE alley.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5088
+~
+~
+Dr 3 0 0 5012
+~
+~
+End
+
+#5014
+N West Dvoxkin Alley~
+Ref 5491
+D
+~
+C
+RIMAGE alley.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5012
+~
+~
+Dr 3 0 0 5046
+~
+~
+End
+
+#5015
+N Traveler's Road~
+Ref 5497
+D
+The dust of Traveler's Road hazes the street.  To the west, a narrow
+alley follows the city walls.  A few decrepit buildings line the road, which
+continues north from here.  South of here, the southern Bailey of Kess
+provides an exit from the city.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5087
+Traveler's Road continues north.
+~
+~
+Dr 2 0 0 5016
+The southern bailey and city gate provides an exit from the city.
+~
+~
+Dr 3 0 0 5090
+A narrow alley follows the city wall to the west.
+~
+~
+End
+
+#5016
+N Inside the Southern Bailey~
+Ref 0
+D
+The city walls loom above you.  Here begins Traveler's road, a dusty
+thoroughfare which continues north from the bailey in which you are
+standing.  South of here is the city gate, serving to protect the
+inhabitants of Kess in the case of an invasion.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5015
+Traveler's Road leads north.
+~
+~
+Dr 2 5 0 5017
+The city gate is to the south.
+~
+city gate~
+End
+
+#5017
+N Southern Bailey Gatehouse~
+Ref 0
+D
+You are standing outside the southern gatehouse of Kess, the capital of
+this land.  The tall gate and portcullis is manned by the Kessian royal
+guards that serve the city.  To the south, a long and winding cobblestone
+road leads past crop fields across the plains.  The city walls curve outward
+to accomodate two massive towers that mark the gate and provide protection
+from would-be invaders.  
+~
+C
+RIMAGE gate.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 5016
+Past the gates lies the city of Kess.
+Past the gate lies the city of Kess.
+~
+city gate~
+Dr 2 0 0 7300
+~
+~
+End
+
+#5018
+N Traveler's Road~
+Ref 5497
+D
+Traveler's Road makes a sharp turn from the east to the south.  The backs
+of buildings line the northern side of the road.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5020
+Traveler's Road turns to the east.
+~
+~
+Dr 2 0 0 5087
+Traveler's Road turns to the south.
+~
+~
+End
+
+#5019
+N Plaza at Truncot~
+Ref 5498
+D
+To the west is Truncot Road.
+~
+C
+RIMAGE bazaar4.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5030 10 100 1
+R O 6012 39 100 1
+R M 5003 20 100 1
+Dr 0 0 0 5026
+Garret's Run meets the plaza just north of here.
+~
+~
+Dr 1 0 0 5024
+The plaza continues east.
+~
+~
+Dr 2 0 0 5023
+The southwestern corner of the plaza is just south of here.
+~
+~
+Dr 3 0 0 5007
+~
+~
+Dr 7 1024 0 5030
+To the northeast is the northern edge of the plaza.
+~
+~
+Dr 9 1024 0 5022
+The southern rim of the plaza is just southeast.
+~
+~
+End
+
+#5020
+N Traveler's Road~
+Ref 5497
+D
+To the west, Traveler's road continues toward the Southern Bailey.  To
+the north opens the great Bazaar.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5021
+~
+~
+Dr 3 0 0 5018
+~
+~
+End
+
+#5021
+N Plaza at Traveler's Road~
+Ref 5498
+D
+The dusty end of Traveler's Road is just south of here, the plaza end of
+the winding road that leads to the southern gate of Kess from here.  
+~
+C
+RIMAGE bazaar5.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5025
+~
+~
+Dr 1 0 0 5033
+~
+~
+Dr 2 0 0 5020
+~
+~
+Dr 3 0 0 5022
+~
+~
+Dr 6 0 0 5024
+~
+~
+Dr 7 0 0 5034
+~
+~
+End
+
+#5022
+N Kess Plaza~
+Ref 5498
+D
+To the northeast is a statue in the middle of the Plaza.
+~
+C
+RIMAGE bazaar7.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 1024 0 5024
+There is more of the plaza to the north.
+~
+~
+Dr 1 0 0 5021
+To the east, the Traveler's Road meets with the plaza.
+~
+~
+Dr 3 0 0 5023
+The southwestern corner of the plaza is just west of here.
+~
+~
+Dr 6 0 0 5019
+To the northwest, Truncot road meets with the Plaza.
+~
+~
+Dr 7 1024 0 5025
+To the northeast is a statue in the middle of the plaza.  
+~
+~
+End
+
+#5023
+N Kess Plaza~
+Ref 5498
+D
+~
+C
+RIMAGE bazaar3.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5019
+The plaza stretches north.
+~
+~
+Dr 1 0 0 5022
+The plaza continues east.  
+~
+~
+Dr 3 0 0 5177
+A cloth outlet is just west of here.
+~
+~
+Dr 7 1024 0 5024
+To the northeast, the plaza continues.
+~
+~
+End
+
+#5024
+N Rider's Stable~
+Ref 0
+D
+Here you are in the Rider's Stable, the busiest stable in Kess.  Exotic
+animals and great looking horses and other pack animals are available for
+purchase here.  
+~
+C
+RIMAGE bazaar3.jpg
+~
+F 6
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5050 1 100 1
+Dr 0 1024 0 5030
+To the north is the northern rim of the plaza.
+~
+~
+Dr 1 0 0 5025
+East of here is a statue in the middle of the plaza.
+~
+~
+Dr 2 1024 0 5022
+The southern rim is just south of here.
+~
+~
+Dr 3 0 0 5019
+Just west of here, Truncot Road meets the plaza.
+~
+~
+Dr 6 0 0 5026
+To the northwest is the end of Garret's Run Road.
+~
+~
+Dr 7 1024 0 5035
+The northern edge of the plaza is northeast.
+~
+~
+Dr 8 1024 0 5023
+The southwestern corner of the plaza is southwest from here.
+~
+~
+Dr 9 0 0 5021
+Just southeast of here, Traveler's Road meets the plaza.
+~
+~
+End
+
+#5025
+N Plaza at Statue~
+Ref 5498
+D
+You are standing amidst the bazaar, in the Plaza near the King's ^Bstatue^N.
+~
+C
+RIMAGE statue.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED statue~
+A tall statue of Coranos Rygor.
+~
+R M 5003 20 100 1
+Dr 0 1024 0 5035
+~
+~
+Dr 1 0 0 5034
+~
+~
+Dr 2 0 0 5021
+~
+~
+Dr 3 0 0 5024
+~
+~
+Dr 6 1024 0 5030
+~
+~
+Dr 7 0 0 5038
+~
+~
+Dr 8 1024 0 5022
+~
+~
+Dr 9 1024 0 5033
+~
+~
+End
+
+#5026
+N Plaza At Garret's Run~
+Ref 5498
+D
+The northwest end of the Plaza meets Garret's Run Road, a long and wide
+road of workshops.  To the west is a space between two buildings that leads
+to an alley.  
+~
+C
+RIMAGE bazaar.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5030
+The northern edge of the plaza is east.
+~
+~
+Dr 2 0 0 5019
+Just south of here, Truncot Road meets the plaza.
+~
+~
+Dr 6 0 0 5041
+The long length of Garret's Run runs from the Plaza to the northwest.
+~
+~
+Dr 9 0 0 5024
+To the southeast is more of the plaza.
+~
+~
+End
+
+#5027
+N Eastern Dagger Alley~
+Ref 5492
+D
+~
+C
+RIMAGE alley.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 0 5173
+~
+darkwood door~
+Dr 1 0 0 5042
+~
+~
+Dr 3 0 0 5028
+~
+~
+End
+
+#5028
+N Dagger Alley~
+Ref 5492
+D
+~
+C
+RIMAGE alley.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5027
+~
+~
+Dr 3 0 0 5029
+~
+~
+End
+
+#5029
+N Western Dagger Alley~
+Ref 5492
+D
+~
+C
+RIMAGE alley.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5028
+~
+~
+Dr 2 5 0 5002
+The back door of the Hovelcove looks very weathered.  
+~
+back door~
+End
+
+#5030
+N Kess Plaza~
+Ref 5498
+D
+~
+C
+RIMAGE bazaar2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5035
+~
+~
+Dr 2 1024 0 5024
+~
+~
+Dr 3 0 0 5026
+~
+~
+Dr 8 0 0 5019
+~
+~
+Dr 9 1024 0 5025
+~
+~
+End
+
+#5031
+N Welkyn Road~
+Ref 5473
+D
+~
+C
+RIMAGE city5.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5040
+~
+~
+Dr 2 0 0 5009
+~
+~
+End
+
+#5032
+N Truncot Road~
+Ref 5476
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 5306
+~
+oak door~
+Dr 1 0 0 5009
+~
+~
+Dr 3 0 0 5058
+~
+~
+End
+
+#5033
+N Kess Plaza~
+Ref 5498
+D
+South of here is a bakery.
+~
+C
+RIMAGE bazaar6.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 1024 0 5034
+~
+~
+Dr 1 1024 0 5036
+~
+~
+Dr 2 0 0 5174
+~
+~
+Dr 3 0 0 5021
+~
+~
+Dr 6 1024 0 5025
+~
+~
+Dr 7 0 0 5037
+~
+~
+End
+
+#5034
+N Plaza At Amphitheatre~
+Ref 0
+D
+~
+C
+RIMAGE bazaar4.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5038
+~
+~
+Dr 1 0 0 5037
+~
+~
+Dr 2 1024 0 5033
+~
+~
+Dr 3 0 0 5025
+~
+~
+Dr 6 1024 0 5035
+~
+~
+Dr 7 1024 0 5039
+~
+~
+Dr 8 0 0 5021
+~
+~
+Dr 9 1024 0 5036
+~
+~
+End
+
+#5035
+N Kess Plaza~
+Ref 5498
+D
+~
+C
+RIMAGE bazaar6.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 5007 -5 100 1
+Dr 1 0 0 5038
+~
+~
+Dr 2 1024 0 5025
+~
+~
+Dr 3 0 0 5030
+~
+~
+Dr 8 1024 0 5024
+~
+~
+Dr 9 1024 0 5034
+~
+~
+End
+
+#5036
+N Kess Plaza~
+Ref 5498
+D
+~
+C
+RIMAGE bazaar.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5037
+~
+~
+Dr 3 1024 0 5033
+~
+~
+Dr 6 1024 0 5034
+~
+~
+End
+
+#5037
+N Plaza At Ruthridge~
+Ref 5498
+D
+To the east, the plaza slowly deteriorates as Ruthridge Road heads toward
+the warrens.
+~
+C
+RIMAGE bazaar6.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5039
+~
+~
+Dr 1 0 0 5127
+~
+~
+Dr 2 0 0 5036
+~
+~
+Dr 3 0 0 5034
+~
+~
+Dr 6 0 0 5038
+~
+~
+Dr 8 0 0 5033
+~
+~
+End
+
+#5038
+N Plaza At Merchants Way~
+Ref 5498
+D
+Just north of here is Merchants Way, leading to the more prestigious
+districts of Kess.  A great deal of traffic enters and exits the plaza here.
+~
+C
+RIMAGE bazaar2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5126
+~
+~
+Dr 1 1024 0 5039
+~
+~
+Dr 2 0 0 5034
+~
+~
+Dr 3 1024 0 5035
+~
+~
+Dr 8 0 0 5025
+~
+~
+Dr 9 0 0 5037
+~
+~
+End
+
+#5039
+N Kess Plaza~
+Ref 5498
+D
+~
+C
+RIMAGE bazaar3.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5037
+~
+~
+Dr 3 0 0 5038
+~
+~
+Dr 8 1024 0 5034
+~
+~
+End
+
+#5040
+N Welkyn Road~
+Ref 5473
+D
+~
+C
+RIMAGE city2.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5085
+~
+~
+Dr 2 0 0 5031
+~
+~
+End
+
+#5041
+N Garret's Run~
+Ref 5478
+D
+The constant clamoring of business is audible to the southeast, as the
+Run leads to the Great Bazaar.  A space between two buildings to the west
+seems wider than most.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5042
+~
+space between two buildings~
+Dr 9 0 0 5026
+~
+~
+End
+
+#5042
+N Garret's Run~
+Ref 5478
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5041
+~
+~
+Dr 3 0 0 5027
+~
+~
+Dr 6 0 0 5043
+~
+~
+End
+
+#5043
+N Behind Buildings On Garret's Run~
+Ref 5478
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 5044
+~
+~
+Dr 9 0 0 5042
+~
+~
+End
+
+#5044
+N Intersection of Garret's Run And Welkyn~
+Ref 5478
+D
+In contrast to the twisty confines of the Run, Welkyn Road opens up to
+the south, a wide straight street.
+~
+C
+RIMAGE city5.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5010 10 100 1
+R O 5101 2 100 1
+R O 2500 10 100 1
+R O 5100 39 100 1
+Dr 2 0 0 5085
+~
+~
+Dr 9 0 0 5043
+~
+~
+End
+
+#5045
+N Garret's Run~
+Ref 5478
+D
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+End
+
+#5046
+N Soothsayer at Swodsrud~
+Ref 5494
+D
+Most of the carts seem to be either arriving from or heading to the
+west, where the road opens up to a busy square.  To the east, a dark
+and narrow gap can be seen between two of the more modest buildings.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5048
+~
+~
+Dr 1 0 0 5014
+~
+space between two buildings~
+Dr 3 0 0 5049
+~
+~
+End
+
+#5047
+N Soothsayer Lane~
+Ref 5493
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5051
+~
+~
+End
+
+#5048
+N Soothsayer Lane~
+Ref 5493
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5050
+~
+~
+Dr 2 0 0 5046
+~
+~
+End
+
+#5049
+N The Swodsrud Square~
+Ref 0
+D
+To the east and west is a loop of Soothsayer, surrounding the Swodsrud to
+the south.  The square itself extends north and south and has no formally
+laid stones -- it is an expanse of blackened, compact soot and gravel
+between the various smithys and bowyers and like shops.  This is where the
+implements of the Royal army are forged -- the finest weaponsmiths in Kess
+have resided here since the beginnings of the Kessian Expansion, though now
+the square is cramped between roads and residences that were not here during
+its creation.  
+~
+C
+RIMAGE square.jpg
+~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 5049 -5 100 1
+Dr 0 0 0 5053
+~
+~
+Dr 1 0 0 5046
+~
+~
+Dr 2 0 0 5052
+~
+~
+End
+
+#5050
+N Soothsayer Lane~
+Ref 5493
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5059
+~
+~
+Dr 2 0 0 5048
+~
+~
+End
+
+#5051
+N Soothsayer Lane~
+Ref 5493
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5047
+~
+~
+Dr 3 0 0 5054
+~
+~
+End
+
+#5052
+N South End of the Swodsrud Square~
+Ref 5049
+D
+There are shops to the east, south and west.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5049
+~
+~
+Dr 1 0 0 5186
+~
+open archway, under a wide awning~
+Dr 2 5 0 5184
+~
+wooden door~
+Dr 3 0 0 5183
+~
+open archway, into the heat of the smithy~
+End
+
+#5053
+N North End of the Swodsrud Square~
+Ref 5049
+D
+There are shops to the north, northeast and west.  The square continues
+south.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 5185
+~
+reed wicker door~
+Dr 1 0 0 5192
+You can see Bellin's Forge.
+~
+~
+Dr 2 0 0 5049
+~
+~
+Dr 3 5 0 5182
+~
+steel door~
+End
+
+#5054
+N Soothsayer Lane~
+Ref 5493
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5051
+~
+~
+Dr 3 0 0 5055
+~
+~
+End
+
+#5055
+N Soothsayer Lane~
+Ref 5494
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5057
+~
+~
+Dr 1 0 0 5054
+~
+~
+End
+
+#5056
+N Soothsayer Lane at Swodsrud~
+Ref 5494
+D
+Most of the carts seem to be either arriving from or heading to the east,
+where the road opens up to a busy square.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5057
+~
+~
+End
+
+#5057
+N Soothsayer Lane~
+Ref 5494
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5056
+~
+~
+Dr 2 0 0 5055
+~
+~
+End
+
+#5058
+N Intersection Of Truncot And Soothsayer~
+Ref 0
+D
+The uniform gray stones of Truncot end in a row of double-sized, rougher
+cobbles and two large iron lampposts.  Little by little the gray of the
+wide road fades, as it turns into a smaller, but not insubstantial 
+north-south roadway of mottled and varied stones.  The row of businesses
+along the western side of this road are all in tall, well-ornamented 
+buildings, that try to mask the modesty of their materials with billowing
+street banners and grand painted signs.  The narrower road, Soothsayer, is
+just as buzzing as Truncot, with merchant wagons and passersby no matter what
+the hour.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5058 1 100 1
+Dr 0 0 0 5060
+~
+~
+Dr 1 0 0 5032
+~
+~
+Dr 2 0 0 5059
+~
+~
+Dr 3 5 0 5181
+~
+oak door~
+End
+
+#5059
+N Soothsayer Lane~
+Ref 5493
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5058
+~
+~
+Dr 2 0 0 5050
+~
+~
+End
+
+#5060
+N Soothsayer Lane~
+Ref 5495
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5086
+~
+~
+Dr 2 0 0 5058
+~
+~
+End
+
+#5061
+N Bend in Soothsayer~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5062
+~
+~
+Dr 2 0 0 5086
+~
+~
+End
+
+#5062
+N Soothsayer Lane~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5063
+~
+~
+Dr 2 0 0 5061
+~
+~
+Dr 3 5 0 5180
+~
+door~
+End
+
+#5063
+N Soothsayer Lane~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5064
+~
+~
+Dr 2 0 0 5062
+~
+~
+End
+
+#5064
+N Soothsayer at the Cobbler~
+Ref 5495
+D
+To the south, the motley cobbles become a more uniform brown, as
+Soothsayer narrows and turns sharply to the west.  A cobbler's shop is to
+the east.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5065
+~
+~
+Dr 1 5 0 5179
+~
+wooden door~
+Dr 2 0 0 5063
+~
+~
+End
+
+#5065
+N Soothsayer at Noble Way~
+Ref 5495
+D
+Just north of here Soothsayer ends at the square.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5066
+~
+~
+Dr 2 0 0 5064
+~
+~
+End
+
+#5066
+N Soothsayer Square~
+Ref 0
+D
+The stones beneath you vary in color and origin, but all of them have the
+same worn, oft-used feel to them.  Holding patterns within patterns, the
+grey and brown cobbles spiral out from the center of the square.  Upon a
+careful consideration, you may notice that certain stones bear -carvings upon
+their faces, although most of the carvings are faint, given the wear on the
+stones.  All of the stores surrounding the square have an old feel to them,
+and the craftsmanship of the buildings is beyond compare.  Fine woodcarvings
+adorn a number of the window shutters and door frames.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 5178
+~
+small painted door~
+Dr 1 0 0 5167
+~
+~
+Dr 2 0 0 5065
+~
+~
+End
+
+#5067
+N Port Road~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5105
+~
+~
+Dr 2 0 0 5167
+~
+~
+End
+
+#5068
+N Port Road~
+Ref 5486
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5069
+~
+~
+End
+
+#5069
+N Port Road~
+Ref 5486
+D
+Port Road turns slightly to the northeast here.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5068
+~
+~
+Dr 7 0 0 5100
+~
+~
+End
+
+#5070
+N Dunlock Road~
+Ref 5487
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 5071
+~
+~
+End
+
+#5071
+N Dunlock Road at Well~
+Ref 5487
+D
+The graystones widen out to a circle lined with short flowering bushes,
+where an old stone well is situated at the center.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 5071 -5 100 1
+Dr 3 0 0 5072
+~
+~
+Dr 9 0 0 5070
+~
+~
+End
+
+#5072
+N Dunlock Road at Havenstok~
+Ref 5487
+D
+They reclaim their path to the west, where they completely shield a 
+particularly large home from the road.  The graystones are skillfully cut
+so as to follow the bend in the road, from the eastern path to the northeast.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5075
+~
+~
+Dr 1 0 0 5071
+~
+~
+Dr 2 0 0 5074
+~
+~
+Dr 7 0 0 5073
+~
+~
+End
+
+#5073
+N Havenstok Road~
+Ref 5477
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 7 0 0 5076
+~
+~
+Dr 8 0 0 5072
+~
+~
+End
+
+#5074
+N South Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5072
+~
+~
+Dr 2 0 0 5077
+~
+~
+End
+
+#5075
+N North Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5079
+~
+~
+Dr 2 0 0 5072
+~
+~
+End
+
+#5076
+N Havenstok Road~
+Ref 5477
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 7 0 0 5081
+~
+~
+Dr 8 0 0 5073
+~
+~
+End
+
+#5077
+N South Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5074
+~
+~
+Dr 8 0 0 5091
+~
+~
+Dr 9 0 0 5078
+~
+~
+End
+
+#5078
+N South Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 5077
+~
+~
+End
+
+#5079
+N North Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5092
+~
+~
+Dr 2 0 0 5075
+~
+~
+Dr 7 0 0 5080
+~
+~
+End
+
+#5080
+N North Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 8 0 0 5079
+~
+~
+End
+
+#5081
+N Havenstok Riverfront~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5082
+~
+~
+Dr 6 0 0 5095
+~
+~
+Dr 8 0 0 5076
+~
+~
+End
+
+#5082
+N Havenstok Riverfront~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5097
+~
+~
+Dr 3 0 0 5081
+~
+~
+End
+
+#5083
+N Welkyn Road~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#5084
+N Welkyn Road~
+Ref 5473
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5011
+~
+~
+Dr 2 0 0 5012
+~
+~
+End
+
+#5085
+N Welkyn Road~
+Ref 5473
+D
+~
+C
+RIMAGE city4.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5044
+~
+~
+Dr 2 0 0 5040
+~
+~
+End
+
+#5086
+N Soothsayer Lane~
+Ref 5495
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5061
+~
+~
+Dr 2 0 0 5060
+~
+~
+Dr 3 5 0 5300
+~
+wooden door~
+End
+
+#5087
+N Traveler's Road~
+Ref 5497
+D
+From the southeast, Carthage Road joins with Traveler's Road.  A
+citizen's stables has been erected for public use along the western side of
+the road.  Traveler's Road continues to the north and south.  Deep ruts in
+the cobblestones provide hazards for wagoneers.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5018
+Traveler's Road continues north.
+~
+~
+Dr 2 0 0 5015
+Traveler's Road continues south.
+~
+~
+End
+
+#5088
+N East Dvoxkin Alley~
+Ref 5491
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5089
+~
+~
+Dr 3 0 0 5013
+~
+~
+End
+
+#5089
+N Outside Arond's Keep~
+Ref 0
+D
+You are standing just south of an immense keep.  To the west, through the
+bushes is the end of Dvoxkin Alley, a short expanse of road leading to the
+Welkyn Road.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5090
+~
+~
+Dr 3 0 0 5088
+~
+~
+End
+
+#5090
+N Arond's Court~
+Ref 0
+D
+You are standing in a large well-groomed garden court just west of
+Traveler's Road, in the southern portion of Kess, near the Southern Bailey
+entrance to the city.  Great boulders covered with ivy are strewn in a
+pattern outlining the main entrance to the keep.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5172
+~
+~
+Dr 1 0 0 5015
+~
+~
+Dr 3 0 0 5089
+~
+~
+End
+
+#5091
+N South Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 5 0 1100
+~
+rusted iron gate~
+Dr 7 0 0 5077
+~
+~
+End
+
+#5092
+N North Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5093
+~
+~
+Dr 2 0 0 5079
+~
+~
+End
+
+#5093
+N North Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 5092
+~
+~
+Dr 6 0 0 5094
+~
+~
+End
+
+#5094
+N North Dunlock Boulevard~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 9 0 0 5093
+~
+~
+End
+
+#5095
+N Havenstok Riverfront~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5096
+~
+~
+Dr 9 0 0 5081
+~
+~
+End
+
+#5096
+N Havenstok Riverfront~
+Ref 5484
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5095
+~
+~
+End
+
+#5097
+N Havenstok Riverfront~
+Ref 5484
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5082
+~
+~
+Dr 7 0 0 5098
+~
+~
+End
+
+#5098
+N Havenstok Riverfront Dock~
+Ref 5484
+D
+The colorful cobblestones end here, in a row of deep blue stones carves
+with images of swirling eddies in water.  Where the stones leave off,
+richly lacquered darkwood continues, in the form of a small series of
+docks.  Most of the boats berthed here are moderate-sized merchant ships,
+but no matter what the size and designation of the vessel, they are all
+well-made and well-apportioned.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 8 0 0 5097
+~
+~
+End
+
+#5099
+N Port Road~
+Ref 5486
+D
+To the east is the Dock Concourse.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5101
+~
+~
+Dr 8 0 0 5100
+~
+~
+End
+
+#5100
+N Port Road~
+Ref 5486
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 7 0 0 5099
+~
+~
+Dr 8 0 0 5069
+~
+~
+End
+
+#5101
+N Port Road~
+Ref 5486
+D
+To the northeast, the loose gray stones of Port Road give way to the 
+wooden planks of the Dock Concourse.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5104
+~
+~
+Dr 3 0 0 5099
+~
+~
+End
+
+#5102
+N Dock Concourse~
+Ref 5485
+D
+To the west, you see a grand building which spans the dock.  Leading away
+from the concourse, to the southwest, you see a wide road which is loosely
+paved with faded stones.
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+End
+
+#5103
+N Port Road~
+Ref 5486
+D
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+End
+
+#5104
+N Port Road~
+Ref 5486
+D
+Port Road ends here, traveling westward.  To the northeast is the dock
+concourse.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 5101
+~
+~
+Dr 7 0 0 5105
+~
+~
+End
+
+#5105
+N Dock Concourse~
+Ref 5485
+D
+To the southwest, you see a wide road which is loosely paved with faded
+stones.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5106
+~
+~
+Dr 2 0 0 5067
+~
+~
+Dr 8 0 0 5104
+~
+~
+End
+
+#5106
+N Dock Concourse~
+Ref 5485
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 3072 0 10795
+~
+~
+Dr 1 0 0 5107
+~
+~
+Dr 3 0 0 5105
+~
+~
+End
+
+#5107
+N Dock Concourse~
+Ref 5485
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5108
+~
+~
+Dr 1 0 0 5111
+~
+~
+Dr 3 0 0 5106
+~
+~
+Dr 7 0 0 5256
+~
+~
+End
+
+#5108
+N Marina~
+Ref 0
+D
+You are standing on the Kessian Marina, by the Caerbrok, the crystal
+river.  Merchants and tradesmen hurry about loading small boats and
+watercraft bound for domestic ports or for seafaring cities in the
+mainland to the north.  The bustling seagoers eagerly board their ships
+bound for trade.  To the south, the marina adjoins the Kessian warehouse
+district.  
+~
+C
+(null)~
+F 1024
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 5108 1 100 1
+R O 5108 -1 100 3
+Dr 1 0 0 6200
+~
+~
+Dr 2 0 0 5107
+~
+~
+End
+
+#5109
+N Northern Wall Bridge Road~
+Ref 5485
+D
+To the north, a wide gap between shops reveal the massive, slate-gray
+stones of the Great Stone Bridge.  To the south, a street paved with smaller
+versions of those same stones leads away from the waterfront.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5110
+~
+~
+Dr 2 0 0 5111
+~
+~
+End
+
+#5110
+N Great Stone Bridge~
+Ref 0
+D
+A stone bridge spans the Caerbrok River.
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7400
+~
+~
+Dr 1 2304 0 10775
+The Caerbrok flows east toward the Mill.  
+~
+railing~
+Dr 2 0 0 5109
+~
+~
+Dr 3 2048 0 10776
+The Caerbrok's source is to the west, in the Andraius Mountains.
+~
+~
+End
+
+#5111
+N Bridge Road at Dock Concourse~
+Ref 5472
+D
+To the west is the dock concourse.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5109
+~
+~
+Dr 1 0 0 5207
+~
+~
+Dr 2 0 0 5112
+~
+~
+Dr 3 0 0 5107
+~
+~
+End
+
+#5112
+N Bridge Road~
+Ref 5472
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5111
+~
+~
+Dr 2 0 0 5113
+~
+~
+End
+
+#5113
+N Bridge Road~
+Ref 5472
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5112
+~
+~
+Dr 2 0 0 5116
+~
+~
+Dr 9 0 0 5138
+~
+~
+End
+
+#5114
+N Dock Concourse~
+Ref 5485
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 7 0 0 5115
+~
+~
+End
+
+#5115
+N Dock Concourse~
+Ref 5485
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5201
+~
+~
+Dr 8 0 0 5114
+~
+~
+End
+
+#5116
+N Northern Marketplace~
+Ref 5118
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5113
+~
+~
+Dr 2 0 0 5118
+~
+~
+Dr 6 0 0 5251
+~
+~
+Dr 7 0 0 5252
+~
+~
+Dr 8 0 0 5117
+~
+~
+Dr 9 0 0 5119
+~
+~
+End
+
+#5117
+N Western Marketplace~
+Ref 5118
+D
+To the west begins the Brestol Thoroughfare.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 7 0 0 5116
+~
+~
+Dr 9 0 0 5120
+~
+~
+End
+
+#5118
+N Center Marketplace~
+Ref 0
+D
+The marketplace is bustling with rich patrons, who wander to and fro from
+the larger shops and finer suppliers here.  The Marketplace is Kess's own
+original version of Vledhazbrun, supplying the local craftsman and innkeeps
+with home-grown wheats, fine vintage wines and the finest of cream and
+buttermilk.  
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 5048 -5 100 1
+Dr 0 0 0 5116
+~
+~
+Dr 1 0 0 5119
+~
+~
+Dr 2 0 0 5120
+~
+~
+End
+
+#5119
+N Eastern Marketplace~
+Ref 5118
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 5255
+~
+~
+Dr 3 0 0 5118
+~
+~
+Dr 6 0 0 5116
+~
+~
+Dr 8 0 0 5120
+~
+~
+End
+
+#0
+
+
+
+#$

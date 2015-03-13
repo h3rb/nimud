@@ -1,0 +1,217 @@
+
+How to Bend Space
+
+or : Using and Coding For The Script Interpreter
+
+by Locke@mugs.net
+
+
+First an apology.  After Chris died my debugging talents
+ceased to be on par.  In essence, I've gotten lazy.
+
+Notes:
+
+Scripts can be added to your favorite MUD software;
+all you have to do is copy the structures and functions 
+from NiMUD's MUD.H 
+
+The files relevant to the scripting language are:
+
+script.c
+script.h
+function.c
+function.h
+events.c
+
+These files are the core of the routines for the
+language.
+
+You will also need to add a new vnum hash table and
+copy appropriate commands for editing scripts
+from the oc.c and wiz_info.c files.
+
+You may want to take a glance through the source 
+code and find the calls for script_update(), which
+occur in various places throughout the source code.
+
+It is these calls which tie the language into
+the mud parser.
+
+You will also have to extract the saving and loading
+routines from the db.c
+
+---
+
+
+Making Scripts Simply 
+---------------------
+
+You can easily add new scripts to your existing 
+mobiles with simple functionality.  Set the
+trigger on the script to one of the appropriate
+forms, then add statements such as :
+
+do("this command");
+wait(10);
+
+This could keep you busy for hours, making
+what I refer to as the "headache" mobs, or the
+scripts that cause mobs to act, say or do
+something.
+
+This is also useful for simulating spec_funs,
+or, rather, special functions that enable
+mobiles to perform extended combat commands,
+queue events or assist particular mobiles 
+(creating MUD politics).
+
+Commands like these take advantage of
+MUD features like assist and track to
+carry out commands.  Certain functions
+can allow a loop to occur within the script
+such as this:
+
+label(start);
+do("this command");
+wait(4);
+if ( expression, 
+           {
+               goto(start);
+           },
+           {
+               goto(end); 
+           } ); 
+label(end);
+
+
+This code, a function of NiMScripts, demonstrates
+two important syntactic features and one
+very important interpretive constraint.
+
+Otherwise, the other features demonstrated
+are looping with goto() and label() as well
+as if-clause
+
+IMPORTANT NOTE: YOU MUST USE BRACES to delineate a
+section of code is imperative and should be used 
+whenever seperating code blocks.
+
+ADDENDUM:  BRACES VERSUS BRACKETS
+
+You can use Brackets [ and ] in place of braces,
+if you don't want to think about how much your
+braces hurt.  This is fine, just don't mix
+braces and brackets-- this is like crossing
+the streams in Ghostbusters -- a definite no-no.
+
+If you do, expect unpredictable results..
+
+Example:
+
+label(start);
+do([say hello]);
+wait(4);
+if ( expression,
+           [
+               goto(start);
+           ],
+           [
+               goto(end);
+           ] );
+label(end);
+
+
+
+Scripts Versus The World File
+-------------------------------
+Tricks and Tips 
+
+Use duplicate mobs to fake changes.. use duplicate
+areas to fake major changes -- create group
+adventures with the use of moveall() -- 
+
+Take a close look at the scripts in the area files
+and how they are arranged.  The scripts are like
+books on a shelf -- or dominos -- each script or
+set of scripts functions together as a single
+unit.  You may want to cut and paste from an external
+editor when making these things, and watch for the
+upward spam limit -- I've lost work this way.
+
+To make a ferryman, for instance, you may need several
+dummy rooms.  Start thinking of the MUD as a whole
+unit of manipulated databases -- create the workings
+behind the black curtain, for now you truly are
+an empowered wizard.  
+
+
+
+Spellcrafting
+-------------
+
+Scripts can be used to make spells.  Either using
+the event queue or incorperating scripts into
+your magick system.  In its raw form, NiMUD produces
+a spell system that manipulates two spectrums of
+spells -- mixed reagent magic and mana-based spell
+craft with a combination of both player mana and
+object-based mana (gems).
+
+The mix() and reagents() functions provide an
+overview of the inner workings of this system,
+and offer a great start for folks wanting to use
+this system.  
+
+do_oload has been modified to produce components,
+so you can test the system.
+
+It's taking a while to make this, I know, but I
+just haven't had the energy I had in the past.
+
+
+
+Event queues
+------------
+
+You can now add scripts to the event queue, tied
+to the "owner" of the event.  This is useful
+for spellcasting and "triggering" other scripts
+using the event() function.
+
+See events.c 
+
+
+Script Awards 2003
+------------------
+
+Included in the area files are a series of scripts,
+to give you an idea of what "works" (since many aren't 
+functioning properly) I've included this listing.
+I wrote all of these.  User submissions welcome.
+                              locke@mugs.net
+
+Working nimscripts:
+
+Ferryman
+  - 2x examples
+Charlatans
+  - bounty when killed 
+King and Magistrate
+  - crier
+  - reward
+Tiktuan War
+  - berserker
+  - giant special attack
+
+Words Scripts (that cause harm):
+
+scramble 
+- this script causes lag, memory errors and dangerous
+  liasons with infinity (nimscripts have a depth limit)
+
+
+Best quest/infocom-like example:
+
+Vietnam
+ - death scripts
+ - an enclosed "experience" (ends prematurely, though)

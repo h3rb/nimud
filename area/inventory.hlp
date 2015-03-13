@@ -1,0 +1,756 @@
+
+
+#DOC 2
+N INVENTORY~
+C 2 L 0
+KW INVENTORY~
+SY ~
+TX Shows your current inventory.
+~
+IT ~
+EX ~
+SA Get, Drop, Eat, Dump, Pour, Fill, Drink~
+End
+
+#DOC 153
+N BUY~
+C 2 L 0
+KW BUY~
+SY ~
+TX .
+Syntax:  buy <item#> [keeper]
+         buy <object> [keeper]
+         buy <component> [keeper]
+
+  This command allows a transaction to take place between your character
+  and an automated shopkeeper somewhere in the world.  When you receive
+  a listing of sold merchandise, numbers are listed next to sold items.
+  Use these numbers to directly access the object.  You can also supply
+  the keeper's name if you are in a shop with more than one.
+
+Example:
+
+> buy 1
+You buy a red fullcloth and receive 1 silver, 2 copper in change.
+> buy moonseed
+You buy a moonseed and receive 1 silver in change.
+> buy hat
+You buy a straw hat.
+
+  See also: Sell, List, Trade, Barter, Offer
+  Related topics:  Trading
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 154
+N CLOSE~
+C 2 L 0
+KW CLOSE~
+SY ~
+TX .
+Syntax:  close <container>
+         close <door> [direction]
+         
+  The close command shuts a pack, door, jar, barrel or whatever other
+  appropriate item you can think of.
+
+Example:    
+
+> close door west
+You close a small wooden door.
+> close pack
+You close a small shoulder pack.
+
+   See also:  Open
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 155
+N DRAG~
+C 2 L 0
+KW DRAG~
+SY ~
+TX .
+This command is not yet fully implemented.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 156
+N DRINK~
+C 2 L 0
+KW DRINK~
+SY ~
+TX .
+Syntax:  drink <fountain>
+         drink <container>
+         
+  The drink command allows your character to combat thirst.  Be wary
+  of poison, fell traveler!
+
+Example:
+
+> drink canteen
+You drink water from a small travel canteen.
+  
+   See also:  Pour, Fill, Eat
+   Related topics:  Poison
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 157
+N DROP~
+C 2 L 0
+KW DROP~
+SY ~
+TX .
+Syntax:  drop <item>
+         drop <number> <money>
+
+  This command drops one of the items in your hands onto the ground.  If
+  you supply a number, followed by a money object, only a portion of the
+  amount is dropped.
+  
+Example:
+
+> drop plate
+You drop a wooden plate.
+> drop 5 platinum
+You drop five platinum coins.
+
+   See also:  Get, Give
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 158
+N DUMP~
+C 2 L 0
+KW DUMP~
+SY ~
+TX .
+Syntax:  dump <container>
+         dump <source> <target>
+         
+  The dump command allows you to quickly exchange a series of objects
+  from one container to another, or to empty a container for some reason.
+
+Example
+> dump pack
+You dump the contents of a small shoulder pack onto the ground.
+
+   See also:  Pour
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 159
+N EAT~
+C 2 L 0
+KW EAT~
+SY ~
+TX .
+Syntax:  eat <food>
+
+  The eat command allows you to sustain your character's hunger.  You
+  must use this command in order to quell your hunger and stop from
+  starving.  Eating certain foods is beneficial and other foods can be
+  harmful.  Be wary.
+  
+Example:
+
+> eat trout
+You eat a poached trout.
+The trout has a flavorful palette and is very filling.
+
+   See also:  Drink
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 160
+N EQUIPMENT~
+C 2 L 0
+KW EQUIPMENT~
+SY ~
+TX .
+Syntax:  equipment
+
+  This command displays a list of what you are using, wielding, wearing
+  and what is hung from your belt.  It is a complement to the inventory
+  command.
+  
+  See also:  Inventory
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 161
+N EXTINGUISH~
+C 2 L 0
+KW EXTINGUISH~
+SY ~
+TX .
+Syntax:  extinguish <light>
+
+  This command extinguishes lit light-sources.
+  
+Example:
+
+> extinguish lamp
+You extinguish a brass lamp.
+
+   See also:  Light
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 162
+N FILL~
+C 2 L 0
+KW FILL~
+SY ~
+TX .
+Syntax:  fill <container> 
+         fill <lamp> [oil container]
+         
+  The fill command lets you replenish supplies from watersources or refuel
+  lanterns.  Lanterns must be extinguished before you attempt to refill them.
+
+Example:
+
+> fill canteen
+You fill a canteen with water from a fountain.
+> fill lamp flask
+You empty an oil flask into a hooded brass lantern.
+
+   See also:  Pour
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 163
+N GIVE~
+C 2 L 0
+KW GIVE~
+SY ~
+TX .
+Syntax:  give <object> <player>
+         give <number> <money> <person>
+
+  This command allows you to give another person an object, provided they
+  have a free hand in which to carry it.  If you supply a quantity,
+  followed by a money object, only a portion is transferred.
+  
+Example:
+
+> give sword lazlo
+You give a sword to the brown-eyed triosk.
+> give 5 platinum innkeeper
+You give five platinum coins to a stout innkeeper.
+
+   See also:  Drop, Get
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 164
+N HOLD~
+C 2 L 0
+KW HOLD~
+SY ~
+TX .
+Syntax:  hold <item>
+
+  The hold command stops a wielded weapon from being used in combat
+  and returns it to an unready position.  Readied weapons are defined
+  as ones held in their correct manner to deliver substantial blows
+  in combat -- to hold a sword and to wield a sword are two very
+  different things.
+  
+Example:
+
+> hold sword
+You stop wielding a sword.
+You hold a sword.
+
+   See also:  Wield, Sheathe, Draw
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 165
+N INVENTORY~
+C 2 L 0
+KW INVENTORY~
+SY ~
+TX .
+Syntax:  inventory
+
+  This command displays all the contents of your bare hands and any of
+  your open containers such as packs or your clothing.
+
+Example:
+
+> inventory
+A small shoulder pack contains:
+ two small apples
+ a royal sealed letter
+ a torn ragdoll
+ an empty lantern
+A money belt contains:
+ three copper coins
+ two platinum coins
+ one gold coin
+You wield a shortsword in your primary hand.
+
+  See also:  Look
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 166
+N LIGHT~
+C 2 L 0
+KW LIGHT~
+SY ~
+TX .
+Syntax:  light <lamp>
+
+  The light command ignites a torch, lantern or other light source.
+  To deactivate a lit lightsource, use the extinguish command.  Most
+  lightsources require a tinderbox or other striking paraphenalia.
+  
+Example:
+
+> light lantern
+You light an old lantern with a small tinderbox.
+
+   See also:  Extinguish
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 167
+N LIST~
+C 2 L 0
+KW LIST~
+SY ~
+TX .
+Syntax:  list [shopkeeper]
+
+  This command has not yet been fully implemented, but allows you to
+  see the inventory for sale at a shop.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 168
+N LOCK~
+C 2 L 0
+KW LOCK~
+SY ~
+TX .
+Syntax:  lock <container>
+         lock <door> [direction]
+         
+  The lock command fastens a door or container closed, but can only
+  be performed if you have the necessary key.
+
+Example:
+
+> lock gate north
+You lock the wrought iron gate with a rusty key.
+> lock case
+You lock a map case.
+  
+   See also:  Open, Unlock, Close
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 169
+N LOOK~
+C 2 L 0
+KW LOOK~
+SY ~
+TX .
+Syntax:  look
+         look <direction>
+         look <object>
+         look in <object>
+         look on <object>
+
+  This command is an important way for you to find out about the world
+  around you, the people around you, and where you have kept your most
+  beloved belongings.
+
+Example:
+
+> look north
+Just north of here, a large pair of double doors are set into the side of
+the Inn, allowing entrance to its foyer.
+The double door is open.
+Asynthia is nearby north from here.
+> look barrel
+A straight-sided barrel is hooped with thin metal strips and wooden pegs.
+> look on table
+There is nothing placed on an oak table.
+
+  See also:  Examine
+  Related topics:  Scan
+ 
+Please note: rooms denoted with a * in their title refer to saving
+rooms, or rooms that save their contents.  Please be kind to
+throw away your trash in other places.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 170
+N OPEN~
+C 2 L 0
+KW OPEN~
+SY ~
+TX .
+Syntax:  open <container>
+         open <door> [direction]
+         
+  The open command opens a pack, door, jar, barrel, or whatever other
+  appropriate item you can think of.
+
+Example:    
+
+> open door west
+You open a small wooden door.
+> open pack
+You open a small shoulder pack.
+
+   See also:  Close
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 171
+N POUR~
+C 2 L 0
+KW POUR~
+SY ~
+TX .
+Syntax:  pour <container>
+         pour <source> <target>
+         
+  This command allows you to manipulate the liquid in containers.  Pouring
+  your container into nothing pours it out onto the ground.
+  
+Example:
+
+> pour flask
+You pour lamp oil from a flask of oil onto the ground.
+
+   See also:  Fill, Dump
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 172
+N PUT~
+C 2 L 0
+KW PUT~
+SY ~
+TX .
+Syntax:  put <object> <container/furniture>
+
+  The put command allows you to store objects on or in other objects.
+  
+Example:
+
+> put lamp table
+You put an old lamp on a wooden table.
+
+   See also:  Get, Dump
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 173
+N RAISE~
+C 2 L 0
+KW RAISE~
+SY raise
+raise <target>
+~
+TX .
+Raise and lower your hood.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 174
+N REMOVE~
+C 2 L 0
+KW REMOVE~
+SY ~
+TX .
+Syntax:  remove <item>
+
+  This command allows you to stop using items or articles of clothing.
+  
+Example:
+
+> remove cape
+You stop using a long cape.
+
+   See also:  Wear, Wield, Sheathe, Draw
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 175
+N SELL~
+C 2 L 0
+KW SELL~
+SY ~
+TX .
+Syntax:  sell <item> [shopkeeper]
+
+  This command is not yet fully implemented.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 176
+N SWAP~
+C 2 L 0
+KW SWAP~
+SY ~
+TX .
+Syntax:  swap
+
+  This command swaps what is in your right hand with what is in your left.
+  
+Example:
+
+> swap
+You swap your flask of oil into your secondary hand.
+
+   See also:  Sheathe, Draw, Wear, Wield, Hold
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 177
+N TABLE~
+C 2 L 0
+KW TABLE~
+SY ~
+TX .
+You can place items on a table using "put" - you can take things
+things from a table using "get <item> <table>" - a great place
+to store goods.
+~
+IT ~
+EX ~
+SA Put, Get, Drop, Look~
+End
+
+#DOC 178
+N TAKE~
+C 2 L 0
+KW TAKE GET~
+SY ~
+TX .
+Syntax:  get all
+         get all.<object>
+         get <#.object>
+         get <object>
+         get all.<object> <object>
+         get <object> <object>
+
+  This command allows you to pick up objects that are in the room or inside
+  of nearby containers such as backpacks, storage chests, strongboxes or
+  a cloak.  It also allows you to get a series of objects with a certain
+  name.  To pick up one of a series, a supplied number allows for you to
+  extract a single object of many.
+
+ NOTE: "Take" is a synonymous command.
+
+Example:
+
+> get all.sword
+You get a longsword.
+You get a brass halfsword.
+> get lamp
+You get an oil lamp.
+> get 4.ring
+You get a glass ring.
+> get waterskin backpack
+You get a waterskin from a leather backpack.
+
+  See also: Drop, Dump
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 179
+N TOOLS~
+C 2 L 0
+KW TOOLS~
+SY ~
+TX .
+Special items such as lanterns, tinderboxes, bandages and the like are
+considered tools and are used by characters without need of skill or
+expertise.  These items can heal, repair or illuminate.  Tools range
+in effectiveness and price, and can be purchased throughout the realm.
+ 
+Other specialized items may have other methods of being used.
+~
+IT ~
+EX ~
+SA Use, Fill~
+End
+
+#DOC 180
+N UNLOCK~
+C 2 L 0
+KW UNLOCK~
+SY ~
+TX .
+Syntax:  unlock <door> [direction]
+         unlock <container>
+         
+  The unlock command can only be successfully completed with the use of
+  the appropriate key.
+  
+Example:
+
+> unlock hatbox
+You unlock a hasped hatbox with a small metal key.
+
+   See also:  Open, Lock, Close
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 181
+N USE~
+C 2 L 0
+KW USE~
+SY use [item] <target>
+~
+TX .
+Use allows you to take advantage of special items that can heal, repair,
+ignite or otherwise service your character in some means.  Bandages,
+tools such as the tinderbox and repair kits, all require this command.
+~
+IT ~
+EX ~
+SA Tools~
+End
+
+#DOC 182
+N WEAR~
+C 2 L 0
+KW WEAR~
+SY ~
+TX .
+Syntax:  wear <object> [location]
+
+You can wear things in the following locations:
+
+lfinger     rfinger       neck1       neck2         body        head
+legs        feet          hands       arms          shield      about
+waist       lwrist        rwrist      floating      belt1       belt2
+belt3       belt4         belt5       hold1         hold2       lshoulder
+rshoulder   lear          rear        lankle        rankle      shirt
+pants       back          nose        forehead      helm        stockings
+face        wield1        wield2      asbelt1       asbelt2     asbelt3
+
+  See also:  Sheathe, Draw, Wield, Swap, Hold
+
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

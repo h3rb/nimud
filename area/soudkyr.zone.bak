@@ -1,0 +1,2036 @@
+#ZONE 
+N Soudkyr~
+R A flash of heat lightning catches the corner of your eye from the
+southwest.  
+~
+B None~
+V 15100 15199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#15108
+N vassal-spar~
+C
+wait(15);
+ do({:bangs his cudgel against its bark.});
+wait(50);
+ do({:mashes his cudgel into the ground.});
+~
+T 10
+End
+
+#15110
+N sheriff~
+C
+if ( bounty(%actor%),
+   {
+        wait(5);
+        do({shout Stop there, criminal!});
+         do({kill %name%});
+     },
+    {
+       wait(5);
+       do({'Good day, %name%, stay out of trouble.});
+    } );
+~
+T 10
+End
+
+#0
+
+
+
+#ACTORS
+#15101
+N enslaved giant~
+SD an enslaved giant~
+LD
+ An enslaved giant carries his heavy chains behind him.
+~
+D
+ An enslaved giant carries his heavy chains behind him.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 200
+O ~
+AP 18 13 13 13 13
+End
+
+#15102
+N cook~
+SD the cook~
+LD
+ The cook is here, wiping his hands on his apron.
+~
+D
+ A small smurf is quietly picking berries.  He seems to hardly notice you.
+The cook is standing here, ready for your order.
+~
+A 147
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 20 14
+End
+
+#15103
+N alchemist~
+SD an alchemist~
+LD
+ An alchemist is mixing elixirs.
+~
+D
+ Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
+other smurfs.  They fear his knowledge.  Knowledge is power!
+~
+A 1219
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 853
+O ~
+Spell 23
+Spell 11
+Spell 26
+Spell 24
+Spell 25
+Spell 27
+Spell 28
+Spell 30
+Spell 29
+Spell 29
+Spell 30
+Spell 28
+Spell 27
+Spell 25
+Spell 24
+Spell 26
+Spell 11
+Spell 23
+Spell 31
+AP 25 25 25 25 40
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 24 2
+At 1 5 56 5
+At 2 1 95 1
+At 6 5 94 7
+End
+
+#15104
+N laborer~
+SD a laborer~
+LD
+ A dirty laborer wanders home from his lord's lands.
+~
+D
+ Muscular and trim, the laborer seems to see much work and little
+time for play.  His mind is set and he is tired.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 75
+O ~
+AP 13 13 13 13 13
+End
+
+#15105
+N insomniac~
+SD an insomniac~
+LD
+ An insomniac is sleep-walking here.
+~
+D
+ A sleep-depraved villager wanders aimlessly in the middle of the night.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 411
+O ~
+AP 25 25 25 25 25
+At 0 10 15 9
+At 1 5 10 12
+End
+
+#15106
+N minstrel vix~
+SD Vix~
+LD
+ Vix, the wandering minstrel of Soudkyr, scours the streets for a spot of cutter.
+~
+D
+ Youthful but not unwise, Vlan is a master theif and excellent
+bard.  He has a bit of a problem with alcohol, however.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 679
+O ~
+AP 25 25 25 25 35
+Sc 5221
+Sc 5222
+At 0 10 15 12
+At 1 5 21 8
+At 2 1 30 5
+At 3 1 33 19
+End
+
+#15107
+N guard~
+SD a guard~
+LD
+ A guard of Soudkyr eyes you briefly.
+~
+D
+ The guard looks like he has never been happy in his whole life.  A guard
+of Soudkyr is well-equipped and mean looking.  
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 150
+O ~
+AP 18 18 18 18 18
+End
+
+#15108
+N vassal~
+SD a vassal~
+LD
+ A vassal spars with a tree.
+~
+D
+ A muscular, brown-haired human vassal.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 100
+O ~
+AP 12 12 12 12 12
+Sc 15108
+End
+
+#15109
+N hand-maiden maiden girl~
+SD a hand-maiden~
+LD
+ A hand-maiden is washing her laundry in a tub.
+~
+D
+ The girl is a little chubby.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 100 E 898
+O ~
+AP 25 25 25 25 40
+At 0 10 53 5
+At 1 5 11 0
+At 4 1 27 19
+At 6 5 86 8
+End
+
+#15110
+N sheriff $n~
+SD sheriff $n~
+LD
+ The sheriff of Soudkyr is taking a stroll.
+~
+D
+ $n is the Sheriff of Soudkyr.  He serves the Regent Gargamel,
+and guards the Soudkyr residents from thieves and rogue travelers.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 100 E 245
+O ~
+AP 15 15 15 15 15
+Sc 15110
+At 0 10 18 12
+End
+
+#15111
+N gargamel~
+SD Gargamel~
+LD
+ The regent of Soudkyr, Gargamel, paces back and forth, fuming angrily about the sparce harvest.
+~
+D
+ Gargamel has never done anything right in his life.  He has caught smurfs
+before but always lets them escape.  He brings true meaning to the word moron.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -100 E 175
+O ~
+AP 15 15 15 15 15
+End
+
+#15112
+N azreal cat~
+SD Azreal~
+LD
+ Azreal is here, licking himself.
+~
+D
+ Gargamel's worthless cat.  He is just about as dumb as Gargamel.  He should
+just grab a smurf in his teeth and chew away.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -100 E 410
+O ~
+AP 25 25 25 25 25
+At 0 10 17 11
+At 1 5 17 5
+End
+
+#15131
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 16 7
+End
+
+#15141
+N x7 galleybot~
+SD the X7 galleybot~
+LD
+ The X7 galleybot is idle.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 92
+O ~
+AP 15 15 15 15 15
+Sc 10903
+At 0 10 12 1
+End
+
+#0
+
+
+
+#OBJDATA
+#15100
+N bunch berries smurfberries~
+SD a bunch of smurfberries~
+P ~
+D
+A bunch of delicious looking smurfberries lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 50
+O ~
+V 8 0 0 0
+End
+
+#15101
+N glasses~
+SD a pair of glasses~
+P ~
+D
+An odd pair of glasses has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W -32767
+Sz 0
+Ti 0
+Wt 2
+C 500
+O ~
+V 1 0 0 0
+End
+
+#15102
+N smurf hat~
+SD a smurf hat~
+P ~
+D
+A smurf hat has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 2
+C 50
+O ~
+V 3 0 0 0
+End
+
+#15103
+N axe small~
+SD a small axe~
+P ~
+D
+A small axe has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 2
+C 2000
+O ~
+V 0 2 5 3
+End
+
+#15104
+N necklace~
+SD a small necklace~
+P ~
+D
+A small necklace is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 5
+Sz 0
+Ti 0
+Wt 2
+C 500
+O ~
+V 1 0 0 0
+End
+
+#15105
+N pink potion~
+SD a pink potion~
+P ~
+D
+A pink potion is barely visible on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 500
+O ~
+V 6 0 0 0
+End
+
+#15106
+N wand~
+SD a small wand~
+P ~
+D
+A small wand lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 2
+C 500
+O ~
+V 5 1 1 0
+End
+
+#15107
+N key~
+SD a tiny key~
+P ~
+D
+A tiny key is lying on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 50
+O ~
+V 2 0 0 0
+End
+
+#15108
+N well~
+SD a smurf well~
+P ~
+D
+A small smurfy well is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 25
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 500
+C 3000
+O ~
+V 50 0 0 0
+End
+
+#15109
+N key~
+SD a small key~
+P ~
+D
+A key to Gargamel's door lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 50
+O ~
+V 2 0 0 0
+End
+
+#15141
+N Ponnet's key~
+SD Ponnet's key~
+P ~
+D
+Ponnet's house key has been stupidly dropped.
+~
+A
+~
+PD
+~
+DR
+A small iron key with a "P" formed from metal as the handle.
+~
+L 0
+T 18
+E 384
+W 5
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#15142
+N maple cabinetðHâ~
+SD a maple cabinet~
+P ~
+D
+A maple cabinet is set against one wall.
+~
+A
+~
+PD
+~
+DR
+A carefully crafted maple cabinet for storing goods and other items.  
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 5000 9 15141 0
+End
+
+#0
+
+
+
+#SCENES
+#15100
+N Black Gravel Road~
+Ref 0
+D
+A black gravel road leads east from Vladgadbrun.  To the northwest,
+the rim of the great colloseum frames wisps of smoke that billow
+into the clouds.
+~
+C
+~
+F 64
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 263 15141 15141
+~
+heavy steel-reinforced door~
+Dr 1 0 0 15101
+~
+~
+Dr 3 0 0 539
+~
+~
+End
+
+#15101
+N Turn in Black Gravel Road~
+Ref 0
+D
+This path is made of crushed granite with curious blue streaks in it.
+The path continues north to a village, or south to the west gate.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15102
+The path continues toward the village.
+~
+~
+Dr 3 0 0 15100
+~
+~
+End
+
+#15102
+N Dimly Lit Path~
+Ref 0
+D
+This section of the road is badly worn and frequently traversed.  There is
+faint singing to the north.  The road back to the arena lies to the south.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15103
+The path continues toward the village.
+~
+~
+Dr 2 0 -1 15101
+The dimly lit path.
+~
+~
+End
+
+#15103
+N Road to Soudkyr, South of Kyrinn~
+Ref 0
+D
+This section of the road is badly worn and frequently traversed.  Singing is
+getting stronger to the north.  The road back to the arena lies to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15104
+The entrance to smurf village.
+~
+~
+Dr 2 0 -1 15102
+The dimly lit path.
+~
+~
+End
+
+#15104
+N Entrance to Soudkyr~
+Ref 0
+D
+The southern edge of Soudkyr is a shanty town, full of huts and
+lean-tos, with crunchy gravel underfoot.  A black gravel road
+leads south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 15101 3 100 1
+Dr 0 0 -1 15105
+Smurfy Road
+~
+~
+Dr 2 0 -1 15103
+Dimly Lit Path
+~
+~
+End
+
+#15105
+N Kyr Road~
+Ref 0
+D
+The Kyr river flows past the road here, as it meanders through
+the blackened earth east of the Ring of Fire.  Billowing clouds
+of ash loom on the horizon.  Small huts and lean-tos form the
+ranshackle streets of Soudkyr, the small warren south of
+the capital city of Kyrinn, the seat of all power in Central
+Tyselorrd.  To the east and west is a long row of dilapidated
+dwellings that line the Laborer's Path.
+~
+C
+~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15101 3 100 1
+Dr 0 0 -1 15106
+Smurfy Road
+~
+~
+Dr 1 0 -1 15110
+Smurfy Road
+~
+~
+Dr 2 0 -1 15104
+Entrance to smurf village
+~
+~
+Dr 3 0 -1 15111
+Smurfy Road
+~
+~
+End
+
+#15106
+N Kyr Road~
+Ref 15105
+D
+Kyr Road, named for the river by which it runs, leads north
+and south from here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15107
+Smurfy Road
+~
+~
+Dr 1 5 -1 15120
+Smurfy Home
+~
+door to the Inn~
+Dr 2 0 -1 15105
+Smurfy Road
+~
+~
+Dr 3 0 -1 15112
+Smurfy Road
+~
+~
+End
+
+#15107
+N Kyr Road~
+Ref 15105
+D
+Artisan square opens up to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15101 3 100 1
+Dr 0 0 -1 15108
+Smurfy Road
+~
+~
+Dr 1 0 -1 15116
+Smurfberry Patch
+~
+~
+Dr 2 0 -1 15106
+Smurfy Road
+~
+~
+Dr 3 5 -1 15129
+A Smurfy Home
+~
+bolt-harnessed door~
+End
+
+#15108
+N Artisan Square~
+Ref 0
+D
+A neatly cobbled square in the center of Soudkyr.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15101 3 100 1
+Dr 0 0 -1 15109
+Smurfy Road
+~
+~
+Dr 1 0 -1 15117
+Smurfberry patch
+~
+~
+Dr 2 0 -1 15107
+Smurfy Road
+~
+~
+Dr 3 0 -1 15113
+A stone path
+~
+~
+End
+
+#15109
+N Artisan Square~
+Ref 0
+D
+A neatly cobbled square in the center of Soudkyr.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED smurfy well~
+A small well is here.  Just the right size if you're a smurf.  But big
+enough for you to get some water from.  I'm sure the smurfs wont mind.
+~
+R O 15108 0 100 1
+Dr 1 0 -1 15118
+Smurfberry Patch
+~
+~
+Dr 2 0 -1 15108
+Smurfy Road
+~
+~
+Dr 3 0 -1 15114
+Smurfy Road
+~
+~
+End
+
+#15110
+N Laborer's Path~
+Ref 0
+D
+The laborer's path is a soot-covered dustbowl in the southern
+districts of Soudkyr, a small village south of Kyrinn.  Dirty
+houses and lean-tos line the narrow, soiled street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15101 3 100 1
+Dr 0 1 -1 15119
+Smurfy Home
+~
+dusty wood door~
+Dr 3 0 -1 15105
+Smurfy Road
+~
+~
+End
+
+#15111
+N Laborer's Path~
+Ref 0
+D
+The narrow soot-covered road called Laborer's Path turns at
+a pair of mud-covered buildings, larger than the small lean-tos
+that are the norm in this warren.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15101 3 100 1
+Dr 0 0 -1 15112
+Smurfy Road
+~
+~
+Dr 1 0 -1 15105
+Smurfy Road
+~
+~
+Dr 2 0 -1 15121
+Smurfy Home
+~
+~
+End
+
+#15112
+N Laborer's Path~
+Ref 0
+D
+There's no place like smurf.  There's no place like smurf.  Sorry wrong
+movie.  A smurfy home is to the west.  Papa Smurf's backyard is to the
+north but you can't go there.  Smurfy Road continues to the south and
+east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15101 3 100 1
+Dr 1 0 -1 15106
+Smurfy Road
+~
+~
+Dr 2 0 -1 15111
+Smurfy Road
+~
+~
+Dr 3 0 -1 15122
+Smurfy Home
+~
+~
+End
+
+#15113
+N Stone Courtyard~
+Ref 0
+D
+A small stone courtyard set in front of the jail and office of
+the Sheriff.  To the east is Artisan Square.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 15108
+Smurfy Road
+~
+~
+Dr 2 1 107 15125
+Papa Smurf's House
+~
+door~
+Dr 3 0 -1 15123
+Smurfy House
+~
+~
+End
+
+#15114
+N Soudkyr Road~
+Ref 0
+D
+A short brick road leading west from Artisan Square toward
+the Keep of Soudkyr.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 15109
+Smurfy Road
+~
+~
+Dr 3 0 -1 15115
+Smurfy Road
+~
+~
+End
+
+#15115
+N Soudkyr Road~
+Ref 0
+D
+Soudkyr Road turns sharply north as it leads toward the Keep.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15126
+Path to Gargamel's Castle
+~
+~
+Dr 1 0 -1 15114
+Smurfy Road
+~
+~
+Dr 2 0 -1 15124
+Smurfy Home
+~
+~
+Dr 3 5 0 15130
+~
+gate~
+End
+
+#15116
+N Delicatessan~
+Ref 0
+D
+A wonderful hole-in-the-wall eatery.  The owners probably
+wished it would be as big as an Inn, but its just a little
+nook in the side of Kyr Road.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15102 1 100 1
+R O 5010 -1 100 5
+Dr 3 0 -1 15107
+Smurfy Road
+~
+~
+End
+
+#15117
+N Soudkyr Trading Post~
+Ref 0
+D
+A black-thatched roof over a small trading post located in the
+southeastern portion of Artisan Square.  Boxes, crates, barrels, casks and
+sacks are stacked neatly in the corner.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15118
+The road to Kyrinn, home of the Gemmasters' Guild.
+~
+~
+Dr 3 0 -1 15108
+~
+~
+End
+
+#15118
+N Artisan Square~
+Ref 0
+D
+A cobbled square located in the center of Soudkyr's older district.  To
+the northwest you can see the spires of the Keep of Soudkyr.  A dusty path
+leads north to the city of Kyrinn.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 24101
+~
+~
+Dr 2 0 -1 15117
+Soudkyr
+~
+~
+Dr 3 0 -1 15109
+Smurfy Road
+~
+~
+End
+
+#15119
+N Apothecary~
+Ref 0
+D
+A dusty apothecary located in Soudkyr, financed by the Council
+and placed here to stop the spread of disease.  It is manned
+by a single shopkeeper, who mixes elixirs and ointments from
+scratch.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15103 1 100 1
+R C 42 -1 100 200
+R C 48 -1 100 35
+R C 261 -1 100 30
+R C 192 -1 100 80
+R C 183 -1 100 10
+R C 184 -1 100 10
+R C 148 -1 100 10
+R C 160 -1 100 50
+R C 147 -1 100 50
+R C 110 -1 100 50
+R C 105 -1 100 50
+R C 94 -1 100 50
+R C 70 -1 100 50
+R C 76 -1 100 50
+R C 51 -1 100 100
+R C 73 -1 100 20
+R C 47 -1 100 100
+R C 109 -1 100 10
+R C 49 -1 100 10
+R C 59 -1 100 10
+R C 52 -1 100 10
+R C 64 -1 100 10
+Dr 2 1 -1 15110
+Smurfy Road
+~
+dusty wood door~
+End
+
+#15120
+N Laborer's Path Inn~
+Ref 0
+D
+A modest Inn on Kyr Road, in Soudkyr.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15104 1 100 1
+R O 5000 -5 100 1
+Dr 3 5 -1 15106
+Smurfy Road
+~
+door to the Inn~
+End
+
+#15121
+N Laborer's Hut~
+Ref 0
+D
+A cramped flat on the Laborer's Path in southern Soudkyr.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15106 1 100 1
+Dr 0 0 -1 15111
+Smurfy Road
+~
+~
+End
+
+#15122
+N "Soudkyr Cooper"~
+Ref 0
+D
+A cooper's shop on the Laborer's Path.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15105 1 100 1
+Dr 1 0 -1 15112
+Smurfy Road
+~
+~
+End
+
+#15123
+N Jail~
+Ref 0
+D
+The jail is filled with shackles, cells and is dark and dingy.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15107 1 100 1
+Dr 1 0 -1 15113
+Smurfy Road
+~
+~
+End
+
+#15124
+N Occulus Enchantments~
+Ref 0
+D
+A dark shoppe filled with enchantments.
+~
+C
+~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15115
+Smurfy Road
+~
+~
+End
+
+#15125
+N Sheriff's Office~
+Ref 0
+D
+It's the home of the leader of the smurfs.  Papa Smurf has a nicely decorated
+home.  He takes pride in his work.  You could get to know him or just squash
+him.  If Papa Smurf is not here he is probably at Smurfette's putting the
+moves on her.  A stone path lies to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 15110 1 100 1
+Dr 0 1 107 15113
+Stone Path
+~
+door~
+End
+
+#15126
+N Soudkyr Road~
+Ref 0
+D
+A narrow brick road that leads through a dense thicket; the
+unkempt garden before the great Keep of Soudkyr.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 15127
+Outside Gargamel's Castle
+~
+~
+Dr 2 0 -1 15115
+Smurfy Road
+~
+~
+End
+
+#15127
+N Outside Keep Soudkyr~
+Ref 0
+D
+A tall stone keep is resting on top of a small knoll.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 109 15128
+Gargamel's Castle
+~
+door~
+Dr 2 0 -1 15126
+Path to Gargamel's Castle
+~
+~
+End
+
+#15128
+N Great Hall - Keep Soudkyr~
+Ref 0
+D
+A wide arched hallway that is the central meeting place for
+the nobles and lords of Soudkyr.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15111 1 100 1
+Dr 2 0 109 15127
+Outside Gargamel's Castle
+~
+door~
+End
+
+#15129
+N Harem Bar~
+Ref 0
+D
+A dark and sultry atmosphere pervades the Harem Bar; filled with
+smoke from a dozen pipes, it's dimly lit quarter is dancing with
+shadows.  The windows are all painted black - no light enters
+nor escapes this pit.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15109 1 100 1
+Dr 1 5 -1 15107
+Smurfy Road
+~
+bolt-harnessed door~
+End
+
+#15130
+N Outside Soudkyr~
+Ref 0
+D
+The eastern gate of Soudkyr is due east.  To the west extends the realms
+once home to the long dead king Vlattensintri, where the city-states of
+Tallez and the homeland of the Pi'Chek-Ur can be found; it is also home to
+the Ring of Fire, a series of active volcanos which served as the forge for
+the first empires of Tyselorrd.  
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 5 0 15115
+~
+gate~
+Dr 3 0 0 15131
+~
+~
+End
+
+#15131
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15130
+~
+~
+Dr 3 0 0 15132
+~
+~
+End
+
+#15132
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15131
+~
+~
+Dr 3 0 0 15133
+~
+~
+End
+
+#15133
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15132
+~
+~
+Dr 3 0 0 15134
+~
+~
+End
+
+#15134
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15133
+~
+~
+Dr 3 0 0 15135
+~
+~
+End
+
+#15135
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15134
+~
+~
+Dr 3 0 0 15136
+~
+~
+End
+
+#15136
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15135
+~
+~
+Dr 3 0 0 15137
+~
+~
+End
+
+#15137
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15136
+~
+~
+Dr 3 0 0 15138
+~
+~
+End
+
+#15138
+N Gemmaster's Road~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15142
+~
+~
+Dr 1 0 0 15137
+~
+~
+Dr 2 0 0 15139
+~
+~
+End
+
+#15139
+N Tallez Trader's Circuit~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15138
+~
+~
+Dr 2 0 0 15140
+~
+~
+End
+
+#15140
+N Tallez Trader's Circuit~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15139
+~
+~
+End
+
+#15141
+N Ponnet's Modest Tower~
+Ref 0
+D
+You are standing in a small tower owned by Ponnet.  It is fashioned from
+obsidian and mixed volcanic stones quarried northwest of here in Pi'Chek-Ur.
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15141 1 100 1
+R O 10911 -1 100 10
+Dr 2 263 15141 15100
+~
+heavy steel-reinforced door~
+End
+
+#15142
+N Tallez Trader's Circuit~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15143
+~
+~
+Dr 2 0 0 15138
+~
+~
+End
+
+#15143
+N Tallez Trader's Circuit~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15144
+~
+~
+Dr 2 0 0 15142
+~
+~
+End
+
+#15144
+N Road to Tallez~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 15143
+~
+~
+Dr 3 0 0 15145
+~
+~
+End
+
+#15145
+N Road to Tallez~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15144
+~
+~
+Dr 3 0 0 15146
+~
+~
+End
+
+#15146
+N Road to Tallez~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15145
+~
+~
+Dr 3 0 0 15147
+~
+~
+End
+
+#15147
+N Road to Tallez~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15146
+~
+~
+Dr 3 0 0 15148
+~
+~
+End
+
+#15148
+N Road to Tallez~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 15147
+~
+~
+Dr 3 0 0 15149
+~
+~
+End
+
+#15149
+N Road to Tallez~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15150
+~
+~
+Dr 1 0 0 15148
+~
+~
+End
+
+#15150
+N Border At Tallez~
+Ref 0
+D
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15300
+~
+~
+Dr 2 0 0 15149
+~
+~
+End
+
+#0
+
+
+
+#$

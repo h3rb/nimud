@@ -1,0 +1,5 @@
+[*****] BUG: load_config: incorrect keyword Ban
+[*****] BUG: load_config: incorrect keyword Ban
+[*****] BUG: load_config: incorrect keyword Ban
+[*****] BUG: No spaces
+[*****] BUG: No spaces

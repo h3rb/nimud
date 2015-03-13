@@ -1,0 +1,995 @@
+NOTE:
+
+I had to change the help system because Krayy's code
+caused the loss of significant portions of the
+help documentation with his buggy code.  He stole
+the source; luckily it was only partially working.
+
+I revamped it.  This one includes vnums.
+
+-Locke
+
+
+
+
+----------------------------------------------------------
+/* -----------------------------------------------------
+ * Help editor with improved help for NiMUD, 4 - 21/1/02
+ * -----------------------------------------------------
+ * This code includes a comprehensive help editor, along
+ * with a new do_help function. It allows a lot more
+ * flexibility and readability with regards to how help
+ * files are created and is easily customisable. It is
+ * designed to be "read" compatible with older style
+ * help files, but may stirke problems with help files
+ * that have multiple words in its subject.
+ *
+ * To install, follow all of the file additions and/or
+ * deletions that are listed below.
+ *
+ * After the code has been patched (you DID make a backup
+ * of your source AND area files didn't you?), there will
+ * be a number of clean up jobs for you to do. I have 
+ * tried to do most of the conversion process between the
+ * old help files and the new in the code. 
+ *
+ * The most important thing to do after you patch the
+ * source and restart the server for the first time is to
+ * log in as an IMMORTAL and do an "asave helps" and then
+ * "reboot". This will convert the help files to the new
+ * format and make the changes to the "area.lst" file.
+ *
+ * The SECOND important thing is to CHECK THE STARTUP
+ * LOGS after the server restarts. There will be a number
+ * of entries that start with the string:
+ * "BUG: Load_helpdata: Duplicate help for ..."
+ * The reason for this is that the old help system
+ * supported help overloading (mulitple helps by the same
+ * name) and displayed them based on your level. The new
+ * system does not support this, as it provides for normal
+ * level based text as well as a special "immtext" field
+ * that only immortals can see. Go through the log and
+ * either change the names of the offending topics OR
+ * combine the duplicates into one entry. A completed
+ * help entry should look as follows:
+
+#ANSI
+6 0 ANSI COLOR~
+color
+         color <keyword> <color>
+~
+.
+  Lets you change your default colors with ANSI support.
+~
+.
+  Immortals can see this text.
+~
+.
+  > color
+  Ansi color is now on.
+~
+Config~
+
+
+ * To explain the fields, the first line is the help topic
+ * name. The second line is the level, class and keywords.
+ * The next lines up to the ~ is the syntax. the next ~ delimited
+ * set of lines is the normal text. The next is the immtext,
+ * followed by the Example lines and finally the Seealso field.
+ *
+ * Limitations (damn, I knew there were some):
+ * - If the syntax covers more than one line, you HAVE to indent
+ *   all of the lines after the first by 9 blanks to format it
+ *   correctly.
+ * - Text, immtext and Examples need a period on the first line
+ *   to format their indenting correctly. If the period is not
+ *   there, all leading whitespace will be cut from the help entry.
+ * - You either have to manually convert every help entry or
+ *   do it via the OLC.
+ *
+ * Usage:
+ * To start editing a help file just type "hedit <helpname>".
+ * The usual commands (?, show, done) all apply. I have included
+ * the hedit help entry for you here :-) (cut and paste it into
+ * general.hlp after the conversion is complete.
+
+#HEDIT
+0 9 HEDIT~
+hedit create [name]
+          hedit [name]
+~
+.
+  This allows you to enter the help editor.  Once inside, you have the
+  following command subset:
+
+      name              show             done
+      class             level            ? 
+      text              immtext          seealso
+      keywords          syntax
+~
+~
+~
+AEditor, OLC, Medit, Oedit, Redit, Hedit~
+
+ * The other groovy feature is the command "help index". I
+ * negelected to add in level support into that command but
+ * will do eventually (well this IS a version 1.0 isnt it?)
+ *
+ * If you have any suggestions on how to improve this
+ * code, please email me.
+ *
+ * Warren Powell (aka Krayy)
+ * [krayy@hotmail.com]
+ * -------------------------------------------------- */
+
+/* -----------------------------------------------------
+ * mud.h
+ * add the following lines to the help_data struct    */
+
+struct help_data
+{
+   HELP_DATA *    next;
+   sh_int    level;
+   char *    keyword;
+   char *    text;
++   sh_int    class;
++   char *    name;
++   char *    syntax;
++   char *    example;
++   char *    immtext;
++   char *    seealso;
+};
+
+
+/* -----------------------------------------------------
+ * mud.h
+ * and add the following lines                        */
+
+#define HELP_CLASS_GENERAL         0
+#define HELP_CLASS_MOVEMENT        1
+#define HELP_CLASS_INVENTORY       2
+#define HELP_CLASS_STATUS          3
+#define HELP_CLASS_SKILLS          4
+#define HELP_CLASS_COMBAT          5
+#define HELP_CLASS_COMMMUNICATION  6
+#define HELP_CLASS_INFORMATION     7
+#define HELP_CLASS_BUILDER         8
+#define HELP_CLASS_IMMORTAL        9
+#define HELP_CLASS_NANNY           10
+#define MAX_HELP_CLASS             HELP_CLASS_NANNY + 1
+
+struct help_class
+{
+   char *    name;
+   char *    filename;
+   char *    desc;
+};
+
+extern  const  struct help_class  help_class_table  [MAX_HELP_CLASS];
+HELP_DATA *    new_help              args( ( void ) );
+void           free_help             args( ( HELP_DATA *pHelp ) );
+void    hedit                  args( ( CHAR_DATA *ch, char *argument ) );
+DECLARE_DO_FUN( do_hedit  );
+
+
+/* -----------------------------------------------------
+ * comm.h
+ * add the following lines                            */
+
+  #define CON_SEDITOR                     -9
++ #define CON_HEDITOR                     -10
+
+
+/* -----------------------------------------------------
+ * oc.h
+ * add the following lines                            */
+
+  DECLARE_DO_FUN( do_sedit         );
++ DECLARE_DO_FUN( do_hedit         );
+
+/* -----------------------------------------------------
+ * interp.c
+ * add the following lines                            */
+
+    { "sedit",          do_sedit,     POS_DEAD,    LEVEL_ANGEL,  LOG_NORMAL  },
++   { "hedit",          do_hedit,     POS_DEAD,    LEVEL_ANGEL,  LOG_NORMAL  },
+
+NB: Change the allowed level if you want builders to access the command
+
+
+/* -----------------------------------------------------
+ * comm.c
+ * make the following 4 additions                     */
+
+~Line 448
+                 case CON_SEDITOR: sedit( d->character, d->incomm );     break;
++                case CON_HEDITOR: hedit( d->character, d->incomm );     break;
+~Line 1156
+                           case CON_SEDITOR: sprintf( buf2, "SEdit" );  break;
++                          case CON_HEDITOR: sprintf( buf2, "HEdit" );  break;
+~line 1171
+                      MOB_INDEX_DATA *pMob;
++                      HELP_DATA *pHelp;
+~Line 1202
+                    case CON_OEDITOR:
+                    {
+                        pObj = (OBJ_INDEX_DATA *)ch->desc->pEdit;
+                        sprintf( buf2, "%d", pObj  != NULL ? pObj->vnum  : 0 );
+                        break;
+                    }
++                    case CON_HEDITOR:
++                    {
++                        pHelp = (HELP_DATA *)ch->desc->pEdit;
++                        sprintf( buf2, "%s", pHelp != NULL ? pHelp->name : "Hedit" );
++                        break;
+
+
+/* -----------------------------------------------------
+ * wiz_info.c
+ * add the following lines                            */
+
+            case CON_SEDITOR: return "EDITING: Scripts";
++           case CON_HEDITOR: return "EDITING: Helps";
+
+/* -----------------------------------------------------
+ * mem.c
+ * add the following lines                            */
+
+HELP_DATA               *   help_free;
+HELP_DATA                help_zero;
+
+HELP_DATA *new_help( void)
+{
+   HELP_DATA *pHelp;
+
+   if ( help_free == NULL )
+   {
+       pHelp   =   alloc_perm( sizeof(*pHelp) );
+       top_help++;
+   }
+   else
+   {
+       pHelp        =   help_free;
+       help_free    =   help_free->next;
+   }
+
+   *pHelp           = help_zero;
+   pHelp->next      = NULL;
+   pHelp->level     = 0;
+   pHelp->keyword   = str_dup("");
+   pHelp->text      = str_dup("");
+   pHelp->class     = 0;
+   pHelp->name      = str_dup("");
+   pHelp->syntax    = str_dup("");
+   pHelp->example    = str_dup("");
+   pHelp->immtext   = str_dup("");
+   pHelp->seealso   = str_dup("");
+
+   return pHelp;
+}
+
+void free_help( HELP_DATA *pHelp )
+{
+    free_string( pHelp->keyword );
+    free_string( pHelp->text );
+    free_string( pHelp->name );
+    free_string( pHelp->immtext );
+    free_string( pHelp->seealso );
+    free_string( pHelp->syntax );
+    free_string( pHelp->example );
+
+    pHelp->next         =   help_free->next;
+    help_free           =   pHelp;
+    return;
+}
+
+
+/* -----------------------------------------------------
+ * def.c
+ * add the following lines                            */
+
+/* Help class table */
+const struct help_class help_class_table [MAX_HELP_CLASS] =
+{
+   { "General",      "general.hlp",     "General topics"                      },
+   { "Movement",     "move.hlp",        "Getting around"                      },
+   { "Inventory",    "inventory.hlp",   "Inventory and equipment management"  },
+   { "Status",       "status.hlp",      "Character stats and informations"    },
+   { "Skills",       "skills.hlp",      "Upgrading and obtaining more skills" },
+   { "Combat",       "combat.hlp",      "Attacking and surviving"             },
+   { "Communication","comms.hlp",       "Communicating with other players"    },
+   { "Story",        "story.hlp",       "Background info for the MUD"         },
+   { "Script",       "script.hlp",      "Scripting language helps"            },
+   { "Immortal",     "immref.hlp",      "Immortal specific helps"             },
+   { "Nanny",        "nanny.hlp",       "Nanny helps"                         }
+};
+
+
+/* -----------------------------------------------------
+ * oc.c
+ * replace the existing function save_area_list with
+ * this one                                           */
+
+void save_area_list()
+{
+   FILE *fp;
+   AREA_DATA *pArea;
+   int cidx;
+
+   if ( ( fp = fopen( AREA_LIST, "w" ) ) == NULL ) {
+      bug( "Save_area_list: fopen", 0 );
+      perror( "area.lst" );
+   } else {
+      for ( cidx=0; cidx < MAX_HELP_CLASS; cidx++ )
+         fprintf(fp, "%s\n", help_class_table[cidx].filename);
+
+      for( pArea = area_first; pArea != NULL; pArea = pArea->next )
+         fprintf( fp, "%s\n", pArea->filename );
+
+      fprintf( fp, MUD_FILE "\n" );
+      fprintf( fp, ROOMS_FILE "\n" );
+
+      fprintf( fp, "$\n" );
+      fclose( fp );
+   }
+   return;
+}
+
+
+/* -----------------------------------------------------
+ * oc.c
+ * drop in this function BEFORE do_asave              */
+
+void save_helps()
+{
+  HELP_DATA * pHelp;
+  char buf  [MAX_STRING_LENGTH];
+  FILE * fp;
+  char HFILE  [MAX_STRING_LENGTH];
+  int cidx;
+
+  for ( cidx=0; cidx < MAX_HELP_CLASS; cidx++ ) {
+     sprintf(HFILE, "%s", help_class_table[cidx].filename);
+
+     if (! (fp = fopen( HFILE, "w") ) )
+     {
+         bug( "Open_help: fopen", 0);
+         perror( HFILE );
+     }
+
+     fprintf(fp, "#HELPDATA\n");
+
+     for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next ) {
+
+       if ( pHelp->class == cidx ) {
+
+        /* Ensure that there are no spaces in help name */
+        one_argcase( pHelp->name, buf );
+        replace_char(buf, ' ', '_');
+
+        fprintf(fp, "\n#%s\n", buf );
+        fprintf(fp, "%d %d %s~\n", pHelp->class, pHelp->level, pHelp->keyword);
+        fprintf(fp, "%s~\n", fix_string(pHelp->syntax));
+
+        if ( pHelp->text[0] != '.' ) {
+           fprintf(fp, ".\n%s~\n", fix_string(pHelp->text) );
+        } else {
+           fprintf(fp, "%s~\n", fix_string(pHelp->text));
+        }
+
+        fprintf(fp, "%s~\n", fix_string(pHelp->immtext));
+        fprintf(fp, "%s~\n", fix_string(pHelp->example));
+        fprintf(fp, "%s~\n", pHelp->seealso);
+       }
+     }
+
+     fprintf(fp,"\n#$\n#$\n");
+     fclose(fp);
+   }
+   return;
+}
+
+void do_hstat( CHAR_DATA *ch, char *argument )
+{
+   HELP_DATA *pHelp;
+   char buf  [MAX_STRING_LENGTH];
+   char arg1[MAX_INPUT_LENGTH];
+ 
+   argument = one_argument(argument,arg1);
+
+   for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next ) {
+      if ( !str_cmp(arg1, pHelp->name) ) {
+         sprintf( buf, "Name:     %s\n\r", pHelp->name );
+         send_to_char( buf, ch );
+         sprintf( buf, "Class:    %d (%s)\n\r", pHelp->class, help_class_table[pHelp->class].name );
+         send_to_char( buf, ch );
+         sprintf( buf, "Level:    %d\n\r", pHelp->level );
+         send_to_char( buf, ch );
+         sprintf( buf, "Keywords: %s\n\r", pHelp->keyword );
+         send_to_char( buf, ch );
+         sprintf( buf, "Syntax:   %s\n\r", pHelp->syntax );
+         send_to_char( buf, ch );
+         sprintf( buf, "Text:\n%s\n\r", pHelp->text );
+         send_to_char( buf, ch );
+         sprintf( buf, "Immtext:\n%s\n\r", pHelp->immtext );
+         send_to_char( buf, ch );
+         sprintf( buf, "Example:\n%s\n\r", pHelp->example );
+         send_to_char( buf, ch );
+         sprintf( buf, "Seealso:  %s\n\r", pHelp->seealso );
+         send_to_char( buf, ch );
+         return;
+      }
+   }
+   sprintf( buf, "There is no help file for %s\n", arg1);
+   send_to_char( buf, ch );
+}
+
+/*
+ * Syntax: hedit [name]
+ *         hedit create [name]
+ */
+void do_hedit( CHAR_DATA *ch, char *argument )
+{
+   HELP_DATA *pHelp;
+   char arg1[MAX_INPUT_LENGTH];
+   bool create = FALSE;
+
+   argument = one_argument(argument,arg1);
+    
+   if (!str_cmp(arg1, "create") ) {
+      create = TRUE;
+      argument = one_argument(argument,arg1);
+   }
+
+   for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next ) {
+      if ( !str_cmp(arg1, pHelp->name) ) {
+            ch->desc->pEdit=(void *)pHelp;
+            ch->desc->connected = CON_HEDITOR;
+            return;
+         }
+   }
+
+   if( create == TRUE ) {
+      if (arg1[0] == '\0') {
+          send_to_char("Syntax: hedit create [topic]\n\r",ch);
+          return;
+      } else {
+         pHelp                        = new_help();
+         pHelp->name                  = str_dup( strupr( arg1 ) );
+         pHelp->keyword               = str_dup( strupr( arg1 ) );
+         pHelp->next                  = help_first;
+         help_first                   = pHelp;
+         ch->desc->pEdit=(void *)pHelp;
+         ch->desc->connected = CON_HEDITOR;
+      }
+      return;
+   }
+   send_to_char( "HEdit:  There is no default help to edit.\n\r", ch );
+   return;
+}
+
+
+void hedit( CHAR_DATA *ch, char *argument )
+{
+    HELP_DATA *pHelp;
+    char arg[MAX_STRING_LENGTH];
+    char arg1[MAX_STRING_LENGTH];
+    char arg2[MAX_STRING_LENGTH];
+    char buf [MAX_STRING_LENGTH];
+    int  value;
+
+    pHelp = (HELP_DATA *)ch->desc->pEdit;
+    strcpy( arg, argument );
+    smash_tilde( argument );
+    argument = one_argument( argument, arg1 );
+    strcpy( arg2, argument );
+
+
+    if ( !IS_IMMORTAL( ch ) )
+    {
+        send_to_char( "pHelp:  Insufficient security to modify help file.\n\r", ch );
+    }
+
+
+    if ( !str_cmp( arg1, "show" ) ) {
+       sprintf( buf, "%s", pHelp->name );
+       do_hstat( ch, buf ); 
+       return;
+    }
+
+   if ( !str_cmp( arg1, "done" ) )
+   {
+       ch->desc->pEdit = NULL;
+       ch->desc->connected = CON_PLAYING;
+       return;
+   }
+
+   if ( !str_cmp( arg1, "?" ) )
+   {
+      do_help( ch, "hedit" );
+      return;
+   }
+
+   if ( !str_cmp( arg1, "level" ) ) {
+      if ( !is_number( arg2 ) || arg2[0] == '\0' ) {
+         send_to_char( "Syntax:  level [number]\n\r", ch );
+         return;
+      }
+
+      value = atoi( arg2 );
+
+      if ( (value < -1) || (value > MAX_LEVEL) ) {
+         sprintf( buf, "Hedit:  Valid level range is from -1 to %d.\n", MAX_LEVEL);
+         send_to_char( buf, ch );
+         return;
+      }
+
+      pHelp->level = value;
+      send_to_char( "Level set.\n\r", ch );
+      return;
+   }
+
+   if ( !str_cmp( arg1, "class" ) ) {
+      if ( !is_number( arg2 ) || arg2[0] == '\0' ) {
+         do_help( ch, "hclass" );
+         return;
+      }
+
+      value = atoi( arg2 );
+
+      if ( (value < 0) || (value > MAX_HELP_CLASS-1) ) {
+         sprintf( buf, "Hedit:  Valid class range is from 0 to %d.\n", MAX_HELP_CLASS);
+         send_to_char( buf, ch );
+         return;
+      }
+
+      pHelp->class = value;
+      send_to_char( "Help class has been set.\n\r", ch );
+      return;
+   }
+
+   if ( !str_cmp( arg1, "text" )) {
+      string_append( ch, &pHelp->text );
+      return;
+   }
+
+   if ( !str_cmp( arg1, "immtext" )) {
+      string_append( ch, &pHelp->immtext );
+      return;
+   }
+
+   if ( !str_cmp( arg1, "example" )) {
+      string_append( ch, &pHelp->example );
+      return;
+   }
+
+   if ( !str_cmp( arg1, "syntax" )) {
+      string_append( ch, &pHelp->syntax );
+      return;
+   }
+
+   if ( !str_cmp( arg1, "keywords" )) {
+      if(arg2[0] == '\0') {
+         send_to_char(" Syntax: keywords [keywords]\n\r",ch);
+         return;
+      }
+
+      free_string( pHelp->keyword );
+      pHelp->keyword = str_dup( arg2 );
+
+      send_to_char( "Keyword(s) Set.\n\r", ch);
+      return;
+   }
+
+   if ( !str_cmp( arg1, "seealso" )) {
+      if(arg2[0] == '\0') {
+         send_to_char(" Syntax: seealso [string]\n\r",ch);
+         return;
+      }
+
+      free_string( pHelp->seealso );
+      pHelp->seealso = str_dup( arg2 );
+
+      send_to_char( "Seealso list set.\n\r", ch);
+      return;
+   }
+
+   interpret( ch, arg );
+   return;
+}
+
+
+/* -----------------------------------------------------
+ * oc.c
+ * make the following changes in do_asave             */
+
+~Line 4889
+        send_to_char( "  asave world    - saves the world! (db dump)\n\r", ch );
++        send_to_char( "  asave helps    - saves the help files\n\r", ch );
+
+~Line 4922
+        save_config();
+        save_contents();
++        save_helps();
+
+~line 4960
+    if ( !str_prefix( arg1, "list" ) )
+    {
+      save_area_list();
+      return;
+    }
++    /* Save Help File */
++    if(!str_cmp(arg1, "helps"))
++    {
++        save_helps();
++        send_to_char( "Helps Saved.\n\r", ch);
++        return;
++    }
+
+
+/* -----------------------------------------------------
+ * db.c
+ * make the following additions                       */
+
+~line 169
+  void    load_helps        args( ( FILE *fp ) );
++ void    load_helpdata     args( ( FILE *fp ) );
+  void    load_mobiles      args( ( FILE *fp ) );
+
+~line 328
+             if ( !str_cmp( word, "HELPS"      ) ) load_helps     (fpArea);
++        else if ( !str_cmp( word, "HELPDATA"   ) ) load_helpdata  (fpArea);
+        else if ( !str_cmp( word, "SOCIALS"    ) ) load_socials   (fpArea);
+
+
+/* -----------------------------------------------------
+ * db.c
+ * drop this in just above load_helps                 */
+
+void load_helpdata( FILE *fp )
+{
+   HELP_DATA *pHelp;
+   HELP_DATA *hSort;
+   HELP_DATA *hPrev;
+   char buf[MAX_STRING_LENGTH];
+
+   for ( ; ; )
+   {
+      char *hname;
+
+      if ( fread_letter( fpArea ) != '#' ) {
+         bug( "Load_helpdata: # not found.", 0 );
+         exit( 1 );
+      }
+
+      hname       = fread_word(fp);
+      if ( hname[0] == '$' ) {
+         break;
+      }
+
+      pHelp = new_help();
+
+      pHelp->name       = str_dup( hname );
+      pHelp->class      = fread_number( fp );
+      pHelp->level      = fread_number( fp );
+      pHelp->keyword    = fread_string( fp );
+      pHelp->syntax     = fread_string( fp );
+      pHelp->text       = fread_string( fp );
+      pHelp->immtext    = fread_string( fp );
+      pHelp->example    = fread_string( fp );
+      pHelp->seealso    = fread_string( fp );
+
+      if ( !str_cmp( pHelp->keyword, "greeting" ) )
+         help_greeting = pHelp->text;
+
+      if ( help_first == NULL ) {
+         help_first = pHelp;
+      } else {
+         hPrev = help_first;
+         for ( hSort = help_first; hSort !=NULL; hSort = hSort->next ) {
+            if ( !strcmp(pHelp->name, hSort->name) ) {
+               sprintf( buf, "Load_helpdata: Duplicate help for %s", pHelp->name );
+               bug( buf, 0 );
+               break;
+            }
+
+            if (strcmp(pHelp->name, hSort->name) < 0 ) {
+               if ( hSort == help_first) {
+                  help_first = pHelp;
+                  pHelp->next = hSort;
+                  break;
+               } else {
+                  hPrev->next = pHelp;
+                  pHelp->next=hSort;
+                  break;
+               }
+            }
+            if ( hSort->next == NULL ) {
+               hSort->next = pHelp;
+               break;
+            }
+         hPrev = hSort;
+         }
+      }
+   }
+   return;
+}
+
+/* -----------------------------------------------------
+ * db.c
+ * replace existing load_helps with this version      */
+
+
+void load_helps( FILE *fp )
+{
+   HELP_DATA *pHelp;
+   char buf[MAX_STRING_LENGTH];
+   int cidx;
+
+   for ( ; ; ) {
+      char *hname;
+      int lev;
+
+      lev       = fread_number( fp );
+      hname     = fread_string( fp );
+
+      if ( hname[0] == '$' ) {
+          break;
+      }
+
+      pHelp = new_help();
+      pHelp->level      = lev;
+      pHelp->keyword = str_dup( hname );
+
+      pHelp->name       = str_dup( hname );
+
+      pHelp->text       = fread_string( fp );
+
+      for ( cidx=0; cidx < MAX_HELP_CLASS; cidx++ ) {
+         if( !strcmp( strArea, help_class_table[cidx].filename) )
+            pHelp->class = cidx;
+      }
+
+      if ( !str_cmp( pHelp->name, "greeting" ) )
+         help_greeting = str_dup( pHelp->text );
+
+        if ( help_first == NULL )
+            help_first = pHelp;
+        if ( help_last  != NULL )
+            help_last->next = pHelp;
+        help_last       = pHelp;
+        pHelp->next     = NULL;
+
+   }
+   return;
+}
+
+/* -----------------------------------------------------
+ * string.c
+ * add in this new function and add prototype to mud.h */
+
+void replace_char( char orig[], char old, char new)
+{
+   while (*orig)
+      if (*orig == old)
+         *orig++ = new;
+      else
+         orig++;
+}
+
+
+/* -----------------------------------------------------
+ * act_info.c
+ * heres a drop in replacement for do_help            */
+
+void do_help( CHAR_DATA *ch, char *argument )
+{
+   char argall[MAX_INPUT_LENGTH];
+   char arg1[MAX_INPUT_LENGTH];
+   char buf[MAX_STRING_LENGTH];
+   char buf2[MAX_STRING_LENGTH];
+   HELP_DATA *pHelp;
+    
+   if ( ch->desc == NULL ) return;
+
+   strcpy( buf, "" );
+   strcpy( buf2, "" );
+
+   argument = one_argument( argument, arg1 );
+
+   if ( arg1[0] == '\0' )
+      strcpy( arg1, "summary");
+
+   if ( !str_cmp( arg1, "show" ) || !str_cmp( arg1, "index" ) ) {
+      int col = 0;
+      int i;
+      int hclass[MAX_HELP_CLASS];
+
+
+      argument = one_argument( argument, arg1 );
+
+      if ( arg1[0] == '\0' ) {
+
+         for ( i=0; i < MAX_HELP_CLASS; i++ )
+            hclass[i] = 0;
+
+         sprintf( buf, "\nThe following classes of help files are available:\n\n#     Class           Description\n\r" );
+         send_to_char( buf, ch );
+         sprintf( buf, "-     -----           -----------\n\r" );
+         send_to_char( buf, ch );
+
+         for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next ) {
+            if ( pHelp->level > get_trust( ch ) )
+               continue;
+            hclass[pHelp->class]++;
+         }
+
+         for ( i=0; i < MAX_HELP_CLASS; i++ ) {
+            sprintf(buf, "%-5d %-15s %s\n", hclass[i], help_class_table[i].name, help_class_table[i].desc);
+            send_to_char( buf, ch );
+         }
+         sprintf( buf, "\nType 'help show [class]' to see available helps for a specific class.\n\r" );
+         send_to_char( buf, ch );
+
+         return;
+
+      } else {
+         for ( i=0; i < MAX_HELP_CLASS; i++ ) {
+            if ( !str_prefix( arg1, help_class_table[i].name )) {
+               for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next ) {
+
+                  if ( pHelp->level > get_trust( ch ) )
+                  continue;
+
+                  if ( pHelp->class == i) {
+                     col++;
+                     sprintf( buf2, "%-26s", trunc_fit( string_proper ( pHelp->name ), 25 ) );
+                     strcat( buf, buf2 );
+                     if ( col % 3 == 0 ) {
+                       strcat( buf, "\n\r" );
+                       send_to_char( buf, ch );
+                       strcpy( buf, "" );
+                       strcpy( buf2, "" );
+                     }
+                  }
+               }
+               send_to_char( buf, ch );
+               return;
+            }
+         }
+      }
+   }
+
+   if ( arg1[0] == '#' ) {
+      char buf[MAX_STRING_LENGTH];
+      bool fFound = FALSE;        
+
+      strcpy (argument, arg1);
+
+      argument++;
+      if ( *argument == '\0' ) return;
+
+      sprintf( buf, "Related Topics:\n\r" );
+      for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next ) {
+
+         if ( pHelp->level > get_trust( ch ) )
+            continue;
+
+         if ( strstr( pHelp->text, argument ) ) {
+            if ( !ch->desc || CONNECTED(ch->desc)
+               || ch->desc->connected == CON_DOC_MENU ) {
+                  fFound = TRUE;
+                  strcat( buf, pHelp->keyword );
+                  strcat( buf, "\n\r" );
+               }
+         }
+      }
+      page_to_char( buf, ch );
+      if ( !fFound ) page_to_char( "None.", ch );
+      return;
+   }
+
+   /*
+    * Tricky argument handling so 'help a b' doesn't match a.
+    */
+   strcpy ( argall, arg1 );
+   while ( argument[0] != '\0' ) {
+      argument = one_argument( argument, arg1 );
+      if ( arg1[0] != '\0' )
+         strcat( argall, " " );
+      strcat( argall, arg1 );
+   }
+
+   for ( pHelp = help_first; pHelp != NULL; pHelp = pHelp->next ) {
+	if ( pHelp->level > get_trust( ch ) )
+	    continue;
+
+        if ( is_prename( argall, pHelp->keyword ) )
+        {
+            if ( !ch->desc || CONNECTED(ch->desc)
+              || ch->desc->connected == CON_DOC_MENU )
+            {
+                char buf[MAX_STRING_LENGTH];
+                
+/*
+                first_arg( pHelp->keyword, buf, FALSE ); 
+*/
+                sprintf(buf, "\n%s ( %s )\n",
+                    pHelp->name, help_class_table[pHelp->class].name );
+
+                if ( HAS_ANSI(ch) ) send_to_char( BOLD, ch );
+                send_to_char( buf, ch );
+                if ( HAS_ANSI(ch) ) send_to_char( NTEXT, ch );
+                send_to_char( "\n\r", ch );
+
+                if ( str_cmp( pHelp->syntax, "" ) ) {
+                   if ( HAS_ANSI(ch) ) send_to_char( BOLD, ch );
+                   send_to_char( "Syntax:  ", ch );
+                   if ( HAS_ANSI(ch) ) send_to_char( NTEXT, ch );
+                   sprintf(buf, "%s\n", pHelp->syntax);
+                   send_to_char( buf, ch );
+                }
+
+                if ( HAS_ANSI(ch) ) send_to_char( BOLD, ch );
+                send_to_char( "Description:\n", ch );
+                if ( HAS_ANSI(ch) ) send_to_char( NTEXT, ch );
+
+                if ( pHelp->text[0] == '.' )
+                help_to_char( pHelp->text+1, ch, TRUE );
+                else
+                help_to_char( pHelp->text  , ch, TRUE );
+
+                if ( str_cmp( pHelp->immtext, "") )  {
+                   if ( HAS_ANSI(ch) ) page_to_char( BOLD, ch );
+                   page_to_char( "\nImmtext:\n", ch );
+                   if ( HAS_ANSI(ch) ) page_to_char( NTEXT, ch );
+                   if ( pHelp->text[0] == '.' )
+                      help_to_char( pHelp->immtext+1, ch, TRUE );
+                   else
+                      help_to_char( pHelp->immtext  , ch, TRUE );
+                }
+
+                if ( str_cmp( pHelp->example, "") )  {
+                   if ( HAS_ANSI(ch) ) page_to_char( BOLD, ch );
+                   page_to_char( "\nExample:\n", ch );
+                   if ( HAS_ANSI(ch) ) page_to_char( NTEXT, ch );
+                   if ( pHelp->text[0] == '.' )
+                      help_to_char( pHelp->example+1, ch, TRUE );
+                   else
+                      help_to_char( pHelp->example  , ch, TRUE );
+                }
+
+                if ( str_cmp( pHelp->seealso, "") )  {
+                   if ( HAS_ANSI(ch) ) page_to_char( BOLD, ch );
+                   page_to_char( "\nSee also: ", ch );
+                   if ( HAS_ANSI(ch) ) page_to_char( NTEXT, ch );
+                   sprintf(buf, "%s\n", pHelp->seealso);
+                   page_to_char( buf, ch );
+                } else {
+                   page_to_char( "\n", ch );
+                }
+                return;
+            }
+
+            /*
+             * Strip leading '.' to allow initial blanks.
+             */
+            if ( pHelp->text[0] == '.' )
+            help_to_char( pHelp->text+1, ch, FALSE );
+            else
+            help_to_char( pHelp->text  , ch, FALSE );
+
+            if ( str_cmp( pHelp->immtext, "") )  {
+               if ( pHelp->text[0] == '.' )
+                  help_to_char( pHelp->immtext+1, ch, TRUE );
+               else
+                  help_to_char( pHelp->immtext  , ch, TRUE );
+            }
+            return;
+        }
+    }
+
+    send_to_char( "No help on that word.\n\r", ch );
+    return;
+}
+

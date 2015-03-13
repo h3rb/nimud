@@ -1,0 +1,398 @@
+#ZONE 
+N Starbase Central~
+B None~
+V 12400 12499
+S 1
+End
+
+
+
+#SCRIPTDATA
+#12401
+N hallway-sound~
+C
+wait(50);
+echo(here,You hear the sounds of chatter coming from the nearest classroom.);
+~
+T 10
+End
+
+#12408
+N gurgle~
+C
+wait(10);
+emit({The waterfall makes a soft gurgling sound.});
+~
+T 10
+End
+
+#12410
+N max-greet~
+C
+wait(10);
+do({'Hey what's up newbie, welcome back to school -- haven't seen you in a while.  No surprise from a boot-licking Ensign Third Class like you, eh?});
+wait(15);
+do({'You should go to class soon, %name%, you're already late...!});
+wait(5);
+do({:snickers softly under his breath.});
+~
+T 10
+End
+
+#0
+
+
+
+#ACTORS
+#12410
+N max hollerstar~
+SD max hollerstar~
+LD
+ That pretty-boy Max Hollerstar is here.
+~
+D
+ Jet black hair frames blue eyes -- the apple of the eye of all of the
+female cadets.  Max has a smug look, and a wide sinister-looking smile.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 200
+O ~
+AP 15 15 15 15 15
+Sc 12410
+End
+
+#0
+
+
+
+#OBJDATA
+#12411
+N desk school empty~
+SD a desk chair~
+P ~
+D
+There's one empty desk near the front.
+~
+A
+~
+PD
+~
+DR
+A small standard issue Stellar Academy school desk, complete with 3d
+holographic display and wireless neuro-tech.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#0
+
+
+
+#SCENES
+#12400
+N Mauredes Biosphere - Stellar Academy~
+Ref 0
+D
+Orbiting Maurede's Star is the training school for the prestigious order
+of the Stellar Patrol, and its star-training ground, the Stellar Academy,
+where fresh Stellar Cadets are trained for their missions using high-tech
+equipment and military arts.  It is here where fresh young cadets perform
+arduous tasks for the attention of career-oriented military officers, in
+hopes of one day securing an important mission on some distant exotic
+planetoid.  
+   You are standing outside in the biosphere surrounding the station.
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 0 12401
+~
+~
+End
+
+#12401
+N Mauredes Promenade~
+Ref 0
+D
+Below the metal surface of the Mauredes station is a wide artificial
+promenade filled with exotic flora from many different ecosystems.  The
+garden is lush and visited often by students looking for a quiet nook in
+which to study.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12402
+~
+~
+Dr 2 0 0 12404
+~
+automatic sliding door~
+Dr 3 0 0 12403
+~
+~
+Dr 4 0 0 12400
+~
+~
+End
+
+#12402
+N Mauredes Promenade~
+Ref 0
+D
+A well-kept area of the station, filled with lush flora.
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 12408
+~
+~
+Dr 2 0 0 12401
+~
+~
+Dr 3 0 0 12410
+~
+opened door which slides closed behind you~
+End
+
+#12403
+N Cafeteria~
+Ref 0
+D
+A simple cafeteria located near the Mauredes Promenade.  Students
+and faculty gather here for meals or a quiet place to study.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10903 3 100 1
+R O 15612 -1 100 100
+Dr 1 0 0 12401
+~
+~
+End
+
+#12404
+N Dormitory~
+Ref 0
+D
+You have entered a long hall of dorms located near the Mauredes
+Promenade.  Here are the quarters for students awaitng their next class, or
+perhaps stationside for training duty.  The halls are a little messy, but
+otherwise well kept.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12401
+~
+automatic sliding door~
+Dr 1 0 0 12407
+~
+~
+Dr 2 0 0 12406
+~
+~
+Dr 3 0 0 12405
+~
+~
+End
+
+#12405
+N Dorm A~
+Ref 0
+D
+A small, spartan dormitory room in which a large letter "A" has been
+painted on the wall.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 12404
+~
+~
+End
+
+#12406
+N Dorm B~
+Ref 0
+D
+A modest dorm room, filled with useless papers.  A large letter "B" has
+been painted on the wall.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12404
+~
+~
+End
+
+#12407
+N Dorm C~
+Ref 0
+D
+A modest dorm room, filled with useless papers.  A large letter "C" has
+been painted on the wall.  A small window looks out into the void of space. 
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 12404
+~
+~
+End
+
+#12408
+N Mauredes Promenade~
+Ref 0
+D
+An artificial waterfall gently stirs a pool of water lilies.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+ED pool waterfall lillies~
+A beautifully exotic garden fixture; water pours graciously down
+a rock bed making a soft, quiet gurgling sound which is relaxing.
+~
+Dr 0 0 0 12409
+~
+wide entrance~
+Dr 3 0 0 12402
+~
+~
+End
+
+#12409
+N Club Fantastic~
+Ref 0
+D
+A small club/cafe located stationside for visitors, students and the like
+who wish to gather and consume cocktails.  It boasts a small multicolored
+dancefloor and a secluded set of booths.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 12408
+~
+wide exit~
+End
+
+#12410
+N Long Hall~
+Ref 0
+D
+You are in a long hall of classrooms leading west from the Promenade.
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 12410 1 100 1
+Dr 0 0 0 12411
+~
+~
+Dr 1 0 0 12402
+~
+opened door which slides closed behind you~
+End
+
+#12411
+N Dolamad Auditorium~
+Ref 0
+D
+The Dolamad family has donated countless millions to fund the classrooms
+on Mauredes Station.  The Stellar Academy administrators wouldn't take to
+kindly to you eating in here.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 12411 -5 100 1
+Dr 2 0 0 12410
+~
+~
+End
+
+#0
+
+
+
+#$

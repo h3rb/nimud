@@ -1,0 +1,215 @@
+
+
+#DOC 4
+N SKILLS~
+C 4 L 0
+KW SKILLS~
+SY ~
+TX The skill command lets you view your character's current skill ratings.
+ 
+You can examine a single skill, or view all of your skills and groups.
+Skills are arranged into different groupings, and they are rated
+individually.  As your character performs actions, skill ratings
+improve.  Some skills require special items such as tools or materials
+to be used at all.
+~
+IT ~
+EX ~
+SA Apprentice, Learn~
+End
+
+#DOC 395
+N APPRENTICING~
+C 4 L 0
+KW APPRENTICING~
+SY ~
+TX .
+You may "learn" a skill from a master, and then practice that skill
+with the same master.
+Skills can also be taught while "doing" -- the action of using a skill
+gradually improves your character's performance in a skill.  You must,
+however, have a basic understanding of that skill from a master,
+and you must understand the general background of a skill (it's group)
+before you advance in a particular skill.
+ 
+You don't have to 'know' a skill to try something.  You can
+steal, pick locks, attempt to climb, whatever, and as long as
+you try you have a chance of succeeding.  But don't beat
+yourself up.  If it doesn't work, move on, and come back to
+it.  A good way to earn money for skills is by working for
+the king or becoming a privateer.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 396
+N EXPERIENCE~
+C 4 L 0
+KW EXPERIENCE~
+SY ~
+TX .
+Experience is a tally of your kills.  As your character gains experience
+they level, and as they level, characters gain access to higher level
+abilities and spells which are more advanced.
+ 
+When a character reaches level 100, he or she may opt to become
+an immortal, and be given some power over the creation of the MUD
+and the players on it.  Immortals are generally benevolent.
+ 
+You also gain experience through using your skills.  The more you
+use a skill, the greater chance you have of gaining skill bonuses
+which give you experience.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 397
+N KARMA~
+C 4 L 0
+KW KARMA~
+SY ~
+TX .
+Karma is a relative value of your actions in the world.  Karma is
+affected by who you choose to fight and your actions in trade.
+Karma also affects your ability to trade and the way you are perceived
+by other members of society.  Good karma is helpful and increases
+your odds of success, bad karma is not helpful and decreases your
+chances of success.
+ 
+Killing defenseless and peaceful animals is one way to get bad Karma.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 398
+N LEARN~
+C 4 L 0
+KW LEARN~
+SY ~
+TX .
+Syntax: learn
+        learn [skill]
+ 
+Learn lists any apprenticeships you current have, or any that are
+available from a nearby teacher.
+ 
+To learn a skill, go to an appropriate teacher, and type "learn [skill]"
+to pay for apprenticeship.
+ 
+You may also learn by performing a skill.
+~
+IT ~
+EX ~
+SA Train, Practice~
+End
+
+#DOC 399
+N PICK~
+C 4 L 0
+KW PICK~
+SY ~
+TX .
+Syntax:  pick <door> [direction]
+
+  This command is not yet fully implemented.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 400
+N PRACTICE~
+C 4 L 0
+KW PRACTICE~
+SY practice
+practice [skill]
+~
+TX .
+Practicing with your teacher allows you to learn more about a
+skill, its use and grants a level of understanding to your character.
+ 
+You may also practice skills by performing them.
+ 
+Typing practice alone lists the skills you are currently studying.
+~
+IT ~
+EX ~
+SA Learn, Train~
+End
+
+#DOC 401
+N RIDING~
+C 4 L 0
+KW RIDING~
+SY ~
+TX .
+A skill which allows you to ride and control your mounts more
+effectively.
+~
+IT ~
+EX ~
+SA Trample, Ride, Mounts~
+End
+
+#DOC 402
+N SKILLS~
+C 4 L 0
+KW SKILLS~
+SY ~
+TX .
+Syntax:  skills
+         skills <group name>
+         skills <skill name>
+         
+  The skills command shows you what skills you are studying.  Skills,
+  in general, are listed in two columns beneath their group name.
+  To view an individual group, or an individual skill, type the name
+  of that group along with the command.
+  
+  Related topics:  Apprenticing, Skill Groups
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 403
+N SKILL_GROUPS~
+C 4 L 0
+KW 'SKILL GROUPS'~
+SY ~
+TX .
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 404
+N TRAIN~
+C 4 L 0
+KW TRAIN~
+SY ~
+TX .
+Syntax: train [target]
+ 
+For skills in which you have achieved mastery level, you may train
+other players.  Training only allows beginning level mastery for
+your students, they must practice the skill elsewhere to gain
+their own mastery of it.
+~
+IT ~
+EX ~
+SA Learn, Practice~
+End
+#$
+#$

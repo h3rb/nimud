@@ -1,0 +1,478 @@
+
+
+#DOC 3
+N STATUS~
+C 3 L 0
+KW STATUS~
+SY ~
+TX Ways to view or change your connection status; ways to view vital
+information and statistics about your character.
+~
+IT ~
+EX ~
+SA Score, Skills, Spells, Set, Color~
+End
+
+#DOC 405
+N ANSI~
+C 3 L 0
+KW ANSI COLOR~
+SY color <keyword> <color>
+color
+Note: Typing color colors lists all possible color settings.
+~
+TX .
+Lets you change your default colors with ANSI support.
+~
+IT ~
+EX ~
+SA Set, Config, Colors, Prompt~
+End
+
+#DOC 406
+N BRIEF~
+C 3 L 0
+KW BRIEF BLANK COMPACT~
+SY ~
+TX .
+Toggles a feature of your account.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 407
+N CLEAR~
+C 3 L 0
+KW CLEAR~
+SY ~
+TX .
+Syntax:  clear
+
+  For ANSI users, this command clears your screen of incoming text.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 408
+N CLIENT~
+C 3 L 0
+KW CLIENT 'WEB CLIENT' GRAPHICS 'GRAPHICAL CLIENT'~
+SY ~
+TX .
+The client displays graphics using a simple imaging system which
+is capable of displaying .WRL, .GIF and .JPG images in the upper
+righthand corner, and has a movable interface, where small icons
+represent access to menus and provide indicators for stuff in the
+game.
+ 
+Keyboard commands are:  Arrow Keys (numpad), provide movement
+commands; numpad extras include "-" for "SCORE", "+" for inventory,
+"/" for sheath/draw, "*" for "SKILLS".
+ 
+Pageup/pagedown/insert/home/delete/end keys are configurable by
+the user for user-defined macros.
+(Non-numeric keypad keys)
+ 
+All other keys reserved for typing commands / communication.
+ 
+Indicators can be moved and minimized with the mouse.  Certain
+indicators have brief and verbose sizes, and buttons.
+ 
+Indicator list:
+Image display: for displaying .WRL,.GIF and .PNG
+Menu Button: click to see a list of game commands and client setting options
+Status display: Enlarged: shows details of score, reduced: H/M/V bars
+Room description display: Small text window showing just room description
+ 
+Windows are set on a snapping grid of 5 pixels.
+Exit display: Shows available room exits
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 409
+N CODES~
+C 3 L 5
+KW CODES~
+SY ~
+TX .
+                  [Standard String Variables]
+ 
+       %h %m    - display hits/moves (in "fine fresh" format)
+       %g       - show a tally of your money
+       %v       - display your visibility status  (i=invisible V=visible)
+       %n       - go to a new line
+       %%       - display a percentage
+                    
+       %0-7     - display a color (ansi)
+       %B       - activate ansi code for bold text
+       %I       - activate ansi code for inverse text
+       %F       - activate ansi code for flashing text
+       %N       - deactivate all ansi codes (normal text)
+ 
+These codes can be entered into room descriptions.
+ 
+Descriptions on actors and objects can be randomized to add flavor.
+Like the prompt command, you can place a $$ dollar sign and then a
+variable which represents a replacement.
+Ex.  a $$c object would translate to (when loaded) a blue object
+ 
+Object variables:               Actor Variables:
+$$c  - color                    $$S Capitalized syllabatic (for names)
+$$l  - random cloth             $$s lower-case syllabatic (for names)
+$$C  - fine cloth
+$$f  - random fur
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 410
+N COLORS~
+C 3 L 0
+KW COLORS~
+SY ~
+TX .
+To view an updated list of colors, type "ansi color" at the prompt.
+These codes can be used for setting colors with the Color command.
+~
+IT Seealso: Codes
+~
+EX ~
+SA Color, Prompt, Ansi~
+End
+
+#DOC 411
+N CONFIG~
+C 3 L 0
+KW CONFIG~
+SY ~
+TX .
+Syntax:  set
+         set <option>
+         set +<option>
+         set -<option>
+         
+  Lets you change your account data.
+  
+  See also:  Pager, Ansi, Brief, Blank, Color, Prompt, Compact, Password
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 412
+N EXITS~
+C 3 L 0
+KW EXITS~
+SY ~
+TX .
+Syntax:  exits
+
+  This command displays the discernable exits for the room you are
+  currently in.  Certain exits may not be shown if they are secret
+  doors or concealed exits.
+
+Example:
+
+> exits
+To the north is Kess Plaza.
+To the west is Truncot Road.
+A back door leads south to The Hovelcove.
+To the east is a closed double door.
+
+  See also: Look, Config
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 413
+N HISTORY~
+C 3 L 0
+KW HISTORY~
+SY history [target]
+~
+TX .
+ The History command enables you to read the history of yourself or of
+another simply by typing "history" -- or "history <target>" -- as you
+travels throughout the realm adventuring, you may find your history grows
+longer and more heroic.  The greatest heroes will be rewarded for their
+deeds.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 414
+N MONEY~
+C 3 L 0
+KW MONEY WORTH~
+SY ~
+TX .
+Money is based on the coin.  Each monetary
+unit can be tendered in the form of copper, platinum, gold, silver or
+bezain coins.
+ 
+
+One platinum piece is worth 1000 copper.
+One gold piece is worth 100 copper.
+One silver is worth 10 copper.
+ 
+Money should not be looked at lightly in this game, it is the main
+motivation behind adventures.  Money can be used to purchase big
+ticket items such as houses, horses and wagons, as well as specialty
+armours and items to aid you in your travels.
+ 
+Money is also used to pay practioners, who teach skill.
+ 
+
+~
+IT ~
+EX ~
+SA Gems, Shops, Buy, Sell, Train~
+End
+
+#DOC 415
+N PAGER~
+C 3 L 0
+KW PAGER~
+SY ~
+TX .
+Syntax:  pager <lines>
+
+  Lets you set your lines-per-page pausing length.
+
+  See also:  Config  
+  
+NOTE: At the <more> prompt, type help for additional pager commands.
+You may also type "set <lines>" to set the length of the pager.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 416
+N PASSWORD~
+C 3 L 0
+KW PASSWORD~
+SY ~
+TX .
+Syntax:  password <old> <new>
+
+  Lets you change the password for your character.  Remember it!
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 417
+N PROMPT~
+C 3 L 0
+KW PROMPT~
+SY prompt
+         prompt all
+         prompt <settings>
+         prompt colors             (sets a colorful prompt)
+         prompt numbers            (creates a numeric prompt)
+         prompt inverse            (sets an inverse color prompt)
+         prompt invnum             (sets an inverse prompt w/ numbers)
+~
+TX .
+This command lets you customize your prompt to display the information
+you want it to.  Here is a list of prompt codes / variables:
+ 
+[Standard Prompt Variables]
+ 
+       %h %m %e - display hits/moves/mana (in "fine fresh" format)
+       %g       - show a tally of your money
+       %v       - display your visibility status  (i=invisible V=visible)
+       %n       - go to a new line
+       %%       - display a percentage
+       %H %M %E - display hits/moves/mana in percentages
+       %p       - show a percentage of your monitor's target
+ 
+[Color Codes]
+ 
+       %0-7     - display a color (ansi)
+       %B       - activate ansi code for bold text
+       %I       - activate ansi code for inverse text
+       %F       - activate ansi code for flashing text
+       %N       - deactivate all ansi codes (normal text)
+ 
+~
+IT .
+                  [Immortal Prompt Variables]
+
+       %H %M    - show hits/move as percentage
+       %r       - show the room vnum you are in
+       %z       - show the area name you are in (area name)
+       %Z       - show the area vnum you are in
+       %v       - show wizinvis level
+       %c       - show the TYPE of editor you are using (olc)
+       %C       - show the vnum you are editing (olc)
+
+~
+EX > prompt
+Prompt ON.
+> prompt all
+< fine fresh > prompt %h>
+Prompt set to '%h> '.
+fine>
+~
+SA ~
+End
+
+#DOC 418
+N REPORT~
+C 3 L 0
+KW REPORT~
+SY ~
+TX .
+Syntax:  report
+
+  Reports, aloud, your status to the room.
+  
+> report
+You report that you are fine and fresh.
+
+  See also:  Score
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 419
+N SCORE~
+C 3 L 0
+KW SCORE~
+SY ~
+TX .
+Syntax:  score
+
+  Reports detailed information about the status of your character.
+  
+  See also:  Report
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 420
+N SET~
+C 3 L 0
+KW SET~
+SY set [option]
+~
+TX .
+Toggles an option on the set command.  Valid options are: ansi, blank,
+combine, prompt.  You can also type "set <num>" to increase or decrease the
+length of the "page" when viewing long descriptions or help files.  
+ 
+Other options: set client, set telnetga, set exits
+ 
+Note: Set Exits allows you to view room exit information automatically.
+(A nice feature for adventurers.)
+ 
+Also, typing 'set' alone tells you what configuration options are
+available, and what there current status (enabled or disabled) is.
+ 
+Set Mapping <X> changes the resolution of your automap.  Set Map to enable.
+Set Timecolor and Set AGE are contingent on Set Ansi or Set Color
+being enabled; Timecolor tries to create color changes to exterior
+descriptions based on time/weather patterns.  Set AGE toggles
+the Ascii Graphics Engine and Set Mapping toggles the automap.
+~
+IT Immortals should take note of new options available to them only,
+and should also see Help Notify
+~
+EX ~
+SA Ansi, Chat~
+End
+
+#DOC 421
+N TIME~
+C 3 L 0
+KW TIME~
+SY time
+~
+TX .
+  This command allows your player to view weather and time information
+  about the world around you.
+ 
+Note: Game time is 5 real time minutes per game hour.  Calendar info
+is saved at reboots, the clock is always running forward.  This may
+be useful for certain time-based events in the game.
+~
+IT time full
+ 
+  For immortals, aside from the regular information gleaned through this
+  command, using the advanced time full command lets you view the numerical
+  values of weather and time variables within the game, as well as booting
+  and version information.
+ 
+Example (extra crap with time full):
+The Twilight zone Update 9/13/95
+Booted at:   Mon Oct 30 16:51:27 1995
+System time: Mon Oct 30 17:05:26 1995
+Temp:   21  Windspd:    4  Dir:       0  Month:    1  Hour:    3  Phase:    1
+Sky:     1  MMHG:     996  Change:  -10  Day:     23  Year:  455  Next:     4
+Sun:     0  NumHour: 40268  Area:    278  Actor:      3  Fgt:    11  Auto:  11315
+~
+EX > time
+It is early morning on the day of Ruz, the Black Crow, the twenty-fourth
+of the month of Vod, the Season of the White Fox, in winter, the year four
+hundred fifty-five.  The sky is scattered with a few flakes and a cold
+northward breeze blows.  The moon is behind a cloud.  
+~
+SA Weather, Calendar~
+End
+
+#DOC 422
+N WHO~
+C 3 L 0
+KW WHO~
+SY ~
+TX .
+Syntax:  who
+
+  This age-old command allows you to detect how many other players are
+  connected, what visible immortals are on, and how long you have until
+  the mud will autoreboot.
+
+> who  
+[ Conceiver ] Callista reigns o'er the heavens.
+[ God       ] Encompassing the celestial void, Locke adjoins all things.
+There are 8 players and 2 visible gods, with a high of 13.
+Next reboot will occur in 168 hours.
+
+  Related topics:  Reboots
+
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

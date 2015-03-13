@@ -1,0 +1,810 @@
+#ZONE 
+N Time Tunnel~
+R A cacophony of unheard voices echoes all around you; you believe you can
+make out a few that sounds familiar amidst the torrent of sound.  
+ 
+Note: You can type "home set" to lock your "recall" point to this area.
+~
+B None~
+V 11100 11199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#11100
+N flashing blue portal~
+SD a flashing blue portal~
+P ~
+D
+A flashing blue portal winks in and out of existance.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 0
+Ti 15
+Wt 0
+C 0
+O ~
+V 0 32768 0 5000
+End
+
+#11101
+N shimmering green portal~
+SD a green portal~
+P ~
+D
+A green portal shimmers in the mists.
+~
+A
+~
+PD
+~
+DR
+The green portal shimmers in the mists.
+~
+L 0
+T 12
+E 1
+W 1
+Sz 0
+Ti 15
+Wt 0
+C 0
+O ~
+V 0 32768 0 7000
+End
+
+#11102
+N orange portal~
+SD an orange portal~
+P ~
+D
+There is an orange portal here.
+~
+A
+~
+PD
+~
+DR
+The orange portal glows subtly in the mists.
+~
+L 0
+T 12
+E 1
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 6200
+End
+
+#11103
+N flickering red portal~
+SD a flickering red portal~
+P ~
+D
+A flickering red portal is shrouded in grey mists.
+~
+A
+~
+PD
+~
+DR
+The portal is red.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 10200
+End
+
+#11104
+N purple portal~
+SD a purple portal~
+P ~
+D
+A purple portal shimmers and bobs.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 10900
+End
+
+#11105
+N mists portal~
+SD a portal to the mists~
+P ~
+D
+A portal shrouded in mists flickers in and out of existence.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 2
+Wt 0
+C 0
+O ~
+V 0 32768 0 11100
+End
+
+#11106
+N fantastic~
+SD fantastic~
+P ~
+D
+fantastic
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 11110
+End
+
+#11107
+N scientific~
+SD scientific~
+P ~
+D
+scientific
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 10901
+End
+
+#11108
+N historic~
+SD historic~
+P ~
+D
+historic
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 11140
+End
+
+#11109
+N horrific~
+SD horrific~
+P ~
+D
+horrific
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 11150
+End
+
+#11110
+N farmhand~
+SD land of Kltara as a farmhand~
+P ~
+D
+farmhand
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 7374
+End
+
+#11111
+N slave~
+SD land of Tyselorrd as a slave~
+P ~
+D
+slave
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 535
+End
+
+#11112
+N merchant~
+SD the Kingdom of Rygor as a merchant~
+P ~
+D
+Merchant
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 5025
+End
+
+#11113
+N pupil~
+SD School of Arcane Thought~
+P ~
+D
+Pupil
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 22908
+End
+
+#11120
+N honor~
+SD the Star Academy~
+P ~
+D
+honor
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 12400
+End
+
+#11121
+N money~
+SD as a convict, imprisoned for your beliefs~
+P ~
+D
+money
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 12500
+End
+
+#11140
+N gunslinger~
+SD the Old West~
+P ~
+D
+gunslinger
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 12200
+End
+
+#11141
+N marine~
+SD the Marines because you were drafted~
+P ~
+D
+marine
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 7000
+End
+
+#11150
+N sol~
+SD the city of London as a commoner~
+P ~
+D
+sol
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 12612
+End
+
+#11151
+N luna~
+SD the London underground~
+P ~
+D
+luna
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 12610
+End
+
+#0
+
+
+
+#SCENES
+#11100
+N Swirling Mists~
+Ref 0
+D
+You are standing on a hard, flat surface that gives a little under
+each step.  There is no sense of depth or surface, only what seems
+an unending expanse of space filled with wisps of swirling grey
+mists.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11100 -5 50 1
+Dr 0 0 0 11101
+~
+~
+Dr 1 0 0 11102
+~
+~
+Dr 2 0 0 11104
+~
+~
+Dr 3 0 0 11103
+~
+~
+End
+
+#11101
+N Swirling Mists~
+Ref 0
+D
+You are standing at the edge of a large, hard, flat surface that
+gives a little under each step.  There is no sense of up or down,
+other than you can tell by the movement of the mists that this
+is the edge.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11103 -5 50 1
+Dr 2 0 0 11100
+~
+~
+End
+
+#11102
+N Swirling Mists~
+Ref 0
+D
+You are standing at the edge of a hard, flat surface that gives a little
+under each step.  There is no sense of depth or surface, only what seems to
+be an unending expanse of space filled with wisps of swirling grey mists.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11102 -5 75 1
+Dr 3 0 0 11100
+~
+~
+End
+
+#11103
+N Swirling Mists~
+Ref 0
+D
+You are standing amidst swirling mists on a hard, flat surface that gives
+a little under each step.  You cannot tell up or down, but you can tell that
+you are at the edge of something.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11101 -5 100 1
+Dr 1 0 0 11100
+~
+~
+End
+
+#11104
+N Swirling Mists~
+Ref 0
+D
+You are standing on a hard, flat surface that gives a little under each
+step.  There is no sense of depth or surface, only what seems to be an
+unending expanse of space fill with wisps of swirling grey mists.  You can
+tell that you are the edge of something.  
+~
+C
+SHOWIMAGE time.jpg
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11104 -5 100 1
+Dr 0 0 0 11100
+~
+~
+End
+
+#11105
+N What kind of world do you prefer?~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11109 -5 100 1
+R O 11108 -5 100 1
+R O 11106 -5 100 1
+R O 11107 -5 100 1
+End
+
+#11106
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#11110
+N Please pick the word that best describes your upbringing:~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11111 -5 100 1
+R O 11110 -5 100 1
+R O 11112 -5 100 1
+R O 11113 -5 100 1
+End
+
+#11120
+N Which is more important to you?~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11120 -5 100 1
+R O 11121 -5 100 1
+End
+
+#11121
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#11130
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#11140
+N Which of the following best suits you?~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11141 -5 100 1
+R O 11140 -5 100 1
+End
+
+#11150
+N To which do you owe more respect?~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11151 -5 100 1
+R O 11150 -5 100 1
+End
+
+#11160
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

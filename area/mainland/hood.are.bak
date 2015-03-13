@@ -1,0 +1,2596 @@
+#ZONE 
+N Oridian Penal Colony~
+R You hear a siren in the distance, wailing over the ambient noise.  
+~
+B None~
+V 17101 17199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#17109
+N marauder~
+C
+wait(1);
+do(kill member);
+wait(20);
+do({:utters in a computerized voice, "Target acquired, commencing sequence 4597-A DESTROY!"
+});
+wait(100);
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#17101
+N oridian security officer~
+SD an Oridian security officer~
+LD
+ An Oridian security officer is patrolling the wastes.
+~
+D
+ He's lived a life of violence ever since he was little.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 1000
+O ~
+AP 25 30 30 25 30
+At 1 15 25 7
+End
+
+#17102
+N infantry officer cordesian~
+SD a Cordesian infantry officer~
+LD
+ A Cordesian infantry officer is shooting at anything that moves.
+~
+D
+ He wants to rid the world of every last threat to the Empire.
+A tall lizard-like alien with a war-filled history.
+~
+A 101
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 250
+O ~
+AP 25 100 100 25 100
+At 1 5 50 13
+End
+
+#17103
+N lt. left-tenant leiutenant blugwart~
+SD Lt. Blugwart~
+LD
+ A Cordesian left-tenant is standing here.
+~
+D
+ He's risen to be leader through brute force and cunning leadership.
+~
+A 99
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 500
+O ~
+AP 25 30 30 25 30
+At 1 5 10 13
+At 2 5 80 13
+End
+
+#17104
+N bruiser~
+SD a bruiser~
+LD
+ A big, mean bruiser is looking for limbs to break.
+~
+D
+ He's 6'6" 245 pounds and enough muscle to bash your head in.
+~
+A 229
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -333 E 400
+O ~
+AP 25 30 30 25 30
+End
+
+#17105
+N robotic cannon~
+SD a robotic cannon~
+LD
+ A robotic cannon targets you and opens fire!
+~
+D
+ A jet-black plastic mounting post and gunmetal gray tripod with a 500rpm
+chaingun mounted on it.  
+~
+A 39
+AB 40
+M 0
+Credits 200
+Bucks 0
+S 0
+Sz 16
+K 0 E 500
+O ~
+AP 25 30 30 25 30
+At 0 10 24 11
+At 1 10 24 11
+At 2 10 24 8
+At 3 10 24 13
+End
+
+#17106
+N sentry robot~
+SD a sentry robot~
+LD
+ A sentry robot is trying to keep the peace.
+~
+D
+ He'd rather be at the local pub then out here with these nasty kids.
+~
+A 65
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 700 E 275
+O ~
+AP 20 20 20 20 20
+At 1 5 10 19
+At 2 5 10 16
+At 3 5 10 20
+End
+
+#17107
+N vandal~
+SD a vandal~
+LD
+ A vandal is spray painting pro-gang slogans on the wall here.
+~
+D
+ He has a wary eye and a fine hand for art.
+~
+A 129
+AB 98304
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 24 8
+End
+
+#17108
+N dog pit bull pitbull~
+SD a pitbull~
+LD
+ A vicious pitbull is foaming at the mouth in rabid anticipation.
+~
+D
+ You get a nice close look at him while he's tearing at your throat.
+His fangs are blood-stained from hearty meals of ... steak?!
+~
+A 99
+AB 65544
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 150
+O ~
+AP 15 15 15 15 15
+At 0 10 21 8
+End
+
+#17109
+N marauder~
+SD a Marauder~
+LD
+ A massive metal robot is wandering the streets killing anything that crosses its path.
+~
+D
+ ~
+A 131105
+AB 0
+M 0
+Credits 1000
+Bucks 0
+S 0
+Sz 70
+K 0 E 2500
+O ~
+AP 25 75 75 25 75
+Sc 5012
+Sc 17109
+At 0 5 50 16
+At 1 5 10 12
+At 2 10 20 11
+At 3 5 10 19
+At 4 5 10 20
+End
+
+#0
+
+
+
+#OBJDATA
+#17101
+N dakonenne jacket~
+SD an Ogre gang jacket~
+P ~
+D
+An Ogre gang jacket has been carelessly tossed here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 2
+C 100
+O ~
+V 5 0 0 0
+End
+
+#17102
+N flight jacket~
+SD a flight jacket~
+P ~
+D
+A flight jacket has been carelessly tossed here.
+~
+A
+~
+PD
+~
+DR
+It's part of a full jumpsuit.  It has hooks all over it for holding items.  
+~
+L 0
+T 15
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 2
+C 100
+O ~
+V 100 0 0 0
+End
+
+#17103
+N IR goggles~
+SD a pair of IR goggles~
+P ~
+D
+A pair of IR goggles is lying here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 1
+W 2097153
+Sz 18
+Ti 1000
+Wt 10
+C 900
+O ~
+V 1000 1000 7 1
+End
+
+#17104
+N metal cover shield~
+SD a metal shield~
+P ~
+D
+A garbage can lid has been dropped on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 3
+C 125
+O ~
+V 3 0 0 0
+End
+
+#17105
+N phaser blaster~
+SD a phaser blaster~
+P ~
+D
+Someone dropped their phaser.
+~
+A
+~
+PD
+~
+DR
+A short range phaser.
+~
+L 0
+T 5
+E 2
+W 16385
+Sz 0
+Ti 0
+Wt 1
+C 1000
+O ~
+V 0 2 2 11
+End
+
+#17106
+N stiletto~
+SD a stiletto~
+P ~
+D
+A killer stiletto has been forgotten here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 600
+O ~
+V 0 7 2 11
+End
+
+#17107
+N spiked heel boots~
+SD spiked heeled boots~
+P ~
+D
+A pair of black leather boots with 6 inch spikes have been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 4
+C 2000
+O ~
+V 3 0 0 0
+End
+
+#17108
+N mirror~
+SD a mirror~
+P ~
+D
+A small mirror has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 65
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 20 10 10 0
+End
+
+#17109
+N leather gloves~
+SD some comfortable leather gloves~
+P ~
+D
+A pair of soft-lined leather gloves lie here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 2
+C 500
+O ~
+V 2 100 100 0
+End
+
+#17110
+N patrol club~
+SD a patrol club~
+P ~
+D
+A patrolman's club has carelessly been forgotten here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 0 1 12 7
+End
+
+#17111
+N signet ring~
+SD a Heveti signet ring~
+P ~
+D
+A signet ring bearing the crest of a Heveti lies in the dust here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 10000
+O ~
+V 4 0 0 0
+End
+
+#17112
+N knuckles brass~
+SD brass knuckles~
+P ~
+D
+A set of brass knuckles left from a fight are here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 2
+W 129
+Sz 18
+Ti 0
+Wt 1
+C 2000
+O ~
+V -15 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#17101
+N A Dark Alleyway~
+Ref 0
+D
+You are in a dark passage.
+~
+C
+~
+F 5
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17102
+~
+~
+Dr 3 0 0 12500
+~
+~
+End
+
+#17102
+N Cell Block 2F~
+Ref 0
+D
+This was a once well run detention center, but now it has seen its years
+and you can tell that this prison planet is a warzone.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17107 4 100 1
+Dr 1 0 -1 17103
+~
+~
+Dr 2 0 -1 17109
+~
+~
+Dr 3 0 -1 17101
+~
+~
+End
+
+#17103
+N Cell Block 3F~
+Ref 0
+D
+Everywhere you look you see signs of recent violence.  Patches of blood
+lie everywhere and broken sticks and abandoned knifes are strewn here
+and there.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 1 0 -1 17104
+~
+~
+Dr 2 0 -1 17110
+~
+~
+Dr 3 0 -1 17102
+~
+~
+End
+
+#17104
+N Armoury 17~
+Ref 0
+D
+Only gang members dare wander the streets here.
+What used to be the armory lies to the south.  White Dragon Boulevard
+leads east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 1 0 -1 17105
+~
+automatic door that is rusted open~
+Dr 2 0 -1 17111
+~
+~
+Dr 3 0 -1 17103
+~
+~
+End
+
+#17105
+N Corridor L~
+Ref 0
+D
+The gas venting from the pipes above you is hot and wet, with a sulfuric
+burn and odd sweetness, making you feel dizzy and nauseated at the same
+time.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 1 0 -1 17106
+~
+~
+Dr 3 0 -1 17104
+~
+~
+End
+
+#17106
+N Junction X~
+Ref 0
+D
+A junction of three corridors meet here at a mini-guard station.  The
+guard station has been flipped on its side and the glass pulverized.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 1 0 -1 17107
+~
+~
+Dr 2 0 -1 17113
+~
+~
+Dr 3 0 -1 17105
+~
+~
+End
+
+#17107
+N Cell Block 5E~
+Ref 0
+D
+A once majestic inn with a white marble facade lies to the south.
+Unfortunately, it has fallen into disrepair and decay.  You can continue
+east or west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 1 0 -1 17108
+~
+~
+Dr 3 0 -1 17106
+~
+~
+End
+
+#17108
+N Cell Block 6E~
+Ref 0
+D
+This is the north-east corner of the neighborhood. White Dragon
+boulevard heads west and Bronze Dragon street heads south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17104 10 100 1
+Dr 2 0 -1 17115
+~
+~
+Dr 3 0 -1 17107
+~
+~
+End
+
+#17109
+N Ruined Building~
+Ref 0
+D
+A huge building was going to be built here, but they gave the
+project up when violence took over the town.  Now it is just a
+weed-strewn plot of land.  The lot continues east and there is a road north.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17102
+~
+~
+Dr 1 0 -1 17110
+~
+~
+End
+
+#17110
+N Access Corridor 7F~
+Ref 0
+D
+This was planned to be a park, but the developer was scared out
+of town by the gang.  Now it is just a dusty square of land. The
+park was started to the south.  The lot continues west and there
+is a street to the north.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17103
+~
+~
+Dr 2 0 -1 17116
+~
+~
+Dr 3 0 -1 17109
+~
+~
+End
+
+#17111
+N Armory~
+Ref 0
+D
+Well actually, this is what used to be the armory.  The equipment has all
+been stolen or broken beyond repair.  The back wall of the building has been
+bashed down, allowing you to go south.  
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17104
+~
+~
+Dr 2 0 -1 17117
+~
+broken hole in the wall~
+End
+
+#17112
+N Bend in Access Road F~
+Ref 0
+D
+Ice Dragon Way bends east and south from here.  You notice a lot of
+blood dried into the dirt here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 1 0 -1 17113
+~
+~
+Dr 2 0 -1 17118
+~
+~
+End
+
+#17113
+N Facility Management Office~
+Ref 0
+D
+Ice Dragon Way bends to the north and west here.  There are footprints
+here.  They seem to indicate a large struggle took place here
+recently.  What used to be the town Magic shop is to the east.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17106
+~
+~
+Dr 1 0 -1 17114
+~
+~
+Dr 3 0 -1 17112
+~
+~
+End
+
+#17114
+N Cratered Complex Building~
+Ref 0
+D
+The wizard was tough but he couldn't take on 50 of them at once.  So he
+died and they took all his stuff and used it on their fellowmen.
+The front door leads west back out to the street.  There is a back
+door leading to another street to the east.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17104 10 100 1
+Dr 1 0 -1 17115
+~
+~
+Dr 3 0 -1 17113
+~
+~
+End
+
+#17115
+N Irradiated Office~
+Ref 0
+D
+You have an eerie feeling about this room.  A portion of the area was
+once completely melted and has fused together into a glass-like surface.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17108
+~
+~
+Dr 2 0 -1 17120
+~
+~
+Dr 3 0 -1 17114
+~
+~
+End
+
+#17116
+N Security Station A~
+Ref 0
+D
+A huge crater is all that remains of the security station.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17104 10 100 1
+R M 10900 1 75 100
+Dr 0 0 -1 17110
+~
+~
+Dr 1 0 -1 17117
+~
+~
+End
+
+#17117
+N Shortcut~
+Ref 0
+D
+This is a shortcut between Security Station A and Armoury 17.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17111
+~
+broken hole in the wall~
+Dr 2 0 -1 17121
+~
+~
+Dr 3 0 -1 17116
+~
+~
+End
+
+#17118
+N Access Road F~
+Ref 0
+D
+Several smashed crystal statues line the Way here.  You begin to wonder
+who smashed them, and with what.  The Way bends out of sight to the north
+and continues south.  To the east is a courtyard.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17112
+~
+~
+Dr 1 0 -1 17119
+~
+~
+Dr 2 0 -1 17122
+~
+~
+End
+
+#17119
+N Courtyard North~
+Ref 0
+D
+Once it was the courtyard of a beautiful building complex.  But alas,
+someone forgot to water the plants and they all died.  Then again,
+you wonder how many people have died here too.  The courtyard extends
+to the south and there is a road to the west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 2 0 -1 17123
+~
+~
+Dr 3 0 -1 17118
+~
+~
+End
+
+#17120
+N Irradiated Lobby~
+Ref 0
+D
+The lobby was once the entryway to whatever office lay north, but it has
+been completely atomized by some sort of tactical fission weapon.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17115
+~
+~
+Dr 2 0 -1 17125
+~
+~
+End
+
+#17121
+N Vent Shaft~
+Ref 0
+D
+The shortcut extends north.  There is a street to the east.  A huge tower
+has collapsed and you can see an informal entryway through its posterior
+vent shaft just east of here.  To the north you see a shortcut between
+Armoury 17 and another part of the complex.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17117
+~
+~
+Dr 1 0 -1 17122
+~
+vent shaft~
+End
+
+#17122
+N Inside the Former Coolant Tower~
+Ref 0
+D
+You are standing on the wall of a top floor that has turned sideways
+after impacting the surface of Oridian.  To the west is the severed tower
+base and a vent shaft which has lead to this location, probably two thirds
+of the way up the original tower.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17118
+~
+~
+Dr 2 0 -1 17127
+~
+hole in the wall leading to the supply depot~
+Dr 3 0 -1 17121
+~
+vent shaft~
+End
+
+#17123
+N Courtyard South~
+Ref 0
+D
+Once full of lush green plants, it is now barren of growth.  A set of
+stairs used to extend up to a suite of rooms but the set is missing
+stairs 3-15.  The courtyard extends north and there is a street to
+the south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17105 10 100 1
+Dr 0 0 -1 17119
+~
+~
+Dr 2 0 -1 17128
+~
+~
+End
+
+#17124
+N Old Abandoned Warehouse~
+Ref 0
+D
+Once the center of a lucrative storage business, it has fallen to
+disrepair like everything else.  It is now the hideout of the
+Dragon gang.  The gang leader runs his reign of terror from here.
+There is a wooden door barely on the hinges to the east.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17103 2 100 1
+Dr 1 0 -1 17125
+~
+wooden door east~
+End
+
+#17125
+N Warehouse~
+Ref 0
+D
+The street runs north and south.  There is an old wooden door leading
+to a warehouse to the west.  The warehouse LOOKS abandoned. . .
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17105 10 100 1
+Dr 0 0 -1 17120
+~
+~
+Dr 2 0 -1 17130
+~
+~
+Dr 3 0 -1 17124
+~
+wooden door west~
+End
+
+#17126
+N Supply Warehouse~
+Ref 0
+D
+Yellow Dragon Road is the southern boundary of Troll Territory.  The
+road extends east.  You enter "no-man's land" to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17127
+~
+~
+Dr 2 0 -1 17131
+~
+ledge~
+End
+
+#17127
+N Supply Warehouse~
+Ref 0
+D
+The road runs east and west.  Ice Dragon Way leads north from here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17122
+~
+hole in the wall leading to collapsed Coolant Tower 1~
+Dr 1 0 -1 17128
+~
+~
+Dr 3 0 -1 17126
+~
+~
+End
+
+#17128
+N Roofless Depot~
+Ref 0
+D
+The roads continues east and west.  There is a courtyard to the north.
+You enter "no man's land" to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17123
+~
+~
+Dr 1 0 -1 17129
+~
+~
+Dr 2 0 -1 17133
+~
+~
+Dr 3 0 -1 17127
+~
+~
+Dr 5 5 0 17173
+~
+hatch~
+End
+
+#17129
+N Depot at Trench~
+Ref 0
+D
+There is a barred window to the north.  There appears to be a light
+coming from the cracks around it.  The road extends east and west
+from here.  Or you can enter "no man's land" south from here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17130
+~
+~
+Dr 2 0 -1 17134
+~
+~
+Dr 3 0 -1 17128
+~
+~
+End
+
+#17130
+N Overlooking the Wastes~
+Ref 0
+D
+Bronze Dragon Street intersects here and runs north.  Yellow Dragon ends
+here but continues to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17101 25 100 1
+Dr 0 0 -1 17125
+~
+~
+Dr 3 0 -1 17129
+~
+~
+End
+
+#17131
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues south
+and east; or there is a street to the north.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17126
+~
+~
+Dr 1 0 -1 17132
+~
+~
+Dr 2 0 -1 17136
+~
+~
+End
+
+#17132
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues south
+east and west.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 1 0 -1 17133
+~
+~
+Dr 2 0 -1 17137
+~
+~
+Dr 3 0 -1 17131
+~
+~
+End
+
+#17133
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues south,
+east and west; or there is a street to the north.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17128
+~
+~
+Dr 1 0 -1 17134
+~
+~
+Dr 2 0 -1 17138
+~
+~
+Dr 3 0 -1 17132
+~
+~
+End
+
+#17134
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues south,
+east, and west; or there is a street to the north.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17129
+~
+~
+Dr 1 0 -1 17135
+~
+~
+Dr 2 0 -1 17139
+~
+~
+Dr 3 0 -1 17133
+~
+~
+End
+
+#17135
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues south
+and west.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 2 0 -1 17140
+~
+~
+Dr 3 0 -1 17134
+~
+~
+End
+
+#17136
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues north
+and east; or there is a street to the south.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17131
+~
+~
+Dr 1 0 -1 17137
+~
+~
+Dr 2 0 -1 17141
+~
+~
+End
+
+#17137
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues north,
+east and west.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17132
+~
+~
+Dr 1 0 -1 17138
+~
+~
+Dr 3 0 -1 17136
+~
+~
+End
+
+#17138
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues north,
+east, and west; or there is a street to the south.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17133
+~
+~
+Dr 1 0 -1 17139
+~
+~
+Dr 2 0 -1 17143
+~
+~
+Dr 3 0 -1 17137
+~
+~
+End
+
+#17139
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues north,
+east, and west.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17134
+~
+~
+Dr 1 0 -1 17140
+~
+~
+Dr 3 0 -1 17138
+~
+~
+End
+
+#17140
+N NO MAN'S LAND~
+Ref 0
+D
+This is the section of town between the two gang's territories.  This
+is usually where the violence starts.  No Man's land continues south
+and west; or there is a street to the south.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 17106 15 100 1
+Dr 0 0 -1 17135
+~
+~
+Dr 2 0 -1 17145
+~
+~
+Dr 3 0 -1 17139
+~
+~
+End
+
+#17141
+N Bend in Hector Street~
+Ref 0
+D
+Hector street bends to the east and the south here.  "No Man's Land"
+entrance is to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17136
+~
+~
+Dr 1 0 -1 17142
+~
+~
+Dr 2 0 -1 17146
+~
+~
+End
+
+#17142
+N Hector Street at Bakery~
+Ref 0
+D
+Hector street runs east and west.  The Bakery used to be to the south
+but the entrance is sealed off.  Probably just a bunch of stale pies in
+there anyways.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+R O 17105 39 100 1
+Dr 1 0 -1 17143
+~
+~
+Dr 3 0 -1 17141
+~
+~
+End
+
+#17143
+N Another Corner of Hector And Achilles Streets~
+Ref 0
+D
+Achilles street heads to the south and Hector runs east and west.
+There is an entrance to "No Man's Land" to the north.  On the
+southwest corner of this intersection, it looks like a building
+was recently burned down.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17138
+~
+~
+Dr 1 0 -1 17144
+~
+~
+Dr 2 0 -1 17147
+~
+~
+Dr 3 0 -1 17142
+~
+~
+Dr 5 0 0 17177
+~
+~
+End
+
+#17144
+N Hector Street at Jeweler~
+Ref 0
+D
+Once a bright spot in the town, it now looks like one of the
+hardest hit by the violence.  The building could collapse at any
+moment.  The street continues east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17145
+~
+~
+Dr 3 0 -1 17143
+~
+~
+End
+
+#17145
+N Blasted Fountain~
+Ref 0
+D
+There is a grand fountain to the east but the water doesn't
+look good to drink.  Ajax street heads south and Hector
+goes back west.  "No Man's Land" is to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17140
+~
+~
+Dr 2 0 -1 17149
+~
+~
+Dr 3 0 -1 17144
+~
+~
+End
+
+#17146
+N Hector Street~
+Ref 0
+D
+The street is full of garbage here.  An odd building lies to the west,
+but you don't seem to be able to find a way into it.  The street
+runs north and south here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17141
+~
+~
+Dr 2 0 -1 17150
+~
+~
+End
+
+#17147
+N Achilles Avenue~
+Ref 0
+D
+The town bards sang of the victory parades that used to pass along this
+route.  It was once a major way through the center of town.  The street
+goes south to a bend and north to an intersection.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17143
+~
+~
+Dr 2 0 -1 17152
+~
+~
+End
+
+#17148
+N A small ruined chapel~
+Ref 0
+D
+This was a small temple built to honor the minor gods and goddesses.
+It is now desecrated by graffiti and vandalism.  Perhaps its worst
+defilement is that it is the hangout of the Ogre gang.  There is a street to
+the east through a rusty metal door.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17103 2 100 1
+Dr 1 0 -1 17149
+~
+rusted door metal~
+End
+
+#17149
+N Burnt Street~
+Ref 0
+D
+The temple to honor the minor gods is through a rusty metal door
+to the west.  The street continues north and south.  You hear the
+muffled sounds of screams coming from the chapel.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17105 10 100 1
+Dr 0 0 -1 17145
+~
+~
+Dr 2 0 -1 17154
+~
+~
+Dr 3 0 -1 17148
+~
+rusted door metal~
+End
+
+#17150
+N First intersection of Hector and Achilles~
+Ref 0
+D
+There is a large statue here depicting a battle between two
+great warriors.  You think it's odd that it has not been defiled,
+but then you sense a aura protecting it.  Achilles runs east
+and south, while Hector heads out to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17146
+~
+~
+Dr 1 0 -1 17151
+~
+~
+Dr 2 0 -1 17156
+~
+~
+End
+
+#17151
+N Hector street~
+Ref 0
+D
+A large open space, possibly a cemetery, lies to the south.
+There is a large wrought-iron fence with spikes on top
+which prevents you from entering the area.  The street
+continues east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 1 0 -1 17152
+~
+~
+Dr 3 0 -1 17150
+~
+~
+End
+
+#17152
+N A Bend in the Road~
+Ref 0
+D
+Achilles Avenue bends to the north and west here.  There
+is also a narrow alley to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17105 10 100 1
+Dr 0 0 -1 17147
+~
+~
+Dr 2 0 -1 17157
+~
+~
+Dr 3 0 -1 17151
+~
+~
+End
+
+#17153
+N What is left of the weaponshop~
+Ref 0
+D
+It doesn't even look like those punks gave the weaponsmith a
+proper burial.  But what a going away present he seems to have
+received!  Blood is splattered and dried all over the walls here.
+It looks like a great deal of carnage happened here.  The way
+out to the east leads out onto a street.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+R O 17109 21 100 1
+Dr 1 0 -1 17154
+~
+~
+End
+
+#17154
+N Crater~
+Ref 0
+D
+The street goes north and south.  The stables used to be to the
+east, but I bet all the horses are dead or gone.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+R O 17103 5 100 1
+Dr 0 0 -1 17149
+~
+~
+Dr 2 0 -1 17159
+~
+~
+Dr 3 0 -1 17153
+~
+~
+End
+
+#17155
+N Khan Park~
+Ref 0
+D
+Not really a "park" as you and i would think of it but
+it seems queerly peaceful here in comparison to the rest of
+the area.  There seems to be some kind of memorial to the
+great Mongol warrior Khan being crudely constructed here.
+There is a street to the east and another to the south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17104 10 100 1
+Dr 1 0 -1 17156
+~
+~
+Dr 2 0 -1 17162
+~
+~
+End
+
+#17156
+N Achilles avenue at entrance to park~
+Ref 0
+D
+A ... park?! lies to the west.  The street runs south to an
+intersection and curves to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17150
+~
+~
+Dr 2 0 -1 17163
+~
+~
+Dr 3 0 -1 17155
+~
+~
+End
+
+#17157
+N A Bend in Ajax~
+Ref 0
+D
+The roads bends south and east here.  You barely notice
+a small alley leading north.  Some kind of tunnel entrance
+is to the west but it has been crushed under its own weight.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17152
+~
+~
+Dr 1 0 -1 17158
+~
+~
+Dr 2 0 -1 17164
+~
+~
+End
+
+#17158
+N Destroyed Village~
+Ref 0
+D
+A once prideful guildhouse was on the northeast corner of
+this intersection.  Most of the walls and ceiling have long since
+been demolished.  An inn/pub is to the south.  The street bends
+to the east or west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 1 0 -1 17159
+~
+~
+Dr 2 0 -1 17165
+~
+~
+Dr 3 0 -1 17157
+~
+~
+End
+
+#17159
+N Curve in the Road~
+Ref 0
+D
+The street goes north or west from here.  A narrow street once
+headed southeast from here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17154
+~
+~
+Dr 3 0 -1 17158
+~
+~
+End
+
+#17160
+N A wide alleyway~
+Ref 0
+D
+The sides of the alleyway have been vandalized many times.
+~
+C
+~
+F 5
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 1 0 -1 17161
+~
+~
+End
+
+#17161
+N Alexander Road~
+Ref 0
+D
+You see many gang members walking around looking for
+fights to pick and things to break.  It seems as if all of the
+other citizens have been run out of town.  All the former
+homes are boarded up and uninhabitable.  The road continues
+east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17107 4 100 1
+Dr 1 0 -1 17162
+~
+~
+Dr 3 0 -1 17160
+~
+~
+End
+
+#17162
+N Alexander Street At Park Entrance~
+Ref 0
+D
+A park-looking area lies to the north and a passage between
+two buildings leads to another street to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17155
+~
+~
+Dr 2 0 -1 17166
+~
+~
+Dr 3 0 -1 17161
+~
+~
+End
+
+#17163
+N Achilles Avenue~
+Ref 0
+D
+The Avenue Runs north and south.  You sense you are deep within
+Ogre gang territory, and a chill goes up your spine.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17156
+~
+~
+Dr 2 0 -1 17167
+~
+~
+End
+
+#17164
+N Ajax Street~
+Ref 0
+D
+You can see a sinister black wrought-iron fence to the west.
+You wonder if it's keeping you out, or the ghouls in?
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17157
+~
+~
+Dr 2 0 -1 17169
+~
+~
+End
+
+#17165
+N Destroyed Pub~
+Ref 0
+D
+What was once a nice pub is now a burnt cinder.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17107 4 100 1
+Dr 0 0 -1 17158
+~
+~
+Dr 2 0 -1 17170
+~
+~
+End
+
+#17166
+N Solomon Street~
+Ref 0
+D
+This street forms the southern boundary of Ogre territory.  The
+street extends far to the east.  There is also a pathway between
+buildings which leads to another street to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+R M 17109 5 100 1
+Dr 0 0 -1 17162
+~
+~
+Dr 1 0 -1 17167
+~
+~
+End
+
+#17167
+N Intersection Of Achilles And Solomon~
+Ref 0
+D
+Solomon street is to the east and west.  The other part of the
+T is Achilles Avenue, starting here and winding to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+Dr 0 0 -1 17163
+~
+~
+Dr 1 0 -1 17168
+~
+~
+Dr 3 0 -1 17166
+~
+~
+End
+
+#17168
+N Solomon Street~
+Ref 0
+D
+A wrought-iron fence blocks off what used to be an entrance to the
+cemetery here to the north.  The evil just seems too strong to
+to consider entering.  You feel you should stick with the "lesser"
+evils along the road to the east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17169
+~
+~
+Dr 3 0 -1 17167
+~
+~
+End
+
+#17169
+N Intersection of Ajax And Solomon~
+Ref 0
+D
+The two roads meet at a corner here.  Ajax runs north and
+Solomon heads west.  An inn/pub is through a back doorway
+to the east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17102 25 100 1
+R O 17102 10 100 1
+Dr 0 0 -1 17164
+~
+~
+Dr 1 0 -1 17170
+~
+~
+Dr 3 0 -1 17168
+~
+~
+End
+
+#17170
+N Hallway~
+Ref 0
+D
+The hallway heads back north to the main part of the inn/pub.
+The stairs leading up to the guest rooms here do not seem
+advisable to climb.  A doorway empties out into Solomon
+street to the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17104 10 100 1
+Dr 0 0 -1 17165
+~
+~
+Dr 3 0 -1 17169
+~
+~
+End
+
+#17171
+N Fetterman's Trade Depot~
+Ref 0
+D
+The road extends south along the inside of the wall surrounding
+the city.  You spy a city gate to the north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18041
+~
+~
+End
+
+#17172
+N Wall Road~
+Ref 0
+D
+Wall road extends north along the inside of the city wall.  A dark
+alley lies to the east.
+~
+C
+~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+End
+
+#17173
+N Access Tunnel~
+Ref 0
+D
+You are in one of the robotic access tunnels leading into the
+subterrainean complex that was once the Oridian Penal Colony.  Rungs of a
+ladder are set in the wall, leading up to the surface.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 17174
+~
+~
+Dr 4 5 0 17128
+~
+hatch~
+End
+
+#17174
+N Operations Room~
+Ref 0
+D
+A makeshift operations center has been deployed by Oridian security.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17173
+~
+~
+Dr 2 0 0 17176
+~
+~
+Dr 3 0 0 17175
+~
+~
+End
+
+#17175
+N Underground Corridor~
+Ref 0
+D
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17174
+~
+~
+Dr 3 0 0 17178
+~
+~
+End
+
+#17176
+N Access Tunnel~
+Ref 0
+D
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17174
+~
+~
+Dr 2 0 0 17177
+~
+~
+End
+
+#17177
+N Access Tunnel~
+Ref 0
+D
+You are in a dank access tunnel somewhere below the complex.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17176
+~
+~
+Dr 4 0 0 17143
+~
+~
+End
+
+#17178
+N Wormhole Lab~
+Ref 0
+D
+A vacant room in the underground complex has been converted into a
+laboratory for conducting extradimensional experiments using quantum
+inferiority subsistance generators.  A carefully conditioned ionic green gas
+laser beams control sequences across a massive iron gateway leading,
+presumably, to other dimensions.  ^BYou can see a ^4Control Panel^N ^Bwith a
+^3sign^N ^Bdisplaying operating instructions.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+ED control panel~
+A control panel marked with eight buttons, the first 7 of which have
+numbers 1,2,3,4,5,6,7 and the final one is marked with an asterisk.
+ 
+You can press the buttons by typing 'press button one',
+or 'press button 1' -- or 'press button *'
+~
+ED sign~
+The sign, which is really just a note taped to the device, reads:
+"Press button one for coordinate X:L1-Ty439,
+ Press button two for coordinate ORI-784 in geosyncronous orbit.
+ Press button three for coordinate UC-384 in Upsilon Corvi.
+ Press button four for coordinate KLS-20t/6 along time sequence 91:312:1955.
+ Press button five for coordinate KLS-20t/6 along time sequence 91:312:1963.
+ Press button six for coordinate ALR-197 station matrix 6."
+ 
+Someone has scrawled "button 7 has not been tested !!!" at the bottom
+of the note.
+~
+Dr 1 0 0 17175
+~
+~
+End
+
+#0
+
+
+
+#$

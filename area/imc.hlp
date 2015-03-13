@@ -1,0 +1,61 @@
+
+
+#DOC 393
+N IMC~
+C 11 L 0
+KW IMC INTERMUD IMC2 RWHO~
+SY ~
+TX .
+IMC2 MUD-Net  4.24b developed by Alsherok and Crimson Oracles
+Copyright (C) 2002-2003 Roger Libiez ( Samson )
+Additional code Copyright (C) 2002 Orion Elder
+Registered with the United States Copyright Office TX 5-555-584
+
+imcchanlist: Lists the current channels on IMC and the levels at which they
+  can be used. If you are able to see the output, then you can more than
+  likely tune in to at least one channel.
+ 
+imclisten [channel]: Lists the channels you are currently tuned in to.
+  If a channel name is specified, then the command toggles the channel on or
+  off for you.
+ 
+imclist: Lists the muds which are currently connected to the IMC network.
+ 
+imc: typing imc alone will list the features of imc
+ 
+~
+IT .Administrative commands: IMCCOMMAND, IMCDENY, 
+IMCBAN, IMCPING, IMCSETUP, IMCSOCKETS, IMCSTATS, and IMCCONFIG
+~
+EX ~
+SA ~
+End
+
+#DOC 394
+N IMC-COLOR~
+C 11 L 0
+KW 'IMC COLOR'~
+SY ~
+TX .
+You may use ampersand (&) codes in IMC to color your text.
+Try:
+ 
+&B Blue
+&G Green
+&b Dark Blue
+&g Dark Green
+&P,&p purple
+&Y,&y yellow
+&R,&r red
+&O "orange" or amber
+&W white
+&w grey
+ 
+Replace the ampersand(&) with a carot (^) for background colors.
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

@@ -1,0 +1,12 @@
+
+Copyover has not been installed.  
+
+Niksa omitted a step in its installation; also I have determined that it 
+is not an important feature, as the startup script does this job for you.  
+Though it is "nice" to hold the connections, its not exactly necessary.  
+An avid player will come back after the reboot; the key is just to not
+have too many reboots.
+
+NiMUD's default reboot time is 1000 hours.
+
+-Locke

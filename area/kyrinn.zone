@@ -1,0 +1,757 @@
+#ZONE 
+N Kyrinn~
+B None~
+V 22900 22918
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#22900
+N grand knight paladin~
+SD the Grand Knight of paladins~
+LD
+ The Grand Knight is standing here, waiting for someone to help.
+~
+D
+ The Knight is standing here, smiling at you. He is dressed all in
+white, blue and silver. He looks VERY strong, as he stands here, ready to
+help the innocent.
+~
+A 65
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 1000 E 198
+O ~
+AP 15 15 15 15 15
+At 0 10 22 0
+End
+
+#22908
+N konith~
+SD Konith the Great~
+LD
+ Konith is here, shuffling about.
+~
+D
+ ~
+A 1041
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+Spell 28
+Spell 27
+Spell 25
+Spell 24
+AP 18 18 18 18 18
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sk 75 'kora'
+End
+
+#22912
+N kalxagaar fire mage~
+SD Kalxagaar the Fire Mage~
+LD
+ Kalxagaar is meditating here.
+~
+D
+ A jet-blacked skinned fire mage, a councilmember of the guild of the
+gemmasters.  
+~
+A 1043
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+Spell 30
+Spell 11
+AP 15 15 15 15 15
+At 0 10 19 10
+End
+
+#0
+
+
+
+#OBJDATA
+#22908
+N spellbook~
+SD a gemmaster's spellbook~
+P ~
+D
+A book with the markings of Kyrinn has been discarded.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 33
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 1000
+O ~
+V 0 0 0 0
+End
+
+#22909
+N treasure coins~
+SD a huge treasure~
+P ~
+D
+A huge treasure is lying here, looking very valuable.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V -100 0 0 0
+ED writing letters~
+It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
+~
+ED treasure~
+Looks like a LOT of coins.  One of them has writing on it.
+~
+End
+
+#22910
+N chest~
+SD a wooden chest~
+P ~
+D
+A wooden chest stands in the corner.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 400
+C 100
+O ~
+V 100 15 7911 0
+ED chest~
+It is a robust chest made from short, heavy planks that have been fastened
+together with tenons.  It is equipped with a simple brass lock.
+~
+End
+
+#22911
+N key~
+SD a small brass key~
+P ~
+D
+A small brass key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 7910 0 0 0
+ED key~
+It is a small, simple brass key with no inscriptions or marks of any kind.
+~
+End
+
+#0
+
+
+
+#SCENES
+#22900
+N Southern Gate of Kyrinn~
+Ref 0
+D
+A huge stone wall many times the height of a giant stands fast against
+the dilapidated depths of Soudkyr.  The stones are massive, quarried from
+new rock in the southwestern basalt quarries in the Ring of Fire.  The base
+stones of the basalt wall are obsidian, dotted here and there with bricks of
+black onyx that gleam as though wet under moon and starlight.  
+~
+C
+~
+F 516
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22900 1 100 1
+Dr 0 1 -1 22901
+You see a HUGE arched gate leading into this magnificent building.
+~
+huge arched gate door~
+Dr 2 0 0 24101
+You see some pretty clouds!
+~
+~
+End
+
+#22901
+N Southern Tower~
+Ref 0
+D
+You are standing in a vast hall that is dimly lit, but from where the
+light comes, is a mystery.  The walls seem to radiate warmth and give the
+pleasant feeling of being welcome here.  A large ^Bportrait^N is hanging on
+one of the walls.  A large wooden staircase leads up into the tower.  To the
+east there is a high passage away from the hall.  This ends shortly after by
+a tall oak door.  The enormous hall extends further north from here.  To the
+south you can see a huge, and heavy wrought-iron door.  It looks like this
+is the only exit from this magnificent enclosed city.  To the west you can
+see a large ashen door.  
+~
+C
+~
+F 516
+S 1
+M 0
+W 0
+T 0
+O ~
+ED letters~
+They read "LIBRARY".
+~
+ED runes~
+These runes are utterly strange to you, but you are in luck today: Under
+the runes you can just make out a sentence in Common. It goes : " Stay out,
+if you treasure your life. That is if you are mortal.".
+~
+ED portrait~
+Elemental Magick Spheres:
+San, Fire - Nelse, Water - Kora, Earth - Zeich, Air
+ 
+Grun (Natural) Spheres:
+Dadro, Darkness - Zad, Creation - Gana, Maledictions
+Taug, Illusions and Transmutation - Wodan, Divination
+Nasang, Enchantments
+A well painted rendering of all of the symbols of the various
+schools of magick is hanging from the wall.
+~
+Dr 0 0 -1 22904
+The hallway continues that way. You can see more doorways under the
+wooden staircase in that direction.
+~
+~
+Dr 1 5 -1 22910
+You see there a tall oak door. It looks quite tightly closed to you.
+On it little runes are chiselled into the wood.
+~
+tall oak door~
+Dr 2 1 -1 22900
+Here you see a REAL door. It would be more proper to call this a
+"GATE", rather than a "door". It's really HUGE! On it hangs a large
+sign with very large letters spelling : "EMERGENCY EXIT".
+~
+huge arched gate door~
+Dr 4 0 -1 22909
+You see the staircase extending upwards into the very high tower.
+It ends in what seems like a large bedroom up there.
+~
+~
+End
+
+#22902
+N Library~
+Ref 0
+D
+This is truly a magnificent place!  Books and scrolls lie together on
+every shelf.  A large ^Bglobe^N, with the map of Tyselorrd upon it, stands
+in the dimly lit north-western corner of the room.  Two large and
+well-crafted ^Bstatues^N adorn the center of the library together with a
+huge oak desk.  Dim light radiates from an enormous crystal ^Bchandelier^N
+hanging down from the ceiling high the floor.  A large glass window is set
+in the west wall.  
+~
+C
+~
+F 1540
+S 0
+M 0
+W 0
+T 0
+O ~
+ED river~
+You see a large and winding river cut through the landscape, starting at an
+enormous inland lake, it seeps through Midgaard and finally ends up in the
+Grand Sea on the West-coast of the land.
+~
+ED out outside beyond~
+The clouds muster and form the ground on which this entire building is set.
+Through the thinnest of the clouds you can just make out MIDGAARD with all
+it's magnificent activity.
+~
+ED window glass~
+These windows are really BIG! They reach from about 20 inches above the
+floor to approximately 10 inches under the ceiling. If you try and
+"look out", you might see what might lie beyond these windows.
+~
+ED chairs leather arm-chairs~
+These two chair are exactly alike one another. They look incredibly
+comfortable. They're both made from old leather, and yet they seem so worn
+that they can be nothing but a perfect place for a long needed rest.
+~
+ED midgaard town city~
+You see a small speck with woods on the west from it, plains to the east
+from it and mountains to the north from it. To the south from it you can
+see a thin trail lead to a large castle. Finally you notice a rather large
+river pour in from the east and go through Midgaard in the middle.
+~
+ED globe world map~
+A large copper and bronze mechanism with a huge point that points
+skyward.  The globe spins very slowly, as if on the power of its own.  It is
+studded with tiny broken pieces of a variety of different crystals, from
+jade to amethyst, ruby and zircon to amber and hiddenite.  
+~
+ED statues~
+Two obsidian statues dusted with blue indigo calcite.  One depicts a
+mother and the other a father, both human, picking berries.  They are
+wearing only the simplest of clothes.  
+~
+ED chandelier~
+A beautiful quartz chandelier.
+~
+Dr 3 2560 0 22906
+The window is set in the stone wall of the school.
+~
+large glass window~
+Dr 5 0 0 22908
+~
+~
+End
+
+#22903
+N The Artifact room of Naris~
+Ref 0
+D
+This is gloomy and dark room with only a faint light radiating from the
+walls. A bunch of funny-looking items fill the center of the room. There are
+no furniture here what-so-ever. The only way out seems to be west, through
+the low steel door.
+~
+C
+~
+F 526
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 22909 0 100 1
+End
+
+#22904
+N Center of Kyrinn~
+Ref 0
+D
+This is the large central garden of the House of the Council; Kyrinn. 
+Mages can be heard shuffling along in the many hallways above you.  A single
+opening in the roof, enclosed by multicolored glass, allows sunlight to pour
+into this location during the day.  The wonderful blue-and-grey marble
+floors are accentuated by gold trim and obsidian highlights.  A cast and
+polished bronze ^Bstatue^N is in the center of the room.  
+~
+C
+~
+F 512
+S 1
+M 0
+W 0
+T 0
+O ~
+ED statue~
+A tall bronze statue of an Alvaki priestess.  She is garbed in a flowing
+robe and wears a large gem set in her choker.  
+~
+Dr 0 0 -1 22906
+~
+~
+Dr 1 0 -1 22913
+You see a huge metal door. From it a foul stench emanates. The smell is the
+most awful experience in your entire life. A thought seeps through this
+terrible stench and into your mind : "Monsters", you feel BAD about opening
+that door.
+~
+archway~
+Dr 2 0 -1 22901
+The rest of the hall lies in that direction, and so does the exit.
+~
+~
+Dr 3 1 -1 22905
+The door has "SITTING ROOM" written on it. It is made from Aspenwood and
+is beautifully carven with small elves as main issue of sculpture.
+~
+archway~
+End
+
+#22905
+N Hall of the Ancients - Kyrinn~
+Ref 0
+D
+You are standing in the middle of a really comfortable place. The walls are
+decorated with paintings of smiling Kings and Queens. The most attractive
+picture is one of a Prince in shiny armour. By one of the walls there is an
+old arm-chair. The only exit is through the aspenwood door to the east.
+~
+C
+~
+F 524
+S 0
+M 0
+W 0
+T 0
+O ~
+ED chair arm-chair~
+This is truly a wonderful relic of the past. In it is a large cushion.
+~
+Dr 1 1 -1 22904
+The door seems to be a very HEAVY door, carved completely from the trunk of
+an Aspen tree.
+~
+aspen door~
+End
+
+#22906
+N Gemmaster's Commons~
+Ref 0
+D
+A wide cobblestone square located in the center of the Gemmaster's
+Quarter, the richest and scholarly part of Kyrinn.
+~
+C
+~
+F 520
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 -1 22907
+It's dark in there,  but the sounds from there are unmistakably from rats.
+~
+grand gate~
+Dr 1 0 -1 22908
+To the east is the place to learn about gem magick.
+~
+ash door~
+Dr 2 0 -1 22904
+You can see the northern end of the hall.
+~
+~
+End
+
+#22907
+N Council Chamber~
+Ref 0
+D
+You can see food all over. Among the heaps of food you notice HUGE rats
+scuttering around, nibbling pieces off the heaps here and there.
+~
+C
+~
+F 524
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 1 -1 22906
+~
+grand gate~
+End
+
+#22908
+N School of Arcane Thought~
+Ref 0
+D
+You are in the main hall of the Gemmaster's Guild's School of Arcane
+Thought.  Neat rows of tables at the base of the large archways fill the
+main floor of the chamber.  Above you, you can see a balcony high and
+obscured near the rafters.  
+~
+C
+~
+F 1548
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22908 1 100 1
+R O 22908 -1 100 10
+Dr 3 0 -1 22906
+~
+ash door~
+Dr 4 0 0 22902
+~
+~
+End
+
+#22909
+N Tall Staircase~
+Ref 0
+D
+You are halfway up a tall staircase leading to the top of the southern
+tower of Kyrinn.  
+~
+C
+~
+F 524
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 -1 22911
+~
+~
+Dr 5 0 -1 22901
+~
+~
+End
+
+#22910
+N The Treasure room~
+Ref 0
+D
+This place is gloomy.  The only visible exit is west, through the oak door.
+~
+C
+~
+F 524
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 22910 0 100 1
+Dr 3 5 -1 22901
+You see a tall oak door.
+~
+tall oak door~
+End
+
+#22911
+N Top of Fire Tower~
+Ref 0
+D
+A tall watch post with a view of the southern lands, Soudkyr, Vlazgadbrun
+and the Ring of Fire.  You can see the river Kyr wind its way south through
+the volcanic ash toward the southern coast of Tyselorrd.  In the southeast
+you can see a few cities along the coast in the far distance.  The eastern
+road from Kyrinn leads southeast toward more of the mainland.  
+~
+C
+~
+F 524
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22912
+The sun seems to shine out there, warmly and comforting.
+~
+arch~
+Dr 5 0 -1 22909
+~
+~
+End
+
+#22912
+N Balcony~
+Ref 0
+D
+A small balcony overlooking Soudkyr and the southern gates to Kyrinn.  
+~
+C
+~
+F 516
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22912 1 100 1
+Dr 0 0 -1 22911
+You see the comfortable bedroom of Naris, the mansion of Redferne the Greater
+God.
+~
+doors~
+End
+
+#22913
+N Sentry Post~
+Ref 0
+D
+A modest guard post situated at the base of the Fire Tower.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 22904
+This looks like the only exit from here.
+~
+archway~
+End
+
+#22914
+N On the Huge Chain~
+Ref 0
+D
+This place has quite a good view over Midgaard. Your possibilities of movement
+seems to extend only to up and down. Unless you want to let go of the secure
+and seemingly unmoveable chain, then those are the directions you should take
+from here.
+~
+C
+~
+F 4
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 -1 22916
+Up the way you see the chain disappearing into the clouds above.
+~
+~
+End
+
+#22916
+N On the Great Chain of Naris~
+Ref 0
+D
+You are approximately on the middle of the treacherous Chain. One false step
+and death will come and collect you quickly. The chain leads upwards and down.
+No way are you going to descend now ... you've only just begun your climb.
+Besides it could cost you your life.  Look down and you'll see why.
+~
+C
+~
+F 4
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 -1 22918
+There seems to be only one way from here and that's up.
+~
+~
+End
+
+#22918
+N The Mighty Chain of Naris~
+Ref 0
+D
+This place offers a splendid view of the WHOLE COUNTRY SIDE!!! A magnificent
+light shines upon you and the way up through the clouds is opened. Up there
+you can now see the Mansion of Naris, Residence of the Greater God Redferne.
+The chain beneath you seems to evaporate in the mustering clouds that
+surround you by now.
+~
+C
+~
+F 6
+S 5
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

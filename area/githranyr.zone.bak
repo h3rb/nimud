@@ -1,0 +1,1498 @@
+#ZONE 
+N Githranyr's Tower~
+R The wind whips by, stirring the dust around you.
+~
+B None~
+V 7700 7899
+S 1
+End
+
+
+
+#SCRIPTDATA
+#7730
+N necro-attack~
+C
+wait(20);
+do({:rends your flesh with a strange spell.});
+hurt(%name%);
+~
+T 2
+End
+
+#7735
+N wailing-savant~
+C
+wait(10);
+do({shout Aiii ia! Shu-n`ggrath! Ia ie katool i Ri`lyeh!});
+wait(20);
+do({shout k`Thuul-lhu r`lyeh!});
+wait(40);
+do(:shivers and suffers.);
+~
+T 1
+End
+
+#7736
+N fisherman~
+C
+autowait(25);
+do({:casts his net out to sea.});
+do({'Sometimes I catch the strangest things in my nets.  Once, I found a glowing gem among the kelp!});
+do({:pulls hard on the rope attached to his net.});
+do({'Gems go for a pretty penny!  I don't have much use for them myself.  In Kyrinn, the Gemmasters' Guild is always looking for gems recovered from the realm.});
+do({'If you take that ferry to Vladgaazbrun, you'll be able to travel there.  The man who drives it is just east of here.});
+do({:tugs on his bouy and begins to reel in his catch.});
+do({:empties his net onto the ground and begins picking through what the sea turned up.});
+dispense(%actor%,{7702}); do({:gives you some fresh fish.});
+~
+T 6
+End
+
+#7750
+N spell-animate-dead~
+C
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#7700
+N tentacles~
+SD a mass of tentacles~
+LD
+ A mass of tentacles writhes on the floor.
+~
+D
+ A seething mass of putrescence.  The tentacles crawl over each other in a
+putrid pool of slime.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 150
+O ~
+AP 10 10 10 10 10
+At 1 5 10 9
+At 2 3 6 4
+At 3 7 17 12
+End
+
+#7701
+N ghoul~
+SD a ghoul~
+LD
+ A long dead patron of the temple is now animated by esoteric magicks.
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 75
+O ~
+AP 5 5 5 5 5
+At 1 5 10 13
+End
+
+#7703
+N crab ~
+SD a small sand crab~
+LD
+ A small crab scurries along the beach.
+~
+D
+ A pinkish sand crab with two small pincers.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -1 E 5
+O ~
+AP 15 15 15 15 15
+At 1 2 0 14
+At 2 2 0 10
+End
+
+#7729
+N gythranyr great~
+SD Gythranyr the Great~
+LD
+ Gythranyr is here, offering lessons in necromancy.
+~
+D
+ A dark-complected and often obscured Gythranyr in his symbol-covered
+robes; Gythranyr fled the White Tower of Arcana and now resides in
+his humble tower, far from the great hallowed halls of the school
+which he once called home.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 25 0
+End
+
+#7730
+N cloaked necromancer~
+SD a cloaked necromancer~
+LD
+ a cloaked necromancer is studying the occult.
+~
+D
+ ~
+A 1091
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 100
+O ~
+Spell 33
+Spell 32
+AP 6 6 6 6 6
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 10
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ Bah! I don't have it.~
+ Str2
+ I don't want it!~
+ Str3
+ ~
+ Str4
+ Meh!~
+EndShop
+Sc 7730
+End
+
+#7734
+N wraith~
+SD a wraith~
+LD
+ A glowing wraith spirals by the portal.
+~
+D
+ The wraith is a semi-transparent entity of combined souls from victims of
+battles.  Undoubtably not naturally haunting this area, the necromancers
+have called it from beyond the mortal plane.  
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 1 E 75
+O ~
+AP 6 6 6 6 6
+End
+
+#7735
+N wailing savant~
+SD a wailing savant~
+LD
+ A horrid, pale savant is screaming.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 50 E 35
+O ~
+AP 9 9 9 9 9
+Sc 7735
+End
+
+#7736
+N fisherman $n~
+SD $n the fisherman~
+LD
+ A fisherman is standing on the beach, wading in the shallow lagoon.
+~
+D
+ ~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 7736
+At 0 10 19 2
+End
+
+#0
+
+
+
+#OBJDATA
+#7701
+N silver necklace~
+SD a silver necklace~
+P ~
+D
+A simple silver necklace is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 32
+E 0
+W 5
+Sz 0
+Ti 0
+Wt 0
+C 400
+O ~
+V 0 0 0 0
+End
+
+#7702
+N fish~
+SD a fish~
+P ~
+D
+There is a freshly caught fish here!
+~
+A
+You enjoy some raw fish.
+~
+PD
+~
+DR
+A freshly caught saltwater marlin given to you by a fisherman in Trynt.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 10
+O ~
+V 20 0 0 0
+End
+
+#7734
+N portal~
+SD a portal~
+P ~
+D
+A shimmering portal glows with an orange light.
+~
+A
+~
+PD
+~
+DR
+The portal shifts and changes, a tear in the fabric of time and space.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 11600
+End
+
+#0
+
+
+
+#SCENES
+#7700
+N Beach~
+Ref 0
+D
+You are on a wide sandy beach full of white sands and shells.  The surf
+crashes against the rocks and the sound of gulls are around you.  A short
+grass-covered embankment shields the land from the breakers.  A few ships
+can be seen far out on the horizon.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 600
+~
+~
+Dr 3 0 0 7701
+~
+~
+End
+
+#7701
+N Beach~
+Ref 7700
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7736 1 100 1
+R M 7703 10 75 2
+Dr 1 0 0 7700
+~
+~
+Dr 2 1024 0 7702
+~
+~
+Dr 3 0 0 7702
+~
+~
+Dr 6 0 0 10873
+~
+~
+Dr 8 0 0 7702
+~
+~
+End
+
+#7702
+N Beach~
+Ref 7700
+D
+A tide pool is filled with foam.
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7703 10 75 2
+R M 7703 1 100 1
+Dr 0 0 0 7701
+~
+~
+Dr 1 0 0 7701
+~
+~
+Dr 3 0 0 7703
+~
+~
+Dr 7 0 0 7701
+~
+~
+End
+
+#7703
+N Beach Near Cave~
+Ref 7700
+D
+A small cave entrance is just southwest.
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7702
+~
+~
+Dr 2 0 0 7704
+~
+~
+Dr 3 0 0 10875
+~
+~
+Dr 8 0 0 7704
+~
+~
+End
+
+#7704
+N Cave Entrance~
+Ref 0
+D
+You are in a shallow cave of limestone beneath one of the embankments
+near the beach.  From the outside the sound of surf is far away,
+but you can still hear the chirping of gulls to the northeast.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7703
+~
+~
+Dr 2 0 0 7705
+~
+~
+Dr 7 0 0 7703
+~
+~
+End
+
+#7705
+N Broken Tunnel~
+Ref 0
+D
+Broken rocks and bits of stalagmites are lying around the cavern floor. 
+The roof has partially caved in and the stones and sands filter down from
+above.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7704
+~
+~
+Dr 3 0 0 7706
+~
+~
+End
+
+#7706
+N Wide Cavern~
+Ref 0
+D
+A wide expanse of cavern reveals a pristine pool of undisturbed water
+beneath the surface of Kltara.  You can hear a trickle of water somewhere to
+the south, but your not sure where it is coming from.  The room echoes all
+around you.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7705
+~
+~
+Dr 2 128 0 7707
+~
+~
+End
+
+#7707
+N Low Cavern~
+Ref 0
+D
+The cavern is very low here, and you can hear the sound of something
+moving in the area nearby.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 128 0 7706
+~
+~
+Dr 2 0 0 7708
+~
+~
+End
+
+#7708
+N Rock Crevass~
+Ref 0
+D
+Bits of stone have fallen away revealing a crevice.  Through the
+break you can see, in the torchlight, a small ledge not far below.
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7707
+~
+~
+Dr 5 0 0 7709
+~
+~
+End
+
+#7709
+N Small Ledge~
+Ref 0
+D
+From this small ledge you can see, to the north, a vast underground
+chamber of cyclopean size and indeterminent depth.  A break in two rocks
+provides an overview of what appears to be an underground complex thousands
+of handspans in height.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 512 0 7710
+Two rocks are broken revealing a small opening.
+~
+break in rocks~
+Dr 4 0 0 7708
+~
+~
+Dr 5 0 0 7711
+~
+~
+End
+
+#7710
+N Vast Underground Cavern~
+Ref 0
+D
+A city of indeterminant age rests below the surface here, its buildings
+empty and silent.  
+
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 512 0 7709
+~
+~
+End
+
+#7711
+N Curving Tunnel~
+Ref 0
+D
+A spiral of bent rocks and timbres forms a spirillic column of air that
+leads deeper into the earth.  Above you a short ledge can be seen in the
+light.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 7709
+~
+~
+Dr 5 0 0 7712
+~
+~
+End
+
+#7712
+N Base of Spire~
+Ref 0
+D
+You are deep below the surface at the bottom of a long spirillic chamber.
+The walls are solid rock and trickle with white sands filtering down through
+the cracks.  To the north and west expand a vast chamber carved out of
+limestone.  The water is flowing past you into a large pool that is forming
+at the base of the cavern.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7713
+~
+~
+Dr 4 0 0 7711
+~
+~
+End
+
+#7713
+N Flooded Street~
+Ref 0
+D
+Knee-deep in some sort of residue-filled water, you can tell this was
+once a main thoroughfare of a massive city.  Water flows in places, tearing
+away bits of granite and black marble from the structures.  Crumpled bits of
+broken stones are all around you.  
+~
+C
+(null)~
+F 8197
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7714
+~
+~
+Dr 2 0 0 7712
+~
+~
+End
+
+#7714
+N Flooded Street~
+Ref 7713
+D
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7715
+~
+~
+Dr 2 0 0 7713
+~
+~
+End
+
+#7715
+N Temple Steps~
+Ref 0
+D
+You are at the base of a massive, very wide staircase leading up to a
+black stone temple, columned with massive chunks of granite.  Strange
+markings adorn the doors and trim of the architecture.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7700 2 100 1
+R O 50 -1 100 1
+Dr 2 0 0 7714
+~
+~
+Dr 4 0 0 7716
+~
+~
+End
+
+#7716
+N Ruined Temple~
+Ref 0
+D
+A shattered column has fallen through the ceiling and is lying broken
+across a set of vaulted doors, which are also broken and splintered into
+pieces on the floor.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7700 1 100 1
+Dr 0 1024 0 7720
+~
+~
+Dr 5 0 0 7715
+~
+~
+End
+
+#7720
+N Hidden Antechamber~
+Ref 0
+D
+You are standing in a partially concealed vault underneath a large broken
+column in the temple.  Pieces of debris are scattered all around.  The walls
+are covered with ^Bsymbols^N.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+ED symbols~
+The symbols are in an ancient language, possibly Alvaki.
+They outline a concealed door in the northern wall.
+~
+R M 7735 1 1 100
+R M 7701 1 75 1
+Dr 0 133 0 7721
+~
+secret door covered with symbols~
+Dr 2 1024 0 7716
+~
+~
+End
+
+#7721
+N Cellar~
+Ref 0
+D
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 133 0 7720
+~
+secret door covered with symbols~
+Dr 4 1024 0 7722
+~
+~
+Dr 5 0 0 1701
+~
+~
+End
+
+#7722
+N Blasted Room~
+Ref 0
+D
+What may have once housed a kitchen or storage room is merely a blasted
+piece of earthwork without a roof.  Through the hole in the ceiling you can
+see the tower looming above you.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7723
+~
+small arch~
+Dr 5 1024 0 7721
+~
+~
+End
+
+#7723
+N Arched Hall~
+Ref 0
+D
+You are in an arched hall filled with archaic emblems of the rein of the
+Sorcerer's Guild long ago -- a powerful testimony to the long dead
+sorcerer-kings of the Alvaki kingdom.  The symbols of the dead race still
+haunt the hall -- appearing on numerouns columns supporting the vaulted
+ceilings.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7725
+~
+arched doorway~
+Dr 1 0 0 7724
+~
+arched doorway~
+Dr 2 0 0 7736
+~
+massive obsidian gate~
+Dr 3 0 0 7722
+~
+small arch~
+End
+
+#7724
+N Shattered Staircase~
+Ref 0
+D
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 7723
+~
+arched doorway~
+End
+
+#7725
+N Spiral Stair~
+Ref 0
+D
+You are the bottom of a stone staircase that leads up to the first level
+of the tower.  Here there is a massive coat of arms on the wall facing you,
+now fused to the rock and decaying with age.  On it, beneath a layer of
+dust, is an Alvaki symbol.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7723
+~
+arched doorway~
+Dr 4 0 0 7726
+~
+~
+End
+
+#7726
+N Gythranyr's Tower~
+Ref 0
+D
+You are amidst a massive spiral staircase leading to the top of
+Gythranyr's Tower.  The stairs are carved from obsidian, and glow with a
+magic aura the color of souls.  Glowing red letters fade in and out
+flickering with a magic light.  
+~
+C
+(null)~
+F 8197
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7731
+~
+~
+Dr 3 0 0 7730
+~
+~
+Dr 4 0 0 7727
+~
+~
+Dr 5 0 0 7725
+~
+~
+End
+
+#7727
+N Gythranyr's Tower~
+Ref 7726
+D
+A faint orange glow is coming from the south.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7732
+~
+~
+Dr 2 0 0 7734
+~
+~
+Dr 4 0 0 7728
+~
+~
+Dr 5 0 0 7726
+~
+~
+End
+
+#7728
+N Gythranyr's Tower~
+Ref 7726
+D
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7733
+~
+~
+Dr 2 0 0 7735
+~
+~
+Dr 4 0 0 7729
+~
+~
+Dr 5 0 0 7727
+~
+~
+End
+
+#7729
+N Gythranyr's Tower~
+Ref 0
+D
+You stand atop Gythranyr's Tower; aloof and often finding yourself
+a bit dazed; it's a dark room with black walls and a few skulls are
+bouncing around the room.
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 0 7728
+~
+~
+End
+
+#7730
+N Antechamber~
+Ref 0
+D
+This dark chamber is filled with dusty books and pieces of embalming
+equipment, some broken and some not.  A layer of grime covers
+everything.  In the back is a bookcase and a torn tapestry hanging
+over what appears to be a window to the outside.
+~
+C
+(null)~
+F 8197
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 3584 0 7701
+~
+oval-shaped window~
+Dr 1 0 0 7726
+~
+~
+End
+
+#7731
+N Antechamber~
+Ref 7730
+D
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 3584 0 7702
+~
+oval-shaped window~
+Dr 2 0 0 7726
+~
+~
+End
+
+#7732
+N Necromancer's Study~
+Ref 0
+D
+All sorts of disgusting and foul chemicals are in jars on one wall, bits
+of flesh and eyeballs in strange yellow fluids, the head of some strange
+creature is lying on the ground, twitching in a burlap sack.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7730 1 100 1
+R O 16331 -1 100 5
+R C 282 -1 100 30
+R C 279 -1 100 20
+R C 210 -1 100 30
+R C 117 -1 100 10
+R C 116 -1 100 30
+R C 135 -1 100 20
+R C 140 -1 100 10
+R C 90 -1 100 30
+R C 91 -1 100 20
+R C 61 -1 100 20
+R C 45 -1 100 10
+R C 42 -1 100 10
+R C 34 -1 100 10
+Dr 2 0 0 7727
+~
+~
+End
+
+#7733
+N Observation Ledge~
+Ref 0
+D
+Alvaki kings must have orated speeches from this high ledge overlooking
+the north coast of Rygor Isle.  To the west is the broken coast, a series of
+dangerous rocks and outcroppings where many ships have fallen.  Far below
+you is the top of the hall, at the base of the tower now controlled by the
+vile lich.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7728
+~
+~
+End
+
+#7734
+N Well of Souls~
+Ref 0
+D
+A cylindrical room of surprising height is here, filled with the symbols
+of a long dead race.  They glow with an eerie light in a strange rotating
+fashion -- flickering with magical energy.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 7734 -5 100 1
+R M 7734 2 100 2
+Dr 0 0 0 7727
+~
+~
+End
+
+#7735
+N Necromancer's Lab~
+Ref 0
+D
+A windowless shrine for the necromancer to call spirits.  The room is
+shrouded in black cloth and carefully carved cobbles form the floor.  It is
+rather clean, without cobwebs or dust.  
+~
+C
+(null)~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7728
+~
+~
+End
+
+#7736
+N Gythranyr's Gate~
+Ref 0
+D
+A massive stone gate is before you, leading north into the court of the
+blasted lich Gythranyr and his dark magicians.  Behind it, a pillar of
+obsidian rises into the sky, its shape that of a huge spire, wound with dark
+black rock staircases slithering in and out of holes in its surface.  A
+faint orange glow emits from the windows, and you can see the black shadows
+of inhuman shapes moving about.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7723
+~
+massive obsidian gate~
+Dr 2 0 0 7738
+~
+~
+End
+
+#7738
+N Cracked Mud Road~
+Ref 7740
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7736
+~
+~
+Dr 2 0 0 7739
+~
+~
+Dr 9 0 0 7739
+~
+~
+End
+
+#7739
+N Cracked Mud Road~
+Ref 7740
+D
+The road turns sharply from east-west to northwest.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7738
+~
+~
+Dr 1 0 0 7740
+~
+~
+Dr 6 0 0 7738
+~
+~
+End
+
+#7740
+N Cracked Mud Road~
+Ref 0
+D
+The road is wide and covered with cracked chunks of muddy earth, there
+are no wagon tracks on the road, as it seems to be untrodden and the ground
+undisturbed.  
+~
+C
+(null)RIMAGE road.jpg
+~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7741
+~
+~
+Dr 3 0 0 7739
+~
+~
+Dr 7 0 0 7741
+~
+~
+End
+
+#7741
+N Edge of Forest~
+Ref 7745
+D
+A cracked and muddy road leads deeper into the forest.  
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7747
+~
+~
+Dr 1 0 0 7742
+~
+~
+Dr 3 0 0 7740
+~
+~
+Dr 8 0 0 7740
+~
+~
+End
+
+#7742
+N Viedrad Forest~
+Ref 7745
+D
+A cracked and muddy road leads east and west.  
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7746
+~
+~
+Dr 1 0 0 7743
+~
+~
+Dr 3 0 0 7741
+~
+~
+End
+
+#7743
+N Viedrad Forest~
+Ref 7745
+D
+A cracked and muddy road leads east and west.
+~
+C
+RIMAGE forest2.jpg
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7745
+~
+~
+Dr 1 0 0 7744
+~
+~
+Dr 3 0 0 7742
+~
+~
+End
+
+#7744
+N Outside Okham~
+Ref 0
+D
+You are outside Okham near the Veidrad marshes, on a road that leads
+east-west through the Veidrad forests northwest of Kess across the river
+Kaer.  
+~
+C
+RIMAGE village.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 6001
+~
+~
+Dr 3 0 0 7743
+~
+~
+End
+
+#7745
+N Viedrad Forest~
+Ref 0
+D
+Short, scraggly trees grow in the deep Viedrad.  The leaves and
+underbrush form a carpet of decay that smells slightly sweet.  The ground is
+muddy and soft, and there are a variety of inedible funguses growing from
+the trunks of dead trees.  
+~
+C
+(null)~
+F 8192
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7743
+~
+~
+Dr 3 0 0 7746
+~
+~
+End
+
+#7746
+N Viedrad Forest~
+Ref 7745
+D
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7745
+~
+~
+Dr 2 0 0 7742
+~
+~
+Dr 3 0 0 7747
+~
+~
+End
+
+#7747
+N Viedrad Forest~
+Ref 7745
+D
+~
+C
+(null)~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 602
+~
+~
+Dr 1 0 0 7746
+~
+~
+Dr 2 0 0 7741
+~
+~
+End
+
+#0
+
+
+
+#$

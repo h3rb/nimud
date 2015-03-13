@@ -1,0 +1,43 @@
+Nimud 4 IMC2
+------------
+
+Note: It is unclear what sort of levels will need to be set on the channels to
+restrict access since Nimud seems to have a leveless system going. The "level"
+variable actually seems to be a security setting, which would make the standard
+channel levels useless. Channel levels will need to be modified to suit the code.
+
+For the db.c section, apply the changes to free_char in mem.c
+
+In imc.c, under the #ifdef IMCMERC section near the top, change:
+
+#include "merc.h"
+
+To:
+
+#include "mud.h"
+
+In imccfg.h, in the IMCMERC section:
+
+Immediately below the #ifdef, add:
+   #include "comm.h"
+   #include "defaults.h"
+
+Find:
+   #define CH_IMCTITLE(ch) 	((ch)->pcdata->title)
+Replace with:
+   #define CH_IMCTITLE(ch) 	( "" )
+
+Find:
+   #define CH_IMCLEVEL(ch)		((ch)->level)
+Replace with:
+   #define CH_IMCLEVEL(ch)       ((ch)->pcdata->level)
+
+Find:
+   #define CH_IMCRANK(ch)		(title_table[(ch)->class][(ch)->level][(ch)->sex == SEX_FEMALE ? 1 : 0])
+Replace with:
+   #define CH_IMCRANK(ch)        ( IS_IMMORTAL(ch) ? "Immortal" : "Player" )
+
+Find:
+   #define IMCWIZINVIS(ch)         (IS_IMMORTAL((ch)) && IS_SET((ch)->act, PLR_WIZINVIS))
+Replace with:
+   #define IMCWIZINVIS(ch)         (IS_IMMORTAL((ch)) && (ch)->pcdata->wizinvis > 0)

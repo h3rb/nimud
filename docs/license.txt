@@ -1,0 +1,38 @@
+NiM5 is Copyright (c) 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2002, 2003
+2004, 2005, 2006, 2007, 2008, 2009
+by Herb Gilliland and licensed under the following terms.  NiM5 also 
+complies with the DikuMUD license, 'diku.txt' which is the primary 
+license.  It's secondary license is Merc Diku license 'merc.txt'
+
+Parts of NiMUD are copyrighted to Chris Woodward in 1993.  All rights 
+reserved.
+
+NiMUD License: Aside from adhering to the Diku License, and the Merc Diku 
+License, you must follow the NiMUD License:
+
+You may not charge for the use of this software.
+You may not charge for the distribution of this software, which includes
+fees "just for the disk", "for shipping", etc.
+You may not remove any copyright notices.
+You may not redistribute parts or derived parts, or ports of this software 
+without permission from its author, who can be reached at swervez@hotpop.com, 
+locke@mugs.net (spammed), herb.gilliland@gmail.com
+
+If you take parts of this code and use it in your own software, you must
+credit us during the title sequence, about box, and in 'help credits' --
+ANY and ALL of these places -- and the credits must contain:
+  
+  A) Credits for the co-authors Herb "Locke" Gilliland and 
+     Chris "Surreality" Woodward
+  B) Mention of NiMUD and it's distribution source: sourceforge.net/projects/nimud
+
+Suggested credit lines (pick one for your title sequence):
+
+Based on NiMUD by Locke and Surreal
+Parts of this code are based on NiMUD by Locke and Surreal
+Based on The Isles OLC by Locke and Surreality
+Contains code from NiMUD, by Herb "Locke" Gilliland and Chris "Surreality" Woodward
+
+
+Thanks!  Also, we love to hear from new developers, or those who wish to use
+our code, or derive our work.  Check with us:  herb-dot-gilliland-at-gmail.com

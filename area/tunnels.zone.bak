@@ -1,0 +1,481 @@
+#ZONE 
+N Tunnels~
+B None~
+V 7500 7699
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#7515
+N sarcophagus~
+SD a sarcophagus~
+P ~
+D
+A marked and marred sarcophagus is in the center of the room.
+~
+A
+~
+PD
+~
+DR
+The sarcophagus is covered with ancient Alvaki markings.  This tomb is
+old and rather well carved -- the sarcophagus matches it surroundings, and
+the markings of an Alvaki scribe can be seen etched on its surface.  
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 40 0 0 0
+End
+
+#7516
+N shimmering $g~
+SD a shimmering $g~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+A small, hex-cut gem with a shimmering inner light.  
+~
+L 0
+T 21
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 1 16 16 -1
+End
+
+#7518
+N dust and bones~
+SD dust and bones~
+P ~
+D
+A pile of dust and bones is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#7500
+N Old Tunnel at Grating~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7501
+~
+~
+Dr 4 7 0 7380
+~
+metal grating~
+End
+
+#7501
+N Old Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7500
+~
+~
+Dr 2 0 0 7502
+~
+~
+End
+
+#7502
+N Drainage Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7501
+~
+~
+Dr 1 0 0 7503
+~
+~
+Dr 3 0 0 7504
+~
+~
+End
+
+#7503
+N Drainage Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 7502
+~
+~
+End
+
+#7504
+N Drainage Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 1009 5 100 1
+R C 164 -1 100 6
+R C 163 -1 100 1
+Dr 1 0 0 7502
+~
+~
+Dr 3 0 0 7505
+~
+~
+End
+
+#7505
+N Broken Staircase~
+Ref 0
+D
+You are standing at the top of a broken stair.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7504
+~
+~
+Dr 5 0 0 7506
+~
+~
+End
+
+#7506
+N Bottom of Stair~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7507
+~
+~
+Dr 4 0 0 7505
+~
+~
+End
+
+#7507
+N Dark Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7508
+~
+~
+Dr 1 0 0 7510
+~
+~
+Dr 3 0 0 7506
+~
+~
+End
+
+#7508
+N Chasm~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7507
+~
+~
+End
+
+#7510
+N Dark Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7511
+~
+~
+Dr 3 0 0 7507
+~
+~
+End
+
+#7511
+N Dark Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7512
+~
+~
+Dr 3 0 0 7510
+~
+~
+End
+
+#7512
+N Dark Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7513
+~
+~
+Dr 2 0 0 7511
+~
+~
+End
+
+#7513
+N Rat's Nest~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7512
+~
+~
+Dr 5 0 0 7514
+~
+~
+End
+
+#7514
+N Entrance To Underground Vault~
+Ref 0
+D
+To the north is the outline of a large stone door.  A short ladder leads
+up into an antechamber.  The tunnel, for all intents, ends here, but to the
+south it goes for a bit to a bend, where it heads west.  The floor is
+covered with bits of debris.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 0 7515
+~
+stone door~
+Dr 2 0 0 7517
+~
+~
+Dr 4 0 0 7513
+~
+~
+End
+
+#7515
+N Tome Of Amin Nara~
+Ref 0
+D
+Huge marble slabs form the walls to an airtight underground tomb, star
+and barren except for the cobwebs and glowing moss that you can see on the
+walls and ceiling.  The slabs on the floor are cracked and worn with age,
+covered in a thin layer of dust and mildew.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7379 2 50 1
+R O 7515 -5 100 1
+R O 7516 -3 100 1
+R O 7518 -3 100 1
+Dr 0 0 0 18755
+~
+~
+Dr 2 1 0 7514
+~
+stone door~
+End
+
+#7517
+N Dark Tunnel~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7514
+~
+~
+Dr 3 0 0 7518
+~
+~
+End
+
+#7518
+N Cave-In~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7517
+~
+~
+End
+
+#0
+
+
+
+#$

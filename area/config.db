@@ -1,0 +1,1607 @@
+#CONFIG
+Date 9 1 2 512
+Moon 0 1
+End
+
+#SKILL 1
+N poison~
+Lvl 0
+Target 0
+Delay 0
+Group 99
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 2
+N lycanthropy~
+Lvl 0
+Target 0
+Delay 0
+Group 99
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 3
+N sleep~
+Lvl 0
+Target 0
+Delay 0
+Group 99
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 4
+N invisibility~
+Lvl 0
+Target 0
+Delay 0
+Group 99
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 5
+N charm~
+Lvl 0
+Target 0
+Delay 0
+Group 99
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 6
+N unknown~
+Lvl 0
+Target 0
+Delay 0
+Group 99
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 99
+N none~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 100
+N language~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 101
+N stark~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 102
+N argot~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 103
+N french~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 104
+N russian~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 105
+N japanese~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 106
+N german~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 107
+N gaelic~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 108
+N brood~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 109
+N imarind~
+Lvl 0
+Target 0
+Delay 0
+Group 100
+ReqPer 100
+Str 0
+Int 0
+Wis 0
+Dex 0
+Con 0
+MaxPrac 2
+MaxLearn 100
+Rate 6
+Cost 100
+Slot 0
+End
+
+
+#SKILL 200
+N offense~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 201
+N dual wield~
+Lvl 0
+Target 0
+Delay 0
+Group 200
+ReqPer 75
+Str 13
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 202
+N second attack~
+Lvl 0
+Target 0
+Delay 0
+Group 200
+ReqPer 75
+Str 13
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 203
+N third attack~
+Lvl 0
+Target 0
+Delay 0
+Group 200
+ReqPer 75
+Str 13
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 204
+N fourth attack~
+Lvl 0
+Target 0
+Delay 0
+Group 200
+ReqPer 75
+Str 13
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 205
+N fifth attack~
+Lvl 0
+Target 0
+Delay 0
+Group 200
+ReqPer 75
+Str 13
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 206
+N melee~
+Lvl 0
+Target 0
+Delay 0
+Group 200
+ReqPer 75
+Str 13
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 207
+N enhanced damage~
+Lvl 0
+Target 0
+Delay 0
+Group 200
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 300
+N defense~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 301
+N elusion~
+Lvl 0
+Target 0
+Delay 0
+Group 300
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 302
+N heroism~
+Lvl 0
+Target 0
+Delay 0
+Group 300
+ReqPer 75
+Str 9
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 75
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 303
+N dodge~
+Lvl 0
+Target 0
+Delay 0
+Group 300
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 304
+N parry~
+Lvl 0
+Target 0
+Delay 0
+Group 300
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 305
+N disarm~
+Lvl 0
+Target 0
+Delay 0
+Group 300
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 400
+N wilderness survival~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 401
+N tracking~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 402
+N swimming~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 403
+N fishing~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 404
+N climbing~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 405
+N riding~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 406
+N camoflage~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 407
+N stealth~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 408
+N foraging~
+Lvl 0
+Target 0
+Delay 0
+Group 400
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 500
+N legerdemain~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 501
+N backstab~
+Lvl 0
+Target 0
+Delay 0
+Group 500
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 2000
+Slot 0
+End
+
+
+#SKILL 502
+N peek~
+Lvl 0
+Target 0
+Delay 0
+Group 500
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 500
+Slot 0
+End
+
+
+#SKILL 503
+N lock picking~
+Lvl 0
+Target 0
+Delay 0
+Group 500
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 504
+N pickpocketing~
+Lvl 0
+Target 0
+Delay 0
+Group 500
+ReqPer 75
+Str 15
+Int 0
+Wis 0
+Dex 13
+Con 0
+MaxPrac 2
+MaxLearn 75
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 600
+N weapon proficiencies~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 601
+N edged~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 602
+N piercing~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 603
+N hafted~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 604
+N bludgeons~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 605
+N whips~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 606
+N thrown~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 607
+N ranged~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 608
+N sharpshooting~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 609
+N exotic~
+Lvl 0
+Target 0
+Delay 0
+Group 600
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 700
+N craft~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 701
+N repair~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 702
+N fletching~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 703
+N goldsmithing~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 704
+N ironsmithing~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 705
+N bronze smithing~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 706
+N silversmithing~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 707
+N gunsmithing~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 708
+N sewing~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 709
+N panning~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 710
+N mining~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 711
+N carpentry~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 712
+N coopering~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 713
+N cobbling~
+Lvl 0
+Target 0
+Delay 0
+Group 700
+ReqPer 80
+Str 0
+Int 13
+Wis 13
+Dex 0
+Con 0
+MaxPrac 0
+MaxLearn 0
+Rate 24
+Cost 1000
+Slot 0
+End
+
+
+#SKILL 800
+N san~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 8000
+Slot 0
+End
+
+
+#SKILL 900
+N nelse~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 8000
+Slot 0
+End
+
+
+#SKILL 1000
+N kora~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1100
+N zeich~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1200
+N meditation~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1300
+N dadro~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1400
+N zad~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1500
+N gana~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1600
+N taug~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1700
+N wodan~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+#SKILL 1800
+N nasang~
+Lvl 0
+Target 0
+Delay 0
+Group 0
+ReqPer 0
+Str 26
+Int 26
+Wis 26
+Dex 26
+Con 26
+MaxPrac 0
+MaxLearn 100
+Rate 0
+Cost 0
+Slot 0
+End
+
+
+
+#$

@@ -1,0 +1,49 @@
+#ZONEDATA 
+N OOC Area~
+B None~
+V 12000 12099
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#BOTDATA
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#ROOMDATA
+#12000
+N The OOC Hot Tub~
+Ref 0
+D
+You are chillin' in the hot tub.  This is the OOC area, which is not a
+real place.  There is no real exchange here, you cannot exchange items or
+blows -- all you can do is chat!  If you want, you can leave the hottub, or
+return to the IC game.  
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+Dr 5 0 0 500
+~
+~
+End
+
+#0
+
+
+
+#$

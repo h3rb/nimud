@@ -1,0 +1,1909 @@
+#ZONE 
+N Tarkan's dungeon~
+R A distant voice screams in anguish.
+~
+B Tarkan~
+V 20100 20150
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#20100
+N goblin slave~
+SD the goblin slave~
+LD
+ A goblin slave lies here asleep.
+~
+D
+ The defenseless goblin begs for mercy.
+~
+A 131
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -450 E 621
+O ~
+AP 25 25 25 25 35
+At 0 10 15 10
+At 1 5 19 9
+At 3 1 24 4
+End
+
+#20101
+N drow commoner~
+SD the drow commoner~
+LD
+ A drow commoner walks on guard duty.
+~
+D
+ I doubt he is the type to give directions.
+~
+A 105
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 16 3
+At 1 5 25 14
+End
+
+#20102
+N drow noble warrior~
+SD the drow warrior noble~
+LD
+ The drow warrior noble stands here guarding his home.
+~
+D
+ He looks pissed off!
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 16 11
+End
+
+#20103
+N drow noble mage~
+SD the drow mage noble~
+LD
+ The drow mage noble is here protecting his home.
+~
+D
+ The mage prepares to cast a spell ... at you!!
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 758
+O ~
+AP 25 25 25 25 40
+At 0 10 57 12
+At 1 5 28 11
+At 2 1 81 4
+At 4 1 18 1
+At 5 1 26 3
+At 6 5 57 0
+End
+
+#20104
+N drow priestess~
+SD the drow priestess~
+LD
+ The drow priestess is here shouting orders.
+~
+D
+ I wouldn't want go get on her bad side!
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 942
+O ~
+AP 25 25 25 25 40
+At 0 10 48 12
+At 1 5 63 9
+At 2 1 67 5
+At 5 1 25 8
+At 6 5 45 7
+End
+
+#20105
+N drow master~
+SD The drow master~
+LD
+ The drow master stares at you angrily.
+~
+D
+ The drow master is ALWAYS ready for a fight.
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 360
+O ~
+AP 19 19 19 19 19
+At 0 10 22 7
+At 1 5 21 8
+End
+
+#20106
+N drow weapons master~
+SD The weapons master~
+LD
+ The drow weapons master is here shadow boxing.
+~
+D
+ He definitely knows his way around in combat.
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 921
+O ~
+AP 25 25 25 25 40
+At 0 10 61 14
+At 1 5 43 10
+At 6 5 70 12
+End
+
+#20107
+N drow matron mother~
+SD the matron mother~
+LD
+ The matron mother of the house is standing here.
+~
+D
+ She looks really pissed off!
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 41
+O ~
+AP 15 15 15 15 15
+At 0 10 19 2
+End
+
+#20108
+N drow matron mother~
+SD the matron mother~
+LD
+ The matron mother of the 1st house is waiting for you.
+~
+D
+ She looks like she is about to rip your head off and eat it.
+~
+A 35
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 347
+O ~
+AP 19 19 19 19 19
+At 0 10 21 12
+At 1 5 18 10
+At 2 1 22 11
+End
+
+#20109
+N yochlol~
+SD the yochlol~
+LD
+ A yochlol forms out of a swirling mist.
+~
+D
+ The yochlol is not in a good mood.
+~
+A 35
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 36
+O ~
+AP 15 15 15 15 15
+At 0 10 24 8
+End
+
+#20110
+N drow guard~
+SD the drow guard~
+LD
+ The drow guard is here staring at you ominously.
+~
+D
+ The drow guard blends so well with his environment, you barely see his form.
+~
+A 35
+AB 66048
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 14 2
+At 1 5 21 2
+End
+
+#20111
+N drow scout~
+SD the drow scout~
+LD
+ The drow scout is here sneaking among the shadows.
+~
+D
+ The drow scout blends so well with her environment, you barely see her form.
+~
+A 161
+AB 98304
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -1000 E 160
+O ~
+AP 15 15 15 15 15
+At 0 10 18 4
+End
+
+#0
+
+
+
+#OBJDATA
+#20100
+N longsword commoner~
+SD a commoner's longsword~
+P ~
+D
+A commoner's longsword made of adamantite has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 1000
+O ~
+V 0 2 6 3
+End
+
+#20101
+N longsword noble~
+SD a noble's longsword~
+P ~
+D
+A drow noble's longsword made of adamantite lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 1500
+O ~
+V 0 3 5 3
+End
+
+#20102
+N whip snake two-headed~
+SD a snake headed whip~
+P ~
+D
+A whip with two snakes heads lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 65
+W 8193
+Sz 18
+Ti 0
+Wt 0
+C 1750
+O ~
+V 53 2 6 4
+End
+
+#20103
+N whip snake three-headed~
+SD a snake headed whip~
+P ~
+D
+A whip with three snake heads has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 65
+W 8193
+Sz 18
+Ti 0
+Wt 0
+C 5000
+O ~
+V 53 2 7 4
+End
+
+#20104
+N whip snake four-headed~
+SD a snake headed whip~
+P ~
+D
+A whip with four snake heads has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 65
+W 8193
+Sz 18
+Ti 0
+Wt 0
+C 10250
+O ~
+V 53 2 8 4
+End
+
+#20105
+N longsword black~
+SD a black longsword~
+P ~
+D
+A black longsword has been carelessly left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 65
+W 8193
+Sz 18
+Ti 0
+Wt 0
+C 10250
+O ~
+V 0 3 6 3
+End
+
+#20106
+N whip snake five-headed~
+SD a snake headed whip~
+P ~
+D
+A whip with five snake heads is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 577
+W 8193
+Sz 18
+Ti 0
+Wt 0
+C 12000
+O ~
+V 53 3 6 4
+End
+
+#20107
+N whip snake six-headed~
+SD a snake headed whip~
+P ~
+D
+A whip with six snake heads has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 577
+W 8193
+Sz 18
+Ti 0
+Wt 0
+C 15000
+O ~
+V 53 4 5 4
+End
+
+#20108
+N bracers iron~
+SD a pair of bracers~
+P ~
+D
+A pair of bracers has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 257
+Sz 18
+Ti 0
+Wt 3
+C 2000
+O ~
+V 2 0 0 0
+End
+
+#20109
+N gauntlets iron~
+SD a pair of gauntlets~
+P ~
+D
+A pair of gauntlets has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 129
+Sz 18
+Ti 0
+Wt 2
+C 10000
+O ~
+V 5 0 0 0
+End
+
+#20110
+N wand blue silver~
+SD a silvery blue wand~
+P ~
+D
+A silvery blue wand has been dropped in the dirt.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 4000
+O ~
+V 10 3 3 0
+End
+
+#20111
+N helmet helm~
+SD a small helmet~
+P ~
+D
+A small helmet lies up against a rock.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 6000
+O ~
+V 1 0 0 0
+End
+
+#20112
+N ring ruby~
+SD a small ruby ring~
+P ~
+D
+A small ruby ring lies in the dirt.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 20000
+O ~
+V 0 0 0 0
+End
+
+#20113
+N dagger sacrificial~
+SD a spider shaped dagger~
+P ~
+D
+A dagger with spider leg shaped blades lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 576
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 12000
+O ~
+V 34 3 4 11
+End
+
+#20114
+N hat green~
+SD a small bright green hat~
+P ~
+D
+A small bright green hat lies in the dirt.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 128
+W 17
+Sz 18
+Ti 0
+Wt 1
+C 2000
+O ~
+V 5 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#20100
+N City Entrance~
+Ref 0
+D
+You are at the entrance to a small underground city. A great adamantite
+gate lies open to the west allowing entrance into the city.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED hole~
+A small hole that looks to have sealed at one time.
+~
+ED gate~
+A large adamantite gate with giant spider shaped emblems stands here.
+~
+Dr 3 0 0 20101
+A huge gate opens to the west allowing entrance into the city.~
+gate~
+Dr 4 0 -1 20270
+A small hole in the ceiling leads up into darkness.~
+door~
+End
+
+#20101
+N City street~
+Ref 0
+D
+You walk along a highly ornate street going north-south. A large gate
+lies to the east while a building lies to the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20106 2 100 1
+Dr 0 0 0 20123
+~
+~
+Dr 1 0 0 20100
+~
+~
+Dr 2 0 0 20102
+~
+~
+Dr 3 0 0 20122
+~
+~
+End
+
+#20102
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street going north and west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20101
+~
+~
+Dr 3 0 0 20103
+~
+~
+End
+
+#20103
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street going east-west. A large house
+stands to the south.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20102
+~
+~
+Dr 2 0 0 20104
+~
+~
+Dr 3 0 0 20106
+~
+~
+End
+
+#20104
+N 3rd House~
+Ref 0
+D
+You stand inside the 3rd house of the city; it is fairly well decorated
+by drow standards having a few statues, murals and such. A door leads to the
+south.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20102 4 100 1
+Dr 0 0 0 20103
+~
+~
+Dr 2 0 -1 20105
+~
+~
+End
+
+#20105
+N Throne Room~
+Ref 0
+D
+The throne room of the 3rd house is about as decorated as the inner
+courtyard except with a blood covered altar in the center of the room.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20107 3 100 1
+Dr 0 0 -1 20104
+~
+~
+End
+
+#20106
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street going east-west. To the north
+is a large building.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20118
+~
+~
+Dr 1 0 0 20103
+~
+~
+Dr 3 0 0 20107
+~
+~
+End
+
+#20107
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street leading north and east. To the
+south is an extremely large house.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20110
+~
+~
+Dr 1 0 0 20106
+~
+~
+Dr 2 0 0 20108
+~
+~
+End
+
+#20108
+N 2nd House~
+Ref 0
+D
+You stand inside the 2nd house of the city. The room is highly decorated
+with statues of spiders and murals everywhere.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20102 4 100 1
+Dr 0 0 0 20107
+~
+~
+Dr 3 0 -1 20109
+~
+~
+End
+
+#20109
+N Throne Room~
+Ref 0
+D
+The throne room of the 2nd house is just a little more decorative than
+the inner courtyard having an altar in the center of the room.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20107 3 100 1
+Dr 1 0 -1 20108
+~
+~
+End
+
+#20110
+N Main Gate~
+Ref 0
+D
+You are at the entrance to the 1st house of the city. A large gate, almost
+as big and elegant as the one at the entrance to the city, stands here.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20114
+~
+~
+Dr 2 0 0 20107
+~
+~
+Dr 3 0 -1 20111
+A large gate lies to the west.~
+gate~
+End
+
+#20111
+N 1st House~
+Ref 0
+D
+You stand in the inner courtyard of the 1st and largest house in the city.
+The room is extremely large and decorative. Mural and paintings hang on the
+walls depicting some battles and a spider queen.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20102 4 100 1
+Dr 1 0 -1 20110
+~
+~
+Dr 3 0 0 20112
+~
+~
+End
+
+#20112
+N Throne Room~
+Ref 0
+D
+The throne room of the 1st house is in one word...awesome. It is so
+horrifying it is almost beautiful.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20113
+~
+~
+Dr 1 0 -1 20111
+~
+~
+End
+
+#20113
+N Main Chamber~
+Ref 0
+D
+This is the council chamber for the Matron Mother herself. A huge table
+and chairs surrounding it sits in the center of the room.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20108 1 100 1
+Dr 2 0 -1 20112
+~
+~
+End
+
+#20114
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street leading north-south and east.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20115
+~
+~
+Dr 1 0 0 20117
+~
+~
+Dr 2 0 0 20110
+~
+~
+End
+
+#20115
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street leading south. A building is
+to the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20114
+~
+~
+Dr 3 0 -1 20116
+~
+~
+End
+
+#20116
+N Cleric Academy~
+Ref 0
+D
+This is the most lavish of the academies being that it is for the clerics.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20105 3 100 1
+Dr 1 0 -1 20115
+~
+~
+End
+
+#20117
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street going east-west. To the north
+is a giant temple.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20119
+The entrance to the temple of Lloth.~
+~
+Dr 1 0 0 20121
+~
+~
+Dr 3 0 0 20114
+~
+~
+End
+
+#20118
+N Warrior's Academy~
+Ref 0
+D
+This looks more like a barracks than a school.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20101 10 100 1
+Dr 2 0 0 20106
+~
+~
+End
+
+#20119
+N Entrance to the Temple of Lloth~
+Ref 0
+D
+The temple is the largest building in the city. Even it's doors are beyond
+imagination. Inside of the temple entrance, the walls are made of gold and
+adamantite.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 20117
+~
+~
+Dr 5 0 0 20126
+~
+~
+End
+
+#20120
+N Mage's Academy~
+Ref 0
+D
+The mages academy is fairly well decorated see that the drow prefer magic
+over physical power greatly.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20105 3 100 1
+Dr 2 0 -1 20121
+~
+~
+End
+
+#20121
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street going eastward. To the north is
+a building.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20120
+~
+~
+Dr 1 0 0 20123
+~
+~
+Dr 2 0 0 20122
+~
+~
+Dr 3 0 0 20117
+~
+~
+End
+
+#20122
+N Slave Chamber~
+Ref 0
+D
+The room is in shambles. Straw is strewn all about the room as beds for the
+unfortunate creatures who have fallen prey to drow imperialism.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20100 15 100 1
+Dr 0 0 0 20121
+~
+~
+Dr 1 0 0 20101
+~
+~
+End
+
+#20123
+N City street~
+Ref 0
+D
+You walk along a highly ornate city street leading west and south. To the
+north is a relatively small house.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20124
+~
+~
+Dr 2 0 0 20101
+~
+~
+Dr 3 0 0 20121
+~
+~
+End
+
+#20124
+N 4th house~
+Ref 0
+D
+You stand inside the 4th house of the city. Its inner courtyard is rather
+dull by drow standards and rather small as well.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20102 4 100 1
+Dr 1 0 0 20125
+~
+~
+Dr 2 0 -1 20123
+~
+~
+End
+
+#20125
+N Throne Room~
+Ref 0
+D
+The throne room is basically similar to the inner courtyard in regards
+to decor. there is a small throne behind the altar but that is about it.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20107 3 100 1
+Dr 3 0 0 20124
+~
+~
+End
+
+#20126
+N Entrance Way~
+Ref 0
+D
+You stand in the entrance way to the temple which opens up to the north
+into a large hallway going east and west. Small statues of spiders line the
+entrance way's walls.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20127
+~
+~
+Dr 4 0 0 20119
+~
+~
+End
+
+#20127
+N Hallway~
+Ref 0
+D
+You are in a long hallway lined with adamantite. The walls are engraved
+with pictures of thilon and spiders. The hallway continues east and west. As you
+look down the hallway you can make out one or two figures moving away from you.
+To the north is a obsidian stairway.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20135
+~
+~
+Dr 1 0 0 20128
+~
+~
+Dr 2 0 0 20126
+~
+~
+Dr 3 0 0 20131
+~
+~
+End
+
+#20128
+N Long Hallway~
+Ref 0
+D
+You are in a long hallway lined with adamantite. The walls are engraved
+with pictures of thilon and spiders. The hallway continues east and west. As you
+look down the hallway you can make out one or two figures moving away from you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20129
+~
+~
+Dr 3 0 0 20127
+~
+~
+End
+
+#20129
+N Long Hallway~
+Ref 0
+D
+You are in a long hallway lined with adamantite. The walls are engraved
+with pictures of thilon and spiders. The hallway continues east and west. As you
+look down the hallway you can make out one or two figures moving away from you.
+To the north is a door.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20150
+~
+~
+Dr 1 0 0 20130
+~
+~
+Dr 3 0 0 20128
+~
+~
+End
+
+#20130
+N Long Hallway~
+Ref 0
+D
+You are in a long hallway lined with adamantite. The walls are engraved
+with pictures of thilon and spiders. The hallway continues east and west. As you
+look down the hallway you can make out one or two figures moving away from you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20134
+~
+~
+Dr 3 0 0 20129
+~
+~
+End
+
+#20131
+N Long Hallway~
+Ref 0
+D
+You are in a long hallway lined with adamantite. The walls are engraved
+with pictures of thilon and spiders. The hallway continues east and west. As you
+look down the hallway you can make out one or two figures moving away from you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20127
+~
+~
+Dr 3 0 0 20132
+~
+~
+End
+
+#20132
+N Long Hallway~
+Ref 0
+D
+You are in a long hallway lined with adamantite. The walls are engraved
+with pictures of thilon and spiders. The hallway continues east and west. As you
+look down the hallway you can make out one or two figures moving away from you.
+To the south is a door.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20131
+~
+~
+Dr 2 0 -1 20133
+~
+~
+Dr 3 0 0 20134
+~
+~
+End
+
+#20133
+N Warrior's Barracks~
+Ref 0
+D
+The room is a complete mess. None of the beds are made, clothes and other
+items have been left all about the room. Well drow warriors never were known
+for neatness.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20101 10 100 1
+Dr 0 0 -1 20132
+~
+~
+End
+
+#20134
+N Long Hallway~
+Ref 0
+D
+You are in a long hallway lined with adamantite. The walls are engraved
+with pictures of thilon and spiders. The hallway continues east and west. As you
+look down the hallway you can make out one or two figures moving away from you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20132
+~
+~
+Dr 3 0 0 20130
+~
+~
+End
+
+#20135
+N Grand Stairway~
+Ref 0
+D
+You are standing at the bottom of a giant obsidian and adamantite
+stairway. The edges are trimmed with gold.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20127
+~
+~
+Dr 4 0 0 20136
+~
+~
+End
+
+#20136
+N Grand Hallway~
+Ref 0
+D
+You are standing in the middle of a grand hallway. The walls are
+of the purest adamantite with gold trim. Mosaics line the walls.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20138
+~
+~
+Dr 1 0 -1 20137
+~
+~
+Dr 5 0 0 20135
+~
+~
+End
+
+#20137
+N Mage's Barracks~
+Ref 0
+D
+The mage's living quarters is rather clean with the exception of a few
+used component containers. It is rather well decorated as well. Cots line the
+floor for the mages to sleep on. the only door is to the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 20136
+~
+~
+End
+
+#20138
+N Grand Hallway~
+Ref 0
+D
+You are walking down a grand hallway, heavily decorated with adamantite
+and gold. To the north the hall goes down a flight of stairs while a door is
+too the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20136
+~
+~
+Dr 3 0 -1 20139
+~
+~
+Dr 5 0 0 20140
+~
+~
+End
+
+#20139
+N Cleric's Barracks~
+Ref 0
+D
+The bed chamber is brightly decorated with spider shaped statues, murals
+and the like. Large beds line the floor making this a comfortable room to live
+in.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 20138
+~
+~
+End
+
+#20140
+N Grand Stairway~
+Ref 0
+D
+You are climbing a set of obsidian stairs surrounded by adamantite walls.
+To the north are a set of large golden doors.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20141
+~
+~
+Dr 4 0 0 20138
+~
+~
+End
+
+#20141
+N Main Chamber~
+Ref 0
+D
+This is the south side of a large auditorium used for services by the
+drow priestesses. In the center is a large sacrificial pit and beyond that is
+an altar.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20142
+~
+~
+Dr 2 0 -1 20140
+~
+~
+Dr 3 0 0 20144
+~
+~
+End
+
+#20142
+N Eastern side of Chamber~
+Ref 0
+D
+You are on the eastern side of the chamber overlooking the pit. To the east
+is a door while to the north is an altar.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20145
+~
+~
+Dr 1 0 -1 20146
+~
+~
+Dr 2 0 0 20141
+~
+~
+End
+
+#20143
+N Sacrificial Pit~
+Ref 0
+D
+A you climb down into the pit thousands of spiders cover you tearing your
+body to shreds.
+
+Lloth thanks you for your sacrifice.
+
+You've fallen, and you can't get up!!!
+~
+C
+~
+F 14
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#20144
+N Western side of Chamber~
+Ref 0
+D
+You are on the western side of the main chamber overlooking a sacrificial
+pit. To the north is an altar.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20145
+~
+~
+Dr 2 0 0 20141
+~
+~
+End
+
+#20145
+N The Altar~
+Ref 0
+D
+You are standing in front of a highly and freshly bloodstained altar.
+Engraved on the top of the altar is a giant spider with a human head. Looking
+down from the altar you see a large sacrificial pit.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20148
+~
+~
+Dr 1 0 0 20142
+~
+~
+Dr 3 0 0 20144
+~
+~
+Dr 5 0 0 20143
+~
+~
+End
+
+#20146
+N Slave Cells~
+Ref 0
+D
+This is the main room to the cell chambers for the slaves to be
+sacrificed. You notice there are no guards around.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 20147
+~
+~
+Dr 3 0 0 20142
+~
+~
+End
+
+#20147
+N Slave Pen~
+Ref 0
+D
+Rotten meat and breads lie about the floor while shackles hang from the
+walls. The room wreaks of death. You almost become nauseous and decide to leave
+the room since you were obviously too late to save the slave.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 20146
+~
+~
+End
+
+#20148
+N Dais~
+Ref 0
+D
+You stand upon a dais behind the altar. Above you is a enormous illusion
+of a female drow turning into a giant spider and back again. There is a door
+to the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20109 1 100 1
+Dr 2 0 0 20145
+~
+~
+Dr 3 0 -1 20149
+~
+~
+End
+
+#20149
+N The Treasury~
+Ref 0
+D
+This is obviously only a temporary storage place for the collected
+treasure being rather bare.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 20148
+~
+~
+End
+
+#20150
+N Weaponsmaster's Chamber~
+Ref 0
+D
+This one person bedchamber is very elegant. The owner must be held in high
+to get this kind of treatment.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20106 2 100 1
+Dr 2 0 -1 20129
+~
+~
+End
+
+#0
+
+
+
+#$

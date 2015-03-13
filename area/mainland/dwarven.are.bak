@@ -1,0 +1,2107 @@
+#ZONE 
+N Hransoerd~
+B None~
+V 21500 21554
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#21504
+N baker~
+SD the baker~
+LD
+ Granite Head, the baker, is waiting for a customer here.
+~
+D
+ Granite Head is covered with flour and grains.
+~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 34
+O ~
+AP 15 15 15 15 15
+At 0 10 25 3
+End
+
+#21505
+N lizard~
+SD the giant lizard~
+LD
+ A giant lizard is here.
+~
+D
+ This scaly creature looks like it is well adapted to it's underground
+habitat.  He looks very powerful.
+~
+A 65
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 475
+O ~
+AP 25 25 25 25 25
+At 0 10 18 10
+At 1 5 9 8
+At 2 1 29 5
+End
+
+#21506
+N giant~
+SD the giant~
+LD
+ A giant is here.
+~
+D
+ The giant is about 8 feet tall, with arms of steel, and looks very strong.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 16 3
+At 1 5 24 0
+At 2 1 19 0
+End
+
+#21507
+N dwarf miner~
+SD the dwarven miner~
+LD
+ A dwarven miner is here.
+~
+D
+ The mineworker is very tired, and very dirty, and he has bulging muscles.
+~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 13 7
+At 1 5 24 12
+End
+
+#21508
+N dwarf leader~
+SD the dwarven mine leader~
+LD
+ A dwarven mine leader is here.
+~
+D
+ The mine leader is very big and very strong.
+~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 724
+O ~
+AP 25 25 25 25 40
+At 0 10 63 5
+At 1 5 30 11
+At 2 1 31 0
+At 3 1 39 16
+At 6 5 36 5
+End
+
+#21509
+N dwarf doctor~
+SD the dwarven doctor~
+LD
+ The dwarven doctor is here.
+~
+D
+ He is a very skilled surgeon, with hands of steel.
+~
+A 2051
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 479
+O ~
+AP 25 25 25 25 25
+At 0 10 17 8
+At 1 5 12 14
+End
+
+#21510
+N dwarf peon~
+SD the dwarven peon~
+LD
+ A dwarven peon is awaiting help here.
+~
+D
+ ~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 935
+O ~
+AP 25 25 25 25 40
+At 0 10 25 5
+At 1 5 62 11
+At 2 1 91 13
+At 4 1 35 10
+At 5 1 31 8
+At 6 5 97 0
+End
+
+#21511
+N dwarf~
+SD the dwarf~
+LD
+ A grinning dwarf is here.
+~
+D
+ ~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 18 5
+End
+
+#21512
+N dwarf son~
+SD the unwanted son~
+LD
+ An unwanted son is here.  You feel sorry for the guy.
+~
+D
+ ~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 250 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 25 3
+At 1 5 16 0
+At 2 1 24 2
+End
+
+#21513
+N dwarf daughter~
+SD the unwanted daughter~
+LD
+ An unwanted daughter is here.  You feel sorry for her.
+~
+D
+ ~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 250 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 19 8
+End
+
+#21514
+N dwarf guard~
+SD the barracks guard~
+LD
+ A barrack guard is here.
+~
+D
+ ~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 100 E 118
+O ~
+AP 15 15 15 15 15
+At 0 10 15 0
+End
+
+#21515
+N man~
+SD the man in waiting~
+LD
+ A man in waiting is here.  He looks nervous and unsure of himself.
+~
+D
+ ~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 20 1
+At 1 5 17 5
+At 2 1 13 9
+End
+
+#21516
+N mazekeeper~
+SD the mazekeeper~
+LD
+ A mazekeeper is here.
+~
+D
+ He looks VERY tough.
+~
+A 2083
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 961
+O ~
+AP 25 25 25 25 40
+At 0 10 61 9
+At 1 5 72 12
+At 5 1 32 2
+At 6 5 88 11
+End
+
+#21517
+N snake~
+SD the giant snake~
+LD
+ There is a giant snake here.
+~
+D
+ ~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 450
+O ~
+AP 25 25 25 25 25
+At 0 10 18 4
+At 1 5 6 5
+End
+
+#21500
+N dwarf guard~
+SD the dwarven guard~
+LD
+ A dwarven guard is here.
+~
+D
+ The guard looks very tough and mean.
+~
+A 2051
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 129
+O ~
+AP 15 15 15 15 15
+At 0 10 22 1
+End
+
+#21501
+N dwarf worker miner~
+SD the dwarven worker~
+LD
+ A dwarven mining worker is here.
+~
+D
+ He is very dirty, and looks extremely over-worked.
+~
+A 2113
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 11 14
+At 1 5 23 0
+End
+
+#21502
+N wraith~
+SD the wraith~
+LD
+ A wraith is awaiting your first move here.
+~
+D
+ A black, almost transparent wraith.
+~
+A 3
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 16 5
+End
+
+#21503
+N storekeeper~
+SD the storekeeper~
+LD
+ There is the Hide & Tooth storekeeper standing here, waiting patiently.
+~
+D
+ The storekeeper is very rotund, but looks like a sharp guy.
+~
+A 2051
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 900 E 33
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 23 6504
+ H 0 0
+ F 0
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ (null)~
+ Str2
+ (null)~
+ Str3
+ (null)~
+ Str4
+ (null)~
+EndShop
+At 0 10 18 11
+End
+
+#0
+
+
+
+#OBJDATA
+#21504
+N dwarven hammer~
+SD a hammer~
+P ~
+D
+There is a dwarven hammer laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 5500
+O ~
+V 0 3 6 8
+End
+
+#21505
+N dwarven plate~
+SD dwarven plate mail~
+P ~
+D
+There is dwarven plate mail laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 4
+C 4500
+O ~
+V 8 0 0 0
+End
+
+#21506
+N stick~
+SD long, black stick~
+P ~
+D
+There is a long, black stick lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 4 10 10 0
+End
+
+#21507
+N stick~
+SD long, black stick~
+P ~
+D
+There is a long, black stick here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 50 0
+End
+
+#21508
+N club~
+SD dwarven club~
+P ~
+D
+There is a dwarven club laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 1
+C 3000
+O ~
+V 0 2 6 8
+End
+
+#21509
+N two-handed dwarven axe~
+SD a two-handed dwarven axe~
+P ~
+D
+A two-handed Dwarven axe is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 5000
+O ~
+V 0 2 7 1
+End
+
+#21510
+N helmet~
+SD a dwarven helmet~
+P ~
+D
+A dwarven helmet is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 4
+C 2500
+O ~
+V 8 0 0 0
+End
+
+#21511
+N ring golden dwarven~
+SD a dwarven golden ring~
+P ~
+D
+A pretty golden ring is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 15000
+O ~
+V 0 0 0 0
+End
+
+#21512
+N gloves~
+SD dwarven gloves~
+P ~
+D
+Thick dwarven gloves lay here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 2
+C 4000
+O ~
+V 4 0 0 0
+End
+
+#21513
+N note~
+SD a note~
+P ~
+D
+A crumpled note is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+ED note letter letters~
+It seems to be a hot love letter from the Queen.  Unfortunately,
+it's not suitable for transmission across a public data network.
+~
+End
+
+#21514
+N castle key~
+SD a castle key~
+P ~
+D
+There is a key to Strangelove Castle here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 10
+O ~
+V 0 0 0 0
+End
+
+#21516
+N key mine~
+SD a mine key~
+P ~
+D
+There is a key to the mines here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 10
+O ~
+V 0 0 0 0
+End
+
+#21517
+N coal~
+SD a chunk of coal~
+P ~
+D
+There is a chunk of coal here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 100
+C 0
+O ~
+V 0 0 0 0
+End
+
+#21518
+N pick~
+SD a mining pick~
+P ~
+D
+There is a mining pick here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 256
+W 8193
+Sz 18
+Ti 0
+Wt 1
+C 300
+O ~
+V 0 2 3 11
+End
+
+#21519
+N pills~
+SD a box of birth control pills~
+P ~
+D
+There is a box of birth control pills here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 300
+O ~
+V 20 0 0 0
+ED birth control pills pill~
+They are in a circular container, and there are numbers corresponding
+to the day that they are to be taken.  You can tell they haven't been
+used for a while.
+~
+End
+
+#21502
+N key green~
+SD a deep green key~
+P ~
+D
+A deep green key is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#21504
+N Narrow Path~
+Ref 0
+D
+This is a narrow path leading to the Dwarven Kingdom.  It looks less
+travelled than the others, and it is very creepy.  The path opens up
+to the south, and continues to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21506
+~
+~
+Dr 2 0 -1 21540
+~
+~
+End
+
+#21505
+N Entrance to Mountain~
+Ref 0
+D
+Here is an entrance to the mountain.  The door looks very well built,
+and you can hear noise coming from within.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 21500 4 100 1
+Dr 1 0 -1 21503
+~
+~
+Dr 3 0 6502 21513
+~
+door~
+End
+
+#21506
+N Bend in Narrow Path~
+Ref 0
+D
+This is a narrow path that bends to the east here.  The trees hang over
+the path, and it is very overgrown.  The narrow path continues to the
+south and to the east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+They hang over the road in the most ominous of ways.
+~
+Dr 1 0 -1 21507
+~
+~
+Dr 2 0 -1 21504
+~
+~
+End
+
+#21507
+N Narrow Path~
+Ref 0
+D
+This path is very narrow, and it continues to the north and west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21508
+~
+~
+Dr 3 0 -1 21506
+~
+~
+End
+
+#21508
+N Narrow North-south Path~
+Ref 0
+D
+This path leads to the north and south.  To the north you can see a
+door, and to the south the path continues.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21506 2 100 1
+Dr 0 0 -1 21509
+~
+~
+Dr 2 0 -1 21507
+~
+~
+End
+
+#21509
+N Door to Kingdom~
+Ref 0
+D
+Here the path turns to the west.  You can see a door in front of you,
+and the path continues to the west and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21500 6 100 1
+Dr 1 0 6502 21510
+~
+door~
+Dr 2 0 -1 21508
+~
+~
+Dr 3 0 -1 21522
+~
+~
+End
+
+#21510
+N Path to the Castle~
+Ref 0
+D
+You are on a path that will eventually lead to the castle.  It
+continues north to the castle, and there is a door on the western wall.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21511
+~
+~
+Dr 3 0 6502 21509
+~
+door~
+End
+
+#21511
+N Still On the Path to the Castle~
+Ref 0
+D
+You are still on the path to the castle, or back to the
+Dwarven village, whichever way you wish to go.  The path
+continues to the north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21512
+~
+~
+Dr 2 0 -1 21510
+~
+~
+End
+
+#21512
+N Door to Castle~
+Ref 0
+D
+Here there is a door to the castle to the east.  The castle
+is elegantly designed, and looks much like a roll of toilet paper
+standing on end.  A sign says:
+
+              ******************************************
+              *  WELCOME TO THE CASTLE OF STRANGELOVE  *
+              *      Here, celibacy is uninvited       *
+              ******************************************
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21500 2 100 1
+Dr 1 0 6514 21525
+~
+door~
+Dr 2 0 -1 21511
+~
+~
+End
+
+#21513
+N Inside the Entrance~
+Ref 0
+D
+Everything here is covered in soot and very grimy.  The path continues
+to the east and north, and there is a door to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 21507 0 100 1
+Dr 0 0 -1 21514
+The little underground path continues to the north.
+~
+~
+Dr 1 0 6502 21505
+The path leads outside the entrance.
+~
+door~
+Dr 3 0 -1 21526
+This looks like an entrance to some type of store room.
+~
+~
+End
+
+#21514
+N Path~
+Ref 0
+D
+You are on a path in the dwarven village which leads north to the shops
+and south to the corner of the area.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21515
+~
+~
+Dr 2 0 -1 21513
+~
+~
+End
+
+#21515
+N Turn in Road~
+Ref 0
+D
+You are on a path that leads to a Hide & Tooth shop to the west, and the
+path continues to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21505 1 100 1
+Dr 2 0 -1 21514
+~
+~
+Dr 3 0 -1 21516
+The Hide & Tooth shop is seen to the west.
+~
+~
+End
+
+#21516
+N Hide & Tooth Shop~
+Ref 0
+D
+You are in the Hide & Tooth shop.  Here you may buy the finest in Dwarven
+weapons and armors. The path continues to the north and east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21503 1 100 1
+Dr 0 0 -1 21517
+~
+~
+Dr 1 0 -1 21515
+~
+~
+End
+
+#21517
+N Path to the North of Shop~
+Ref 0
+D
+You are on a path to the north of the Hide & Tooth shop.  The path continues
+to the north, and there is Granite Head's bakery to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21518
+~
+~
+Dr 2 0 -1 21516
+~
+~
+Dr 3 0 -1 21535
+~
+~
+End
+
+#21518
+N North of Shops~
+Ref 0
+D
+Here the path bends to the east towards the barracks. To the
+south you can see the shops.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21519
+~
+~
+Dr 2 0 -1 21517
+~
+~
+End
+
+#21519
+N Path by Hospital~
+Ref 0
+D
+Here the path passes by the Hospital to the north.  It continues
+to the east to the barracks, and to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21534
+~
+~
+Dr 1 0 -1 21520
+~
+~
+Dr 3 0 -1 21518
+~
+~
+End
+
+#21520
+N Path next to barracks~
+Ref 0
+D
+Here the path continues west, and east to the barracks.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21505 1 100 1
+Dr 1 0 -1 21521
+~
+~
+Dr 3 0 -1 21519
+~
+~
+End
+
+#21521
+N Entrance to barracks~
+Ref 0
+D
+Here there is an entrance to the barracks to the south, and
+the path continues to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21514 4 100 1
+Dr 2 0 -1 21523
+~
+door~
+Dr 3 0 -1 21520
+~
+~
+End
+
+#21522
+N Guard House~
+Ref 0
+D
+You are in the guard house to the west of the entrance
+to the castle.  There are nude posters covering the walls.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED poster~
+There is a wall poster of a nude Minne Pearl.
+~
+Dr 1 0 -1 21509
+~
+~
+End
+
+#21523
+N First Barrack room~
+Ref 0
+D
+Here is the first of two main rooms of barracks.  The
+barracks continue to the south, and you can leave the room
+to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21511 8 100 1
+Dr 0 0 -1 21521
+~
+door~
+Dr 2 0 -1 21524
+~
+~
+End
+
+#21524
+N Back of Barracks~
+Ref 0
+D
+Here is the back of the dwarven barracks.  There are rows
+of beds here, and there is a stench that is unbearable.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21511 8 100 1
+Dr 0 0 -1 21523
+~
+~
+Dr 5 0 -1 17001
+~
+floorboards boards~
+End
+
+#21525
+N Inside of Castle Strangelove~
+Ref 0
+D
+You are just inside the castle.  It is very tubular in shape,
+and it is very featureless.  There is a set of stairs that lead
+up, and the door leads out of the castle to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 6514 21512
+~
+door~
+Dr 4 0 -1 21528
+~
+~
+End
+
+#21526
+N A store room~
+Ref 0
+D
+There is a layer of dust on the floor at least 3 inches thick!  It is
+probable that not many people have been in here for many months.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED floor dust~
+After blowing all the dust off the floor, you notice a trapdoor!
+~
+Dr 1 0 -1 21513
+A lighted area that looks like a well worn path.
+~
+~
+Dr 5 0 0 21527
+~
+trapdoor~
+End
+
+#21527
+N Wine cellar~
+Ref 0
+D
+This room smells like wine, and you can only assume it used to be
+a wine cellar at one time.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21502 1 100 1
+Dr 4 0 -1 21526
+~
+~
+Dr 5 0 -1 17065
+~
+floorboards boards~
+End
+
+#21528
+N Stairs in Castle~
+Ref 0
+D
+The stairs continue to circle up and down here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21512 3 100 1
+Dr 4 0 -1 21529
+~
+~
+Dr 5 0 -1 21525
+~
+~
+End
+
+#21529
+N Stairs~
+Ref 0
+D
+You are still circling around on the stairs.  You are starting to
+get dizzy from going around and around and around and around and
+around.  The stairs continue up and down.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21512 3 100 1
+Dr 4 0 -1 21530
+~
+~
+Dr 5 0 -1 21528
+~
+~
+End
+
+#21530
+N Top of Stairs~
+Ref 0
+D
+You are at the top of the stairs in the castle.  There is an exit
+to the east, and the stairs lead down.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21513 3 100 1
+Dr 1 0 -1 21531
+~
+~
+Dr 5 0 -1 21529
+~
+~
+End
+
+#21531
+N Queen's Waiting Room~
+Ref 0
+D
+This is the Queen's waiting room.  Here the men literally
+'wait' for the queen.  You've heard that the queen really likes
+to get to 'know' her people, in the biblical sense.  The queen's
+bedroom is to the north, and you can see stairs to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21515 4 100 1
+Dr 0 0 6502 21532
+~
+door~
+Dr 3 0 -1 21530
+~
+~
+End
+
+#21532
+N Bedroom~
+Ref 0
+D
+This is the Queen's bedroom.  The bed is all ruffled, and there
+is a stack of dirty sheets piled in the corner.
+
+A note has been scrawled in lipstick on the mirror:
+
+    I'm out looking for my birth control pills.
+    Why don't you sleep into something comfortable while you're waiting?
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 21516 0 100 1
+Dr 2 0 6502 21531
+~
+door~
+End
+
+#21534
+N Hospital~
+Ref 0
+D
+You are inside the Dwarven Hospital.  It smells like rubbing
+alcohol, and there is blood all over the walls.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 21506 0 100 1
+Dr 2 0 -1 21519
+~
+~
+End
+
+#21535
+N Granite Head's Bakery~
+Ref 0
+D
+The aroma coming from this room is sensuous.  You can almost taste
+the pastries dissolving in your mouth.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21504 1 100 1
+Dr 1 0 -1 21517
+~
+~
+Dr 3 0 0 19020
+~
+~
+End
+
+#21540
+N Dark Path~
+Ref 0
+D
+This path is very well worn, and there is an entrance to the mines to the
+east, while the path continues to the north and west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21500 4 100 1
+Dr 0 0 -1 21504
+~
+~
+Dr 1 0 6502 21541
+~
+door~
+Dr 3 0 -1 21503
+~
+~
+End
+
+#21541
+N Mine entrance~
+Ref 0
+D
+The little path here leads down toward the mines, while the worn path
+continues to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 6502 21540
+~
+door~
+Dr 5 0 -1 21542
+~
+~
+End
+
+#21542
+N Inside the mine~
+Ref 0
+D
+There are holes everywhere from the places that the workers blew
+away the rock to get to whatever they were looking for.  A path leads
+down and up.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21507 4 100 1
+Dr 4 0 -1 21541
+~
+~
+Dr 5 0 -1 21554
+~
+~
+End
+
+#21543
+N Path in the mine~
+Ref 0
+D
+You are deep inside the mine, and you feel very uncomfortable.  The
+path continues to the east, and leads to the mineshaft to the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21507 4 100 1
+Dr 1 0 -1 21544
+~
+~
+Dr 3 0 -1 21554
+~
+~
+End
+
+#21544
+N Mine crossroad~
+Ref 0
+D
+You are at a crossroad in the mine.  There is a door to the north,
+and the path continues to the south, east, and west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 6502 21546
+~
+door~
+Dr 1 0 -1 21545
+~
+~
+Dr 2 0 -1 21551
+~
+~
+Dr 3 0 -1 21543
+~
+~
+End
+
+#21545
+N Coal Room~
+Ref 0
+D
+You are inside the storage area for the raw materials
+that are found down here.  The room is very unsturdy as the
+supports are very rickety.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 21517 0 100 1
+Dr 3 0 -1 21544
+~
+~
+End
+
+#21546
+N Mine Maze~
+Ref 0
+D
+You have entered the maze of the mines.  To the east you
+can see some inscriptions, and you can exit to the south.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21547
+~
+~
+Dr 2 0 6502 21544
+~
+door~
+End
+
+#21547
+N Maze inscription~
+Ref 0
+D
+You are inside the maze, but not far enough in that you could get lost.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21548
+~
+~
+Dr 3 0 -1 21546
+~
+~
+End
+
+#21548
+N Maze~
+Ref 0
+D
+You are in a maze.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21517 2 100 1
+Dr 0 0 -1 21549
+~
+~
+Dr 2 0 -1 21547
+~
+~
+End
+
+#21549
+N Maze~
+Ref 0
+D
+You are in a maze.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21517 2 100 1
+Dr 0 0 -1 21550
+~
+~
+Dr 3 0 -1 21548
+~
+~
+End
+
+#21550
+N Maze~
+Ref 0
+D
+You are in a maze.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 21549
+~
+~
+Dr 3 0 -1 21552
+~
+~
+End
+
+#21551
+N Mining equipment room~
+Ref 0
+D
+This is the storage room for equipment used by the
+Dwarven miners.  It is very small, and you can tell that
+not many miners actually use any equipment.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 21518 0 100 1
+Dr 0 0 -1 21544
+~
+~
+End
+
+#21552
+N Solved the Maze.~
+Ref 0
+D
+You have solved the maze.  You can tell by the last few moves
+that there is no way that a dumb worker could have figured that
+out.  It seems pretty desolate here.  To the south is a bleak room.
+To the north, you see the maze.  There is a sign above the south exit:
+
+    Those who enter, plan on a timely death.
+    Especially if you're loyal to the queen.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21550
+~
+~
+Dr 3 0 -1 21553
+~
+~
+End
+
+#21553
+N The Mazekeeper's Room~
+Ref 0
+D
+You have entered the Mazekeeper's room.  There are pictures of
+the Queen with darts thrown in it.  Spray-painted on the wall are
+things like 'the queen shall suffer' and 'Catholics Rule'.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 21516 1 100 1
+Dr 1 0 -1 21552
+~
+~
+End
+
+#21554
+N Bottom of mineshaft~
+Ref 0
+D
+You are at the bottom of the mineshaft.  The air here is very sooty, and
+it is very hard to breath.  The mineshaft leads up and east.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21543
+~
+~
+Dr 4 0 -1 21542
+~
+~
+End
+
+#21500
+N Path to Dwarven Village~
+Ref 0
+D
+You are walking down a path that leads to the dwarven village.  Above you
+you see a hill, and to the north the path continues toward
+the mountains.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21501
+The path continues.
+~
+~
+Dr 2 0 -1 21601
+You hear the patter of little feet.
+~
+~
+Dr 3 0 0 19780
+~
+~
+End
+
+#21501
+N Path, Base of Mountain~
+Ref 0
+D
+Now you are at the bottom of a rugged mountain.  The forest around you is
+very dense, and it seems very dark to the north.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 21501 6 100 1
+Dr 0 0 -1 21502
+The path continues up the mountain.
+~
+~
+Dr 2 0 -1 21500
+The path heads toward the main city.
+~
+~
+End
+
+#21502
+N Path, Middle of Mountain~
+Ref 0
+D
+Standing on the middle of the mountain, you can easily see the turning
+point to the south, and the top of the mountain is very near to the north.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 21501 6 100 1
+Dr 0 0 -1 21503
+The top of the mountain is easily seen from here.
+~
+~
+Dr 2 0 -1 21501
+The base of the mountain is near.
+~
+~
+End
+
+#21503
+N Top of Mountain~
+Ref 0
+D
+You are now on the top of the mountain.  To the south you see a path
+leading down the mountain.  To the east and west you see entrances to
+what seems like mines.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R O 21507 0 100 1
+Dr 1 0 -1 21540
+An entrance to the mountain which seems to lead underground.
+~
+~
+Dr 2 0 -1 21502
+The path leads down the mountain to the main city.
+~
+~
+Dr 3 0 -1 21505
+There is an entrance to the mountain.
+~
+~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,2895 @@
+#ZONE 
+N Copper  Chapel Catacombs~
+B None~
+V 18400 18475
+S 1
+End
+
+
+
+#SCRIPTDATA
+#18415
+N wife-assist~
+C
+wait(5);
+do(assist etcher);
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#18400
+N skeleton bony~
+SD the bony skeleton~
+LD
+ A bony skeleton is here.
+~
+D
+ Brown bones with tufts of clothing still hanging from them.  This
+skeleton looks very mindless but still dangerous ...
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 300
+O ~
+AP 18 18 18 18 18
+At 1 2 6 13
+End
+
+#18401
+N undead zombie~
+SD the undead zombie~
+LD
+ An undead zombie sits here munching on something ...
+~
+D
+ His body is totally white and slowly rotting away.  Each Zombie looks
+quite different from the next because they were, of course, once alive and
+human.
+~
+A 35
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 220
+O ~
+AP 13 13 13 13 13
+End
+
+#18402
+N undead ghoul~
+SD the ghoul~
+LD
+ A ghoul is here staring at you hungrily.
+~
+D
+ The ghoul no longer resembles the adventurer he once was.  Nonetheless
+he looks like he hasn't forgotten his fighting skills.
+~
+A 33
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 184
+O ~
+AP 14 14 14 14 14
+At 1 1 4 14
+At 2 2 3 10
+End
+
+#18403
+N undead wraith~
+SD the wraith~
+LD
+ You spot a wraith advancing towards you from the shadows.
+~
+D
+ The wraith no longer has a material form.  He is wearing a tattered
+black robe which hides all but the darkness of his face and the glimmer
+in his eyes.
+~
+A 35
+AB 42
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 500
+O ~
+AP 11 11 11 11 11
+At 1 7 10 17
+End
+
+#18404
+N undead guardian vampire~
+SD a vampire~
+LD
+ A vampire is here hiding his face from your light source.
+~
+D
+ The guardian vampire looks quite evil.  Just by looking at him the hair on your
+arms raises. He looks mighty tough to be just a minor minion.
+~
+A 65539
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 1000
+O ~
+AP 16 16 16 16 25
+Sc 5012
+At 1 5 10 14
+End
+
+#18405
+N priest~
+SD the priest~
+LD
+ A priest of God stands here solemnly speaking words of praise.
+~
+D
+ Obviously a goodly man, you feel closer to God just by gazing upon this man.
+Dressed in white, fine white hair, and a soft slightly wrinkled face ...
+this man has a sacred beauty.  You see a halo around his head.
+~
+A 2067
+AB 168
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 400
+O ~
+AP 25 25 25 25 25
+Sc 6016
+At 0 10 15 7
+At 1 5 8 1
+End
+
+#18406
+N mi-go fungi~
+SD the Mi-Go~
+LD
+ A Mi-Go is crawling here.
+~
+D
+ Mi-Go, the Fungi from Yuggoth ... it is a pinkish being about five feet long;
+with a crustaceous body bearing a vast pair of membranous wings and several
+sets of articulate limbs, body a sort of convoluted ellipsoid, covered with
+multitudes of very small antennae, where a head would ordinarily be.  These
+beings sometimes walk on all their legs and sometimes on the hind pair only.
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -500 E 333
+O ~
+AP 20 20 20 20 20
+End
+
+#18407
+N nightgaunt gaunt~
+SD a nightgaunt~
+LD
+ A nightgaunt lurks in the shadows!
+~
+D
+ ... shocking and uncouth black thing with smooth, oily, skin, unpleasant horns
+that curve inward toward each other, bat wings whose beating make no sound,
+ugly prehensile paws, and a barbed tail that lashes disquietingly.  And worst
+of all, it makes absolutely no sound or speech and smiles not at all because
+it has no face, only a suggestive blackness where a face ought to be ...
+~
+A 97
+AB 98304
+M 1
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -1000 E 444
+O ~
+AP 16 16 16 16 16
+End
+
+#18408
+N hunting horror~
+SD a hunting horror~
+LD
+ The hunting horror is here in wait of an unwary traveler.
+~
+D
+ Serving Nyarlathotep and Roch'tar, these beings are hunting for victims. 
+They resemble enormous ropy black serpents or worms possessing bat-like or
+umbrella-like wings.  Their forms continually shift and change, twitching
+and writhing, so it is hard to look at them.  They speak in great harsh
+voices.  A hunting horror is huge, possibly around 40 feet long.  
+~
+A 33
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -1000 E 800
+O ~
+AP 25 25 25 25 25
+At 1 3 7 4
+At 2 3 6 13
+At 3 5 9 10
+End
+
+#18409
+N weeds~
+SD some cave weeds~
+LD
+ Some weeds are creeping across the floor.
+~
+D
+ Just some unpleasant looking vine-like growths ...
+~
+A 37
+AB 98824
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 300
+O ~
+AP 3 3 3 3 3
+At 1 5 15 15
+End
+
+#18410
+N snapper joe~
+SD Snapper Joe~
+LD
+ Snapper Joe is standing here leering at you chillingly.
+~
+D
+ What an ugly fiend! He is about dead and has mostly greenish skin with
+bright red hair. Half his face is burnt off and he has a perpetual smile.
+He is called up from his service in hell in order to aid the Undying One.
+~
+A 3
+AB 8
+M 10
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 333
+O ~
+AP 20 20 20 20 20
+At 1 5 10 13
+End
+
+#18411
+N x-ist eater~
+SD The X-ist flesh eater~
+LD
+ An X-ist flesh eater is sitting here munching on some coffin remains
+~
+D
+ A large hairy monstrous beast, the only LIVE thing you have seen down here.
+It stands approximately 8 feet tall and hunches over to fit in this
+small room.  It has a pair of tremendous claws that it uses to rip and tear.
+It has dog-like face except ... different.  Bright glowing eyes and a grimace
+lead you to believe that he knew that you were coming.
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 150
+O ~
+AP 11 11 11 11 11
+At 1 5 15 20
+End
+
+#18412
+N spirit ghost king crotus~
+SD the spirit of King Crotus~
+LD
+ The spirit of King Crotus is floating lazily above the floor.
+~
+D
+ Floating above the ground here and looking a bit dead, he whispers
+softly into the air:
+
+    The forces of evil have unlocked my spirit as
+    well as one other.  Free me from this misery,
+    anyone that can hear. The peace of the grave
+    calls me but I am blocked from its quiet.
+~
+A 3
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 350 E 459
+O ~
+AP 25 25 25 25 25
+At 1 3 5 19
+At 2 5 10 18
+At 3 1 2 17
+At 4 1 2 17
+End
+
+#18413
+N rock slug~
+SD the rock slug~
+LD
+ A rock slug is slowly creeping along, leaving a slime trail behind it.
+~
+D
+ It is a large brownish slug.  Got any salt?  Didn't think so ...
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 809
+O ~
+AP 25 25 25 25 40
+At 0 10 26 14
+At 1 5 17 7
+At 5 1 30 11
+At 6 5 13 2
+End
+
+#18414
+N etcher~
+SD the mad etcher~
+LD
+ The mad etcher is sitting here babbling to himself and working on the wall.
+~
+D
+ Quite insane, the mad etcher has been here for two decades.  His hair is
+white; he babbles nonsense to himself; a layer of dust covers his out-of-date
+clothing; and he seems to be working on the same portion of the wall near
+the base ... oh and he seems quite blind.
+
+He leers insanely at you and says 'heh heh what can I do for you children?
+Please don't mind my wife, she is always like that ... hello dear can you
+make some tea for our company?  Oh good!  Now sit right down will you?
+Would you like hot or cold tea?  Yes the weather is ...'
+
+And on he babbles ...
+~
+A 65
+AB 1
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 300
+O ~
+AP 14 14 14 14 14
+At 1 5 15 7
+At 2 2 3 14
+End
+
+#18415
+N wife ghost specter spectre spectral~
+SD the spectral version of the etcher's wife~
+LD
+ The spectral wife of the etcher is very faintly floating here.
+~
+D
+ You can barely make her out ... though it almost makes you vomit.
+She is missing half her head.  The remaining half is smashed in horribly like
+she took a nasty fall.  Her one damaged eye hangs on its own.  She smiles
+insanely at you thru a broken jaw and missing teeth.  One hand of hers is
+resting on the shoulder of the etcher ... her husband.
+~
+A 3
+AB 65536
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 1
+O ~
+AP 1 1 1 1 1
+Sc 18415
+At 1 50 100 17
+End
+
+#18416
+N body~
+SD the half-decomposed body~
+LD
+ A half-decomposed body is lying in the corner here.
+~
+D
+ YUK! It's ugly, disgusting ... it smells ... it also moves a bit!
+~
+A 21
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -350 E 125
+O ~
+AP 15 15 15 15 15
+Sc 5012
+At 0 10 25 1
+End
+
+#0
+
+
+
+#OBJDATA
+#18400
+N candlestick~
+SD a candlestick~
+P ~
+D
+A pewter candlestick is standing here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 150
+O ~
+V 0 0 24 0
+ED candlestick~
+It is a rather old-looking three-armed candlestick made from pewter.  Its
+candles are a yellowish white colour.
+~
+End
+
+#18402
+N tickler~
+SD a nightgaunt's tickler~
+P ~
+D
+A nightgaunt's tickler has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 128
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 5000
+O ~
+V 0 3 4 5
+ED tickler~
+A horrid black mass of gooey tentacles obviously ripped from the corpse
+of a nightgaunt ... disgusting.
+~
+End
+
+#18403
+N plasma webbing~
+SD disgusting pinkish plasma webbing~
+P ~
+D
+A pile of pink material is lying here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 2560
+W 9
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 7 0 0 0
+ED plasma webbing~
+Yuck, mossy and wet.  It looks like some sort of webbing.
+~
+End
+
+#18410
+N rod key~
+SD a queerly shaped rod~
+P ~
+D
+A queerly shaped rod is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 0 0 0
+ED rod key~
+This rod looks sort of octagonal, and sort of like a key and crowbar.  You
+recognize that it will probably fit the lock at the entrance of the tombs.
+~
+End
+
+#18411
+N large black dirty key~
+SD a large black dirty key~
+P ~
+D
+A large black dirty key is lying here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 3
+C 0
+O ~
+V 0 0 0 0
+ED large black dirty key~
+One of those traditional old lock type keys ... except huge, black and
+filthy ... hmm ... like it has been buried for some time ...
+~
+End
+
+#18412
+N head jubal mummy~
+SD the mummified head of Jubal the Benevolent~
+P ~
+D
+The mummified head of Jubal the Benevolent is lolling back and forth.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 1024
+W 1
+Sz 18
+Ti 0
+Wt 20
+C 0
+O ~
+V 3 5 -1 0
+ED head jubal mummy~
+ACK! It's half eaten away ... yet it is whole ... in fact I think it can be
+opened and closed ... is there something in its teeth!?!?!? ACK you do it!
+~
+End
+
+#18413
+N ring black marble~
+SD a black marble ring~
+P ~
+D
+A black marble ring is lying here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 1088
+W 3
+Sz 18
+Ti 0
+Wt 2
+C 4000
+O ~
+V 0 0 0 0
+ED black marble ring~
+It is pitch black and has beautiful swirls characteristic of marble all
+through it.
+~
+End
+
+#18414
+N rapier thin~
+SD a whisper thin rapier~
+P ~
+D
+A rapier is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 2
+W 8193
+Sz 18
+Ti 0
+Wt 4
+C 1000
+O ~
+V 0 4 2 11
+ED thin rapier~
+It seems so thin that it would be useless but at the same time it looks deadly.
+~
+End
+
+#18415
+N sarcophagus coffin~
+SD a stone sarcophagus~
+P ~
+D
+A stone sarcophagus is sitting here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 2000
+C 0
+O ~
+V 400 15 3416 0
+ED sarcophagus coffin~
+A well crafted, if dusty and ancient, home for the afterworld, it seems
+to be able to be opened but needs a key.
+~
+End
+
+#18416
+N iron heavy key~
+SD a heavy iron key~
+P ~
+D
+A heavy iron key is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 4
+C 0
+O ~
+V 0 0 0 0
+ED key iron heavy~
+It looks to be a very heavy old iron key.
+~
+End
+
+#18417
+N flask wineflask~
+SD a wineflask~
+P ~
+D
+A wineflask has been been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 80
+O ~
+V 4 4 2 0
+ED wineflask flask~
+A nice leather wineflask that has somehow survived the ages in a coffin.
+The wine should be nicely aged.
+~
+End
+
+#18418
+N coins~
+SD a mound of coins fit for a dead king~
+P ~
+D
+You see a mound of coins fit for a dead king here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 50
+C 0
+O ~
+V 10000 0 0 0
+End
+
+#18419
+N key~
+SD key to the coffin~
+P ~
+D
+The key to the coffin is lying here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 3
+C 0
+O ~
+V 0 0 0 0
+ED key~
+Neat you have the key to the coffin...is is a soft orange color
+and burns in your hand a bit.
+~
+End
+
+#18420
+N rathcor~
+SD a hidden compartment in the room~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 4
+W 0
+Sz 18
+Ti 0
+Wt 1000
+C 0
+O ~
+V 10 5 -1 0
+ED rathcor~
+Ah HA!  A hidden compartment!
+~
+End
+
+#18421
+N rusty sword curved scimitar~
+SD a rusty curved scimitar~
+P ~
+D
+A sword has been left lying here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 6
+C 500
+O ~
+V 0 2 3 3
+ED rusty sword scimitar~
+Very rusty and old...it has a wide blade and chunks missing from
+its cutting edge.
+~
+End
+
+#18422
+N piece slime~
+SD a piece of slime~
+P ~
+D
+You step on a piece of slime...your foot squishes a bit~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 15
+O ~
+V 15 0 0 0
+ED slime piece~
+ICK! This is a piece of slug-like brownish green slime...
+Blech!
+~
+End
+
+#18423
+N smock~
+SD an artist's smock~
+P ~
+D
+An artist's smock is lying here on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 7
+C 100
+O ~
+V 0 0 0 0
+ED smock~
+It has paint and little shavings of different materials all over it.
+It is very old an smells of paint, mildew, and rot.
+~
+End
+
+#18424
+N scroll tightly rolled~
+SD a tightly rolled scroll~
+P ~
+D
+A yellowing tightly rolled scroll is here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 5000
+O ~
+V 15 0 0 0
+ED scroll tightly rolled~
+It is tightly wound. The writing on the inside when opened up is very
+unreadable but the scroll has a seal on it with a grey :
+
+    88
+    88
+8888  8888
+    88
+    88
+
+~
+End
+
+#18425
+N auburn orb~
+SD an auburn-colored orb~
+P ~
+D
+An orb is here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 66
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 15000
+O ~
+V 10 2 2 0
+ED auburn orb~
+You gaze into the orb and are almost lost in the swirling mists of color
+inside of this rare and beautiful object.
+~
+End
+
+#18426
+N bar gold~
+SD a bar of gold~
+P ~
+D
+A bar of gold is lying here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 30
+C 5000
+O ~
+V 0 0 0 0
+ED bar gold~
+A nice little brick of gold...very dusty and old... it has some emblem
+on it...The emblem is a large 'J'
+~
+End
+
+#18427
+N cape dark black~
+SD a dark black cape~
+P ~
+D
+A dark black cape is lying here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 1025
+Sz 18
+Ti 0
+Wt 10
+C 8000
+O ~
+V 5 0 0 0
+ED dark black cape~
+The cape is gently flows and pulls in the light so evenly and perfectly
+that the cape seems to be simply a void of blackness. It is quite beautiful
+~
+End
+
+#18428
+N flaming sword long longsword~
+SD a pitch-black longsword that flames brightly...~
+P ~
+D
+A sword lies here~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 7000
+O ~
+V 0 3 6 3
+ED flaming sword long longsword~
+This sword is amazing! It almost wields itself! As you test it out, the
+flames seems to roar brighter as you go thru basic swordsman routines.
+it is obviously a great find!
+~
+End
+
+#18429
+N breast plate dented worn~
+SD a worn and dented breast plate~
+P ~
+D
+A piece of armour is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 50
+C 20000
+O ~
+V 6 0 0 0
+ED breast dented plate worn~
+Though this piece of armour is worn and dented it looks very usable.
+~
+End
+
+#18430
+N key silver~
+SD a silver key~
+P ~
+D
+You see a silver key here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED key silver~
+for the altar...
+~
+End
+
+#0
+
+
+
+#SCENES
+#18432
+N The Grand Hall of Kings~
+Ref 0
+D
+You are still walking through the gloomy hallway.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18413 5 100 1
+Dr 1 0 0 18437
+~
+~
+Dr 3 0 0 18427
+~
+~
+End
+
+#18433
+N The Shrine of Frath~
+Ref 0
+D
+Little chunks of dried meat are spattered throughout this room.  The walls
+are covered in gore.  Almost as if they were painted ... ICK!  You can
+almost make out the design!
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18409
+~
+~
+Dr 1 0 0 18438
+~
+~
+Dr 3 0 0 18428
+~
+~
+End
+
+#18434
+N Underground Shaft~
+Ref 0
+D
+A shallow pit in the dark underearth.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18411 1 100 1
+Dr 4 0 0 1708
+~
+~
+Dr 5 0 0 18439
+~
+~
+End
+
+#18435
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18440
+~
+~
+Dr 2 0 0 18436
+~
+~
+Dr 3 0 0 18430
+~
+~
+End
+
+#18436
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18435
+~
+~
+Dr 1 0 0 18441
+~
+~
+Dr 3 0 0 18431
+~
+~
+End
+
+#18437
+N The Grand Hall of Kings~
+Ref 0
+D
+You are at the western end of the Grand Hall of Kings.  There is a
+door leading north and the hallway continues west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18402 8 100 1
+Dr 0 0 -1 18409
+~
+door~
+Dr 3 0 0 18432
+~
+~
+End
+
+#18438
+N The Shrine of Jubal~
+Ref 0
+D
+This was once beautiful.  Now the huge tapestries have been torn down and the
+carpeting pulled up ... the paintings on the ceiling are unreadable and the
+altar is crumbled.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 18439
+~
+~
+Dr 3 0 0 18433
+~
+~
+End
+
+#18439
+N The Tomb of Jubal~
+Ref 0
+D
+The smell coming off of the opened sarcophagus is nauseating.  The floor is
+slightly crumpled and walls are raked ... but the worst part is the mummy ...
+Jubal the Benevolent is missing his head!
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18438
+~
+~
+Dr 4 0 0 18434
+~
+~
+End
+
+#18440
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18445
+~
+~
+Dr 2 0 0 18441
+~
+~
+Dr 3 0 0 18435
+~
+~
+End
+
+#18441
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18400 8 100 1
+Dr 0 0 0 18440
+~
+~
+Dr 1 0 0 18446
+~
+~
+Dr 3 0 0 18436
+~
+~
+End
+
+#18442
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18416 4 100 1
+Dr 1 0 0 18447
+~
+~
+Dr 2 0 0 18443
+~
+~
+End
+
+#18443
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18442
+~
+~
+Dr 2 0 0 18444
+~
+~
+End
+
+#18444
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18409 4 100 1
+Dr 0 0 0 18443
+~
+~
+Dr 1 0 0 18449
+~
+~
+End
+
+#18445
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 18446
+~
+~
+Dr 3 0 0 18440
+~
+~
+End
+
+#18446
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18445
+~
+~
+Dr 2 0 0 18447
+~
+~
+Dr 3 0 0 18441
+~
+~
+End
+
+#18447
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18402 8 100 1
+Dr 0 0 0 18446
+~
+~
+Dr 2 0 0 18448
+~
+~
+Dr 3 0 0 18442
+~
+~
+End
+
+#18448
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+This room has been totally hollowed out and smoothed, and a pit has been
+drilled in the center of the floor.  There are extensive gruesome paintings
+of beasts and monsters terrorizing the countryside; vampires sucking the
+blood of beasts and humans alike.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+ED painting paintings mural~
+There is a tiny painting of a vault in this mural ... and it seems to be a
+reflected picture of the vault ... the word in tiny print is 'rathcor'.
+~
+R M 18416 4 100 1
+Dr 0 0 0 18447
+~
+~
+End
+
+#18449
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18410 1 100 1
+Dr 1 0 3411 18408
+~
+door~
+Dr 3 0 0 18444
+~
+~
+End
+
+#18450
+N Entrance to the Forbidden Catacombs~
+Ref 0
+D
+You have entered the forbidden catacombs.  This cave system must have been
+built long ago.  The air is dank and smells of something dead ...  or maybe
+undead.  Enter here at your own risk ... something evil abides.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18413 5 100 1
+Dr 0 0 -1 18451
+Too dark to tell.
+~
+~
+Dr 1 0 -1 18452
+Too dark to tell.
+~
+~
+Dr 2 0 -1 18453
+Too dark to tell.
+~
+~
+Dr 3 0 -1 18454
+Too dark to tell.
+~
+~
+Dr 4 0 -1 18408
+~
+~
+End
+
+#18451
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18455
+Too dark to tell.
+~
+~
+Dr 2 0 -1 18450
+Too dark to tell.
+~
+~
+End
+
+#18452
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18407 5 100 1
+Dr 0 0 0 18461
+Too dark to tell.
+~
+~
+Dr 2 1024 0 18472
+~
+~
+Dr 3 0 -1 18450
+Too dark to tell.
+~
+~
+End
+
+#18453
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18407 5 100 1
+Dr 0 0 -1 18450
+Too dark to tell.
+~
+~
+End
+
+#18454
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18402 8 100 1
+Dr 1 0 -1 18450
+Too dark to tell.
+~
+~
+End
+
+#18455
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18406 4 100 1
+Dr 2 0 -1 18456
+Too dark to tell.
+~
+~
+Dr 3 0 0 18451
+Too dark to tell.
+~
+~
+End
+
+#18456
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18455
+Too dark to tell.
+~
+~
+Dr 1 0 -1 18457
+Too dark to tell.
+~
+~
+End
+
+#18457
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18407 5 100 1
+Dr 2 0 -1 18458
+Too dark to tell.
+~
+~
+Dr 3 0 0 18456
+Too dark to tell.
+~
+~
+End
+
+#18458
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18457
+~
+~
+Dr 2 0 -1 18472
+You see unfathomable blackness to the south ...
+~
+~
+Dr 3 0 -1 18459
+Too dark to tell.
+~
+~
+End
+
+#18459
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18458
+Too dark to tell.
+~
+~
+Dr 3 0 -1 18460
+You see something's den.
+~
+~
+End
+
+#18460
+N Den Of The Vampire~
+Ref 0
+D
+Your mind whirls in the hideous madness of this place.  The stench
+is horrendous and dead bodies, sucked of life, lay all over.  One coffin
+lies in the center of the room ... waiting for YOU!
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18404 1 100 1
+Dr 1 0 -1 18459
+Too dark to tell.
+~
+~
+Dr 5 0 3419 18475
+A jet black coffin ... who knows what lurks beneath.
+~
+coffin~
+End
+
+#18461
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18462
+Too dark to tell.
+~
+~
+Dr 2 0 0 18452
+Too dark to tell.
+~
+~
+End
+
+#18462
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18402 8 100 1
+Dr 2 0 0 18463
+Too dark to tell.
+~
+~
+Dr 3 0 0 18461
+Too dark too tell.
+~
+~
+End
+
+#18463
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18406 4 100 1
+Dr 0 0 0 18462
+Too dark to tell.
+~
+~
+Dr 1 0 0 18464
+Too dark to tell.
+~
+~
+End
+
+#18464
+N The Catacombs~
+Ref 0
+D
+Stone walls, musty air ... the earth seems to moan softly.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 128 0 18470
+~
+~
+Dr 2 0 0 18465
+Too dark to tell.
+~
+~
+Dr 3 0 0 18463
+Too dark to tell.
+~
+~
+End
+
+#18465
+N The Gilded Hallway~
+Ref 0
+D
+Wow!  Although this hallway is quite filthy and dusty, it is noticeably
+different than the rest of the catacombs ... but you don't feel safe yet.
+The walls faintly show ancient detailed etchings in gold and silver of
+ancient rituals ... not all of which seem pleasant.  The hallway continues
+north into the catacombs and further south as long as you can see.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
+R M 18407 5 100 1
+Dr 0 0 0 18464
+The glow of your light reflects off the walls and you see the catacombs.
+~
+~
+Dr 2 0 0 18466
+The glow of your light reflects off the walls ... the gilded hallway.
+~
+~
+End
+
+#18466
+N The Gilded Hallway~
+Ref 0
+D
+Ancient etchings and writing in intricate gold and silver designs fill these
+walls.  You are tempted to linger and examine them closely.  Your light source
+flickers off the walls showing you exits north and south.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
+R M 18406 4 100 1
+Dr 0 0 0 18465
+Your light reveals more of the hallway.
+~
+~
+Dr 2 0 0 18467
+Your light reveals more of the hallway.
+~
+~
+End
+
+#18467
+N The Gilded Hallway~
+Ref 0
+D
+Ancient etchings and writing in intricate gold and silver designs fill these
+walls.  You are tempted to linger and examine them closely.  Your light source
+flickers off the walls showing you exits north and south.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
+Dr 0 0 0 18466
+Your light reveals more of the hallway.
+~
+~
+Dr 2 0 0 18468
+Your light reveals more of the hallway.
+~
+~
+End
+
+#18468
+N The Gilded Hallway~
+Ref 0
+D
+Ancient etchings and writing in intricate gold and silver designs fill these
+walls.  You are tempted to linger and examine them closely.  Your light source
+flickers off the walls showing you exits north and south.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
+R M 18414 1 100 1
+R M 18415 1 100 1
+Dr 0 0 0 18467
+Your light reveals more of the hallway.
+~
+~
+Dr 2 0 0 18469
+Your light reveals more of the hallway.
+~
+~
+End
+
+#18469
+N The Gilded Hallway~
+Ref 0
+D
+Ancient etchings and writing in intricate gold and silver designs fill these
+walls.  You are tempted to linger and examine them closely.  Your light source
+flickers off the walls showing you exits north.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED etchings~
+Beautiful yet disturbing, they urge you to move onward.
+~
+Dr 0 0 0 18468
+Your light reveals more of the hallway.
+~
+~
+End
+
+#18470
+N A Secret Passageway~
+Ref 0
+D
+A secret passage!  You wonder where it may lead!
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED east secret door~
+The door closed on you so softly that you didn't even notice!
+~
+Dr 2 0 0 18471
+Too dark to tell.
+~
+~
+Dr 3 0 0 18464
+~
+~
+End
+
+#18471
+N A Secret Passageway~
+Ref 0
+D
+A secret passage!  You wonder where it may lead!
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18408 1 100 1
+Dr 0 0 0 18470
+Too dark to tell.
+~
+~
+End
+
+#18472
+N The Campfire~
+Ref 0
+D
+You suddenly find yourself at what appears to be a campfire, hidden deep
+in these catacombs.  You wander about for a minute, studying he folks around
+the circle.  Suddenly, you hear a child's laughter and realize you are
+caught in the cave, and there has been no camp at all; merely hallucations
+from being in the dark.  You find spot that is partially lit from some far
+off beam of light to focus on your next steps.  
+~
+C
+~
+F 14
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 1024 0 18452
+~
+~
+End
+
+#18475
+N Inside The Coffin~
+Ref 0
+D
+You are inside a coffin.  It seems rather cramped in here.  You can climb
+up out of the coffin, or you can wait for here the real occupant to join you.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 3419 18460
+~
+lid coffin~
+End
+
+#18405
+N Inside the Chapel~
+Ref 0
+D
+You are in a small, dark chapel.  The dark brown glass in the tiny windows
+do not let much light through.  A few rows of worn wooden benches stand here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED benches rows~
+The benches are not of the comfortable kind.
+~
+ED glass windows~
+The windows must be meant to be dark.  At least they are completely clean.
+~
+R M 18405 1 100 1
+Dr 0 0 -1 18604
+The chapel door is made of dark wood.
+~
+door~
+Dr 5 0 3430 18421
+~
+altar~
+End
+
+#18408
+N Stairwell Into Darkness~
+Ref 0
+D
+You sense even more danger coming from below but are urged onward ...
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 3411 18449
+~
+door~
+Dr 5 0 0 18450
+~
+~
+End
+
+#18409
+N The Acolyte's Bedroom~
+Ref 0
+D
+You're in what used to be the bedroom of an acolyte or other religious
+practitioner.  However, you're upt your ankles in blood and gore and rotting
+flesh!  
+~
+C
+~
+F 15
+S 0
+M 0
+W 0
+T 0
+O ~
+ED corpse corpses~
+Mauled and torn apart ... throats were ripped out and guts spilled on the
+floor ... you slip and land, planting yourself firmly in the slick wetness
+and splattering yourself with offal.
+~
+R M 18401 8 100 1
+Dr 2 0 0 18433
+~
+~
+End
+
+#18410
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18400 8 100 1
+Dr 1 0 0 18415
+~
+~
+Dr 2 0 0 18411
+~
+~
+End
+
+#18411
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18403 1 100 1
+Dr 0 0 0 18410
+~
+~
+End
+
+#18412
+N The Grand Hall of Kings~
+Ref 0
+D
+You are at the west end of the Grand Hall of Kings.  There is a doorway to the
+south with something strange written above it.  Also on the floor are dried
+blood stains, but their color seems a little wrong.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED door writing~
+Above the door is some strange writing!  It is worn with age, but it refers
+to an ancient ruler named 'Shohan'.
+~
+ED stain stains~
+That's odd ... they seem a little GREEN.
+~
+Dr 1 0 0 18417
+~
+~
+Dr 2 0 -1 18413
+A door to the south
+~
+door~
+End
+
+#18413
+N The Shrine of Shohan~
+Ref 0
+D
+BLOOD EVERYWHERE!
+The walls are coated with blood, bits of bloody flesh lie at your feet,
+and torn clothing is scattered about.  It wouldn't disturb you in the least
+except that it is all FRESH!  What ever used to pass as an altar here,
+lies overturned and smashed.  Doors lead to the south and to the north.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18412
+~
+north~
+Dr 2 0 -1 18414
+~
+south~
+End
+
+#18414
+N The Tomb of Shohan~
+Ref 0
+D
+Once beautiful, this place has been turned into a slaughterhouse by the hands
+of evil beings ... even more blood and dead, rotting flesh.  This place looks
+like the feeding grounds of beasts and monsters.  The overturned sarcophagus
+of the once powerful King Shohan lies here.  A door leads to the north and a
+doorway has been hewn to the east.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED coffin sarcophagus~
+Now destroyed ... there is writing on it: 'All hail the new king; we serve
+the Roch'tar, the Undying One!  Those who decline his worship shall be
+slaughtered!'
+~
+R M 18401 8 100 1
+Dr 0 0 0 18413
+~
+door north~
+Dr 1 0 0 18419
+~
+~
+End
+
+#18415
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18420
+~
+~
+Dr 2 0 0 18416
+~
+~
+Dr 3 0 0 18410
+~
+~
+End
+
+#18416
+N Entrance to the Lower Chambers~
+Ref 0
+D
+You can tell that this area wasn't a part of the original construction.
+The walls have been hewn by a mighty force look as though they were CLAWED.
+The passage slopes upward here and also continues to the north.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+ED walls~
+Something BIG must have done this job!  There are traces of BLOOD in the
+claw marks.
+~
+Dr 0 0 0 18415
+~
+~
+Dr 4 0 -1 18418
+~
+tunnel~
+End
+
+#18417
+N The Grand Hall of Kings~
+Ref 0
+D
+This is the western wing of the Grand Hall of Kings.  Your only exits are to
+the east and west in this gloomy hallway.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18413 5 100 1
+Dr 1 0 0 18422
+~
+~
+Dr 3 0 0 18412
+~
+~
+End
+
+#18418
+N The Shrine of Cristis~
+Ref 0
+D
+Different than the rest, this place has not been desecrated.  An altar still
+stands here and the walls show scenes from the life of Cristis the Kind,
+a ruler of the outlying regions west of Midgaard.  There is a stone staircase
+leading down.  The Ghost of Cristis the Kind stands here.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED ghost cristis~
+His rest has been disturbed by evil creatures who have invaded his domain
+and grave.  He holds up a parchment for you to read:
+
+     Hello stranger and last hope for Midgaard and this tomb!
+   This is a plea for aid by a man long since dead from this Earth.
+     The forces of evil have taken control of this tomb and the
+   Kings of old need your aid to free us and deliver us to peace
+   once again.  I think that I alone have been able to appear and
+   communicate with the mortal world.
+     Roch'tar, the reincarnate Vampire, now rules these tombs.
+   You must find and defeat him and his minions!
+     May God bless you on your Quest!
+~
+ED altar~
+It stands 2 feet high with the remnants of candle-wax on top.  There is
+an inscription on the side:  'Praise the almighty Cristis the bringer of
+good and justice to the world.  He who fought the evilest finally is at
+peace.  May the Gods remember him forever ...'
+~
+R M 18413 5 100 1
+Dr 2 0 0 18419
+~
+~
+Dr 5 0 -1 18416
+~
+staircase~
+End
+
+#18419
+N The Tomb of Cristis~
+Ref 0
+D
+Everything here has simply been destroyed.   Exits lead north and west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18400 8 100 1
+Dr 0 0 0 18418
+~
+~
+Dr 3 0 0 18414
+~
+~
+End
+
+#18420
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18425
+~
+~
+Dr 3 0 0 18415
+~
+~
+End
+
+#18421
+N Entrance Chamber to the Grand Hall of Kings~
+Ref 0
+D
+Whoever built this place must have been very rich indeed!  Though you did
+enter through a rather small door this place has enough room to hold several
+score of people.  The floor has a beautifully woven carpet, and the walls are
+covered in finely crafted tapestries. You can tell that these things must have
+been worth much but they have not lasted well throughout the ages.  Massive
+doors lead off to the south and a large stone staircase leads up.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED letters graffiti~
+'Beware here all of man, because past here lies only death.'
+
+    Insho'rkthon brsskra-lehsn Roch'tar
+
+Beneath, there are two criss-crossing scratchmarks in an X formation that
+look like someone (or something) raked their claws across the wood.
+~
+ED oak~
+They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
+If not for one thing they would be perfectly preserved.  There appears
+to be some letters crudely scratched into the wood.
+~
+ED staircase stairs~
+Though quite cracked they do look very stable.
+~
+ED tapestry tapestries~
+The tapestries were woven into beautiful and exciting scenes of battles
+long ago.  One on the left your shows the historic battle between Jubal the
+Benevolent and Hroth Kragen's forces that eventually Jubal's army won (of
+course).
+~
+ED stone door trapdoor~
+It's rather small and looks quite heavy but maybe with some kind of leverage
+you could move it.  It has a queerly shaped hole that looks big enough
+for an equally queerly shaped pole to fit inside.  If only you had it!
+~
+Dr 2 0 -1 18422
+Finely polished oak doors stand to the south.
+~
+oak~
+Dr 4 0 3410 18405
+You see a large set of stone stairs leading upwards to a small stone door at
+the top. 
+~
+stone trapdoor door~
+End
+
+#18422
+N The Grand Hall of Kings~
+Ref 0
+D
+A long hallway stretches east and west.  On the southern side of the hall
+there are many doors, each with the name of a king who has died and is
+entombed here.  The hallway is beautiful yet chilling.  Even though the area
+has been kept well by acolytes, there remains a stench of the undead.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18421
+~
+oak~
+Dr 1 0 0 18427
+~
+~
+Dr 2 0 -1 18423
+The door has written above it: 'May all the lands thank Crotus the Victor.
+Without his guidance this kingdom would not have stood.'
+~
+door~
+Dr 3 0 0 18417
+~
+~
+End
+
+#18423
+N The Shrine of Crotus~
+Ref 0
+D
+Mostly rubble, this place used to be the shrine of the famous king Crotus,
+who saved the northern regions from being overrun by the goblin hordes of
+100 years ago.  If not for him, Midgaard of course would have eventually been
+conquered as well.  Though Crotus was a goodly king, it was rumored that he
+turned to the dark ways in his dying years ... and died an evil man.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18422
+~
+door~
+Dr 2 0 0 18424
+~
+~
+End
+
+#18424
+N The Tomb of Crotus~
+Ref 0
+D
+A sarcophagus lies in the middle of the room and seems undisturbed.
+A hole has been knocked into the east wall.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18412 1 100 1
+Dr 0 0 0 18423
+~
+~
+Dr 1 0 0 18429
+~
+~
+End
+
+#18425
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 18426
+~
+~
+Dr 3 0 0 18420
+~
+~
+End
+
+#18426
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18409 4 100 1
+Dr 0 0 0 18425
+~
+~
+Dr 1 0 0 18430
+~
+~
+End
+
+#18427
+N The Grand Hall of Kings~
+Ref 0
+D
+You are in the western part of the Grand Hall of Kings.  To the south is a
+door and to the east and west the hall continues.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18432
+~
+~
+Dr 2 0 -1 18428
+~
+door~
+Dr 3 0 0 18422
+~
+~
+End
+
+#18428
+N The Shrine of Mitnar~
+Ref 0
+D
+Mitnar was a gruesome beast of a man ... he loved battle ... and nothing
+else.  Warriors did love Mitnar, and all fighting men honored him.
+On the wall is depicted battle after battle after battle.
+A small opening has been shaped carefully to the east.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18427
+~
+door~
+Dr 1 0 0 18433
+~
+~
+Dr 2 0 0 18429
+~
+~
+End
+
+#18429
+N The Tomb of Mitnar~
+Ref 0
+D
+The wall paintings show men and women warriors alike bowing down to Mitnar,
+prisoners of war being put to the sword by Mitnar, and great heaps of gold
+and weapons under the feet of Mitnar.  Where his coffin was, there is now
+only a rectangular blemish on the floor of the dusty room.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18428
+~
+~
+Dr 3 0 0 18424
+~
+~
+End
+
+#18430
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 18400 8 100 1
+Dr 1 0 0 18435
+~
+~
+Dr 2 0 0 18431
+~
+~
+Dr 3 0 0 18426
+~
+~
+End
+
+#18431
+N The Lower Chambers And Tombs Of The Undead~
+Ref 0
+D
+The stench of death is heavy in these caverns.
+~
+C
+~
+F 8201
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18430
+~
+~
+Dr 1 0 0 18436
+~
+~
+End
+
+#0
+
+
+
+#$

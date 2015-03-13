@@ -1,0 +1,522 @@
+#ZONE 
+N Dark London~
+B None~
+V 12600 12699
+S 1
+End
+
+
+
+#SCRIPTDATA
+#12614
+N enter-bite~
+C
+wait(10);
+do({bite %name%});
+~
+T 10
+End
+
+#12615
+N fight-bite~
+C
+wait(10);
+do({bite %name%});
+wait(10);
+~
+T 2
+End
+
+#0
+
+
+
+#ACTORS
+#12614
+N count maddeus~
+SD count maddeus~
+LD
+ Count Maddeus, the dark prince, is trapped here for eternity.
+~
+D
+ A tall, dark figure with long black hair and a silver moustache.
+~
+A 98305
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 18 20 18
+Sc 12614
+Sc 12615
+End
+
+#0
+
+
+
+#OBJDATA
+#12600
+N hastings - list of foods~
+SD ~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#12601
+N porridge~
+SD a bowl of porridge~
+P ~
+D
+A steaming bowl of porridge is sitting here.
+~
+A
+The steaming hot porridge would be better with brown sugar and butter.
+~
+PD
+~
+DR
+A small bowl of steaming porridge.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 2
+O ~
+V 10 0 0 0
+End
+
+#12602
+N chowder~
+SD chowder bowl~
+P ~
+D
+There is a bowl of some chowder here.
+~
+A
+A lumpy potato and carrot chowder mixed with white fish, and a heavy
+cream broth is filling.  
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 7
+O ~
+V 25 0 0 0
+End
+
+#12610
+N hatch key~
+SD the hatch key~
+P ~
+D
+An old key is on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#12600
+N Docks - London~
+Ref 0
+D
+Greyed clapboard docks, well-maintained by the Dock authority, run the
+length of the pier.  Outlined by shops and taverns, the docks are strewn
+with the remnants of fisherman, a few hooks and nails, a coiled rope here
+and there.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12612
+~
+~
+Dr 2 0 0 12601
+~
+~
+End
+
+#12601
+N Docks - London~
+Ref 0
+D
+Greyed clapboard docks, well-maintained by the Dock authority, run the
+length of the pier.  Outlined by shops and taverns, the docks are strewn
+with the remnants of fisherman, a few hooks and nails, a coiled rope here
+and there.    
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12600
+~
+~
+Dr 5 5 0 12602
+~
+sewer grate~
+End
+
+#12602
+N Stormdrain~
+Ref 0
+D
+A dark drain serves discharge into the Thames.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12603
+~
+~
+Dr 4 5 0 12601
+~
+sewer grate~
+End
+
+#12603
+N Drainpipe~
+Ref 0
+D
+A wide stormdrain below the streets of London.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 12602
+~
+~
+Dr 3 0 0 12604
+~
+~
+End
+
+#12604
+N Intersection of Pipes~
+Ref 0
+D
+Three different pipes intersect in a T-shaped intersection below the
+London docks.  Running water flows east from the northern pipe.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12605
+~
+~
+Dr 1 0 0 12603
+~
+~
+Dr 3 0 0 12608
+~
+~
+End
+
+#12605
+N Long, Narrow Pipe~
+Ref 0
+D
+A long, low and narrow pipe that flows from the north to the south.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12606
+~
+~
+Dr 2 0 0 12604
+~
+~
+End
+
+#12606
+N Long, Narrow Pipe~
+Ref 0
+D
+A river of water flows down the center of this pipe.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12607
+~
+~
+Dr 2 0 0 12605
+~
+~
+End
+
+#12607
+N Drainpipe~
+Ref 0
+D
+You are the end of a long and narrow pipe.  A causeway leads up to the
+surface.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 12606
+~
+~
+Dr 4 0 0 12611
+~
+~
+End
+
+#12608
+N Pipe~
+Ref 0
+D
+A broken pipe in the London sewer system.  Still, stagnant water lies
+quietly on the ground.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 12604
+~
+~
+Dr 3 0 0 12609
+~
+~
+End
+
+#12609
+N Pipe at Run Valve~
+Ref 0
+D
+The broad pipe ends here at a run valve, a specialized bulkhead that
+blocks damaged pipes from flooding.  There is a hatch in the northern wall. 
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 7 0 12610
+~
+hatch~
+Dr 1 0 0 12608
+~
+~
+End
+
+#12610
+N Ancient Catacomb~
+Ref 0
+D
+A hatch to the sewers is directly south of you.  It is made of old
+limestone and granite walls, crumbling with age and well-worn by
+running water.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12614
+~
+~
+Dr 2 7 12610 12609
+~
+hatch~
+End
+
+#12611
+N Fisherman's Wharf~
+Ref 0
+D
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 12612
+~
+~
+Dr 5 0 0 12607
+~
+~
+End
+
+#12612
+N Docks - London~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 261 0 12613
+~
+small windowed door~
+Dr 2 0 0 12600
+~
+~
+Dr 3 0 0 12611
+~
+~
+End
+
+#12613
+N Hastings at the Docks~
+Ref 0
+D
+A small hole-in-the-wall with wood paneled walls and a few secluded rooms
+in the back.  The black mahogany bartop is well polished, however, with a
+large brass bar.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 261 0 12612
+~
+small windowed door~
+End
+
+#12614
+N Sepulchre~
+Ref 0
+D
+Broken bones and a massive pile of rock and dust fill the hall of this
+ancient tomb.  You are bats making shuffling sounds in the dark corners of
+the room and feel a bit confined in this small, dank space somewhere below
+London.  
+~
+C
+~
+F 5
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 12614 1 100 1
+R O 12610 -1 100 1
+Dr 2 0 0 12610
+~
+~
+End
+
+#0
+
+
+
+#$

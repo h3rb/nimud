@@ -1,0 +1,1503 @@
+#ZONE 
+N Nirrad  Land of the Fire Newts~
+B Synthia~
+V 17900 17931
+S 1
+End
+
+
+
+#SCRIPTDATA
+#17901
+N bombing~
+C
+wait(20);
+bomb(here(),100);
+do({:releases a cluster bomb, exploding all around you!});
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#17901
+N black mountain goat~
+SD a mountain goat~
+LD
+ A mountain goat is standing here.
+~
+D
+ It looks hungry and searches for food.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 187
+O ~
+AP 15 15 15 15 15
+At 0 10 15 10
+End
+
+#17902
+N black mountain ewe~
+SD a mountain ewe~
+LD
+ A mountain ewe is standing here.
+~
+D
+ The ewe is watching her young.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -100 E 732
+O ~
+AP 25 25 25 25 40
+At 0 10 16 10
+At 1 5 66 10
+At 3 1 28 19
+At 6 5 23 7
+End
+
+#17903
+N black mountain kid~
+SD a mountain kid~
+LD
+ A mountain kid is standing here.
+~
+D
+ The kid is playing with its siblings.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -100 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 13 8
+End
+
+#17904
+N fire cult worker~
+SD a fire cult worker~
+LD
+ A fire cult worker is standing here.
+~
+D
+ The fire cult worker looks hot and sweaty.
+~
+A 101
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 690
+O ~
+AP 25 25 25 25 35
+At 0 10 15 2
+At 1 5 23 4
+End
+
+#17905
+N fire cult guard~
+SD a fire cult guard~
+LD
+ A fire cult guard is standing here.
+~
+D
+ The fire cult guard thinks you would be better dead.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -450 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 18 5
+End
+
+#17906
+N fire cult worker~
+SD a fire cult worker~
+LD
+ A fire cult worker is standing here.
+~
+D
+ The fire cult worker looks hot and sweaty.
+~
+A 3
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -400 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 16 7
+End
+
+#17907
+N fire cult guard~
+SD fire cult guard~
+LD
+ A fire cult guard is standing here.
+~
+D
+ The fire cult guard wants to kill you!
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -450 E 610
+O ~
+AP 25 25 25 25 35
+At 0 10 20 2
+At 1 5 25 1
+At 5 1 36 0
+End
+
+#17908
+N fire cult mother~
+SD a fire cult mother~
+LD
+ A fire cult mother is standing here.
+~
+D
+ The fire cult mother is watching her kids.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -355 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 11
+End
+
+#17909
+N fire cult baby~
+SD a fire cult baby~
+LD
+ A fire cult baby is crawling here.
+~
+D
+ The fire cult baby is crawling and drooling here.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -350 E 982
+O ~
+AP 25 25 25 25 40
+At 0 10 29 3
+At 1 5 33 2
+At 5 1 16 14
+At 6 5 15 5
+End
+
+#17910
+N fire cult sergeant~
+SD a fire cult sergeant~
+LD
+ A fire cult sergeant patrols this area.
+~
+D
+ He's just found something that doesn't belong here!
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 334
+O ~
+AP 19 19 19 19 19
+At 0 10 20 7
+At 1 5 18 5
+At 2 1 35 3
+End
+
+#17911
+N fire cult general~
+SD a fire cult general~
+LD
+ A fire cult general is standing here.
+~
+D
+ The fire cult general grins evilly at you.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -700 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 17 5
+At 1 5 15 10
+End
+
+#17912
+N fire cult leader~
+SD a fire cult leader~
+LD
+ A fire cult leader is standing here.
+~
+D
+ The fire cult leader screams, 'I'm going to hose you!'
+~
+A 35
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 887
+O ~
+AP 25 25 25 25 40
+At 0 10 68 3
+At 1 5 18 9
+At 3 1 25 17
+At 4 1 22 14
+At 6 5 19 14
+End
+
+#17913
+N fire cult priest~
+SD a fire cult priest~
+LD
+ A fire cult priest is standing here.
+~
+D
+ The fire cult priest is preparing for worship.
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 113
+O ~
+AP 15 15 15 15 15
+At 0 10 12 5
+End
+
+#17914
+N fire lizard~
+SD a fire lizard~
+LD
+ A fire lizard is crawling here.
+~
+D
+ The fire lizard flicks its tongue at you.
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -100 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 19 12
+End
+
+#0
+
+
+
+#OBJDATA
+#17901
+N horns~
+SD horns~
+P ~
+D
+A set of horns lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 10
+O ~
+V 0 1 6 7
+End
+
+#17902
+N bladder milk~
+SD milk bladder~
+P ~
+D
+A milk bladder lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 2
+O ~
+V 20 20 10 0
+End
+
+#17903
+N shovel~
+SD shovel~
+P ~
+D
+A shovel lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 10
+O ~
+V 0 1 6 7
+End
+
+#17904
+N short sword~
+SD short sword~
+P ~
+D
+A short sword lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 30
+O ~
+V 0 1 6 11
+End
+
+#17905
+N hand axe~
+SD hand axe~
+P ~
+D
+A hand axe lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 30
+O ~
+V 0 1 6 3
+End
+
+#17906
+N chainmail~
+SD chainmail~
+P ~
+D
+A chainmail shirt lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 4 0 0 0
+End
+
+#17907
+N pick~
+SD pick~
+P ~
+D
+A pick lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 1000
+O ~
+V 0 1 9 11
+End
+
+#17911
+N broad axe~
+SD broad axe~
+P ~
+D
+A broad axe lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 576
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 600
+O ~
+V 0 2 8 3
+End
+
+#17912
+N leather suit~
+SD leather suit~
+P ~
+D
+A leather suit lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 9
+Sz 18
+Ti 0
+Wt 3
+C 1000
+O ~
+V 4 0 0 0
+End
+
+#17913
+N mace~
+SD mace~
+P ~
+D
+A mace lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 66
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 300
+O ~
+V 0 2 6 6
+End
+
+#17914
+N potion~
+SD orange potion~
+P ~
+D
+An orange potion lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 10 0 0 0
+End
+
+#17915
+N egg cult~
+SD a cult egg~
+P ~
+D
+A cult egg lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1
+O ~
+V 10 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#17900
+N Obsidian hills~
+Ref 0
+D
+You see before you some shiny black hills. There is very little vegetation
+here. The hills appear to lead to a high mountain to the south east
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+ED hills~
+The hills are a very shiny black color.
+~
+Dr 0 0 0 19785
+You see a path leading back towards the Turning Point.
+~
+~
+Dr 2 0 0 17901
+You see some more hills.  They continue south.
+~
+~
+End
+
+#17901
+N Obsidian hills~
+Ref 0
+D
+You see before you some shiny black hills. There is very little vegetation
+here. The hills appear to lead to a high mountain to the south east
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+ED hills~
+The hills are a very shiny black color.
+~
+Dr 0 0 0 17900
+You see some hills to the north.
+~
+~
+Dr 2 0 0 17902
+You see some more hills to the south.
+~
+~
+End
+
+#17902
+N Obsidian hills~
+Ref 0
+D
+You see before you some shiny black hills. There is very little vegetation
+here. The hills appear to lead to a high mountain to the south east
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+ED hills~
+They are a very shiny black color.
+~
+Dr 0 0 0 17901
+You see some hills to the north.
+~
+~
+Dr 1 0 0 17903
+You see the side of the mountain to the east.
+~
+~
+End
+
+#17903
+N Mountain side~
+Ref 0
+D
+The mountain is very high and looks to be quite old. There are a few cracks
+in the side of the mountain
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+ED mountain~
+The mountain looks like it was formed from something sliding down and stopping.
+~
+R M 17901 2 100 1
+Dr 2 0 0 17904
+The mountain continues.
+~
+~
+Dr 3 0 0 17902
+You see some hills to the west.
+~
+~
+End
+
+#17904
+N Mountain side~
+Ref 0
+D
+The mountain is very high and looks to be quite old. There is smoke coming
+from the top of the mountain.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+ED smoke~
+The smoke is grey and puffs out of the top of the mountain.
+~
+R M 17901 2 100 1
+Dr 0 0 0 17903
+You see mountains to the north.
+~
+~
+Dr 2 0 0 17905
+The mountain continues.
+~
+~
+End
+
+#17905
+N Mountain top~
+Ref 0
+D
+You've reached the top of the mountain. You can see more smoke from up here.
+The smoke seems to come from a hole to the south.
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+ED smoke~
+The smoke is grey and is coming from the hole.
+~
+ED top of mountain~
+The top of the mountain is a large area with a hole in the middle.
+~
+Dr 0 0 0 17904
+You see the side of the mountain to the north.
+~
+~
+Dr 2 0 0 17906
+You see a hole to the south. It looks like an entrance.
+~
+~
+End
+
+#17906
+N Entrance to the mountain~
+Ref 0
+D
+The smoke comes from inside the hole.  It also looks like there is a path
+that leads down.
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17905
+You see the top of the mountain to the north.
+~
+~
+Dr 1 0 0 17907
+You see the top of the mountain to the east.
+~
+~
+Dr 2 0 0 17909
+You see the top of the mountain to the south.
+~
+~
+Dr 3 0 0 17908
+You see the top of the mountain to the west.
+~
+~
+Dr 5 0 0 17910
+You can see down inside the mountain.
+~
+~
+End
+
+#17907
+N Mountain top~
+Ref 0
+D
+You are standing at the top of the mountain. The mountain looks like it has
+been ravaged by something.
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 17906
+You see the entrance to the mountain to the west.
+~
+~
+End
+
+#17908
+N Mountain top~
+Ref 0
+D
+You are standing at the top of the mountain. There are several cracks in the
+ground and you don't feel safe!
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17906
+You see the entrance to the mountain to the north.
+~
+~
+End
+
+#17909
+N Mountain top~
+Ref 0
+D
+You are standing on the top of the mountain and think you should move north.
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17906
+You see the entrance to the mountain to the north.
+~
+~
+End
+
+#17910
+N Inside the mountain~
+Ref 0
+D
+You are standing inside the mountain.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 1 0 0 17911
+You see guard barracks.
+~
+~
+Dr 3 0 0 17912
+You see guard barracks.
+~
+~
+Dr 4 0 0 17906
+Entrance to the mountain.
+~
+~
+Dr 5 0 0 17913
+The shaft continues down.
+~
+~
+End
+
+#17911
+N Guard room~
+Ref 0
+D
+You are standing in a room with beds, tables, and fire cults!
+There are paintings on the wall.  They show battle scenes.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tables~
+The tables are long and wide.  They are made of stone and obviously too heavy
+to move.
+~
+ED chairs~
+The chairs are made of stone and look very heavy.
+~
+ED beds~
+The beds are made of metal and rock.
+~
+R M 17905 6 100 1
+Dr 3 0 0 17910
+You see the dark tunnel shaft.
+~
+~
+End
+
+#17912
+N Guard room~
+Ref 0
+D
+You are standing in a room with beds, chairs, tables, and fire cults!
+There are paintings on the wall that show great leaders.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tables~
+The tables are long and wide.  They are made of stone and are obviously to
+heavy to move.
+~
+ED chairs~
+The chairs are made of stone and look very heavy.
+~
+ED beds~
+The beds are made of metal and rock.
+~
+R M 17905 6 100 1
+Dr 1 0 0 17910
+You see the shaft in the mountain.
+~
+~
+End
+
+#17913
+N Inside the mountain~
+Ref 0
+D
+You are standing inside the mountain.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17914
+You see a large storage room.
+~
+~
+Dr 2 0 0 17915
+You see workers' quarters.
+~
+~
+Dr 4 0 0 17910
+You see the dark mountain shaft.
+~
+~
+Dr 5 0 0 17916
+The shaft continues down.
+~
+~
+End
+
+#17914
+N Store room~
+Ref 0
+D
+You see nothing special in this room.  There are some boxes and fire cult
+workers here.  There is also some trash piled up in the room.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 2 0 0 17913
+You see the dark mountain shaft.
+~
+~
+End
+
+#17915
+N Workers' quarters~
+Ref 0
+D
+You are standing in the workers' quarters.  There are several workers here.  
+The room is messy and has nothing of value in it.  The party the night before
+must have destroyed everything.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17906 4 100 1
+Dr 0 0 0 17913
+You see the dark mountain shaft.
+~
+~
+End
+
+#17916
+N Bottom of the mountain~
+Ref 0
+D
+You are standing at the bottom of the shaft.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 0 0 0 17917
+You see the dark tunnel.
+~
+~
+Dr 4 0 0 17913
+You see the mountain shaft.
+~
+~
+End
+
+#17917
+N The Tunnel~
+Ref 0
+D
+You are standing in a dry, dark tunnel.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 0 0 0 17918
+You see a bend in the tunnel.
+~
+~
+Dr 2 0 0 17916
+You see the bottom of the shaft.
+~
+~
+End
+
+#17918
+N Bend in the tunnel~
+Ref 0
+D
+You are standing in a dark tunnel.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 1 0 0 17919
+The tunnel continues into the dark.
+~
+~
+Dr 2 0 0 17917
+You see that the tunnel leads back.
+~
+~
+End
+
+#17919
+N The Tunnel~
+Ref 0
+D
+You are standing in a dark tunnel.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 0 0 0 17921
+The tunnel continues into the dark.
+~
+~
+Dr 1 0 0 17920
+You see a small fire cult house.
+~
+~
+Dr 3 0 0 17918
+You see a bend in the tunnel.
+~
+~
+End
+
+#17920
+N Fire Newt House~
+Ref 0
+D
+You are standing in a fire cult house.  There is a mother fire cult here
+playing with her children.  The room is full of cult toys- they look very
+boring.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17908 2 100 1
+Dr 3 0 0 17919
+You see the dark tunnel.
+~
+~
+End
+
+#17921
+N The Tunnel~
+Ref 0
+D
+You are standing in a dark tunnel.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 0 0 0 17923
+The tunnel continues on.
+~
+~
+Dr 2 0 0 17919
+The dark tunnel.
+~
+~
+Dr 3 0 0 17922
+You see a fire cult house.
+~
+~
+End
+
+#17922
+N Fire Newt House~
+Ref 0
+D
+You are standing in a fire cult house.  There is a fire cult mother here
+playing with her children.  The room has several torn baby cult diapers here
+... how disgusting!
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17908 2 100 1
+Dr 1 0 0 17921
+You see the dark tunnel.
+~
+~
+End
+
+#17923
+N The Tunnel~
+Ref 0
+D
+You are standing in the dark tunnel.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17904 10 100 1
+Dr 1 0 0 17927
+You see a fire cult temple.
+~
+~
+Dr 2 0 0 17921
+You see the dark tunnel.
+~
+~
+Dr 3 0 0 17924
+You see the entrance to the town hall.
+~
+~
+End
+
+#17924
+N Entrance to the town hall~
+Ref 0
+D
+You are standing in the entrance to the town hall.  The room is large and
+ornate.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17910 2 100 1
+Dr 1 0 0 17923
+You see the dark tunnel.
+~
+~
+Dr 3 0 0 17925
+You see a waiting room. 
+~
+~
+End
+
+#17925
+N The Waiting Room~
+Ref 0
+D
+You are standing in the waiting room of the town hall.  There is a big door
+to the west.  The room has pictures of the villages history.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17911 4 100 1
+Dr 1 0 0 17924
+You see the entrance to the town hall.
+~
+~
+Dr 3 0 0 17926
+You see a large office.
+~
+~
+End
+
+#17926
+N The Leader's Office~
+Ref 0
+D
+You are standing in the fire cult leader's office.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17912 1 100 1
+Dr 1 0 0 17925
+You see the waiting room.
+~
+~
+End
+
+#17927
+N Outside the temple~
+Ref 0
+D
+You are standing outside the fire cult temple.  The temple has some very
+large arches and towers.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17910 2 100 1
+Dr 1 0 0 17928
+You see the entrance to the fire cult temple.
+~
+~
+Dr 3 0 0 17923
+You see the dark tunnel.
+~
+~
+End
+
+#17928
+N Entrance to the temple~
+Ref 0
+D
+You are standing at the entrance to the temple.  The temple is very neat. 
+The sates are set in straight rows and the alter is very large.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17911 4 100 1
+Dr 1 0 -1 17929
+You see the door, that leads to the inside of the temple.
+~
+door~
+Dr 3 0 0 17927
+You see the outside of the temple.
+~
+~
+End
+
+#17929
+N Inside the Temple~
+Ref 0
+D
+You are standing inside the fire cult temple.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17913 1 100 1
+Dr 3 0 -1 17928
+You see the door that leads to the temple entrance.
+~
+door~
+Dr 5 0 0 17930
+You see a large trap door.
+~
+~
+End
+
+#17930
+N The room before the doors~
+Ref 0
+D
+You are standing before a pair of huge doors.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 17914 2 100 1
+Dr 1 0 -1 17931
+You see two large doors.
+~
+doors~
+Dr 4 0 0 17929
+You see the inside of the temple.
+~
+~
+End
+
+#17931
+N The Egg Room~
+Ref 0
+D
+You are standing in a room that has several dozen piles of eggs.  There is
+a chest on the floor also.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+R O 17915 0 100 1
+Dr 3 0 -1 17930
+You see two large doors.
+~
+doors~
+End
+
+#0
+
+
+
+#$

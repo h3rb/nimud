@@ -1,0 +1,3325 @@
+#ZONE 
+N Forest of Cetvin~
+B None~
+V 21000 21155
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#21000
+N john lumberjack~
+SD John the Lumberjack~
+LD
+ John the Lumberjack is here, looking for some trees to chop down.
+~
+D
+ He is six feet tall and looks quite strong, muscles bulging under his heavy,
+chequered shirt.  His features are worn with hard work and his expression is
+one of a peaceful man leading a simple life.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 350 E 43
+O ~
+AP 15 15 15 15 15
+At 0 10 18 2
+End
+
+#21002
+N bear~
+SD the brown bear~
+LD
+ A big, brown, angry-looking bear is here.
+~
+D
+ The bear is a big, brown, furry animal with very large claws and very sharp
+teeth.  It doesn't resemble those cute little thingies from toy shops at all.
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -50 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 25 13
+End
+
+#21003
+N rabbit~
+SD the ferocious rabbit~
+LD
+ A ferocious rabbit is here, glaring hungrily at you.
+~
+D
+ This small, furry creature with long ears and big feet has been attacked by
+the dreaded rabbit rabies, a horrible disease that turns helpless and innocent
+rabbits into ferocious and bloodthirsty monsters.
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -150 E 412
+O ~
+AP 25 25 25 25 25
+At 0 10 16 11
+At 1 5 24 2
+At 3 1 22 15
+End
+
+#21004
+N deer~
+SD the fallow deer~
+LD
+ A fallow deer is grazing peacefully here.
+~
+D
+ She is a graceful creature on long, slender legs, and with large, brown eyes
+looking back at you with an air of watchful interest.
+~
+A 83
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 350 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 16 13
+End
+
+#21005
+N fox~
+SD the brown fox~
+LD
+ A brown fox is here, looking for some rabbits to chew up.
+~
+D
+ It is a large fox with beautiful, red-brown fur and a long, thick brush.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -50 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 19 10
+End
+
+#21100
+N warg vicious~
+SD the vicious warg~
+LD
+ A vicious warg is here, snarling angrily at you.
+~
+D
+ It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
+quickly from its long, white fangs.  It looks quite dangerous and very angry.
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -350 E 258
+O ~
+AP 19 19 19 19 19
+At 0 10 14 13
+At 1 5 17 10
+At 2 1 17 2
+End
+
+#21101
+N warg ferocious~
+SD the ferocious warg~
+LD
+ A ferocious warg is here, snarling angrily at you.
+~
+D
+ It is an exceptionally large wolf with thick, black fur.  Saliva is dripping
+quickly from its long, white fangs.  It looks quite dangerous and very angry.
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -350 E 607
+O ~
+AP 25 25 25 25 35
+At 0 10 15 9
+At 1 5 19 2
+At 3 1 18 4
+End
+
+#21102
+N wolf grey~
+SD the large, grey wolf~
+LD
+ A large, grey wolf is here, glaring hungrily at you.
+~
+D
+ The large, grey wolf eyes you with interest while licking its lips.
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -150 E 343
+O ~
+AP 19 19 19 19 19
+At 0 10 16 3
+At 1 5 24 13
+At 2 1 30 2
+End
+
+#21103
+N wolf black~
+SD the large, black wolf~
+LD
+ A large, black wolf is here, glaring hungrily at you.
+~
+D
+ The large, black wolf eyes you with interest while licking its lips.
+~
+A 97
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -150 E 709
+O ~
+AP 25 25 25 25 40
+At 0 10 46 0
+At 1 5 66 14
+At 5 1 15 7
+At 6 5 80 5
+End
+
+#21112
+N dragon green~
+SD the huge, green dragon~
+LD
+ A huge green dragon is here, its narrow yellow eyes glowing with rage.
+~
+D
+ This enormous winged serpent has dark green scales covering most of its
+colossal body.  Numerous holes in its heavy wings tell of many fights as does
+the nicks in the horns on its head.  It smells as disgusting as only dragons
+do.
+~
+A 99
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -1000 E 468
+O ~
+AP 25 25 25 25 25
+At 0 10 20 4
+At 1 5 13 4
+End
+
+#21115
+N shargugh brownie~
+SD Shargugh~
+LD
+ Shargugh the Forest Brownie is here, grinning broadly at you.
+~
+D
+ This little fellow is only three foot tall with wild matted brown hair and long
+tangled brown beard.  He wears ragged brown and green clothing and looks as if
+he is having great fun.
+~
+A 149
+AB 32778
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 21 11
+End
+
+#21116
+N elder druid~
+SD the elder druid~
+LD
+ The elder druid is here ... he looks very upset at your presence in his home.
+~
+D
+ The druid looks quite old.  You would think him venerable, but you know
+he would be a tough foe.
+~
+A 39
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 16 1
+At 1 5 13 5
+At 3 1 38 3
+End
+
+#0
+
+
+
+#OBJDATA
+#21000
+N axe lumber~
+SD a lumber axe~
+P ~
+D
+A heavy lumber axe lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 50
+O ~
+V 0 2 6 1
+ED axe lumber~
+It is a heavy axe of the kind lumberjacks use to chop down trees.
+~
+End
+
+#21001
+N shirt~
+SD a chequered shirt~
+P ~
+D
+A chequered shirt lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 2
+C 20
+O ~
+V 3 0 0 0
+ED shirt~
+It is an extra large, chequered shirt made from heavy cloth.
+~
+End
+
+#21002
+N boots~
+SD a pair of leather boots~
+P ~
+D
+A pair of leather boots lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 4
+C 60
+O ~
+V 3 0 0 0
+ED boots~
+They are fashioned from rough leather that has been oiled frequently to make
+it stay waterproof.  They look worn but quite functional.
+~
+End
+
+#21003
+N fireplace~
+SD a fireplace~
+P ~
+D
+A fireplace made from stone is set against the east wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 200 0 0 0
+ED fireplace~
+It is fashioned from stones of various sizes that have been stacked on top of
+each other and fastened with mortar.  Its chimney is constructed likewise and
+leads the smoke out through the low cabin ceiling.
+~
+End
+
+#21005
+N chest~
+SD a wooden chest~
+P ~
+D
+A wooden chest stands in the corner.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 40
+C 100
+O ~
+V 100 13 6006 0
+ED chest~
+It is a robust chest made from short, heavy planks that have been fastened
+together with tenons.  It is equipped with a simple brass lock.
+~
+End
+
+#21006
+N key~
+SD a small brass key~
+P ~
+D
+A small brass key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 10
+O ~
+V 6005 0 0 0
+ED key~
+It is a small, simple brass key with no inscriptions or marks of any kind.
+~
+End
+
+#21007
+N coins gold~
+SD a heap of gold coins~
+P ~
+D
+Some gold coins lie piled up in a heap on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 0 0 0
+ED coins~
+The coins seem to be gold.  They are obviously valuable.
+~
+End
+
+#21010
+N blackberries~
+SD some blackberries~
+P ~
+D
+Some blackberries grow on a bush nearby.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 10
+O ~
+V 3 0 0 0
+ED blackberries~
+They look very tasty indeed.
+~
+End
+
+#21011
+N mushroom~
+SD a mushroom~
+P ~
+D
+A small mushroom grows nearby.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 10
+O ~
+V 6 0 0 0
+ED mushroom~
+It is a tasty little thing.
+~
+End
+
+#21013
+N water barrel~
+SD the barrel~
+P ~
+D
+A water barrel has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 65
+C 60
+O ~
+V 50 50 0 0
+End
+
+#21102
+N tree opening~
+SD a colossal tree~
+P ~
+D
+A colossal tree blocks the way westwards.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 1000 0 0 0
+ED opening~
+The opening is far too narrow for you to squeeze through but it looks as if the
+tree is hollow.
+~
+ED tree~
+This enormous tree must be a thousand years old.  Its rough bark looks grey
+and pale and is decorated with scratches and claw marks.  On its west side is a
+small opening just above ground level.
+~
+End
+
+#21103
+N branch~
+SD a long, grey branch~
+P ~
+D
+A long, grey branch rests heavily on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 20
+C 1
+O ~
+V 0 0 25 0
+End
+
+#21104
+N branch~
+SD a long, grey branch~
+P ~
+D
+A long, grey branch rests heavily on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 30
+C 60
+O ~
+V 0 2 5 7
+End
+
+#21105
+N branch~
+SD a long, grey branch~
+P ~
+D
+A long, grey branch rests heavily on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 40
+C 0
+O ~
+V 0 0 0 0
+End
+
+#21106
+N toadstool~
+SD a toadstool~
+P ~
+D
+A large toadstool grows nearby.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 20
+O ~
+V 12 0 0 0
+ED toadstool~
+It is a large, brown boletus that must weigh nearly five pounds.  The top
+surface is covered in a thin layer of transparent slime that emits a weak,
+musty smell.  Not the most delicious thing you have seen.
+~
+End
+
+#21107
+N toadstool~
+SD a toadstool~
+P ~
+D
+A large toadstool grows nearby.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 20
+O ~
+V 12 0 0 1
+ED toadstool~
+It is a large, brown boletus that must weigh nearly five pounds.  It has small
+white spots and the top surface is covered in a thin layer of transparent slime
+that emits a weak, musty smell.  Not the most delicious thing you have seen.
+~
+End
+
+#21110
+N potion yellow~
+SD a yellow potion~
+P ~
+D
+A yellow potion has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 1000
+O ~
+V 15 0 0 0
+ED potion yellow~
+It has a deep yellow colour and and a strong spicy smell.
+~
+End
+
+#21111
+N shield large~
+SD a large round shield~
+P ~
+D
+A large round shield has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 15
+C 300
+O ~
+V 5 0 0 0
+ED shield large~
+It is made from hard wood that has been reinforced with heavy iron bands.
+~
+End
+
+#21112
+N crown iron~
+SD an iron crown~
+P ~
+D
+An iron crown rests on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 17
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 4 0 0 0
+ED crown iron~
+It is a heavy human-sized crown made from solid iron.
+~
+End
+
+#21114
+N ring iron~
+SD an iron ring~
+P ~
+D
+An iron ring has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 5000
+O ~
+V 1 0 0 0
+ED ring iron~
+It is a quite heavy human-sized ring made from solid iron.  It lacks
+decorations of any kind.
+~
+End
+
+#21155
+N morning-star star morning~
+SD the morning star~
+P ~
+D
+The morning star is here collecting dust while it lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 15000
+O ~
+V 0 2 8 8
+End
+
+#0
+
+
+
+#SCENES
+#21000
+N The edge of the forest~
+Ref 0
+D
+You are standing at the eastern edge of a big forest.  To the east is the West
+Gate of Midgaard and to the west is a narrow trail, leading in through the
+forest.  A dimly lit path leads north.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are quite tall considering most of them appear to be quite young.
+On one of the trees, crude letters forming the word "Haon-Dor" have been
+carved into the bark.
+~
+ED trail~
+The forest trail winds westwards through the trees.
+~
+Dr 0 0 0 16100
+You see a dimly lit path.
+~
+~
+Dr 3 0 -1 21001
+You see the narrow forest trail winding westwards in between the trees.
+~
+~
+End
+
+#21001
+N A trail through the light forest~
+Ref 0
+D
+You are on a trail leading through the forest.  To the east is the forest edge
+and to the west, the trail leads further into the forest.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED birds insects animals~
+Very cute little creatures, they seem to enjoy life.
+~
+ED tree trees~
+The trees here are quite young and fresh.  They seem to accommodate many kinds
+of birds, insects and other small animals.
+~
+ED trail~
+The forest trail winds east-west through the trees.
+~
+Dr 1 0 -1 21000
+The trail continues eastwards out of the forest.
+~
+~
+Dr 3 0 -1 21002
+You see the narrow forest trail winding westwards in between the trees.
+~
+~
+End
+
+#21002
+N A trail through the light forest~
+Ref 0
+D
+You are on a narrow trail leading east and west through the forest.  To the
+west, the forest gradually becomes more dense.  A small forest path leads
+south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The young, slender trees look beautiful, their fresh, green leaves moving
+lightly in the wind.
+~
+ED trail~
+The forest trail winds east-west through the trees.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 1 0 -1 21001
+The trail continues eastwards through the young trees.
+~
+~
+Dr 2 0 -1 21011
+The small path leads south through the young trees.
+~
+~
+Dr 3 0 -1 21003
+You see the narrow forest trail winding westwards into the dense forest.
+~
+~
+End
+
+#21003
+N A trail through the dense forest~
+Ref 0
+D
+You are on a trail leading east and west through the dense forest.  To the
+east, the forest gradually seems to become lighter.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The dense crowns of the mature trees leave only a fraction of the sky to be
+seen through the leaves.
+~
+ED trail~
+The forest trail seems almost fragile compared to the massive trunks.
+~
+Dr 1 0 -1 21002
+The trail continues eastwards to the younger part of the forest.
+~
+~
+Dr 3 0 -1 21004
+You see the narrow trail winding westwards through the dense forest.
+~
+~
+End
+
+#21004
+N A trail through the dense forest~
+Ref 0
+D
+You are on a trail leading east and west through the dense forest.  To the
+west, the trees are so huge and their crowns so dense that forest remains in
+total darkness.  A small path leads south through the trees.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The crowns of the old trees almost cut out all light.
+~
+ED trail~
+The forest trail seems almost fragile compared to the massive trunks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 1 0 -1 21003
+The trail continues eastwards through the dense forest.
+~
+~
+Dr 2 0 -1 21005
+The small path leads south through the trees.
+~
+~
+Dr 3 0 -1 21100
+The narrow trail almost seems to disappear between the enormous trunks.
+~
+~
+End
+
+#21005
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest in an unreal twilight illumination.  The path
+continues north and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 0 0 -1 21004
+The small path leads north through the trees.
+~
+~
+Dr 2 0 -1 21006
+The small path leads south through the trees.
+~
+~
+End
+
+#21006
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest in an unreal twilight illumination.  The path
+continues north and east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+R O 21011 0 100 1
+Dr 0 0 -1 21005
+The small path leads north through the trees.
+~
+~
+Dr 1 0 -1 21007
+The small path leads east through the trees.
+~
+~
+End
+
+#21007
+N An intersection in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest in an unreal twilight illumination.  The forest
+gradually lightens to the east.  Paths lead east, west and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 1 0 -1 21008
+You can barely make out a clearing to the east.
+~
+~
+Dr 2 0 -1 21012
+The small path leads south through the trees.
+~
+~
+Dr 3 0 -1 21006
+The small path leads west through the trees.
+~
+~
+End
+
+#21008
+N The forest clearing~
+Ref 0
+D
+You are in a clearing in the forest.  Lots of fresh stumps of varying sizes
+protrude from the ground and heavy logs are stacked neatly in a big pile
+supported by stakes set into the ground.  Paths lead north, east and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED stump stumps~
+There are more stumps than logs and some of the stumps are partly covered in
+moss.
+~
+ED stake stakes~
+The stakes keep the logs from rolling down.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+ED log logs~
+Even though the logs have been chopped to shorter pieces, they are quite heavy
+as they are fresh and still filled with sap.
+~
+Dr 0 0 -1 21011
+The small path leads north through the trees.
+~
+~
+Dr 1 0 -1 21009
+The small path leads east through the trees.
+~
+~
+Dr 3 0 -1 21007
+The small path leads west through the trees.
+~
+~
+End
+
+#21009
+N Outside a small cabin in the forest~
+Ref 0
+D
+You are outside a small cabin built entirely from heavy logs.  There is a
+wooden door to the north and small paths lead west and south through the trees.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are fairly young, not much more than a hundred years or so.
+~
+ED path paths~
+The path is probably used by the cabin's inhabitants.
+~
+ED cabin logs~
+It looks simple but comfortable and the slender trees make the whole place seem
+pretty idyllic.  It's a cabin built from logs.  Wooden logs, not system logs.
+~
+R M 21000 1 100 1
+Dr 0 0 -1 21010
+The wooden door is quite sturdy but does not appear to be equipped with a lock.
+~
+door wooden~
+Dr 2 0 -1 21014
+The small path leads south through the dense forest.
+~
+~
+Dr 3 0 -1 21008
+The small path leads west through the light forest.
+~
+~
+End
+
+#21010
+N Inside the cabin~
+Ref 0
+D
+You are inside a small one-room cabin made entirely from heavy logs.  It is
+very sparsely furnished, containing only most basic housekeeping equipment,
+such as a bed, a chair and a table.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED table~
+A heavy table that doesn't even appear to rock.
+~
+ED chair~
+It is made from oak and looks strong and sturdy.
+~
+ED bed~
+It is definitely not the most comfortable bed you have seen in your life.
+~
+R O 21003 0 100 1
+Dr 2 0 -1 21009
+The wooden door leads south.
+~
+door wooden~
+End
+
+#21011
+N A small path through the light forest~
+Ref 0
+D
+You are on a small path leading through the forest.  The trees are tall and
+slender.  Paths lead north and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are fairly young, not much more than a hundred years or so.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 0 0 -1 21002
+The path leads north through the young trees.
+~
+~
+Dr 2 0 -1 21008
+The path leads south through the young trees.
+~
+~
+End
+
+#21012
+N An intersection in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest floor in an unreal twilight illumination.  Paths
+lead north, east and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 0 0 -1 21007
+The small path leads north through the trees.
+~
+~
+Dr 1 0 -1 21013
+The small path leads east through the trees.
+~
+~
+Dr 2 0 -1 21021
+The small path leads south through the trees.
+~
+~
+End
+
+#21013
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest in an unreal twilight illumination.  The path
+continues east and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+R O 21011 0 100 1
+Dr 1 0 -1 21014
+The small path leads east through the trees.
+~
+~
+Dr 3 0 -1 21012
+The small path leads west through the trees.
+~
+~
+End
+
+#21014
+N An intersection in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The forest gradually
+lightens to the north.  Paths lead north, east and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The crowns of the old trees leave the forest in an unreal twilight
+illumination.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+R M 21005 2 100 1
+Dr 0 0 -1 21009
+The path leads north to a lighter part of the forest.
+~
+~
+Dr 1 0 -1 21015
+The small path leads east through the trees.
+~
+~
+Dr 3 0 -1 21013
+The small path leads west through the trees.
+~
+~
+End
+
+#21015
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest in an unreal twilight illumination.  The path
+continues south and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 2 0 -1 21016
+The small path leads south through the trees.
+~
+~
+Dr 3 0 -1 21014
+The small path leads west through the trees.
+~
+~
+End
+
+#21016
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest in an unreal twilight illumination.  The path
+continues north and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+R O 21011 0 100 1
+Dr 0 0 -1 21015
+The small path leads north through the trees.
+~
+~
+Dr 2 0 -1 21017
+The small path leads south through the trees.
+~
+~
+End
+
+#21017
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The forest seems to
+become lighter to the west.  The path continues north and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The crowns of the old trees leave the forest in an unreal twilight
+illumination.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 0 0 -1 21016
+The small path leads north through the trees.
+~
+~
+Dr 3 0 -1 21018
+The small path leads west through the trees to a lighter part of the forest.
+~
+~
+End
+
+#21018
+N An intersection in the light forest~
+Ref 0
+D
+You are on a small path leading through the forest.  A path leads north to a
+small field and other paths lead east and west into the dense forest.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The tall trees are young and slender, not much more than a hundred years or so.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 0 0 -1 21023
+The path leads north to a small, grassy field.
+~
+~
+Dr 1 0 -1 21017
+The path leads east to a dense part of the forest.
+~
+~
+Dr 3 0 -1 21019
+The path leads west to a dense part of the forest.
+~
+~
+End
+
+#21019
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The forest seems to
+become lighter to the east.  The path continues north and east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The crowns of the old trees leave the forest in an unreal twilight
+illumination.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 0 0 -1 21020
+The small path leads north through the trees.
+~
+~
+Dr 1 0 -1 21018
+The small path leads east through the trees to a lighter part of the forest.
+~
+~
+End
+
+#21020
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  The crowns of the
+old trees leave the forest in an unreal twilight illumination.  The path
+continues south and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees~
+The trees are mostly old beeches and oaks.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 2 0 -1 21019
+The small path leads south through the trees.
+~
+~
+Dr 3 0 -1 21021
+The small path leads west through the trees.
+~
+~
+End
+
+#21021
+N A small path in the dense forest~
+Ref 0
+D
+You are on a small path leading through the dense forest.  To the west there is
+a cave entrance.  The path continues north and east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED cave entrance~
+The irregular opening is eight feet wide and six feet tall.  An acrid smell
+emanates from within.
+~
+ED tree trees~
+The crowns of the old trees leave the forest in an unreal twilight
+illumination.
+~
+ED path paths~
+The narrow path is probably used by the animals living in the forest.
+~
+Dr 0 0 -1 21012
+The small path leads north through the trees.
+~
+~
+Dr 1 0 -1 21020
+The small path leads east through the trees.
+~
+~
+Dr 3 0 -1 21022
+The cave is very dark.
+~
+~
+End
+
+#21022
+N Inside the cave~
+Ref 0
+D
+You are in a natural cave.  Various sorts of debris cover the stone floor,
+emitting a rather unpleasant smell that makes the air thick and hard to
+breathe.  The only obvious exit is east.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED air smell~
+Kind of transparent, but quite noticeable nevertheless.
+~
+ED cave walls floor stone~
+Quite uninteresting.
+~
+ED debris~
+It consists mostly of gnawed bones mixed with small pieces of torn fur.
+~
+R M 21002 1 100 1
+Dr 1 0 -1 21021
+The cave opening is to the east.
+~
+~
+End
+
+#21023
+N On a small, grassy field~
+Ref 0
+D
+You are in a small, grassy field somewhere in the forest.  The tall grass
+nearly reaches your waist, and the surrounding oaks and beeches form an almost
+wall-like thicket on all sides of the field.  A small path leads south through
+the trees.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tree trees thicket~
+The trees form a close thicket.
+~
+ED path~
+The narrow path is probably used by the animals living in the forest.
+~
+ED grass~
+The tall grass makes a nice hiding place for animals.
+~
+R M 21004 1 100 1
+Dr 2 0 -1 21018
+The small path leads south in between the trees.
+~
+~
+End
+
+#21100
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a narrow trail winding its way between the enormous, grey trunks.
+The crowns of the trees must be very dense, as they leave the forest floor in
+utter darkness.  The trail leads east and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+R M 21115 1 100 1
+Dr 1 0 -1 21004
+The narrow trail leads east to a somewhat lighter part of the forest.
+~
+~
+Dr 3 0 -1 21101
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21101
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way east-west between huge, ancient trees
+whose grey trunks remind you of ancient pillars in a enormous, deserted hall.
+To the south, a frail path leads away from the trail.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED path~
+The path seems fragile and unsafe compared to the enormous trunks that loom
+around it.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 1 0 -1 21100
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 2 0 -1 21104
+The path leads south - away from the trail.
+~
+~
+Dr 3 0 -1 21102
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21102
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way east-west between huge, ancient trees
+that stand close on all sides.  Not a sound is to be heard - everything is
+ominously quiet.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED path~
+The path seems fragile and unsafe compared to the enormous trunks that loom
+around it.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 1 0 -1 21101
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 3 0 -1 21103
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21103
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are where the dusty trail bends, as to avoid conflict with a colossal
+trunk to the west.  Not a sound is to be heard - everything is ominously quiet.
+The trail leads east and south.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED trees trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+R O 21102 0 100 1
+Dr 0 0 0 21150
+You see a dark trail north.
+~
+~
+Dr 1 0 -1 21102
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 2 0 -1 21108
+The narrow, dusty trail leads south through the forest.
+~
+~
+End
+
+#21104
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  You feel as if
+the ancient trees observe you in watchful silence.  The path continues north
+and south.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+R M 21102 4 100 1
+Dr 0 0 -1 21101
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 2 0 -1 21105
+The narrow path winds its way through the trees to the south.
+~
+~
+End
+
+#21105
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Ancient grey
+trees loom all around you.  The path continues north and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+R O 21105 0 100 1
+Dr 0 0 -1 21104
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 3 0 -1 21106
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21106
+N A junction in the deep, dark forest~
+Ref 0
+D
+You are by a junction where three paths meet.  Ancient grey trees tower above
+you on all sides.  Paths lead east, south and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path paths~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+Dr 1 0 -1 21105
+The narrow path winds its way through the trees to the east.
+~
+~
+Dr 2 0 -1 21117
+The narrow path winds its way through the trees to the south.
+~
+~
+Dr 3 0 -1 21107
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21107
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Ancient grey
+trees loom all around you.  The path continues north and east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+Dr 0 0 -1 21108
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 1 0 -1 21106
+The narrow path winds its way through the trees to the east.
+~
+~
+End
+
+#21108
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way between huge, ancient trees
+standing close on all sides.  The trail leads north and west and to the south,
+a frail path leads away from the trail.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED path~
+The path seems fragile and unsafe compared to the enormous trunks that loom
+around it.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+R M 21102 4 100 1
+Dr 0 0 -1 21103
+The narrow, dusty trail leads north through the forest.
+~
+~
+Dr 2 0 -1 21107
+The path leads south - away from the trail.
+~
+~
+Dr 3 0 -1 21109
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21109
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way east-west between huge, ancient trees
+that stand close on all sides.  Not a sound is to be heard - everything is
+ominously quiet.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 1 0 -1 21108
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 3 0 -1 21110
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21110
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way between huge, ancient trees that stand
+close on all sides.  The trail leads east and south.  To the north, a narrow
+path leads away from the trail.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+Some of the trunks to the west are covered in a thin, almost transparent
+substance.  It looks like small threads woven carefully together.
+~
+ED path~
+The path seems fragile and unsafe compared to the enormous trunks that loom
+around it.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 0 0 -1 21144
+The narrow path leads west between the giant trees.
+~
+~
+Dr 1 0 -1 21109
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 2 0 -1 21111
+The narrow, dusty trail leads south through the forest.
+~
+~
+End
+
+#21111
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way north-south between huge, ancient
+trees that loom ominously above you.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+R O 21106 0 100 1
+Dr 0 0 -1 21110
+The narrow, dusty trail leads north through the forest.
+~
+~
+Dr 2 0 -1 21112
+The narrow, dusty trail leads south through the forest.
+~
+~
+End
+
+#21112
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way between huge, ancient trees
+standing close on all sides.  The trail leads north and west and to the east,
+a frail path leads away from the trail.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED path~
+The path seems fragile and unsafe compared to the enormous trunks that loom
+around it.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+R M 21103 4 100 1
+Dr 0 0 -1 21111
+The narrow, dusty trail leads north through the forest.
+~
+~
+Dr 1 0 -1 21113
+The path leads east - away from the trail.
+~
+~
+Dr 3 0 -1 21127
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21113
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Ancient grey
+trees loom in all directions.  The path continues south and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+R O 21103 0 100 1
+Dr 2 0 -1 21114
+The narrow path winds its way through the trees to the south.
+~
+~
+Dr 3 0 -1 21112
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21114
+N A junction in the deep, dark forest~
+Ref 0
+D
+You are by a junction where three paths meet.  Ancient grey trees tower above
+you on all sides.  Paths lead north, east and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path paths~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+Dr 0 0 -1 21113
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 1 0 -1 21115
+The narrow path winds its way through the trees to the east.
+~
+~
+Dr 3 0 -1 21122
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21115
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  You feel as
+if the ancient trees observe you in watchful silence.  The path continues north
+and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+Dr 0 0 -1 21116
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 3 0 -1 21114
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21116
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Giant, grey
+trees loom ominously on all sides.  The path continues east and south.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+R M 21100 2 100 1
+Dr 1 0 -1 21117
+The narrow path winds its way through the trees to the east.
+~
+~
+Dr 2 0 -1 21115
+The narrow path winds its way through the trees to the south.
+~
+~
+End
+
+#21117
+N A junction in the deep, dark forest~
+Ref 0
+D
+You are by a junction where three paths meet.  Ancient, grey trees seem to
+observe you silently you from all sides.  Paths lead north, east and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path paths~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+Dr 0 0 -1 21106
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 1 0 -1 21118
+The narrow path winds its way through the trees to the east.
+~
+~
+Dr 3 0 -1 21116
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21118
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Ancient,
+grey trees loom everywhere.  The path continues south and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+R M 21103 4 100 1
+Dr 2 0 -1 21119
+The narrow path winds its way through the trees to the south.
+~
+~
+Dr 3 0 -1 21117
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21119
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Huge, ancient
+trees are on all sides.  The path continues north and south.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+You feel as if they are watching you.
+~
+R O 21107 0 100 1
+Dr 0 0 -1 21118
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 2 0 -1 21120
+The narrow path winds its way through the trees to the south.
+~
+~
+End
+
+#21120
+N On the river bank in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  To the south a
+fast river is flowing westwards through the forest.  Ancient grey trees loom on
+both banks.  The path continues north and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED bank banks tree trees trunk trunks~
+The ancient crowns of trees on both banks reach together forming a dense roof
+above the dark river.
+~
+ED river~
+The river flows fast and strong.  It is black or looks so in the gloom.
+~
+Dr 0 0 -1 21119
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 3 0 -1 21121
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21121
+N A dead end path on the river bank in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  The ancient
+trees stand so close that the path disappears between the dusty roots.  To the
+south a dark river flows from east to west.  The only exit appears to be east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED bank banks tree trees trunk trunks~
+The ancient crowns of trees on both banks reach together forming a dense roof
+above the dark river.
+~
+ED river~
+The river flows fast and strong.  It is black or looks so in the gloom.
+~
+Dr 1 0 -1 21120
+The narrow path winds its way through the trees to the east.
+~
+~
+End
+
+#21122
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Giant, grey
+trees loom ominously all around.  The path continues east and south.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+R O 21106 0 100 1
+Dr 1 0 -1 21114
+The narrow path winds its way through the trees to the east.
+~
+~
+Dr 2 0 -1 21123
+The narrow path winds its way through the trees to the south.
+~
+~
+End
+
+#21123
+N A junction on the river bank in the deep, dark forest~
+Ref 0
+D
+You are by a junction where three paths meet.  Ancient, grey trees seem to
+observe you silently you from all around.  To the south a dark river flows from
+east to west through the forest.  Paths lead north, east and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path paths~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED bank banks tree trees trunk trunks~
+The ancient crowns of trees on both banks reach together forming a dense roof
+above the dark river.
+~
+ED river~
+The river flows fast and strong.  It is black or looks so in the gloom.
+~
+Dr 0 0 -1 21122
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 1 0 -1 21124
+The narrow path winds its way through the trees to the east.
+~
+~
+Dr 3 0 -1 21125
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21124
+N A dead end path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  The ancient
+trees stand so close that the path disappears between the dusty roots.  To the
+south a dark river flows from east to west.  The only exit appears to be west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED bank banks tree trees trunk trunks~
+The ancient crowns of trees on both banks reach together forming a dense roof
+above the dark river.
+~
+ED river~
+The river flows fast and strong.  It is black or looks so in the gloom.
+~
+Dr 3 0 -1 21123
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21125
+N A small path on the river bank in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Ancient grey
+trees loom everywhere.  To the south you smell marsh gas.  The path continues
+north and east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED bank banks tree trees trunk trunks~
+The ancient crowns of trees on both banks reach together forming a dense roof
+above the dark river.
+~
+ED river~
+The river flows fast and strong.  It is black or looks so in the gloom.
+~
+R O 21104 0 100 1
+Dr 0 0 -1 21126
+The narrow path winds its way through the trees to the north.
+~
+~
+Dr 1 0 -1 21123
+The narrow path winds its way through the trees to the east.
+~
+~
+Dr 2 0 -1 23301
+You smell marsh gas.
+~
+~
+End
+
+#21126
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way between huge, ancient trees standing
+close on all sides.  The trail leads north and west, and to the south a frail
+path leads away from the trail.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED path~
+The path seems fragile and unsafe compared to the enormous trunks that loom
+around it.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 0 0 -1 21127
+The narrow, dusty trail leads north through the forest.
+~
+~
+Dr 2 0 -1 21125
+The path leads south - away from the trail.
+~
+~
+Dr 3 0 -1 21128
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21127
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way between huge, ancient trees
+standing close on all sides.  The trail leads east and south.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+R M 21101 2 100 1
+Dr 1 0 -1 21112
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 2 0 -1 21126
+The narrow, dusty trail leads south through the forest.
+~
+~
+End
+
+#21128
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way east-west between huge, ancient trees
+that stand close on all sides.  Not a sound is to be heard - everything is
+ominously quiet.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 1 0 -1 21126
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 3 0 -1 21129
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21129
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way east-west between huge, ancient trees
+that stand close on all sides.  Not a sound is to be heard - everything is
+ominously quiet.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+These ancient trees must have been here for many, many years.  It is impossible
+to catch even a glimpse of anything above the lowest branches.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 1 0 -1 21128
+The narrow, dusty trail leads east through the forest.
+~
+~
+Dr 3 0 -1 21135
+The narrow, dusty trail leads west through the forest.
+~
+~
+End
+
+#21130
+N A narrow trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail winding its way westwards just below huge sticky
+wires suspended like ropes between the trees.  To the west the path seems to
+be completely covered in a giant web made from huge threads covered with glue.
+This place gives you the creeps.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED substance wire wires rope ropes tree trees trunk trunks~
+The sticky substance is hanging like ropes between the ancient trees, crossing
+the path just out of reach.  It might be possible to climb one of the sticky
+trunks.
+~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+Dr 1 0 -1 21144
+The narrow, dusty trail leads east through the forest, away from the web.
+~
+~
+Dr 3 0 -1 21131
+The structure to the west looks most of all like an immense spider web.
+It does not look as if you can go further without getting caught in it.
+~
+~
+Dr 4 0 -1 21132
+~
+~
+End
+
+#21131
+N The spider web~
+Ref 0
+D
+You are walking along the narrow path, ducking under the sticky ropes as you
+advance...
+
+>
+A huge, poisonous spider drops from above!
+A huge, poisonous spider drops from above!
+A huge, poisonous spider drops from above!
+
+>
+The huge, poisonous spider stings you!  You resist the poison!
+The huge, poisonous spider stings you!  You are poisoned!
+The huge, poisonous spider stings you!  You are poisoned!
+
+>
+You've fallen, and you can't get up!!!!!
+~
+C
+~
+F 14
+S 3
+M 0
+W 0
+T 0
+O ~
+End
+
+#21132
+N Up in the tree~
+Ref 0
+D
+You are hanging on the outside of a huge tree trunk covered in a sticky
+substance.  Directly to the west is an immense spider web suspended between
+numerous of the giant trees including the one you are hanging on.
+~
+C
+~
+F 13
+S 6
+M 0
+W 0
+T 0
+O ~
+ED web~
+The spider web stretches out to the west.  It looks as if it is possible to
+walk on it.
+~
+Dr 3 0 -1 21133
+To the west is the immense spider web.  It seems to move softly.
+~
+~
+Dr 5 0 -1 21130
+Downwards is the narrow forest path.
+~
+~
+End
+
+#21133
+N On the spider web~
+Ref 0
+D
+You are balancing carefully on the giant sticky threads that holds the giant
+web in place.  To the east is a giant tree trunk and to the west is an entrance
+to a cave-like structure made from many layers of spider web.
+~
+C
+~
+F 9
+S 6
+M 0
+W 0
+T 0
+O ~
+ED cave structure~
+It covers a ground area corresponding to an irregular circle with a diameter of
+about 20 feet and is nearly 10 feet tall.  It looks very old.
+~
+ED web~
+The immense spider web moves softly.
+~
+Dr 0 0 -1 21200
+The web continues to the north.
+~
+~
+Dr 1 0 -1 21132
+To the east is the giant tree trunk.
+~
+~
+Dr 3 0 -1 21134
+To the west is the entrance to the cave-like structure.
+~
+~
+End
+
+#21134
+N The Den of the Queen Spider~
+Ref 0
+D
+You are inside a cave-like structure that seems to be made entirely from
+countless layers of spider web.  Temperature and humidity is very high making
+it hard to breathe the foul air that lingers here.  The walls are covered with
+open cocoons.
+~
+C
+~
+F 9
+S 6
+M 0
+W 0
+T 0
+O ~
+ED cocoon cocoons~
+The cocoons are burst open as if something inside really wanted to get out.
+They are at the size of a human head.
+~
+ED web wall walls~
+The sticky walls are covered with open cocoons.
+~
+Dr 1 0 -1 21133
+Compared to this place the east exit looks inviting.
+~
+~
+End
+
+#21135
+N A dusty trail in the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail leading through the deep, dark forest.  Ancient grey
+trees loom all around you.  The trail continues north and east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+Dr 0 0 -1 21136
+The dusty trail leads north through the trees.
+~
+~
+Dr 1 0 -1 21129
+The dusty trail leads east through the trees.
+~
+~
+End
+
+#21136
+N A dusty trail in the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail leading through the deep, dark forest.  Ancient,
+grey trees loom everywhere.  The trail continues south and west.  A broad
+irregular path leads eastwards away from the trail.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED trail~
+The dark and dusty trail seems fragile compared to the massive trunks, and in
+some places, giant grey roots have broken up through its surface.
+~
+ED path~
+The trees standing on the sides of the path have scratch marks on them.
+~
+ED tree trees trunk trunks~
+To the east the ancient grey giants have many marks as if something with huge
+claws has been tearing at them in rage.
+~
+Dr 1 0 -1 21142
+The trees standing on the sides of the path have scratch marks on them.
+~
+~
+Dr 2 0 -1 21135
+The dusty trail leads south through the trees.
+~
+~
+Dr 3 0 -1 21137
+The dusty trail leads west through the trees.
+~
+~
+End
+
+#21137
+N At the end of the trail through the deep, dark forest~
+Ref 0
+D
+You are on a dusty trail leading through the deep, dark forest.  Ancient grey
+trees loom all around you.  You see a dark grove north of you.
+The only other exit is east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+Dr 0 0 0 16300
+You see a dark grove north.
+~
+~
+Dr 1 0 -1 21136
+The dusty trail leads east through the trees.
+~
+~
+End
+
+#21142
+N Outside a cave in the deep, dark forest~
+Ref 0
+D
+You are at the end of a broad, irregular path.  To the north is a very large
+ominous-looking cave opening.  The trees here have many marks as if something
+with huge claws has been tearing at them in rage.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED cave opening~
+The disgusting smell of a large reptile emanates from the cave opening.
+~
+ED tree trees~
+The ancient grey giants have many marks as if something with huge claws has
+been tearing at them in rage.
+~
+Dr 0 0 -1 21143
+The disgusting smell of a large reptile emanates from the cave opening.
+~
+~
+Dr 3 0 -1 21136
+The path winds its way westwards.
+~
+~
+End
+
+#21143
+N The cave of the Green Dragon~
+Ref 0
+D
+You are in a big natural cave.  The floor is littered with bones of all sorts
+and the stench is so massive that you could cut it with a knife.  The only exit
+is to the south.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED bone bones floor~
+Most of the bones on the floor appear to be of human origin.
+~
+R M 21112 1 100 1
+Dr 2 0 -1 21142
+The exit leads out into the forest.
+~
+~
+End
+
+#21144
+N A small path in the deep, dark forest~
+Ref 0
+D
+You are on a narrow path leading through the deep, dark forest.  Ancient,
+grey trees loom everywhere.  The tree trunks here seem to be covered in some
+sticky substance.  The path continues south and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED path~
+The path seems all too frail.  One of the giant roots could probably crush it
+in a single blow.
+~
+ED tree trees trunk trunks~
+The ancient grey giants seem to observe you silently.
+~
+ED substance rope ropes thread threads~
+The substance reminds you of giant threads covered with glue.  If it had not
+been for the size you could have sworn it was part of a spider web.
+~
+Dr 2 0 -1 21110
+The narrow path winds its way through the trees to the south.
+~
+~
+Dr 3 0 -1 21130
+The narrow path winds its way through the trees to the west.
+~
+~
+End
+
+#21150
+N The narrow trail.~
+Ref 0
+D
+This trail looks much spookier than any other thats you have seen.  The usual
+animal claw marks and bites on the trees are getting far and few between. The
+trail continues north.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 21151
+the narrow trail continues north.
+~
+~
+Dr 2 0 -1 21103
+the trail intersects the main forest path.
+~
+~
+End
+
+#21151
+N The narrow trail.~
+Ref 0
+D
+This area of the trail is also very peculiar.  You can see no signs of animal
+life what so ever.  The structure of the surrounding trees forces the path to
+make a sharp turn to the east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21152
+the trail bends east.
+~
+~
+Dr 2 0 -1 21150
+the start of the trail.
+~
+~
+End
+
+#21152
+N The circle of trees.~
+Ref 0
+D
+The trees here seem to form a circle around a HUGE tree that is in the center
+of them.  You notice a wooden door carved into the huge tree to the east.  The
+trail that you followed to get here seems to end at the base of the tree.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 21153
+The tree door is carved beautifully.
+~
+door~
+Dr 3 0 -1 21151
+the bend on the trail.
+~
+~
+End
+
+#21153
+N Inside the great tree.~
+Ref 0
+D
+You have stepped inside of this hollowed tree.  From here steps lead down into
+darkness or you can exit the tree by going west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 21152
+the door is carved beautifully.
+~
+door~
+Dr 5 0 -1 21154
+The steps look appear like they will hold your weight.
+~
+~
+End
+
+#21154
+N The underground hallway.~
+Ref 0
+D
+This hallway is apparently one of the roots of the tree hollowed out.  The hall
+leads south to a room where you hear strange noises or you can go up the steps.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 21155
+the hallway looks quite grand.
+~
+~
+Dr 4 0 -1 21153
+the steps appear like they will hold your weight.
+~
+~
+End
+
+#21155
+N The cultist temple.~
+Ref 0
+D
+This temple is built to some god that you don't worship.  It is a nice place
+to visit but you feel very uncomfortable about spending much time here.
+The wooden altar seems almost to glow as you enter the room.  The only exit is
+the way you came in.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 21116 1 100 1
+Dr 0 0 -1 21154
+the hallway looks quite grand.
+~
+~
+End
+
+#0
+
+
+
+#$

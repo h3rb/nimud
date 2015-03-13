@@ -1,0 +1,537 @@
+
+
+#DOC 470
+N DISMOUNT~
+C 1 L 0
+KW DISMOUNT~
+SY ~
+TX .
+Syntax:  dismount
+
+  This allows you to stop riding another creature.
+   
+  NOTE: Using the "rest" command is a much more effective means for field
+  use as mounts are in a resting position and regain their fatigue.
+  
+Example:
+
+> dismount
+You swing your legs to the side and dismount.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 471
+N DOWN~
+C 1 L 0
+KW DOWN~
+SY ~
+TX .
+Syntax:  down
+
+  By typing this command, your character attempts to move down.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> down
+You walk down.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 472
+N EAST~
+C 1 L 0
+KW EAST~
+SY ~
+TX .
+Syntax:  east
+
+  By typing this command, your character attempts to move east.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> east
+You walk east.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 473
+N ENTER~
+C 1 L 0
+KW ENTER~
+SY ~
+TX .
+Syntax:  enter <object>
+
+  This command allows you to enter a portal, tent, wagon or other object
+  which is an exit to another location.
+
+> enter portal
+You enter a portal.
+
+  See also:  Go, Leave
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 474
+N GO~
+C 1 L 0
+KW GO~
+SY ~
+TX .
+Syntax:  go <object>
+
+  This command allows you to enter a portal, tent, wagon or other object
+  which is an exit to another location.
+
+> go portal
+You enter a portal.
+
+  See also:  Enter, Leave
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 475
+N HOME~
+C 1 L 0
+KW home recall~
+SY home
+home set
+~
+TX .
+Return home (similar to RECALL).
+Set your home with 'home set'
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 476
+N MOUNT~
+C 1 L 0
+KW MOUNT~
+SY ~
+TX .
+Syntax:  mount <mount>
+
+  The mount command initiates the riding of a mount animal.  Mounts can be
+  horses, burrows or other similar creatures.
+  
+Example:
+
+> mount horse
+You leap onto a war horse's back.
+
+   See also:  Rest, Dismount, Hitch, Unhitch
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 477
+N MOVEMENT~
+C 1 L 0
+KW MOVEMENT~
+SY ~
+TX .
+Moving around is the way we navigate the world.
+~
+IT ~
+EX ~
+SA North, South, East, West, Northeast, Northwest, Southeast, Southwest~
+End
+
+#DOC 478
+N NORTH~
+C 1 L 0
+KW NORTH~
+SY ~
+TX .
+Syntax:  north
+
+  By typing this command, your character attempts to move north.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> north
+You walk north.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 479
+N NORTHEAST~
+C 1 L 0
+KW NORTHEAST NE~
+SY ~
+TX .
+Syntax:  northeast
+
+  By typing this command, your character attempts to move northeast.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> northeast
+You walk northeast.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 480
+N NORTHWEST~
+C 1 L 0
+KW NORTHWEST NW~
+SY ~
+TX .
+Syntax:  northwest
+
+  By typing this command, your character attempts to move northwest.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> northwest
+You walk northwest.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 481
+N REST~
+C 1 L 0
+KW REST~
+SY ~
+TX .
+Syntax:  rest
+
+  By using this command, you have opted to be placed in a resting position.
+  If you are resting, you gain back movement and health faster than if you
+  were standing, sitting or mounted.  If you are riding a mount, and you
+  type this command, your mount will also rest, regaining its own threshold
+  of fatigue as well.
+
+Example:
+
+> rest
+You sit down and rest.
+> rest
+A flea-bitten blue-dun horse curls up on the ground.
+You swing your legs to the side and dismount.
+
+  See also:  Sit, Stand, Sleep, Mount, Dismount
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 482
+N SCAN~
+C 1 L 0
+KW SCAN~
+SY ~
+TX .
+Look east to scan.
+Look north to scan.
+Just look :)
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 483
+N SIT~
+C 1 L 0
+KW SIT~
+SY ~
+TX .
+Syntax:  sit [object]
+
+  You can sit on furniture, if you so desire, or on the ground.
+
+Example:
+
+> sit
+You sit down.
+> sit chair
+You sit down on a wooden chair.
+
+  See also:  Rest, Stand, Sleep
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 484
+N SLEEP~
+C 1 L 0
+KW SLEEP~
+SY ~
+TX .
+Syntax:  sleep
+
+  The sleep command forces you to lie down and fall asleep.
+
+Example:
+
+> sleep
+You lie down and fall asleep.
+
+
+  See also:  Wake, Stand, Sit, Rest
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 485
+N SOUTH~
+C 1 L 0
+KW SOUTH~
+SY ~
+TX .
+Syntax:  south
+
+  By typing this command, your character attempts to move south.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> south
+You walk south.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 486
+N SOUTHEAST~
+C 1 L 0
+KW SOUTHEAST SE~
+SY ~
+TX .
+Syntax:  southeast
+
+  By typing this command, your character attempts to move southeast.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> southeast
+You walk southeast.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 487
+N SOUTHWEST~
+C 1 L 0
+KW SOUTHWEST SW~
+SY ~
+TX .
+Syntax:  southwest
+
+  By typing this command, your character attempts to move southwest.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> southwest
+You walk southwest.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 488
+N STAND~
+C 1 L 0
+KW STAND~
+SY ~
+TX .
+Syntax:  stand
+
+  Typing this command makes your character stop sleeping, sitting or riding.
+
+Example:
+
+> stand
+You stand up.
+
+  See also:  Sit, Stand, Sleep
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 489
+N UP~
+C 1 L 0
+KW UP~
+SY ~
+TX .
+Syntax:  up
+
+  By typing this command, your character attempts to move up.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> up
+You walk up.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 490
+N WAKE~
+C 1 L 0
+KW WAKE~
+SY ~
+TX .
+Syntax:  wake [person]
+
+  The wake command allows a character to wake up from a sleeping state, or
+  to force someone else to do the same.
+
+Example:
+
+> wake iktho
+You wake him.
+
+   See also:  Stand, Sleep, Rest, Sit
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 491
+N WEST~
+C 1 L 0
+KW WEST~
+SY ~
+TX .
+Syntax:  WEST
+
+  By typing this command, your character attempts to move west.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> west
+You walk west.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

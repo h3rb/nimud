@@ -1,0 +1,1708 @@
+#ZONE 
+N Buccaneers~
+B None~
+V 6200 6399
+S 1
+End
+
+
+
+#SCRIPTDATA
+#6201
+N seacaptain-list~
+C
+label(start);
+wait(10);
+%astr% word(%astr%,1);
+if ( cmp(%astr%,{Aelmon}),    
+  {
+       if ( cmp(dayofweek(),1), 
+          {
+              do({'Old Aelmon's in port now.  Come right this way, %name%.});
+              move(%name%,6210); 
+              goto({end});
+          },
+          {
+              do({'The Aelmon is not in the harbor.});
+              goto({end});
+          } );
+  });
+if ( cmp(%astr%,{Cock-Eyed}), 
+  {
+       if ( cmp(dayofweek(),2), 
+          {
+              do({'Shiver me timbers, the Cock-Eyed Wench is right this way, %name%.});
+              move(%name%,6220); 
+              goto({end});
+          },
+          {
+              do({'The Cock-Eyed Wench is not in the harbor.});
+              goto({end});
+          } );
+  });
+if ( or ( cmp(%astr%,{Cockral}), cmp(%astr%,{Spanniker}) ), 
+  {
+       if ( cmp(dayofweek(),3), 
+          {
+              do({'Blast me harty, the Cockral Spanniker is just around the corner, %name%.});
+              move(%name%,6230); 
+              goto({end});
+          },
+          {
+              do({'The Cockral Spanniker has not yet returned.});
+              goto({end});
+          } );
+  });
+ 
+ 
+if ( or( cmp(%astr%,{Intrepid}), cmp(%astr%,{Aramus}) ),  
+  {
+       if ( cmp(dayofweek(),4), 
+          {
+              do({'%name%, step right this way...});
+              move(%name%,6240); 
+              goto({end});
+          },
+          {
+              do({'The Cockral Spanniker has not yet returned.});
+              goto({end});
+          } );
+  });
+  
+if ( cmp(%astr%,{Moniker}),  
+  {
+       if ( cmp(dayofweek(),5), 
+          {
+              do({'%name%, step right this way...});
+              move(%name%,6250); 
+              goto({end});
+          },
+          {
+              do({'The Moniker has not yet returned from its voyage.});
+              goto({end});
+          } );
+  });
+if ( cmp(%astr%,{Ilvan}),     
+  {
+       if ( cmp(dayofweek(),6), 
+          {
+              do({'%name%, step right this way...});
+              move(%name%,6260); 
+              goto({end});
+          },
+          {
+              do({'Arrr, the blasted crew of the Ilvan are out on the open waters.});
+              goto({end});
+          } );
+  });
+label(list-ships);
+do({'I'm not as old as I look.});
+wait(10);
+do({'Believe me, I know what's going on around here better than ol' Cock-Eye himself.});
+wait(10);
+do({'Isn't that right, cock-eye?});
+wait(10);
+do({grin bartender});
+wait(10);
+if ( cmp(dayofweek(),0),
+   {
+   do({'There are no privateers in port today, try back later.});
+   });
+if ( cmp(dayofweek(),1),
+   {
+   do({'The Aelmon is leaving port soon.});
+   });
+if ( cmp(dayofweek(),2),
+   {
+   do({'The Cock-Eyed Wench is ready to set sail. });
+   });
+if ( cmp(dayofweek(),3),
+   {
+   do({'Word has it, the Cockral Spanniker is heading to uncharted waters. });
+   });
+if ( cmp(dayofweek(),4),
+   {
+   do({'The doggedly pirate Aramus will be leaving soon on the Intrepid. });
+   });
+if ( cmp(dayofweek(),5),
+   {
+   do({'The Moniker will be leaving port soon.});
+   });
+if ( cmp(dayofweek(),6),
+   {
+   do({'The dangerous crew of the Ilvan is heading toward the Broken Coast.});
+   });      
+wait(50); do({'If you say the name of the ship you want, I can take you to it.});
+ 
+label(end);
+~
+T 6
+End
+
+#6202
+N scallywag-bartender~
+C
+%old% %name%;
+if ( not(cmp(%name%,%old%)), do({'Allo mate.}), goto(wait) );
+label(wait);
+wait(500);
+~
+T 0
+End
+
+#6211
+N aelmon-shipmate~
+C
+label(start);
+%state% {pending};
+if ( not(random(0,20)), {goto(boarding);});
+if ( not(random(0,20)), {goto(fishing);});
+if ( not(random(0,20)), {goto(storm);});
+if ( not(random(0,20)), {goto(return)});
+wait(6);
+label(boarding);
+%state% {boarding};
+wait(101);
+do({shout Merchant ship, ahoy!  All hands on deck!});
+reset(6215);
+reset(6216);
+reset(6217);
+wait(30);
+dig(6210,{east},6215);
+do({shout Plank is lowered, board the enemy ship!});
+wait(1002);
+do({shout all aboard the Aelmon, we set sail soon!});
+wait(103);
+do({shout Plank is raised, anchor's away!});
+undig(6210,{east});
+wait(100);
+goto(start);
+label(fishing);
+%state% {fishing};
+wait(10);
+do({:baits his hook.});
+wait(10);
+do({:fishes over the side.});
+wait(random(50,150));
+do({:catches a fish and reels it in!});
+do({at 20 oload 6209});
+wait(10);
+do({drop fish});
+wait(10);
+if(random(0,1),{goto(start);},{goto(fishing);});
+label(return);
+%state% {returning};
+wait(40);
+do({shout Land ho! Starboard!});
+wait(15);
+recho(6210,{The ship floats safely into the Marina.});
+recho(6211,{The ship floats safely into the Marina.});
+recho(6212,{The ship floats safely into the Marina.});
+recho(6213,{The ship floats safely into the Marina.});
+wait(20);
+do({shout Drop anchor!});
+wait(30);
+do({shout We have returned to port!});
+moveall(6211,6200,{look});
+moveall(6212,6200,{look});
+moveall(6213,6200,{look});
+moveall(6210,6200,{look});
+goto(start);
+label(landfall);wait(10);
+do({shout Storm!});
+wait(50);
+recho(6210,{Wind buffets the ship; you hear the mast break!});
+recho(6211,{Wind buffets the ship; you hear the mast break!});
+recho(6212,{Wind buffets the ship; you hear the mast break!});
+recho(6213,{Wind buffets the ship; you hear the mast break!});
+wait(50);
+do({shout All hands abandon ship!});
+recho(6210,{The boat begins to capsize!});
+recho(6211,{The boat begins to capsize!});
+recho(6212,{The boat begins to capsize!});
+recho(6213,{The boat begins to capsize!});
+wait(50);
+do({shout Abandon ship!});
+moveall(6210,6218,{look});
+moveall(6211,6218,{look});
+moveall(6212,6218,{look});
+moveall(6213,6218,{look});
+wait(100);
+label(storm);
+%state% {storm};
+if ( cmp(weather(),3),
+     { goto(landfall); } );
+if ( cmp(weather(),2),
+     {  do({shout Batten down the hatches!  Lower the misenmast!});
+        wait(100);  } );
+goto(start);
+ 
+~
+T 1
+End
+
+#6213
+N captain-snore~
+C
+wait(50);
+do(snore);
+wait(100);
+do(mumble);
+wait(100);
+do({:stirs for a moment, then goes back to sleep.});
+wait(100);
+~
+T 1
+End
+
+#6214
+N captain-say~
+C
+wait(10);
+do({:rouses quickly at your voice.});
+do({'Swab the deck!});
+wait(10);
+do({:leans back and is quickly fast asleep.});
+wait(10);
+~
+T 6
+End
+
+#6215
+N merc-eage~
+C
+wait(60);
+do({shout Knave!});
+wait(random(200,300));
+do({shout You dastardly pirates!  We'll teach you!});
+wait(random(0,200));
+do({shout For the crown!});
+wait(200);
+
+~
+T 1
+End
+
+#6216
+N merc-born~
+C
+wait(1);do({wear all});
+do({open belt});
+do({put all.coin belt});
+do({wield sabre});
+do({wield 2.sabre});
+do({draw});
+do({put all.coins belt});
+do({draw});
+~
+T 4
+End
+
+#6217
+N shipmate-shipwrecked~
+C
+wait(150);
+do({:paddles faster.});
+wait(50);
+do({:pants lightly and paddles with earnest.});
+~
+T 0
+End
+
+#6218
+N merc-dies~
+C
+addbounty(%actor%,1000);
+~
+T 9
+End
+
+#6219
+N lormos-shipwrecked~
+C
+wait(50);
+wait(50);
+do(:looks you over.}); do({'Well I'm not going down with a ship; you think I'm nuts?});
+wait(50);
+do({rest});
+wait(50);
+do({say We'll be adrift for a while I think.});
+wait(50);
+recho(6218,{A piece of driftwood floats by.});
+wait(50);
+do({:notes that the weather is changing.});
+wait(50);
+do({:eats a salty cracker.});
+wait(50);
+do({stand});
+do({shout Land ho!});
+wait(50);
+do({:begins paddling along side his crewmates.});
+wait(50);
+recho(6218,{The crew departs from you when you reach land.});
+wait(10);
+moveall(6218,7701);
+recho(6218,{You are standing on a beach, amidst driftwood and coral.});
+history(%name%,{%name% was lost at sea.});
+~
+T 0
+End
+
+#6241
+N shipmate-intrepid~
+C
+label(start);
+%state% {pending};
+if ( not(random(0,20)), {goto(boarding);});
+if ( not(random(0,20)), {goto(fishing);});
+if ( not(random(0,20)), {goto(storm);});
+if ( not(random(0,20)), {goto(ghostship);});
+if ( not(random(0,20)), {goto(return)});
+wait(6);
+label(boarding);
+%state% {boarding};
+wait(101);
+do({shout Arr! Ship, ahoy! Blast 'em to the mizenmasts!});
+reset(6245);
+reset(6246);
+reset(6247);
+wait(30);
+dig(6240,{east},6245);
+do({shout Plank is lowered, board the enemy ship!});
+wait(1002);
+do({shout all aboard the Aelmon, we set sail soon!});
+wait(103);
+do({shout Plank is raised, anchor's away!});
+undig(6240,{east});
+wait(100);
+goto(start);label(fishing);
+%state% {fishing};
+wait(10);
+recho(6240,{You hear the sound of a mandolin being played in the Crow's Nest.});
+recho(6241,{You hear the sound of a mandolin being played in the Crow's Nest.});
+recho(6242,{You hear the sound of a mandolin being played in the Crow's Nest.});
+recho(6243,{You hear the sound of a mandolin being played in the Crow's Nest.});
+wait(20);
+do({shout Yo ho ho and a bottle of rum!});
+wait(20);
+do({shout Yo ho ho and a bottle of rum!});
+wait(20);
+do({shout Yosh ho hosh and a bottle shof rumshhh..!});
+wait(70);
+if(random(0,1),{goto(start);},{goto(fishing);});
+label(return);
+%state% {returning};
+wait(40);
+do({shout Land ho! Starboard!});
+wait(15);
+recho(6210,{The ship floats safely into the Marina.});
+recho(6211,{The ship floats safely into the Marina.});
+recho(6212,{The ship floats safely into the Marina.});
+recho(6213,{The ship floats safely into the Marina.});
+wait(20);
+do({shout Drop anchor!});
+wait(30);
+
+do({shout We have returned to port!});
+moveall(6241,6200,{look});
+moveall(6242,6200,{look});
+moveall(6243,6200,{look});
+moveall(6240,6200,{look});
+goto(start);
+label(landfall);wait(10);
+do({shout Storm!});
+wait(50);
+ 
+recho(6240,{Wind buffets the ship; you hear the mast break!});
+recho(6241,{Wind buffets the ship; you hear the mast break!});
+recho(6242,{Wind buffets the ship; you hear the mast break!});
+recho(6243,{Wind buffets the ship; you hear the mast break!});
+wait(50);
+do({shout All hands abandon ship!});
+recho(6210,{The boat begins to capsize!});
+recho(6211,{The boat begins to capsize!});
+recho(6212,{The boat begins to capsize!});
+recho(6213,{The boat begins to capsize!});
+wait(50);
+do({shout Abandon ship!});
+moveall(6240,6218,{look});
+moveall(6241,6218,{look});
+moveall(6242,6218,{look});
+moveall(6243,6218,{look});
+wait(100);
+goto(start);
+label(ghostship);
+do({shout My lord -- Captain Aramus, it's another ghost ship!});
+wait(30);
+do({shout She's coming about to port!});
+wait(30);
+do({shout She's coming right for us!!});
+recho(6211,{The ship is rocked by the concussion! We're being rammed!});
+wait(30);
+reset(6249);
+dig(6240,{east},6249);
+do({shout Plank is lowered, we're being boarded!});
+wait(420);
+goto(start);
+label(storm);
+%state% {storm};
+if ( cmp(weather(),3),
+     { goto(landfall); } );
+if ( cmp(weather(),2),
+     {  do({shout Batten down the hatches!  Lower the misenmast!});
+        wait(100);  } );
+goto(start);
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#6200
+N bartender cock-eyed~
+SD a cock-eyed bartender~
+LD
+ A cock-eyed bartender is polishing the bar.
+~
+D
+ The bartender has a cock-eyed look on his face.  When he sees you
+looking, his left eyebrow goes up a bit and he mumbles under his breath.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 6202
+End
+
+#6201
+N milad scarred seacaptain~
+SD Seacaptain Milad~
+LD
+ A scarred seacaptain pounds the brew.
+~
+D
+ Tired, and very much scarred from his travels, Milad is a fly on the wall
+of the Scallywag, drinking brew and eating chips.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 6201
+At 0 10 22 3
+End
+
+#6202
+N tiktuan boarder~
+SD a tiktuan boarder~
+LD
+ A tiktuan has boarded the ship!
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 17 11
+End
+
+#6207
+N giant squid~
+SD a giant squid~
+LD
+ A giant squid is attacking the lifeboat!
+~
+D
+ It's a giant squid from the deep blue sea!
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 200
+O ~
+AP 14 0 0 5 10
+At 2 1 5 4
+At 3 1 6 15
+End
+
+#6211
+N shipmate~
+SD your shipmate~
+LD
+ A shipmate is here, watching the horizon.
+~
+D
+ ~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 3 3 3 3 3
+Sc 6211
+End
+
+#6213
+N captain lormos~
+SD captain lormos~
+LD
+ Captain Lormos is dozing behind his desk.
+~
+D
+ Captain Lormos has a bushy black beard and a wide black moustache.
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Sc 6214
+Sc 6213
+End
+
+#6214
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 21 14
+End
+
+#6215
+N mercenary merchant guard~
+SD a merchant guard~
+LD
+ A mercenary defends his ship!
+~
+D
+ A burly seafaring merchant guard, hired as a mercencary to protect
+the ship and its cargo.
+~
+A 33
+AB 0
+M 50
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 150
+O ~
+AP 13 0 0 13 7
+Sc 6218
+Sc 6216
+Sc 6215
+End
+
+#6217
+N shipmate~
+SD your shipmate~
+LD
+ Your shipmate is paddling the boat.
+~
+D
+ He's paddling as fast as he can!
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 6217
+At 0 10 16 12
+End
+
+#6218
+N captain lormos~
+SD captain lormos~
+LD
+ Captain Lormos surveys the seas in all directions.
+~
+D
+ The Captain is wide awake and eagerly dealing with the situation;
+the most fun he's had since he was a mere swashbuckler!
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 6219
+At 0 10 13 9
+End
+
+#6241
+N shipmate intrepid~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 14 0
+End
+
+#6260
+N one-eyed roberts dread pirate captain~
+SD One-eyed Roberts~
+LD
+ The dread pirate captain cleans his nails.
+~
+D
+ A one-eyed pirate with a mean sneer.
+~
+A 17
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#0
+
+
+
+#OBJDATA
+#6200
+N bottle cock-eyed ale~
+SD a bottle of Cock-Eyed ale~
+P ~
+D
+A bottle of Cock-Eyed ale is sitting here.
+~
+A
+A bitter brew, the Cock-Eyed Ale goes down without a hitch.  
+~
+PD
+~
+DR
+A caramel-colored bottle of ale with the words "Cock-Eyed" written on one
+side in oil pencil.  
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 1
+O ~
+V 10 10 3 -2
+End
+
+#6201
+N plate fish chips~
+SD a plate of fish and chips~
+P ~
+D
+A plate of fish and chips is here.
+~
+A
+You wolf down the steaming fish filet and munch heartily on the crunchy
+chips that are served with it.
+ 
+You discard the plate.
+~
+PD
+~
+DR
+Fish and small deep-fat-fried hunks of batter, cooked to greasy
+perfection.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 3
+O ~
+V 10 0 0 0
+End
+
+#6202
+N bolted table~
+SD a bolted table~
+P ~
+D
+A table has been bolted to the floorboards.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 99 65536 0 0
+End
+
+#6203
+N spare cot~
+SD a spare cot~
+P ~
+D
+A spare cot is here for sleeping on the off-shifts.
+~
+A
+~
+PD
+~
+DR
+The cot is made from a weak wooden frame, reinforced with shod metal and
+spun with cotton strips.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 24576 0 0
+End
+
+#6204
+N set cotton bandages~
+SD a set of cotton bandages~
+P ~
+D
+Some cotton bandages are here.
+~
+A
+~
+PD
+~
+DR
+Long soft cotton strips used to heal wounds suffered in battle.
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 6
+O ~
+V 4 1 1 10
+End
+
+#6205
+N crate~
+SD a crate~
+P ~
+D
+A small crate marked with a red cross is stored here.
+~
+A
+~
+PD
+~
+DR
+The crate is for storing medical supplies.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 15 0 0 0
+End
+
+#6206
+N fishing rod~
+SD a fishing rod~
+P ~
+D
+There's a fishing rod here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#6207
+N starboard bench~
+SD the starboard bench~
+P ~
+D
+A bench runs along the starboard side.
+~
+A
+~
+PD
+~
+DR
+A long bench built into the starboard side of the ship.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 300 8192 0 0
+End
+
+#6209
+N fish~
+SD a fish~
+P ~
+D
+There is a fresh fish here.
+~
+A
+It's kind of good raw.
+~
+PD
+~
+DR
+A fish, recently caught somewhere in the deep sea.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 5 0 0 0
+End
+
+#6210
+N enter cabin~
+SD captain's cabin~
+P ~
+D
+You may enter the captain's cabin.
+~
+A
+~
+PD
+~
+DR
+The captain's cabin is in the front of the ship.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 6213
+End
+
+#6211
+N exit~
+SD the exit~
+P ~
+D
+Type exit to return to the main deck.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 6210
+End
+
+#6216
+N wooden crate~
+SD a wooden crate~
+P ~
+D
+A large wooden crate is here.
+~
+A
+~
+PD
+~
+DR
+Made of wood, pegged together and fastened with rope and twine.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#6217
+N enter cabin~
+SD captain's cabin~
+P ~
+D
+You may enter the captain's cabin.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 6217
+End
+
+#6218
+N exit~
+SD the exit~
+P ~
+D
+Type exit to return to the main deck.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 6215
+End
+
+#6219
+N gold~
+SD gold~
+P ~
+D
+There is a pile of gold here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 1 0 0
+End
+
+#6260
+N enter cabin~
+SD captain's cabin~
+P ~
+D
+You may enter the captain's cabin.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 6263
+End
+
+#6263
+N exit~
+SD the exit~
+P ~
+D
+Type exit to return to the main deck.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 6260
+End
+
+#0
+
+
+
+#SCENES
+#6200
+N Scallywag's Pub~
+Ref 0
+D
+A dark, hole-in-the-wall fish and chips with a strong scent of malted
+barley.  Thick pipe smoke hangs in the air, faintly smelling of smoke other
+than tobacco.  The scent of the sea can still be detected coming in from
+beyond the draped windows.  A ^Bsign^N has been posted by Kltaran soldiers. 
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign has been posted by Kltaran diplomats.
+"All citizens caught privateering in the waters south of the mainland
+ will be hunted and killed.  Bounties are established for citizens
+ named as crew in rosters from captured ships.  You have been warned."
+~
+R M 6200 1 100 1
+R O 6201 -1 100 30
+R O 6200 -1 100 30
+R M 6201 1 100 1
+Dr 3 0 0 5108
+~
+~
+End
+
+#6210
+N Aboard the Flute Aelmon~
+Ref 0
+D
+The Aelmon is a proud ship bearing the crew of Captain Lormos.  You are
+on its main deck overlooking the water, standing near the ship navigator's
+bell watching the soft white caps in the ocean beyond you.  A rope hangs
+from the crows nest and you may ^Benter^N the captain's cabin here.  A
+trapdoor leads down into the ship's cargo hold and the crew's quartering
+area.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 6207 2 1 1
+R O 6210 -5 100 1
+Dr 1 0 0 6215
+~
+~
+Dr 4 0 0 6211
+A tall mast leads to the crow's nest.
+~
+hole~
+Dr 5 0 0 6212
+~
+~
+End
+
+#6211
+N Crow's Nest - Aboard the Flute Aelmon~
+Ref 0
+D
+You are standing on the topmost deck, the crow's nest, looking out over
+the area surrounding the ship.  
+~
+C
+(null)~
+F 0
+S 12
+M 0
+W 0
+T 0
+O ~
+R M 6211 1 100 1
+R O 6206 35 100 1
+Dr 5 0 0 6210
+~
+hole in the floorboards~
+End
+
+#6212
+N Aelmon's Hold~
+Ref 0
+D
+You are in the ship's quartering area for the Aelmon, riding below near
+several large shipping crates.  The hull curves up to support the massive
+bow sprit leading toward the water.  Spare rigging is hung from one wall,
+next to a pair of fishing nets.  
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 6205 -5 100 1
+R O 6204 -3 75 8
+R O 6202 -5 100 1
+R O 2404 -4 100 1
+R O 2004 -3 75 12
+R O 6203 -5 100 1
+Dr 4 0 0 6210
+~
+~
+End
+
+#6213
+N Captain Lormos' Cabin on the Flute Aelmon~
+Ref 0
+D
+The cabin is cramped and filled with papers.  A series of maps are nailed
+to one wall, showing the layout of the ocean south of Kyrinn across the sea
+to the Southern Isles of Jharl northernmost points.  Trinkets and personal
+affects are placed in cabinets behind his desk, perhaps collected from
+numerous places across numerous oceans.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 6211 -5 100 1
+R M 6213 1 100 1
+R O 3513 30 100 1
+R O 2522 27 100 1
+R O 2523 0 100 1
+R O 2506 13 100 1
+R O 2508 9 100 1
+End
+
+#6215
+N Merchant Ship~
+Ref 0
+D
+Merchant ship bound for the Kyrinn gold exchange.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 6217 -5 100 1
+R M 6215 6 50 1
+R O 3513 30 50 2
+R O 2505 -1 100 1
+Dr 3 0 0 6210
+~
+~
+Dr 5 0 0 6216
+~
+~
+End
+
+#6216
+N Ship's Hold~
+Ref 0
+D
+The vast underbelly of this merchant ship.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R G 21 -5 10 2
+R G 18 -5 10 2
+R M 6215 5 50 1
+R O 2505 27 100 1
+R O 3513 39 60 1
+R O 3513 39 60 1
+R O 50 -1 60 6
+R O 6216 -5 100 1
+R O 6219 -3 25 3
+R O 6219 -3 25 1
+R G 13 -5 25 2
+R G 20 -3 60 5
+R O 5010 -3 75 8
+Dr 4 0 0 6215
+~
+~
+End
+
+#6217
+N Captain's Quarters - Merchant Ship~
+Ref 0
+D
+You are in the captain's quarters.  Maps and other items for navigation
+are strewn about a large table -- behind which is a large captain's chair.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 6218 -5 100 1
+End
+
+#6218
+N Lifeboat~
+Ref 0
+D
+You are aboard a lifeboat of the ship Aelmon, floating somewhere
+in the seas.  The surviving crew makes preparations for landfall.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 6207 1 50 1
+R M 6218 1 100 1
+R M 6217 1 100 1
+End
+
+#6220
+N The Cock-Eyed Wench~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#6230
+N Main Deck of the Cockral Spanniker~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#6240
+N Main Deck - Intrepid~
+Ref 0
+D
+You are on the main deck of the privateering ship Intrepid, run by
+captain Aramus and his hearty crew.  They are experienced navigators
+who run a tight ship.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 6243
+~
+cabin door~
+Dr 4 0 0 6241
+~
+~
+Dr 5 5 0 6242
+~
+hatch~
+End
+
+#6241
+N Crow's Nest - Intrepid~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 0 6240
+~
+~
+End
+
+#6242
+N Cargo Hold - Intrepid~
+Ref 0
+D
+This is the fast hold of the pirate ship Intrepid.  It smells of the crew
+and of fish and salt.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 5 0 6240
+~
+hatch~
+End
+
+#6243
+N Aramus' Cabin - Intrepid~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 5 0 6240
+~
+cabin door~
+End
+
+#6245
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#6249
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#6250
+N Main Deck of the Moniker~
+Ref 0
+D
+You are aboard the privateer sloop Moniker, sailing in the southern
+archepelago of Tyselorrd, land of the Tyrants, searching for seafaring
+vessels with luxury cargo.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#6260
+N Deck of the Ilvan~
+Ref 0
+D
+You are aboard the dread privateering ship Ilvan, sailing in the small
+islands south of Kltara.  The Ilvan is a modest seafaring vessel, carefully
+designed for privateering as it is the oldest of the veteran privateers.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 6260 -5 100 1
+Dr 4 0 0 6261
+~
+~
+Dr 5 0 0 6262
+~
+~
+End
+
+#6261
+N Crow's Nest - Ilvan~
+Ref 0
+D
+You are high atop the main mast, overlooking the sea surrounding
+the Ilvan.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 0 6260
+~
+~
+End
+
+#6262
+N Ilvan's Hold~
+Ref 0
+D
+You are in the cargo hold of the Ilvan.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 6260
+~
+~
+End
+
+#6263
+N Captain's Quarters - Ilvan~
+Ref 0
+D
+The lavish quarters of the Great Pirate Roberts aboard the dastardly
+Ilvan.  Papers and maps, rigging gear and more is stored on the walls
+and in the cabinets of the Captain's quarters.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 6263 -5 100 1
+End
+
+#0
+
+
+
+#$

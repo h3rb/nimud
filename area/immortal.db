@@ -1,0 +1,3182 @@
+#ZONE 
+N Playground~
+B None~
+V 1000 1999
+S 9
+End
+
+
+
+#SCRIPTDATA
+#1049
+N keeper-trace~
+C
+autowait(10);
+do({e});
+do({w});
+do({shout weapons the best in the lands!});
+~
+T 6
+End
+
+#1800
+N testing~
+C
+do({l});
+do({u});
+do({d});
+do({ yawn});
+do({yawn });
+do({l});
+do({u});
+do({d});
+do({i});
+do({eq});
+do({aed yawn});
+do({all 6});
+do({help medit});
+do({yawn 2});
+do({yawn 1000});
+do({yawn 1});
+do({look});
+do({say oh, sorry});
+do({yawn 1800});
+done
+~
+T 4
+End
+
+#1998
+N rose-bow~
+C
+Enter wait (10);
+(w/0) "Enter"
+Then:
+script
+wait(10);
+do((bow rose));
+~
+T 6
+End
+
+#0
+
+
+
+#ACTORS
+#1024
+N kelty dog brittany~
+SD kelty~
+LD
+ A brittany lies here ready to help her master.
+~
+D
+ The brittany is a medium sized dog with strong muscles and alert eyes.
+Her coat is orange and white while her eyes are bluer than the skies.
+Around her neck is a collar that reads: "Kelty"
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 4
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 15 4
+End
+
+#1049
+N keeper~
+SD the keeper~
+LD
+ The keeper is here
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 1049
+At 0 10 22 8
+End
+
+#1100
+N goblin~
+SD a filthy goblin~
+LD
+ A filthy goblin scrounges for food
+~
+D
+ ~
+A 1
+AB 0
+M 100
+Credits 0
+Bucks 0
+S 0
+Sz 15
+K 0 E 1
+O ~
+AP 2 1 1 4 1
+End
+
+#1400
+N consort curvaceous beauty~
+SD Denambren's consort~
+LD
+ A curvaceous beauty stands here, a playful smile on her lips.
+~
+D
+ This woman stands a little under twelve handspans tall, her curvaceous
+body accentuating every handspan that your eyes lay their sights on.  She
+carries herself with a confident grace which can be seen reflected within
+her dark, brown eyes, their long lashes beating softly as she gazes about
+the area.  Her skin is deeply-tanned, and a lush cascade of raven hair
+washes down her shoulders and stops at her waist.  Almost a sculpture of
+beauty itself, you realize that no such woman could exist without the divine
+intervention of the gods themselves.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 22
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 11 3
+End
+
+#1401
+N test dude~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 17 11
+End
+
+#1800
+N fuzzy bunny~
+SD a fuzzy bunny~
+LD
+ A long-earred rabbit hops about the place.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 15 10
+Sc 1800
+At 1 1 3 14
+End
+
+#1998
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 25 1
+End
+
+#1999
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 23 0
+End
+
+#1000
+N jester~
+SD a jester~
+LD
+ A jester is dancing and prancing around here.
+~
+D
+ The jester is painted gaudily with many different symbols.  He wears
+jewelry that tinkles and jingles with his every step.  The Jester sports
+skull makeup giving his eyes a lost quality deep within the false sockets
+created by dark choal makeup.  His scepter is similarily beskulled and rests
+on his shoulder.  
+~
+A 1025
+AB 0
+M 2
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 12 4 19 6
+End
+
+#1001
+N a madman~
+SD A whispy-haired madman~
+LD
+ a whispy-haired madman crouches here.
+~
+D
+ The man has stark white hair and his eyes look like they're about to pop
+out of his head.  He wears a torn black cloak which is obviously very
+old, and he has the look of a madman.
+~
+A 195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 20
+K 0 E 1
+O ~
+AP 10 18 14 12 13
+End
+
+#1002
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 16 14
+End
+
+#1008
+N drider spider drow~
+SD a drider~
+LD
+ A drider stands before you.
+~
+D
+ The drider appears to be a cross between a giant spider and a drow. The
+The torso, head, and arms of a pale, bloated drow sprout eight spider legs.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 15
+K 0 E 1
+O ~
+AP 12 17 17 16 12
+End
+
+#1009
+N rat~
+SD a small rat~
+LD
+ A small rat hides here.
+~
+D
+ A small rat with brown fur and sharp teeth.  Its eyes glint and its
+whiskers twitch in the endles search for food.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 1
+K 0 E 1
+O ~
+AP 5 5 3 5 9
+At 1 1 4 14
+End
+
+#1010
+N balrog~
+SD a balrog~
+LD
+ A huge balrog is snarling and howling.
+~
+D
+ Jets of flame shoot from his nose.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 21 5
+At 1 30 40 9
+End
+
+#1020
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 0 0 0 0 0
+End
+
+#0
+
+
+
+#OBJDATA
+#1100
+N an old book shelf~
+SD an old wooden book shelf~
+P old wooden book shelves~
+D
+An old book shelf is sitting here.
+~
+A
+The book shelf turns sideways to reveal a hidden passage!
+~
+PD
+~
+DR
+The old wooden book shelf is large and bulky.  Glass sliding doors protect
+the oldest books.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 300
+C 1000000
+O ~
+V 200 425984 0 1701
+End
+
+#1101
+N a turned book shelf~
+SD a turned book shelf~
+P ~
+D
+A book shelf sits here, turned sideways.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 200 425984 0 1700
+End
+
+#1200
+N time portal~
+SD a time portal~
+P ~
+D
+A time portal is floating in mid-air.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 7000
+End
+
+#1666
+N book~
+SD ~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 11
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#1000
+N jewel-encrusted jewel encrusted sword~
+SD a jewel-encrusted sword~
+P ~
+D
+A jewel-encrusted sword has been carefully placed on the ground.
+~
+A
+Yum... tastes like chicken!
+~
+PD
+~
+DR
+The sword is beautifully ornamented with many precious stones set in its
+brass hilt.  
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 5
+C 0
+O ~
+V 0 4 10 6
+End
+
+#1001
+N can seasoned mud~
+SD a can of seasoned mud~
+P %s cans are here.~
+D
+Locke's favorite can of seasoned mud has been stupidly discarded.
+~
+A
+~
+PD
+%s cans of mud are here.
+~
+DR
+Locke's secret recipe.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 24
+Ti 0
+Wt 1
+C 1
+O ~
+V 60 0 0 0
+End
+
+#1002
+N goblin~
+SD A golbin sit here~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#1003
+N A Blade of Flickering Energy~
+SD Blade of Energy~
+P ~
+D
+a Blade of Energy rests here
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#1004
+N a pile of pig crap~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+the pile of pig crap is icky and sticky
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#1005
+N Kettle~
+SD an old black kettle~
+P ~
+D
+An old black kettle rests here
+~
+A
+~
+PD
+~
+DR
+The kettle is black, its outer shell bent and bruised.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 1
+O ~
+V 60 60 0 0
+End
+
+#1007
+N quiver~
+SD a quiver~
+P ~
+D
+A leather quiver is here.
+~
+A
+~
+PD
+~
+DR
+A special pouch designed for holding bolts and arrows.
+~
+L 0
+T 15
+E 0
+W 4227073
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 20 0 0 0
+End
+
+#1008
+N long bow~
+SD a long bow~
+P ~
+D
+a long bow
+~
+A
+You release the arrow from the long bow and the arrow whistles through
+the air towards its intended target.
+~
+PD
+~
+DR
+At first glance this seems to be an ordinary long bow, but with carefull
+examination you notice a some special qualities. The bow demonstrates much
+handwork and craftsmanship. You notice strange archaic symbols written on
+the handle of this long bow.
+~
+L 0
+T 6
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 1
+C 500
+O ~
+V 1009 8 16 0
+End
+
+#1009
+N standard arrow~
+SD a standard arrow~
+P ~
+D
+There is a single arrow on the ground.
+~
+A
+an arrow~
+PD
+~
+DR
+A thin sliver of wood carved perfectly round fitted with a small pointed
+piece of flint.
+~
+L 0
+T 7
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 1 1 0 -1
+End
+
+#1010
+N a small vial~
+SD a small, liquid-filled vial~
+P some small, liquid-filled vials~
+D
+a small vial is filled with oddly-colored liquid
+~
+A
+a vial bubbles with the chemicals it holds
+~
+PD
+~
+DR
+A small glass vial is filled with oddly colored liquid which bubbles
+sporadically.  It has no smell, but gives off a faint blue gas.  It
+looks dangerous to drink.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 1
+Ti 0
+Wt 1
+C 1
+O ~
+V 2 2 11 2
+End
+
+#1011
+N the exit~
+SD the exit~
+P exits~
+D
+an exit to perrin's lab is here
+~
+A
+You walk through the exit.
+~
+PD
+~
+DR
+an exit to perrin's lab.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 1666
+End
+
+#1012
+N note to locke~
+SD a note to locke~
+P notes to locke~
+D
+a note to locke is here
+~
+A
+you read a note to locke
+~
+PD
+~
+DR
+Hey, locke, what's up?  come check out my new building at 1666.  i only
+have 4th and 5th floors done, though.  Also check out object 1010.
+One more thing, how do i script a mob to say things every so often?
+see you on saturday.
+bye,
+ 
+Perrin.
+also check out object 1013, i created a bed--no action description though.
+hi Locke.  sorry i haven't been around as much lately, school's taking
+up a lot of time.  i got that 'arts and clothes in medeval times' book
+i was talking about but it turned out to be a skinny little childrens book
+with nothing helpful in it at all, so i have to go look for another one.
+i wrote a piece for the site if you want it, haven't put it on computer yet.
+i'll try and write more soon.  bye
+ 
+Perrin
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#1013
+N a large bed~
+SD a large bed~
+P large beds~
+D
+A large bed is here.
+~
+A
+Ahhh, it feels good to sit down for a minute!
+~
+PD
+~
+DR
+The bed is large and of medium height, and is made of oak.  It looks 
+really comfortable.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 200 16384 0 0
+End
+
+#0
+
+
+
+#SCENES
+#1024
+N Riggs's Escape~
+Ref 0
+D
+This is Riggs's think-tank.  For now there's a few sparse decorations
+and a bed in the corner.  Next to the bed, on top of a desk, sits his magic 
+machine.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1025
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1049
+N shop~
+Ref 0
+D
+test shop
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 1049 1 100 1
+R O 24220 -1 100 10
+Dr 1 0 0 1000
+~
+~
+End
+
+#1100
+N Overgrown Garden~
+Ref 0
+D
+A rock wall lines the eastern edge of a neglected garden.  Unkempt
+bushes and shrubs are overgrown with tall grasses and ivy.  In places,
+there are statues completely enveloped by foliage.  A path of small
+stones leads west through the undergrowth, and to the east, a rusted
+iron gate leads out to Dunlock Boulevard.
+~
+C
+RIMAGE garden.jpg
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 1101
+An old manorhouse lies at the western edge of the gardens.
+~
+ivy-covered trellace~
+End
+
+#1101
+N Abandoned Manorhouse~
+Ref 0
+D
+To the east is an expanse of overgrown gardens that lead up to this
+manorhouse.  Guests are greeted by a set of worn double doors behind a
+columned entryway.  A wrought-iron railing follows the edge of the raised
+porch.  Years of ignorance by the keeper of these grounds has allowed for a
+growth of ivy to invade the pillars here.  
+~
+C
+(null)RIMAGE manor.jpg
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1100
+Through a trellace lies an expanse of overgrown gardens.
+~
+ivy-covered trellace~
+Dr 3 5 0 1102
+~
+double door~
+End
+
+#1102
+N Great Hall~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 5 0 1101
+~
+double door~
+Dr 3 0 0 1103
+~
+archway~
+End
+
+#1103
+N Anteroom~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1102
+~
+archway~
+End
+
+#1500
+N The Coranos Lycaeum~
+Ref 0
+D
+There should be a door east which leads outside.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1501
+~
+~
+End
+
+#1501
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 1500
+~
+~
+End
+
+#1502
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1503
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1504
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1505
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1506
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1507
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1508
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1509
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1510
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1511
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1512
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1513
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1514
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1515
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1516
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1517
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1518
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1519
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1520
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1521
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1522
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1523
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1524
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1525
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1526
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1527
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1528
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1529
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1530
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1532
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1533
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1534
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1535
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1536
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1666
+N Perrin's laboratory~
+Ref 0
+D
+A small, oddly shaped room with a smell of neglect, the laboratory obviously
+has not been cleaned for a while, and the strange smells coming from a table
+to the right of the door do not help the atmosphere.  Looking at the table
+shows you dozens of little vials filled with strangely colored liquids.
+~
+C
+(null)~
+F 1166
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 0 1667
+~
+door~
+Dr 3 5 0 1671
+~
+door~
+End
+
+#1667
+N Perrin's Bedroom~
+Ref 0
+D
+In the far right corner is a wooden framed bed, and across from it is a
+big-screen tv with surround sound.  Next to the bed is a desk with a
+computer on it and a large 100 disc stereo.  Just to the right of the door
+you see a grand piano, with sheet music scattered all over it.  
+Dark-green carpeting lines the floor, and graffiti covers the walls.  You 
+wish you had a bedroom as cool as Perrin's.
+
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 0 1668
+~
+door~
+Dr 2 1 0 1666
+~
+door~
+End
+
+#1668
+N Hall (5th floor)~
+Ref 0
+D
+The long hall has hardwood floors and off-white painted walls.  Priceless
+paintings line the walls on either side, and lamps sit in racks attached to
+the walls.
+~
+C
+(null)~
+F 8196
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 1 0 1667
+~
+door~
+Dr 3 0 0 1669
+~
+~
+End
+
+#1669
+N Hall (5th floor)~
+Ref 1668
+D
+A stairway leads down to the fourth floor from here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1668
+~
+~
+Dr 2 5 0 1670
+~
+door~
+Dr 5 0 0 1672
+~
+~
+End
+
+#1670
+N Book Room (5th floor)~
+Ref 0
+D
+The small room is filled completely with books.  Dust covers everything.
+Books lie in stacks on the floor and on shelves, and it is almost impossible
+to get to the back of the room without tripping on them.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 1669
+~
+door~
+Dr 2 5 0 1671
+~
+door~
+End
+
+#1671
+N Storage Room (5th floor)~
+Ref 0
+D
+Box upon box fills the small storage area, and dust covers everything
+in layers.  Some objects are out of the boxes, and from the look of them
+they're probably extremely old.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 1670
+~
+door~
+Dr 1 5 0 1666
+~
+door~
+End
+
+#1672
+N Hall (4th floor)~
+Ref 1668
+D
+A stairway leads up to the fifth floor from here, and another leads down to
+the third floor.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 5 0 1673
+~
+door~
+Dr 2 0 0 1674
+~
+~
+Dr 4 0 0 1669
+~
+~
+Dr 5 0 0 1675
+~
+~
+End
+
+#1673
+N Storage Room (4th floor)~
+Ref 0
+D
+The small storage space is filled with sports equipment.  Basketballs
+line the walls on racks and footballs and soccer balls and baseball bats
+and gloves and whatever else are all in here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 5 0 1672
+~
+door~
+End
+
+#1674
+N Basketball Court~
+Ref 0
+D
+The large gym has a basketball hoop on each end and a few stray balls lie
+against one wall.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1672
+~
+~
+End
+
+#1675
+N Hall (3rd floor)~
+Ref 1676
+D
+A stairway leads up to the fourth floor from here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1677
+~
+~
+Dr 2 5 0 1679
+~
+door~
+Dr 3 0 0 1676
+~
+~
+Dr 4 0 0 1672
+~
+~
+End
+
+#1676
+N Hall (3rd floor)~
+Ref 0
+D
+The long hall has hardwood floors and off-white painted walls.  Priceless
+paintings hang on either side and lamps sit in racks attached to the
+walls.
+
+~
+C
+(null)~
+F 8196
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1675
+~
+~
+Dr 2 5 0 1680
+~
+door~
+End
+
+#1677
+N Hall (3rd floor)~
+Ref 1676
+D
+A stairway leads down to the second floor from here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 5 0 1678
+~
+door~
+Dr 3 0 0 1675
+~
+~
+Dr 5 0 0 1681
+~
+~
+End
+
+#1678
+N Book Room (3rd floor)~
+Ref 0
+D
+Shelves of books line the walls of the large l-shaped room.  Dust covers
+almost everything.  Two lounging chairs sit at the one end of the room, and
+a couch is at the other end.  In the corner is a storage closet.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 1677
+~
+door~
+Dr 9 5 0 1682
+~
+door~
+End
+
+#1679
+N Book Room (3rd floor)~
+Ref 0
+D
+The medium-sized room is lined with shelves of books.  Dust covers most of
+them.  Two lounging chairs sit at the far end of the room, with a small table
+next to it on which is an unlit reading lamp and a blue book.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 1675
+~
+door~
+End
+
+#1680
+N Book Room (3rd floor)~
+Ref 0
+D
+The medium-sized room is lined with shelves of books.  Dust covers most of
+them.  A lounging chair sits at the far end of the room, with a small table
+next to it on which are a few old books.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 1676
+~
+door~
+End
+
+#1681
+N Hall (2nd floor)~
+Ref 1676
+D
+A stairway leads up the third floor from here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1688
+~
+~
+Dr 2 0 0 1689
+~
+~
+Dr 3 0 0 1683
+~
+~
+Dr 4 0 0 1677
+~
+~
+End
+
+#1682
+N Storage Closet (3rd floor)~
+Ref 0
+D
+Boxes fill the closet, and dust covers everything in layers.  Several
+old computers sit on a shelf in here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 6 5 0 1678
+~
+door~
+End
+
+#1683
+N Hall (2nd floor)~
+Ref 1676
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1681
+~
+~
+Dr 2 0 0 1687
+~
+~
+Dr 3 0 0 1684
+~
+~
+End
+
+#1684
+N Hall (2nd floor)~
+Ref 1676
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1683
+~
+~
+Dr 2 0 0 1686
+~
+~
+End
+
+#1685
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1686
+N Computer Cluster~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1684
+~
+~
+End
+
+#1687
+N Bathroom (2nd floor)~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1683
+~
+~
+End
+
+#1688
+N Hall (2nd floor)~
+Ref 1676
+D
+A stairway leads down to the first floor from here.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 1690
+~
+~
+Dr 3 0 0 1681
+~
+~
+Dr 5 0 0 1691
+~
+~
+End
+
+#1689
+N Guest Room~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1681
+~
+~
+End
+
+#1690
+N Guest Room~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1688
+~
+~
+End
+
+#1691
+N North Great Hall~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 1692
+~
+~
+Dr 3 0 0 1696
+~
+~
+Dr 4 0 0 1688
+~
+~
+End
+
+#1692
+N South Great Hall~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1691
+~
+~
+Dr 2 0 0 1693
+~
+~
+Dr 3 0 0 1695
+~
+~
+End
+
+#1693
+N East Living Room~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1692
+~
+~
+Dr 3 0 0 1694
+~
+~
+End
+
+#1694
+N West Living Room~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1695
+~
+~
+Dr 1 0 0 1693
+~
+~
+Dr 3 0 0 1699
+~
+~
+End
+
+#1695
+N Kitchen~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1696
+~
+~
+Dr 1 0 0 1692
+~
+~
+Dr 2 0 0 1694
+~
+~
+End
+
+#1696
+N East Dining Room~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1691
+~
+~
+Dr 2 0 0 1695
+~
+~
+Dr 3 0 0 1697
+~
+~
+End
+
+#1697
+N West Dining Room~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1696
+~
+~
+Dr 2 0 0 1699
+~
+~
+Dr 3 0 0 1698
+~
+~
+End
+
+#1698
+N Bathroom (1st floor)~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1697
+~
+~
+End
+
+#1699
+N Family Room~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1697
+~
+~
+Dr 1 0 0 1694
+~
+~
+Dr 3 0 0 1700
+~
+~
+End
+
+#1700
+N Study~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1699
+~
+~
+End
+
+#1701
+N Hidden Passageway~
+Ref 0
+D
+You are at the foot of a rickety stone staircase that leads up toward
+the surface.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1702
+~
+~
+Dr 4 0 0 7721
+~
+~
+End
+
+#1702
+N Hidden Passageway~
+Ref 0
+D
+The rough stone walls and dust-covered ground look untouched.  It seems as
+if noone's been here for many years.
+A narrow stone stairway leads down to the basement.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 1701
+~
+~
+Dr 5 0 0 1703
+~
+~
+End
+
+#1703
+N Narrow Passage~
+Ref 1704
+D
+A narrow stone stairway leads up to the first floor.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1704
+~
+~
+Dr 4 0 0 1702
+~
+~
+End
+
+#1704
+N Narrow Passage~
+Ref 0
+D
+The rough stone walls and dust-covered ground look untouched.  It seems as
+if noone's been here for many years.
+~
+C
+(null)~
+F 8196
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1705
+~
+~
+Dr 2 0 0 1703
+~
+~
+End
+
+#1705
+N Narrow Passage~
+Ref 1704
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1706
+~
+~
+Dr 2 0 0 1704
+~
+~
+End
+
+#1706
+N Narrow Passage~
+Ref 1704
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1707
+~
+~
+Dr 2 0 0 1705
+~
+~
+End
+
+#1707
+N Narrow Passage~
+Ref 1704
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 1708
+~
+ancient oaken door~
+Dr 2 0 0 1706
+~
+~
+End
+
+#1708
+N Cellar~
+Ref 0
+D
+Candles line the walls and fill the room with a faint odor of melting wax.
+At the far end of the long room is a burning altar covered in blood.  On
+further inspection you see that on the altar is a headless dog.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 5 0 1707
+An old oak door covered in ancient symbols.
+~
+ancient oaken door~
+Dr 5 0 0 18434
+~
+hole~
+End
+
+#1709
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1710
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1800
+N There~
+Ref 0
+D
+Within swirling mists, you can make out vague details.  While
+once you were somewhere else, you now find you have left here behind,
+and finally reached there!
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 1800 1 100 1
+Dr 4 2 0 1000
+~
+'the fabric of reality'~
+End
+
+#1981
+N Kitchen of Horrific Creations~
+Ref 0
+D
+Strange things litter the room.  Some growl, some groan, others spew
+strange looking liquids.  The smell is overwhelming and there is a strange
+haze wafting through the room.  A thick, sticky liquid is smeared on the
+floor and most of the floor is deteriorating.  Chains hang from the walls
+connected to cuffs beckoning their next victim.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1999
+N hell~
+Ref 0
+D
+Welcome to hell.  You came here after you died because you were a very bad
+person.  Fires burn here eternally and molten lava spews from cracks in
+the ground.  You will now burn in hell for all of eternity (or until you
+disconnect).
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1000
+N The Entrance To A Good Time~
+Ref 0
+D
+There is a boarded-up booth with a sign on it that reads "Tickets" near
+the entryway.  A big faux clown's head has been smashed in and is lying on
+the ground nearby.  A big red ball is rolling back and forth in a huge empty
+swimming pool that floats above you.  Looks like you've found your way to
+the Immortal Playground.  There is a cavern entrance north of here.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+ED exit~
+~
+R M 1000 1 100 1
+Dr 0 3 0 1001
+~
+door~
+Dr 1 0 0 1010
+~
+~
+Dr 2 0 0 11
+To the south is the Area Designer's Lounge.
+~
+~
+Dr 3 0 0 1049
+~
+~
+Dr 5 2 0 1800
+~
+~
+End
+
+#1001
+N Swirling Sands~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 3 0 1002
+~
+door~
+Dr 2 3 0 1000
+~
+door~
+End
+
+#1002
+N Deep Pool~
+Ref 0
+D
+In the middle of this room is a round shaped water-filled pool.  The pool
+appears to be very deep and has an almost green tint to it.  The edge of the
+pool is decorated with various flower arrangments.  
+~
+C
+(null)~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 2 3 0 1001
+~
+door~
+Dr 5 0 0 1003
+~
+~
+End
+
+#1003
+N Under the Surface~
+Ref 0
+D
+You are just below the surface in a narrow underwater tunnel that extends
+down into the murky depths below.  There is a large, rusted grating just
+below you.  Occasionally, a small minnow, or perhaps a leech, brushes
+against you.  
+~
+C
+(null)~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 1002
+~
+~
+Dr 5 5 0 1004
+~
+rusted grating~
+End
+
+#1004
+N Tunnel at Grating~
+Ref 0
+D
+Cold, dark waters have filled this subterranean passage.  There is a
+large, rusted metal grating above.  The tunnel extends down, deeper into the
+murky depths.  
+~
+C
+(null)~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 4 5 0 1003
+~
+rusted grating~
+Dr 5 0 0 1005
+~
+~
+End
+
+#1005
+N Underwater Darkness~
+Ref 0
+D
+You are immersed in a thick, black, cloudy liquid.
+~
+C
+(null)~
+F 0
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 1004
+~
+~
+End
+
+#1006
+N Zaek's Test Room~
+Ref 0
+D
+This is the first of many rooms to be created by the stranger, Zaek.
+All the walls of this room are incredibly smooth and cool to
+the touch.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 133 0 1007
+After careful study, you notice a door outline in the eastern wall.
+~
+door~
+End
+
+#1007
+N Test Room II~
+Ref 0
+D
+This is a secret, hidden room.
+~
+C
+(null)~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 133 0 1006
+~
+door~
+End
+
+#1008
+N ~
+Ref 0
+D
+This is a large cavern with various types of rock formations.  There is
+an enormous campfire crackling and popping in the center of the cavern. 
+There are many types of animal skins decorating the cold rock floor.  The
+sounds of water dripping can be heard echoing thoughout this place.  
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1009
+N Broom Closet~
+Ref 0
+D
+Not much more than a small closet, with lots of dust.  
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1010
+N Outside Rask's Place~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1011
+~
+~
+Dr 3 0 0 1000
+~
+~
+End
+
+#1011
+N Hallway~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1014
+~
+~
+Dr 1 0 0 1012
+~
+~
+Dr 2 0 0 1010
+~
+~
+Dr 3 0 0 1013
+~
+~
+End
+
+#1012
+N Living Room~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 1011
+~
+~
+Dr 4 0 0 1015
+~
+~
+End
+
+#1013
+N Dinning Room~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1016
+~
+~
+Dr 1 0 0 1011
+~
+~
+End
+
+#1014
+N Bathroom~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 1011
+~
+~
+End
+
+#1015
+N Rask's Bedroom~
+Ref 0
+D
+It's a huge steel door.
+l
+h
+>help
+>h
+-
+h
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 1 0 1017
+~
+door~
+Dr 5 0 0 1012
+~
+~
+End
+
+#1016
+N Kitchen~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 1013
+~
+~
+End
+
+#1017
+N Entrance to Rask's Labs~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 1019
+~
+~
+Dr 1 1 0 1015
+~
+door~
+Dr 3 0 0 1018
+~
+~
+End
+
+#1018
+N Rask's Mobile Creation Lab~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 1017
+~
+~
+End
+
+#1019
+N Rask's Object Creation Lab~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 1017
+~
+~
+End
+
+#1020
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1021
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1022
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#1023
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

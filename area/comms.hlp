@@ -1,0 +1,306 @@
+
+
+#DOC 6
+N COMMUNICATION~
+C 6 L 0
+KW COMMUNICATON~
+SY ~
+TX Basic commands for speaking to other players.
+~
+IT ~
+EX ~
+SA Say, Shout, Chat, OOC, Tell~
+End
+
+#DOC 183
+N CHAT~
+C 6 L 0
+KW CHAT~
+SY Chat 
+Chat <message>
+~
+TX .
+Chat with other players on a public channel.
+Typing chat alone toggles the activity of the channel.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 184
+N CONTACT~
+C 6 L 0
+KW CONTACT~
+SY ~
+TX .
+Use this command to speak to other players from afar.
+~
+IT ~
+EX ~
+SA Chat, Set, Config and Say~
+End
+
+#DOC 185
+N EMOTE~
+C 6 L 0
+KW EMOTE~
+SY ~
+TX .
+Syntax:  emote <action>
+Token:   :<action>
+
+  If socials aren't enough for you, the emote command allows you to
+  do customized actions.
+
+Example:
+  
+> emote dances for joy at the sound of a mandolin!
+The dark-haired thilon dances for joy at the sound of a mandolin!
+
+  See also:  Socials
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 186
+N GTELL~
+C 6 L 0
+KW GTELL~
+SY gtell <message>       or  ;<message>
+~
+TX .
+Lets you speak to the folks in your group.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 187
+N NOTE~
+C 6 L 0
+KW NOTE~
+SY ~
+TX .
+Syntax:  note list                           note <num>
+         note read <num>                     note remove <num>   
+         note delete <num>                   note to <person(s)>
+         note to all                         note to immort
+         note subject <text>                 note write         
+         note post                           note show          
+         note clear
+
+  You must be in a room with a bulletin board in order to use this system.
+  Each bulletin board has two access levels: level to read notes and
+  level to write notes.  Not every board has the same messages as the last,
+  but some boards can share the same notes.  Each set has a unique name.
+
+Example:
+
+> note list
+The following notes are on the Public board:
+[1   Fri Aug 26 11:29:00 1994] Cryk to all: This Mud
+[2   Fri Aug 26 17:32:52 1994] Locke to all: Cryk
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 188
+N OOC~
+C 6 L 0
+KW OOC~
+SY ~
+TX .
+Syntax:  ooc <text>
+
+  The ooc command stands for "out of character," and is used when referring
+  to topics not related to the game.  Abuse may mean removal.
+
+Example:
+  
+> ooc Did you notice a bug before when the thilon was here?
+You say, out-of-character:
+  "Did you notice a bug before when the thilon was here?"
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 189
+N REPLY~
+C 6 L 0
+KW REPLY TELL~
+SY tell <msg>        or  reply <msg>
+~
+TX .
+Lets you tell someone a message from afar.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 190
+N SAY~
+C 6 L 0
+KW SAY~
+SY say <text>
+         '<text>
+         "<text>
+~
+TX .
+  Spoken word is the main form of communication on the mud.  When you speak,
+  you speak in your default language, unless you change it with the speak
+  command.  There is no gaurantee that you will not be overheard by people
+  hiding in the room you are in.
+~
+IT .
+  NOTE TO IMMORTALS:  Immortals speak languages so that all can understand
+  them, and they understand all languages spoken as well.
+~
+EX > say how fare thee, drev?
+You ask, in english:
+  "How fare thee, drev?"
+~
+SA Ooc, Whisper, Shout~
+End
+
+#DOC 191
+N SHOUT~
+C 6 L 0
+KW SHOUT~
+SY ~
+TX .
+Syntax:  shout <text>
+
+  When you shout, your voice is heard for a distance of two rooms, no
+  greater.  Shouts are spoken in your default language.
+
+Example:
+  
+> shout Ho, stand back dwarf!
+You shout, in english:
+  "Ho, stand back dwarf!"
+
+  See also:  Say, Ooc, Whisper, Shout
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 192
+N SMOTE~
+C 6 L 0
+KW smote~
+SY rp <text|#code|text>
+~
+TX .
+Syntax:  smote <text|#code|text>
+
+  The smote command (S-mote) allows you to interject the appropriate
+  verb into your speech at any place you wish.  If you do not use a code
+  to insert a verb, smote defaults to regular talking.  You may use only
+  one verb per smote.  Where ever you feel it is appropriate, simply
+  type a # sign followed by one of the verbs in the following list:
+  
+    say      state     declare    greet     hail     speak    report
+    remark   comment   continue   chuckle   laugh    sneer    grin
+    smile    exclaim   shout      yell      scream   grimace  boom
+    thunder  roar      storm      blare     bellow   demand   warn
+    advise   suggest   observe    whisper   sob      sigh     coo
+    groan    croak     rasp       agree     decide   disagree object
+    decline  utter     mumble     mutter    murmur   grunt    stutter
+    ask      respond   muse       ponder    wonder   ruminate grumble
+    growl    snap      snarl      spit      retort   squeak   whimper
+    whine    beg       pray       explain   offer    inquire  sing
+
+Example:
+    
+> smote I am just testing the smote system #warn
+In english:
+  "I am just testing the smote system," you warn.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 193
+N TALK~
+C 6 L 0
+KW TALK~
+SY talk <msg>
+~
+TX .
+Talks to people sitting down at your table or on the same piece of
+furniture.  It is intimate and builds subtlety.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 194
+N TELL~
+C 6 L 0
+KW TELL~
+SY tell <target> <message>
+~
+TX .
+Tell, or contact, allows you to speak to other players from
+afar.
+~
+IT ~
+EX ~
+SA contact~
+End
+
+#DOC 195
+N WHISPER~
+C 6 L 0
+KW WHISPER~
+SY whisper <target> <message>
+~
+TX .
+Whispers something to someone else nearby.
+~
+IT ~
+EX ~
+SA Say, Chat~
+End
+
+#DOC 196
+N WISH~
+C 6 L 0
+KW WISH~
+SY ~
+TX .
+Syntax:  wish <immortal> <text>
+         wish all <text>
+         
+  The wish command allows mortals to contact immortals without being
+  in the same room for administrative purposes.  Use this command
+  carefully, abuse may mean removal.
+
+~
+IT .
+  For immortals, the wish command alone toggles whether or not you listen
+  to immortal wishes.
+~
+EX ~
+SA ~
+End
+#$
+#$

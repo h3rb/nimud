@@ -1,0 +1,58 @@
+#ZONE 
+N Acad Arcana~
+R Your pineal hurts.
+~
+B Callista~
+V 6600 6999
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#6702
+N glass~
+SD a glass~
+P ~
+D
+A glass is here.
+~
+A
+~
+PD
+~
+DR
+It's a nice glass.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 10 0 0
+End
+
+#0
+
+
+
+#SCENES
+#0
+
+
+
+#$

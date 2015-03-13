@@ -1,0 +1,5 @@
+hey did you know you can use gdb to debug your source?
+if you go to the area directory and type gdb ../src/nimud
+it will load your source
+then type
+run <port>

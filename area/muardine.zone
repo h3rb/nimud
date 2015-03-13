@@ -1,0 +1,740 @@
+#ZONE 
+N Good Ship Muardine~
+R A speaker crackles from some hidden location; the computer-voice sputters
+and fails to say anything intelligible before signing off.  
+~
+B None~
+V 10900 10999
+S 1
+End
+
+
+
+#SCRIPTDATA
+#10903
+N galleybot~
+C
+wait(25);
+do({give food %name%});
+wait(5);
+do({:beeps and whirs and echoes in a tinny voice: Bon appetit.});
+~
+T 10
+End
+
+#0
+
+
+
+#ACTORS
+#10900
+N security robot~
+SD a security robot~
+LD
+ A well-armed security robot is on patrol.
+~
+D
+ About the height of a human, the security robot has a huge metal arm
+formed like a blade, opposite a flame-thrower mechanism on its opposing
+member.  For a head it has a television screen, on which flickers a variety
+of scary images.  From its single speaker crackles commands.  
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 500
+O ~
+AP 10 10 10 10 10
+At 1 10 20 1
+At 2 3 5 15
+At 3 15 20 11
+At 4 8 16 16
+End
+
+#10903
+N galleybot~
+SD a galleybot~
+LD
+ A galleybot cooks up some chitlins.
+~
+D
+ A multi-armed robot designed to dispense food for the crew of the
+Muardine.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 10903
+At 0 10 12 12
+End
+
+#0
+
+
+
+#OBJDATA
+#10900
+N cot~
+SD a cot~
+P ~
+D
+A cot is set along one wall.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 24576 0 0
+End
+
+#10901
+N $c molded plastic chair~
+SD a $c molded plastic chair~
+P ~
+D
+A $c molded plastic chair is here.
+~
+A
+~
+PD
+~
+DR
+A machine-molded plastic chair is bolted to the ground.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#10902
+N metal table~
+SD a metal table~
+P ~
+D
+There is a metal table here.
+~
+A
+~
+PD
+~
+DR
+A standard metal table manufactured for use on this ship.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 99 65536 0 0
+End
+
+#10904
+N security keycard~
+SD a security keycard~
+P ~
+D
+Someone has dropped their keycard.
+~
+A
+~
+PD
+~
+DR
+A metal keycard bearing the word 'security'
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10905
+N computer~
+SD the transporter computer~
+P ~
+D
+The transporter computer is flashing green static.
+~
+A
+~
+PD
+~
+DR
+Someone has set the transporter to a single location and then
+smashed its controls.  There is a note taped to the flashing green
+screen which reads "out of order."
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10906
+N transporter~
+SD the transporter~
+P ~
+D
+The transporter is here.
+~
+A
+You step into the transporter and feel your body
+disappear into a thousand sub-atomic particles . . .
+~
+PD
+~
+DR
+The transporter is calibrated for descent; a blue ring of lights denotes
+that it is active.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 12500
+End
+
+#10907
+N electronic logbook~
+SD an electronic logbook~
+P ~
+D
+An electronic logbook is here.
+~
+A
+~
+PD
+~
+DR
+The logbook has a blinking indicator which denotes that it is full;
+someone has set this one to autoplay; as you pick it up to examine it, it
+begins to display the most recent entry: "Captain As-Aliran-e-Alva,
+Muardine.  We have entered into a high orbit near to planet Tyselorrd, where
+the Alvaki colony distress beacon was heard.  We have scanned the planet for
+inhabitants and found that there is a large population of humans amongst a
+variety of descendant species located on the mainland.  Deep-surface
+scanning has revealed that the ancient Alvaki storehouses are still intact
+and we are proceeding to investigate.  We have had some issues, however,
+with the crew, and Muriard is still trying to sabotage our transporters. 
+I've put word in with security to keep an eye out for that low-life. 
+Captain Out."  
+~
+L 0
+T 14
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10908
+N weapons locker~
+SD a weapons locker~
+P ~
+D
+A weapons locker is bolted to the floor.
+~
+A
+~
+PD
+~
+DR
+A metal locker about as tall as you'd need to store any hand-held
+weapon.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 50 0 0 0
+End
+
+#10909
+N featherblaster~
+SD a featherblaster~
+P ~
+D
+A self-sustaining featherblaster has been discarded.
+~
+A
+You raise the awkward purple and yellow ringed featherblaster and
+pull its plush fuzzy pink trigger!
+~
+PD
+~
+DR
+A specialized weapon designed for use in wilderness campaigns.
+~
+L 0
+T 6
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 5
+C 500
+O ~
+V 0 10 10 100
+End
+
+#10910
+N cargo crate~
+SD a cargo crate~
+P ~
+D
+A metal cargo crate, open, is here.
+~
+A
+~
+PD
+~
+DR
+A metal cargo crate with a corperate emblem.
+~
+L 0
+T 15
+E 0
+W 16384
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10911
+N food tray~
+SD a tray of food~
+P trays of food~
+D
+Someone left a stray of food.
+~
+A
+You burst open the Piltaran sundance and out comes a million little
+tiny green and yellow eggs.
+~
+PD
+~
+DR
+A small metal tray with some strange food items on it; two multi
+vitamin blobs, a fresh helping of mixed leftover gruel, and a
+wonderful looking Piltaran Sundance that you think might be
+pregnant.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 10 5 4 5
+End
+
+#10950
+N terminal~
+SD a few keys on the terminal~
+P ~
+D
+A computer terminal is set against one wall.
+~
+A
+You enter a few keys on the terminal.
+~
+PD
+~
+DR
+The terminal has a black screen with small grey letters.  You
+see a blinking light on the terminal, and scrolling text.
+ 
+[if you type 'enter' you might see the terminal update]
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 32768 0 18001
+End
+
+#0
+
+
+
+#SCENES
+#10900
+N Bridge of the Muardine~
+Ref 0
+D
+You are standing on the bridge of a massive metal spacecraft somewhere
+high above a planet's surface.  Through the main view you can see a large
+continent and make out what appears to be a ring of volcanoes; south of this
+continent is an archipelago of islands and a wide blue ocean.  A metal
+gangway leads down.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10950 -5 100 1
+Dr 5 0 0 10901
+~
+metal gangway~
+End
+
+#10901
+N Main Deck of the Muardine~
+Ref 0
+D
+You are standing on a metal gangway below the bridge on the Muardine. 
+Doors lead north, east and south, and a metal gangway leads up to the
+bridge.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10903
+~
+~
+Dr 1 0 0 10902
+~
+~
+Dr 2 0 0 10904
+~
+~
+Dr 4 0 0 10900
+~
+metal gangway~
+Dr 5 0 0 10906
+~
+gangway~
+End
+
+#10902
+N Captain's Quarters - Muardine~
+Ref 0
+D
+You are in the Captain's Quarters of the Muardine.  It is a spartan room
+with very little to offer except a round viewport that shows nothing but
+stars.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10900 -5 100 1
+R O 10902 -5 100 1
+R O 10907 -4 100 1
+R O 10901 -5 100 1
+Dr 3 0 0 10901
+~
+~
+End
+
+#10903
+N Galley~
+Ref 0
+D
+Along the northern wall of the galley is a massive viewport which looks
+out over the planet which the Muardine is orbiting.  In the distance, you
+can see the wisping greenish-red spiral of a galactic arm stretching across
+the expanse of space.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10903 1 100 1
+R O 10911 -1 100 100
+R O 10902 -5 100 1
+R O 10901 -5 100 4
+Dr 2 0 0 10901
+~
+~
+End
+
+#10904
+N Transporter Room~
+Ref 0
+D
+The transporter room is a specialized facility for dematerialization-
+rematerialization technology which allows for short-distance transportation
+between ships, or for planetfalls.  A huge metal vaulted door is on the
+eastern wall.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10906 -5 100 1
+R O 10905 -5 100 1
+Dr 0 0 0 10901
+~
+~
+Dr 1 7 10904 10905
+~
+vaulted door~
+End
+
+#10905
+N Armoury~
+Ref 0
+D
+A vast storehouse of weapons and armor for a variety of military purposes
+is stored in the ship's armoury.  A metal vaulted door requiring a keycard
+is in the western wall.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10908 -5 100 1
+R O 10909 -3 100 1
+Dr 3 7 0 10904
+~
+vaulted door~
+End
+
+#10906
+N Engineering Deck of the Muardine~
+Ref 0
+D
+This is the underbelly of the Muardine; the sound of the engines can be
+heard to the south; a low hum that denotes orbital setting.  To the east, a
+glass door leads to a laboratory of some kind.  Just north of here is a wide
+metal arch leading to the cargo hold.  Crew quarters are to the west.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10900 2 100 2
+R O 10904 -1 100 1
+Dr 0 0 0 10908
+~
+wide metal arch~
+Dr 1 257 0 10909
+~
+sliding glass door~
+Dr 2 5 0 10907
+~
+metal door~
+Dr 3 0 0 10910
+~
+~
+Dr 4 0 0 10901
+~
+gangway~
+Dr 5 5 0 10911
+~
+hatch~
+End
+
+#10907
+N Aft Engines~
+Ref 0
+D
+A large column of reddish-orange light extends from the central reactor
+core of the Muardine's hydro-magneto engines; its sub-systems are on standby
+as the reactor's processors vent coolent into space.  You can see, through
+the two large viewports on either side of the room, gaseous vapors of
+greenish-red color idly floating into the void.  A massive planet is below
+the craft; marked by blue ocean and a large central continent.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 10906
+~
+metal door~
+End
+
+#10908
+N Cargo Hold~
+Ref 0
+D
+Large metal boxes marked with a variety of chemical symbols fill your
+vision as the expanse of the Muardine's cargo hold opens up before you.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10910 -5 100 1
+R O 10909 -3 100 1
+Dr 2 0 0 10906
+~
+wide metal arch~
+End
+
+#10909
+N Laboratory~
+Ref 0
+D
+A large room without windows.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 257 0 10906
+~
+sliding glass door~
+End
+
+#10910
+N Crew's Quarters~
+Ref 0
+D
+An array of cryogenic-stasis capsules line the walls of the crew's
+quarters; you can tell, by peering through the frost-covered glass, that the
+crew is in-absentia.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10906
+~
+~
+End
+
+#10911
+N Escape Pod~
+Ref 0
+D
+The Muardine's main computer has shut off access to the escape pod unless
+the ship begins to decay in its orbit.  The escape pod's launch mechanism is
+disabled and its safety clamps are firmly in place; in other words, this pod
+ain't goin' anywhere.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 5 0 10906
+~
+hatch~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,48 @@
+#ZONE 
+N Rose's zone~
+B Rose~
+V 24501 24599
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#24501
+N Intersection of Tunnels~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 5 0 5009
+~
+sewer grate~
+End
+
+#0
+
+
+
+#$

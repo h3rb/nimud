@@ -1,0 +1,30 @@
+$IMCCONFIG
+#
+# This is the IMC2 V3.20 MUD-Net version of the IMC2 config file.
+# It should be much more reliable than the previous format.
+# When changing this information, be sure you don't remove the tildes! 
+# This information can be edited online using the 'imcconfig' command.
+LocalName    NiM5~
+Autoconnect  0
+Minlevel     0
+Immlevel     3
+Adminlevel   7
+Implevel     10
+InfoName     NiM5-mugs.net~
+InfoHost     mugs.net~
+InfoPort     2000
+InfoEmail    theisles@mugs.net~
+InfoWWW      www.nimud.org~
+InfoBase     NiM5~
+InfoDetails  Original NiMUD~
+
+# IMC2 compatible I3(IMC3) service hub
+# hosted by Ntanel ucmmweb@yahoo.com
+ConnectName   Hub1~
+ConnectAddr   divineright.org~
+ConnectPort   9010
+ConnectPwd1   nm2imc~
+ConnectPwd2   pass205~
+End
+
+$END

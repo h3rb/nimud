@@ -1,0 +1,440 @@
+#ZONE 
+N Brave's New World~
+B Brave~
+V 24600 24999
+S 1
+End
+
+
+
+#SCRIPTDATA
+#24600
+N testing~
+C
+autowait(10);
+do({boggle});
+do({yawn});
+* end of script - Locke
+do({autowait(10)});
+do({autowait10});
+~
+T 6
+End
+
+#24698
+N gate-knock~
+C
+if ( cmp(%astr%,{knock}),
+   {
+     settimer(1);
+     echo({%name% knocks loudly on the bronze gate!});
+     echo(24611,{You can hear someone knocking from the other side of the bronze gate.});
+     return(1);
+   }, { halt(0); } );
+wait(20);
+dig(24610,{west},24611);
+echo({The bronze gate opens!});
+echo(24611,{The bronze gate opens!});
+wait(20);
+undig(24610,{west});
+echo({The bronze gate closes.});
+echo(24611,{The bronze gate crashes closed.});
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#24600
+N a woman~
+SD A woman.~
+LD
+ A beautiful, and well dressed woman stands here attending the door.
+~
+D
+ ~
+A 1
+AB 0
+M 150
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 245
+O ~
+AP 10 10 10 10 10
+End
+
+#24601
+N arzhi burly tunnel guard~
+SD A tunnel guard~
+LD
+ A Burly Tunnel Guard of the Arzhi stands here
+~
+D
+ ~
+A 97
+AB 0
+M 3
+Credits 0
+Bucks 0
+S 1
+Sz 40
+K -10 E 467
+O ~
+AP 15 15 15 15 15
+End
+
+#0
+
+
+
+#OBJDATA
+#24600
+N brave-door key~
+SD strange key~
+P strange key~
+D
+A metallic key sits here, with intricate symbols.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 1
+C 8000
+O ~
+V 0 0 0 0
+End
+
+#24611
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#24698
+N A large bronze gate~
+SD The gate~
+P ~
+D
+A large bronze gate
+~
+A
+~
+PD
+~
+DR
+uber gate
+ 
+ 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+Sc 24698
+V 0 0 0 0
+End
+
+#24699
+N NOTE FOR LOCKE!~
+SD I need help with spawns.. -brave~
+P I need help with spawns... -brave~
+D
+I need help with spawns...
+~
+A
+~
+PD
+~
+DR
+desc Sorry i havent been on, internet has been out.. ill get back to some major work tomorrow.. i mapped out what i want to do on some paper.. see ya later.
+~
+L 0
+T 14
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#24600
+N Brave's Inner Sancum~
+Ref 0
+D
+The room has oaken wood panels on all of the walls, and bamboo planks
+lining the floor.  The only exit from this room, is a titanium enforced door
+in the center of the northern door.  The southern wall has a window looking
+over the endless expanse of nothingness.  In the center of the room lies a
+desk with a simple computer, an old fashioned lamp, and a notepad.  A TV and
+full-scale entertainment system lies against the western wall, with a plushy
+chair just waiting to be sat on.  The final object in the room, is a king
+sized bed on the western wall.  
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24600 1 100 1
+R O 24600 -4 75 1
+Dr 0 7 24600 24601
+~
+titanium door~
+End
+
+#24601
+N Before An Archway of Iron~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24601 7 95 2
+Dr 1 0 0 24602
+~
+~
+Dr 2 7 0 24600
+~
+Iron-Shod Archway~
+End
+
+#24602
+N A cold, drab, stretch of Tunnel~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24601 7 95 2
+R M 24601 2 100 2
+Dr 1 0 0 24603
+~
+~
+Dr 3 0 0 24601
+~
+~
+End
+
+#24603
+N A Bend in the Tunnel~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24601 7 95 1
+Dr 0 0 0 24604
+~
+~
+Dr 3 0 0 24602
+~
+~
+End
+
+#24604
+N An Interesection in the Tunnel~
+Ref 0
+D
+~
+C
+~
+F 3
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 24605
+~
+~
+Dr 2 0 0 24603
+~
+~
+Dr 3 0 0 24606
+~
+~
+End
+
+#24605
+N ~
+Ref 0
+D
+~
+C
+~
+F 3
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 24604
+~
+~
+End
+
+#24606
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 24604
+~
+~
+End
+
+#24607
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#24608
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#24609
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#24610
+N where they must ' knock '~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#24611
+N behind the gate~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

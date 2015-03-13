@@ -1,0 +1,2107 @@
+#ZONE 
+N Kralan's Pass~
+R Wind howls through the mountains.
+~
+B None~
+V 10000 10099
+S 1
+End
+
+
+
+#SCRIPTDATA
+#10004
+N goat~
+C
+wait(80);
+do({:chews on some grass.});
+wait(20);
+~
+T 1
+End
+
+#10015
+N charlatan-bounty~
+C
+addowed(%name%,200);
+~
+T 9
+End
+
+#10016
+N Charlatan-attack~
+C
+wait(5);
+do({'Attack!});
+~
+T 10
+End
+
+#10018
+N charlatan-assist~
+C
+wait(30);
+do({assist charlatan});
+~
+T 1
+End
+
+#10020
+N bains-greeting~
+C
+wait(5);
+do({'Welcome.  I see you've bested my charlatans.});
+wait(10);
+do({'Perhaps a lesson or two in theivery?});
+~
+T 10
+End
+
+#10025
+N merda-greet~
+C
+wait(15);
+do({'Welcome to my house, %name%.  Stories of your travels have preceeded you.});
+wait(10);
+do({'If you are tired, rest your head in the room I have prepared.});
+~
+T 10
+End
+
+#10061
+N winery-worker~
+C
+wait(15);
+do({:pours yeast into a vat of grape juice.});
+wait(30);
+do({:pours a bucket of unfermented wine into a vat.});
+wait(45);
+do({:steps into the grape press after taking off his shoes.});
+wait(20);
+do({:stomps down, pressing the grapes into juice.});
+wait(30);
+do({:pours in more yeast.});
+wait(120);
+do({:stops pressing the grapes.});
+~
+T 10
+End
+
+#0
+
+
+
+#ACTORS
+#10004
+N goat~
+SD a goat~
+LD
+ A mountain goat clops along.
+~
+D
+ The goat has short hair and a set of black hooves.  Small horns are
+on its head.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 20 7 7 7 7
+Sc 10004
+At 0 3 5 13
+At 1 5 10 13
+End
+
+#10015
+N charlatan~
+SD a charlatan~
+LD
+ A charlatan is marauding for caravans and hapless travelers.
+~
+D
+ A rogue of the first order -- this charlatan undoubtably has
+been marauding on this trail for quite some time.
+~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 1 E 200
+O ~
+AP 7 7 7 7 7
+Sc 10018
+Sc 10016
+Sc 10015
+End
+
+#10020
+N hardial bains rogue king~
+SD Hardial Bains~
+LD
+ The rogue king, Hardial Bains, is counting his coins.
+~
+D
+ A fat rogue named Hardial Bains is safely tucked away in his cave
+hideout.  He picks his teeth with a wooden toothpick.  
+~
+A 5123
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 190
+O ~
+AP 25 30 30 25 30
+Sc 10020
+At 1 3 5 13
+At 2 5 10 1
+Sk 10 'swimming'
+Sk 10 'climbing'
+Sk 40 'tracking'
+Sk 50 'camoflage'
+Sk 100 'stealth'
+Sk 100 'lock picking'
+Sk 100 'peek'
+Sk 50 'pickpocketing'
+Sk 75 'backstab'
+Sk 100 'legerdemain'
+End
+
+#10025
+N merda~
+SD merda~
+LD
+ Merda is cooking her famous stew.
+~
+D
+ Merda is a bit older, with grey hair and a lively smile.  
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 1
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#10026
+N foerlin~
+SD foerlin~
+LD
+ Foerlin is pouring over his latest mapmaking venture.
+~
+D
+ Foerlin is tall with a beard and blue eyes.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#10027
+N kossig provisioner~
+SD Kossig the provisioner~
+LD
+ A tidy provisioner counts his stock.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 3
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 1
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+End
+
+#10028
+N elias vadmet~
+SD elias vadmet~
+LD
+ Elias Vadmet is standing here at the market, like he does every day.
+~
+D
+ The mild-mannered cousin of Elad and Aod Vadmet.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 1
+ T 2 0
+ Tr 2 1
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 90 110
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 15 11
+End
+
+#10061
+N winery worker~
+SD a winery worker~
+LD
+ A winery worker is busily preparing a fresh batch of Keveg wines.
+~
+D
+ A row of demijohns are lined against the eastern wall.  
+Light on his bare feet, the worker busily prepares wine for the cask.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K -2 E 1
+O ~
+AP 7 7 7 7 7
+End
+
+#0
+
+
+
+#OBJDATA
+#10015
+N scimitar curved~
+SD a scimitar~
+P ~
+D
+A curved scimitar is here.
+~
+A
+~
+PD
+~
+DR
+A curved blade with a simple handle.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 6
+C 30
+O ~
+V 0 13 23 3
+End
+
+#10016
+N chain vest~
+SD a chain vest~
+P ~
+D
+A chain vest is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+A simple chain vest with interlocking rings of metal.
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 0
+Ti 0
+Wt 0
+C 45
+O ~
+V 4 30 20 0
+End
+
+#10019
+N toothpick~
+SD a toothpick~
+P ~
+D
+A wooden toothpick is on the ground.
+~
+A
+~
+PD
+~
+DR
+Someone's used this!
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10020
+N map kltara~
+SD a map of kltara~
+P ~
+D
+A map is here.
+~
+A
+~
+PD
+~
+DR
+The map you are carrying was drawn by Foerlin himself.
+ 
+ 
+ 
+                                        Nord Okham
+                                              |
+                                              |
+                                ----- RIVER CAERBROK ----
+                                             Kess
+                                              |
+      Keveg  ---  Vesper  --- Kralan's -------| <-Udbrun
+         /                                |
+        /                                 |
+       /                                  |
+      /                                Ostinbrun
+      |
+      |
+      |
+    Port of
+   Cape Red
+ 
+ 
+More maps are available at http://www.nimud.org/isles/info.html.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 40
+O ~
+V 0 0 0 0
+End
+
+#10025
+N bowl porage~
+SD a bowl of porage~
+P ~
+D
+A bowl of porage has been set here.
+~
+A
+A bland mixture of grains and milk, sweetened with brown sugar.  
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 3
+O ~
+V 10 10 0 0
+End
+
+#10026
+N bowl stew~
+SD a bowl of piping hot stew~
+P ~
+D
+A bowl of piping hot stew is here.
+~
+A
+Mmmm..  A mix of hot vegetables, rice and grain in a thick brown broth.  
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 20 0 20 0
+End
+
+#10028
+N signpost sign~
+SD a signpost~
+P ~
+D
+A sign has been posted in the center of the village.
+~
+A
+~
+PD
+~
+DR
+The signpost has a few arrows on it.  Pointing to the northeast
+is scrawled the word "merda" -the wood plank pointing to the southwest
+is etched "General Store" ... the most prominant sign reads:
+"World Famous Cartographer, Foerlin" -- the sign points north.
+ 
+An east-west arrowed sign reads "West, Keveg" "East, Kltara"
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10061
+N wine vat~
+SD a wine vat~
+P ~
+D
+A huge vat for pressing grapes and fermenting wines is here.
+~
+A
+~
+PD
+~
+DR
+A wooden cask about fifty handspans wide.  
+~
+L 0
+T 17
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 100 2 2
+End
+
+#10070
+N blueberry wine bottle~
+SD a bottle of blueberry wine~
+P ~
+D
+A bottle of wine is here.
+~
+A
+~
+PD
+~
+DR
+One of the finer and rarer fruit wines of Keveg.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 3
+C 50
+O ~
+V 20 20 7 0
+End
+
+#10071
+N peach wine bottle~
+SD a bottle of peach wine~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+The fruit wines of Keveg made from the peaches of the Royal Orchard.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 20
+O ~
+V 20 20 30 0
+End
+
+#10072
+N bottle wine apricot~
+SD a bottle of apricot wine~
+P ~
+D
+A bottle of apricot wine from Keveg has been set here.
+~
+A
+~
+PD
+~
+DR
+A bottle of apricot wine from the finest wineries of Rygor Isle.  It has
+the Vindercass label.  
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 20 20 32 0
+End
+
+#0
+
+
+
+#SCENES
+#10000
+N Mountain Trail~
+Ref 0
+D
+You are on a steadily climbing trail that leads up the mountains to the
+northwest.  To the east, is the valley below, the great expanse of the
+plains of Kltara.  The high peaks of the Andraius mountains are above you,
+capped with white snow at their peaks.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7320
+~
+~
+Dr 3 0 0 10001
+~
+~
+End
+
+#10001
+N Mountain Trail~
+Ref 10000
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10000
+~
+~
+Dr 3 0 0 10002
+~
+~
+End
+
+#10002
+N Mountain Trail~
+Ref 10000
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10001
+~
+~
+Dr 3 0 0 10003
+~
+~
+End
+
+#10003
+N Mountain Trail~
+Ref 10000
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10002
+~
+~
+Dr 3 0 0 10004
+~
+~
+End
+
+#10004
+N Mountain Trail~
+Ref 10000
+D
+Directly west is a crossroad.
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 10004 10 40 1
+Dr 1 0 0 10003
+~
+~
+Dr 3 0 0 10005
+~
+~
+End
+
+#10005
+N Mountain Crossroads~
+Ref 0
+D
+Here, the mountain trail splits at a crossroad.  To the north is the
+Northern Andraius ranged.  To the south is the Southern Pass, favored by
+merchant caravans and the King's army.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10006
+~
+~
+Dr 1 0 0 10004
+~
+~
+Dr 2 0 0 10008
+~
+~
+End
+
+#10006
+N Northern Pass~
+Ref 10014
+D
+The road bends sharply west and south.
+To the north is a path up a tall mountain.
+~
+C
+(null)~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10206
+~
+~
+Dr 2 0 0 10005
+~
+~
+Dr 3 0 0 10013
+~
+~
+End
+
+#10007
+N Southern Pass~
+Ref 0
+D
+You are travelling on Kralan's Pass, a well-used merchant route from Kess
+to Vesper and ports south on Rygor Isle.  
+~
+C
+(null)~
+F 8192
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10008
+~
+~
+Dr 3 0 0 10009
+~
+~
+End
+
+#10008
+N Southern Pass~
+Ref 10007
+D
+You are on a well-travelled pass to the south of the mountain range,
+running north south through the mountain range.
+~
+C
+(null)~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10005
+~
+~
+Dr 2 0 0 10007
+~
+~
+End
+
+#10009
+N Southern Pass to Vesper~
+Ref 10007
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10007
+~
+~
+Dr 6 0 0 10010
+~
+~
+End
+
+#10010
+N Southern Pass to Vesper~
+Ref 10007
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 6 0 0 10011
+~
+~
+Dr 9 0 0 10009
+~
+~
+End
+
+#10011
+N Mountain Road~
+Ref 0
+D
+Two roads join from the mountains here, forming one road that leads to
+the west.  The road is wide and covered with dust, deep grooves of wagon
+wheels on its surface.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10012
+~
+~
+Dr 3 0 0 10020
+The road leads to Vesper.
+~
+~
+Dr 9 0 0 10010
+To the southeast is the Southern Pass.
+~
+~
+End
+
+#10012
+N Northern Pass~
+Ref 10014
+D
+~
+C
+(null)~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10013
+~
+~
+Dr 2 0 0 10011
+~
+~
+End
+
+#10013
+N Northern Pass~
+Ref 10014
+D
+~
+C
+(null)~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 11600
+~
+~
+Dr 1 0 0 10006
+~
+~
+Dr 2 0 0 10012
+~
+~
+Dr 6 0 0 10014
+~
+~
+End
+
+#10014
+N Northern Pass~
+Ref 0
+D
+Through the mountains you are traveling, along a road that winds past a
+large rock edifice.  Above you are the white caps of the Andraius peaks.  
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 10015
+~
+~
+Dr 9 0 0 10013
+~
+~
+End
+
+#10015
+N Clearing~
+Ref 0
+D
+You are on a rounded hill between two mountains.  Around you the vast
+expanse of the Andraius range can be seen capped with white snow.  A massive
+cliff face makes it impossible to see beyond their tips, the rock is rough
+and fresh with a break in the cliff forming a cave entrance.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10015 10 100 2
+R O 2508 9 100 1
+R O 2523 0 100 1
+R O 2516 2 100 1
+R O 2509 -1 100 1
+R O 10016 25 100 1
+R O 10015 40 25 1
+R O 10015 39 100 1
+Dr 0 0 0 10016
+You see a small, obscure entrance to a cave.  
+~
+~
+Dr 1 0 0 10014
+~
+~
+End
+
+#10016
+N Bandit's Cave~
+Ref 0
+D
+This small cave serves as a hideout for bandits.  You can see the
+evidence of its recent use, bones and trash lay strewn around.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10020 1 100 1
+Dr 2 0 0 10015
+~
+~
+End
+
+#10020
+N Dusty Road~
+Ref 0
+D
+A dusty horsepath has grown, over the years, to form a long stretch of
+gravel and dust that leads from the Andraius as far as the western shore of
+Rygor Isle.  Deep ruts have formed in the road from the countless caravans
+that have travelled its length.  A wide set of flatstones have been lined
+along its edge to mark the thoroughfare.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10011
+~
+~
+Dr 3 0 0 10021
+~
+~
+End
+
+#10021
+N Dusty Road~
+Ref 10020
+D
+To the west, in the distance, you can see a small town.  To
+the east is the road to the mountains.
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10020
+~
+~
+Dr 3 0 0 10022
+~
+~
+End
+
+#10022
+N Dusty Road~
+Ref 10020
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10021
+~
+~
+Dr 3 0 0 10023
+~
+~
+End
+
+#10023
+N Dirt Road at Vesper~
+Ref 10020
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10025
+~
+~
+Dr 1 0 0 10022
+~
+~
+Dr 3 0 0 10024
+~
+~
+End
+
+#10024
+N Village of Vesper~
+Ref 0
+D
+You are in the village of Vesper, a small farming town to the west of the
+Andraius Mountains amidst the Western Plains of Kltara.  The main road
+through town leads from the east to the west.  In the distance you can see
+the white caps of the mountains.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 10028 -5 100 1
+Dr 0 1 0 10026
+~
+shop door~
+Dr 1 0 0 10023
+~
+~
+Dr 2 0 0 10027
+~
+~
+Dr 3 0 0 10028
+~
+~
+Dr 7 0 0 10025
+~
+~
+End
+
+#10025
+N Aunt Merda's Halfway House~
+Ref 0
+D
+Merda runs a halfway house for weary travelers who are down on their
+luck.  The home is a converted Inn from the heydays of Vesper, when the town
+was the only one for miles in Kltara.  Now to the west is Keveg, and wine
+country.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10025 1 100 1
+R O 10026 -1 100 10
+R O 10025 -1 100 10
+Dr 1 5 0 10033
+~
+small door~
+Dr 2 0 0 10023
+~
+~
+Dr 8 0 0 10024
+~
+~
+End
+
+#10026
+N Foerlin the Cartographer~
+Ref 0
+D
+You are in the shop of a master mapmaker, Foerlin, whose maps are known
+throughout the realm for their accuracy.  Foerlin specializes in the finest
+and most complete maps in the realm, and offers a tome of lore for the
+curious traveler.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10026 1 100 1
+R O 10020 -1 100 2
+Dr 2 1 0 10024
+~
+shop door~
+End
+
+#10027
+N Kossig's General Store~
+Ref 0
+D
+All sorts of items are strewn about in a haphazard fashion.  Obscure
+items and traveler's gear is stored in the back.  There are dried fruits, a
+few odds and ends, some gear and a few weapons for sale here in this general
+store of Vesper.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10027 1 100 1
+R G 138 -1 100 60
+R G 75 -1 100 15
+R G 105 -1 100 60
+R G 107 -1 100 50
+R G 96 -1 100 20
+R G 114 -1 100 40
+Dr 0 0 0 10024
+~
+~
+End
+
+#10028
+N Western Road~
+Ref 10020
+D
+The town of Vesper is just to the east.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10024
+~
+~
+Dr 3 0 0 10029
+~
+~
+End
+
+#10029
+N Western Road~
+Ref 10020
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10028
+~
+~
+Dr 2 0 0 10030
+~
+~
+End
+
+#10030
+N Western Road~
+Ref 10020
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10029
+~
+~
+Dr 2 0 0 10031
+~
+~
+End
+
+#10031
+N Western Road~
+Ref 10020
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10030
+~
+~
+Dr 3 0 0 10032
+~
+~
+End
+
+#10032
+N Western Road~
+Ref 10020
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10031
+~
+~
+Dr 3 0 0 10050
+~
+~
+End
+
+#10033
+N Bedroom~
+Ref 0
+D
+You are in a small, neatly furnished room Merda keeps for travelers.  
+~
+C
+(null)~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 5019 -5 100 1
+Dr 3 5 0 10025
+~
+small door~
+End
+
+#10050
+N Western Road to Keveg~
+Ref 0
+D
+You are amidst fields of barley wheat and grain, traveling east-west
+between the towns of Keveg and Vesper.  To the west, the fields change to
+hills of grape vine, as you enter the wine country of Rygor Isle, and the
+famous distilleries that produce some of the best tasting and varied wines
+in all the world.  
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10032
+~
+~
+Dr 3 0 0 10051
+~
+~
+End
+
+#10051
+N Dusty Western Road~
+Ref 10050
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10050
+~
+~
+Dr 3 0 0 10052
+~
+~
+End
+
+#10052
+N Dusty Western Road~
+Ref 10050
+D
+You are approaching a small town to the west.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10051
+~
+~
+Dr 3 0 0 10053
+~
+~
+End
+
+#10053
+N Vindercass Road at Keveg Gates East~
+Ref 0
+D
+You are on the Vindercass Road, a road for the proprietors of the
+distillery which runs through the vineyards of Keveg's finest winery.  It
+skirts the town, running from the south to the north, where the estate house
+can be found.  
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10054
+~
+~
+Dr 1 0 0 10052
+~
+~
+Dr 3 0 0 10057
+~
+~
+End
+
+#10054
+N Vindercass Road~
+Ref 10053
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10055
+~
+~
+Dr 2 0 0 10053
+~
+~
+End
+
+#10055
+N Vindercass Road~
+Ref 10053
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10056
+~
+~
+Dr 2 0 0 10054
+~
+~
+End
+
+#10056
+N Vindercass Estate~
+Ref 10053
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10060
+~
+~
+Dr 2 0 0 10055
+~
+~
+End
+
+#10057
+N Keveg Town Gate~
+Ref 0
+D
+A high wooden scaffold surrounds the town of Keveg, known for its
+rich wineries to the north, and as a trading post between Cape Red
+and the Kltaran capital.
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10053
+~
+~
+Dr 3 1 0 10065
+~
+gate~
+End
+
+#10058
+N Vineyards of Keveg~
+Ref 0
+D
+A long and winding path through hills upon hills of grape vines stretches
+out before you.  The vines of the grapes of the Keveg wines are hundreds of
+years old, cultivated from naturally growing grapes found here on the Isle. 
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#10059
+N Vindercass Estate Home~
+Ref 0
+D
+A luxurious home of the Vindercass family.  The house is ornamented
+with fine carpets and glass windows looking out onto the vineyards.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 3584 0 10058
+A large window made of many panes of glass enclosed in iron is in the
+wall.  
+~
+cross-barred window~
+Dr 1 3584 0 10058
+A large window made of glass panes is in the wall.
+~
+cross-barred window~
+Dr 2 0 0 10060
+~
+~
+Dr 3 3584 0 10058
+A large window made of glass panes is in the wall.
+~
+cross-barred window~
+End
+
+#10060
+N Vindercass Garden~
+Ref 0
+D
+To the north is the estate home of the Vindercass family.  It is here
+that they sell their wines to the local and traveling merchant caravans that
+frequent their distillery, which is located to the northeast.  The
+facilities are finely crafted and very exquisite.  To the southeast, you see
+rows of various vineyards, marked by years of cultivation.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10059
+~
+~
+Dr 2 0 0 10056
+~
+~
+Dr 7 0 0 10061
+~
+~
+End
+
+#10061
+N Distillery~
+Ref 0
+D
+A wooden shack, large enough to fit several large grape presses, is
+situated here.  Just east is the wine shoppe, where samples are sold and
+deals are made with the caravaners.  A row of demijohns are lined against
+the eastern wall.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10061 -5 100 1
+R M 10061 1 100 1
+Dr 1 0 0 10062
+~
+~
+Dr 8 0 0 10060
+~
+~
+End
+
+#10062
+N Vindercass Winery at Keveg~
+Ref 0
+D
+A wide assortment of bottles and demijohns are lined along one wall.  The
+shelves are full of old vintages and a variety of fruit wines from the Royal
+Orchards of Kess.  Fruit and foodstuffs are brought here to be sold and then
+turned into wine by the Vindercass family.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 10061
+~
+~
+End
+
+#10065
+N Hasten Street - Keveg~
+Ref 0
+D
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10071
+~
+~
+Dr 1 1 0 10057
+~
+Keveg Town Gate~
+Dr 3 0 0 10066
+~
+~
+End
+
+#10066
+N Keveg Town Square~
+Ref 0
+D
+You are in the central commons of Keveg, the Winery and village west of
+the Andraius mountains.  
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10068
+~
+~
+Dr 1 0 0 10065
+To the east is the road to Vesper.  It leads past the Manor.  
+~
+~
+Dr 2 0 0 10069
+To the south, Athon street leads out of town.
+~
+~
+Dr 3 0 0 10067
+~
+~
+End
+
+#10067
+N Hasten Street - Keveg~
+Ref 0
+D
+A short cobblestone road, perhaps the only one in town.
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10070
+~
+~
+Dr 1 0 0 10066
+~
+~
+End
+
+#10068
+N Athon Street~
+Ref 0
+D
+You're standing on a muddy dirty road just north of the town square.   
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 7 0 10078
+~
+temple door~
+Dr 1 0 0 10080
+~
+~
+Dr 2 0 0 10066
+~
+~
+End
+
+#10069
+N Athon Street~
+Ref 0
+D
+You're next to Darsa's Kitchen, at the southern end of Keveg's little
+hamlet.  The road leads south to the Port of Cape Red, the only city in this
+part of the island.  
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10066
+You can see the Temple here in the town of Keveg.
+~
+~
+Dr 1 0 0 10072
+It's Darsa's Kitchen, a local restaurant.
+~
+~
+Dr 2 1 0 10074
+You are able to see far down the road to the guard posts up ahead.
+~
+gate~
+End
+
+#10070
+N Magistrate's Office~
+Ref 0
+D
+A small court held in Keveg to admonish travelers and charlatans.
+The Rygorian royal seal is on the wall.
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10067
+~
+~
+End
+
+#10071
+N Cedric's Supplies~
+Ref 0
+D
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10065
+~
+~
+End
+
+#10072
+N Darsa's Kitchen~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 10069
+~
+~
+End
+
+#10073
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 8194
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#10074
+N Outside the Southern Gates of Keveg~
+Ref 0
+D
+You are outside the gates of Keveg, on the road leading from Keveg
+to the Port of Cape Red.
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 1 0 10069
+You see the town of Keveg.
+~
+gate~
+Dr 2 0 0 18054
+In the distance is the guard post outside of Cape Red.
+~
+~
+End
+
+#10078
+N Temple of Dumandra~
+Ref 0
+D
+Worship of the local townsfolk is a unique cultural experience in the
+land of Kltara, where no major religion reigns; however it is mastered by
+the King, and watched by outsiders as the positivity of the Dumandran
+followers is known to resound in hill and vale throughout the island.  
+The temple is modest, made of stone, ornamented with only a few brass
+sepulchers, candlelabras and the like; the floor is covered in hay,
+and stained glass windows peer to the outside.
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 7 0 10068
+~
+temple door~
+End
+
+#10080
+N Keveg Farmer's Market~
+Ref 0
+D
+~
+C
+(null)~
+F 8192
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10028 1 100 1
+R G 1 -1 100 50
+R G 2 -1 75 100
+R G 3 -1 40 100
+R G 4 -1 60 60
+R G 5 -1 70 70
+R G 6 -1 45 50
+R G 7 -1 35 35
+R G 0 -1 100 40
+Dr 3 0 0 10068
+~
+~
+End
+
+#10099
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

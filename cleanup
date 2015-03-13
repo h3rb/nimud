@@ -1,0 +1,49 @@
+#!/bin/csh
+# Cleans up old logs, .o's, a few other messys.
+# Runs when the server is down; for best results.
+# Written by Locke.
+
+set filepath = /home/locke/NiM5
+
+rm nohup.out
+cd $filepath
+cd log
+rm *
+
+
+while ( 1 )
+    # If you want to have logs in a different directory,
+    #   change the 'set logfile' line to reflect the directory name.
+    set index = 1000
+    while ( 1 )
+	set backupdir = $filepath/backups/$index.backup
+	if ( ! -e $backupdir ) break
+	@ index++
+    end
+
+    echo Creating backup $backupdir 
+    mkdir $backupdir
+    rm $filepath/src/*.o 
+    rm $filepath/src/isles
+    tar -cvf $backupdir/source.tar $filepath/src >>$backupdir/manifest.txt
+    gzip $backupdir/source.tar  
+    cp $filepath/src/nimud $filepath/src/current
+
+    tar -cvf $backupdir/areas.tar $filepath/area >>$backupdir/manifest.txt
+    gzip $backupdir/areas.tar  
+
+    tar -cvf $backupdir/players.tar $filepath/player >>$backupdir/manifest.txt
+    gzip $backupdir/players.tar  
+
+    echo Cleaning.
+
+    cd $filepath/area
+    rm bugs.txt
+    rm ideas.txt
+    rm typos.txt
+    rm shutdown.txt
+    cp nohup.out log/boot/$index.out
+    rm nohup.out
+
+    exit
+end

@@ -1,0 +1,28 @@
+#IMCCHAN
+ChanName   Hub:BridgeChat~
+ChanLocal  bchat~
+ChanRegF   [BChat] %s: %s~
+ChanEmoF   [BChat] %s %s~
+ChanSocF   [BChat] %s~
+ChanLevel  0
+End
+
+#IMCCHAN
+ChanName   Hub:IMCChat~
+ChanLocal  ichat~
+ChanRegF   [IChat] %s: %s~
+ChanEmoF   [IChat Emote] %s %s~
+ChanSocF   [IChat Social] %s~
+ChanLevel  0
+End
+
+#IMCCHAN
+ChanName   Hub:Games~
+ChanLocal  gchat~
+ChanRegF   [GChat] %s: %s~
+ChanEmoF   [GChat Emote] %s %s~
+ChanSocF   [GChat Social] %s~
+ChanLevel  0
+End
+
+#END

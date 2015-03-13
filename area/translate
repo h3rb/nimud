@@ -1,0 +1,3 @@
+cd ../lingua
+perl linguaphile.pl translating en $1 > translated
+cd ../area

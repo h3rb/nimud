@@ -1,0 +1,15 @@
+In areas, there are these files which are 
+important for certain features; if the files
+are modified while the server is running,
+or not present upon execution, there may be
+problems.
+
+.plin           perl input file
+.plout          perl output file
+translate       translation script for multilanguage support
+imc.channels    intermud channel settings
+imc.config      intermud config
+limbo.db        required objects
+player.db       special player info
+rooms.db        room contents
+mud.nfo         mud info

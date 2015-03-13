@@ -1,0 +1,6680 @@
+#ZONE 
+N Diku    Sewer~
+B None~
+V 22000 22445
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#22000
+N mud monster mudmonster~
+SD the horrifying mud-monster~
+LD
+ A horrifying mud-monster is slowly evolving from the mud.
+~
+D
+ It sure looks like something out of a horror tale.  It strongly resembles
+a huge figure made up from mud alone, and it sure looks like it had human
+flesh for breakfast and is strongly intent on having the same for dinner.  
+~
+A 65
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -250 E 300
+O ~
+AP 18 18 18 18 18
+At 1 3 4 9
+At 2 6 9 12
+End
+
+#22001
+N bat~
+SD the small bat~
+LD
+ The small fierce-looking bat is hanging from the ceiling.
+~
+D
+ You have never in your entire life seen such a mean looking small creature,
+though it looks rather peaceful, hanging there. The thought of arousing this
+cruel creature doesn't seem appealing.
+~
+A 97
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -500 E 50
+O ~
+AP 3 3 3 3 3
+At 1 2 3 10
+At 2 3 4 14
+End
+
+#22002
+N rat~
+SD the great sewer rat~
+LD
+ The huge hungry-looking sewer rat sits here.
+~
+D
+ ~
+A 33
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 100
+O ~
+AP 6 6 6 6 6
+At 1 1 2 10
+End
+
+#22003
+N spider~
+SD the small spider~
+LD
+ A small hairy spider is crawling on a rock.
+~
+D
+ ~
+A 33
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -700 E 1
+O ~
+AP 1 1 1 1 1
+At 1 1 2 14
+End
+
+#22004
+N beetle~
+SD the giant earth beetle~
+LD
+ The giant mean-looking earth beetle crawls towards you.
+~
+D
+ ~
+A 1
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -300 E 750
+O ~
+AP 25 25 25 25 40
+At 0 10 46 3
+At 1 5 65 0
+At 5 1 23 10
+At 6 5 71 13
+End
+
+#22005
+N maggot~
+SD the maggot~
+LD
+ The giant maggot crawls toward you.
+~
+D
+ ~
+A 1
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 220
+O ~
+AP 3 3 3 3 3
+At 1 5 6 14
+End
+
+#22006
+N snake~
+SD the slithering snake~
+LD
+ The snake slithers towards you.
+~
+D
+ ~
+A 33
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -500 E 200
+O ~
+AP 6 6 6 6 6
+At 1 4 10 14
+End
+
+#22007
+N wanderer~
+SD the evil wanderer~
+LD
+ The evil wanderer stares at you.
+~
+D
+ The evil wanderer is very thin.  He is dressed in a grey cloak.
+~
+A 133
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 250
+O ~
+AP 13 13 13 13 13
+At 1 5 10 7
+End
+
+#22008
+N homonculus homo~
+SD the homonculus~
+LD
+ The homonculus is here, looking at you with an evil look.
+~
+D
+ The Homonculus appears in a man-like form, about two feet tall, it has a
+greenish, reptilian skin, leathery wings, and a bat-like mouth, with teeth
+gleaming yellow.  
+~
+A 33
+AB 520
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -780 E 250
+O ~
+AP 13 13 13 13 13
+At 1 4 10 9
+End
+
+#22010
+N chreffn~
+SD the evil chreffn~
+LD
+ The chreffn are crawling here, looking around with their yellow eyes.
+~
+D
+ The head and torso of a chreffn is copper-covered, with yellow,
+glowing eyes. The lower body is in an orange shading.
+~
+A 133
+AB 32776
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -830 E 350
+O ~
+AP 16 16 16 16 16
+At 1 5 10 14
+At 2 3 5 10
+End
+
+#22011
+N morkoth~
+SD the shadowy morkoth~
+LD
+ The morkoth emerges from the shadows.
+~
+D
+ It's a five foot tall, shadow monster. The shape of this creature lies
+somewhere between a human and a rat. It breaths very heavily, while staring
+at you with such a glint in the eyes that reminds you of immense hunger.
+~
+A 161
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -900 E 300
+O ~
+AP 15 15 15 15 15
+At 1 4 10 10
+At 2 10 15 14
+End
+
+#22013
+N mud monster mudmonster~
+SD the horrifying mudmonster~
+LD
+ A horrifying mudmonster is slowly evolving from the mud ...
+~
+D
+ It sure looks like something out of a horror tale. It strongly resembles
+a huge figure made up from mud alone, and it sure looks like it had human 
+flesh for breakfast and is strongly intent on having the same for dinner.
+~
+A 97
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -250 E 300
+O ~
+AP 13 13 13 13 13
+At 1 5 15 12
+End
+
+#22040
+N red dragon~
+SD the red dragon~
+LD
+ A fierce-looking red dragon stares angrily at you.
+~
+D
+ The red dragon stares at you, angrily, as it wakes when you
+arrives.  It says 'Oh, human YOU woke me up ... Hsss', while
+it moves closer.  'Can one NEVER sleep in peace ... Hsss'.
+~
+A 35
+AB 520
+M 5000
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -1000 E 500
+O ~
+AP 25 25 25 25 25
+At 1 5 20 10
+At 2 5 10 4
+At 3 5 25 16
+End
+
+#22041
+N sea hag~
+SD the sea hag~
+LD
+ The sea hag is swimming around here.
+~
+D
+ The sea hag is so ghastly looking that you feel the deepest fear.
+Big yellow eyes and sharp teeth.  Its ears are very big,
+and it has small sharp horns.  It hates beauty.
+~
+A 33
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -800 E 80
+O ~
+AP 18 18 18 18 18
+At 1 4 5 14
+At 2 5 15 17
+At 3 1 3 18
+End
+
+#22042
+N guardian naga~
+SD the guardian naga~
+LD
+ The guardian naga looks kindly at you.
+~
+D
+ The naga are a snake-liked creature. She is covered in green-gold
+scale with silvery triangles along her back. Her eyes are golden.
+She notice that you look at her, and she says: 'Watch out. This way
+leads to some evil creatures'.
+~
+A 3
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 700 E 340
+O ~
+AP 14 14 14 14 14
+At 1 5 15 12
+At 2 3 4 14
+End
+
+#22043
+N basilisk~
+SD the scaled basilisk~
+LD
+ The scaled basilisk crawls towards you slowly.
+~
+D
+ The basilisk is a reptilian monster. It has eight legs, and a strong
+toothy jaws. It is dull brown with yellowish underbelly. It's eyes are
+glowing pale green.
+~
+A 37
+AB 520
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -250 E 250
+O ~
+AP 15 15 15 15 15
+At 1 5 7 14
+At 2 3 5 10
+At 3 3 4 10
+At 4 1 3 4
+End
+
+#22044
+N lemure blob~
+SD the lemure blob~
+LD
+ The lemure blob slithers terribly precisely towards you for an attack!
+~
+D
+ This looks like a vaguely human blob. Big black yellow eyes, and a
+mouth going a little bit out from the face. The lemure does not look
+interested in you at all, but anyway it attacks. It looks like it's
+mind has been burned out.
+~
+A 33
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -500 E 150
+O ~
+AP 13 13 13 13 13
+At 1 4 5 20
+End
+
+#22045
+N jones cruncher ettin~
+SD Jones~
+LD
+ Jones 'Cruncher' the ettin is standing here glaring at you.
+~
+D
+ At the first sight you thought Jones was an orc, but when it came
+closer you saw his second head. He wears an animal skin dress,
+filthy and moth eaten. Jones really stinks...
+~
+A 37
+AB 512
+M 10
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -480 E 500
+O ~
+AP 18 18 18 18 18
+At 1 5 10 12
+At 2 3 10 7
+At 3 3 5 21
+End
+
+#22046
+N herald mouse killer ettin~
+SD Herald~
+LD
+ Herald 'Mouse-Killer' the ettin is standing here looking confused at you.
+~
+D
+ When you look at Herald, you feel pity. His dress are really poor,
+and the one of his heads hangs down. At the rope around his stomach
+hangs dead mouses and rats. He does not smell good.
+~
+A 5
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 200 E 450
+O ~
+AP 17 17 17 17 17
+At 1 4 10 12
+At 2 3 10 7
+End
+
+#22200
+N master mind mindflayer~
+SD the master mindflayer~
+LD
+ The master mindflayer is here, looking at you with an evil look.
+~
+D
+ It's a seven foot tall humanoid dressed in a purple cloak, and swinging a
+black and purple rod above its head as if it was going to attack you any
+moment now. In the middle of its head are four tentacles with sharp points.
+~
+A 37
+AB 520
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -800 E 700
+O ~
+AP 13 20 20 20 20
+At 1 5 10 19
+At 2 2 10 17
+End
+
+#22201
+N senior mind mindflayer~
+SD the senior mindflayer~
+LD
+ The senior mindflayer walks around here, looking for something useful.
+~
+D
+ This is a horrifying monster indeed, 6'6" high. Dressed in purple and black,
+and carrying a large mace in its hand. In the center of its head are four large
+tentacles with very sharp points.
+~
+A 37
+AB 520
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -600 E 600
+O ~
+AP 13 19 19 19 19
+At 1 4 10 4
+At 2 3 10 19
+At 3 3 10 17
+At 4 2 10 9
+End
+
+#22202
+N junior mind mindflayer~
+SD the junior mindflayer~
+LD
+ The junior mindflayer is here, watching you carefully from the corner.
+~
+D
+ This mindflayer is six foot high. It has a small mace in its belt, and is
+dressed in purple and black cloth. It has four small tentacles in the 
+center of its head.
+~
+A 37
+AB 520
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -350 E 500
+O ~
+AP 13 15 15 15 15
+At 1 5 8 19
+At 2 3 10 9
+End
+
+#22203
+N wererat rat were~
+SD a wererat~
+LD
+ A long-haired wererat growls and snarls.
+~
+D
+ The wererat is about four foot tall. It looks very much like rat, except
+that it is standing.
+~
+A 32869
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 16
+K -700 E 450
+O ~
+AP 15 15 15 15 15
+At 1 4 10 14
+At 2 1 3 7
+At 3 2 3 10
+End
+
+#22204
+N rat gigantic~
+SD the gigantic rat~
+LD
+ There is a gigantic rat here, looking at you with a hungry look.
+~
+D
+ The gigantic rat is about ten foot long from head to tail and has claws
+the size of your head looking very nasty.
+~
+A 35
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -800 E 200
+O ~
+AP 15 15 15 15 15
+At 1 1 10 14
+End
+
+#0
+
+
+
+#OBJDATA
+#22190
+N ring silver~
+SD a glinting ring of silver~
+P ~
+D
+A lovely silver ring has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 2000
+O ~
+V 4 0 0 0
+End
+
+#22200
+N rod devil~
+SD the devil rod~
+P ~
+D
+The mysterious devil rod lies on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 6
+C 16000
+O ~
+V 0 3 5 5
+ED devil rod~
+This is indeed a mysterious rod.  It is dark black at the base but has four
+very sharp purple tentacles at the end.
+~
+End
+
+#22201
+N mace large~
+SD the large mace~
+P ~
+D
+A large mace lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 0 2 6 8
+ED large mace~
+The mace is pretty large with a weight of 10 lbs.  The head is actually four
+purple tentacles tied together.
+~
+End
+
+#22202
+N mace small~
+SD the small mace~
+P ~
+D
+A small mace has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 6
+C 600
+O ~
+V 0 2 5 8
+ED small mace~
+This weapon doesn't look like it does a lot of damage, but then you never know.
+It consists of a black handle and a purple head.
+~
+End
+
+#22203
+N cloak purple~
+SD a purple cloak~
+P ~
+D
+A purple cloak lies on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 5
+Sz 18
+Ti 0
+Wt 20
+C 5000
+O ~
+V 6 0 0 0
+End
+
+#22204
+N potion neon blue~
+SD an neon blue potion~
+P ~
+D
+A neon blue potion stands on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 4
+C 100
+O ~
+V 14 0 0 0
+End
+
+#22205
+N key black~
+SD a black key~
+P ~
+D
+A black key has been left on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 10
+O ~
+V 0 0 0 0
+End
+
+#22206
+N skull white~
+SD a strange white skull~
+P ~
+D
+A strange white skull lies on the floor looking at you.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 192
+W 17
+Sz 18
+Ti 0
+Wt 30
+C 0
+O ~
+V 1 0 0 0
+ED writing text~
+You read the number '666'.
+~
+ED white skull~
+The skull has two small horns in the forehead. You notice some writing on
+the inside.
+~
+End
+
+#22208
+N stick small light~
+SD a small stick~
+P ~
+D
+A small stick lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 4
+C 200
+O ~
+V 0 0 120 0
+ED letters letter~
+It reads 'Hold me'.
+~
+ED small stick~
+The small stick does not look interesting at all.  But just as you are going
+to throw it away you notice some small letters.
+~
+End
+
+#22209
+N boots muddy~
+SD a pair of muddy boots~
+P ~
+D
+A pair of muddy boots has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 65
+Sz 18
+Ti 0
+Wt 20
+C 75
+O ~
+V 3 0 0 0
+ED The boots are muddy and they look well worn, but also very comfortable.~
+~
+End
+
+#22210
+N treasure coins~
+SD a huge treasure~
+P ~
+D
+There is a huge treasure here, looking very valuable.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 6000 0 0 0
+ED treasure~
+This looks like a whole lot of coins.
+~
+End
+
+#22211
+N sword short~
+SD a short sword~
+P ~
+D
+There lies a short sword.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 4
+C 60
+O ~
+V 0 2 4 11
+End
+
+#22216
+N claw red redclaw~
+SD a red dragon claw~
+P ~
+D
+On the floor rests an enormous red claw.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 576
+W 8193
+Sz 18
+Ti 0
+Wt 19
+C 1800
+O ~
+V 0 4 4 5
+ED claw red redclaw~
+This big claw looks like a part of a dragon.
+~
+End
+
+#22217
+N plate breast silvery~
+SD a silvery breast plate~
+P ~
+D
+There is a silvery breast plate on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 9
+Sz 18
+Ti 0
+Wt 40
+C 25000
+O ~
+V 8 0 0 54
+ED plate breast silvery~
+On the breast plate you notice a relief of large rose. The metal seems to be 
+some kind of silver or platinum.
+~
+End
+
+#22218
+N plates leg silvery~
+SD some silvery leg plates~
+P ~
+D
+On the floor you see some silvery leg plates.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 33
+Sz 18
+Ti 0
+Wt 20
+C 12500
+O ~
+V 8 0 0 52
+ED leg plates silvery~
+They seem to be made from silver or platinum.  You see the outline of a rose.
+~
+End
+
+#22219
+N gloves silvery~
+SD a pair of silvery gloves~
+P ~
+D
+You can see a pair of silvery gloves on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 129
+Sz 18
+Ti 0
+Wt 14
+C 900
+O ~
+V 8 0 0 0
+ED gloves silvery~
+The gloves are made of silver threads.
+~
+End
+
+#22220
+N helmet silvery~
+SD a silvery helmet~
+P ~
+D
+The silvery helmet lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 17
+Sz 18
+Ti 0
+Wt 35
+C 9000
+O ~
+V 9 0 0 27
+ED helmet silvery~
+The helmet is made from platinum or silver and has a white fur brush attached
+on the top.
+~
+End
+
+#22221
+N shield~
+SD the shield of the rose~
+P ~
+D
+The shield of the rose rests on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 513
+Sz 18
+Ti 0
+Wt 60
+C 15000
+O ~
+V 10 0 0 0
+ED shield~
+On the shield you see a clear and perfect painting of a dark red rose on a white
+background. You also notice the inscription :'Pax Est Sanctuum'.
+~
+End
+
+#22222
+N boots silvery~
+SD a pair of silvery boots~
+P ~
+D
+A pair of silvery boots stand on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 65
+Sz 18
+Ti 0
+Wt 40
+C 2000
+O ~
+V 8 0 0 39
+ED boots silvery~
+The boots are made from a silvery metal.
+~
+End
+
+#22223
+N plates arm silvery~
+SD some silvery arm plates~
+P ~
+D
+On the floor you see some silvery arm plates.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 257
+Sz 18
+Ti 0
+Wt 40
+C 12500
+O ~
+V 8 0 0 0
+ED plates arm silvery~
+They seem to be made from silver or platinum. You see the outline of a rose.
+~
+End
+
+#22224
+N cloak white~
+SD a white cloak~
+P ~
+D
+A white cloak lies on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3392
+W 1025
+Sz 18
+Ti 0
+Wt 20
+C 10000
+O ~
+V 10 0 0 57
+ED cloak white~
+This is a very fine made cloak from an unknown material, in a bright white
+color.
+~
+End
+
+#22298
+N treasure coins~
+SD a huge treasure~
+P ~
+D
+A huge treasure is here, looking valuable.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 0 0 0
+ED treasure~
+Looks like a LOT of coins.
+~
+End
+
+#22299
+N sword short~
+SD a short sword~
+P ~
+D
+There lies a short sword.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 4
+C 60
+O ~
+V 0 2 5 2
+ED small sword~
+This is a very nice little weapon.
+~
+End
+
+#22300
+N backpack pack back~
+SD a backpack~
+P ~
+D
+A backpack stands upright here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 2
+C 100
+O ~
+V 60 5 -1 0
+End
+
+#22301
+N beltpouch pouch~
+SD a large beltpouch~
+P ~
+D
+A large beltpouch lies here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 10241
+Sz 18
+Ti 0
+Wt 1
+C 20
+O ~
+V 100 5 -1 0
+End
+
+#22303
+N orb dragonorb~
+SD the Red DragonOrb~
+P ~
+D
+A large reddish sphere is in the center of the room.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 576
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 10000
+O ~
+V 13 10 10 0
+End
+
+#22304
+N red torso~
+SD a red dragon torso~
+P ~
+D
+There is a pile of red dragonscale on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 9
+Sz 18
+Ti 0
+Wt 30
+C 50000
+O ~
+V 9 0 0 0
+End
+
+#22305
+N leggings red~
+SD red dragonscale leggings~
+P ~
+D
+On the floor you see two red dragonscale leggings.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 33
+Sz 18
+Ti 0
+Wt 17
+C 12500
+O ~
+V 9 0 0 0
+End
+
+#22306
+N claws dragonclaws red~
+SD a pair of red dragon claws~
+P ~
+D
+You can see a pair of large red dragon claws on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 576
+W 129
+Sz 18
+Ti 0
+Wt 4
+C 900
+O ~
+V 9 0 0 0
+End
+
+#22307
+N skull dragonhelm red~
+SD a red dragonhelm~
+P ~
+D
+A helmet fashioned into the likeness of a dragon skull is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 17
+Sz 18
+Ti 0
+Wt 15
+C 9000
+O ~
+V 9 0 0 0
+End
+
+#22308
+N shield red~
+SD the red dragon shield~
+P ~
+D
+A large red dragon shield rests on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 513
+Sz 18
+Ti 0
+Wt 10
+C 15000
+O ~
+V 10 0 0 0
+End
+
+#22309
+N greaves red~
+SD a pair of a red dragon's rear claws~
+P ~
+D
+A pair of a red dragon's rear claws is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 65
+Sz 18
+Ti 0
+Wt 40
+C 2000
+O ~
+V 9 0 0 0
+End
+
+#22310
+N arm guards red~
+SD red dragon arm guards~
+P ~
+D
+On the ground you see two red arm guards.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 257
+Sz 18
+Ti 0
+Wt 40
+C 12500
+O ~
+V 9 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#22000
+N Broken Wall~
+Ref 0
+D
+You are standing amidst the ruins of a broken interior wall to the
+Kessian sewer system.  Huge bricks are strewn about and the rubble makes the
+going tough.  You note that the sound of running water can be heard nearby. 
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22001
+~
+~
+Dr 2 0 0 10741
+~
+~
+End
+
+#22001
+N Muddy Sewer~
+Ref 0
+D
+You are standing in mud to your knees. This is not the kind of place
+for a picnic. The muddy sewer stretches further into the south.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 2 0 -1 22002
+You see the muddy sewer continuing into the darkness to the south.
+~
+~
+Dr 3 0 0 22000
+~
+~
+End
+
+#22002
+N Muddy Sewer Junction~
+Ref 0
+D
+The muddy sewer stretches into the dark to the south. It looks as if 
+no person has ever sat his foot here before. It's too muddy for that
+anyway. The sewer leads north, south and east from here.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22001
+The muddy sewer stretches into the dark to the north.
+~
+~
+Dr 1 0 -1 22007
+East. The muddy sewer leads into a bend that goes south.
+~
+~
+Dr 2 0 -1 22003
+South. The muddy sewer ends in a mudhole that way.
+~
+~
+End
+
+#22003
+N Mudhole~
+Ref 0
+D
+You stand in mud all the way up to your thighs and it's not too 
+comfortable since you are used to a somewhat different environment.
+The sewer leads to the north of here. In the middle you can just make
+out an enormous drainpipe leading down.
+~
+C
+~
+F 5
+S 2
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22002
+North. The muddy junction lies in that direction.
+~
+~
+Dr 5 0 -1 22101
+The muddy drainpipe leads down through the mud, otherwise it is utterly dark.
+~
+~
+End
+
+#22004
+N The Dark Pit~
+Ref 0
+D
+You are standing by the edge of a dark pit that leads down into even
+deeper darkness.  The smell from down there is unbearable.  The sewer
+stretches into the darkness to the east.  
+~
+C
+~
+F 1
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22001 12 100 1
+Dr 1 0 -1 22009
+East. The sewer leads into the sewer junction.
+~
+~
+Dr 5 0 -1 22102
+The Dark Pit leads down an down and down ... well you can't see the 
+bottom anyway. There are bars that function as a ladder on the side.
+~
+~
+End
+
+#22005
+N The muddy sewer~
+Ref 0
+D
+You are standing in the middle of a bend of the sewer pipe. It is very
+dark around here and the mud is sticking to your legs, not very pleasant.
+The pipe leads east and south from here.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 1 0 -1 22011
+East. The mud stretches on into the darkness.
+~
+~
+Dr 2 0 -1 22006
+South. There is even more mud in that direction than where you are now. 
+Incredible.
+~
+~
+End
+
+#22006
+N The muddy sewer~
+Ref 0
+D
+You are standing in something that reminds you very much of porridge, this
+has the advantage that it's not hot, it's rather cold actually. The pipe 
+bends to the north and east.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22005
+The muddy sewer pipe leads into a bend that goes east.
+~
+~
+Dr 1 0 -1 22012
+The pipe leads into a bend that goes south. Interesting, there's mud on the
+floor there.
+~
+~
+End
+
+#22007
+N The muddy sewer bend~
+Ref 0
+D
+This isn't your idea of a place to stay too long. You're in up to your
+knees in something that resembles mud, but you're not quite sure. The
+bend in which you stand leads west and south.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 2 0 -1 22008
+The pipe leads into a intersection that goes south and east. The floor here 
+is still covered in mud.
+~
+~
+Dr 3 0 -1 22002
+The pipe (still filled with mud) leads into a intersection that goes north 
+and south. Interesting.
+~
+~
+End
+
+#22008
+N A muddy intersection~
+Ref 0
+D
+You have both your feet safely stuck in mud. It isn't the mud that's wrong
+it's the smell, the sounds, the total darkness that surrounds you. Everything
+here is so depressing. The pipe leads on with a trail of thick mud to the
+north, east and south.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22007
+North. The pipe goes into a bend with a load of mud all the way up the walls.
+The bend leads west.
+~
+~
+Dr 1 0 -1 22014
+East. This way like a place for the annual mud festival, although the stench
+wouldn't allow any happiness at all. The pipe leads into a bend that leads 
+north.
+~
+~
+Dr 2 0 -1 22009
+South. There's less mud in that direction. *smile*. Your light doesn't 
+cover enough space for you to see much more than that it leads into some
+sort of junction.
+~
+~
+End
+
+#22009
+N The Sewer Junction~
+Ref 0
+D
+You stand in the middle of a huge junction of sewer pipes right under
+what you'd think was an air shaft. The sewer pipes lead to the north,
+south, east and west. It look quite impossible to force your way up.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22008
+North. Mud is the floor basis in that direction. Yummy.
+~
+~
+Dr 1 0 -1 22017
+YYEEUUCH! BOOH! THAT looks like a nice place for creepy crawlies.
+~
+~
+Dr 2 0 -1 22010
+North. This direction looks quite nice actually. The pipe leads into 
+a bend that goes east.
+~
+~
+Dr 3 0 -1 22004
+A few yards ahead - away from this junction - there is a pit leading down,
+but the smell from there...>PHEWW<.
+~
+~
+End
+
+#22010
+N A bend in sewer pipe~
+Ref 0
+D
+You are in a bend in the sewer pipe. A strong smell seeps in from the north.
+The sewer goes north and east.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22009
+North. You are staring into a huge junction with exits in all directions.
+~
+~
+Dr 1 0 -1 22018
+East. The Pipe leads into utter darkness that way.
+~
+~
+End
+
+#22011
+N The muddy sewer pipe~
+Ref 0
+D
+You have entered a kind of tube intersection that leads south, west and east.
+Your legs are covered in mud up to the knees. REAL yucky! 
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 1 0 -1 22024
+East. There's less mud in that direction, or that's your impression.
+~
+~
+Dr 2 0 -1 22021
+That way is lost in darkness, though you sense less mud in that direction,
+perhaps even a complete end to this sludge that surrounds you.
+~
+~
+Dr 3 0 -1 22005
+West. The mud reaches that way too, all the way up the walls.
+~
+~
+End
+
+#22012
+N The bend in the Muddy sewer~
+Ref 0
+D
+This is not your idea of a holiday. You stand in mud up to your knees.
+It's absolutely inconceivable how all this mud could have been placed
+here. The pipe leads to the west and south.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 2 0 -1 22013
+South. There's even more mud that way, incredible! Although it looks
+like an intersection in the sewer system that leads east and south.
+~
+~
+Dr 3 0 -1 22006
+West. All you can see, is that the pipe leads into a bend that goes
+north. But there's less mud in that direction, however odd that sounds.
+~
+~
+End
+
+#22013
+N A MUDDY intersection~
+Ref 0
+D
+You wouldn't want to know the true feeling of standing in this mud up to 
+your hips. >BWAADR<. All that fills your mind right now is the dream of 
+a hot bath. This is NOT very clean mud you know, remember you're in the
+sewer! The pipes leads north, south and east.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+ED sediment~
+It's NOT the kind of matter that would concern you too much, normally, but
+as you are in the middle of it, it just might become your main concern.
+REAL YUCKY!
+~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22012
+North. Sludge and sediment fills this corridor of the sewer that leads
+into a bend going west.
+~
+~
+Dr 1 0 -1 22026
+East. You can see absolutely nothing of interest in that direction (Maybe
+that's why it's so damn interesting.??) There's no mud in that direction
+either, GREAT!
+~
+~
+Dr 2 0 -1 22014
+South. All you can see is more mud! Although the pipe goes into a bend
+leading west.
+~
+~
+End
+
+#22014
+N Muddy sewer~
+Ref 0
+D
+You stand in a bend of the pipe system of the sewer with mud up to your
+thighs. Contemplating a higher level of existence here would be utterly
+inappropriate, as the smell would keep any intelligent creature from even
+thinking of anything but getting away from this foul end of the WORLD.
+The bend goes from north to west.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22013
+North. Filled with mud, that place looks like an impassable intersection
+with pipes leading north and east.
+~
+~
+Dr 3 0 -1 22008
+West. There's less mud that way, maybe you're on your way out of this foul
+place.
+~
+~
+End
+
+#22015
+N Old Well~
+Ref 0
+D
+You are standing by an old and worn well from before this century.  The
+sewer leads to the east from here and the well leads down into darkness. 
+Metal bars have rusted away where they were once secured in the side of the
+well leading down.  You can see a few notches to hang a grapple.  
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED bars~
+These look like they're pretty slippery, and not very safe, but perhaps safe
+enough for you to climb down, WITH both hands on them.
+~
+Dr 1 0 -1 22028
+East. You see, because of the utter darkness that surround you, absolutely
+nothing. Your light isn't of much use for that kind of distance.
+~
+~
+Dr 5 0 -1 22105
+Down the well there's even less light than up here, so ... sorry, you can't
+see a thing. There are metal bars in the side leading down into the darkness.
+~
+~
+End
+
+#22016
+N The ordinary bend~
+Ref 0
+D
+You are in the middle of a bend in the pipe system of the sewer system, 
+WHAT a place!!! The pipe leads to the south and the east.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22021
+East. What a quiet place you've found there. It's an intersection that have
+pipeways going north and east.
+~
+~
+Dr 2 0 -1 22017
+South. You see nothing at all in that direction it's too dark anyway.
+~
+~
+End
+
+#22017
+N The sewer junction~
+Ref 0
+D
+You are in a junction that leads north, west and south.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22016
+North. You see a bend.
+~
+~
+Dr 2 0 -1 22018
+South. It looks like a pipe junction just like this one. Only that one
+leads east and west.
+~
+~
+Dr 3 0 -1 22009
+West. There's a junction with four pipelines in that direction.
+~
+~
+End
+
+#22018
+N The ordinary junction~
+Ref 0
+D
+This looks like an ordinary junction, actually it seems very quiet
+here. The pipelines lead west, east and north.
+~
+C
+~
+F 13
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22017
+To the north you can see a junction like this one, leading north and west.
+~
+~
+Dr 1 0 -1 22031
+To the east there's nothing of particular interest, though there's a 
+junction with pipelines leading north and east.
+~
+~
+Dr 3 0 -1 22010
+There's a bend to the west leading north.
+~
+~
+End
+
+#22021
+N A quiet pipe junction~
+Ref 0
+D
+This is the kind of place to rest, though the smell could be a LOT better
+than this. The sewer goes east, north and west from here.
+~
+C
+~
+F 13
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22011
+In that direction, you can't see anything. It's just too dark.
+~
+~
+Dr 1 0 -1 22029
+There's an ordinary junction in the pipe system to the east
+~
+~
+Dr 3 0 -1 22016
+West. There's an ordinary bend leading south into the sewer system in
+that direction.
+~
+~
+End
+
+#22022
+N The odd room with smooth walls~
+Ref 0
+D
+As you enter you hear a loud click from one of the walls ... and you fall
+and fall and fall ...
+.
+.
+.
+.
+ ... And come to an abrupt end. THIS is strange indeed. There's an arched
+entryway leading down.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 5 0 -1 22112
+Down. It's utterly dark that way, though you can make out an intersection
+of sewer pipes leading west, north and east.
+~
+entryway~
+End
+
+#22024
+N Sewer~
+Ref 0
+D
+You are standing in mud up to your ankles. This is an intersection with 
+sewer pipes leading east, south and west.
+~
+C
+~
+F 13
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22037
+To the east there's a peculiar looking round room.
+~
+~
+Dr 2 0 -1 22025
+To the south there's another intersection with pipes going south and east.
+~
+~
+Dr 3 0 -1 22011
+To the west there's another intersection like this one, with sewer pipes
+leading south and west.
+~
+~
+End
+
+#22025
+N Intersection~
+Ref 0
+D
+You have never seen anything so BORING...This is an intersection with pipes
+leading north, south and east.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22001 12 100 1
+Dr 0 0 -1 22024
+To the north there's an intersection, where the pipes are leading west and
+east. You notice that the floor to the west is covered in mud.
+~
+~
+Dr 1 0 -1 22038
+East. You see nothing of interest in that direction, just another 
+intersection. This one leads east and south.
+~
+~
+Dr 2 0 -1 22026
+Another intersection lies to the south. It leads west and south.
+~
+~
+End
+
+#22026
+N Junction~
+Ref 0
+D
+You are standing in a fairly clean junction of the sewer system.
+~
+C
+~
+F 13
+S 0
+M 0
+W 0
+T 0
+O ~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
+~
+Dr 0 0 -1 22025
+North. You see an intersection there, leading north and east.
+~
+~
+Dr 2 0 -1 22028
+To the south there's ANOTHER junction leading west and east.
+~
+~
+Dr 3 0 -1 22013
+To the west you see a load of mud and sediment in the sewer. That should
+be an intersection there but you're not quite sure.
+~
+~
+End
+
+#22028
+N Sewer Junction~
+Ref 0
+D
+You stand in a junction of sewer pipes leading north, east and west.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22026
+~
+~
+Dr 1 0 -1 22034
+To the east you can see a bend in the pipe going south.
+~
+~
+Dr 3 0 -1 22015
+To the west you can just make out an old well.
+~
+~
+End
+
+#22029
+N The Triple Junction~
+Ref 0
+D
+You stand in the middle of a huge junction of concrete sewer pipes. The 
+pipes lead into three different directions : east, south and west.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22035
+East. You can see a bend in the sewer pipe leading north.
+~
+~
+Dr 2 0 -1 22030
+To the south there's a ENORMOUS quadruple sewer junction, all lit up by
+an odd light.
+~
+~
+Dr 3 0 -1 22021
+To the west you can just make out another junction similar to the one 
+you are standing in.
+~
+~
+End
+
+#22030
+N Quadruple Pipe Junction~
+Ref 0
+D
+Enormous hand-built drainage corridors lead in every direction.  
+~
+C
+~
+F 13
+S 1
+M 0
+W 0
+T 0
+O ~
+ED ladder~
+It looks as if it's made of stainless steel, and it would very well function
+as a club of considerable power, but alas ... You can't take at all since
+it's firmly set into the concrete wall.
+~
+Dr 0 0 -1 22029
+To the north you can see a huge triple junction with sewer pipes leading
+west and east.
+~
+~
+Dr 1 0 -1 22036
+East. You can see a pit in the floor.
+~
+~
+Dr 2 0 -1 22031
+To the south there's a huge junction with pipes leading east and west.
+~
+~
+Dr 3 0 -1 22022
+To the west there's an odd looking room with totally smooth walls.
+~
+~
+Dr 5 0 0 22280
+~
+~
+End
+
+#22031
+N A triple junction~
+Ref 0
+D
+You stand in a junction with pipes leading west, north and east.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22002 3 100 1
+Dr 0 0 -1 22030
+To the north there's a ENORMOUS quadruple sewer junction, all lit up by
+an odd light.
+~
+~
+Dr 1 0 -1 22044
+East. You can just make out a triple junction leading north and east.
+~
+~
+Dr 3 0 -1 22018
+West. You can just make out a triple junction leading north and west.
+~
+~
+End
+
+#22034
+N Bend in the Pipe~
+Ref 0
+D
+You can look in two directions where the pipe leads : south and west.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22035
+To the south you can see another bend leading west.
+~
+~
+Dr 3 0 -1 22028
+West. You can just make out a triple junction leading north and west.
+~
+~
+End
+
+#22035
+N Sewer Pipe Bend~
+Ref 0
+D
+You can look in two different directions where the pipe goes : west and 
+north.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22034
+North. You see another bend leading west.
+~
+~
+Dr 3 0 -1 22029
+You can see another junction although this one is a triple one with pipes
+going south and west.
+~
+~
+End
+
+#22036
+N The pit~
+Ref 0
+D
+You stand in a section of a pipe that leads to a dead end. In the floor
+there's a pit leading down. There are bars set in the side of the pit wall
+functioning as a ladder.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 22030
+West. You can see a dimly lit quadruple junction with an exit up.
+~
+~
+Dr 5 0 -1 22122
+Down the pit it's utterly dark you can't see a thing.
+~
+~
+End
+
+#22037
+N Rotating Room~
+Ref 0
+D
+As you enter the room it starts rotating - at first slowly, later faster
+and faster - You get totally confused as to where up and down is, but you are
+certain that the doorway is in the opposite direction of what it was when
+you entered. It now leads east. There was only this one exit.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22003 8 100 1
+Dr 1 0 -1 22050
+You can just make out a smaller room with a chair.
+~
+~
+End
+
+#22038
+N The three way junction~
+Ref 0
+D
+You are standing in a junction of pipes that lead west, east and south.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22045
+East. You can make out a dimly lit Guard Room.
+~
+~
+Dr 2 0 -1 22039
+To the south you can see what looks like a store room.
+~
+~
+Dr 3 0 -1 22025
+West. You see another junction similar to this one leading north and south.
+~
+~
+End
+
+#22039
+N The Sewer Store Room~
+Ref 0
+D
+You stand in a small room lit by a single torch set in the wall. The only 
+way out of here is to the north.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22003 8 100 1
+Dr 0 0 -1 22038
+To the north you see a pipe junction.
+~
+~
+End
+
+#22041
+N The Shaft~
+Ref 0
+D
+You are standing by the edge of a deep, dark shaft leading down. A single
+ladder is your tool to work your way down if you so wish. The sewer pipe
+leads south from here.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED ladder~
+Firmly set into the wall of the shaft it's impossible to even rock, is your
+estimate.
+~
+R M 22001 12 100 1
+Dr 2 0 -1 22043
+To the south you can see the pipe leading further south into darkness.
+~
+~
+Dr 5 0 -1 22123
+Down and utter darkness. There's absolutely nothing to be seen in that 
+direction.
+~
+~
+End
+
+#22043
+N The Sewer Entrance~
+Ref 0
+D
+You stand in the middle of a pipe that leads from north to south. Above you
+an air shaft leads up into sunlight. It seems totally impossible to go up
+that way.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22041
+To the north you can just make out a huge shaft leading down.
+~
+~
+Dr 2 0 -1 22044
+To the south you can see a triple junction leading west and east.
+~
+~
+End
+
+#22044
+N The junction going three ways~
+Ref 0
+D
+You are in a passageway in the pipes of the sewer system leading north, east
+and west.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22043
+You see a sewer pipe leading north.
+~
+~
+Dr 1 0 -1 22049
+~
+~
+Dr 3 0 -1 22031
+West. You see another junction very similar to this one that leads north
+and west.
+~
+~
+End
+
+#22045
+N The Sewer Room~
+Ref 0
+D
+You are standing in a large room with chairs set in the walls. You have the
+feeling of being watched. To the south there's an entry to a larger room.
+The room is lit by five torches, also set in the walls. To the west there
+is a doorway leading out to the sewers.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22046
+You can see an even larger room than this one, filled with light.
+~
+~
+Dr 3 0 -1 22038
+To the west you can see the sewers.
+~
+~
+End
+
+#22046
+N Sewer~
+Ref 0
+D
+This is a Room with walls that glitters like gold though not quite like it.
+This is strange as it looks as if the glitter lights the whole room. It
+looks very bright. To the south the floor is covered with yucky water. The
+North leads to sort of a Guard Room.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22045
+To the north you can see the guard room.
+~
+~
+Dr 2 0 -1 22047
+To the south there is nothing but water and an exit leads east from there.
+~
+~
+End
+
+#22047
+N Pool~
+Ref 0
+D
+You stand in water to your waist.  To the north is the entrance to this room.
+A single door leads east.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22046
+To the north you see the entrance to this room.
+~
+~
+Dr 1 0 -1 22053
+You can see an enormous hall through the doorway.
+~
+~
+End
+
+#22048
+N The Sewers~
+Ref 0
+D
+You stand in a dead end of the sewer. The only way out is south.
+You can see a shaft leading up but it looks too difficult to go up
+that way.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22049
+~
+~
+End
+
+#22049
+N The junction~
+Ref 0
+D
+You stand in a junction leading north, west and east.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22002 3 100 1
+Dr 0 0 -1 22048
+~
+~
+Dr 1 0 -1 22060
+Darkness has closed in on that part of the sewer system, you can't see
+a thing in that direction.
+~
+~
+Dr 3 0 -1 22044
+West. You see another junction very similar to this one that leads north
+and west.
+~
+~
+End
+
+#22050
+N Small Room~
+Ref 0
+D
+The only thing in this room of interest is a chair, and that's tight to the 
+rock floor. A doorway leads south and another leads east into darkness.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED chair~
+This chair is made of marble, but the fact that it is worn and attached to the
+floor makes you think twice about taking it along with you.
+~
+R M 22003 8 100 1
+Dr 1 0 -1 22055
+Utter darkness...!
+~
+~
+Dr 2 0 -1 22051
+You can see a room with a lot of light in it. You can't make out any details.
+~
+~
+End
+
+#22051
+N Sewer Pipe~
+Ref 0
+D
+You are in what reminds you of a foul sewer, as if you liked being here! 
+You can see two exits leading either north or south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22050
+~
+~
+Dr 2 0 -1 22052
+To the south you can see a strange light flowing from there.
+~
+~
+End
+
+#22052
+N Grand Sewer~
+Ref 0
+D
+You are in a Grand Sewer Pipe. This stretches toward the south. It's large 
+indeed! A doorway leads to the east from here.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22051
+To the north you can see a doorway.
+~
+~
+Dr 1 0 -1 22056
+You can't see anything in that darkness.
+~
+~
+Dr 2 0 -1 22053
+In the south end of the pipe the "floor" is completely covered with water.
+~
+~
+End
+
+#22053
+N South End of Grand Pipe~
+Ref 0
+D
+You stand in water to your knees. A doorway leads west from here. The Pipe
+stretches north.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22052
+You see a lot of pictures decorating the walls.
+~
+~
+Dr 3 0 -1 22047
+~
+~
+End
+
+#22055
+N Edge of Main Flow~
+Ref 0
+D
+You stand in a room where half of the floor is covered in water. The water
+leads east and a doorway leads west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 1 0 -1 22061
+You can hardly make out much more than that the next place is in a pipe 
+with more water.
+~
+~
+Dr 3 0 -1 22050
+~
+~
+End
+
+#22056
+N The Dark hallway~
+Ref 0
+D
+You can't see much of this, even with a light. The hallway goes into a
+passageway to the south. A doorway leads west.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22057
+You can see nothing at all, because it's completely dark in that direction.
+~
+~
+Dr 3 0 -1 22052
+You see a lot of light, bright as daylight, but nothing of interest.
+~
+~
+End
+
+#22057
+N The dark passageway~
+Ref 0
+D
+You can't see anything but the ground where you put your feet. The 
+passageway seems to continue south and north.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22056
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22058
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22058
+N The dark passageway~
+Ref 0
+D
+You can't see anything but the ground where you put your feet. The
+passageway seems to continue south and north.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22057
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22059
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22059
+N The dark passageway~
+Ref 0
+D
+You can't see anything but the ground where you put your feet. The
+passageway seems to continue south and north.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22058
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22060
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22060
+N The dark passageway~
+Ref 0
+D
+You can't see anything but the ground where you put your feet. The
+passageway seems to continue west and north. To the east there's water
+covering the floor and that leads through an arched entry to a watery
+sewer.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22059
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 1 0 -1 22068
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 3 0 -1 22049
+You can just make out a triple junction leading north and west.
+~
+~
+End
+
+#22061
+N Watery Sewer Bend~
+Ref 0
+D
+You can't see anything but the ^Bwater^N you're in up to your hips. The sewer
+seems to bend and lead south and west.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 2 0 -1 22062
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 3 0 -1 22055
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22062
+N Flowing Sewer~
+Ref 0
+D
+You can't see anything but the ^Bwater^N you're in up to your hips. The sewer
+seems to lead south and north.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22061
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22063
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22063
+N Flowing Sewer~
+Ref 0
+D
+You can't see anything but the ^Bwater^N you're in up to your hips. The sewer
+seems to lead south and north.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22062
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22064
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22064
+N Flowing Sewer Junction~
+Ref 0
+D
+You can't see anything but the water you're in up to your hips. The sewer
+seems to lead into a junction going south, north and east.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22063
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 1 0 -1 22069
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22065
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22065
+N Flowing Sewer Pipe~
+Ref 0
+D
+You can't see anything but the water you're in up to your hips. The sewer
+seems to lead south and north.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22064
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22066
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22066
+N Flowing Sewer Pipe~
+Ref 0
+D
+You can't see anything but the water you're in up to your hips. The sewer
+seems to lead into a junction that goes north, south and east.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22065
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 1 0 -1 22070
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22067
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22067
+N Sewer~
+Ref 0
+D
+You can't see anything but the water you're in up to your hips. The sewer
+seems to lead south and north.
+~
+C
+~
+F 5
+S 5
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22066
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 2 0 -1 22068
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22068
+N The Watery sewer bend~
+Ref 0
+D
+You can't see anything but the water you're in up to your hips. The sewer
+seems to bend and lead west and north.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22067
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+Dr 3 0 -1 22060
+You can't see anything in that direction and your light isn't enough to light
+that far.
+~
+~
+End
+
+#22069
+N A ledge by the dark pool~
+Ref 0
+D
+You can't see much here but the echo tells you that there's quite a drop
+down. You can just make out a huge dark pool out there in the darkness, 
+mostly because of the trickling of ^Bwater^N. The water from the sewer actually
+washes over this ledge and makes it quite slippery. From here it drops, 
+like a waterfall, into the pool far down.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 2 0 -1 22070
+You can't see a thing. It's too dark.
+~
+~
+Dr 3 0 -1 22064
+You can't see a thing. It's too dark.
+~
+~
+End
+
+#22070
+N Ledge By the Dark Pool~
+Ref 0
+D
+You can't see much here but the echo tells you that there's quite a drop
+down. You can just make out a huge dark pool out there in the darkness,
+mostly because of the trickling of water. The water from the sewer actually
+washes over this ledge and makes it quite slippery. From here it drops,
+like a waterfall, into the pool far down. Under you there is a small fissure
+in the rock. It seems big enough to contain a few people.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+It looks dark and murky, and emanates a foul stench.
+~
+Dr 0 0 -1 22069
+You can't see a thing. It's too dark.
+~
+~
+Dr 3 0 -1 22066
+You can't see a thing. It's too dark.
+~
+~
+Dr 5 0 -1 22099
+~
+break in the rocks~
+End
+
+#22080
+N Path into the Forest~
+Ref 0
+D
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20280
+~
+~
+Dr 3 0 0 22822
+~
+~
+End
+
+#22099
+N Fissure Under the Ledge~
+Ref 0
+D
+This is a small fissure in the solid rock. Under you lies the deep dark pool.
+The water trickles quietly down from the ledge above you. The water smells 
+like the water in a sewer.
+~
+C
+~
+F 5
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 -1 22070
+~
+~
+Dr 5 0 -1 22199
+The water edge.
+~
+~
+End
+
+#22101
+N Snake Pit~
+Ref 0
+D
+You stand in a small room with a great big opening in the ceiling.  From
+this opening there's mud dripping down in large lumps.  You can smell the
+foul stench of the slimy sediment as you try not to get covered by the
+falling sludge.  To the east there is an entryway leading out from here and
+it seems absolutely impossible to force the muddy decent.  
+~
+C
+~
+F 13
+S 4
+M 0
+W 0
+T 0
+O ~
+ED mud~
+You never saw such disgusting matter before, it nearly makes you puke.
+~
+R M 22006 5 100 1
+Dr 1 0 -1 22103
+East. You see nothing of interest.
+~
+~
+End
+
+#22102
+N Under the Dark Pit~
+Ref 0
+D
+Nice place you found yourself. You stand in the middle of a room with only
+two exits, Up and East. A tall ladder is left here so that you can climb
+up through the Pit without the use of a rope.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+ED ladder~
+This is funny enough a wooden ladder and, after closer inspection, you
+discover it is magically held towards the wall! You can't, even with your
+greatest effort, rock it at ALL!
+~
+R M 22004 3 100 1
+Dr 1 0 -1 22104
+~
+~
+Dr 4 0 -1 22004
+Up. You can't see a thing up there, it's way too dark.
+~
+~
+Dr 5 0 -1 22400
+~
+trapdoor~
+End
+
+#22103
+N Muddy Bend in the Sewer System~
+Ref 0
+D
+You are standing in what looks like a bend in the pipe system of the
+sewer. The 'floor' is covered completely by mud! This includes covering
+your legs up to your knees as well. The pipe leads west and south.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+ED mud~
+You never saw such disgusting matter before, it nearly makes you puke.
+~
+R M 22000 3 100 1
+Dr 2 0 -1 22104
+To the south there's less mud than here! It actually seems to end there!
+You have a felling it would be nice to have your feet free from mud again.
+~
+~
+Dr 3 0 -1 22101
+You can see a room in which mud drips from the roof onto the floor in 
+great cakes of sludge. There doesn't seem to be any exits from that room
+apart from in you direction.
+~
+~
+End
+
+#22104
+N Junction in the Pipes~
+Ref 0
+D
+You stand in the middle of what looks like a triple junction of pipes
+going east, west and north.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22002 7 100 1
+Dr 0 0 -1 22103
+You can see a mud area starting in that direction.
+~
+~
+Dr 1 0 -1 22112
+East. You can't even make out what it might look like, it's just too dark.
+~
+~
+Dr 3 0 -1 22102
+West. There's a room with a ladder leading up.
+~
+~
+End
+
+#22105
+N Hanging in the Ancient Well~
+Ref 0
+D
+You are dangling on the slippery sides of the old well leading down and up.
+The only secure point here is the metal bars that are cemented into the 
+sides, the ones that you cling frantically to so that you don't fall. Who
+knows how deep this well is?
+~
+C
+~
+F 1
+S 5
+M 0
+W 0
+T 0
+O ~
+ED bars~
+These look like they're pretty slippery, and not very safe.  You'd better
+not go down any further.
+~
+Dr 4 0 -1 22015
+There's a slight, dim light from above, or maybe it's your imagination.
+Anyway it SEEMS darker down here than up there, if that is possible.
+~
+~
+Dr 5 0 0 22411
+~
+~
+End
+
+#22106
+N The northwestern corner of the ledge~
+Ref 0
+D
+You stand, swaying out from the ledge, with only a couple of inches of safe, 
+solid ledge under your feet. The ledge continues to the east but not back
+south. It seems that the ledge is too narrow to turn on so you'll have to
+continue forward.
+~
+C
+~
+F 13
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22113
+The ledge continues east.
+~
+~
+Dr 2 0 -1 22107
+The ledge continues south.
+~
+~
+End
+
+#22107
+N Minute Ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22106
+North. The ledge leads into a corner and turns eastward.
+~
+~
+Dr 1 0 -1 22190
+You stare into mid-air, and right under there's absolutely nothing but 
+darkness. You shiver by the thought of falling an utterly unknown distance.
+~
+~
+Dr 2 0 -1 22108
+South. The ledge leads further south into utter darkness.
+~
+~
+End
+
+#22108
+N Minute Ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards.
+~
+C
+~
+F 5
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22107
+North. The ledge leads further north.
+~
+~
+Dr 1 0 -1 22190
+You stare into mid-air, and right under there's absolutely nothing but
+darkness. You shiver by the thought of falling that distance.
+~
+~
+Dr 2 0 -1 22109
+The ledge continues further south into darkness.
+~
+~
+End
+
+#22109
+N Narrow Ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards.
+~
+C
+~
+F 5
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22108
+North. The ledge leads further north.
+~
+~
+Dr 1 0 -1 22190
+You stare into mid-air, and right under there's absolutely nothing but
+darkness. You shiver by the thought of falling that distance.
+~
+~
+Dr 2 0 -1 22110
+The ledge continues south into darkness.
+~
+~
+End
+
+#22110
+N Narrow Ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards.
+~
+C
+~
+F 5
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22109
+North. The ledge leads further north.
+~
+~
+Dr 1 0 0 22190
+~
+~
+Dr 2 0 -1 22111
+South. You can just make out the south-western corner of this ledge.
+~
+~
+End
+
+#22111
+N Southwest Corner of Ledge~
+Ref 0
+D
+This seems like a ledge that is a little broader than the one just to the 
+north of here. The ledge seems to lead around some sort of Abyss of total 
+darkness. The ledge seems to have an odd-looking edge here.
+~
+C
+~
+F 5
+S 2
+M 0
+W 0
+T 0
+O ~
+ED rock~
+It looks as if it can be opened in a door-like fashion. Maybe this will lead
+the way down.
+~
+ED step~
+A small rock sticks out right under it, otherwise the way is DOWN, DOWN, and
+SPLAT!!!
+~
+ED edge odd-looking~
+This is truly a weird piece of craftsmanship in your eyes. The edge seems to
+form a step leading down, but WHAT a STEP DOWN. The Abyss opens down there 
+leading to seemingly total destruction.
+~
+Dr 0 0 -1 22110
+North. The ledge leads further north.
+~
+~
+Dr 1 0 -1 22115
+You see a broad ledge leading eastward.
+~
+~
+Dr 2 0 -1 22112
+South of here is the exit from the ledge.
+~
+~
+Dr 5 0 -1 22279
+The Abyss lies down there. Who knows what might lurk down there?
+~
+~
+End
+
+#22112
+N Odd Intersection of Pipes~
+Ref 0
+D
+You stand in a rather odd intersection of pipes. The pipes actually don't
+resemble pipes anymore. They look more like a real stone tunnel, or a
+passageway hewn directly into the rock. The ways from here lead north, east
+and west.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22005 7 100 1
+Dr 0 0 -1 22111
+North. You see a ledge to something that looks like an abyss.
+~
+~
+Dr 1 0 -1 22122
+~
+~
+Dr 3 0 -1 22104
+~
+~
+End
+
+#22113
+N The narrow ledge going east to west~
+Ref 0
+D
+You are in the process of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22116
+The ledge leads further east.
+~
+~
+Dr 2 0 -1 22190
+You stare into mid-air, and right under there's absolutely nothing but
+darkness. You shiver by the thought of falling that distance.
+~
+~
+Dr 3 0 -1 22106
+The ledge leads further west.
+~
+~
+End
+
+#22114
+N the big tree~
+Ref 0
+D
+You're in the forest near a huge tree.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 19040
+~
+~
+End
+
+#22115
+N Broad Ledge~
+Ref 0
+D
+You are standing on a ledge that seems quite a lot larger than the rest 
+of the ledges. This one leads to the west and the east, plus it has an exit
+going to the south. Though you could jump into mid-air, but it probably 
+wouldn't be such a good idea. The way south is in utter darkness.
+~
+C
+~
+F 13
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22190
+~
+~
+Dr 1 0 -1 22121
+~
+~
+Dr 2 0 -1 22129
+~
+~
+Dr 3 0 -1 22111
+~
+~
+End
+
+#22116
+N The northeastern corner of the ledge~
+Ref 0
+D
+You stand, swaying out from the ledge, with only a couple of inches of safe,
+solid ledge under your feet. The ledge continues to the west and leads south
+from here into darkness.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+ED soil soft earth~
+You can just make out the outline of a trapdoor here in the soil. The earth
+is probably there to conceal a secret entrance. This looks as if it leads down
+into the seemingly solid rock face of the ledge.
+~
+ED ground ledge rock~
+The ground here seems a little different from all the other ledges along the
+Abyss. There's a kind of soft soil on this ledge, maybe you should look 
+carefully at this. It seems to be of some interest.
+~
+Dr 2 0 -1 22117
+~
+~
+Dr 3 0 -1 22113
+The ledge continues west.
+~
+~
+End
+
+#22117
+N The narrow eastern ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards. And THAT is west of here so watch your step.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22118
+The ledge leads further south.
+~
+~
+End
+
+#22118
+N The narrow eastern ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards. And THAT is west of here so watch your step.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22119
+The ledge leads further south.
+~
+~
+End
+
+#22119
+N The narrow eastern ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards. And THAT is west of here so watch your step.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22120
+The ledge leads further south.
+~
+~
+End
+
+#22120
+N The narrow eastern ledge~
+Ref 0
+D
+You are in the progress of walking all the way around the ledge since there's
+no way of turning around on this all too narrow path. There IS another exit
+from here but that leads right into mid-air and with high probability of a
+free fall session afterwards. And THAT is west of here so watch your step.
+You also see a small opening to the east.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22123
+East. You stare into darkness.
+~
+~
+Dr 2 0 -1 22121
+The ledge leads further south.
+~
+~
+Dr 3 0 -1 22114
+You stare into mid-air, and right under there's absolutely nothing but
+darkness. You shiver by the thought of falling that distance.
+~
+~
+End
+
+#22121
+N The southeastern corner of the ledge~
+Ref 0
+D
+This seems like a ledge that is a little broader than the one just to the
+north of here. The ledge seems to lead around some sort of abyss of total
+darkness.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22120
+North of here you can see a ledge.
+~
+~
+Dr 3 0 -1 22115
+The ledge leads further west.
+~
+~
+End
+
+#22122
+N Under the pit~
+Ref 0
+D
+You stand in a completely dark cavern leading west. The wall looks weird here.
+~
+C
+~
+F 1
+S 0
+M 0
+W 0
+T 0
+O ~
+ED wall~
+There is a crack here that looks like it has been made recently.
+~
+R M 22005 7 100 1
+Dr 3 0 -1 22112
+~
+~
+End
+
+#22123
+N Under The Shaft~
+Ref 0
+D
+A ladder leads up from here to the Shaft.
+A small opening leads west from here.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 22120
+You can see a narrow ledge going north and south.
+~
+~
+Dr 4 0 -1 22041
+It's too dark up there.
+~
+~
+End
+
+#22129
+N Sewer Line~
+Ref 0
+D
+You are in a narrow part of the sewer. Down the sewer continues and to the
+north is the ledge.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22115
+You can see the southern part of the ledge.
+~
+~
+Dr 5 0 -1 22221
+You look deeper down into the drain.
+~
+~
+End
+
+#22130
+N The sewer pipe.~
+Ref 0
+D
+You are in an odd sewer pipe You see some odd scratches on the pipe wall, as
+from a gigantic rat. You can see some slimy water gently running down into
+a sewer drain, and north the drain continues.
+~
+C
+~
+F 15
+S 3
+M 0
+W 0
+T 0
+O ~
+End
+
+#22190
+N Precipice~
+Ref 0
+D
+You're standing at the edge of a deep precipice, looking into the pitch
+blackness of the dark abyss.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 22115
+~
+~
+Dr 3 0 0 22110
+~
+~
+End
+
+#22199
+N The Edge of the Water~
+Ref 0
+D
+The pool side is dimly lit up by your light. You can see absolutely nothing
+else nearby. The darkness her seems enormously oppressive here. The air is
+damp and the rock on which you stand is slippery. The pool seems too dark 
+to make anything clear. The rock can be climbed upwards from here.
+~
+C
+~
+F 13
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 -1 22099
+~
+~
+End
+
+#22200
+N The Treasury~
+Ref 0
+D
+You are in a small but well equipped treasury.  You can see some writing on
+the wall.  The ceiling has a funny glow, which enables you to see.  You can
+get back into the inner lair through the stone door which is east.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+ED writing~
+You read the number '666'.
+~
+ED door stone~
+This is a heavy black stone door it looks very solid.
+~
+R O 22298 -5 100 1
+R O 22204 0 100 1
+Dr 1 1 7205 22201
+You look back through the opening into the inner lair.
+~
+stone door~
+End
+
+#22201
+N Inner Lair~
+Ref 0
+D
+You are in a octagonal room with smooth purple stone walls.  The floor is 
+made from black stone.  In the western wall you see a large black stone door.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22200 1 100 1
+Dr 2 1 -1 22202
+You look back through the door into the lair.
+~
+wood door~
+Dr 3 1 7205 22200
+You see the treasury.
+~
+stone door~
+End
+
+#22202
+N The Lair~
+Ref 0
+D
+On the floor you see a lot of human decay, like bones and skulls. You also
+see a lot of slime. On the wall is a torch sitting in its sconce. To the north 
+are a wooden door.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
+~
+ED slime~
+The slime is slimy and uninteresting.
+~
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
+~
+Dr 0 1 -1 22201
+You can see the inner lair.
+~
+wood door~
+Dr 1 0 -1 22205
+You see another part of the lair.
+~
+~
+Dr 2 0 -1 22203
+You see another part of the lair.
+~
+~
+End
+
+#22203
+N The Lair~
+Ref 0
+D
+On the floor you see a lot of human decay, like bones and skulls. You also
+see a lot of slime. On the wall is a torch sitting in its sconce.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
+~
+ED slime~
+The slime is slimy and uninteresting.
+~
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
+~
+R M 22201 1 100 1
+Dr 0 0 -1 22202
+You see another part of the lair.
+~
+~
+Dr 1 0 -1 22206
+You see another part of the lair.
+~
+~
+Dr 2 0 -1 22204
+You see another part of the lair.
+~
+~
+End
+
+#22204
+N The Lair~
+Ref 0
+D
+On the floor you see a lot of human decay, like bones and skulls. You also
+see a lot of slime. On the wall is a torch sitting in its sconce.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
+~
+ED slime~
+The slime is slimy and uninteresting.
+~
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
+~
+Dr 0 0 -1 22203
+You see another part of the lair.
+~
+~
+Dr 1 0 -1 22207
+You see another part of the lair.
+~
+~
+Dr 2 5 -1 22208
+You see the lair entrance.
+~
+wooden door~
+End
+
+#22205
+N Lair~
+Ref 0
+D
+On the floor you see a lot of human decay, like bones and skulls. You also
+see a lot of slime. On the wall is a torch sitting in its sconce.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
+~
+ED slime~
+The slime is slimy and uninteresting.
+~
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
+~
+R M 22202 2 100 1
+Dr 2 0 -1 22206
+You see another part of the lair.
+~
+~
+Dr 3 0 -1 22202
+You see another part of the lair.
+~
+~
+End
+
+#22206
+N Lair~
+Ref 0
+D
+On the floor you see a lot of human decay, like bones and skulls. You also
+see a lot of slime. On the wall is a torch sitting in its sconce.
+~
+C
+~
+F 12
+S 1
+M 0
+W 0
+T 0
+O ~
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
+~
+ED slime~
+The slime is slimy and uninteresting.
+~
+ED bones decay~
+All the bones are broken and old.
+~
+R O 22206 0 100 1
+Dr 0 0 -1 22205
+You see another part of the lair.
+~
+~
+Dr 2 0 -1 22207
+You see another part of the lair.
+~
+~
+Dr 3 0 -1 22203
+You see another part of the lair.
+~
+~
+End
+
+#22207
+N The lair.~
+Ref 0
+D
+On the floor you see a lot of human decay, like bones and skulls. You also
+see a lot of slime. On the wall is a torch sitting in its sconce.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
+~
+ED slime~
+The slime is slimy and uninteresting.
+~
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
+~
+R M 22202 2 100 1
+Dr 0 0 -1 22206
+You see another part of the lair.
+~
+~
+Dr 3 0 -1 22204
+You see another part of the lair.
+~
+~
+End
+
+#22208
+N Lair Entrance~
+Ref 0
+D
+You are in a dry part of the sewer. To the north is a wooden door, you 
+can see some slime at the lower part of the door. You also see some skulls
+and some broken bones.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+ED slime~
+The slime is slimy and uninteresting.
+~
+Dr 0 5 -1 22204
+You can see the lair.
+~
+wooden door~
+Dr 1 0 -1 22209
+You see a crawlway.
+~
+~
+End
+
+#22209
+N Crawlway~
+Ref 0
+D
+You are in a narrow crawlway.  You don't notice anything interesting here.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22210
+You see a four-way junction.
+~
+~
+Dr 3 0 -1 22208
+You see the entrance to a lair.
+~
+~
+End
+
+#22210
+N Four-Way Junction~
+Ref 0
+D
+You are in a sewer junction. To the north is a small hole, to the west is a
+narrow crawlway and to the east and south the sewer continues.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22211
+You can see a small cave-like room.
+~
+~
+Dr 1 0 -1 22212
+You can see a sewer drain.
+~
+~
+Dr 2 0 -1 22215
+You can see a sewer drain.
+~
+~
+Dr 3 0 -1 22209
+You can see a narrow crawlway.
+~
+~
+End
+
+#22211
+N Collapsed Drain~
+Ref 0
+D
+You are in a collapsed sewer drain, which now is more like a small cave.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22210
+You look back into the four-way junction.
+~
+~
+End
+
+#22212
+N Dry Sewer~
+Ref 0
+D
+You are in a dry sewer drain which bends to the north.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22213
+You can see the drain continuing north.
+~
+~
+Dr 3 0 -1 22210
+You can see the four-way junction.
+~
+~
+End
+
+#22213
+N Sewer~
+Ref 0
+D
+You are in a dry sewer drain which bends to the east.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22203 10 100 1
+Dr 1 0 -1 22214
+You can see the drain continuing east.
+~
+~
+Dr 2 0 -1 22212
+You can see the drain continuing south.
+~
+~
+End
+
+#22214
+N End of the Drain~
+Ref 0
+D
+You are at the end of the drain around you the sewer has collapsed, the only
+exit is west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22203 10 100 1
+Dr 3 0 -1 22213
+You see the sewer drain.
+~
+~
+End
+
+#22215
+N Wet Drain~
+Ref 0
+D
+You are in a sewer drain where the floor is covered with water. To the north
+it looks more dry, south however the drain runs down into some water.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+ED water~
+The water is dirty but it looks like you would be able to swim in it.
+~
+R M 22203 10 100 1
+Dr 0 0 -1 22210
+To the north lies a dry four-way junction.
+~
+~
+Dr 2 0 -1 22216
+To the south you see a sewer drain filled with water.
+~
+pool of water~
+End
+
+#22216
+N Underwater~
+Ref 0
+D
+You swim in some dirty water and is holding you breath. You'll better 
+continue before you drown. It is a good thing that you can hold your light
+above water-level.
+~
+C
+~
+F 9
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22215
+It is hard to see, but it looks like the drain runs slightly upwards.
+~
+drain~
+Dr 2 0 -1 22217
+It is hard to see, but it looks like the drain runs a little bit upwards.
+~
+~
+End
+
+#22217
+N Trickle Drain~
+Ref 0
+D
+You are in a half-dry sewer drain. To the north the drain runs a little bit
+downwards into some water to the east you can see a small hole. To the west
+you see another drain.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+ED hole~
+Through the hole you can just make out a very small room.
+~
+ED water~
+The water is dirty but it looks like you would be able to swim in it.
+~
+R M 22203 10 100 1
+Dr 0 0 -1 22216
+You see the drain running down into some water.  A pipe descends into
+darkness.  You can see the surface of water reflecting your face back at
+you.  
+~
+descending pipe~
+Dr 1 0 -1 22218
+Through the hole you can just make out a very small room.
+~
+ledge~
+Dr 3 0 -1 22219
+You see a drain running to the west.
+~
+~
+End
+
+#22218
+N End of Pipe~
+Ref 0
+D
+You are in a very small space, it is pretty uninteresting.
+You can see above you through a grating that is too high to reach.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 22217
+Through the little hole you can see a half-dry drain.
+~
+ledge~
+End
+
+#22219
+N Dry Area~
+Ref 0
+D
+You are in a dry but dirty sewer drain. The drain continues east and south.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22203 10 100 1
+Dr 1 0 -1 22217
+You see a half-dry drain.
+~
+pipe~
+Dr 2 0 -1 22220
+You see another boring sewer drain.
+~
+pipe~
+End
+
+#22220
+N L Drain~
+Ref 0
+D
+You are in yet another sewer drain.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22219
+You see a sewer drain continuing to the north.
+~
+pipe~
+Dr 1 0 -1 22221
+You can see another drain to the east.
+~
+~
+End
+
+#22221
+N Sewer Drain~
+Ref 0
+D
+You are in a sewer drain, there is nothing special inhere, except for a 
+loud echo.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22203 10 100 1
+Dr 1 0 -1 22222
+You can see another sewer drain.
+~
+~
+Dr 3 0 -1 22220
+You can make out a sewer drain to the west.
+~
+ledge~
+Dr 4 0 -1 22129
+You can see a sewer line.
+~
+~
+End
+
+#22222
+N Sewer Drain~
+Ref 0
+D
+You are in a drain, with some slimy water on the floor.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+ED slimy water~
+The water floats to the east from here.
+~
+Dr 1 0 -1 22223
+You see a sewer bend.
+~
+~
+Dr 3 0 -1 22221
+You see a sewer drain.
+~
+~
+End
+
+#22223
+N Sewer Bend~
+Ref 0
+D
+You find yourself in an ordinary sewer bend, which bend from west to north.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22203 10 100 1
+Dr 0 0 -1 22224
+You see a sewer drain.
+~
+pipe~
+Dr 3 0 -1 22222
+You see a sewer drain.
+~
+pipe~
+End
+
+#22224
+N Sewer Junction 8F~
+Ref 0
+D
+You stand in a junction of three sewer drains. You see some odd scratches on
+the pipe wall, as from a gigantic rat.North and south the sewer continues 
+as usual, but west it looks a little strange.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22225
+You see nothing but a sewer drain.
+~
+sewer~
+Dr 2 0 -1 22223
+You see nothing but a sewer drain.
+~
+~
+Dr 3 0 -1 22229
+You see a strange sewer pipe.
+~
+pipe~
+End
+
+#22225
+N Sewer 8F Extension~
+Ref 0
+D
+You are in a sewer, where the slimy water runs down through a tiny hole.
+You see some odd scratches on the pipe wall, as from a gigantic rat. There 
+is a sewer drain south.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22203 10 100 1
+Dr 2 0 -1 22224
+You see a sewer drain.
+~
+pipe~
+End
+
+#22229
+N Strange Pipe~
+Ref 0
+D
+You are in a very strange sewer indeed, there are some odd scratches on the
+pipe wall, as from a gigantic rat. And you can see a lot of organic decay
+like bones from animals and humans. West the drain runs slightly upwards.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22224
+You see a sewer junction.
+~
+strange pipe~
+Dr 3 0 -1 22230
+You see a slimy sewer drain.
+~
+strange pipe~
+End
+
+#22230
+N Damp Drain~
+Ref 0
+D
+You are in a sewer drain with a funny damp substance on the floor, in the 
+substance you see a lot of decay. You see some odd scratches on the wall, as
+from a gigantic rat. Both to the east and west the pipe seems to run down.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22229
+You see a sewer.
+~
+strange pipe~
+Dr 3 0 -1 22231
+You see a sewer.
+~
+drain~
+End
+
+#22231
+N Strange Sewer~
+Ref 0
+D
+You are in an ordinary sewer except for a lot of scratches on the sewer wall,
+ad a lot of debris on the floor.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+ED debris~
+You see a lot of organic decay on the floor.
+~
+Dr 1 0 -1 22230
+You see a sewer.
+~
+drain~
+Dr 3 0 -1 22232
+You see another sewer.
+~
+sewer~
+End
+
+#22232
+N Decayed Drain~
+Ref 0
+D
+You are in a sewer with more scratches on the walls. And of course a whole lot
+of decay. The drain runs east and north.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22233
+You see yet another sewer line.
+~
+drain~
+Dr 1 0 -1 22231
+You see a sewer pipe.
+~
+debris~
+End
+
+#22233
+N Drain~
+Ref 0
+D
+You stand in in a sewer drain, you are able to see some kind of cave-like
+room. You see some odd scratches on the drain wall, as from a gigantic rat. 
+The sewer leads south.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22203 10 100 1
+Dr 1 0 -1 22234
+You see a cave-like room.
+~
+~
+Dr 2 0 -1 22232
+You see a sewer.
+~
+~
+End
+
+#22234
+N Rat's Lair~
+Ref 0
+D
+You are in a little cave. You are able to see quite a lot of debris on the 
+floor. There is a sewer drain west of here.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 22204 1 100 1
+Dr 3 0 -1 22233
+You see the sewer system that way.
+~
+~
+End
+
+#22279
+N The Wall of the Abyss~
+Ref 0
+D
+You hang onto some steps leading down into utter darkness. There's an exit 
+leading up as well, though you'll have to open the tiny rock again to do so.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 -1 22111
+~
+~
+Dr 5 0 -1 22399
+~
+~
+End
+
+#22280
+N Dark Mud Pit~
+Ref 0
+D
+You are in a very dark room. You notice that some faces are
+staring at you from inside the walls. In the middle of the room
+there is a small altar. To the north there is a small round
+door.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED triangle~
+The triangle is filled with small symbols in a language you have
+never seen before.
+~
+ED altar~
+This altar are very special. Faces are smiling from it. There
+is a triangle in top of it.
+~
+R M 22000 8 100 1
+Dr 0 0 -1 22281
+A beam of red light seeps through a hole in the door.
+~
+small round door~
+End
+
+#22281
+N Corridor~
+Ref 0
+D
+The corridor is glowing oppressively in a red hue. You can hear wailing
+through an open black hole to the east. To the south there is a round door.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED walls~
+The walls look alive.
+~
+ED red light~
+The red light glows from the walls.
+~
+ED small round door~
+The door is completely round without a keyhole.
+~
+R M 22000 8 100 1
+Dr 1 0 -1 22282
+The hole seems more black than the night. It is appears to be "eating" the
+red light around it.
+~
+~
+Dr 2 0 -1 22280
+~
+small round door~
+End
+
+#22282
+N Wailing Hall~
+Ref 0
+D
+You are standing in nothing. All around you there are stars.
+Sometimes a shadow flies closely by you, wailing very loudly. 
+To the north there is a small bright hole. To the west there is 
+a small red hole.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED shadow~
+The shadow looks like a man in great pain.
+~
+Dr 0 0 -1 22283
+You look into a very bright hole.
+~
+~
+Dr 3 0 -1 22281
+You look into a red hole.
+~
+~
+End
+
+#22283
+N T-Junction~
+Ref 0
+D
+You are in a small hallway. There are doors to the east and to
+the west. To the south there are a black hole. There is writing
+in the wall. Wails can be heard from the south.
+~
+C
+~
+F 5
+S 1
+M 0
+W 0
+T 0
+O ~
+ED writing~
+The writing says 'The one to the east, belongs to the beast.
+To the west you will surely END your quest!'.
+~
+Dr 1 0 -1 22286
+Too dark to tell.
+~
+~
+Dr 2 0 -1 22282
+A black hole in the wall.
+~
+~
+Dr 3 0 0 22284
+~
+~
+End
+
+#22284
+N Fiery Depth~
+Ref 0
+D
+This room is very hot. There are flames surrounding you.  You can
+see no exits at all!  Skeletons are lying all over the floor.
+~
+C
+~
+F 6
+S 1
+M 0
+W 0
+T 0
+O ~
+ED writing wall~
+The writing says 'A pray to the GODS will not be heard, though
+the only exit is death..... Mother, I love you'.
+~
+ED skeletons~
+The skeletons looks like they had suffered the death of hunger.
+One of them looks like he has written something at the wall.
+~
+Dr 1 0 0 22283
+~
+~
+End
+
+#22285
+N Torture Room~
+Ref 0
+D
+You are standing in a middle of a square room. Along the walls ^Bskeletons^N 
+are hanging in rusty chains. In the middle of the room there is a ^Bbig metal 
+box^N, covered with dust. To the south you can just make out a small exit.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+ED big metal box~
+The metal box is covered with dust. You notice that is once has been
+filled with coal, as you see some of them.
+~
+ED skeletons~
+When you look at the skeletons, you can see that they once had been in great 
+pain. They are hanging in their arms, and some of them has been killed
+with a sharp instrument.
+~
+R M 22002 5 100 1
+Dr 2 0 -1 22286
+To dark to tell.
+~
+door iron~
+End
+
+#22286
+N Mud Pit~
+Ref 0
+D
+You are standing in a lot of mud. A disgusting smell surrounds
+the place, and makes you fell sick. Small flames sometimes shoot
+up from the hot mud. To the west there is a small door. To the 
+north you can see an iron door.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22000 8 100 1
+Dr 0 0 -1 22285
+To dark to tell.
+~
+door iron~
+Dr 3 0 -1 22283
+To dark to tell.
+~
+~
+End
+
+#22301
+N The Entrance to the Realm of silence~
+Ref 0
+D
+This is an utterly silent place. As you look around you see that there
+hasn't been a living thing in a long time. The dust lies here in a thick
+layer on the floor and on the furniture. On the wall hangs a bleak and 
+worn tapestry. A winding stone staircase leads up into darkness. On the 
+wall to the west you can see a huge torch stuck into the solid rock.
+A large portcullis blocks your way to the north.
+~
+C
+~
+F 14
+S 2
+M 0
+W 0
+T 0
+O ~
+ED stairs staircase~
+This looks as if it has been standing here for at least 12 centuries. It's 
+Very worn and cracks in the surface mingle with the cores of mineral that
+penetrates the rock from which these steps are chiselled.
+~
+ED torch light~
+This VERY old torch looks as if it has burned for ages, yet no traces of 
+the searing flame can be seen on it!
+~
+ED portcullis gate~
+This seems like an exceptionally heavy gate, made of thick iron.
+~
+End
+
+#22399
+N On the walls of the Abyss~
+Ref 0
+D
+You are clutching the steps on the wall so that you don't fall to the ground
+down below.
+A large sign says : I haven't gotten any further ... Yet. But  I'm pushing
+                    to get finished with this sewer. 
+                                           Greetings and Good Health :)
+
+                                                     Redferne The Gentle
+This stops your journey down, the only exit is up.
+~
+C
+~
+F 9
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 -1 22279
+~
+~
+End
+
+#22400
+N Cave entrance~
+Ref 0
+D
+You are standing in the cave entrance. It is very dark
+down here. There is writing at the wall. There is an exit
+to the north. A stairway leads up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED writing wall~
+The writing says 'BEWARE adventurer!'
+~
+Dr 0 0 -1 22401
+To the north you can see a small tunnel.
+~
+~
+Dr 4 0 -1 22102
+You can see the stairs going up into darkness.
+~
+~
+End
+
+#22401
+N Cave tunnel~
+Ref 0
+D
+You are walking in a tunnel. It is very cold. You
+can feel the presence of a living thing ... SOMEWHERE.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22008 4 100 1
+Dr 0 0 -1 22402
+To the north you can see the tunnel continuing.
+~
+~
+Dr 2 0 -1 22400
+To the south tunnel continuing.
+~
+~
+End
+
+#22402
+N Cave room~
+Ref 0
+D
+You are standing in a room. It's much cooler now.
+The walls are glowing.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22403
+To the east you see the tunnel going downwards.
+~
+~
+Dr 2 0 -1 22401
+To the south you see a dark cave tunnel.
+~
+~
+Dr 3 0 -1 22421
+~
+~
+End
+
+#22403
+N Cave T-cross~
+Ref 0
+D
+You are standing in a mud-like substance. The smell here is
+awful, it is rotten. To the west you can see some light.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED worms~
+The worms are purple. They do not look edible.
+~
+ED mud~
+When you examine the mud, you notice small worms crawling
+around.
+~
+R M 22013 3 100 1
+Dr 1 0 -1 22404
+To the east the tunnel still goes downwards.
+~
+~
+Dr 2 0 -1 22408
+~
+~
+Dr 3 0 -1 22402
+You can see some light to the west.
+~
+~
+End
+
+#22404
+N Cave Corner~
+Ref 0
+D
+The mud are getting deeper. You are wondering, 'Would
+it be an idea to leave, before I disappear?'. To the
+south you notice a flat round stone are blocking the
+way. To the west you can see mud.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED flat round stone~
+The stone looks very uninteresting. BUT as you are
+about to turn away, you see a lightstribe coming
+through a small hole. Conclusion: The stone is movable.
+~
+Dr 2 0 -1 22405
+You can see an opening behind the stone.
+~
+flat round stone~
+Dr 3 0 -1 22403
+~
+~
+End
+
+#22405
+N Forgotten Chamber~
+Ref 0
+D
+There is dust all over the place.  It looks like nobody has been here for
+ages.  In the middle of the room you see a socket with a crystal globe.  The
+globe glows with a pulsing light.  To the north you see a stone door.  To
+the south you see a grey block.  
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED crystal globe~
+The crystal globe is glowing with a pulsing light. It
+looks like there is smoke inside it.
+~
+ED socket~
+The socket looks like the work of a dwarf. It is VERY beautiful.
+~
+Dr 0 0 -1 22404
+You see a round stone door.
+~
+round stone door~
+Dr 2 0 -1 22406
+You see a grey block.
+~
+grey block~
+End
+
+#22406
+N The mudhole~
+Ref 0
+D
+You are standing in a lot of mud.  The mud goes to your chest.  You feel
+the presence of something in the mud.  
+~
+C
+~
+F 9
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 22044 6 100 1
+Dr 0 0 -1 22405
+You can see nothing at all.
+~
+grey block~
+Dr 3 0 -1 22407
+~
+crack at the top of a steep wall~
+End
+
+#22407
+N Tunnel~
+Ref 0
+D
+The mud goes to your knees. Otherwise the tunnel looks
+very normal.
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22408
+~
+~
+Dr 1 0 -1 22406
+You can see a mudhole.
+~
+~
+Dr 2 0 -1 22409
+~
+~
+End
+
+#22408
+N The Long Tunnel~
+Ref 0
+D
+Here There is almost no mud, as you stand at the top
+of a small rock. Just beside you there are a sign which
+says 'WARNING! The worms are dangerous!'.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22403
+You can see a lot of mud..Yarck!
+~
+~
+Dr 2 0 -1 22407
+The tunnel goes a little downwards.
+~
+~
+End
+
+#22409
+N Hot, Arid Tunnel~
+Ref 0
+D
+You are very surprised, as this room for a change are
+hot instead of cold. To the north it goes downwards into
+some mud. There are also an exit to the west.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22407
+You see a lot of mud.
+~
+~
+Dr 3 0 -1 22410
+You see a entrance to a small room.
+~
+~
+End
+
+#22410
+N Small Room~
+Ref 0
+D
+As you look around you notice a small ^Bstatue^N. There are
+exits to the west and to the east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED small statue~
+This is a statue of a imp, pointing to the west. The imp
+looks like a man with horns and a tail.
+~
+Dr 1 0 -1 22409
+It is pitch dark out there.
+~
+~
+Dr 3 0 -1 22411
+You see a VERY long hallway.
+~
+~
+End
+
+#22411
+N Stalagmite Cave~
+Ref 0
+D
+You are standing in a ^Bstalagmite^N cave. Water is dripping
+from the walls. It is very cold in here.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED stalagmite~
+The stalagmites are very tall, and looks very beautiful.
+~
+Dr 0 0 -1 22414
+~
+~
+Dr 1 0 -1 22410
+You see a long hallway, and some mud.
+~
+~
+Dr 2 0 -1 22412
+~
+~
+Dr 4 0 0 22105
+~
+~
+End
+
+#22412
+N The stalagmite tunnel~
+Ref 0
+D
+You has entered a small tunnel. Here it is quite dry.
+Maybe it would be an idea to rest here.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22013 3 100 1
+Dr 0 0 -1 22411
+You can see a small cave to the north.
+~
+~
+Dr 3 0 -1 22413
+~
+~
+End
+
+#22413
+N Dank, Spongy Hall~
+Ref 0
+D
+You definitely not like this area.  It is very dank, and most of the
+places are wet.  
+~
+C
+~
+F 12
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22412
+~
+~
+Dr 3 0 -1 22445
+~
+~
+End
+
+#22414
+N Stalagmite T-Junction~
+Ref 0
+D
+You are standing in a cross. To the north you can see
+some light. Otherwise it is dark.
+~
+C
+~
+F 12
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22417
+You see some light ahead.
+~
+~
+Dr 1 0 -1 22415
+~
+~
+Dr 2 0 -1 22411
+~
+~
+End
+
+#22415
+N The blind end room~
+Ref 0
+D
+This room is obviously a blind end. To the north you see
+a primitive picture.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED primitive picture~
+You see some persons dancing around a huge sun. The
+sun is about 7 feet in diameter, which shows the size
+of the picture.
+~
+Dr 0 0 -1 22416
+You see a primitive picture
+~
+sun~
+Dr 3 0 -1 22414
+~
+~
+End
+
+#22416
+N The treasure room~
+Ref 0
+D
+This room is rich ornamented. The walls has carves showing
+persons dancing around a sun which is drawn at the floor. It
+looks very old, and it is very dusty. To the south you see a
+secret door.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22415
+you can see a picture with some persons crawling around a
+huge moon.
+~
+door picture sun moon~
+End
+
+#22417
+N Square Lair~
+Ref 0
+D
+You are standing in the south-east part of the lair.  You can see a
+^Bskeleton^N lying at the wall.  
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED skeleton~
+It looks like a adventurer who wasn't lucky. You better
+watch out-
+~
+Dr 0 0 -1 22418
+Another part of the lair
+~
+~
+Dr 2 0 -1 22414
+~
+~
+Dr 3 0 -1 22420
+Another part of the lair
+~
+~
+End
+
+#22418
+N Square Lair~
+Ref 0
+D
+You are standing in the north-east part of the lair. You see
+a sign at the wall
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign wall~
+The sign says 'Gods of War I call you, my sword is by my side,
+               I seek a light free from all false pride'
+                       Reyemle Grug.....
+~
+Dr 1 0 -1 22421
+You see a wooden door
+~
+wooden door~
+Dr 2 0 -1 22417
+another part of the lair.
+~
+~
+Dr 3 0 -1 22419
+another part of the lair.
+~
+~
+End
+
+#22419
+N Square Lair~
+Ref 0
+D
+You are standing in the north-west part of the lair. Here's
+another sign. There are a exit from the lair to the north.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign says 'I'm wandering around in a everlasting tale,
+               seeking the light to regain my pride
+                           Corama...
+~
+R M 22045 1 100 1
+Dr 0 0 -1 22422
+You see a small tunnel leading north.
+~
+~
+Dr 1 0 -1 22418
+another part of the lair.
+~
+~
+Dr 2 0 -1 22420
+another part of the lair.
+~
+~
+End
+
+#22420
+N Square Lair~
+Ref 0
+D
+You can see a ^Btable^N in front of you.  It's very dusty.  Around the table
+five ^Bskeletons^N are siting.  Exits are north and east.  A statue of a
+^Bdragon^N is carved into a column.  
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED dragon statue~
+it looks like a silver dragon. It is nailed onto the table.
+The dragon sits on a red dragon that looks dead. But the
+eyes of the red dragon is glowing pulsating red. You feel
+drained.
+~
+ED skeleton skeletons~
+You can see that they have been killed in some sort of way. Not
+by sword or club.
+~
+ED table~
+On the table there is dust, in the center there is a small statue of a
+Dragon sleeping.
+~
+Dr 0 0 -1 22419
+the northern part of the lair.
+~
+~
+Dr 1 0 -1 22417
+the eastern part of the lair.
+~
+~
+End
+
+#22421
+N East tunnel~
+Ref 0
+D
+You are standing in dark tunnel, the exits are east
+and west. To the west you see a wooden door.
+~
+C
+~
+F 12
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22402
+You can see a muddy tunnel.
+~
+~
+Dr 3 0 -1 22418
+You can see a wooden door.
+~
+wooden door~
+End
+
+#22422
+N North Tunnel~
+Ref 0
+D
+You are standing in a dark tunnel, it leads upwards.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22007 3 100 1
+Dr 0 0 -1 22423
+The dark tunnel continues.
+~
+~
+Dr 2 0 -1 22419
+You can see the lair.
+~
+~
+Dr 3 0 -1 22436
+You can see a cave entrance.
+~
+~
+End
+
+#22423
+N L-shaped Room~
+Ref 0
+D
+You are standing in deep darkness. To the south there is a small exit.
+To the east you can see a gaping hole.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 22011 3 100 1
+Dr 1 0 -1 22424
+~
+~
+Dr 2 0 -1 22422
+~
+~
+End
+
+#22424
+N Circular Hall~
+Ref 0
+D
+You are standing in round hall. To the north, east and south you
+can see a stone head hanging on the walls.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+ED blue~
+This looks like a good dragon
+~
+ED red~
+This looks like a neutral dragon
+~
+ED green~
+This looks like a evil dragon
+~
+ED head heads~
+When you study the faces of the heads you see that it
+is faces of dragons. The face to the north is red, the
+face to the east is green and the face to the south is
+blue.
+~
+R M 22046 1 100 1
+Dr 1 0 -1 22425
+you see nothing special.
+~
+green head dragon sculpture face~
+Dr 3 0 -1 22423
+you see a room far away.
+~
+~
+End
+
+#22425
+N Dusty Tunnel~
+Ref 0
+D
+You are standing in dust. This place has not been
+touched for a long time. Otherwise it is quite boring
+here, looks like a place to rest! To the west you see
+the outline of a door. A tunnel leads to the east.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 22426
+You see a tunnel which leads downwards. It is quite
+dark.
+~
+~
+Dr 3 0 -1 22424
+You can see the outline of a door. Just like in the
+description!
+~
+door~
+End
+
+#22426
+N Crossroads~
+Ref 0
+D
+You are standing in a crossing of hallways. You can leave this place
+in every direction, except up and down. In the dust you notice strange
+^Bfootprints^N.
+~
+C
+~
+F 1
+S 2
+M 0
+W 0
+T 0
+O ~
+ED footprints foot~
+You have never seen this kind of footprints before!
+~
+Dr 0 0 -1 22431
+~
+~
+Dr 1 0 -1 22430
+~
+~
+Dr 2 0 -1 22427
+~
+~
+Dr 3 0 -1 22425
+~
+~
+End
+
+#22427
+N The L-shaped room~
+Ref 0
+D
+You are standing in a L-shaped room. You can hear noises from the long
+tunnel to the east. You can feel fear! A sign is hanging on the wall.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED sign~
+The sign says 'DANGER!!'.
+~
+Dr 0 0 -1 22426
+~
+~
+Dr 1 0 -1 22428
+a long dark tunnel.
+~
+~
+End
+
+#22428
+N Bone-Strewn Dragon Lair~
+Ref 0
+D
+You can see burned walls, the floorstones are fiery red.  All kinds of bones
+are scattered all over the floor.  On the walls you can see some burned
+shapes.  You smell burned flesh.  Two creatures are melted into the floor.
+You're next.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22040 1 100 1
+R O 16315 11 100 1
+R O 50 -3 75 10
+R O 20015 -3 75 2
+Dr 0 0 -1 22429
+You can see a long tunnel.
+~
+~
+Dr 3 0 -1 22427
+You can see nothing but darkness.
+~
+~
+End
+
+#22429
+N Burned Room~
+Ref 0
+D
+You are in a room, which once had been quite burned.
+There is writing on the wall.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED writing~
+The writing says 'DANGER!!!'
+~
+R M 22010 2 100 1
+Dr 2 0 -1 22428
+You can see a red glow
+~
+~
+Dr 3 0 -1 22430
+~
+~
+End
+
+#22430
+N Wind Tunnel~
+Ref 0
+D
+You are standing in a tunnel. Above you, you can feel
+a ^Bbreeze^N.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+ED breeze~
+The breeze comes from a hole above you. NO way to get up
+there.
+~
+Dr 1 0 -1 22429
+To dark to tell
+~
+~
+Dr 3 0 -1 22426
+~
+~
+End
+
+#22431
+N Glittering Room~
+Ref 0
+D
+This room are all bright. In the walls you can see some
+^Bsilver^N. Exits are: West, east and south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED glitter walls silver~
+The glittering silver looks like it is INSIDE the walls.
+~
+Dr 1 0 -1 22432
+~
+~
+Dr 2 0 -1 22426
+~
+~
+Dr 3 0 -1 22433
+~
+~
+End
+
+#22432
+N Secret Passage~
+Ref 0
+D
+You have entered a tiny room.  There was an exit down, and an exit to the
+west.  
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 22431
+You can see a light to the west
+~
+~
+Dr 5 0 0 17801
+~
+crack~
+End
+
+#22433
+N Long Tunnel~
+Ref 0
+D
+You are at a end of a long tunnel.  Right in front of you, you can see a
+grey mass.  To the east you can see a tremendous long tunnel, but you know
+that you have just been there.  
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+ED grey mass~
+The mass is nothing but a mass, but it is quite suspicious!
+~
+Dr 1 0 -1 22431
+Long tunnel. JUST like in the description!
+~
+~
+Dr 3 0 0 22434
+~
+~
+End
+
+#22434
+N Top of Stair~
+Ref 0
+D
+You are standing in a small room. Drawings of faces in pain
+are on the walls. You can fell darkness is ruling the place.
+there are two exits: south and down.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22433
+~
+~
+Dr 2 0 -1 22435
+nothing but darkness
+~
+~
+Dr 5 0 0 17800
+~
+~
+End
+
+#22435
+N Dark Tunnel~
+Ref 0
+D
+You are standing in a dark tunnel. It continues to the north
+and to the south. Bones are spread on the floor
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+ED bones bone~
+it looks like bones of a human.
+~
+R M 22042 2 100 1
+Dr 0 0 -1 22434
+~
+~
+Dr 2 0 -1 22436
+~
+~
+End
+
+#22436
+N Rotten Lair~
+Ref 0
+D
+The smell here is awful.  To the south you can see some smoke.
+A tunnel leads north, and east.
+~
+C
+~
+F 5
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22435
+~
+~
+Dr 1 0 -1 22422
+A small cave is to the east.
+~
+~
+Dr 2 0 -1 22437
+the only thing you can see are smoke.
+~
+~
+End
+
+#22437
+N Northeastern Basilisk Cave~
+Ref 0
+D
+It is hard to see here because of the smoke. To the north you
+can see barely see a small tunnel. Other exits are to the south
+and to the west.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22436
+~
+~
+Dr 2 0 -1 22438
+~
+~
+Dr 3 0 -1 22439
+~
+~
+Dr 8 0 0 22440
+~
+~
+End
+
+#22438
+N Basilisk Cave~
+Ref 0
+D
+There are a very small hole in wall, from where the smoke
+are coming from. Otherwise it is pitch dark. Exits are north
+and west.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED hole small~
+It's a small hole. About 1 feet in diameter.
+~
+Dr 0 0 -1 22437
+You can see nothing but smoke
+~
+~
+Dr 3 0 -1 22440
+You can see nothing but smoke
+~
+~
+Dr 6 0 0 22439
+~
+~
+End
+
+#22439
+N Northwestern Corner of Cave~
+Ref 0
+D
+You can see some hay spread on the floor. The smell is awful here,
+and it makes you feel sick.  The basilisk sleeps here.
+Watch out ... Maybe it is not far away.
+~
+C
+~
+F 9
+S 2
+M 0
+W 0
+T 0
+O ~
+ED hay~
+The hay is very dirty. The smell of it makes you feel sick.
+~
+R M 22043 3 100 1
+Dr 1 0 -1 22437
+~
+~
+Dr 2 0 -1 22440
+~
+~
+Dr 9 0 0 22438
+~
+~
+End
+
+#22440
+N Southwestern Edge of Basilisk Cave~
+Ref 0
+D
+You can see nothing but smoke. 
+~
+C
+~
+F 9
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22439
+~
+~
+Dr 1 0 -1 22438
+~
+~
+Dr 2 0 -1 22441
+~
+~
+Dr 7 0 0 22437
+~
+~
+End
+
+#22441
+N Small Cave~
+Ref 0
+D
+You are standing in small cave. You can see
+some light in the end. Exits are north and south.
+~
+C
+~
+F 13
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22440
+You can see only smoke.
+~
+~
+Dr 2 0 -1 22442
+You can see a blue glow. And you feel a fresh breeze.
+~
+~
+End
+
+#22442
+N Northern End of the Pool~
+Ref 0
+D
+You have wet feet, you are standing in water. The water looks calm. You can
+see that it's a big lake. Light seeps from the water.
+~
+C
+~
+F 8
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22441
+You can see a small cave.
+~
+~
+Dr 1 0 -1 22443
+You can see more water.
+~
+~
+Dr 2 0 -1 22444
+You can see water.
+~
+~
+End
+
+#22443
+N Pool~
+Ref 0
+D
+You are swimming in water. It is getting deep here. It is dark in this end.
+~
+C
+~
+F 1
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 22445
+You can see some bubbles in the water.
+~
+~
+Dr 3 0 -1 22442
+You see calm water.
+~
+~
+End
+
+#22444
+N Southern End of the Pool~
+Ref 0
+D
+You standing in water up to you neck. You can only see water.
+~
+C
+~
+F 8
+S 6
+M 0
+W 0
+T 0
+O ~
+R M 22041 2 100 1
+Dr 0 0 -1 22442
+You can see calm water.
+~
+~
+Dr 1 0 -1 22445
+To dark to tell, but you can feel something nearby.
+~
+~
+End
+
+#22445
+N Pool~
+Ref 0
+D
+You are swimming in darkness.  You feel something touching your right leg.  
+~
+C
+~
+F 1
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22443
+To dark to tell.
+~
+~
+Dr 1 0 -1 22413
+You can feel a warm breeze.
+~
+~
+Dr 3 0 -1 22444
+~
+~
+End
+
+#0
+
+
+
+#$

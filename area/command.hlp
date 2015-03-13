@@ -1,0 +1,1709 @@
+#HELPS
+
+4 SUMMARY~
+
+                     The Twilight zone General Help Index
+                       (for Immortal characters)
+
+     For a list of topics, use commands delineated by type "help help"
+
+          For a complete list of commands, type "commands" now.  
+        In order to get help on each command, type "help <command>"
+        
+       For the advanced set of wizard commands, type "wizhelp" now.
+
+** Please take note, now that you are immortal, certain commands will    ***
+** function differently than the norm.  Review each command that you are ***
+** unsure of.                                                            ***
+
+~
+
+0 SUMMARY~
+
+                     The Twilight zone General Help Index
+                     
+     For a list of topics, use commands delineated by type "help help"
+
+          For a complete list of commands, type "commands" now.  
+        In order to get help on each command, type "help <command>"
+        
+~
+
+0 NORTH~
+Syntax:  north
+
+  By typing this command, your character attempts to move north.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> north
+You walk north.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 EAST~
+Syntax:  east
+
+  By typing this command, your character attempts to move east.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> east
+You walk east.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 SOUTH~
+Syntax:  south
+
+  By typing this command, your character attempts to move south.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> south
+You walk south.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 WEST~
+Syntax:  WEST
+
+  By typing this command, your character attempts to move west.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> west
+You walk west.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 UP~
+Syntax:  up
+
+  By typing this command, your character attempts to move up.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> up
+You walk up.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 DOWN~
+Syntax:  down
+
+  By typing this command, your character attempts to move down.  If there
+  is no exit, a closed exit, a window or other impassible obstacle, your
+  character will recieve the appropriate message and will remain in his
+  current location.
+
+Example:
+
+> down
+You walk down.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 NORTHWEST NW~
+Syntax:  northwest
+
+  By typing this command, your character attempts to move northwest.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> northwest
+You walk northwest.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 NORTHEAST NE~
+Syntax:  northeast
+
+  By typing this command, your character attempts to move northeast.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> northeast
+You walk northeast.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 SOUTHWEST SW~
+Syntax:  southwest
+
+  By typing this command, your character attempts to move southwest.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> southwest
+You walk southwest.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 SOUTHEAST SE~
+Syntax:  southeast
+
+  By typing this command, your character attempts to move southeast.  If
+  there is no exit, a closed exit, a window or other impassible obstacle,
+  your character will recieve the appropriate message and will remain in
+  his current location.
+
+Example:
+
+> southeast
+You walk southeast.
+
+  See Also:  North, South, East, etc.
+  Related topics:  Movement
+
+~
+
+
+0 GO~
+Syntax:  go <object>
+
+  This command allows you to enter a portal, tent, wagon or other object
+  which is an exit to another location.
+
+> go portal
+You enter a portal.
+
+  See also:  Enter, Leave
+  Related topics:  Movement
+
+~
+
+
+0 ENTER~
+Syntax:  enter <object>
+
+  This command allows you to enter a portal, tent, wagon or other object
+  which is an exit to another location.
+
+> enter portal
+You enter a portal.
+
+  See also:  Go, Leave
+  Related topics:  Movement
+
+~
+
+
+0 BUY~
+Syntax:  buy <item#> [keeper]
+         buy <object> [keeper]
+         buy <component> [keeper]
+
+  This command allows a transaction to take place between your character
+  and an automated shopkeeper somewhere in the world.  When you receive
+  a listing of sold merchandise, numbers are listed next to sold items.
+  Use these numbers to directly access the object.  You can also supply
+  the keeper's name if you are in a shop with more than one.
+
+Example:
+
+> buy 1
+You buy a red fullcloth and receive 1 silver, 2 copper in change.
+> buy moonseed
+You buy a moonseed and receive 1 silver in change.
+> buy hat
+You buy a straw hat.
+
+  See also: Sell, List, Trade, Barter, Offer
+  Related topics:  Trading
+
+~
+
+
+0 EXITS~
+Syntax:  exits
+
+  This command displays the discernable exits for the room you are
+  currently in.  Certain exits may not be shown if they are secret
+  doors or concealed exits.
+
+Example:
+
+> exits
+To the north is Kess Plaza.
+To the west is Truncot Road.
+A back door leads south to The Hovelcove.
+To the east is a closed double door.
+
+  See also: Look, Set
+
+~
+
+
+0 TAKE GET~
+Syntax:  get all
+         get all.<object>
+         get <#.object>
+         get <object>
+         get all.<object> <object>
+         get <object> <object>
+
+  This command allows you to pick up objects that are in the room or inside
+  of nearby containers such as backpacks, storage chests, strongboxes or
+  a cloak.  It also allows you to get a series of objects with a certain
+  name.  To pick up one of a series, a supplied number allows for you to
+  extract a single object of many.
+
+ NOTE: "Take" is a synonymous command.
+
+Example:
+
+> get all.sword
+You get a longsword.
+You get a brass halfsword.
+> get lamp
+You get an oil lamp.
+> get 4.ring
+You get a glass ring.
+> get waterskin backpack
+You get a waterskin from a leather backpack.
+
+  See also: Drop, Dump
+  
+~
+
+
+0 INVENTORY~
+Syntax:  inventory
+
+  This command displays all the contents of your bare hands and any of
+  your open containers such as packs or your clothing.
+
+Example:
+
+> inventory
+A small shoulder pack contains:
+ two small apples
+ a royal sealed letter
+ a torn ragdoll
+ an empty lantern
+A money belt contains:
+ three copper coins
+ two platinum coins
+ one gold coin
+You wield a shortsword in your primary hand.
+
+  See also:  Look
+
+~
+
+
+0 ENGAGE~
+Syntax:  ENGAGE <person>
+
+  The engage command allows you to engage in combat with an enemy.  If you
+  fail to hit an enemy on your first try, you will not engage in combat
+  with that enemy unless you attempt again.  Typing this command during
+  combat does not aid the battle at all.
+
+Example:
+
+> kill ikthius
+You miss the pale dakonenne with your club.
+> kill ikthius
+You swing your club and lightly bruise the pale dakonenne's flesh.
+
+  See also:  Flee
+  Related topics:  Combat
+
+~
+
+
+0 LOOK~
+Syntax:  look
+         look <direction>
+         look <object>
+         look in <object>
+         look on <object>
+
+  This command is an important way for you to find out about the world
+  around you, the people around you, and where you have kept your most
+  beloved belongings.
+
+Example:
+
+> look north
+Just north of here, a large pair of double doors are set into the side of
+the Inn, allowing entrance to its foyer.
+The double door is open.
+Asynthia is nearby north from here.
+> look barrel
+A straight-sided barrel is hooped with thin metal strips and wooden pegs.
+> look on table
+There is nothing placed on an oak table.
+
+  See also:  Examine
+  Related topics:  Scan
+ 
+~
+
+
+0 REST~
+Syntax:  rest
+
+  By using this command, you have opted to be placed in a resting position.
+  If you are resting, you gain back movement and health faster than if you
+  were standing, sitting or mounted.  If you are riding a mount, and you
+  type this command, your mount will also rest, regaining its own threshold
+  of fatigue as well.
+
+Example:
+
+> rest
+You sit down and rest.
+> rest
+A flea-bitten blue-dun horse curls up on the ground.
+You swing your legs to the side and dismount.
+
+  See also:  Sit, Stand, Sleep, Mount, Dismount
+
+~
+
+
+0 SIT~
+Syntax:  sit [object]
+
+  You can sit on furniture, if you so desire, or on the ground.
+
+Example:
+
+> sit
+You sit down.
+> sit chair
+You sit down on a wooden chair.
+
+  See also:  Rest, Stand, Sleep
+
+~
+
+
+0 STAND~
+Syntax:  stand
+
+  Typing this command makes your character stop sleeping, sitting or riding.
+
+Example:
+
+> stand
+You stand up.
+
+  See also:  Sit, Stand, Sleep
+
+~
+
+
+0 SHEATHE~
+Syntax:  sheathe
+
+  Sheathing an object requires a belt and an object suitable to be sheathed.
+  If you remove your belt with sheathed objects in it, the contents of your
+  belt will fall onto the floor.
+
+Example:
+
+> sheathe
+You sheathe a sword sword in your belt.
+
+  See also:  Draw, Hold, Wield, Remove, Wear, Wield
+
+~
+
+
+0 WIELD~
+Syntax:  wield <object>
+
+  Wield allows a weapon that only being held to be wielded instead.
+  When you wield a weapon, your strength limits you to the overall strength
+  required to successfully utilize a shield, a primary weapon and the
+  weapon you are currently trying to wield.
+
+Example:
+
+> wield battleaxe
+You wield a battleaxe.
+> wield longsword
+You are wielding too much already.
+
+  See also:  Hold, Remove, Wear, Sheathe, Draw
+
+~
+
+
+0 'BUG TYPO IDEA' BUG TYPO IDEA~
+Syntax:  bug [problem]
+         typo [error]
+         idea [suggestion]
+
+  These commands help the administration to fix inconsistencies, code errors
+  and take your suggestions.  We do actually look at these files from time
+  to time to see what is contained in them.
+
+Example:
+
+> bug I pick up my weapon and it disappears!
+Thanks.
+> typo You spelled 'chrisathemum' wrong in this room.
+Ok.
+> idea You should add a graphical client!
+Thanks.
+
+~
+
+
+0 COMMANDS~
+Syntax:  commands
+
+  Typing this command lists all commands currently available to you.
+
+~
+
+
+0 SHOOT~
+
+  This command has not yet been fully implemented.
+  
+~
+
+
+0 COMPARE~
+
+  This command has not yet been fully implemented.
+
+~
+
+0 CSEDITS~
+Syntax: credits
+
+  The credits command shows you what this software is, who wrote it,
+  and who deserves to be thanked for making this possible.
+
+  See also:  Diku, Merc, Nimud, Thanks
+  
+~
+
+0 EQUIPMENT~
+Syntax:  equipment
+
+  This command displays a list of what you are using, wielding, wearing
+  and what is hung from your belt.  It is a complement to the inventory
+  command.
+  
+  See also:  Inventory
+
+~
+
+
+0 HELP~
+Syntax:  help
+         help <keyword>
+         help #<case-sensitive search string>
+         
+  The help command is probably the most useful command within the game.
+  It allows you to glean information about the world, the commands and
+  the rules here.  An advanced feature of the help command is the ability
+  to search through the help files and return a list of keywords that
+  contain a search string within them.  This allows you to search a wide
+  range of topics for a sub-topic.
+  
+> help #Locke
+Related Topics:
+MOTD
+WIZLIST
+NIMUD
+NEWS
+GREETING
+
+  Related topics:  Summary
+  
+~
+ 
+
+0 REPORT~
+Syntax:  report
+
+  Reports, aloud, your status to the room.
+  
+> report
+You report that you are fine and fresh.
+
+  See also:  Score
+
+~
+
+
+0 SCORE~
+Syntax:  score
+
+  Reports detailed information about the status of your character.
+  
+  See also:  Report
+  
+~
+  
+
+0 SOCIALS~
+Syntax:  socials
+
+  This command lists all socials in the game.  Socials are commands that
+  do not affect others but, rather, are used for roleplaying without
+  the constant use of the emote command.  Socials add flavor to the
+  environment, as well as realism.  Each social listed with this command
+  can be used to act upon another player or yourself, if you wish.
+  
+  See also:  Emote
+  
+~
+
+
+0 SKILLS~
+Syntax:  skills
+         skills <group name>
+         skills <skill name>
+         
+  The skills command shows you what skills you are studying.  Skills,
+  in general, are listed in two columns beneath their group name.
+  To view an individual group, or an individual skill, type the name
+  of that group along with the command.
+  
+  Related topics:  Apprenticing, Skill Groups
+  
+~
+
+
+3 TIME~
+Syntax:  time
+Immort:  time full
+
+  For immortals, aside from the regular information gleaned through this
+  command, using the advanced time full command lets you view the numerical
+  values of weather and time variables within the game, as well as booting
+  and version information.
+  
+> time full
+It is early morning on the day of Ruz, the Black Crow, the twenty-fourth
+of the month of Vod, the Season of the White Fox, in winter, the year four
+hundred fifty-five.  You cannot tell what the weather is like from here.  
+The Twilight zone Update 9/13/95
+Booted at:   Mon Oct 30 16:51:27 1995
+System time: Mon Oct 30 17:05:26 1995
+Temp:   21  Windspd:    4  Dir:       0  Month:    1  Hour:    3  Phase:    1
+Sky:     1  MMHG:     996  Change:  -10  Day:     23  Year:  455  Next:     4
+Sun:     0  NumHour: 40268  Area:    278  Actor:      3  Fgt:    11  Auto:  11315
+
+~
+  
+0 TIME~
+Syntax:  time
+
+  This command allows your player to view weather and time information
+  about the world around you.
+  
+> time
+It is early morning on the day of Ruz, the Black Crow, the twenty-fourth
+of the month of Vod, the Season of the White Fox, in winter, the year four
+hundred fifty-five.  The sky is scattered with a few flakes and a cold
+northward breeze blows.  The moon is behind a cloud.  
+
+  Related topics:  Weather, Calendar
+  
+~
+
+
+0 WHO~
+Syntax:  who
+
+  This age-old command allows you to detect how many other players are
+  connected, what visible immortals are on, and how long you have until
+  the mud will autoreboot.
+
+> who  
+[ Conceiver ] Callista reigns o'er the heavens.
+[ God       ] Encompassing the celestial void, Locke adjoins all things.
+There are 8 players and 2 visible gods, with a high of 13.
+Next reboot will occur in 168 hours.
+
+  Related topics:  Reboots
+
+~
+
+
+0 SET~
+Syntax:  set
+         set <option>
+         set +<option>
+         set -<option>
+         set <#page length>
+         
+  Lets you change your account data.  Typing 'set' alone shows your
+  current settings.  Set followed by a number sets the length of your
+  <more> prompt (page length).  Set <option> toggles the option, while
+  you can also make sure you are setting it with a + or - denoting
+  on or off.
+  
+  See also:  Pager, Ansi, Brief, Blank, Color, Prompt, Compact, Password
+  
+~
+
+0 PAGER~
+Syntax:  pager <lines>
+
+  Lets you set your lines-per-page pausing length.
+
+  See also:  Set
+  
+~
+
+0 ANSI COLOR~
+Syntax:  color
+         color <keyword> <color>
+         
+  Lets you change your default colors with ANSI support.
+  
+  See also:  Set
+  
+~
+
+
+0 BRIEF BLANK COMPACT~
+
+  Toggles a feature of your account.
+  
+~
+
+
+4 PROMPT~
+Syntax:  prompt
+         prompt all
+         prompt <settings>
+         
+  This command lets you customize your prompt to display the information
+  you want it to.  Here is a list of prompt variables.
+
+                  [Standard Prompt Variables]
+                  
+       ^h ^m    - display hits/moves (in "fine fresh" format)
+       ^g       - show a tally of your money
+       ^v       - display your visibility status  (i=invisible V=visible)
+       ^n       - go to a new line
+       ^^       - display a carrot       
+
+                    [Ansi Prompt Variables]  
+                    
+       ^0-7     - display a color (ansi)
+       ^B       - activate ansi code for bold text
+       ^I       - activate ansi code for inverse text
+       ^F       - activate ansi code for flashing text
+       ^N       - deactivate all ansi codes (normal text)
+       
+                  [Immortal Prompt Variables]
+
+       ^H ^M    - show hits/move as percentage
+       ^r       - show the room vnum you are in
+       ^z       - show the area name you are in (area name)
+       ^Z       - show the area vnum you are in
+       ^v       - show wizinvis level
+       ^c       - show the TYPE of editor you are using (olc)
+       ^C       - show the vnum you are editing (olc)
+
+~
+
+0 PROMPT~
+Syntax:  prompt
+         prompt all
+         prompt <settings>
+         
+  This command lets you customize your prompt to display the information
+  you want it to.  Here is a list of prompt variables.
+
+                  [Standard Prompt Variables]
+                  
+       ^h ^m    - display hits/moves (in "fine fresh" format)
+       ^g       - show a tally of your money
+       ^v       - display your visibility status  (i=invisible V=visible)
+       ^n       - go to a new line
+       ^^       - display a carrot    
+
+                    [Ansi Prompt Variables]  
+                    
+       ^0-7     - display a color (ansi)
+       ^B       - activate ansi code for bold text
+       ^I       - activate ansi code for inverse text
+       ^F       - activate ansi code for flashing text
+       ^N       - deactivate all ansi codes (normal text)
+
+Example:
+       
+> prompt
+Prompt ON.
+> prompt all
+< fine fresh > prompt ^h>
+Prompt set to '^h> '.
+fine>
+       
+~
+
+
+0 PASSWORD~
+Syntax:  password <old> <new>
+
+  Lets you change the password for your character.  Remember it!
+  
+~
+
+0 CLEAR~
+Syntax:  clear
+
+  For ANSI users, this command clears your screen of incoming text.
+  
+~
+         
+0 EMOTE~
+Syntax:  emote <action>
+Token:   :<action>
+
+  If socials aren't enough for you, the emote command allows you to
+  do customized actions.
+
+Example:
+  
+> emote dances for joy at the sound of a mandolin!
+The dark-haired thilon dances for joy at the sound of a mandolin!
+
+  See also:  Socials
+
+~
+
+0 NOTE~
+Syntax:  note list                           note <num>
+         note read <num>                     note remove <num>   
+         note delete <num>                   note to <person(s)>
+         note to all                         note to immort
+         note subject <text>                 note write         
+         note post                           note show          
+         note clear
+
+  You must be in a room with a bulletin board in order to use this system.
+  Each bulletin board has two access levels: level to read notes and
+  level to write notes.  Not every board has the same messages as the last,
+  but some boards can share the same notes.  Each set has a unique name.
+
+Example:
+
+> note list
+The following notes are on the Public board:
+[1   Fri Aug 26 11:29:00 1994] Cryk to all: This Mud
+[2   Fri Aug 26 17:32:52 1994] Locke to all: Cryk
+
+~
+
+4 SAY~
+Syntax:  say <text>
+Token:   '<text>
+         "<text>
+
+  Spoken word is the main form of communication on the mud.  When you speak,
+  you speak in your default language, unless you change it with the speak
+  command.  There is no gaurantee that you will not be overheard by people
+  hiding in the room you are in.
+  
+  NOTE TO IMMORTALS:  Immortals speak languages so that all can understand
+  them, and they understand all languages spoken as well.
+
+  See also:  Ooc, Whisper, Shout
+  
+~
+
+
+0 SAY~
+Syntax:  say <text>
+Token:   '<text>
+         "<text>
+
+  Spoken word is the main form of communication on the mud.  When you speak,
+  you speak in your default language, unless you change it with the speak
+  command.  There is no gaurantee that you will not be overheard by people
+  hiding in the room you are in.
+
+Example:
+  
+> say how fare thee, drev?
+You ask, in english:
+  "How fare thee, drev?"
+  
+  See also:  Ooc, Whisper, Shout
+  
+~
+
+
+0 OOC~
+Syntax:  ooc <text>
+
+  The ooc command stands for "out of character," and is used when referring
+  to topics not related to the game.  Abuse may mean removal.
+
+Example:
+  
+> ooc Did you notice a bug before when the thilon was here?
+You say, out-of-character:
+  "Did you notice a bug before when the thilon was here?"
+
+~
+
+
+0 SHOUT~
+Syntax:  shout <text>
+
+  When you shout, your voice is heard for a distance of two rooms, no
+  greater.  Shouts are spoken in your default language.
+
+Example:
+  
+> shout Ho, stand back dwarf!
+You shout, in english:
+  "Ho, stand back dwarf!"
+
+  See also:  Say, Ooc, Whisper, Shout
+  
+~
+
+0 CONTACT~
+
+  This command has not yet been fully implemented.
+  
+~ 
+
+4 WISH~
+Syntax:  wish
+         
+  For immortals, the wish command alone toggles whether or not you listen
+  to immortal wishes.
+  
+~
+
+0 WISH~
+Syntax:  wish <immortal> <text>
+         wish all <text>
+         
+  The wish command allows mortals to contact immortals without being
+  in the same room for administrative purposes.  Use this command
+  carefully, abuse may mean removal.
+
+~
+
+0 SMOTE~
+Syntax:  smote <text|#code|text>
+
+  The smote command (S-mote) allows you to interject the appropriate
+  verb into your speech at any place you wish.  If you do not use a code
+  to insert a verb, smote defaults to regular talking.  You may use only
+  one verb per smote.  Where ever you feel it is appropriate, simply
+  type a # sign followed by one of the verbs in the following list:
+  
+    say      state     declare    greet     hail     speak    report
+    remark   comment   continue   chuckle   laugh    sneer    grin
+    smile    exclaim   shout      yell      scream   grimace  boom
+    thunder  roar      storm      blare     bellow   demand   warn
+    advise   suggest   observe    whisper   sob      sigh     coo
+    groan    croak     rasp       agree     decide   disagree object
+    decline  utter     mumble     mutter    murmur   grunt    stutter
+    ask      respond   muse       ponder    wonder   ruminate grumble
+    growl    snap      snarl      spit      retort   squeak   whimper
+    whine    beg       pray       explain   offer    inquire  sing
+
+Example:
+    
+> smote I am just testing the smote system #warn
+In english:
+  "I am just testing the smote system," you warn.
+  
+~
+
+0 'MAGIC ITEMS' BRANDISH ZAP QUAFF RECITE~
+
+  These commands are still being debated.
+  
+~
+
+0 CLOSE~
+Syntax:  close <container>
+         close <door> [direction]
+         
+  The close command shuts a pack, door, jar, barrel or whatever other
+  appropriate item you can think of.
+
+Example:    
+
+> close door west
+You close a small wooden door.
+> close pack
+You close a small shoulder pack.
+
+   See also:  Open
+  
+~
+
+0 OPEN~
+Syntax:  open <container>
+         open <door> [direction]
+         
+  The open command opens a pack, door, jar, barrel, or whatever other
+  appropriate item you can think of.
+
+Example:    
+
+> open door west
+You open a small wooden door.
+> open pack
+You open a small shoulder pack.
+
+   See also:  Close
+   
+~
+
+0 DUMP~
+Syntax:  dump <container>
+         dump <source> <target>
+         
+  The dump command allows you to quickly exchange a series of objects
+  from one container to another, or to empty a container for some reason.
+
+Example
+> dump pack
+You dump the contents of a small shoulder pack onto the ground.
+
+   See also:  Pour
+   
+~
+
+0 DRAW~
+Syntax:  draw
+         draw <item>
+         
+  Draws an item from your belt.  Draw alone draws as many items as you
+  can hold.
+
+Example:
+
+> draw
+You draw a fine silver dagger from your belt.
+  
+   See also:  Sheathe, Wield, Hold, Remove, Wear
+   
+~
+
+0 DRAG~
+
+  This command is not yet fully implemented.
+  
+~
+
+0 DRINK~
+Syntax:  drink <fountain>
+         drink <container>
+         
+  The drink command allows your character to combat thirst.  Be wary
+  of poison, fell traveler!
+
+Example:
+
+> drink canteen
+You drink water from a small travel canteen.
+  
+   See also:  Pour, Fill, Eat
+   Related topics:  Poison
+   
+~
+
+0 DROP~
+Syntax:  drop <item>
+         drop <number> <money>
+
+  This command drops one of the items in your hands onto the ground.  If
+  you supply a number, followed by a money object, only a portion of the
+  amount is dropped.
+  
+Example:
+
+> drop plate
+You drop a wooden plate.
+> drop 5 platinum
+You drop five platinum coins.
+
+   See also:  Get, Give
+   
+~
+
+0 EAT~
+Syntax:  eat <food>
+
+  The eat command allows you to sustain your character's hunger.  You
+  must use this command in order to quell your hunger and stop from
+  starving.  Eating certain foods is beneficial and other foods can be
+  harmful.  Be wary.
+  
+Example:
+
+> eat trout
+You eat a poached trout.
+The trout has a flavorful palette and is very filling.
+
+   See also:  Drink
+
+~
+
+0 EXTINGUISH~
+Syntax:  extinguish <light>
+
+  This command extinguishes lit light-sources.
+  
+Example:
+
+> extinguish lamp
+You extinguish a brass lamp.
+
+   See also:  Light
+   
+~
+
+0 FILL~
+Syntax:  fill <container> 
+         fill <lamp> [oil container]
+         
+  The fill command lets you replenish supplies from watersources or refuel
+  lanterns.  Lanterns must be extinguished before you attempt to refill them.
+
+Example:
+
+> fill canteen
+You fill a canteen with water from a fountain.
+> fill lamp flask
+You empty an oil flask into a hooded brass lantern.
+
+   See also:  Pour
+   
+~
+
+0 GIVE~
+Syntax:  give <object> <player>
+         give <number> <money> <person>
+
+  This command allows you to give another person an object, provided they
+  have a free hand in which to carry it.  If you supply a quantity,
+  followed by a money object, only a portion is transferred.
+  
+Example:
+
+> give sword lazlo
+You give a sword to the brown-eyed triosk.
+> give 5 platinum innkeeper
+You give five platinum coins to a stout innkeeper.
+
+   See also:  Drop, Get
+   
+~
+
+0 HOLD~
+Syntax:  hold <item>
+
+  The hold command stops a wielded weapon from being used in combat
+  and returns it to an unready position.  Readied weapons are defined
+  as ones held in their correct manner to deliver substantial blows
+  in combat -- to hold a sword and to wield a sword are two very
+  different things.
+  
+Example:
+
+> hold sword
+You stop wielding a sword.
+You hold a sword.
+
+   See also:  Wield, Sheathe, Draw
+
+~
+
+0 LIGHT~
+Syntax:  light <lamp>
+
+  The light command ignites a torch, lantern or other light source.
+  To deactivate a lit lightsource, use the extinguish command.  Most
+  lightsources require a tinderbox or other striking paraphenalia.
+  
+Example:
+
+> light lantern
+You light an old lantern with a small tinderbox.
+
+   See also:  Extinguish
+   
+~
+
+0 LIST~
+Syntax:  list [shopkeeper]
+
+  This command has not yet been fully implemented, but allows you to
+  see the inventory for sale at a shop.
+  
+~
+
+0 LOCK~
+Syntax:  lock <container>
+         lock <door> [direction]
+         
+  The lock command fastens a door or container closed, but can only
+  be performed if you have the necessary key.
+
+Example:
+
+> lock gate north
+You lock the wrought iron gate with a rusty key.
+> lock case
+You lock a map case.
+  
+   See also:  Open, Unlock, Close
+
+~
+
+0 PICK~
+Syntax:  pick <door> [direction]
+
+  This command is not yet fully implemented.
+  
+~
+
+0 POUR~
+Syntax:  pour <container>
+         pour <source> <target>
+         
+  This command allows you to manipulate the liquid in containers.  Pouring
+  your container into nothing pours it out onto the ground.
+  
+Example:
+
+> pour flask
+You pour lamp oil from a flask of oil onto the ground.
+
+   See also:  Fill, Dump
+
+~
+
+0 PUT~
+Syntax:  put <object> <container/furniture>
+
+  The put command allows you to store objects on or in other objects.
+  
+Example:
+
+> put lamp table
+You put an old lamp on a wooden table.
+
+   See also:  Get, Dump
+   
+~
+
+0 REMOVE~
+Syntax:  remove <item>
+
+  This command allows you to stop using items or articles of clothing.
+  
+Example:
+
+> remove cape
+You stop using a long cape.
+
+   See also:  Wear, Wield, Sheathe, Draw
+
+~
+
+0 RELOAD~
+Syntax:  reload <weapon>
+
+  This command is not yet fully implemented.
+  
+~
+
+0 SELL~
+Syntax:  sell <item> [shopkeeper]
+
+  This command is not yet fully implemented.
+  
+~
+
+0 SWAP~
+Syntax:  swap
+
+  This command swaps what is in your right hand with what is in your left.
+  
+Example:
+
+> swap
+You swap your flask of oil into your secondary hand.
+
+   See also:  Sheathe, Draw, Wear, Wield, Hold
+   
+~
+
+0 UNLOCK~
+Syntax:  unlock <door> [direction]
+         unlock <container>
+         
+  The unlock command can only be successfully completed with the use of
+  the appropriate key.
+  
+Example:
+
+> unlock hatbox
+You unlock a hasped hatbox with a small metal key.
+
+   See also:  Open, Lock, Close
+   
+~
+ 
+0 WEAR~
+Syntax:  wear <object> [location]
+
+You can wear things in the following locations:
+
+lfinger     rfinger       neck1       neck2         body        head
+legs        feet          hands       arms          shield      about
+waist       lwrist        rwrist      floating      belt1       belt2
+belt3       belt4         belt5       hold1         hold2       lshoulder
+rshoulder   lear          rear        lankle        rankle      shirt
+pants       back          nose        forehead      helm        stockings
+face        wield1        wield2      asbelt1       asbelt2     asbelt3
+
+  See also:  Sheathe, Draw, Wield, Swap, Hold
+
+~
+
+0 SLEEP~
+Syntax:  sleep
+
+  The sleep command forces you to lie down and fall asleep.
+
+Example:
+
+> sleep
+You lie down and fall asleep.
+
+
+  See also:  Wake, Stand, Sit, Rest
+  
+~
+
+
+0 WAKE~
+Syntax:  wake [person]
+
+  The wake command allows a character to wake up from a sleeping state, or
+  to force someone else to do the same.
+
+Example:
+
+> wake iktho
+You wake him.
+
+   See also:  Stand, Sleep, Rest, Sit
+   
+~
+
+0 MOUNT~
+Syntax:  mount <mount>
+
+  The mount command initiates the riding of a mount animal.  Mounts can be
+  horses, burrows or other similar creatures.
+  
+Example:
+
+> mount horse
+You leap onto a war horse's back.
+
+   See also:  Rest, Dismount, Hitch, Unhitch
+   
+~
+
+0 DISMOUNT~
+Syntax:  dismount
+
+  This allows you to stop riding another creature.
+   
+  NOTE: Using the "rest" command is a much more effective means for field
+  use as mounts are in a resting position and regain their fatigue.
+  
+Example:
+
+> dismount
+You swing your legs to the side and dismount.
+
+~
+
+
+0 FOLLOW~
+Syntax:  follow <person>
+         follow self
+
+  This command causes your character to follow another character, visibly.
+  You fall in line behind them.  It is best used if you are in a party or
+  group adventuring, or if you are following someone to an unknown
+  destination.  By following yourself, you abort the follow procedure.
+  
+Example:
+
+> follow bevran
+You now follow Bevran.
+
+   See also:  Sneak
+
+~
+
+0 QUIT~
+Syntax:  quit
+         quit menu
+         
+  The quit command saves your character and quits.  If you supply the word
+  'menu' after the quit command, the parser exits to the main login menu.
+  
+Example:
+
+> quit
+Farewell!
+
+   See also:  Save  
+   
+~
+
+0 SAVE~
+Syntax:  save
+
+  The save command performs a disk save of your character.  Characters
+  are saved automatically every so often, and when database dumps occur,
+  or when reboots happen.
+  
+Example:
+
+> save
+Player saved.
+
+   See also:  Quit
+   
+~
+
+0 FIGHT~
+Syntax:  fight
+         fight <posture>
+
+  This command changes your fighting posture.  Type "fight" alone to see
+  what your current posture is.
+
+       Possible postures:
+
+          elusive
+          cautious
+          normal
+          bold
+          berserk
+
+   See also:  Combat
+
+~
+
+
+0 'REMAINING COMMANDS'~  
+flee        rescue      retreat
+peek        hide        hitch       learn       practice    
+steal       track       
+train       unhitch     enter       leave
+~
+
+10 ADVANCE~
+Syntax:  advance <player> <level> [constellation]
+
+  The advance command allows you to change the player's security level and
+  modify the constellation message displayed in the who list for immortals.
+  Constellations use the %s form of notation to denote the immortal's name.
+  
+~
+
+10 SHELL~
+Syntax:  shell <command>
+
+  This highly dangerous command runs an external shell and executes a given
+  unix command.  Scary.
+  
+~
+
+9 ZEDIT~
+Syntax:  aedit [vnum]
+
+  This allows you to enter the area editor.  Once inside, you have the
+  following command subset:
+  
+      name              file             show
+      age               security         done
+      repop             builders         ?
+      vnum              lvnum
+      uvnum
+ 
+
+   See also:  Medit, Oedit, Redit
+   Related topics:  AEditor, OLC     
+   
+~
+
+9 SHUTDOWN~
+Syntax:  shutdown
+
+  This command shuts down the mud without a reboot.
+  
+   See also:  Reboot
+   
+~
+
+9 ALLOW~
+Syntax:  allow <address>
+
+  This command re-allows a banned address wildcard set.
+  
+Example:
+
+> allow *.andrew.cmu.edu
+  
+   See also:  Ban
+   
+~
+
+9 BAN~
+Syntax:  ban <address>
+         ban
+
+  This command bans users at a particular address from connecting to the
+  mud.  Type ban by itself to see which sites are banned.
+  
+Example:
+
+> ban cyh-100.cyert.cmu.edu
+> ban *.lm.com
+
+   See also:  Allow
+   
+~
+
+9 DENY~
+Syntax:  deny <character>
+
+  This command restricts a certain character from logging in with his
+  character.
+  
+   See also:  Cload
+   
+~
+
+9 OSET~
+Syntax:  oset <object> <field> <value>
+
+  Allows you to modify objects that are placed into the game.
+         
+  Field being one of:
+     value1, 2, 3, 4               
+     extra   wear    level   weight
+     cost    type    timer   size
+     name    short   long
+     
+   See also:  Mset, Sset
+     
+~
+ 
+9 MSET~
+Syntax:  mset <victim> <field> <value>
+
+  Allows you to modify an existing actor or player within the game.
+
+  Field being one of:
+     sex      class    race
+     hp       move     timer
+     master   practice
+     act      affect   name 
+     short    long     description
+     
+  For Players Only:
+     str      int      wis 
+     dex      con      security
+     race     size     thirst
+     drunk    full     keywords
+     constellation
+
+   See also:  Sset, Oset
+   
+~
+
+9 SSET~
+Syntax:  sset <victim> <skill> <value|max>
+         sset <victim> all <value|max>
+         
+  Allows you to bestow characters with skills.
+  
+   See also:  Mset, Oset
+   
+~
+
+9 LOG~
+Syntax:  log <string>
+
+  Logs a string to the log file to be read by administrators.
+  
+~
+
+9 GLOBAL~
+Syntax:  global <message>
+
+  This sends a global message to all descriptors -- logged in and not.
+  
+   See also:  Echo, REcho, System
+   
+~
+
+8 DISCON~
+Syntax:  discon <player>
+
+  Forcefully disconnects a player.
+  
+~
+
+8 FREEZE~
+Syntax:  freeze <player>
+
+  Security feature that stops a player from using commands.
+  
+~
+
+8 REBOOT~
+Syntax:  reboot
+         reboot <minutes>
+
+  Sets the number of minutes until the next reboot, or forces an
+  immediate reboot.
+  
+   See also:  Shutdown
+   
+~
+
+8 WIZLOCK~
+Syntax:  wizlock
+
+  Toggles the wizlock on the mud.  A wizlock prevents mortals from logging
+  into the game.
+  
+~
+
+8 FORCE~
+Syntax:  force <actor> <command>
+
+  Forces an action upon a actor or player.
+  
+~
+
+8 NOEMOTE~
+Syntax:  noemote <player>
+
+  Security feature which prevents a player from using the emote command.
+  
+~
+
+8 SLAY~
+Syntax:  slay <actor>
+
+  Instantly kills a player or actor.
+  
+~
+
+8 SOCKETS~
+Syntax:  sockets
+
+  Shows a list of all loaded players in the game.
+  
+~
+ 
+10 'OTHER IMMORTAL COMMANDS'~
+
+        at [ 8]      echo [ 8]    return [ 8]     snoop [ 8]    switch [ 8]
+   comlist [ 8]     sedit [ 7]    bounty [ 7]     peace [ 7]     recho [ 7]
+    system [ 7]     cload [ 7]    resets [ 5]     redit [ 5]     oedit [ 5]
+     medit [ 5]    actor [ 5]    object [ 5]      room [ 5]     mload [ 5]
+     oload [ 5]      stat [ 5]     astat [ 5]     asave [ 5]     rfind [ 5]
+     ofind [ 5]     mfind [ 5]     pfind [ 5]     purge [ 5]   slookup [ 5]
+     areas [ 5]    script [ 5]    tables [ 5]    memory [ 5]     users [ 4]
+   restore [ 4]  transfer [ 4]    wizify [ 4]    bamfin [ 4]   bamfout [ 4]
+      goto [ 4] holylight [ 4]     invis [ 4]    notify [ 4]   immtalk [ 3]
+         ] [ 3]   wizhelp [ 3]     where [ 3]
+
+~
+
+0 $~
+
+#$
+
+

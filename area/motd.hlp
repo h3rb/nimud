@@ -1,0 +1,177 @@
+#HELPS
+0 GUEST~
+Guest characters are not to interfere in the game.  If a guest character
+is caught interfering, they will be ejected.  Repeat violations result
+in site bans.
+
+Guest characters are forever "OOC" or Out-Of-Character, which means there
+actions should be ignored and have no effect on gameplay.
+
+It is suggested to our players to be courteous to Guest characters.
+~
+
+
+3 IMOTD~
+
+--[immortals]----------------------------------------------------------
+The Immortal Bulletin Board loads in room vnum 2.
+~
+
+
+
+0 MOTD~
+------------------------ Message of the Day ---------------------------
+
+    On the web: http://www.nimud.org    
+
+    View the board in the Hovelcove for more information.
+
+-----------------------------------------------------------------------
+Press return. ~
+
+-1 WIZLIST~
+
+   Administrator: Locke          RP Concepts: Morgenes
+ Online Creation: Surreality     Special Weapons: Surreality
+ Combat Routines: Newt
+
+~
+
+
+
+-1 NIMUD~
+**************************************************************************
+* Locke's   __ -based on merc v2.2-____       NIM Server Software        *
+* ___ ___  (__)__    __ __   __ ___| G| v4.0  Version 4.0 GOLD EDITION   *
+* |  /   \  __|  \__/  |  | |  |     O|       documentation release      *
+* |       ||  |        |  \_|  | ()  L|       Hallow's Eve 1999          *
+* |    |  ||  |  |__|  |       |     D|                                  *
+* |____|__|___|__|  |__|\___/__|______|       http://www.nimud.org/nimud *
+*   n a m e l e s s i n c a r n a t e         dedicated to chris cool    *
+**************************************************************************
+      
+You can always find out what version of NiMUD this is by watching as you
+log in.  After the Message Of The Day is displayed, the version will be
+shown in a 'welcome' message.
+
+What is NiMUD all about?  Well, NiMUD is designed to accommodate the best
+features of all previous muds into one single mud that is easy, fun and
+unique to play.  NiMUD contains source code that is derived from numerous
+mud softwares or individual modified mud's.  Type 'HELP THANKS' for a
+full list of information on this topic.
+~
+
+
+-1 DIKU~
+.                    Original game idea, concept, and design:
+
+          Katja Nyboe               [Superwoman] (katz@freja.diku.dk)
+          Tom Madsen              [Stormbringer] (noop@freja.diku.dk)
+          Hans Henrik Staerfeldt           [God] (bombman@freja.diku.dk)
+          Michael Seifert                 [Papi] (seifert@freja.diku.dk)
+          Sebastian Hammer               [Quinn] (quinn@freja.diku.dk)
+
+                     Additional contributions from:
+
+Michael Curran  - the player title collection and additional locations.
+Ragnar Loenn    - the bulletin board.
+Bill Wisner     - for being the first to successfully port the game,
+                  uncovering several old bugs, uh, inconsistencies,
+                  in the process.
+
+And: Mads Haar and Stephan Dahl for additional locations.
+
+Developed at: DIKU -- The Department of Computer Science
+                      at the University of Copenhagen.
+
+~
+
+                                  
+-1 MERC~
+This mud is based on Merc 2.2, created by Kahn, Hatchet, and Furey.  Merc 2.2
+is an upgrade from Merc 2.1, created by Furey, Hatchet, and Kahn.  Merc 2.2
+is available as Merc_22.tar.gz from ferkel.ucsb.edu (most files moved to
+ftp.tcp.com), ftp.math.okstate.edu, marble.bu.edu, zen.btc.uwe.ac.uk
+E-mail to 'merc-request@kpc.com' to join the merc mailing list.
+
+Thanks to ...
+  ... Diku Mud for starting it all.
+  ... The Free Software Foundation and DJ Delorie for kick-ass tools.
+  ... Copper Mud and Alfa Mud for releasing their code and worlds.
+  ... Aod of Generic for ... well, everything.  You're a hoopy frood, Aod.
+  ... Alander for many ideas and contributions.
+  ... John Brothers of Silly for permission to use Silly code and worlds.
+  ... Zrin for administering the mailing list.
+  ... Abaddon for proofreading our comm.c.
+  ... Hind, Quin, Vic, Diavolo, Oleg, and others for porting help.
+  ... Diavolo, Grodyn, Morgenes, Da Pub, Loki, Talen, Kalgen, Sludge,
+      The Crew of Salems Lot, and others for code and bug fixes.
+  ... N'Atas-Ha for the pager skeleton and Blackstar  for the improvements
+      and ideas to the pager.
+  ... Raff, Doctor, VampLestat, Nirrad, Tyrst, PinkF, Chris for worlds.
+  ... Ikee, Chaos, Kraze, Maxx, Thoth, Zolstead, Zavod, VampLestat, Cyric,
+      Kelvin, and Jackal for extensively playtesting MERC 2.2 and providing
+      constructive input.
+  ... the players and imps of Mud Dome, Final Mud, Mud Lite, Vego Mud, Rivers
+      of Mud, Ruhr Mud, Mystic Realms, 4th Realm, Dragon Mud, and Salems Lot
+      for bug reports, ideas, new code, and hours of enjoyment.
+
+Share and enjoy.
+MERC Industries
+~
+
+
+
+
+-1 NEWS~
+Locke's RECENT list of changes (long):    
+This list is in no specific order what so ever!  Wrote as much as I could.
+'*' indicates coding done by Surreality.
+
+(08/25/94) Rewrote help.
+(09/22/98) THE ISLES RETURNS
+(01/03/02) THE ISLES RETURNS AGAIN
+
+Please see the nimud development list for more information:
+nimud-subscribe@groups.yahoo.com
+
+~
+  
+
+
+-1 FAREWELL~
+
+"Tut, tut, thou art all ice, thy kindness freezeth"
+        - William Shakespeare, King Richard III
+
+"Woe be to the Goddess"
+        - Malaclypse the Younger, KSC
+
+"If I wanted realism, I'd go outside."
+        - Painkiller, Hidden Worlds MUD
+
+Thank you for coming, please return.  We are always making improvements.
+
+~
+
+
+0 THANKS~
+
+We salute the following people for their innovative ideas, coding and help:
+
+Kalgen of Zetesta                   - world interaction, combat ideas
+Xlixlt                              - area creation standards
+Kahn, Hatchet and Kith of Envy Mud  - user-friendliness, portability
+Morgenes of Aldara                  - innovative, intelligent ideas, code:P
+Alander of Rivers of Mud            - good debugging assistance!
+Surreality                          - the late great chris cool
+Newt                                - combat routines! and a great mud!
+
+We also salute all those who have come before us, namely those who wrote the
+innovative mud softwares of Silly, Diku, Copper, Circle, Merc and Aber.
+
+~
+
+0 $~
+
+#$

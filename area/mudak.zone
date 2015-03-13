@@ -1,0 +1,45 @@
+#ZONE 
+N Mudak~
+B None~
+V 10500 10599
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#10500
+N ~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+
+
+#$

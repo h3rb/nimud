@@ -1,0 +1,3383 @@
+#ZONE 
+N Tyselorrd~
+B None~
+V 20200 20280
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#20200
+N beholder~
+SD The mighty beholder~
+LD
+ You meet a beholder's deadly gaze!
+~
+D
+ It has a large central eye that projects an anti-magic ray and ten
+eyestalks atop the round body which can do anything from charm you
+to disintegrate you.  Beholders are not known for their personality.
+~
+A 163
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -870 E 841
+O ~
+AP 25 25 25 25 40
+At 0 10 57 10
+At 1 5 13 4
+At 2 1 28 14
+At 5 1 36 10
+At 6 5 94 5
+End
+
+#20201
+N lamia beast~
+SD The lamia~
+LD
+ A strange lamia stands here waiting for her next meal.
+~
+D
+ This is a creature with the upper torso of a beautiful woman, but the lower
+body of a four-legged beast.  She licks her lips as she looks at you greedily.
+~
+A 101
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -999 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 11 1
+At 1 5 18 11
+End
+
+#20202
+N mimic chest~
+SD The mimic~
+LD
+ A strong chest lies in one corner of the room.
+~
+D
+ A strong, wooden chest bound with iron straps and a heavy pad-lock on the
+front.
+~
+A 229
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 10 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 13 12
+At 1 5 21 3
+End
+
+#20203
+N mimic boulder~
+SD The mimic~
+LD
+ Two skeletons lie crushed under a large boulder.
+~
+D
+ ~
+A 229
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -10 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 17 1
+End
+
+#20204
+N mimic floor~
+SD The mimic~
+LD
+ The stone floor of this house has been ripped apart.
+~
+D
+ ~
+A 229
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -140 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 24 5
+At 1 5 23 8
+At 2 1 42 12
+End
+
+#20205
+N mimic pottery~
+SD The mimic~
+LD
+ Some broken shards of pottery lie strewn about the floor.
+~
+D
+ ~
+A 229
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 200 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 25 8
+End
+
+#20206
+N mimic planks~
+SD The mimic~
+LD
+ A few wooden planks lie stacked on a low shelf.
+~
+D
+ ~
+A 229
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 16 2
+At 1 5 21 14
+End
+
+#20207
+N lizard horned~
+SD The horned lizard~
+LD
+ A small horned lizard flicks his tongue and slithers away.
+~
+D
+ A cute little lizard, that is, if you like reptiles!
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 11 12
+End
+
+#20208
+N golem stone~
+SD The stone golem~
+LD
+ In the corner you see a large, stone golem faithfully standing watch.
+~
+D
+ It is a big chunk of rock that has been magically formed into a giant
+stone creature. He stands here still guarding the city.
+~
+A 3
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 600 E 916
+O ~
+AP 25 25 25 25 40
+At 0 10 65 5
+At 1 5 12 10
+At 3 1 29 13
+At 6 5 52 9
+End
+
+#0
+
+
+
+#OBJDATA
+#20200
+N mithril vest~
+SD a mithril vest~
+P ~
+D
+A vest made of mithril plates lies heaped on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 9
+Sz 18
+Ti 0
+Wt 30
+C 12000
+O ~
+V 8 0 0 0
+End
+
+#20201
+N helm mithril~
+SD a mithril helm~
+P ~
+D
+Here lies a large mithril helm.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 17
+Sz 18
+Ti 0
+Wt 10
+C 5000
+O ~
+V 8 0 0 0
+End
+
+#20202
+N gauntlets mithril~
+SD a pair of mithril gauntlets~
+P ~
+D
+A pair of mithril gauntlets rests on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 129
+Sz 18
+Ti 0
+Wt 10
+C 2200
+O ~
+V 8 0 0 0
+End
+
+#20203
+N sleeves mithril~
+SD some mithril sleeves~
+P ~
+D
+A set of mithril sleeves lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 257
+Sz 18
+Ti 0
+Wt 10
+C 12450
+O ~
+V 7 0 0 0
+End
+
+#20204
+N boots mithril~
+SD a pair of mithril boots~
+P ~
+D
+A pair of mithril boots stands has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 65
+Sz 18
+Ti 0
+Wt 6
+C 1800
+O ~
+V 7 0 0 0
+End
+
+#20205
+N leggings mithril~
+SD a set of mithril leggings~
+P ~
+D
+A set of mithril leggings lie here unattended.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 33
+Sz 18
+Ti 0
+Wt 10
+C 5400
+O ~
+V 7 0 0 0
+End
+
+#20206
+N girth mithril~
+SD a mithril girth~
+P ~
+D
+A large iron girth lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1088
+W 2049
+Sz 18
+Ti 0
+Wt 6
+C 14200
+O ~
+V 7 0 0 0
+End
+
+#20207
+N breast plate iron~
+SD a battered iron breast plate~
+P ~
+D
+A battered iron breast plate lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 125
+C 13000
+O ~
+V 5 0 0 0
+End
+
+#20208
+N shield iron~
+SD a sturdy iron shield~
+P ~
+D
+A small, but sturdy, iron shield has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 513
+Sz 18
+Ti 0
+Wt 5
+C 500
+O ~
+V 7 0 0 0
+End
+
+#20210
+N potion black~
+SD a black potion~
+P ~
+D
+A jet black potion sits upright waiting to be taken.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 96
+W 1
+Sz 18
+Ti 0
+Wt 5
+C 6000
+O ~
+V 16 0 0 0
+End
+
+#20211
+N potion orange~
+SD an orange potion~
+P ~
+D
+A small orange potion lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 96
+W 1
+Sz 18
+Ti 0
+Wt 10
+C 7500
+O ~
+V 20 0 0 0
+End
+
+#20214
+N ball quartz~
+SD a smooth quartz ball~
+P ~
+D
+A smooth quartz ball lies here gleaming.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 30
+C 3050
+O ~
+V 0 0 72 0
+End
+
+#20215
+N scroll tattered~
+SD a tattered scroll~
+P ~
+D
+A worn and tattered scroll has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 15
+C 11000
+O ~
+V 24 0 0 0
+End
+
+#20216
+N scroll bound~
+SD a bound scroll~
+P ~
+D
+A bound scroll of detection lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 15
+C 4200
+O ~
+V 15 0 0 0
+End
+
+#20217
+N flute silver~
+SD a silver flute~
+P ~
+D
+A brilliant silver flute glimmers from beneath a rock.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 65
+W 16385
+Sz 18
+Ti 0
+Wt 6
+C 10500
+O ~
+V 17 1 1 0
+End
+
+#20218
+N talisman demon~
+SD a demon-faced talisman~
+P ~
+D
+A demon-faced talisman glares at you angrily.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 5
+Sz 18
+Ti 0
+Wt 11
+C 2500
+O ~
+V 5 0 0 0
+End
+
+#20219
+N venison chunk~
+SD a chunk of venison~
+P ~
+D
+A large chunk of venison sits here ready to be eaten.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 20
+C 100
+O ~
+V 24 0 0 0
+End
+
+#20220
+N fountain water~
+SD a large cracked fountain~
+P ~
+D
+Some stagnant water lies in the bottom of the fountain.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 25
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 10 0 0 0
+End
+
+#20221
+N two-handed two sword~
+SD a two-handed sword~
+P ~
+D
+A nice two-handed sword hangs on a hook in the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1088
+W 8193
+Sz 18
+Ti 0
+Wt 24
+C 55000
+O ~
+V 0 2 12 3
+End
+
+#20222
+N robe black silk~
+SD a black silk robe~
+P ~
+D
+A black silk robe lies heaped in one corner.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 6
+C 1300
+O ~
+V 1 0 0 0
+End
+
+#20223
+N cloak green~
+SD a dark green cloak~
+P ~
+D
+A beautiful dark green cloak has been dropped by someone.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 576
+W 5
+Sz 18
+Ti 0
+Wt 12
+C 14500
+O ~
+V 8 0 0 0
+End
+
+#20224
+N seal ebony~
+SD an engraved ebony seal~
+P ~
+D
+A small, engraved ebony seal is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 500
+O ~
+V 30 0 0 0
+End
+
+#20225
+N desk curved~
+SD the desk~
+P ~
+D
+A dirty, crumbling curved desk is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 13 5224 0
+End
+
+#20226
+N seal ivory~
+SD an engraved ivory seal~
+P ~
+D
+A small, engraved ivory seal lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 500
+O ~
+V 31 0 0 0
+End
+
+#20227
+N cabinet glass~
+SD the glass cabinet~
+P ~
+D
+A broken glass cabinet is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 500 13 5226 0
+End
+
+#20228
+N arm rotted~
+SD a rotten arm~
+P ~
+D
+A rotted arm floats lazily by your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 20
+C 0
+O ~
+V 50 0 0 1
+End
+
+#20230
+N stone pale blue~
+SD a pale blue stone~
+P ~
+D
+A pale blue stone sits here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 5500
+O ~
+V 0 0 0 0
+End
+
+#20231
+N stone scarlet blue~
+SD a scarlet and blue stone~
+P ~
+D
+A pretty scarlet and blue stone has been dropped here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 5500
+O ~
+V 0 0 0 0
+End
+
+#20232
+N stone blue incandescent~
+SD an incandescent blue stone~
+P ~
+D
+A small incandescent blue stone lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 5500
+O ~
+V 0 0 0 0
+End
+
+#20233
+N stone red deep~
+SD a deep red stone~
+P ~
+D
+Someone has left a deep red stone here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 5500
+O ~
+V 0 0 0 0
+End
+
+#20234
+N stone pink~
+SD a pink stone~
+P ~
+D
+A tiny pink stone lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 5500
+O ~
+V 0 0 0 0
+End
+
+#20235
+N stone pearly white~
+SD a pearly white stone~
+P ~
+D
+This pearly white stone would probably sell for a good price.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 8700
+O ~
+V 0 0 0 0
+End
+
+#20237
+N stone lavender green~
+SD a lavender and green stone~
+P ~
+D
+A stunning lavender and green stone rests on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 4700
+O ~
+V 0 0 0 0
+End
+
+#20239
+N stone grey dull~
+SD a dull grey stone~
+P ~
+D
+You can barely make out a dull grey stone on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 20
+O ~
+V 0 0 0 0
+End
+
+#20241
+N stone pink green~
+SD a pink and green stone~
+P ~
+D
+A bright pink and green stone has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 6600
+O ~
+V 0 0 0 0
+End
+
+#20243
+N stone clear~
+SD a clear stone~
+P ~
+D
+A odd clear stone lies at your feet.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 8900
+O ~
+V 0 0 0 0
+End
+
+#20250
+N mandolin~
+SD a mandolin~
+P ~
+D
+A mandolin lies against the wall.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 20
+C 3000
+O ~
+V 13 3 3 0
+End
+
+#20251
+N harp golden~
+SD a golden harp~
+P ~
+D
+A battered golden harp has been tipped over.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 100
+C 2500
+O ~
+V 18 1 1 0
+End
+
+#20252
+N long dagger slim~
+SD a long slim dagger~
+P ~
+D
+A long slim dagger has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 4
+C 1000
+O ~
+V 0 2 5 11
+End
+
+#0
+
+
+
+#SCENES
+#20200
+N Gates to the Tiktuan Citadel~
+Ref 0
+D
+You stand in the archway of a gigantic stone archway. The two
+steel gates have been forced open and have rusted in place. A hollow
+gust of wind blows by you into the deserted, and seemingly destroyed,
+city.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20256
+You see a trail out of this blasted place.
+~
+~
+Dr 3 0 0 20201
+You see devastation everywhere. Houses lie in ruin and skeletons litter
+the streets. You see strange beasts stalking the shadows.
+~
+~
+End
+
+#20201
+N Main Street~
+Ref 0
+D
+This was once a magnificent street, but now is in total ruin. The
+streets are barren and windswept and the silence is unending.  A dark alley
+leads north and south.  Howls and screams echo through the deserted city.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20239
+It's a dark alley.
+~
+~
+Dr 1 0 0 20200
+The entrance to the city lies this way.
+~
+~
+Dr 2 0 0 20255
+It's a dark alley.
+~
+~
+Dr 3 0 0 20202
+Main Street lies this way.
+~
+~
+End
+
+#20202
+N Main Street~
+Ref 0
+D
+This was once a magnificent street, but now is in total ruin. The
+streets are barren and windswept and the silence is unending. On one
+side is a collapsed house while on the other is the entrance to a large
+ruined mansion. Eerie sounds echo within the mansion. Near the center of
+town you see a large domed building, relatively intact.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 20230 0 100 1
+Dr 0 0 0 20236
+The remnants of a store lie this way.
+~
+~
+Dr 1 0 0 20201
+~
+~
+Dr 2 0 0 20232
+It looks like what used to be the main building in the city.
+~
+~
+Dr 3 0 0 20203
+A withered garden path lies this way.
+~
+~
+End
+
+#20203
+N A Garden Path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center of
+the city. Flowers have withered away and the once lush trees are bare.
+Vines and ivy snake up the sides of the temple and entangle themselves
+around your feet. A sudden volley of howls pierces the air.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20204
+The garden path continues around the building.
+~
+~
+Dr 1 0 0 20202
+This is the main street leading to the city's entrance
+~
+~
+Dr 2 0 0 20206
+The garden path continues around the building.
+~
+~
+Dr 3 0 0 20250
+Inside the temple, small patches of light shoot through each doorway as
+well as a few holes in the ceiling.
+~
+~
+End
+
+#20204
+N A Garden Path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center of
+the city. Flowers have withered away and the once lush trees are bare.
+Vines and ivy snake up the sides of the temple and entangle themselves
+around your feet. A sudden volley of howls pierces the air.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20211
+A side street leads off to the northern half of the city.
+~
+~
+Dr 2 0 0 20203
+The garden path continues around the building.
+~
+~
+Dr 3 0 0 20205
+The garden path continues around the building.
+~
+~
+End
+
+#20205
+N A Garden Path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center of
+the city. Flowers have withered away and the once lush trees are bare.
+Vines and ivy snake up the sides of the temple and entangle themselves
+around your feet. A sudden volley of howls pierces the air.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20204
+The garden path continues around the building.
+~
+~
+Dr 2 0 0 20250
+Inside the temple, small patches of light shoot through each doorway as
+well as a few holes in the ceiling.
+~
+~
+End
+
+#20206
+N A Garden Path~
+Ref 0
+D
+A circular path surrounds a magnificent domed temple in the center of
+the city. Flowers have withered away and the once lush trees are bare.
+Vines and ivy snake up the sides of the temple and entangle themselves
+around your feet. A sudden volley of howls pierces the air.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20203
+The garden path continues around the building.
+~
+~
+Dr 2 0 0 20212
+A small side street leads to the southern half of the city.
+~
+~
+End
+
+#20207
+N The market place~
+Ref 0
+D
+You stand in the middle of a large square lined on each side with
+baskets, carts, and stands of all shapes and sizes. Abandoned, these
+little shops still contain some of their goods once sold to a demanding
+public.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20225
+A small table has been toppled over, spilling fine jewelery and gems
+onto the ground.
+~
+~
+Dr 2 0 0 20220
+Rotted remains of fruits and vegetables lie strewn about.
+~
+~
+Dr 3 0 0 20208
+The market place continues.
+~
+~
+End
+
+#20208
+N The market place~
+Ref 0
+D
+You stand at the end of the market square. Stands and carts line
+each side, filled with remnants of fine foods and exquisite goods.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 20232 0 100 1
+Dr 0 0 0 20222
+Tattered carpets and ruined bales of silk sit idly by a run down stand.
+~
+~
+Dr 1 0 0 20207
+The center of the market lies this way.
+~
+~
+Dr 2 0 0 20217
+From the massive stench, this must have been a meat and poultry stand.
+It lies totally bare.
+~
+~
+End
+
+#20209
+N A Side Street~
+Ref 0
+D
+This small side street leads east and west into back alleys while
+to the south you see the temple. The incessant howling tears at your mind.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20243
+~
+~
+Dr 2 0 0 20210
+~
+~
+Dr 3 0 0 20228
+~
+~
+End
+
+#20210
+N A Side Street~
+Ref 0
+D
+You are in the common section of the city. Ruined buildings made of
+clay and stone is all the view has to offer. Most of these homes are
+nothing but piles of rubble, but some look almost safe enough to venture
+into. The street continues north and south and buildings line the street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20209
+~
+~
+Dr 1 0 -1 20244
+A small doorway leads into a partially collapsed house.
+~
+~
+Dr 2 0 0 20211
+~
+~
+Dr 3 0 0 20226
+A small clay dwelling sits here.
+~
+~
+End
+
+#20211
+N A Side Street~
+Ref 0
+D
+This small side street leads away from the garden path to the south.
+Around you stand large piles or rubble where the houses of commoners
+used to be. A lone howl makes you worry greatly about your safety here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 20233 0 100 1
+Dr 0 0 0 20210
+~
+~
+Dr 1 0 0 20237
+An unusually tall dwelling stands looming over you.
+~
+~
+Dr 2 0 0 20204
+A garden path circles around the temple.
+~
+~
+Dr 3 0 0 20227
+Here lies a small stone house with a thatched roof.
+~
+~
+End
+
+#20212
+N A side street~
+Ref 0
+D
+This small side street leads south away from the temple into the
+business section of town. The destruction that leveled this city was not
+biased; these important looking buildings have been almost totally
+destroyed. There is a hole in the wall of a very large structure to the
+east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20206
+A small garden path encircles the temple.
+~
+~
+Dr 1 0 0 20232
+This possibly could be the city hall.
+~
+~
+Dr 2 0 0 20213
+~
+~
+Dr 3 0 0 20221
+Inside the building you see long pieces of metal, an oven, and some
+anvils.
+~
+~
+End
+
+#20213
+N A side street~
+Ref 0
+D
+This small side street is lined with the remains of once great
+buildings. To the north is a dark, foreboding structure while to the
+south lies the entrance to a small tavern. The street continues north
+and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20212
+~
+~
+Dr 1 0 0 20230
+From the looks of it, this was once a two story abode. The entire second
+floor has collapsed leaving a very little part of the bar still free
+from debris.
+~
+~
+Dr 2 0 0 20214
+~
+~
+Dr 3 0 0 20219
+This seems to be the only guild house in the entire city. Its dark nature
+makes you wonder about its origins.
+~
+~
+End
+
+#20214
+N A side street~
+Ref 0
+D
+You are at the end of a long street leading to the center of the city.
+A long dark alley runs east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20213
+~
+~
+Dr 1 0 0 20251
+~
+~
+Dr 2 0 0 20229
+~
+~
+Dr 3 0 0 20218
+~
+~
+End
+
+#20215
+N Under a ruined watchtower~
+Ref 0
+D
+You stand at the base of a tall watchtower built to protect the city
+from invaders. From the looks of things, it did not do a good job.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20216
+~
+~
+Dr 1 0 0 20218
+~
+~
+Dr 4 0 0 20247
+~
+~
+End
+
+#20216
+N A back alley~
+Ref 0
+D
+This alley leads to the rear of what used to be a meat stand. You wince
+at the stench. South is one of the city watchtowers.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20217
+You see the back-side of the market place meat stand.
+~
+~
+Dr 2 0 0 20215
+A tall watchtower stands a silent vigil over the city.
+~
+~
+End
+
+#20217
+N The meat stand~
+Ref 0
+D
+A large stand has been set up here with metal hooks and wooden racks
+in the background. Hanging on the hooks are very small scraps of meat
+and other game. This stand is relatively empty, and a sudden burst of
+howling and screaming makes you realize why this is so.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 20219 0 100 1
+Dr 0 0 0 20208
+The market place lies this way.
+~
+~
+Dr 1 0 0 20220
+This is a cart full of rotted vegetables and fruits.
+~
+~
+Dr 2 0 0 20216
+~
+~
+End
+
+#20218
+N A back alley~
+Ref 0
+D
+A narrow alley leads east to a wider street and west to one of
+the city watchtowers.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20214
+A small side street greets you.
+~
+~
+Dr 3 0 0 20215
+A tall watchtower stands a silent vigil over the city.
+~
+~
+End
+
+#20219
+N The guild house~
+Ref 0
+D
+You are standing in what once was this city's ONLY guild house.
+Tables and chairs have been smashed and broken weapons lie strewn about
+the floor as if some massive battle had taken place here. Draped along
+the back wall is a tattered, jet-black banner with the symbol of the
+Darkside set upon it.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20213
+A small side street runs past the building.
+~
+~
+End
+
+#20220
+N The produce stand~
+Ref 0
+D
+A large cart sits here carrying rotted fruit and vegetables. Flys
+swarm all about what seems to be the last remaining bits of food left
+in the city.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20207
+The market place is deserted.
+~
+~
+Dr 3 0 0 20217
+A strong stench emanates from the meat stand next to you.
+~
+~
+End
+
+#20221
+N The smithy~
+Ref 0
+D
+In here you find tools and anvils used to make various weapons
+and items. The walls have been stripped clean and only a few incomplete
+pieces of armor and weaponry are left.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20212
+A small side street runs past the building.
+~
+~
+End
+
+#20222
+N The tapestry stand~
+Ref 0
+D
+Tattered and torn tapestries and rugs lie heaped in piles. Fancy
+robes and various articles of clothing are now just rags. You stare at
+the strange piles for a long time until a piercing howl makes you
+think these might be beds.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20223
+~
+~
+Dr 1 0 0 20225
+A fine jewelry stand lies in ruin next to you.
+~
+~
+Dr 2 0 0 20208
+The market place is deserted.
+~
+~
+End
+
+#20223
+N A back alley~
+Ref 0
+D
+A narrow alley leads north to one of the city watchtowers while
+to the south there lies a market stand full of torn clothes and rugs.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20224
+A tall watchtower stands a silent vigil over the city.
+~
+~
+Dr 2 0 0 20222
+~
+~
+End
+
+#20224
+N Under the watchtower~
+Ref 0
+D
+You stand under one of the city watchtowers built to protect
+the city from invaders. Obviously, it failed.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20228
+~
+~
+Dr 2 0 0 20223
+~
+~
+Dr 4 0 0 20246
+Above you looms a tall watchtower.
+~
+~
+End
+
+#20225
+N The jewelery stand~
+Ref 0
+D
+A table has been tipped over, spilling fine jewelery and gems
+across the market place. Most of these trinkets are battered and
+tarnished and few would have any value anymore.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 2 0 0 20207
+The market place is deserted.
+~
+~
+Dr 3 0 0 20222
+Next to you is a stand full of ruined clothes and rugs.
+~
+~
+End
+
+#20226
+N A ruined clay dwelling~
+Ref 0
+D
+This was once a very plain house with nothing more than a few chairs
+and a bed. A cold fireplace suggests that the city has been abandoned
+for quite a while. Almost nothing remains of this humble abode.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20210
+Outside is a small side street.
+~
+~
+End
+
+#20227
+N A collapsed stone dwelling~
+Ref 0
+D
+This small house has completely collapsed upon itself leaving piles
+of debris here and there. A few rafters still stand with thatched straw
+hanging down and a hot wind gusts through the hollow dwelling.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20207 4 100 1
+Dr 1 0 0 20211
+A small side street runs past the house.
+~
+~
+End
+
+#20228
+N A back alley~
+Ref 0
+D
+A narrow alley leads east to one of the city watchtowers and west to
+a small side street.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20209
+~
+~
+Dr 3 0 0 20224
+~
+~
+End
+
+#20229
+N An abandoned shop~
+Ref 0
+D
+From the outside this place looks like an ordinary pile of rubble,
+but inside these cramped quarters you discover what used to be a shop
+filled with armor, weapons, and various other goods. A small sign flutters
+in the wind.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20214
+A small side street runs past the shop.
+~
+~
+End
+
+#20230
+N The Tavern of the Sun~
+Ref 0
+D
+A glorious place in it's prime, this tavern now lies in ruin; tables
+and chairs are broken scattered, bottles and glasses shattered, and
+a small performance stage crushed. Musical instruments and personal
+belongings lie under the rubble, but the people they once belonged to are
+not with them. Looking up you see that the entire second floor and roof
+has fallen in, leaving a gaping hole above.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 20217 0 100 1
+Dr 3 0 0 20213
+A small side street runs past the tavern.
+~
+~
+End
+
+#20231
+N South wing of the city hall~
+Ref 0
+D
+You stand in a large room attached to this end of the hallway which
+leads back north to the reception area.  Pedestals and columns have fallen
+and most of the valuable items have been taken, leaving worthless debris.
+A few chairs have survived, as well as a large curved desk. To the east
+is a vine-covered archway leading out into a private courtyard.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 20225 0 100 1
+Dr 0 0 0 20232
+The long hallway leads back to the main reception area of the city hall.
+~
+~
+Dr 1 0 0 20234
+~
+~
+End
+
+#20232
+N The city hall~
+Ref 0
+D
+This is the main reception area of Thalos' city hall. The walls have
+been charred and scored massively and debris is spread from wall to wall.
+A large gaping hole in the west wall allows you to see out to one of
+the city's side streets. Obviously no one will be seeing you through today.
+Hallways lead south and east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20202
+Main street runs past the city hall.
+~
+~
+Dr 1 0 0 20233
+A hallway leads to the east wing of the city hall.
+~
+~
+Dr 2 0 0 20231
+A hallway leads to the south wing of the city hall.
+~
+~
+Dr 3 0 0 20212
+~
+~
+End
+
+#20233
+N East wing of the city hall~
+Ref 0
+D
+Here lies the remnants of a fancy office, possibly the mayor's. A few
+withered plants and broken pieces of furniture make this place anything
+but fancy, though. The only thing remaining intact here is a large
+glass cabinet. A long hallway leads west back to the reception area and
+an ivy-covered archway leads south into a private courtyard.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 20227 0 100 1
+Dr 2 0 0 20234
+~
+~
+Dr 3 0 0 20232
+~
+~
+End
+
+#20234
+N The private gardens and courtyard of Thalos~
+Ref 0
+D
+What a shame that this mass destruction also touched this once
+beautiful place. The temple's garden path has nothing on this garden.
+Flowers and trees have been smashed into the ground and lawn benches
+thrown through walls. A large marble fountain in the center of the
+courtyard still stands, though, defying any attempts to destroy its
+beauty. Above stands the remnants of one of the watchtowers. Archways
+north and west lead back into the city hall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20233
+~
+~
+Dr 3 0 0 20231
+~
+~
+End
+
+#20235
+N A small guard house~
+Ref 0
+D
+This was once the barracks for Thalos' guardsmans. Now just an empty
+shell, this small shack still stands guarding the entrance both to the
+city and to the city hall.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20255
+The alley runs by this building.
+~
+~
+End
+
+#20236
+N A collapsed home~
+Ref 0
+D
+All that's left of this house is a few scattered piles of rubble
+and a very large blast crater. Obviously someone or something important
+was once housed here. A shrieking howl chills your blood.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 2 0 0 20202
+Main street runs past this ruined home.
+~
+~
+End
+
+#20237
+N A tall dwelling~
+Ref 0
+D
+This seems to be the tallest structure remaining in the city. At
+one time this could have been an inn of some sort, but now it's just
+a mess. The back wall as been completely knocked down revealing an
+entrance into another building through yet another collapsed wall.
+Between the two buildings are a few blast craters and boulders. An old
+set of wooden steps leads up to a creaking second floor.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 1 0 0 20238
+~
+~
+Dr 3 0 0 20211
+A small side street winds past the dwelling.
+~
+~
+Dr 4 0 0 20245
+The stairs and even the entire second floor itself looks very unsafe
+for travel. Gusts of wind make them creak and shudder.
+~
+~
+End
+
+#20238
+N A small shack~
+Ref 0
+D
+This cramped dwelling could not have housed more than one person. Now
+with the back wall missing, it could hold many more. Looking around you
+find broken shelves and workbenches with various vials and pouches spilling
+contents all across the floor. This was possibly the magic shop of the
+city. The doorway to the east is blocked, making the only exit back west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 20210 0 100 1
+Dr 3 0 0 20237
+~
+~
+End
+
+#20239
+N A back alley~
+Ref 0
+D
+A narrow back alley goes south to main street and north towards
+a watchtower. A mass of howls catches you of guard.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20240
+~
+~
+Dr 2 0 0 20201
+Main street runs past here.
+~
+~
+End
+
+#20240
+N A back alley~
+Ref 0
+D
+A narrow back alley leads north to one of the city watchtowers
+and south towards main street. To the west is a doorway to a small
+house blocked by debris.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20241
+A tall watchtower stands a silent vigil over the city.
+~
+~
+Dr 2 0 0 20239
+~
+~
+End
+
+#20241
+N Under a watchtower~
+Ref 0
+D
+You stand under a tall watchtower. Narrow back alleys lead west and
+south and a very weak looking ladder leads up into the tower.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20240
+~
+~
+Dr 3 0 0 20243
+~
+~
+Dr 4 0 0 20248
+Winds howl high above your head in the tower above.
+~
+~
+End
+
+#20242
+N A bath house~
+Ref 0
+D
+This was once the bath house for the commoners of the city. Hot
+steamy water still wells up from a hole in the floor. Obviously there
+is a hot spring located under the city (making the decision to put
+a city here seem much more reasonable). Closer inspection of the water
+yields a dead body floating around in it, skin melted away from months
+of floating in there. The west wall has collapsed revealing another
+collapsed house.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20201 20 100 1
+Dr 0 0 0 20243
+~
+~
+Dr 3 0 0 20244
+The wall has collapsed on the adjoining house, creating a new opening
+in it.
+~
+~
+End
+
+#20243
+N A back alley~
+Ref 0
+D
+A narrow back alley leads west to a small side street and east to one
+of the city watchtowers. Great amounts of steam issue forth from the
+building to the south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20241
+A watchtower stands a silent vigil over the city.
+~
+~
+Dr 2 0 0 20242
+~
+~
+Dr 3 0 0 20209
+A side street runs by here.
+~
+~
+End
+
+#20244
+N An upright house~
+Ref 0
+D
+This home is practically the only one around that is still standing.
+Except for the massive hole in the east wall, everything else looks
+intact, including the windows. Great amounts of steam issue forth from
+the hole in the east wall.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20207 4 100 1
+Dr 1 0 0 20242
+~
+~
+Dr 3 0 0 20210
+A small side street runs past the house.
+~
+~
+End
+
+#20245
+N On the second floor~
+Ref 0
+D
+The minute you step off onto this floor you realize it was a mistake.
+The old rotted floorboards suddenly give way and you fall down, impaling
+yourself on jagged boards below.
+
+You've fallen, and you can't get up!!!
+~
+C
+~
+F 6
+S 1
+M 0
+W 0
+T 0
+O ~
+End
+
+#20246
+N The north-west watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here and you can see all the way to the western mountains. No wonder
+this place stood for so long.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 20243 0 100 1
+Dr 5 0 0 20224
+The city lies below.
+~
+~
+End
+
+#20247
+N The south-west watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here and you can see all the way to the western mountains. To the
+south the desert stretches to the horizon. No wonder this place stood
+for so long.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20208 8 100 1
+Dr 5 0 0 20215
+The city lies below.
+~
+~
+End
+
+#20248
+N The north-east watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here and you can see a great floating pyramid to the north-east.
+Desert sand stretches to the horizon. No wonder this place stood for so
+long.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 20208 8 100 1
+Dr 5 0 0 20241
+The city lies below.
+~
+~
+End
+
+#20250
+N The Temple of Thalos~
+Ref 0
+D
+You stand within one of the most holy places in the realm. This
+stunning domed temple once housed the city's worshipers en masse.
+Unfortunately, it succumbed to the destruction brought on this city.
+Long benches lie toppled and the altar desecrated. Large chunks of stone
+have fallen from the walls and roof, sending sunlight streaming in on
+you. A few books lie about, conveying to you a holy message in a
+strange tongue.
+     Wind gusts through the four archways and howls and screams can be
+heard from all parts of the city.
+~
+C
+~
+F 136
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 20200 1 100 1
+Dr 0 0 0 20205
+A side street leads to the northern half of the city.
+~
+~
+Dr 1 0 0 20203
+Main street leads out to the main gate of the city.
+~
+~
+End
+
+#20251
+N A back alley~
+Ref 0
+D
+A narrow alley leads east to a wider street and west to one of
+the city watchtowers.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20252
+A tall watchtower stands a silent vigil over the city.
+~
+~
+Dr 3 0 0 20214
+A small side street greets you.
+~
+~
+End
+
+#20252
+N Under a ruined watchtower~
+Ref 0
+D
+You stand at the base of a tall watchtower built to protect the city
+from invaders. From the looks of things, it did not do a good job.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20253
+~
+~
+Dr 3 0 0 20251
+~
+~
+Dr 4 0 0 20254
+~
+~
+End
+
+#20253
+N A back alley~
+Ref 0
+D
+A narrow alley leads south to one of the city watchtowers.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20255
+The alley continues to the north.
+~
+~
+Dr 2 0 0 20252
+A tall watchtower stands a silent vigil over the city.
+~
+~
+End
+
+#20254
+N The south-east watchtower~
+Ref 0
+D
+You stand atop one of the city watchtowers. The view is magnificent
+from here and you can see all the way to the western mountains. To the
+south the desert stretches to the horizon. No wonder this place stood
+for so long.  There is a small plaque on the stones.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign plaque~
+This extension to Thalos, along with the darkwood forest, is made by Hatchet for
+any Merc Mud.
+copyright 1992
+~
+R M 20208 8 100 1
+Dr 5 0 0 20252
+The city lies below.
+~
+~
+End
+
+#20255
+N A back alley~
+Ref 0
+D
+A narrow alley leads north to the main street, and south toward a tall
+watchtower.  A ruined building is to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20201
+You see main street.
+~
+~
+Dr 2 0 0 20253
+~
+~
+Dr 3 0 0 20235
+It looks in bad shape inside, but structurally intact.
+~
+~
+End
+
+#20256
+N A trail at the end of the darkwood forest~
+Ref 0
+D
+The trail ends here, with short, dry stumps of trees all around you.
+To the west, you can see the ruins of a huge city.  Something about it gives
+you an uneasy feeling.  To the east is your way back to home and safety.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20257
+You see the trail.
+~
+~
+Dr 3 0 0 20200
+You see Thalos!
+~
+~
+End
+
+#20257
+N A trail at the end of the darkwood forest~
+Ref 0
+D
+A side trail here leads from the darkwood forest.  It is definitely drier
+and hotter here.  The trail continues to the west, and to the east, you see
+the T-intersection.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20258
+You see the intersection.
+~
+~
+Dr 3 0 0 20256
+You see the trail continue on.
+~
+~
+End
+
+#20258
+N The Dwarf Forest~
+Ref 0
+D
+You see more stunted trees here.  A side trail leads west from here.
+To the east, you THINK you see a trail, but you can never be sure.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20259
+You see the trail lead back north.
+~
+~
+Dr 1 0 0 20262
+You can't see into the gloom of this forest.
+~
+~
+Dr 3 0 0 20257
+You see the trail branch off.
+~
+~
+End
+
+#20259
+N The Dwarf Forest~
+Ref 0
+D
+You see more stunted trees here.  It looks almost as if this place was
+cursed by a god to be short and dry.  The trail leads north and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20260
+You see the trail continue north.
+~
+~
+Dr 2 0 0 20258
+You see the trail continue south.
+~
+~
+End
+
+#20260
+N The Dwarf Forest~
+Ref 0
+D
+You see more stunted trees here.  It looks almost as if this place was
+cursed by a god to be short and dry.  The trail leads north and south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20261
+You see the trail continue north.
+~
+~
+Dr 2 0 0 20259
+You see the trail continue south.
+~
+~
+End
+
+#20261
+N The Dwarf Forest~
+Ref 0
+D
+You see many stunted trees here.  You don't see any leaves on these barren
+trees.  No grass grows on the ground.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 18502
+You see the trail continue north.
+~
+~
+Dr 2 0 0 20260
+You see the trail continue south.
+~
+~
+End
+
+#20262
+N The Dwarf Forest~
+Ref 0
+D
+You see more stunted trees here.  It looks almost as if this place was
+cursed by a god to be short and dry.  The trail leads east and west.  It looks
+dark toward the east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20263
+You see a darker part of the forest.
+~
+~
+Dr 3 0 0 20258
+You see the lighter forest and the T-intersection west.
+~
+~
+End
+
+#20263
+N The darker darkwood forest~
+Ref 0
+D
+You see a more dense foliage in these stunted trees.  The gloom caused
+by them is enhanced by a draft coming from all around.  The trail turns south
+from the west.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 20264
+You see nothing in the gloom south of you.
+~
+~
+Dr 3 0 0 20262
+You see the darkwood forest.
+~
+~
+End
+
+#20264
+N The darker darkwood forest~
+Ref 0
+D
+You see a more dense foliage in these stunted trees.  The gloom caused
+by them is enhanced by a draft coming from all around.  The trail turns east
+from the north.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20263
+You see nothing in the gloom north of you.
+~
+~
+Dr 1 0 0 20265
+You see nothing in the gloom east of you.
+~
+~
+End
+
+#20265
+N The darker darkwood forest~
+Ref 0
+D
+You see a more dense foliage in these stunted trees.  The gloom caused
+by them is enhanced by a draft coming from all around.  The trail leads
+east and west.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20266
+You see nothing in the gloom east of you.
+~
+~
+Dr 3 0 0 20264
+You see nothing in the gloom west of you.
+~
+~
+End
+
+#20266
+N The darker darkwood forest~
+Ref 0
+D
+You see a more dense foliage in these stunted trees.  The gloom caused
+by them is enhanced by a draft coming from all around.  The trail leads
+down into a valley and west.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 23312
+~
+~
+Dr 3 0 0 20265
+You see nothing in the gloom west of you.
+~
+~
+End
+
+#20267
+N Darkwood Forest~
+Ref 0
+D
+You are in a valley in the dark darkwood forest.  Short black grass grows
+around you.  Trails lead in all directions.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20271
+~
+~
+Dr 1 0 0 16701
+~
+~
+Dr 2 0 0 24201
+You see a large mountain on the far side of a canyon.
+~
+~
+Dr 3 0 -1 20268
+You see a dark fox hole.
+~
+hole fox~
+End
+
+#20268
+N the small ugly cave~
+Ref 0
+D
+You see a small cave.  Skeletons of many types of creatures litter the area.
+Obviously, no fox lives here!  The oppression makes you want to leave and
+vomit.
+~
+C
+~
+F 1
+S 0
+M 0
+W 0
+T 0
+O ~
+ED skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.
+~
+Dr 1 0 -1 20267
+You see the exit from here!
+~
+fox hole~
+Dr 2 0 0 20269
+You see more of the cave.
+~
+~
+End
+
+#20269
+N the small ugly cave~
+Ref 0
+D
+You are in a small ugly cave.  More skeletons lie around.  It is obvious
+that the owner doesn't want you here.  The exit north is still visible.
+Some writings are on this wall.
+~
+C
+~
+F 1
+S 0
+M 0
+W 0
+T 0
+O ~
+ED skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.
+~
+ED writings writing words~
+This cave along with the valley and darkwood forest is made by Hatchet for any
+Merc Mud.
+copyright 1992
+~
+Dr 0 0 0 20268
+You see more of the cave.
+~
+~
+Dr 5 0 0 20270
+You see a path leading down into the dark gloom.
+~
+~
+End
+
+#20270
+N Down the path into a dead end~
+Ref 0
+D
+You are down the path.  There is no obvious exit in this place, exit the
+one back up north.  All around you, you see skeletons.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+ED skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.  In fact, through the skeletons, you see a
+secret door!!
+~
+Dr 4 0 0 20269
+You see your only way back up.
+~
+~
+Dr 5 0 -1 20100
+You see nothing on the floor except skeletons.
+~
+secret~
+End
+
+#20271
+N Burnt Valley~
+Ref 0
+D
+You are in a valley in the forest.  To the north is a trail out of this
+dark valley.  South is more of this valley.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20272
+You see a trail away from this gloomy valley.
+~
+~
+Dr 2 0 0 20267
+You see more of this gloomy valley.
+~
+~
+End
+
+#20272
+N Brown Fields~
+Ref 0
+D
+You are in a dim trail in the darkwood forest.  Not much light passes through
+here.  To the south is a gloomy valley, while to the north the light grows
+brighter.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20273
+You can actually see the trail north of you!
+~
+~
+Dr 2 0 0 20271
+You can barely see the gloomy valley south of you.
+~
+~
+End
+
+#20273
+N Brown Scrubs~
+Ref 0
+D
+You are in a dim trail in the darkwood forest.  Not much light passes through
+here.  The trail runs north and south, and the light seems to come from the
+north.  To the east, you see a small path into darkness.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20274
+You see the dim trail lead north.
+~
+~
+Dr 2 0 0 20272
+You see the dim trail lead south.
+~
+~
+End
+
+#20274
+N Brown Fields~
+Ref 0
+D
+You are in a dim trail in the darkwood forest.  Not much light passes through
+here.  The trail runs north and south, and the light seems to come from the
+north.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20275
+You see the dim trail lead north.
+~
+~
+Dr 2 0 0 20273
+You see the dim trail lead south.
+~
+~
+End
+
+#20275
+N Bend in Trail~
+Ref 0
+D
+You are in a dim trail in the darkwood forest.  Not much light passes through
+here.  The trail runs south and west.  The trail west looks much friendlier
+than the one leading south.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22805
+~
+~
+Dr 2 0 0 20274
+You see the dim trail lead south.
+~
+~
+Dr 3 0 0 20276
+You see the trail lead west.
+~
+~
+End
+
+#20276
+N Forest Trail~
+Ref 0
+D
+You are in a trail in the darkwood forest.  The trees are stunted and it
+looks dry around here.  The trail leads east and west.  It looks dimmer to
+the east.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20275
+The trail continues east to the dimmer parts of the forest.
+~
+~
+Dr 3 0 0 20277
+The trail continues west.
+~
+~
+End
+
+#20277
+N Forest Trail~
+Ref 0
+D
+You are in a trail in the darkwood forest.  The trees are stunted and it
+looks dry around here.  The trail leads east and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20276
+The trail continues east.
+~
+~
+Dr 3 0 0 20278
+The trail continues west.
+~
+~
+End
+
+#20278
+N Forest Trail~
+Ref 0
+D
+You are in a trail in the darkwood forest.  The trees are stunted and it
+looks dry around here.  The trail leads east and west.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20277
+The trail continues east.
+~
+~
+Dr 3 0 0 20279
+The trail continues west.
+~
+~
+End
+
+#20279
+N Forest Trail~
+Ref 0
+D
+You are in a bend in the trail in the forest.  The trees are stunted, but
+not so dry around here.  The trail leads east, and to the south, you see a
+waterfall.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 20278
+The trail continues east.
+~
+~
+Dr 2 0 0 19774
+You see the waterfall.
+~
+~
+End
+
+#20280
+N Dark Bend in Trail~
+Ref 0
+D
+You are in a dark bend in the forest.  To the west, you see the trail
+leading back to the dwarven forest, and to the south, you see a dark and
+dismal path.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17300
+~
+~
+Dr 3 0 0 22080
+~
+~
+End
+
+#0
+
+
+
+#$

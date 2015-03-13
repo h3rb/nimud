@@ -1,0 +1,176 @@
+NIMuD (2) vti.: believe / think 
+
+From Vabungula -> English Dictionary
+ (bprice1949@hotmail.com)
+
+"Vabungula is a language I started inventing in 1965.  Back then I 
+didn't have a very sophistocated knowledge of languages, and so the 
+language itself is very simple and easy to learn."
+   - Bill Price
+
+NiM5: Shared Adventure Game
+---------------------------
+Brought to you by Locke
+
+NiM5 is an advanced multi-user gaming server.
+
+It is based on the works of the following softwares, though its source
+code may not resemble the works of these people, I feel it important
+to mention the "greats" - who have influenced this work, and which
+continue to influence artistic representations of other worlds.
+
+Z-games such as Zork, Planetfall and Wishbringer, Lurking Fear,
+creations of Steve Meretsky and others at Infocom.
+
+Diku and Merc variant Dikumud I multi-user domains, which have included
+the specific influences of:
+
+Nameless Merc, Locke's first mud, played on a green VAX/VMS terminal,
+Hidden Worlds a Merc 1.0 with early "building" opportunities, 
+Surreal and Locke's favorite, 
+DuneMUSH (our learning experience), 
+Zebesta, where we met our compatriots and fellow MUDkateers, 
+Kalgen and Zlixlt, well-done-derring-do, 
+Aldara ]I[, where God was in the details with the help of Morgenes,
+ROM (Rivers of MUD) and our rival Alander aka Russ Taylor, 
+
+And our neighbors:
+
+Armageddon (pre- and post-Morgenes), 
+newly recognized CORE, Valhalla (DikuMUD ][) from whom we learned,
+and newly noticed variants such as Realms of Despair 
+and a shout-out to ROM-based, Adventurer's Inn.
+
+Of course the great works of PennMUSH and TinyMUSH, where once
+was made FutureMUSH (run by Locke),
+the archaic knowledge of the DUMs such as CanDUM and others,
+the LambdaMOOs and the Divination Web (a MUCK) run by cohorts of
+Shawn Knight and the Beast 666 (a thelemic gathering space once
+hosted at Carnegie Mellon University, well perhaps not, but at
+least by their peers).
+
+And of course ISCABBS, without whom none of this would be possible.
+
+But perhaps you would like to kick it back farther with me for a minute
+to remember Valhalla BBS, a hack/phrack board in Pittsburgh, on which
+was White Knight, the infamous, and the RESIST movement, before it
+became a gay rights movement, back with the hackers and the rumorz
+of the original Razor Sam Hopkins who now is vice president of a
+local 'Burgh ISP called Nauticomm.
+
+Maybe you remember Telegard and Renegade, but I remember Chat Thing,
+a notorious late-night hangout at 300 baud, before my account was
+suspended and we met our match with Trade Wars and Baron Realms.
+
+Maybe you can remember the world of dialups, LD dialing ports, BBS lists,
+x-rated graphics dithered and so unrecognizable in 3 colors and a
+world of Demos by groups called Future Crew and Renaissance.
+
+This is NiMUD a product which is not a whole or a sum of its parts.
+
+Now called NiM5.  So...
+
+Introduction
+------------
+
+Welcome to NiM5!  This server was written by Herb Gilliland; the project 
+began in 1992 and continues to this day.  NiM5 was the first to release
+an open-source multi-user gaming software including such advanced features
+as OLC; you are free to use this software, but it comes AS IS and WITHOUT
+any WARRANTY expressed or implied.
+
+NiM5 contains hundreds of hours of work and you are benefitting, please
+keep our credits in your respective documentation.
+
+You must keep our contact email in your server software documentation,
+credits and help files; it is theisles@mugs.net
+
+You may not release versions of this source code without express consent 
+from its author, Herb "Locke" Gilliland, who can be contacted at 
+locke@mugs.net or theisles@mugs.net; it is an important and relevant issue 
+to mention that NiM5 represents a new paradigm in multi-user gaming 
+terminology and vision, but yet is not a perfect piece of software and may 
+contain bugs which could have adverse effects.  We have done our best to 
+insure that no code contained herein could be considered "malicious" --
+but it is possible, through tampering, that the source could damage your 
+machine in some way.
+
+A note on ILAB/OLC by Jason Dinkel
+----------------------------------
+
+In 1996, ILAB/OLC was released as a derived work with permission from 
+its authors.
+
+I am displeased with some of the Godwars variants who did not include
+credits to NiMUD, nor regarding "Mozart" which came later; I am also
+displeased with the # of emails back, however I do remember a few of
+you who did email us as requested; thanks for doing so.
+
+We can be contacted at locke@mugs.net or theisles@mugs.net, or via
+the Web at a variety of locations, one sometimes being nimud.org,
+one always being http://www.mugs.net/~theisles.
+
+Do visit the CREDITS file for more information on this code's contributers.
+
+Compiling
+---------
+
+To compile the code, simply type "./recompile" from within the NiM5 
+install directory.  This script will create a fresh archived backup of the 
+original source code in "/NiM5/backups/1001.backup" directory.
+
+Porting
+-------
+
+Previous versions of NiM5 have been successfully ported to Win32, Solaris, 
+BSD and MacOS X (which runs a version of FreeBSD).  It has compiled+run
+successfully on Debian, Redhat Linux, FreeBSD, Ultrix, AndrewUNIX, 
+and Solaris.  This version is actively developed on Debian and SunOS.
+
+Unsupported code within the source is still available for Sequent, MIPS
+and AIX.  It has not been compiled or run on a machine of this type
+for a very long time.
+
+The macintosh version may experience some difficulty compiling, if you are 
+a Mac user interested in developing a patch or fix for future versions, 
+you are more than welcome to as we hope to support Macintosh fully in the 
+future.  A version of the networking routines which worked fine on the 
+Macintosh port of the socket routines is located at /src/net_macfix.c and
+is incomplete.
+
+Getting Started
+---------------
+
+--To run the mud:
+
+from the directory you installed, run "startup"
+
+make sure to not run any other scripts ("package", "recompile" or "cleanup")
+while the startup script is running for best results
+
+--To clean up the installation directories:
+
+from the directory you installed, run "cleanup"
+this script removes unwanted .txt files, backs up into backups directory
+removes .o files
+backs up players, areas and source code
+clears the log directory
+clears nohup.out files
+stores file lists in each backup under file 'manifest.txt'
+
+--directory manifest:
+
+area           <- area files and boards
+backups        <- gets big
+bootlog        <- just the boot logs
+cleanup        <- cleanup script (See above)
+docs           <- documentation and licensing information
+docs/imc       <- imc2 documentation and licensing information
+docs/snippets  <- uninstalled 'optional' features from Erwin S. et al
+log            <- log files
+player         <- player files
+package        <- stores the source in NiM5.src.tar.gz
+recompile      <- run only when down
+src            <- source code
+startup        <- startup script
+

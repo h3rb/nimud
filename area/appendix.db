@@ -1,0 +1,7699 @@
+#SPELL 1
+N find familiar~
+Lvl 0
+Target 0
+Delay 0
+Mana 20
+Type 0
+Group 1400
+Sc 10
+End
+#SPELL 9
+N ~
+Lvl 0
+Target 0
+Delay 0
+Mana 0
+Type 0
+Group 0
+End
+#SPELL 11
+N mudman~
+Lvl 50
+Target 0
+Delay 0
+Mana 20
+Type 0
+Group 1000
+Sc 11
+End
+#SPELL 23
+N firestream~
+Lvl 50
+Target 1
+Delay 0
+Mana 0
+Type 0
+Group 800
+Sc 23
+End
+#SPELL 24
+N waterwall~
+Lvl 10
+Target 1
+Delay 0
+Mana 0
+Type 0
+Group 900
+Sc 24
+End
+#SPELL 25
+N iceblast~
+Lvl 15
+Target 1
+Delay 0
+Mana 10
+Type 0
+Group 900
+Sc 25
+End
+#SPELL 26
+N icesword~
+Lvl 6
+Target 3
+Delay 0
+Mana 8
+Type 0
+Group 900
+Sc 26
+End
+#SPELL 27
+N waterspirit~
+Lvl 3
+Target 0
+Delay 0
+Mana 0
+Type 0
+Group 900
+Sc 27
+End
+#SPELL 28
+N smartstorm~
+Lvl 28
+Target 1
+Delay 0
+Mana 0
+Type 0
+Group 900
+Sc 28
+End
+#SPELL 29
+N brimstone~
+Lvl 29
+Target 1
+Delay 0
+Mana 0
+Type 0
+Group 900
+Sc 29
+End
+#SPELL 30
+N singe~
+Lvl 15
+Target 1
+Delay 0
+Mana 0
+Type 0
+Group 900
+Sc 30
+End
+#SPELL 31
+N dimensional travel~
+Lvl 70
+Target 0
+Delay 0
+Mana 0
+Type 0
+Group 1600
+Sc 31
+End
+#SPELL 32
+N ethereal aid~
+Lvl 11
+Target 0
+Delay 0
+Mana 20
+Type 0
+Group 1400
+Sc 32
+End
+#SPELL 33
+N army of darkness~
+Lvl 150
+Target 0
+Delay 0
+Mana 100
+Type 0
+Group 1700
+Sc 33
+End
+#SPELL 34
+N water heal~
+Lvl 0
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 0
+Sc 34
+End
+#SPELL 35
+N boil~
+Lvl 15
+Target 2
+Delay 0
+Mana 0
+Type 10
+Group 900
+End
+#SPELL 36
+N water palace~
+Lvl 500
+Target 0
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 37
+N water enchant~
+Lvl 30
+Target 4
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 38
+N water beast~
+Lvl 100
+Target 0
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 39
+N water fowl~
+Lvl 6
+Target 2
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 40
+N water world~
+Lvl 610
+Target 0
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 41
+N water serpent~
+Lvl 40
+Target 2
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 42
+N ice spear~
+Lvl 50
+Target 2
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 43
+N ice armor~
+Lvl 500
+Target 0
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 44
+N ice shield~
+Lvl 15
+Target 4
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 45
+N ice helm~
+Lvl 12
+Target 0
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 46
+N ice raft~
+Lvl 6
+Target 2
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 47
+N ice gauntlets~
+Lvl 610
+Target 0
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 48
+N fire fist~
+Lvl 11
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 49
+N firestar~
+Lvl 25
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 50
+N extinguish~
+Lvl 11
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 51
+N burn~
+Lvl 70
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 52
+N emblazon~
+Lvl 80
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 53
+N torch~
+Lvl 20
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 54
+N braise~
+Lvl 120
+Target 4
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 55
+N brand~
+Lvl 300
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 56
+N incinerate~
+Lvl 400
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 57
+N solar wind~
+Lvl 500
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 58
+N solar flare~
+Lvl 550
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 59
+N beam~
+Lvl 30
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 60
+N rust~
+Lvl 0
+Target 2
+Delay 0
+Mana 0
+Type 4
+Group 800
+End
+#SPELL 61
+N boulder smash~
+Lvl 20
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 62
+N stoneskin~
+Lvl 10
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 63
+N pebble~
+Lvl 6
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 64
+N rock man~
+Lvl 40
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 65
+N harden~
+Lvl 50
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 66
+N earth wall~
+Lvl 70
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 67
+N crumble~
+Lvl 80
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 68
+N crush~
+Lvl 90
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 69
+N anti-gravity~
+Lvl 17
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 70
+N pulverize~
+Lvl 22
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 71
+N army of mud~
+Lvl 100
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 72
+N army of muck~
+Lvl 120
+Target 2
+Delay 0
+Mana 0
+Type 1
+Group 1100
+End
+#SPELL 73
+N sky~
+Lvl 130
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 74
+N wind blast~
+Lvl 140
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 75
+N sonic boom~
+Lvl 170
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 76
+N fly~
+Lvl 14
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 77
+N conjure air elemental~
+Lvl 23
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 78
+N smoke~
+Lvl 42
+Target 2
+Delay 0
+Mana 0
+Type 6
+Group 1000
+End
+#SPELL 79
+N portal~
+Lvl 55
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 80
+N sand blast~
+Lvl 37
+Target 2
+Delay 0
+Mana 0
+Type 3
+Group 1000
+End
+#SPELL 81
+N air familiar~
+Lvl 34
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 82
+N call avian~
+Lvl 23
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 83
+N toxic vapor~
+Lvl 70
+Target 2
+Delay 0
+Mana 0
+Type 2
+Group 1000
+End
+#SPELL 84
+N toxic ooze~
+Lvl 80
+Target 2
+Delay 0
+Mana 0
+Type 8
+Group 900
+End
+#SPELL 85
+N blinding flash~
+Lvl 22
+Target 2
+Delay 0
+Mana 0
+Type 6
+Group 800
+End
+#SPELL 86
+N spectral hand~
+Lvl 66
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 87
+N feign death~
+Lvl 77
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 88
+N clairvoyance~
+Lvl 11
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 89
+N summon monster~
+Lvl 14
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 90
+N summon daemon~
+Lvl 26
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 91
+N summon sardonic daemon~
+Lvl 666
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 92
+N vampiric touch~
+Lvl 49
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 93
+N contagion~
+Lvl 33
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 94
+N enervation~
+Lvl 38
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 95
+N summon greater daemon~
+Lvl 59
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 96
+N clairaudience~
+Lvl 11
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 97
+N lichify~
+Lvl 69
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 98
+N dismissal~
+Lvl 110
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 99
+N summon shadow~
+Lvl 99
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 100
+N ritual of keth~
+Lvl 137
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 101
+N teleport~
+Lvl 64
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 102
+N animal spirit~
+Lvl 48
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 103
+N ensnare~
+Lvl 62
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1500
+End
+#SPELL 104
+N summon ancestor~
+Lvl 145
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 105
+N control undead~
+Lvl 111
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 106
+N finger of death~
+Lvl 131
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 107
+N astral portal~
+Lvl 76
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 108
+N ancient curse~
+Lvl 77
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 109
+N summon reincarnation~
+Lvl 155
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 110
+N mystic companion~
+Lvl 220
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 111
+N astral fiend~
+Lvl 333
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 112
+N astral projection~
+Lvl 420
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 113
+N commune~
+Lvl 177
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 114
+N vapor of death~
+Lvl 18
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 115
+N forest friends~
+Lvl 31
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 116
+N curse of vengeance~
+Lvl 63
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 117
+N sadistic spirits~
+Lvl 68
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 118
+N sadistic enchantment~
+Lvl 110
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1300
+End
+#SPELL 119
+N explosive blast~
+Lvl 122
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 120
+N summon chicken~
+Lvl 8
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 121
+N enrage~
+Lvl 13
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1500
+End
+#SPELL 122
+N envenom~
+Lvl 44
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1500
+End
+#SPELL 123
+N ritual of mitor~
+Lvl 96
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1500
+End
+#SPELL 124
+N ritual of dumandra~
+Lvl 196
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 125
+N ritual of the alvaki~
+Lvl 296
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 126
+N nature of chaos~
+Lvl 396
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 127
+N chaotic enchantment~
+Lvl 145
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1800
+End
+#SPELL 128
+N illusion of urgency~
+Lvl 11
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 129
+N illusion of security~
+Lvl 22
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 130
+N illusion of wealth~
+Lvl 33
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 131
+N illusion of grandeur~
+Lvl 44
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 132
+N illusion of competency~
+Lvl 55
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 133
+N illusion of dependence~
+Lvl 66
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 134
+N illusionary wall~
+Lvl 77
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 135
+N illusory vision~
+Lvl 88
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1600
+End
+#SPELL 136
+N hallucinate~
+Lvl 99
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1500
+End
+#SPELL 137
+N word of power~
+Lvl 111
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 138
+N elixir of health~
+Lvl 6
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 139
+N elixir of potency~
+Lvl 12
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 140
+N mind elixir~
+Lvl 24
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 141
+N venemous servant~
+Lvl 36
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 142
+N call dragon~
+Lvl 126
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 143
+N warrior spirit~
+Lvl 48
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1400
+End
+#SPELL 144
+N enchant~
+Lvl 64
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1800
+End
+#SPELL 145
+N martyr~
+Lvl 69
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 146
+N hand of god~
+Lvl 600
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 147
+N peace~
+Lvl 400
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 148
+N meteor strike~
+Lvl 333
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 149
+N annihilate~
+Lvl 666
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1200
+End
+#SPELL 150
+N cataclysmic event~
+Lvl 333
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#SPELL 151
+N armageddon~
+Lvl 666
+Target 2
+Delay 0
+Mana 0
+Type 0
+Group 1700
+End
+#CONTENTS
+Scene 1
+
+#PROP
+Nest 0
+V 20308
+E 0
+W 0
+WL -1
+I 15
+Wt 50
+L 0
+Sz 0
+T -1
+C 199
+Va 5000 5 5226 0
+END
+
+
+#PROP
+Nest 1
+V 661
+E 65536
+W 1
+WL -1
+I 22
+Wt 15
+L 0
+Sz 0
+T -1
+C 44
+Va 5 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 4505
+N orange-sienna duffel bag~
+S an orange-sienna duffel bag~
+D
+An orange-sienna duffel bag has been tossed here.
+~
+E 0
+W 4227073
+WL -1
+I 15
+Wt 5
+L 0
+Sz 0
+T -1
+C 40
+Va 100 1 0 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N fine green chrysoprase gem~
+S a fine green chrysoprase~
+D
+A fine green chrysoprase sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 250
+Va 1 50 50 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N pale gray jadeite gem~
+S a pale gray jadeite~
+D
+A pale gray jadeite sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 550
+Va 1 70 110 0
+END
+
+
+#PROP
+Nest 2
+V 544
+E 0
+W 1
+WL -1
+I 0
+Wt 1
+L 0
+Sz 0
+T -1
+C 106
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 9
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 9
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 10
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 9
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6008
+E 0
+W 1
+WL -1
+I 19
+Wt 5
+L 0
+Sz 0
+T -1
+C 91
+Va 60 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6008
+E 0
+W 1
+WL -1
+I 19
+Wt 5
+L 0
+Sz 0
+T -1
+C 101
+Va 60 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6009
+E 0
+W 1
+WL -1
+I 17
+Wt 30
+L 0
+Sz 0
+T -1
+C 20
+Va 50 50 0 0
+END
+
+
+#PROP
+Nest 2
+V 4504
+E 0
+W 1
+WL -1
+I 15
+Wt 2
+L 0
+Sz 0
+T -1
+C 7
+Va 30 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 1
+E 0
+W 1
+WL -1
+I 19
+Wt 0
+L 0
+Sz 0
+T -1
+C 9
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 1
+E 0
+W 1
+WL -1
+I 19
+Wt 0
+L 0
+Sz 0
+T -1
+C 11
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N pale gray jadeite gem~
+S a pale gray jadeite~
+D
+A pale gray jadeite sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 550
+Va 1 110 110 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N black diamond gem~
+S a black diamond~
+D
+A black diamond sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 3000
+Va 3 590 600 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N green sapphire gem~
+S a green sapphire~
+D
+A green sapphire sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1400
+Va 1 280 280 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N earthen andradite gem~
+S an earthen andradite~
+D
+An earthen andradite sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 650
+Va 1 130 130 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N light green jadeite gem~
+S a light green jadeite~
+D
+A light green jadeite sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 500
+Va 3 100 100 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N black diamond gem~
+S a black diamond~
+D
+A black diamond sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 3000
+Va 3 600 600 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N colorless fluorspar gem~
+S a colorless fluorspar~
+D
+A colorless fluorspar sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 2 20 20 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N green fluorspar gem~
+S a green fluorspar~
+D
+A green fluorspar sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 1 20 20 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N olivine gem~
+S an olivine~
+D
+An olivine sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 300
+Va 3 60 60 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N green turquoise gem~
+S a green turquoise~
+D
+A green turquoise sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 500
+Va 1 100 100 0
+END
+
+
+#PROP
+Nest 2
+V 30
+E 0
+W 24577
+WL -1
+I 5
+Wt 2
+L 0
+Sz 0
+T -1
+C 3
+Va 1 4 11 1
+END
+
+
+#PROP
+Nest 2
+V 4505
+N sky-blue duffel bag~
+S a sky-blue duffel bag~
+D
+A sky-blue duffel bag has been tossed here.
+~
+E 0
+W 4227073
+WL -1
+I 15
+Wt 5
+L 1
+Sz 0
+T -1
+C 43
+Va 100 1 0 0
+END
+
+
+#PROP
+Nest 2
+V 22908
+E 0
+W 1
+WL -1
+I 33
+Wt 0
+L 0
+Sz 0
+T -1
+C 954
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 36
+E 0
+W 1
+WL -1
+I 27
+Wt 1
+L 0
+Sz 0
+T -1
+C 3
+Va 1 5 5 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 11
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 10
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 11
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6007
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 10
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6008
+E 0
+W 1
+WL -1
+I 19
+Wt 5
+L 0
+Sz 0
+T -1
+C 99
+Va 60 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 6012
+E 0
+W 24577
+WL -1
+I 5
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 10 20 1
+END
+
+
+#PROP
+Nest 2
+V 3
+N six platinum coins~
+S six platinum coins~
+D
+A few platinum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 60000
+Va 6 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 3
+N nine electrum coins~
+S nine electrum coins~
+D
+A few electrum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 9000
+Va 9 1 0 0
+END
+
+
+#PROP
+Nest 2
+V 3
+N six gold coins~
+S six gold coins~
+D
+A few gold coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 600
+Va 6 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 3
+N four silver coins~
+S four silver coins~
+D
+A few silver coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 40
+Va 4 3 0 0
+END
+
+
+#PROP
+Nest 2
+V 3
+N five copper coins~
+S five copper coins~
+D
+A few copper coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 5 4 0 0
+END
+
+
+#PROP
+Nest 2
+V 4505
+N cyan duffel bag~
+S a cyan duffel bag~
+D
+A cyan duffel bag has been tossed here.
+~
+E 0
+W 4227073
+WL -1
+I 15
+Wt 5
+L 0
+Sz 0
+T -1
+C 36
+Va 100 1 0 0
+END
+
+
+#PROP
+Nest 3
+V 5015
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 5 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 5014
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 22
+Va 30 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 5013
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 32
+Va 25 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 5011
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 10
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 5014
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 22
+Va 30 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 5015
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 5 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 6013
+E 0
+W 4194817
+WL -1
+I 9
+Wt 3
+L 0
+Sz 0
+T -1
+C 10
+Va 2 20 20 0
+END
+
+
+#PROP
+Nest 3
+V 5016
+E 0
+W 1
+WL -1
+I 17
+Wt 1
+L 0
+Sz 0
+T -1
+C 11
+Va 2 10 7 -2
+END
+
+
+#PROP
+Nest 3
+V 6009
+E 0
+W 1
+WL -1
+I 17
+Wt 30
+L 0
+Sz 0
+T -1
+C 22
+Va 50 50 0 0
+END
+
+
+#PROP
+Nest 3
+V 6002
+E 0
+W 32769
+WL -1
+I 6
+Wt 1
+L 0
+Sz 0
+T -1
+C 501
+Va 6003 10 15 0
+END
+
+
+#PROP
+Nest 3
+V 6005
+E 0
+W 4227073
+WL -1
+I 15
+Wt 1
+L 0
+Sz 0
+T -1
+C 19
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 4
+V 6003
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 5
+Va 1 5 0 -1
+END
+
+
+#PROP
+Nest 3
+V 50
+N red spinel gem~
+S a red spinel~
+D
+A red spinel sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 750
+Va 4 150 150 0
+END
+
+
+#PROP
+Nest 3
+V 50
+N bright green demantoid garnet gem~
+S a bright green demantoid garnet~
+D
+A bright green demantoid garnet sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 700
+Va 1 100 140 0
+END
+
+
+#PROP
+Nest 3
+V 50
+N star ruby gem~
+S a star ruby~
+SP star rubies~
+D
+A star ruby sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 750
+Va 4 150 150 0
+END
+
+
+#PROP
+Nest 3
+V 11611
+E 0
+W 9
+WL -1
+I 15
+Wt 1
+L 0
+Sz 0
+T -1
+C 46
+Va 10 0 0 0
+END
+
+
+#PROP
+Nest 4
+V 5311
+E 0
+W 1
+WL -1
+I 27
+Wt 1
+L 0
+Sz 0
+T -1
+C 18
+Va 1 23 25 0
+END
+
+
+#PROP
+Nest 4
+V 5306
+E 0
+W 1
+WL -1
+I 1
+Wt 2
+L 0
+Sz 0
+T -1
+C 20
+Va 86 100 0 30
+END
+
+
+#PROP
+Nest 3
+V 22908
+E 0
+W 1
+WL -1
+I 33
+Wt 0
+L 0
+Sz 0
+T -1
+C 968
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N obsidian sphere component~
+S a obsidian sphere~
+SP obsidian sphere components~
+D
+a obsidian sphere was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 50
+Va 90 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 3002
+E 0
+W 17
+WL -1
+I 9
+Wt 6
+L 0
+Sz 0
+T -1
+C 55
+Va 0 -1 8 0
+END
+
+
+#PROP
+Nest 3
+V 3
+N nineteen platinum coins~
+S nineteen platinum coins~
+D
+A small pile of platinum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 190000
+Va 19 0 0 0
+END
+
+
+#PROP
+Nest 3
+V 3
+N eight electrum coins~
+S eight electrum coins~
+D
+A few electrum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 8000
+Va 8 1 0 0
+END
+
+
+#PROP
+Nest 3
+V 3
+N four gold coins~
+S four gold coins~
+D
+A few gold coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 400
+Va 4 2 0 0
+END
+
+
+#PROP
+Nest 3
+V 3
+N two copper coins~
+S two copper coins~
+D
+A few copper coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 2
+Va 2 4 0 0
+END
+
+
+#PROP
+Nest 1
+V 4505
+N olive drab duffel bag~
+S an olive drab duffel bag~
+D
+An olive drab duffel bag has been tossed here.
+~
+E 0
+W 4227073
+WL -1
+I 15
+Wt 5
+L 0
+Sz 0
+T -1
+C 42
+Va 100 1 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 107
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 109
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 103
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 111
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 110
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N green fluorspar gem~
+S a green fluorspar~
+D
+A green fluorspar sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 1 20 20 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 112
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 3506
+E 0
+W -2147467263
+WL -1
+I 5
+Wt 10
+L 0
+Sz 0
+T -1
+C 64
+Va 0 10 20 8
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 90
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 89
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 4500
+E 0
+W 4227073
+WL -1
+I 15
+Wt 2
+L 0
+Sz 0
+T -1
+C 19
+Va 50 1 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N some  phosphorous component~
+S some phosphorous~
+SP phosphorous components~
+D
+some phosphorous was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 1000
+Va 91 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N slice  raw clay component~
+S a slice of raw clay~
+SP raw clay components~
+D
+a slice of raw clay was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 10
+Va 61 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N uncut  agate component~
+S an uncut agate~
+SP agate components~
+D
+an uncut agate was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 100
+Va 45 7 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N half-cask  rainwater component~
+S a half-cask of rainwater~
+SP rainwater components~
+D
+a half-cask of rainwater was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 3
+Va 42 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N half-cask  rainwater component~
+S a half-cask of rainwater~
+SP rainwater components~
+D
+a half-cask of rainwater was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 3
+Va 42 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N half-cask  rainwater component~
+S a half-cask of rainwater~
+SP rainwater components~
+D
+a half-cask of rainwater was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 3
+Va 42 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N half-cask  rainwater component~
+S a half-cask of rainwater~
+SP rainwater components~
+D
+a half-cask of rainwater was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 3
+Va 42 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N half-cask  rainwater component~
+S a half-cask of rainwater~
+SP rainwater components~
+D
+a half-cask of rainwater was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 3
+Va 42 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N half-cask  rainwater component~
+S a half-cask of rainwater~
+SP rainwater components~
+D
+a half-cask of rainwater was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 3
+Va 42 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 4
+N capful  attar of roses component~
+S a capful of attar of roses~
+SP attar of roses components~
+D
+a capful of attar of roses was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 20000
+Va 34 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 103
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 5020
+E 0
+W 1
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 5226
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 112
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 98
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 17040
+E 0
+W 1
+WL -1
+I 8
+Wt 0
+L 0
+Sz 0
+T -1
+C 111
+Va 0 2 0 0
+END
+
+Scene 5
+Scene 20
+Scene 5171
+
+#PROP
+Nest 0
+V 5019
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+Scene 5172
+
+#PROP
+Nest 0
+V 5100
+E 0
+W 8193
+WL -1
+I 5
+Wt 2
+L 0
+Sz 0
+T -1
+C 44
+Va 0 10 20 8
+END
+
+Scene 5247
+
+#PROP
+Nest 0
+V 5019
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 9
+Va 100 24576 0 0
+END
+
+Scene 5248
+
+#PROP
+Nest 0
+V 5019
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+Scene 5249
+
+#PROP
+Nest 0
+V 5019
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 4500
+E 0
+W 4227073
+WL -1
+I 15
+Wt 2
+L 0
+Sz 0
+T -1
+C 18
+Va 50 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 33
+E 0
+W 1
+WL -1
+I 1
+Wt 1
+L 0
+Sz 0
+T -1
+C 2
+Va 10 10 0 30
+END
+
+
+#PROP
+Nest 1
+V 39
+E 0
+W 32769
+WL -1
+I 17
+Wt 1
+L 0
+Sz 0
+T -1
+C 3
+Va 10 30 16 0
+END
+
+
+#PROP
+Nest 1
+V 38
+E 0
+W 1
+WL -1
+I 19
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 36
+E 0
+W 1
+WL -1
+I 27
+Wt 1
+L 0
+Sz 0
+T -1
+C 3
+Va 1 5 5 0
+END
+
+
+#PROP
+Nest 1
+V 5306
+E 0
+W 1
+WL -1
+I 1
+Wt 2
+L 1
+Sz 0
+T -1
+C 18
+Va 100 100 0 30
+END
+
+
+#PROP
+Nest 1
+V 5011
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 1
+Sz 0
+T -1
+C 9
+Va 20 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 4505
+N blue-green duffel bag~
+S a blue-green duffel bag~
+D
+A blue-green duffel bag has been tossed here.
+~
+E 0
+W 4227073
+WL -1
+I 15
+Wt 5
+L 1
+Sz 0
+T -1
+C 35
+Va 100 1 0 0
+END
+
+
+#PROP
+Nest 2
+V 3001
+E 0
+W 513
+WL -1
+I 9
+Wt 6
+L 1
+Sz 0
+T -1
+C 40
+Va 3 50 50 0
+END
+
+
+#PROP
+Nest 2
+V 3004
+E 0
+W 513
+WL -1
+I 9
+Wt 10
+L 1
+Sz 0
+T -1
+C 970
+Va 5 80 80 0
+END
+
+
+#PROP
+Nest 2
+V 5005
+E 0
+W 1
+WL -1
+I 17
+Wt 0
+L 1
+Sz 0
+T -1
+C 10
+Va 50 50 0 0
+END
+
+
+#PROP
+Nest 2
+V 5311
+E 0
+W 1
+WL -1
+I 27
+Wt 1
+L 1
+Sz 0
+T -1
+C 18
+Va 1 25 25 0
+END
+
+
+#PROP
+Nest 1
+V 4
+N rat whisker component~
+S a rat whisker~
+SP rat whisker components~
+D
+a rat whisker was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 5
+Va 164 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 4
+N rat whisker component~
+S a rat whisker~
+SP rat whisker components~
+D
+a rat whisker was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 5
+Va 164 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 4
+N rat whisker component~
+S a rat whisker~
+SP rat whisker components~
+D
+a rat whisker was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 5
+Va 164 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 4
+N rat whisker component~
+S a rat whisker~
+SP rat whisker components~
+D
+a rat whisker was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 5
+Va 164 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 4
+N rat whisker component~
+S a rat whisker~
+SP rat whisker components~
+D
+a rat whisker was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 5
+Va 164 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 4
+N rat tail component~
+S a bloodied rat tail~
+SP rat tail components~
+D
+a rat tail was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 7
+Va 163 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N nine platinum coins~
+S nine platinum coins~
+D
+A few platinum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 90000
+Va 9 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N six electrum coins~
+S six electrum coins~
+D
+A few electrum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 6000
+Va 6 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N nine gold coins~
+S nine gold coins~
+D
+A few gold coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 900
+Va 9 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N nine silver coins~
+S nine silver coins~
+D
+A few silver coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 90
+Va 9 3 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N four copper coins~
+S four copper coins~
+D
+A few copper coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 4
+Va 4 4 0 0
+END
+
+
+#PROP
+Nest 0
+V 4
+N rat whisker component~
+S a rat whisker~
+SP rat whisker components~
+D
+a rat whisker was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 5
+Va 164 2 0 0
+END
+
+
+#PROP
+Nest 0
+V 4700
+E 1
+W 9
+WL -1
+I 9
+Wt 14
+L 0
+Sz 0
+T -1
+C 1860
+Va 10 13 15 0
+END
+
+
+#PROP
+Nest 0
+V 7516
+N shimmering clear zircon~
+S a shimmering clear zircon~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 300
+Va 2 60 60 -1
+END
+
+
+#PROP
+Nest 0
+V 2520
+N a ferret fur fullcoat~
+S a ferret fur fullcoat~
+SP ferret fur fullcoats~
+D
+A balled-up ferret fur fullcoat is here.
+~
+E 0
+W 1025
+WL -1
+I 13
+Wt 5
+L 1
+Sz 24
+T -1
+C 43
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 661
+E 0
+W 1
+WL -1
+I 22
+Wt 15
+L 0
+Sz 0
+T -1
+C 46
+Va 5 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 4500
+E 0
+W 4227073
+WL -1
+I 15
+Wt 2
+L 0
+Sz 0
+T -1
+C 18
+Va 50 1 0 0
+END
+
+Scene 16531
+Scene 5320
+
+#PROP
+Nest 0
+V 15142
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 5000 13 15141 0
+END
+
+
+#PROP
+Nest 1
+V 5320
+E 256
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 5320
+E 384
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N colorless topaz gem~
+S a colorless topaz~
+SP colorless topaz~
+D
+A colorless topaz sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1000
+Va 2 200 200 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N grass-green emerald gem~
+S a grass-green emerald~
+D
+A grass-green emerald sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1400
+Va 1 280 280 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N light green jadeite gem~
+S a light green jadeite~
+D
+A light green jadeite sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 500
+Va 3 100 100 0
+END
+
+
+#PROP
+Nest 1
+V 5100
+E 0
+W 8193
+WL -1
+I 5
+Wt 2
+L 0
+Sz 0
+T -1
+C 38
+Va 0 10 20 8
+END
+
+
+#PROP
+Nest 1
+V 6019
+E 0
+W 24577
+WL -1
+I 5
+Wt 1
+L 0
+Sz 0
+T -1
+C 10
+Va 0 2 6 8
+END
+
+
+#PROP
+Nest 1
+V 2522
+E 0
+W 2049
+WL -1
+I 13
+Wt 1
+L 1
+Sz 0
+T -1
+C 7
+Va 1 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 18141
+E 0
+W 1
+WL -1
+I 11
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 532
+E 0
+W 1
+WL -1
+I 17
+Wt 1
+L 0
+Sz 0
+T -1
+C 6
+Va 10 15 1 0
+END
+
+
+#PROP
+Nest 1
+V 5016
+E 0
+W 1
+WL -1
+I 17
+Wt 1
+L 1
+Sz 0
+T -1
+C 9
+Va 10 10 7 -2
+END
+
+
+#PROP
+Nest 1
+V 37
+E 0
+W 1
+WL -1
+I 0
+Wt 1
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 6017
+E 0
+W 8193
+WL -1
+I 5
+Wt 20
+L 0
+Sz 0
+T -1
+C 10
+Va 0 20 30 5
+END
+
+
+#PROP
+Nest 1
+V 50
+N colorless topaz gem~
+S a colorless topaz~
+SP colorless topaz~
+D
+A colorless topaz sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1000
+Va 2 200 200 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N reddish spangled sunstone gem~
+S a reddish spangled sunstone~
+D
+A reddish spangled sunstone sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 250
+Va 4 50 50 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N white chalcedony gem~
+S a white chalcedony~
+D
+A white chalcedony sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 200
+Va 2 40 40 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N cymophane cats-eye gem~
+S a cymophane cats-eye~
+D
+A cymophane cats-eye sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 600
+Va 5 120 120 0
+END
+
+
+#PROP
+Nest 0
+V 12000
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 300 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 5004
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 99 65536 0 0
+END
+
+
+#PROP
+Nest 0
+V 531
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 531
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+Scene 536
+
+#PROP
+Nest 0
+V 506
+E 0
+W 0
+WL -1
+I 25
+Wt 0
+L 0
+Sz 0
+T -1
+C 9
+Va 0 -1 -1 -1
+END
+
+
+#PROP
+Nest 0
+V 536
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 100
+T -1
+C 11
+Va 1000 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 34
+N thin wool belt~
+S a thin wool belt~
+D
+A thin belt crafted from wool is coiled up on the ground.
+~
+E 0
+W 2049
+WL -1
+I 13
+Wt 1
+L 0
+Sz 20
+T -1
+C 1
+Va 0 0 0 0
+END
+
+Scene 18040
+Scene 15100
+
+#PROP
+Nest 0
+V 12002
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 10 1 0 0
+END
+
+Scene 15141
+
+#PROP
+Nest 0
+V 15142
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 5000 1 15141 0
+END
+
+
+#PROP
+Nest 0
+V 5004
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 99 65536 0 0
+END
+
+
+#PROP
+Nest 0
+V 531
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 4003
+E 0
+W 0
+WL -1
+I 12
+Wt 100
+L 0
+Sz 0
+T -1
+C 4680
+Va 200 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 5001
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 10900
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 5212
+E 0
+W 0
+WL -1
+I 17
+Wt 50
+L 0
+Sz 0
+T -1
+C 2487
+Va 95 100 32 0
+END
+
+
+#PROP
+Nest 0
+V 12003
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 12000
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 300 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 4004
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 2147320099 2147483647 0 1
+END
+
+
+#PROP
+Nest 0
+V 16402
+E 2
+W 0
+WL -1
+I 15
+Wt 5000
+L 0
+Sz 0
+T -1
+C 1
+Va 500 5 -1 0
+END
+
+
+#PROP
+Nest 0
+V 5164
+E 1024
+W 16
+WL -1
+I 9
+Wt 4
+L 0
+Sz 0
+T -1
+C 156
+Va 10 4 4 0
+END
+
+
+#PROP
+Nest 0
+V 17105
+E 2
+W 16385
+WL -1
+I 5
+Wt 1
+L 0
+Sz 0
+T -1
+C 921
+Va 0 2 2 11
+END
+
+
+#PROP
+Nest 0
+V 30
+E 0
+W 24577
+WL -1
+I 5
+Wt 2
+L 0
+Sz 0
+T -1
+C 3
+Va 1 4 11 1
+END
+
+
+#PROP
+Nest 0
+V 3512
+S a bloodied short sword~
+E 0
+W 24577
+WL -1
+I 5
+Wt 3
+L 0
+Sz 0
+T -1
+C 10
+Va 1 15 25 3
+END
+
+
+#PROP
+Nest 0
+V 16315
+E 1
+W 1
+WL -1
+I 15
+Wt 1000
+L 0
+Sz 18
+T -1
+C 878
+Va 5000 3 16339 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N common opal gem~
+S a common opal~
+D
+A common opal sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 8 20 20 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N dark-green opaque plasma stone gem~
+S a dark-green opaque plasma stone~
+D
+A dark-green opaque plasma stone sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 200
+Va 9 40 40 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N grass-green emerald gem~
+S a grass-green emerald~
+D
+A grass-green emerald sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1400
+Va 1 280 280 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N reddish spangled sunstone gem~
+S a reddish spangled sunstone~
+D
+A reddish spangled sunstone sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 250
+Va 4 50 50 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N yellow-red hessonite garnet gem~
+S a yellow-red hessonite garnet~
+D
+A yellow-red hessonite garnet sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 500
+Va 4 100 100 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N pink fluorspar gem~
+S a pink fluorspar~
+D
+A pink fluorspar sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 4 20 20 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N jade gem~
+S a jade~
+D
+A jade sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 600
+Va 1 120 120 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N black-marked moss agate gem~
+S a black-marked moss agate~
+D
+A black-marked moss agate sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 500
+Va 5 100 100 0
+END
+
+
+#PROP
+Nest 1
+V 20015
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 18
+T -1
+C 10
+Va 10 3 0 0
+END
+
+
+#PROP
+Nest 0
+V 17245
+E 65
+W 16385
+WL -1
+I 5
+Wt 5
+L 0
+Sz 0
+T -1
+C 10348
+Va 25 10 10 0
+END
+
+
+#PROP
+Nest 0
+V 17245
+E 65
+W 16385
+WL -1
+I 5
+Wt 5
+L 0
+Sz 0
+T -1
+C 10249
+Va 25 10 10 0
+END
+
+
+#PROP
+Nest 0
+V 16339
+E 65
+W 1
+WL -1
+I 18
+Wt 1
+L 0
+Sz 18
+T -1
+C 8860
+Va 1338 0 0 0
+END
+
+Scene 10033
+
+#PROP
+Nest 0
+V 5019
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+Scene 24405
+Scene 1981
+
+#PROP
+Nest 0
+V 531
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 530
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 5004
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 99 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 5181
+E 0
+W 1
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 1
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 15304
+E 1024
+W 16401
+WL -1
+I 13
+Wt 1
+L 0
+Sz 0
+T -1
+C 11
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 6200
+E 0
+W 1
+WL -1
+I 17
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 10 10 3 -2
+END
+
+
+#PROP
+Nest 1
+V 5308
+N grey wax taper~
+S a grey wax taper~
+D
+A grey wax taper burns here.
+~
+E 0
+W 1
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 10 10 0 0
+END
+
+
+#PROP
+Nest 1
+V 16365
+E 64
+W 16385
+WL -1
+I 12
+Wt 1
+L 0
+Sz 0
+T -1
+C 5726
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 10025
+E 0
+W 1
+WL -1
+I 19
+Wt 0
+L 0
+Sz 0
+T -1
+C 3
+Va 10 10 0 0
+END
+
+
+#PROP
+Nest 1
+V 5180
+E 0
+W 1
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 15611
+E 0
+W 1
+WL -1
+I 17
+Wt 5
+L 0
+Sz 0
+T -1
+C 45
+Va 20 20 10 0
+END
+
+
+#PROP
+Nest 1
+V 1005
+E 0
+W 1
+WL -1
+I 17
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 60 60 0 0
+END
+
+
+#PROP
+Nest 1
+V 1001
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 24
+T -1
+C 1
+Va 60 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 24222
+E 1
+W 1
+WL -1
+I 1
+Wt 4
+L 0
+Sz 0
+T -1
+C 549
+Va -1 -1 1000 1
+END
+
+
+#PROP
+Nest 0
+V 15142
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 5000 9 15141 0
+END
+
+
+#PROP
+Nest 1
+V 7005
+E 0
+W 2049
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 64 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 2
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 1
+V 7001
+E 0
+W 32769
+WL -1
+I 6
+Wt 10
+L 0
+Sz 0
+T -1
+C 180
+Va 7002 20 30 0
+END
+
+
+#PROP
+Nest 1
+V 7004
+E 0
+W 8193
+WL -1
+I 5
+Wt 1
+L 0
+Sz 0
+T -1
+C 11
+Va 0 15 10 2
+END
+
+
+#PROP
+Nest 0
+V 1200
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 32768 0 7000
+END
+
+
+#PROP
+Nest 0
+V 12000
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 300 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 5120
+E 0
+W 1
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 5168
+E 0
+W 1
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 5170
+E 0
+W 1
+WL -1
+I 11
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 5165
+E 0
+W 1
+WL -1
+I 11
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 18142
+E 0
+W 1
+WL -1
+I 11
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 5166
+E 0
+W 1
+WL -1
+I 11
+Wt 0
+L 0
+Sz 0
+T -1
+C 28
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 12007
+E 0
+W 1
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 18141
+E 0
+W 1
+WL -1
+I 11
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 5167
+E 0
+W 1
+WL -1
+I 11
+Wt 0
+L 0
+Sz 0
+T -1
+C 54
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 67
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 34
+N thin silk belt~
+S a thin silk belt~
+D
+A thin belt crafted from silk is coiled up on the ground.
+~
+E 0
+W 2049
+WL -1
+I 13
+Wt 1
+L 0
+Sz 0
+T -1
+C 8
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 12003
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 2519
+N a rabbit lined, ochre velvet cape~
+S a rabbit lined, ochre velvet cape~
+SP rabbit lined, ochre velvet capes~
+E 0
+W 1025
+WL -1
+I 13
+Wt 4
+L 0
+Sz 24
+T -1
+C 51
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 64
+E 0
+W 0
+WL -1
+I 29
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+Scene 2000
+
+#PROP
+Nest 0
+V 66
+E 0
+W 0
+WL -1
+I 29
+Wt 0
+L 0
+Sz 0
+T -1
+C 11
+Va 3 0 0 0
+END
+
+Scene 2001
+Stop
+
+#$

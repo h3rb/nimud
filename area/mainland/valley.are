@@ -1,0 +1,3407 @@
+#ZONE 
+N Tyselorrd: Valley~
+B None~
+V 22800 22883
+S 1
+End
+
+
+
+#SCRIPTDATA
+#22800
+N cooshee-follow~
+C
+if ( is (%astr%,{pet}), { goto({pet}); }, { goto({end}); } );
+goto({end});
+label(pet);
+echo(%actor%,{You pet the cooshee's thick coat and it nuzzles you affectionately.});
+oecho(%actor%,{%name% pets the cooshee.});
+breed(22800,%actor%);
+jump(25000);
+return(1);
+label(end);
+~
+T 0
+End
+
+#22805
+N thilonenne-druid~
+C
+show
+wait(20);
+do({:prepares a spell.});
+wait(40);
+do({: channels his natural magicks through his staff causing a loud boom culminating in a ^4^Bheat blast^N on your flesh!});
+%here% here();
+bomb(%actor%,{50});
+wait(random(5,15));
+~
+T 2
+End
+
+#22807
+N thilonenne-quarterstaff~
+C
+* area effect staff
+if ( is(%astr%,{zap}), { goto({zap}; } );
+goto({end});
+label(zap);
+echo(%actor%,{^B^1 You grip the staff in the two places marked with runes and the staff});
+echo(%actor%,{ projects microscopic shifts in the astral plane which extend into this});
+echo(%actor%,{ reality, creating millions of tiny air bursts on the flesh of your enemies!^N});
+oecho(%actor%,{^B^1%name% invokes a spell from his runed quarterstaff!});
+oecho(%actor%,{ A heat blast burns the flesh of all enemies!^N});
+return(1);
+%here% here();
+bomb(%actor%,{50});
+if ( check(9), { goto({destroyme}); } );
+goto({end});
+label(destroyme);
+echo(%actor%,{^B^1Your staff is expended and it fades from this plane of existence.^N});
+destroy;
+label(end);
+ 
+~
+T 0
+End
+
+#22813
+N wolf-pet~
+C
+if ( is (%astr%,{pet}), {goto({pet}); }, {goto({end});} );
+goto({end});
+label(pet);
+echo(%actor%,{You pet the wolf and it calms down.});
+oecho(%actor%,{%name% pets the wolf, and it begins following.});
+breed(22813,%actor%);
+jump(25000);
+return(1);
+label(end);
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#22800
+N cooshee dog~
+SD a cooshee~
+LD
+ A rather large dog is here, wandering the valley.
+~
+D
+ A beast is the size of the largest common dog.  It has a greenish coat with
+brown spots.  Its shape, along with its colors, make this cooshee almost
+undetectable as it moves.
+~
+A 8321
+AB 32768
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 12
+K 0 E 633
+O ~
+AP 25 25 25 25 40
+Sc 22800
+At 0 10 68 14
+At 6 5 10 7
+End
+
+#22801
+N thilon~
+SD a thilon~
+LD
+ A valley thilon wanders here, cautious of your intrusion.
+~
+D
+ This thilon is almost as tall as you are, but much slimmer and agile.  You see
+hatred in his eyes, and you try to avoid his stare.  His tense body looks ready
+to spring upon you, like a mountain lion stalking its prey.  He sees you
+noticing him, and quietly disappears.
+~
+A 197
+AB 33280
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 275
+O ~
+AP 19 19 19 19 19
+Sc 18711
+At 0 10 18 4
+At 1 5 20 1
+At 2 1 39 13
+End
+
+#22802
+N thilonenne maid thilon~
+SD a thilonenne maid~
+LD
+ A thilonenne maid is skipping through the valley, whistling a song.
+~
+D
+ This thilonenne is almost as tall as you are, but much slimmer and more agile.
+She glares at you, then quickly disappears before you see more of her.
+~
+A 213
+AB 33280
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 100 E 139
+O ~
+AP 15 15 15 15 15
+At 0 10 11 10
+At 2 12 16 7
+End
+
+#22803
+N sentry valley thilon~
+SD a valley thilon sentry~
+LD
+ A valley thilon sentry stands here, then noticing you, attacks quickly!
+~
+D
+ This thilon is almost as tall as you are, but much slimmer and more agile.
+He glares at your intrusion and attacks with menace.
+~
+A 35
+AB 33280
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 94
+O ~
+AP 15 15 15 15 15
+At 0 10 19 5
+End
+
+#22804
+N sentry valley thilon~
+SD a valley thilon sentry~
+LD
+ A valley thilon sentry stands here, then noticing you, attacks quickly!
+~
+D
+ This thilon is almost as tall as you are, but much slimmer and more agile.
+She glares at your intrusion and attacks with menace.
+~
+A 35
+AB 33280
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 443
+O ~
+AP 25 25 25 25 25
+At 0 10 20 10
+At 1 5 11 10
+End
+
+#22805
+N thilon thilonenne scout druid~
+SD a thilonenne scout~
+LD
+ A thilonenne druid is standing here, surveying the valley.
+~
+D
+ The thilonenne is aloof.  He is thin and his muscles are sinewy; you can
+tell his appearance is dark and his hair is brown.  His skin is a vaguely
+green hue, not pronounced at all but a mere underpinning of a human-like
+flesh tone.  
+~
+A 69
+AB 98816
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 617
+O ~
+AP 25 25 25 25 35
+Sc 18711
+Sc 22805
+At 0 10 18 9
+At 1 8 18 7
+End
+
+#22806
+N valley thilon~
+SD a valley thilon~
+LD
+ A valley thilon is here, doing her duties.
+~
+D
+ She is currently doing some menial chores, and ignores your intrusion except
+when you are in her way.
+~
+A 193
+AB 33280
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 57
+O ~
+AP 15 15 15 15 15
+At 0 10 12 0
+End
+
+#22807
+N elder valley thilon~
+SD a valley thilon elder~
+LD
+ A valley thilon elder is here, studying.  He notices you.
+A valley thilon elder shouts 'You have intruded wrongly.  Be prepared to die!'
+~
+D
+ This thilon looks quite old, probably twenty or more times your age.  He looks
+quite potent, though.
+~
+A 39
+AB 8320
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 16 5
+At 1 5 16 9
+End
+
+#22808
+N elder valley thilon~
+SD a valley thilon elder~
+LD
+ A valley thilon elder is here, studying.  She notices you.
+A valley thilon elder says 'Your arrogance will be your end, human.'
+~
+D
+ This thilon looks quite old, probably twenty or more times your age.  She looks
+quite potent, though.
+~
+A 39
+AB 8192
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 0 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 12 14
+At 1 5 22 14
+At 2 1 42 12
+End
+
+#22809
+N pyrohydra pyro hydra~
+SD the pyrohydra~
+LD
+ A big beast with many heads, each breathing fire, stares at you with malice.
+~
+D
+ This big beast looks like a small red dragon, but has many more heads than a
+regular dragon, too.  It doesn't look happy.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 85
+O ~
+AP 15 15 15 15 15
+At 0 10 15 4
+End
+
+#22810
+N hermit man old~
+SD an old hermit~
+LD
+ An old hermit sits here, smoking a pipe.
+~
+D
+ He looks old and feeble.
+~
+A 135
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 302
+O ~
+AP 19 19 19 19 19
+At 0 10 20 0
+At 1 5 17 5
+End
+
+#22811
+N talemon wizard mage~
+SD Talemon~
+LD
+ An old mage busies himself with some chemicals.
+~
+D
+ Talemon looks harmless, but the fireballs he throws at you don't.
+~
+A 39
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 234
+O ~
+AP 15 15 15 15 15
+At 0 10 21 5
+End
+
+#22812
+N guardian daemon~
+SD the guardian daemon~
+LD
+ A huge guardian daemon is here, watching the treasure.
+~
+D
+ This daemon is unhappy with its summoned job, and is willing to take out it's
+anger at you!
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -500 E 828
+O ~
+AP 25 25 25 25 40
+At 0 10 16 1
+At 1 5 74 10
+At 3 1 24 13
+At 5 1 32 9
+At 6 5 62 11
+End
+
+#22813
+N wolf~
+SD a wolf~
+LD
+ A wolf is here, looking for small prey.
+~
+D
+ The wolf is covered with brown hair.  It looks at you with fright.
+~
+A 161
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 345
+O ~
+AP 19 19 19 19 19
+Sc 22813
+At 0 10 19 5
+At 1 5 15 5
+At 2 1 12 14
+End
+
+#22814
+N antelope~
+SD an antelope~
+LD
+ An antelope is here, peacefully munching on grass.
+~
+D
+ With horns and spots over coarse, brown hair, this beast is the spit and
+image of ... an antelope.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 212
+O ~
+AP 15 15 15 15 15
+At 0 10 12 13
+End
+
+#0
+
+
+
+#OBJDATA
+#22800
+N chainmail chain mail~
+SD thilonenne chainmail~
+P ~
+D
+A shiny metallic shirt is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 3
+C 50
+O ~
+V 4 0 0 0
+End
+
+#22801
+N thilonenne boots~
+SD a pair of thilonenne boots~
+P ~
+D
+Some soft boots are here.
+~
+A
+~
+PD
+~
+DR
+The boots are made of a soft leather.
+~
+L 0
+T 9
+E 0
+W 65
+Sz 18
+Ti 0
+Wt 3
+C 10
+O ~
+V 3 10 10 9
+End
+
+#22802
+N longsword sword long~
+SD an thilonenne longsword~
+P ~
+D
+A shiny blade is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 50
+O ~
+V 0 3 3 3
+End
+
+#22803
+N cloak brown~
+SD a brown cloak~
+P ~
+D
+A pile of brown cloth is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 5
+Sz 18
+Ti 0
+Wt 3
+C 50
+O ~
+V 3 0 0 0
+End
+
+#22804
+N key~
+SD a key~
+P ~
+D
+A shiny key is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 7846 0 0 0
+End
+
+#22805
+N key~
+SD a key~
+P ~
+D
+A shiny key is on the floor.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 7880 0 0 0
+End
+
+#22806
+N ring~
+SD a gold ring~
+P ~
+D
+A shiny ring is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 3 0 0 0
+End
+
+#22807
+N staff thilonenne quarterstaff~
+SD a thilonenne's quarterstaff~
+P ~
+D
+A thilonenne druid's quarterstaff is here.
+~
+A
+~
+PD
+~
+DR
+A darkwood staff embued with special properties.  This is a magic item,
+you can trigger it by using the command 'zap' during combat to perform an
+area attack.  Runes mark the area where your hands go.  
+~
+L 0
+T 5
+E 64
+W -2143289343
+Sz 0
+Ti 0
+Wt 5
+C 1000
+O ~
+Sc 22807
+V 0 4 4 7
+End
+
+#22808
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22809
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22810
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22811
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 50 0 0 0
+End
+
+#22812
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22813
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22814
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22815
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22816
+N potion~
+SD a potion~
+P ~
+D
+A potion is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22817
+N scroll~
+SD a scroll~
+P ~
+D
+A scroll is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22818
+N scroll~
+SD a scroll~
+P ~
+D
+A scroll is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22819
+N scroll~
+SD a scroll~
+P ~
+D
+A scroll is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22820
+N scroll~
+SD a scroll~
+P ~
+D
+A scroll is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22821
+N scroll~
+SD a scroll~
+P ~
+D
+A scroll is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22822
+N scroll~
+SD a scroll~
+P ~
+D
+A scroll is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22823
+N scroll~
+SD a scroll~
+P ~
+D
+A scroll is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 64
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 200
+O ~
+V 10 0 0 0
+End
+
+#22824
+N rod light~
+SD the Rod of Neutrality~
+P ~
+D
+A dull iron shaft is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 1600
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 1000
+O ~
+V 0 0 -1 0
+End
+
+#0
+
+
+
+#SCENES
+#22800
+N Warrior Path~
+Ref 0
+D
+You are on an overgrown cobble path heading north from the plains to the
+Ring of Fire.  In the distance you see smoke plumes exiting a series of
+volcanos.  
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22801
+The path continues north.
+~
+~
+Dr 2 0 0 15323
+You see the Plains of Pi'Chek-Ur.
+~
+~
+End
+
+#22801
+N Along The Path~
+Ref 0
+D
+You are near an overlook that peers into the valley that birthed the
+Pi'Chek-Ur.  It was here that Vlattensintri, 10000 years ago, earned the
+title of Great Uniter by bringing together the Zengalli tribes and the
+Pi'Chek-Ur kingdoms.  
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22804
+You see the overlook.
+~
+~
+Dr 1 0 0 22803
+You see the small trail.
+~
+~
+Dr 2 0 0 22800
+You see the path back toward Pi'Chek-Ur.
+~
+~
+Dr 3 0 0 22802
+You see the small trail.
+~
+~
+End
+
+#22802
+N Trail to The Ring~
+Ref 0
+D
+This rocky trail leads north and east.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22867
+The trail continues north.
+~
+~
+Dr 1 0 0 22801
+The main path is to the east.
+~
+~
+End
+
+#22803
+N Trail to The Ring~
+Ref 0
+D
+This rocky trail leads north and west.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22849
+The trail continues north.
+~
+~
+Dr 3 0 0 22801
+The main path is to the west.
+~
+~
+End
+
+#22804
+N The Overlook~
+Ref 0
+D
+You are above a large valley.  Below you, you see humanoid forms wandering
+around the valley.  Rich green grass covers the valley, with some small trees
+dotting the landscape.  To the south is the trail back toward Pi'Chek-Ur.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 22801
+You see the path back toward Pi'Chek-Ur.
+~
+~
+Dr 5 0 0 22883
+~
+~
+End
+
+#22805
+N the entrance to the ancient valley, on Tyselorrd~
+Ref 0
+D
+You are at the entrance to the ancient valley, on Tyselorrd.  Far off eyes stare at your
+intrusion, but most are too busy to bother with you.  The valley spreads to
+the north, while enlarging toward the east and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22801 1 100 1
+Dr 0 0 0 22810
+The valley continues north.
+~
+~
+Dr 1 0 0 22807
+The valley continues east.
+~
+~
+Dr 2 0 0 20275
+~
+~
+Dr 3 0 0 22806
+The valley continues west.
+~
+~
+End
+
+#22806
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a small
+trail circling the entire valley.  The valley continues north and east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22800 1 100 1
+Dr 0 0 0 22809
+The valley continues north.
+~
+~
+Dr 1 0 0 22805
+The entrance to the valley is to the east.
+~
+~
+End
+
+#22807
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a small
+trail circling the entire valley.  The valley continues north and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22800 2 100 1
+Dr 0 0 0 22811
+The valley continues north.
+~
+~
+Dr 3 0 0 22805
+The entrance to the valley is to the west.
+~
+~
+End
+
+#22808
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a small
+trail circling the entire valley.  The valley continues north and east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22813
+The valley continues north.
+~
+~
+Dr 1 0 0 22809
+The valley continues east.
+~
+~
+End
+
+#22809
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22814
+The valley continues north.
+~
+~
+Dr 1 0 0 22810
+The valley continues east.
+~
+~
+Dr 2 0 0 22806
+The valley continues south.
+~
+~
+Dr 3 0 0 22808
+The valley continues west.
+~
+~
+End
+
+#22810
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+The entrance to the valley is towards the south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22815
+The valley continues north.
+~
+~
+Dr 1 0 0 22811
+The valley continues east.
+~
+~
+Dr 2 0 0 22805
+You see the entrance to the valley.
+~
+~
+Dr 3 0 0 22809
+The valley continues west.
+~
+~
+End
+
+#22811
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22802 2 100 1
+Dr 0 0 0 22816
+The valley continues north.
+~
+~
+Dr 1 0 0 22812
+The valley continues east.
+~
+~
+Dr 2 0 0 22807
+The valley continues south.
+~
+~
+Dr 3 0 0 22810
+The valley continues west.
+~
+~
+End
+
+#22812
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a small
+trail circling the entire valley.  The valley continues north and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22817
+The valley continues north.
+~
+~
+Dr 3 0 0 22811
+The valley continues west.
+~
+~
+End
+
+#22813
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  A steep trail leads up toward
+the deer trail circling the valley.  The valley continues north, south, and
+east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22818
+The valley continues north.
+~
+~
+Dr 1 0 0 22814
+The valley continues east.
+~
+~
+Dr 2 0 0 22808
+The valley continues south.
+~
+~
+Dr 4 0 0 22863
+The steep trail leads up.
+~
+~
+End
+
+#22814
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22819
+The valley continues north.
+~
+~
+Dr 1 0 0 22815
+The valley continues east.
+~
+~
+Dr 2 0 0 22809
+The valley continues south.
+~
+~
+Dr 3 0 0 22813
+The valley continues west.
+~
+~
+End
+
+#22815
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22814 3 100 1
+Dr 0 0 0 22820
+The valley continues north.
+~
+~
+Dr 1 0 0 22816
+The valley continues east.
+~
+~
+Dr 2 0 0 22810
+The valley continues south.
+~
+~
+Dr 3 0 0 22814
+The valley continues west.
+~
+~
+End
+
+#22816
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22801 6 100 1
+Dr 0 0 0 22821
+The valley continues north.
+~
+~
+Dr 1 0 0 22817
+The valley continues east.
+~
+~
+Dr 2 0 0 22811
+The valley continues south.
+~
+~
+Dr 3 0 0 22815
+The valley continues west.
+~
+~
+End
+
+#22817
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  A steep trail leads up toward
+the deer trail circling the valley.  The valley continues north, south, and
+west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22822
+The valley continues north.
+~
+~
+Dr 2 0 0 22812
+The valley continues south.
+~
+~
+Dr 3 0 0 22816
+The valley continues west.
+~
+~
+End
+
+#22818
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a
+small trail circling the entire valley.  The valley continues south and east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22801 3 100 1
+Dr 1 0 0 22819
+The valley continues east.
+~
+~
+Dr 2 0 0 22813
+The valley continues south.
+~
+~
+End
+
+#22819
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22823
+The valley continues north.
+~
+~
+Dr 1 0 0 22820
+The valley continues east.
+~
+~
+Dr 2 0 0 22814
+The valley continues south.
+~
+~
+Dr 3 0 0 22818
+The valley continues west.
+~
+~
+End
+
+#22820
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22801 2 100 1
+Dr 0 0 0 22824
+The valley continues north.
+~
+~
+Dr 1 0 0 22821
+The valley continues east.
+~
+~
+Dr 2 0 0 22815
+The valley continues south.
+~
+~
+Dr 3 0 0 22819
+The valley continues west.
+~
+~
+End
+
+#22821
+N the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22825
+The valley continues north.
+~
+~
+Dr 1 0 0 22822
+The valley continues east.
+~
+~
+Dr 2 0 0 22816
+The valley continues south.
+~
+~
+Dr 3 0 0 22820
+The valley continues west.
+~
+~
+End
+
+#22822
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a small
+trail circling the entire valley.  The valley continues south and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22080
+~
+~
+Dr 2 0 0 22817
+The valley continues south.
+~
+~
+Dr 3 0 0 22821
+The valley continues west.
+~
+~
+End
+
+#22823
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a small
+trail circling the entire valley.  The valley continues south and east.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22800 5 100 1
+Dr 1 0 0 22824
+The valley continues east.
+~
+~
+Dr 2 0 0 22819
+The valley continues south
+~
+~
+End
+
+#22824
+N the edge of the valley~
+Ref 0
+D
+You are in the ancient valley, on Tyselorrd.  The valley continues in all directions.
+To the north, a small, narrow trail leads away from the valley.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22826
+A small trail leads away from the valley.
+~
+~
+Dr 1 0 0 22825
+The valley continues east.
+~
+~
+Dr 2 0 0 22820
+The valley continues south.
+~
+~
+Dr 3 0 0 22823
+The valley continues west.
+~
+~
+End
+
+#22825
+N The Edge of the Valley~
+Ref 0
+D
+You are at the edge of the ancient valley, on Tyselorrd.  High above you, you see a small
+trail circling the entire valley.  The valley continues south and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22814 3 100 1
+Dr 2 0 0 22821
+The valley continues south.
+~
+~
+Dr 3 0 0 22824
+The valley continues west.
+~
+~
+End
+
+#22826
+N a trail leading from the valley~
+Ref 0
+D
+You are on a narrow trail leading away from the ancient valley, on Tyselorrd.  This
+trail leads north and south.  A rope ladder leads up to a rope bridge.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22827
+The trail continues north.
+~
+~
+Dr 2 0 0 22824
+The trail leads back to the valley.
+~
+~
+End
+
+#22827
+N along the trail~
+Ref 0
+D
+You are on the trail away from the ancient valley, on Tyselorrd.  The hills around you
+keep this trail narrow.  The trail continues east, south, and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22805 3 100 1
+R O 22807 39 50 1
+Dr 1 0 0 22828
+The trail continues east.
+~
+~
+Dr 2 0 0 22826
+The trail continues south back toward the valley.
+~
+~
+Dr 3 0 0 22868
+The trail continues west.
+~
+~
+End
+
+#22828
+N a bend in the trail~
+Ref 0
+D
+You are on the trail away from the ancient valley, on Tyselorrd.  The hills around you
+keep this trail narrow.  The trail continues north and back west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22829
+You see a small valley north.
+~
+~
+Dr 3 0 0 22827
+The trail goes back to the west.
+~
+~
+End
+
+#22829
+N a small vale~
+Ref 0
+D
+You are in another valley within these hills. To the north, you can see a
+building, and to the south you see the trail away from this valley.  The
+west and east paths surround this building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 22834
+You see the building.
+~
+door~
+Dr 1 0 0 22831
+You see the trail around the building.
+~
+~
+Dr 2 0 0 22828
+You see the trail leading away from this valley.
+~
+~
+Dr 3 0 0 22830
+You see the trail around the building.
+~
+~
+End
+
+#22830
+N a trail in the valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads north and
+east.  To the north-east is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22813 3 100 1
+R G 41 10 100 1
+Dr 0 0 0 22832
+You see the trail.
+~
+~
+Dr 1 0 0 22829
+You see the trail.
+~
+~
+End
+
+#22831
+N a trail in the vale~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads west and
+east.  To the north is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22833
+You see the trail.
+~
+~
+Dr 3 0 0 22829
+You see the trail.
+~
+~
+End
+
+#22832
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads north and
+south.  To the east is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22837
+You see the trail.
+~
+~
+Dr 2 0 0 22830
+You see the trail.
+~
+~
+End
+
+#22833
+N a trail in the vale~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads north and
+west.  To the north-west is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22800 6 100 1
+Dr 0 0 0 22836
+You see the trail.
+~
+~
+Dr 3 0 0 22831
+You see the trail.
+~
+~
+End
+
+#22834
+N a Thilonenne home~
+Ref 0
+D
+You are in the home of the valley thilon.  The building continues to the north
+and the east, and the exit is to the south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22838
+The building continues to the north.
+~
+~
+Dr 1 0 0 22835
+The building continues to the east.
+~
+~
+Dr 2 0 -1 22829
+The exit is to the south.
+~
+door~
+End
+
+#22835
+N The Kitchen~
+Ref 0
+D
+You are in a community kitchen for this valley thilonenne home.  Pots and pans line
+the walls, along with shelves filled with many foodstuffs.  A big oven is to one
+side, and you can smell elfcakes being baked.
+There is a doorway to the north and one to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22806 3 100 1
+Dr 0 0 0 22839
+The building continues to the north.
+~
+~
+Dr 3 0 0 22834
+The building continues to the west.
+~
+~
+End
+
+#22836
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads north and
+south.  To the west is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22840
+You see the trail.
+~
+~
+Dr 2 0 0 22833
+You see the trail.
+~
+~
+End
+
+#22837
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads north and
+south.  To the east is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22800 3 100 1
+Dr 0 0 0 22841
+You see the trail.
+~
+~
+Dr 2 0 0 22832
+You see the trail.
+~
+~
+End
+
+#22838
+N The Living Room~
+Ref 0
+D
+You are in the living room of the thilonenne home.  Mats cover the floor, and a
+on a table is a bowl full of fruits.  Through the window you can see the
+valley, with its wild flowers and tall, green grasses.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22806 4 100 1
+Dr 1 0 0 22839
+The building continues to the east.
+~
+~
+Dr 2 0 0 22834
+The entrance is to the south.
+~
+~
+End
+
+#22839
+N The Storage Room~
+Ref 0
+D
+You are in the storage room of the thilonenne home.  Sacks of flour cover one side,
+and cleaning accessories cover the other side.  You find nothing of use here.
+A staircase leads up.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22806 5 100 1
+Dr 2 0 0 22835
+The building continues to the south.
+~
+~
+Dr 3 0 0 22838
+The building continues to the west.
+~
+~
+Dr 4 0 0 22848
+You see the second floor.
+~
+~
+End
+
+#22840
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads north and
+south.  To the west is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22844
+You see the trail.
+~
+~
+Dr 2 0 0 22836
+You see the trail.
+~
+~
+End
+
+#22841
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads south and
+east.  To the south-east is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22842
+You see the trail.
+~
+~
+Dr 2 0 0 22837
+You see the trail.
+~
+~
+End
+
+#22842
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads west and
+east.  To the south is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22802 5 100 1
+Dr 1 0 0 22843
+You see the trail.
+~
+~
+Dr 3 0 0 22841
+You see the trail.
+~
+~
+End
+
+#22843
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads east and
+west.  To the south is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22844
+You see the trail.
+~
+~
+Dr 3 0 0 22842
+You see the trail.
+~
+~
+End
+
+#22844
+N A Trail in the Valley~
+Ref 0
+D
+You are on the trail in the ancient valley, on Tyselorrd.  This trail leads south and
+west.  To the south-west is a building.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22801 4 100 1
+Dr 0 0 0 16704
+~
+~
+Dr 2 0 0 22840
+You see the trail.
+~
+~
+Dr 3 0 0 22843
+You see the trail.
+~
+~
+End
+
+#22845
+N The Elders' Room~
+Ref 0
+D
+You are in the room of the valley thilon elders.  Books written in strange
+languages line the numerous shelves, and scrolls cover a table.  There is a
+smooth spheric object in the center of the room.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22807 1 100 1
+Dr 0 0 -1 22847
+You see another room.
+~
+door~
+Dr 1 0 7804 22846
+You see another room.
+~
+door~
+End
+
+#22846
+N The Storage Room~
+Ref 0
+D
+You are in a storage room.  Many useless (to you) items fill this room.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 22809 0 100 1
+Dr 0 0 7804 22848
+You see another room.
+~
+door~
+Dr 3 0 7804 22845
+You see another room.
+~
+door~
+End
+
+#22847
+N The Sleeping Quarters~
+Ref 0
+D
+You are in the sleeping quarters of the valley thilon.  Cots line the floor,
+with two windows showing a view of the valley.  Books in strange languages
+line the shelves, but nothing of interest is here.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22806 1 100 1
+Dr 1 0 -1 22848
+You see another room.
+~
+door~
+Dr 2 0 -1 22845
+You see another room.
+~
+door~
+End
+
+#22848
+N Study~
+Ref 0
+D
+You are in the study room of the valley thilon.  Comfortable mats are on the
+floor, and musical instruments are neatly stacked on shelves.  Books in
+strange languages line some other thilon.  A stairway leads down to the
+first floor.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22803 4 100 1
+Dr 2 0 7804 22846
+You see another room.
+~
+door~
+Dr 3 0 -1 22847
+You see another room.
+~
+door~
+Dr 5 0 0 22839
+You see the first floor.
+~
+~
+End
+
+#22849
+N Along the Ring of Fire~
+Ref 0
+D
+You're on a winding trail through the volcanos that surround the Ring.  
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22850
+~
+~
+Dr 2 0 0 22803
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22850
+N Along the Ring of Fire~
+Ref 0
+D
+You are on a narrow trail on the rim of the Ring of Fire.  Below you, you
+can see the valley, filled with ash, steam and the forgotten citadel.  
+~
+C
+~
+F 8192
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22804 1 100 1
+Dr 0 0 0 22851
+~
+~
+Dr 3 0 0 22849
+~
+~
+End
+
+#22851
+N Along the Ring of Fire~
+Ref 0
+D
+You are on a narrow trail on the rim of the Ring of Fire.  Below you, you
+can see the valley, filled with ash, steam and the ruins of Tallez.  
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22852
+~
+~
+Dr 2 0 0 22850
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22852
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22805 1 100 1
+Dr 0 0 0 22853
+~
+~
+Dr 3 0 0 22851
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22853
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22803 1 100 1
+Dr 0 0 0 22854
+~
+~
+Dr 2 0 0 22852
+~
+~
+End
+
+#22854
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22802 4 100 1
+Dr 2 0 0 22853
+~
+~
+Dr 3 0 0 22855
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22855
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22856
+~
+~
+Dr 1 0 0 22854
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22856
+N Along a Windy Trail on the Rim of the Valley~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22804 1 100 1
+Dr 2 0 0 22855
+~
+~
+Dr 3 0 0 22857
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22857
+N Along a Windy Trail on the Rim of the Valley~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22856
+~
+~
+Dr 3 0 0 22858
+You see a rope bridge~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22858
+N On the Rope Bridge~
+Ref 0
+D
+You are on a rope bridge.  From here, you can see the whole Ring of Fire.
+To the south, you see the main valley.  To the north-east, you see a smaller
+valley with a building in the center of it.  To the north-west, you can see
+a very small valley with a shack in it's center.  A rope ladder leads down
+into a trail.  
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22857
+~
+~
+Dr 3 0 0 22859
+~
+~
+End
+
+#22859
+N Trail Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22858
+You see a rope bridge.
+~
+~
+Dr 3 0 0 22860
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22860
+N Along a Windy Trail on the Rim of the Valley~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22803 3 100 1
+Dr 1 0 0 22859
+~
+~
+Dr 2 0 0 22861
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22861
+N Along a Windy Trail on the Rim of the Valley~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22860
+~
+~
+Dr 3 0 0 22862
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22862
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22805 2 100 1
+Dr 1 0 0 22861
+~
+~
+Dr 2 0 0 22863
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22863
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22804 1 100 1
+Dr 0 0 0 22862
+~
+~
+Dr 2 0 0 22864
+~
+~
+Dr 5 0 0 22813
+The trail down looks safe.
+~
+~
+End
+
+#22864
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22863
+~
+~
+Dr 1 0 0 22865
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22865
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22802 3 100 1
+Dr 2 0 0 22866
+~
+~
+Dr 3 0 0 22864
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22866
+N Along the Ring of Fire~
+Ref 22850
+D
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 22803 2 100 1
+Dr 0 0 0 22865
+~
+~
+Dr 1 0 0 22867
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22867
+N Trail on the Ring of Fire~
+Ref 0
+D
+You are on a narrow trail on the rim of the Ring of Fire.  Below you, you
+can see the valley, filled with ash and steam, and the spires of the
+forgotten citadel.  
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 22802
+~
+~
+Dr 3 0 0 22866
+~
+~
+Dr 5 0 0 22883
+The trail down doesn't look safe to travel on at all.
+~
+~
+End
+
+#22868
+N a bend in the trail~
+Ref 0
+D
+You are on a bend in the trail leading from the main valley.  The hills around
+you make this trail quite narrow.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22802 1 100 1
+Dr 0 0 0 22869
+The trail continues north.
+~
+~
+Dr 1 0 0 22827
+The trail continues east.
+~
+~
+End
+
+#22869
+N A Bend in the Trail~
+Ref 0
+D
+You are on a bend in the trail leading from the main valley.  The hills around
+you make this trail quite narrow.  To the west, you can see an even smaller
+valley, with looks like a small shack in the center of it.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 22868
+The trail continues south.
+~
+~
+Dr 3 0 0 22870
+The entrance to the small valley is to the west.
+~
+~
+End
+
+#22870
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  The exit from this valley is to the east, and
+the entrance to the shack is to the west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22871
+The valley continues to the north.
+~
+~
+Dr 1 0 0 22869
+The exit from this small valley is to the east.
+~
+~
+Dr 2 0 0 22872
+The valley continues to the south.
+~
+~
+Dr 3 0 -1 22878
+You see the small shack.
+~
+door~
+End
+
+#22871
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  To the south-west is a small shack.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 22870
+The valley continues to the south.
+~
+~
+Dr 3 0 0 22873
+The valley continues to the west.
+~
+~
+Dr 8 0 0 22878
+~
+~
+End
+
+#22872
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  To the north-west is a small shack.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22870
+The valley continues to the north.
+~
+~
+Dr 3 0 0 22877
+The valley continues to the west.
+~
+~
+Dr 6 0 0 22878
+~
+~
+End
+
+#22873
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  To the south is a small shack.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22800 4 100 1
+Dr 1 0 0 22871
+The valley continues to the east.
+~
+~
+Dr 2 0 0 22878
+~
+~
+Dr 3 0 0 22874
+The valley continues to the west.
+~
+~
+End
+
+#22874
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  To the south-east is a small shack.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 22873
+The valley continues to the east.
+~
+~
+Dr 2 0 0 22875
+The valley continues to the south.
+~
+~
+Dr 9 0 0 22878
+~
+~
+End
+
+#22875
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  To the east is a small shack.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22874
+The valley continues to the north.
+~
+~
+Dr 2 0 0 22876
+The valley continues to the south.
+~
+~
+End
+
+#22876
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  To the north-east is a small shack.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22805 5 100 1
+Dr 0 0 0 22875
+The valley continues to the north.
+~
+~
+Dr 1 0 0 22877
+The valley continues to the east.
+~
+~
+Dr 7 0 0 22878
+~
+~
+End
+
+#22877
+N The Small Valley~
+Ref 0
+D
+You are in the small valley.  Strangely, tall trees grow here, almost as if some
+magic was used to help them grow.  To the north is a small shack.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 22801 5 100 1
+Dr 0 0 0 22878
+~
+~
+Dr 1 0 0 22872
+The valley continues to the east.
+~
+~
+Dr 3 0 0 22876
+The valley continues to the west.
+~
+~
+End
+
+#22878
+N Inside the Small Shack~
+Ref 0
+D
+You are inside the small shack.  A small stove is on the side, with soup
+cooking over it.  You see nothing valuable.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22810 1 100 1
+Dr 0 0 0 22873
+~
+~
+Dr 1 0 -1 22870
+You see the valley outside.
+~
+door~
+Dr 2 0 0 22877
+~
+~
+Dr 5 0 -1 22879
+You see a trap door!
+~
+trap door~
+Dr 6 0 0 22874
+~
+~
+Dr 7 0 0 22871
+~
+~
+Dr 8 0 0 22876
+~
+~
+Dr 9 0 0 22872
+~
+~
+End
+
+#22879
+N Beneath the Small Shack~
+Ref 0
+D
+You are beneath the small shack, in a tunnel that leads south.  It feels
+quite warm down here.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 22880
+The room looks reddish down there.
+~
+~
+Dr 4 0 -1 22878
+Back to known territory!
+~
+trap door~
+End
+
+#22880
+N The Den of the Pyrohydra~
+Ref 0
+D
+You are in the den of the pyrohydra.  All the walls are charred, and this
+room is filled with a smell close to that of burning tar.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22809 1 100 1
+Dr 0 0 0 22879
+You see the relative safety to the north.
+~
+~
+Dr 1 0 7805 22882
+You see breaks in the charred rock to the east.
+~
+secret~
+Dr 3 0 7805 22881
+You see a door to the west.
+~
+door~
+End
+
+#22881
+N The Workroom~
+Ref 0
+D
+This room looks like it is used for magical studies.  Potions bubble over
+burners, and the whole room spells of herbs and dead animal flesh.  A furnace
+to the side casts a bright light in this room.  The whole room radiates with
+a magical aura.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 22811 1 100 1
+Dr 1 0 7805 22880
+~
+door~
+End
+
+#22882
+N The Storage Room~
+Ref 0
+D
+This room is used to store scrolls, potions, and other magical items.  The
+whole room radiates with a magical aura.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 22808 0 100 1
+Dr 3 0 7805 22880
+~
+secret door~
+End
+
+#22883
+N Bottom of the Valley~
+Ref 0
+D
+The horizen is obscured by the smoke plumes of the Ring of Fire.  To the
+north is a cliff that leads to an ancient keep.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17361
+~
+~
+Dr 4 0 0 22804
+~
+~
+End
+
+#0
+
+
+
+#$

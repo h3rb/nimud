@@ -1,0 +1,46 @@
+#ZONE 
+N By the Sea~
+R You hear the distant chime of a harbor bell.
+~
+B Mousy~
+V 24500 25000
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#24500
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+End
+
+#0
+
+
+
+#$

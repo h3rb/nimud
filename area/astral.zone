@@ -1,0 +1,80 @@
+#ZONE 
+N Astral Plane~
+R Time folds into itself on the astral plane.
+~
+B All~
+V 25000 29999
+S 1
+End
+
+
+
+#SCRIPTDATA
+#25000
+N black_hole~
+C
+wait(1);
+wait(10);
+purge(25000);
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#25000
+N black hole~
+SD a black hole~
+LD
+ A black hole is absorbing all light and matter nearby.
+~
+D
+ ~
+A 3
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 25 25 25 25 25
+Sc 25000
+End
+
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#25000
+N Astral Plane~
+Ref 0
+D
+You are located somewhere beyond time and space in the Astral Plane.
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 25000 1 100 1
+End
+
+#0
+
+
+
+#$

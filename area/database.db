@@ -1,0 +1,3061 @@
+#ZONE 
+N Mud Library~
+B Callista Locke~
+V 2000 4999
+S 1
+End
+
+
+
+#SCRIPTDATA
+#3506
+N mine~
+C
+if ( pre(%astr%,{mine}), { goto({mine}) }, { goto({end}); } );
+label(mine);
+ return(1);
+ %minehere% is(sector(here()),4);
+ if ( %minehere%, {}, { goto({nothere}); } );
+ if ( skill(%actor%,{mining},{0}), { goto({success}); }, { goto({fail}); } );
+ label(success);
+ echo(%actor%,{You throw the pick against earth.});
+ oecho(%actor%,{%name% throws a pick against the earth and a few bits of debris scatter around.});
+ wait(20);
+ echo(%actor%,{You rummage through the debris and pick up anything of value.});
+ if ( check(10),  { goto({gem}); } );
+ if ( check(35), { goto({gold}); } );
+ echo(%actor%, {You find nothing useful in the debris.});
+ goto({end});
+label(gold);
+ dispense(%actor%,{17040});
+ echo(%actor%,{You find a hunk of gold!});
+ goto({end});
+label(gem);
+ dispense(%actor%,{50});
+ echo(%actor%,{You find a gem!});
+ goto({end});
+label(nothere);
+ echo(%actor%,{You cannot mine here.});
+ goto({end});
+label(fail);
+ echo(%actor%,{You miss and nearly strike your foot!});
+ goto({end});
+label(end);
+~
+T 0
+End
+
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#3100
+N mail chemise~
+SD a mail chemise~
+P ~
+D
+A mail shirt has been left here.
+~
+A
+~
+PD
+~
+DR
+Small links of metal form a mail chemise.
+~
+L 0
+T 9
+E 0
+W 525321
+Sz 0
+Ti 0
+Wt 0
+C 200
+O ~
+V 4 50 50 0
+End
+
+#3101
+N suit banded mail~
+SD a banded mail suit~
+P ~
+D
+A suit of banded mail is here.
+~
+A
+~
+PD
+~
+DR
+Interlocking rings of metal with a leather backing.
+~
+L 0
+T 9
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 14
+C 2000
+O ~
+V 10 15 15 0
+End
+
+#2404
+N sack~
+SD a sack~
+P ~
+D
+There appears to be a sack here.
+~
+A
+~
+PD
+~
+DR
+The sack is made from burlap.
+~
+L 0
+T 15
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 5
+O ~
+V 30 0 0 0
+End
+
+#4500
+N leather backpack~
+SD a leather backpack~
+P ~
+D
+A cracked leather backpack has been discarded here.
+~
+A
+~
+PD
+~
+DR
+The strong, leather backpack is perfect for long journeys.
+~
+L 0
+T 15
+E 0
+W 4227073
+Sz 0
+Ti 0
+Wt 2
+C 20
+O ~
+V 50 1 0 0
+End
+
+#4501
+N burlap satchel~
+SD a burlap satchel~
+P ~
+D
+A burlap satchel is on the ground.
+~
+A
+~
+PD
+~
+DR
+The tough-looking burlap satchel has a strap to be carried over a
+shoulder.  
+~
+L 0
+T 15
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 2
+C 10
+O ~
+V 25 1 0 0
+End
+
+#4502
+N $c knapsack~
+SD a $c knapsack~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+This light knapsack has two straps for shoulder carrying or for being
+worn on the back.
+~
+L 0
+T 15
+E 0
+W 4227073
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 20 1 0 0
+End
+
+#4503
+N small leather bag~
+SD a small leather bag~
+P ~
+D
+A small leather bag with a thin tie is here.
+~
+A
+~
+PD
+~
+DR
+The small bag has a long strip of thin, soft leather to be tied with.
+~
+L 0
+T 15
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 1
+C 4
+O ~
+V 4 1 0 0
+End
+
+#4504
+N sack~
+SD a sack~
+P ~
+D
+There is a sack here.
+~
+A
+~
+PD
+~
+DR
+The sack is made from burlap.
+~
+L 0
+T 15
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 2
+C 8
+O ~
+V 30 0 0 0
+End
+
+#4505
+N $C duffel bag~
+SD a $C duffel bag~
+P ~
+D
+A $C duffel bag has been tossed here.
+~
+A
+~
+PD
+~
+DR
+The duffel bag is made from thick cloth and has a single, wide leather
+strap for shoulder carrying.
+~
+L 0
+T 15
+E 0
+W 4227073
+Sz 0
+Ti 0
+Wt 5
+C 40
+O ~
+V 100 1 0 0
+End
+
+#4506
+N wooden crate~
+SD a wooden crate~
+P ~
+D
+An open-topped wooden crate is sitting here.
+~
+A
+~
+PD
+~
+DR
+The crate is made of a light-colored wood.
+~
+L 0
+T 15
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 20
+C 3
+O ~
+V 100 0 0 0
+End
+
+#4507
+N wooden barrel~
+SD a barrel~
+P ~
+D
+There is a wooden barrel here.
+~
+A
+~
+PD
+~
+DR
+The barrel well-crafted by a professional cooper.
+~
+L 0
+T 15
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 50
+C 5
+O ~
+V 200 1 0 0
+End
+
+#4508
+N velvet drawstring purse~
+SD a $C velvet drawstring purse~
+P $C velvet drawstring purses~
+D
+A small velvet purse with delicate embroidery on its sides sits here.
+~
+A
+~
+PD
+%s delicately embroidered velvet purses sit here.
+~
+DR
+You see a small purse that seems more aesthetic than functional.  It doesn't
+seem to hold a lot, but it is well-sewn, and has delicately embroidered
+flowers and scrollwork along its length.
+~
+L 0
+T 15
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 1
+C 36
+O ~
+V 4 1 0 0
+End
+
+#3500
+N heavy battle axe~
+SD a heavy battle axe~
+P ~
+D
+A heavy battle axe is lying nearby.
+~
+A
+~
+PD
+~
+DR
+The axe has a heavy, balanced axe-head on a long, thick pole.  Its
+balance allows for a great amount of momentum to carry it through bone and
+flesh.  
+~
+L 0
+T 5
+E 0
+W -2147483647
+Sz 0
+Ti 0
+Wt 10
+C 40
+O ~
+V 0 20 40 1
+End
+
+#3501
+N ancus~
+SD an ancus~
+P ~
+D
+A strange-shaped axe is on the ground.
+~
+A
+~
+PD
+~
+DR
+The ancus is a short haft with a curved blade and a spiked shaft for
+thrusting or throwing.  
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 2
+C 30
+O ~
+V 0 10 30 2
+End
+
+#3502
+N baculus~
+SD a baculus~
+P ~
+D
+There is a baculus lying on the ground.
+~
+A
+~
+PD
+~
+DR
+A baculus is a long shaft with a heavy metal headpiece.  It is studded
+with small rivets for extra damage.  
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 2
+C 40
+O ~
+V 0 15 25 7
+End
+
+#3503
+N blackened haft balestarius~
+SD a blackened balestarius~
+P ~
+D
+A heavy, blackened haft is here.
+~
+A
+~
+PD
+~
+DR
+A balestarius is a long, wholly metal axe with a heavy, black-iron head
+sharpened for chopping.  It is a massive iron axehead attached to a heavy
+ironshod handle.  The rear end of the blade ends in a hooked cudgel.  
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 11
+C 80
+O ~
+V 0 20 30 5
+End
+
+#3504
+N long-handled axe bearded~
+SD a bearded axe~
+P ~
+D
+A long-handled axe with a curved blade is here.
+~
+A
+~
+PD
+~
+DR
+The bearded axe has a very long handle with a small, curved blade at the
+one end.  
+~
+L 0
+T 5
+E 0
+W -2147467263
+Sz 0
+Ti 0
+Wt 9
+C 80
+O ~
+V 0 30 50 5
+End
+
+#3505
+N bearded war axe~
+SD a bearded war axe~
+P ~
+D
+There is a bearded war axe lying on the ground.
+~
+A
+~
+PD
+~
+DR
+The bearded war axe, cousin to the bearded axe, has a shorter haft with a
+larger, sharper blade made for cleaving flesh.  
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 6
+C 70
+O ~
+V 0 8 13 5
+End
+
+#3506
+N bisacuta pick-axe axe pick~
+SD a bisacuta~
+P ~
+D
+A large, sharp pick-axe is on the ground.
+~
+A
+~
+PD
+~
+DR
+The bisacuta is a long-handled pickaxe used for penetrating armor and
+fighting two-handed.  
+~
+L 0
+T 5
+E 0
+W -2147467263
+Sz 0
+Ti 0
+Wt 10
+C 60
+O ~
+Sc 3506
+V 0 10 20 8
+End
+
+#3507
+N broad axe ornamented~
+SD a broad axe~
+P ~
+D
+An ornamented broad axe has been set here.
+~
+A
+~
+PD
+~
+DR
+A broad axe is a standard axe with a wide, thin blade designed for
+chopping.  The blade is ornamented with engravings.  
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 9
+C 100
+O ~
+V 0 20 30 5
+End
+
+#3508
+N simple club~
+SD a club~
+P ~
+D
+A simple club is here.
+~
+A
+~
+PD
+~
+DR
+The club is made from a heavy piece of wood.
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 3
+C 10
+O ~
+V 10 10 20 7
+End
+
+#3509
+N crescent axe~
+SD a crescent axe~
+P ~
+D
+There is an axe with a curved handle here.
+~
+A
+~
+PD
+~
+DR
+The crescent axe has a curved handle with a long, thin, curved blade and
+a sharp point.  
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 3
+C 50
+O ~
+V 0 15 30 5
+End
+
+#3510
+N cudgel~
+SD a cudgel~
+P ~
+D
+A cudgel has been left here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 4
+C 30
+O ~
+V 10 20 10 7
+End
+
+#3511
+N a $G-studded ornamental dagger~
+SD a $G-studded ornamental dagger~
+P $G-studded ornamental daggers~
+D
+A gem-studded dagger is here.
+~
+A
+~
+PD
+%s gem-studded daggers are here.
+~
+DR
+You see a mostly dagger that appears to be used for primarily ornamental
+purposes, although once you pick it up, you notice that it has quite a
+heft to it, and its double-edges look sharp enough.  The scrollwork and
+gems on the hilt look like they were truly intended to be this weapon's
+primary function, however.
+~
+L 0
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 3
+C 65
+O ~
+V 0 20 40 2
+End
+
+#3512
+N short sword~
+SD a short sword~
+P ~
+D
+A short sword is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+A simple short sword with a leather grip.
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 3
+C 10
+O ~
+V 1 15 25 3
+End
+
+#3513
+N wide sabre~
+SD a wide sabre~
+P ~
+D
+A wide sabre with a metal hilt is here.
+~
+A
+~
+PD
+~
+DR
+The sabre has a thick protective metal hilt and a wide curved blade.  
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 4
+C 15
+O ~
+V 0 6 18 1
+End
+
+#3514
+N biliong~
+SD a biliong~
+P ~
+D
+A strangely shaped metal hammer is here.
+~
+A
+~
+PD
+~
+DR
+It is a mallet made completely of steel, with a large contact face.
+~
+L 0
+T 5
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#3515
+N binnol~
+SD a spiked binnol~
+P ~
+D
+A spiked ball is attached to a chain.
+~
+A
+~
+PD
+~
+DR
+It looks exactly like a morning star, except the handle is shorter and
+the spiked ball is larger and cast in iron.  
+~
+L 0
+T 5
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 19
+C 220
+O ~
+V 0 0 0 0
+End
+
+#3516
+N bouzdykan~
+SD a bouzdykan~
+P ~
+D
+A long mace-like war bouzdykan has been left here.
+~
+A
+~
+PD
+~
+DR
+It is a set of discs at the end of a long pole, set up in an array to
+form a spheroid object.  
+~
+L 0
+T 5
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 20
+C 330
+O ~
+V 0 0 0 0
+End
+
+#3517
+N bulawa~
+SD a bulawa~
+P ~
+D
+A spiked mace made of metal is here.
+~
+A
+~
+PD
+~
+DR
+It is an oblately shaped mace.
+~
+L 0
+T 5
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 18
+C 230
+O ~
+V 0 0 0 0
+End
+
+#3518
+N crowbill~
+SD a crowbill~
+P ~
+D
+A long axe with a blade shaped like a crow's bill.
+~
+A
+~
+PD
+~
+DR
+It has a long wooden handle and a strangely shaped axehead.
+~
+L 0
+T 5
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 15
+C 40
+O ~
+V 0 0 0 0
+End
+
+#3519
+N dabus club~
+SD an iron dabus~
+P ~
+D
+A long iron club has been left here to rust.
+~
+A
+~
+PD
+~
+DR
+A long iron club has been left here to rust.
+The dabus is a long wooden handled mace with rivets on a cylindrical head.
+~
+L 0
+T 5
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 13
+C 90
+O ~
+V 0 0 0 0
+End
+
+#3520
+N dagger mace-~
+SD a dagger mace-~
+P ~
+D
+A hooked mace is on the ground.
+~
+A
+~
+PD
+~
+DR
+It is a hooked mace.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 19
+C 140
+O ~
+V 0 0 0 0
+End
+
+#3521
+N dhara~
+SD a dhara~
+P ~
+D
+A rusty hilted dhara is lying here.
+~
+A
+~
+PD
+~
+DR
+It resembles a long sword with a mace head at the one end.  It has a
+rusty hilt, but is otherwise in fair shape.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 20
+C 45
+O ~
+V 0 0 0 0
+End
+
+#3522
+N disk disc mace~
+SD a disk mace~
+P ~
+D
+On the ground is an oddly-shaped mace.
+~
+A
+~
+PD
+~
+DR
+It has a heavy funnel-shaped head attached to a wooden handle.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 6
+C 95
+O ~
+V 0 0 0 0
+End
+
+#3523
+N dolabra-~
+SD a dolabra-~
+P ~
+D
+On the ground is a dolabra.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 13
+C 30
+O ~
+V 0 0 0 0
+End
+
+#2500
+N $C $l fullcloth~
+SD a $C $l fullcloth~
+P ~
+D
+There is a $C fullcloth strewn on the ground here, made of $l.
+~
+A
+~
+PD
+~
+DR
+A fullcloth warms its wearer from shoulders to ankles, and is sewn from
+two layers of material, between which lies a layer of culled wool.  
+~
+L 0
+T 13
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 4
+C 20
+O ~
+V 0 0 0 0
+End
+
+#3524
+N doloire~
+SD a doloire~
+P ~
+D
+A long, curved-handle axe has been left here.
+~
+A
+~
+PD
+~
+DR
+It has a long curved handle with a thick, knife-shaped blade at one end.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 21
+C 225
+O ~
+V 0 0 0 0
+End
+
+#2501
+N hose hosiery satin~
+SD a pair of satin hosiery~
+P ~
+D
+A pair of satin hosiery is balled up on the ground.
+~
+A
+~
+PD
+~
+DR
+The sheer satin hose are excellent, stylish alternatives to leggings.
+~
+L 0
+T 13
+E 0
+W 1048577
+Sz 20
+Ti 0
+Wt 1
+C 30
+O ~
+V 0 0 0 0
+End
+
+#3525
+N epsilon axe~
+SD an epsilon axe~
+P ~
+D
+A long axe with a semi-circle blade is here.
+~
+A
+~
+PD
+~
+DR
+It looks like a wagon-rut with half of a sawblade at one end.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 8
+C 300
+O ~
+V 0 0 0 0
+End
+
+#2502
+N $l loincloth loin cloth~
+SD a $l loincloth~
+P ~
+D
+A $l loincloth is on the ground.
+~
+A
+~
+PD
+~
+DR
+The loincloth is a thin strip with concealment uses.  It possesses a bit
+of supportive upgirding.  
+~
+L 0
+T 13
+E 0
+W 2049
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 0 0 0
+End
+
+#3526
+N falx supina~
+SD a falx supina~
+P ~
+D
+A falx supina has been carelessly discarded.
+~
+A
+~
+PD
+~
+DR
+It looks like a short sickle with a banana-shaped blade.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 6
+C 125
+O ~
+V 0 0 0 0
+End
+
+#2503
+N lounging robe~
+SD a silk lounging robe~
+P ~
+D
+A silk lounging robe has been carelessly tossed onto the ground.
+~
+A
+~
+PD
+~
+DR
+It is a warm robe ideal for wearing after arriving home after a hard day
+at the market.  Also known as a house cloak, it provides an added bit of
+warmth on those brisk journeys across the wintry countryside.  It has a
+lovely velvet frill.  
+~
+L 0
+T 13
+E 0
+W 1025
+Sz 20
+Ti 0
+Wt 3
+C 100
+O ~
+V 0 0 0 0
+End
+
+#3527
+N long flail~
+SD a long flail~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+It is two poles, one shorter than the other by three fold, with a spiked
+band wrought around the shorter one.  The two poles are connected by a short
+length of chain.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 25
+C 450
+O ~
+V 0 0 0 0
+End
+
+#2504
+N wool nightshirt shirt~
+SD a wool nightshirt~
+P ~
+D
+Someone has placed a nightshirt on the ground.
+~
+A
+~
+PD
+~
+DR
+The wool nightshirt ensures a warm night's sleep.  
+~
+L 0
+T 13
+E 0
+W 524297
+Sz 20
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 0 0 0
+End
+
+#3528
+N flat club~
+SD a flat club~
+P ~
+D
+A long, flat, shaped piece of wood is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 4202497
+Sz 0
+Ti 0
+Wt 18
+C 40
+O ~
+V 0 0 0 0
+End
+
+#2505
+N money belt long~
+SD a money belt~
+P ~
+D
+A long belt with a small pouch in it is here.
+~
+A
+~
+PD
+~
+DR
+The closeable compartments on the belt are perfect for storing small
+amounts of coin or other valuable items.  
+~
+L 0
+T 15
+E 0
+W 2049
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 5 1 0 0
+End
+
+#3529
+N woodmans woodman axe~
+SD a woodmans axe~
+P ~
+D
+A woodmans axe, tinged with a light coat of rust, has been discarded here.
+~
+A
+~
+PD
+~
+DR
+A long wooden handled axe with a red and green handle, this axe looks
+aged.  The slight rust on the blade and the smooth, polished handle is well
+worn with years of use.  As a weapon, it looks to be moderately deadly.  
+~
+L 0
+T 5
+E 0
+W -2143289344
+Sz 0
+Ti 0
+Wt 4
+C 30
+O ~
+V 0 0 0 0
+End
+
+#2506
+N $c breeches~
+SD a pair of $c breeches~
+P ~
+D
+A pair of breeches have been placed here.
+~
+A
+~
+PD
+~
+DR
+The breeches are double-stitched for added strength in the seams and made
+of durable material.  The pair feature a draw string waist for complete
+adjustability and a buttoned ventral gap.  
+~
+L 0
+T 13
+E 0
+W 67108865
+Sz 0
+Ti 0
+Wt 2
+C 20
+O ~
+V 0 0 0 0
+End
+
+#2507
+N cannons $C velvet~
+SD a pair of $C velvet cannons~
+P ~
+D
+A fashionable pair of $C cannons have been discarded here.
+~
+A
+~
+PD
+~
+DR
+Cannons are tight-fitting breeches that cover the legs from waist to
+ankles, and provide added flexibility.  There is slim belt and lacings to
+hold up the waist.  
+~
+L 0
+T 13
+E 0
+W 67108865
+Sz 20
+Ti 0
+Wt 2
+C 30
+O ~
+V 0 0 0 0
+End
+
+#3531
+N split-blade split blade axe~
+SD a split-blade axe~
+P ~
+D
+A rather large, notched, split-blade axe is lying here.
+~
+A
+~
+PD
+~
+DR
+The axe is double bladed.  One of the blades is stained with patches of
+blood and the other has a notch in the cut-edge.  The handle is crisscrossed
+with strips of dried sinew.  
+~
+L 0
+T 5
+E 0
+W 4202497
+Sz 0
+Ti 0
+Wt 6
+C 80
+O ~
+V 0 0 0 0
+End
+
+#2508
+N $l chemise~
+SD a $l chemise~
+P ~
+D
+A $l chemise is crumpled on the ground.
+~
+A
+~
+PD
+~
+DR
+The chemise is standard apparel, and appears attractive and durable
+enough to be worn as an overgarment.  
+~
+L 0
+T 13
+E 0
+W 524289
+Sz 20
+Ti 0
+Wt 1
+C 20
+O ~
+V 0 0 0 0
+End
+
+#3532
+N aat~
+SD an aat~
+P ~
+D
+A long, dull headed club made completely of wood is here.
+~
+A
+~
+PD
+~
+DR
+The aat looks like a long stick with a wooden ball at the end the size of
+a rather large coconut.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 8
+C 30
+O ~
+V 0 0 0 0
+End
+
+#2509
+N flat silk codpiece~
+SD a flat silk codpiece~
+P ~
+D
+A lovely flat silk codpiece has been left here.
+~
+A
+~
+PD
+~
+DR
+Essential for all well-dressed men, a codpiece attaches easily to all
+breeches, whether buttoned or laced in front.  Delicate-looking gold
+embroidery ornaments this particular codpiece.  
+~
+L 0
+T 13
+E 0
+W 2049
+Sz 10
+Ti 0
+Wt 1
+C 70
+O ~
+V 0 0 0 0
+End
+
+#3533
+N adze~
+SD an adze~
+P ~
+D
+A strangely shaped blade with a metal reinforced wood handle is here.
+~
+A
+~
+PD
+~
+DR
+The adze is a small metal handle with a straight, inwardly bent blade. 
+On the rear edge is a smaller, sharper blade with less girth.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 6
+C 90
+O ~
+V 0 0 0 0
+End
+
+#2510
+N linen codpiece~
+SD a linen codpiece~
+P ~
+D
+A linen codpiece is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+A fairly attractive linen codpiece is here.
+~
+L 0
+T 13
+E 0
+W 2049
+Sz 10
+Ti 0
+Wt 1
+C 30
+O ~
+V 0 0 0 0
+End
+
+#3534
+N anatolian axe~
+SD an anatolian axe~
+P ~
+D
+An axe with a tapered edge is lying here.
+~
+A
+~
+PD
+~
+DR
+A large notched handle supports a small, single bladed axehead.  The rear
+of the head is flat like a sledge.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 10
+C 120
+O ~
+V 0 0 0 0
+End
+
+#2511
+N $C cote~
+SD a $C cote~
+P ~
+D
+A simple $C cote is here.
+~
+A
+~
+PD
+~
+DR
+Mate to a chemise, the cote is a sleeved, stylish piece of clothing.
+~
+L 0
+T 13
+E 0
+W 524289
+Sz 20
+Ti 0
+Wt 1
+C 30
+O ~
+V 0 0 0 0
+End
+
+#3535
+N anchor axe~
+SD an anchor axe~
+P ~
+D
+An axe with a closely drawn blade is sitting here.
+~
+A
+~
+PD
+~
+DR
+The anchor axe bears a thin semicircle blade on a thick wooden handle.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 16
+C 0
+O ~
+V 0 0 0 0
+End
+
+#2512
+N $c doublet~
+SD a $c doublet~
+P ~
+D
+A $c doublet is here.
+~
+A
+~
+PD
+~
+DR
+The doublet is fronted with a row of buttons and contains comfortable
+joints for shoulders and elbows.  
+~
+L 0
+T 13
+E 0
+W 9
+Sz 20
+Ti 0
+Wt 2
+C 60
+O ~
+V 0 0 0 0
+End
+
+#3536
+N ancus~
+SD an ancus~
+P ~
+D
+A sharpened metal rod of blackened steel has been dropped here.
+~
+A
+~
+PD
+~
+DR
+The ancus bears resemblance to a spike attached to a metal rod, but the
+end of the rod also has a small, flame shaped blade.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 4
+C 100
+O ~
+V 0 0 0 0
+End
+
+#2513
+N $C silk gown~
+SD a $C silk gown~
+P ~
+D
+A $C silk gown is draped on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 9
+Sz 20
+Ti 0
+Wt 2
+C 100
+O ~
+V 0 0 0 0
+End
+
+#3537
+N angolan battle axe battleaxe-~
+SD an angolan battle axe-~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+A large flame-like blade is attached to a slightly curved metal and wood
+pole.  
+~
+L 0
+T 5
+E 0
+W -2147475455
+Sz 0
+Ti 0
+Wt 14
+C 100
+O ~
+V 0 0 0 0
+End
+
+#2514
+N $c cloth dress~
+SD a $c cloth dress~
+P ~
+D
+A $c dress made of cloth has been folded up here.
+~
+A
+~
+PD
+~
+DR
+The laborwoman's quality dress is finely crafted, though it lacks any
+significant embroidery or ornamentation.  It is durable and well tailored.  
+~
+L 0
+T 13
+E 0
+W 9
+Sz 20
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#3538
+N aqhu~
+SD a wooden aqhu~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+A wooden aqhu has been left here in ignorance.
+The aqhu resembles a long stick with a rounded-end knife tied to it. 
+Given the correct swing, the axe could be deadly.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 13
+C 65
+O ~
+V 0 0 0 0
+End
+
+#2515
+N $c half-cape half cape~
+SD a $c half-cape~
+P ~
+D
+A $c-colored half-cape is balled up on the ground.
+~
+A
+~
+PD
+~
+DR
+The half-cape flows from the wearer's shoulders to mid-back and provides
+an alternative to the long, flowing capes, which are commonly soiled near
+the bottoms.  
+~
+L 0
+T 13
+E 0
+W 1025
+Sz 20
+Ti 0
+Wt 2
+C 15
+O ~
+V 0 0 0 0
+End
+
+#3539
+N arit~
+SD an arit~
+P ~
+D
+A curved blade with a wooden handle is here.
+~
+A
+~
+PD
+~
+DR
+The arit greatly resembles a sickle.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 4
+C 15
+O ~
+V 0 0 0 0
+End
+
+#2516
+N $l cap~
+SD a $l cap~
+P ~
+D
+A $l cap is here.
+~
+A
+~
+PD
+~
+DR
+It is a simple, fairly durable cap.
+~
+L 0
+T 13
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 0 0 0
+End
+
+#3540
+N steel arnis~
+SD an engraved steel arnis~
+P ~
+D
+A long engraved steel rod is here.
+~
+A
+~
+PD
+~
+DR
+The arnis is a long pole with minute engravings on it depicting warriors
+and great monsters.  One end is smoothed to fit the grip of a fighter.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 3
+C 130
+O ~
+V 0 0 0 0
+End
+
+#2517
+N a kerchief~
+SD a $l kerchief~
+P $l kerchiefs~
+D
+A scrap of cloth lies here.
+~
+A
+~
+PD
+%s scraps of cloth lie here.
+~
+DR
+This kerchief is nothing more than a strip of cloth, hastily hemmed at
+the edges to prevent fraying.
+~
+L 0
+T 13
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 1
+C 4
+O ~
+V 0 0 0 0
+End
+
+#3541
+N ay-balta aybalta ay balta~
+SD a razor sharp ay-balta~
+P ~
+D
+A long metallic handled ay-balta combat axe has been left here.
+~
+A
+~
+PD
+~
+DR
+The aybalta is a long axe with a metal blade bracketed to the far end. 
+Its cutting edge is razor sharp and looks to easily sever limbs.  
+~
+L 0
+T 5
+E 0
+W -2147475455
+Sz 0
+Ti 0
+Wt 16
+C 190
+O ~
+V 0 0 0 0
+End
+
+#2518
+N braided bracelet~
+SD a $C braided $l bracelet~
+P $C braided $l bracelets~
+D
+A braided strand of fabric lies here.
+~
+A
+~
+PD
+%s braided strands of fabric lie here.
+~
+DR
+Intricate patterns have been woven into a few small strands of braided
+material.  This can be fastened around a wrist by looping the thin end
+of the strip around the other end of the fabric, which has been twisted 
+into a small knot.
+~
+L 0
+T 13
+E 0
+W 4097
+Sz 0
+Ti 0
+Wt 1
+C 6
+O ~
+V 0 0 0 0
+End
+
+#3542
+N baggoro~
+SD a fire-blackened baggoro~
+P ~
+D
+A fire-blackened piece of wood is on the ground.
+~
+A
+~
+PD
+~
+DR
+It looks like a long wooden club with a handle carved at one end.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 21
+C 20
+O ~
+V 0 0 0 0
+End
+
+#2519
+N a $f lined, $C velvet cape~
+SD a $f lined, $C velvet cape~
+P $f lined, $C velvet capes~
+D
+A fur-lined velvet cape is draped upon the floor.
+~
+A
+~
+PD
+%s fur-lined velvet capes are strewn about.
+~
+DR
+High-quality fur has been well-stitched to the edges of this plush
+velvet cape, insuring added style as well as a bit of extra warmth at
+the nape of the neck.  The needlework is almost not visible at all, save
+at the neck, where a spot of rich embroidery highlights the cape's clasp.
+~
+L 0
+T 13
+E 0
+W 1025
+Sz 24
+Ti 0
+Wt 4
+C 50
+O ~
+V 0 0 0 0
+End
+
+#3543
+N wooden barkur~
+SD a wooden barkur~
+P ~
+D
+A long wooden club has been discarded here.
+~
+A
+~
+PD
+~
+DR
+It has a leather sinew handle and a large flat carved club end.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 20
+C 40
+O ~
+V 0 0 0 0
+End
+
+#2520
+N a $f fur fullcoat~
+SD a $f fur fullcoat~
+P $f fur fullcoats~
+D
+A balled-up $f fur fullcoat is here.
+~
+A
+~
+PD
+%s fur fullcoats are here.
+~
+DR
+You see a full-length fur coat, made of fur that is warm and thick, but
+not showy.  This coat is heavy as well plush, but the added weight is 
+worth it when the weather is foul.
+~
+L 0
+T 13
+E 0
+W 1025
+Sz 24
+Ti 0
+Wt 5
+C 45
+O ~
+V 0 0 0 0
+End
+
+#3544
+N baston~
+SD a baston~
+P ~
+D
+A thin metal rod is lying on the ground here.
+~
+A
+~
+PD
+~
+DR
+The baston looks like a metal spike that has had its tip sawn off.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 5
+C 30
+O ~
+V 0 0 0 0
+End
+
+#2521
+N a $f fur hood~
+SD a $f fur hood~
+P $f fur hoods~
+D
+A scrap of $f fur lies here.
+~
+A
+~
+PD
+%s scraps of fur are here.
+~
+DR
+You see a fur hood of reasonable workmanship-- the lining is sound, but
+not extravagant, and the stitching will certainly hold up to some amount
+of wear.  The hood will keep the elements off of its wearer's head, but
+that is all.
+~
+L 0
+T 13
+E 0
+W 17
+Sz 24
+Ti 0
+Wt 2
+C 25
+O ~
+V 0 0 0 0
+End
+
+#3545
+N bec-de-corbin bec corbin~
+SD a bec-de-corbin~
+P ~
+D
+A spiked axe is lying here.
+~
+A
+~
+PD
+~
+DR
+It is a fashioned metal handle with a spiked blade attachment.  
+~
+L 0
+T 5
+E 0
+W -2147483647
+Sz 0
+Ti 0
+Wt 15
+C 230
+O ~
+V 0 0 0 0
+End
+
+#2522
+N wide leather belt strap~
+SD a wide leather belt~
+P ~
+D
+A strap of wide leather is here.
+~
+A
+~
+PD
+~
+DR
+The wide blackened leather has a simple brass buckle.
+~
+L 0
+T 13
+E 0
+W 2049
+Sz 0
+Ti 0
+Wt 1
+C 8
+O ~
+V 1 0 0 0
+End
+
+#3546
+N bi-teran bi teran~
+SD a bi-teran~
+P ~
+D
+A wooden bi-teran, slightly worn, is lying here in the dust.
+~
+A
+~
+PD
+~
+DR
+It looks like a stick that has been carved smooth.
+~
+L 0
+T 5
+E 0
+W 4202497
+Sz 0
+Ti 0
+Wt 3
+C 45
+O ~
+V 0 0 0 0
+End
+
+#2523
+N earring small golden~
+SD a small golden earring~
+P ~
+D
+A small, golden earring is laying in the dust.
+~
+A
+~
+PD
+~
+DR
+It is pure gold.
+~
+L 0
+T 32
+E 0
+W 131073
+Sz 0
+Ti 0
+Wt 0
+C 50
+O ~
+V 0 0 0 0
+End
+
+#2550
+N quill~
+SD a quill~
+P ~
+D
+A quill has been left here!
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 34
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 3
+O ~
+V 0 0 0 0
+End
+
+#2551
+N notebook~
+SD a notebook~
+P ~
+D
+A notebook has been left here.
+~
+A
+~
+PD
+~
+DR
+A small notebook with vellum pages.
+~
+L 0
+T 11
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 10
+O ~
+V 0 0 0 0
+End
+
+#4650
+N bracers~
+SD a set of bracers~
+P ~
+D
+A set of bracers is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+Metal plates wrapped in sinew and leather twine.
+~
+L 0
+T 9
+E 0
+W 257
+Sz 0
+Ti 0
+Wt 5
+C 100
+O ~
+V 10 5 10 0
+End
+
+#4651
+N leather leggings~
+SD a pair of leather leggings~
+P ~
+D
+A pair of leather leggings has been discarded.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 0
+Ti 0
+Wt 10
+C 160
+O ~
+V 10 8 8 0
+End
+
+#4700
+N suit banded mail protection~
+SD a banded mail suit of protection~
+P ~
+D
+A suit of banded mail is here.
+~
+A
+~
+PD
+~
+DR
+Interlocking rings of metal with a leather backing.  Each ring is etched
+with a divine symbol.  
+~
+L 0
+T 9
+E 1
+W 9
+Sz 0
+Ti 0
+Wt 14
+C 2000
+O ~
+V 10 15 15 0
+Af 10005 1 -1 0 0
+Af 10002 -1 -1 0 0
+Af 10001 1 -1 0 0
+Af 10009 30 -1 0 0
+End
+
+#4701
+N iron helm deflection~
+SD an iron helm of deflection~
+P ~
+D
+An iron helm was discarded here.
+~
+A
+~
+PD
+~
+DR
+Specially made with a non-stick coating to deflect blows.
+~
+L 0
+T 9
+E 1
+W 17
+Sz 0
+Ti 0
+Wt 6
+C 50
+O ~
+V 30 8 8 0
+Af 10005 1 -1 0 0
+Af 10002 1 -1 0 0
+End
+
+#4702
+N banded buckler deflection~
+SD a banded buckler of deflection~
+P ~
+D
+A banded buckler is here.
+~
+A
+~
+PD
+~
+DR
+A buckler embued with a magickal material perfect for adding to
+the deflective qualities of a normal buckler.
+~
+L 0
+T 9
+E 1
+W 513
+Sz 0
+Ti 0
+Wt 3
+C 45
+O ~
+V 3 35 35 0
+Af 10000 5 -1 0 0
+Af 10009 30 -1 0 0
+End
+
+#2900
+N unset~
+SD unset~
+P unset~
+D
+unset
+~
+A
+~
+PD
+%s
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#4000
+N An iron lamp post sticks out of the ground.~
+SD an iron lamp post~
+P ~
+D
+There is a lamp post here made of iron.
+~
+A
+~
+PD
+~
+DR
+The lamp post is well crafted from black iron and has a fixture atop it,
+placed behind hewn glass.
+~
+L 0
+T 1
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 -1 0 1
+End
+
+#4001
+N an oaken engraved chair~
+SD an oaken engraved chair~
+P oaken engraved chairs~
+D
+an oaken engraved chair sits here
+~
+A
+~
+PD
+%s oaken engraved chairs sit here
+~
+DR
+The medium sized wooden chair looks several generations old and is
+extremely worn.  Made of oak, carvings cover the back and sides.
+~
+L 0
+T 12
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 50
+C 500
+O ~
+V 100 8192 0 0
+End
+
+#4002
+N a rotting wooden chair~
+SD a rotting wooden chair~
+P rotting wooden chairs~
+D
+a small wooden chair sits here, rotting
+~
+A
+~
+PD
+%s small wooden chairs sir here, rotting
+~
+DR
+The small chair looks old and extremely unstable.  You can't quite tell
+the type of wood it's made of due to the decay.
+~
+L 0
+T 12
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 40
+C 1
+O ~
+V 100 8192 0 0
+End
+
+#4003
+N cushioned chair~
+SD a cushioned chair~
+P cushioned chairs~
+D
+A lavishly cushioned chair sits here.
+~
+A
+~
+PD
+%s lavishly cushioned chairs sit here.
+~
+DR
+The large chair is richly made with silk cushions stuck to it.  Made for
+royalty and probably extremely costly, the chair looks very comfortable.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 100
+C 5000
+O ~
+V 200 24576 0 0
+End
+
+#4004
+N brick fireplace~
+SD a brick fireplace~
+P ~
+D
+A brick fireplace is set into one wall.
+~
+A
+~
+PD
+~
+DR
+A carefully hewn set of rocks became this well crafted fireplace.  The
+fireplace provides light and warmth.  
+~
+L 0
+T 1
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 2147483647 2147483647 0 1
+End
+
+#3000
+N round buckler~
+SD a buckler~
+P ~
+D
+A round buckler is on the ground.
+~
+A
+~
+PD
+~
+DR
+It has a leather strap for wearing on the arm.
+~
+L 0
+T 9
+E 0
+W 513
+Sz 0
+Ti 0
+Wt 2
+C 30
+O ~
+V 2 30 30 0
+End
+
+#3001
+N curved shield metal~
+SD a curved metal shield~
+P ~
+D
+A curved metal shield is here.
+~
+A
+~
+PD
+~
+DR
+This curved metal shield is wood reinforced from metal pieces.  It is
+unmarked.  
+~
+L 0
+T 9
+E 0
+W 513
+Sz 0
+Ti 0
+Wt 6
+C 40
+O ~
+V 3 50 50 0
+End
+
+#3002
+N iron helm~
+SD an iron helm~
+P ~
+D
+An iron helm was discarded here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 6
+C 50
+O ~
+V 6 8 8 0
+End
+
+#3003
+N small button shield~
+SD a small button shield~
+P ~
+D
+A small button shield is here.
+~
+A
+~
+PD
+~
+DR
+Like a buckler, the button is round, but is extremely small and straps
+to the arm without much coverage or heft.  Great for supplementary
+armoring for archers or dextrous warriors.
+~
+L 0
+T 9
+E 0
+W 769
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 1 20 20 0
+End
+
+#3004
+N tower shield~
+SD a tower shield~
+P ~
+D
+A tower shield is standing here.
+~
+A
+~
+PD
+~
+DR
+Tower shields are comprised of moving parts (wheels) and a strong wooden
+base. The base supports a tall metal-framed block of wood, a halfspan thick
+and shod with metal.  A heavy war-ready shield, it is used by archers and
+crossbowmen who can fire through its carefully carved slot.
+~
+L 0
+T 9
+E 0
+W 513
+Sz 0
+Ti 0
+Wt 10
+C 1000
+O ~
+V 5 80 80 0
+End
+
+#3005
+N studded buckler~
+SD a studded buckler~
+P ~
+D
+A studded buckler has been discarded.
+~
+A
+~
+PD
+~
+DR
+A round buckler studded with soft-edged metal spikes and rivets, designed
+to deflect arrows and absorb contact blows.
+~
+L 0
+T 9
+E 0
+W 513
+Sz 0
+Ti 0
+Wt 3
+C 0
+O ~
+V 3 30 30 0
+End
+
+#3006
+N wooden shield~
+SD a wooden shield~
+P ~
+D
+A wooden shield lies on the ground.
+~
+A
+~
+PD
+~
+DR
+A carefully carved wooden crossection, banded by metal and strapped for
+the arm.  
+~
+L 0
+T 9
+E 0
+W 513
+Sz 0
+Ti 0
+Wt 0
+C 10
+O ~
+V 2 20 20 0
+End
+
+#3007
+N banded buckler~
+SD a banded buckler~
+P ~
+D
+A banded buckler is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 0
+Ti 0
+Wt 3
+C 45
+O ~
+V 3 35 35 0
+End
+
+#2000
+N baguette~
+SD a baguette~
+P ~
+D
+A golden-brown loaf of hard bread goes great with any meal.
+~
+A
+The baguette is crunchy and soft in the middle, with a lovely
+garlic-butter taste.  
+~
+PD
+~
+DR
+A golden-brown loaf of hard bread goes great with any meal.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 5
+O ~
+V 25 0 0 0
+End
+
+#2001
+N loaf rye bread~
+SD a loaf of rye bread~
+P ~
+D
+A round loaf of rye bread is here.
+~
+A
+The whole carroway seeds leave a strong flavor.  The rye is crunchy on the
+outside, with a chewy, sour dough.  
+~
+PD
+~
+DR
+It is a round loaf with a buttery top and whole carroways.  
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 4
+C 10
+O ~
+V 50 0 0 0
+End
+
+#2002
+N Sourdough Bread~
+SD a loaf of sourdough bread~
+P some loaves of sourdough bread~
+D
+A loaf of sourdough bread sits here.
+~
+A
+The bread is heavy and slightly sour with a hard, flaky crust.  It has just
+the right amount of sourness to make it very delicious.
+~
+PD
+~
+DR
+The deliciously sour bread is made by adding old dough from the last batch
+left out to ferment to the next batch.  It has a hard, flaky crust, with a
+soft inside.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 4
+C 12
+O ~
+V 50 10 0 0
+End
+
+#2003
+N loaf wheat bread~
+SD a loaf of wheat bread~
+P ~
+D
+There is a loaf of wheat bread here.
+~
+A
+The bread has a hearty flavor and a hard crust.
+~
+PD
+~
+DR
+The bread is heavy, made from cracked wheat and barley, and would be
+very filling.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 4
+C 10
+O ~
+V 50 10 0 0
+End
+
+#2004
+N tack bread~
+SD a hard piece of tack bread~
+P pieces of tack bread~
+D
+a hard piece of tack bread lies here.
+~
+A
+As you gnaw on the hard tack, you wonder how anyone could find this even slightly filling or nutritional.
+~
+PD
+%s pieces of tack bread lie here
+~
+DR
+The hard piece of tack bread looks stale and unappetizing at best.
+Sand and old water and salt seem the most likely ingredients.
+You wonder how anyone but a half-starved vagabond could eat it without emptying their stomach.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 2
+O ~
+V 20 10 0 0
+End
+
+#2005
+N seeded spicebread roll~
+SD a seeded spicebread roll~
+P %s dark rolls are here, covered in various seeds.~
+D
+A dark roll is here, covered in various seeds.
+~
+A
+The roll is soft and moist, and tastes of cinnamon and cloves. The myriad
+seeds are crunchy, but add little to the taste of the slightly sweet bread.
+~
+PD
+~
+DR
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 15
+O ~
+V 60 10 0 0
+End
+
+#0
+
+
+
+#SCENES
+#2000
+N The Workshop~
+Ref 0
+D
+A great deal of unfinished projects lie around the workshop.  There are
+half-men sitting in disrepair in one corner, a river flows along a workbench
+where it stops, suddenly, having been neglected by a careless deity.  There
+are tools of all sorts lying about in disarray.  A metal gangway leads down.
+~
+C
+(null)~
+F 70
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 66 -5 100 1
+Dr 4 5 0 11
+Just above the workshop is another area.
+~
+trapdoor~
+Dr 5 0 0 2001
+A metal gangway leads down into a dark, lower chamber.
+~
+metal gangway~
+End
+
+#2001
+N The Laboratory~
+Ref 0
+D
+You are situated on a cold, steel floor with wide columns reaching high
+above your head.  The room is relatively dark and very clammy, with an odd
+smell that pervades your nostrils.  You smell strange chemicals in the air
+and perceive odd noises coming from all sides, always seemingly from just
+beyond your vision.  A metal gangway leads up from here.  
+~
+C
+(null)~
+F 70
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 2000
+A metal gangway ascends to a workshop.
+~
+metal gangway~
+End
+
+#0
+
+
+
+#$

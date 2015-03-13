@@ -1,0 +1,967 @@
+
+
+#DOC 1
+N GREETING~
+C 0 L 0
+KW ~
+SY ~
+TX Welcome to The Isles: Dreams of Kltara.
+ 
+This game has been the life's hobby of Herbert Elwood Gilliland III.
+ 
+It has been released consistently since 1993.  NiMUD originated a
+series of features through the development of this MUD.  NiMUD is the
+publically distributed package of The Isles: Dreams of Kltara and
+is archived on SourceForge.
+ 
+NiMUD originated Gem-based Mana, OLC for Merc/Diku, subtle features of
+exits, multiple teacher practioners with a money-based skill system,
+advanced scripting and debugging features of automated scripts, RP
+commands borrowed from DuneMUSH as an extension to Merc/Diku, smote,
+a custom emoting command donated by Newt who also rewrote the basis
+of the combat system, vorpal swords, combat tactics, AGE graphics,
+extensive component alchemy, world generation and ascii building.
+ 
+We encourage roleplay here, and we hope you will explore our extensive
+custom areas.
+ 
+Happy mudding!
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 13
+N VIRTUAL~
+C 0 L 0
+KW ~
+SY ~
+TX VNUMs are the Virtual Numbers or "primary indexes" of the various
+types and are repeated across each entity type.
+ 
+For instance, a scene with VNUM 1 might not be the only entity
+with that vnum; there may also be an actor or prop with a similar
+number.
+ 
+VNUMs are used in reference primarily; either using the Cues
+command, or when referring to a skill or spell.
+ 
+VNUMs should not be confused with SLOTS.
+~
+IT ~
+EX ~
+SA Slots, Cues~
+End
+
+#DOC 32
+N old_motd~
+C 0 L 0
+KW old_motd~
+SY ~
+TX ----------------------- Message of the Day -----------------------
+Welcome back to The Isles: Lands of Kltara, a MUD which takes
+place in the land of Tyselorrd, a medieval fantasy game.
+------------------------------------------------------------------
+Press enter to continue:
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 55
+N ACTION~
+C 0 L 0
+KW ACTION-DESCR~
+SY ~
+TX The action description on an object helps to make objects unique.  This
+string is displayed at the following times (item types not listed do
+not use the action description):
+ITEM_LIGHT:
+when the light is extinguished, the string is shown to the extinguisher
+ITEM_DRINK:
+when drunk, the string is shown to the drinker
+ITEM_FOOD:
+when eaten, the string is shown to the eater
+ITEM_PAPER:
+stores what is 'written' on the paper
+ITEM_WAND,ITEM_STAFF,ITEM_SCROLL,ITEM_POTION,ITEM_FOUNTAIN:
+when these magic items are used, the string is shown to the invoker
+ITEM_WEAPON:
+See WEAPON-DESCR
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 56
+N WEAPON~
+C 0 L 0
+KW WEAPON-DESCR~
+SY ~
+TX Special weapons like a kusari-gama need special descriptions
+associated with them.  These descriptions resemble socials codes
+from Diku and are very similar to this format:
+Note: you only get one line per descriptive line.
+$$n hit$$v $$N with $$s $$t.
+$$N fail$$V to escape $$n$$y $$t.
+$$n hit$$v $$N.
+$$N $$K unable to dodge $$n$$y attack; $$e hurt$$v $$M.
+Having surprised $$N, $$n bound$$v forward and hit$$v $$M.
+ 
+The first line is the weakest attack, the last line is the strongest.
+~
+IT ~
+EX $$t - weapon
+$$s - his/her
+$$m - him/her
+$$M - victim him/her
+$$S - victim his/her
+$$v - adds an 's' to verbs
+$$e - he/she
+$$E - victim he/she
+$$K - is/are
+$$y - add 's
+(so, $n$y = Name's)
+ 
+~
+SA Action-Descr~
+End
+
+#DOC 120
+N BANK~
+C 0 L 0
+KW BANK~
+SY ~
+TX .
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 121
+N BECOMING~
+C 0 L 0
+KW BECOMING A BUILDER~
+SY ~
+TX .
+To become a builder, you must participate in the regular game until
+you have achieved Hero status.  Hero Status is defined as complete
+skill mastery.
+ 
+Mastering your skills does not gaurantee building status, however.
+You must be given approval by the Immortal to become a builder.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 122
+N BLANK~
+C 0 L 0
+KW BLANK~
+SY ~
+TX ~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 123
+N BOUNTY~
+C 0 L 0
+KW BOUNTY~
+SY ~
+TX .
+You may find yourself in trouble with the law of the land.  When
+you commit an act of treason, or a criminal act, you are given a
+bounty which is set by the action you commit.
+ 
+Bounties also exist on others in the realm, and for the adventurous,
+rewards may be collected from royalty or lawgivers whom you may
+wish to report to after dispatching a rogue.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 124
+N BUG_TYPO_IDEA~
+C 0 L 0
+KW 'BUG TYPO IDEA' BUG TYPO IDEA~
+SY ~
+TX .
+Syntax:  bug [problem]
+         typo [error]
+         idea [suggestion]
+
+  These commands help the administration to fix inconsistencies, code errors
+  and take your suggestions.  We do actually look at these files from time
+  to time to see what is contained in them.
+
+Example:
+
+> bug I pick up my weapon and it disappears!
+Thanks.
+> typo You spelled 'chrisathemum' wrong in this room.
+Ok.
+> idea You should add a graphical client!
+Thanks.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 125
+N COMMANDS~
+C 0 L 0
+KW COMMANDS~
+SY ~
+TX .
+Syntax:  commands
+
+  Typing this command lists all commands currently available to you.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 126
+N DIKU~
+C 0 L -1
+KW -~
+SY ~
+TX .                    Original game idea, concept, and design:
+
+          Katja Nyboe               [Superwoman] (katz@freja.diku.dk)
+          Tom Madsen              [Stormbringer] (noop@freja.diku.dk)
+          Hans Henrik Staerfeldt           [God] (bombman@freja.diku.dk)
+          Michael Seifert                 [Papi] (seifert@freja.diku.dk)
+          Sebastian Hammer               [Quinn] (quinn@freja.diku.dk)
+
+                     Additional contributions from:
+
+Michael Curran  - the player title collection and additional locations.
+Ragnar Loenn    - the bulletin board.
+Bill Wisner     - for being the first to successfully port the game,
+                  uncovering several old bugs, uh, inconsistencies,
+                  in the process.
+
+And: Mads Haar and Stephan Dahl for additional locations.
+
+Developed at: DIKU -- The Department of Computer Science
+                      at the University of Copenhagen.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 127
+N FOLLOW~
+C 0 L 0
+KW FOLLOW~
+SY ~
+TX .
+Syntax:  follow <person>
+         follow self
+
+  This command causes your character to follow another character, visibly.
+  You fall in line behind them.  It is best used if you are in a party or
+  group adventuring, or if you are following someone to an unknown
+  destination.  By following yourself, you abort the follow procedure.
+  
+Example:
+
+> follow bevran
+You now follow Bevran.
+
+   See also:  Sneak
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 128
+N GETTING~
+C 0 L 0
+KW "getting started"~
+SY ~
+TX .
+The Isles is based loosely on a combination of MUDs primarily in two
+categories: Diku-based Merc source code style and portability with
+features similar to a MUSH, such as PennMUSH or TinyMUSH.
+ 
+If you are familiar with the commands of a Merc-style Diku, you will
+find it easy to navigate the world and participate in the games more
+fast-moving arcade style commands, while still taking advantage of
+the advanced features of a MUD built with artificial life routines
+similar to MUSHes.  
+ 
+Your character is given the chance to build his or her abilities
+and wealth, and your primary goal should be, at first, to accrue
+some sort of rhythmic increase in wealth or skill.  Once you have
+mastered navigating the realm, and manipulating objects and features,
+you will be able to master parts of the game and head toward longer
+term goals.
+ 
+Your character advances in rank and skill as you proceed toward
+a level of immortality which is your reward.  Legendary status,
+or the status of Hero, can be gained which provides players with
+additional, more advanced levels of play.
+ 
+Many scenarios can play out in world; and you can gain status
+and rank while you adventure.  The game is about adventuring,
+meeting new sources of advancement, and sharing wealth and tears
+with your compatriots.  You can join the ranks of privateers or
+fight in a war for the state.  Become a mercenary for hire
+or protect merchants from bandits.  Learn the dark arts and
+become a necromancer, or study with survivalists.
+ 
+You may wish to check out some of the other following topics
+listed below.
+~
+IT ~
+EX ~
+SA Trade, Skills, Weapon Proficiencies, Magick, Gems, Money~
+End
+
+#DOC 129
+N GROUP~
+C 0 L 0
+KW GROUP~
+SY ~
+TX .
+Grouping allows for players to share experience and battles.
+Experience is distributed by the kill.  Safety in numbers
+allows you to utilize a wide range of skills and experiences.
+ 
+Once a person follows you, you may group them.  If you want to
+follow someone else, you must then ask them to group.
+ 
+Typing 'group' reveals your status and the status of others
+in your group.
+ 
+~
+IT ~
+EX ~
+SA Gtell, Monitor, Assist, Rescue~
+End
+
+#DOC 130
+N HELP~
+C 0 L 0
+KW HELP~
+SY ~
+TX .
+Syntax:  help
+         help <keyword>
+         help #<case-sensitive search string>
+         
+  The help command is probably the most useful command within the game.
+  It allows you to glean information about the world, the commands and
+  the rules here.  An advanced feature of the help command is the ability
+  to search through the help files and return a list of keywords that
+  contain a search string within them.  This allows you to search a wide
+  range of topics for a sub-topic.
+  
+> help #Locke
+Related Topics:
+MOTD
+WIZLIST
+NIMUD
+NEWS
+GREETING
+
+  Related topics:  Summary
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 131
+N WRITE~
+C 0 L 0
+KW write~
+SY write <target>
+~
+TX Begins writing on an object that can be written on, but only if you
+have a pen object (like a quill).
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 132
+N IMMORTAL~
+C 0 L 0
+KW immort hero avatar supreme diety immortality~
+SY ~
+TX .
+You reach immortality after 100 mortal levels, or when you have been
+selected by an immortal and sainted.  As an immortal, you cannot die and are
+bestowed with the powers of creation necessary to weave the universe.  
+ 
+The responsibility of immortality is great, and not for the faint of
+heart, as even immortals may die when slayed with weapons of special
+value called Vorpal Weapons.
+~
+IT ~
+EX ~
+SA Vorpal Weapons~
+End
+
+#DOC 133
+N LOCKE~
+C 0 L 0
+KW LOCKE~
+SY ~
+TX .
+You should definitely help Locke by levelling!
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 134
+N MAGIC_ITEMS~
+C 0 L 0
+KW 'MAGIC ITEMS' BRANDISH ZAP QUAFF RECITE~
+SY ~
+TX .
+These commands are still being debated.
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 135
+N MERC~
+C 0 L -1
+KW 0-~
+SY ~
+TX .
+This mud is based on Merc 2.2, created by Kahn, Hatchet, and Furey.  Merc 2.2
+is an upgrade from Merc 2.1, created by Furey, Hatchet, and Kahn.  Merc 2.2
+is available as Merc_22.tar.gz from ferkel.ucsb.edu (most files moved to
+ftp.tcp.com), ftp.math.okstate.edu, marble.bu.edu, zen.btc.uwe.ac.uk
+E-mail to 'merc-request@kpc.com' to join the merc mailing list.
+
+Thanks to ...
+  ... Diku Mud for starting it all.
+  ... The Free Software Foundation and DJ Delorie for kick-ass tools.
+  ... Copper Mud and Alfa Mud for releasing their code and worlds.
+  ... Aod of Generic for ... well, everything.  You're a hoopy frood, Aod.
+  ... Alander for many ideas and contributions.
+  ... John Brothers of Silly for permission to use Silly code and worlds.
+  ... Zrin for administering the mailing list.
+  ... Abaddon for proofreading our comm.c.
+  ... Hind, Quin, Vic, Diavolo, Oleg, and others for porting help.
+  ... Diavolo, Grodyn, Morgenes, Da Pub, Loki, Talen, Kalgen, Sludge,
+      The Crew of Salems Lot, and others for code and bug fixes.
+  ... N'Atas-Ha for the pager skeleton and Blackstar  for the improvements
+      and ideas to the pager.
+  ... Raff, Doctor, VampLestat, Nirrad, Tyrst, PinkF, Chris for worlds.
+  ... Ikee, Chaos, Kraze, Maxx, Thoth, Zolstead, Zavod, VampLestat, Cyric,
+      Kelvin, and Jackal for extensively playtesting MERC 2.2 and providing
+      constructive input.
+  ... the players and imps of Mud Dome, Final Mud, Mud Lite, Vego Mud, Rivers
+      of Mud, Ruhr Mud, Mystic Realms, 4th Realm, Dragon Mud, and Salems Lot
+      for bug reports, ideas, new code, and hours of enjoyment.
+
+Share and enjoy.
+MERC Industries
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 136
+N MULTIPLAYING~
+C 0 L 0
+KW MULTIPLAYING~
+SY ~
+TX .
+Totally allowed, encouraged to a point, multiplaying is a great way to
+enjoy multiple characters through use of clients, or perhaps bots, to
+enhance your experience and create "groups" of related characters.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 137
+N NEWS~
+C 0 L -1
+KW NEWS~
+SY ~
+TX .
+Locke's RECENT list of changes (long):    
+This list is in no specific order what so ever!  Wrote as much as I could.
+'*' indicates coding done by Surreality.
+
+(08/25/94) Rewrote help.
+(09/22/98) THE ISLES RETURNS
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 138
+N NIMUD~
+C 0 L -1
+KW NIMUD NIM5~
+SY ~
+TX .
+System runs a proprietary server NiM5 on a Debian build.
+ 
+NiM5 employs the use of a unique scripting language which
+provides a live development platform and is the basis
+for the main game interaction.
+ 
+In compliance with the DikuMUD license:
+Sebastian Hammer (quinn@freja.diku.dk)
+Michael Seifert (seifert@freja.diku.dk)
+Hans Henrik St{rfeldt (bombman@freja.diku.dk)
+Tom Madsen (noop@freja.diku.dk)
+Katja Nyboe (katz@freja.diku.dk)
+ 
+Additional contributions:
+See "help thanks"
+~
+IT ~
+EX ~
+SA Wizlist, Version~
+End
+
+#DOC 139
+N PARSER~
+C 0 L 0
+KW PARSER~
+SY ~
+TX .
+A parser is an algorithm to decipher command-based languages; NiM5
+employs a simple NLP at the core of its syntax.
+ 
+These features are currently in experimental stages.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 140
+N POLICY~
+C 0 L 0
+KW POLICY~
+SY ~
+TX .
+Please refrain from using vulgor or sexually explicit language
+that may be offensive to other players.  Please do not insult
+or use inflammatory language.
+ 
+Be kind.  Thanks!
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 141
+N QUIT~
+C 0 L 0
+KW QUIT~
+SY ~
+TX .
+Syntax:  quit
+         quit menu
+         
+  The quit command saves your character and quits.  If you supply the word
+  'menu' after the quit command, the parser exits to the main login menu.
+  
+Example:
+
+> quit
+Farewell!
+
+   See also:  Save  
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 142
+N REBOOTS~
+C 0 L 0
+KW REBOOTS~
+SY ~
+TX .
+Reboots occur every 24 hours by default.  Certain administrators have
+  the power to speed up or slow down the time between reboots.  The 'who'
+  command shows you how long it is until the next reboot.  When a reboot
+  occurs, almost everything is saved.  Any rooms marked to save their
+  contents, save their contents.  The world database file is saved.
+  
+  Most importantly, all connected players are saved, except those who are
+  in the middle of character generation.
+  
+  Players are notified during the last hour before a reboot many times
+  before the reboot occurs, reminding them of this event.
+  
+  Don't fret about a reboot!  It's an every day occurance (mostly).
+  
+  Finally, there is one further thing of note: the time it takes between
+  reboots.  Reboots take between one and five minutes to occur.  Usually
+  this time is less than two minutes, but this time is not gauranteed.
+  There are many failsafes in the code that stop a reboot in progress if
+  there is a problem with the mud and try to repair that problem, but
+  in the event that something has drastically been screwed up, the mud
+  may not reboot.  If the mud hasn't been rebooted within 15 minutes,
+  there may be an external reason for this delay.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 143
+N SAVE~
+C 0 L 0
+KW SAVE~
+SY ~
+TX .
+Syntax:  save
+
+  The save command performs a disk save of your character.  Characters
+  are saved automatically every so often, and when database dumps occur,
+  or when reboots happen.
+  
+Example:
+
+> save
+Player saved.
+
+   See also:  Quit
+   
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 144
+N SOCIALS~
+C 0 L 0
+KW SOCIALS~
+SY ~
+TX .
+Syntax:  socials
+
+  This command lists all socials in the game.  Socials are commands that
+  do not affect others but, rather, are used for roleplaying without
+  the constant use of the emote command.  Socials add flavor to the
+  environment, as well as realism.  Each social listed with this command
+  can be used to act upon another player or yourself, if you wish.
+  
+  See also:  Emote
+  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 145
+N STARTING~
+C 0 L 0
+KW 'starting gear'~
+SY ~
+TX .
+Equipment you have been given:
+a royal sealed letter from Coranos Rygor
+a shoulder pack fashioned from burlap
+a hand axe for chopping wood or melee combat
+a fullcloth to cloth your body
+a lantern, tinderbox, some coins and a wineskin
+a thin cloth belt for storing weapons and keeping your pants on
+ 
+Equipment you may wish to find:
+A shield, a mail chemise, a helm
+A long bow, crossbow or other ranged weapon
+Food other than apples
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 146
+N SUMMARY~
+C 0 L 0
+KW SUMMARY~
+SY ~
+TX .
+General Help Index :: For a list of topics, try
+searching with "help help" --
+ 
+For a command list, type "commands" -- each command can be explored
+using the syntax "help <command name>"
+ 
+Some other useful topics include "help getting started" a brief guide
+that shows you, well, how to get started.  There is also "help nimud"
+which tells you more of where the game originates, and the goals of
+its creators.
+ 
+~
+IT For the set of wizard commands, type "wizhelp" now.
+To access addition information about building, try the topic "building"
+~
+EX ~
+SA ~
+End
+
+#DOC 147
+N SURREAL~
+C 0 L 0
+KW surreal surreality~
+SY ~
+TX .
+This MUD and NiMUD is dedicated to Chris Cool aka Surreality, whose
+life was taken from him on December 13th, 1995.
+ 
+Surreal's virtual shrine:
+http://www.nimud.org/surreal.html
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 148
+N THANKS~
+C 0 L 0
+KW THANKS~
+SY ~
+TX .
+We salute the following people for their innovative ideas, coding and help:
+
+Kalgen of Zebesta                   - world interaction, area detail, combat
+Kahn, Hatchet and Kith of Envy Mud  - user-friendliness, portability
+Morgenes of Aldara                  - innovative, intelligent ideas, code:P
+Alander of Rivers of Mud            - good debugging!
+Surreality                          - the late great chris cool
+
+We also salute all those who have come before us, namely those who wrote the
+innovative mud softwares of Silly, Diku, Copper, Circle, Merc and Aber.
+
+ 
+Special thanks to the following artists for contributing to Elfwood,
+where there art was found and used in the graphical client (available
+at http://www.nimud.org/bigshock.html):
+ 
+Matthew Batcheider, Justin M. Hass, Amory Laine Clifford Koch,
+Aaron C. Griffin, Stanley R. Sison, Mathieu Cloutier,
+Jessica R. Horst, Krisoffer Frisk, Tiffany A. Cruz, Aviv Or,
+Brandi Dunn, Krista Bucholtz, Susanne Bergh, Becky Gerdel,
+Sarah Kurten, Emilie Duport and Herb Gilliland.
+Elfwood URL: http://elfwood.lysator.liu.se/
+ 
+To Rogel and Samson of IMC2 v4.24b - Rogel especially for his work on
+the BSD port; the crypt function is fixed.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 149
+N TOPICS~
+C 0 L 0
+KW TOPICS~
+SY ~
+TX .
+To search for a topic, type "help #<topic name>"
+ 
+For instance,
+help #trade
+help #weapon
+help "#ranged weapons"
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 150
+N TRADING~
+C 0 L 0
+KW TRADING~
+SY ~
+TX .
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 151
+N VERSION~
+C 0 L 0
+KW VERSION SYSTEM NIMUD~
+SY ~
+TX .
+System runs a proprietary server NiM5 on a Debian build.
+ 
+NiM5 employs the use of a unique scripting language providing
+a live development platform and is the basic structure of
+the main game interaction.
+~
+IT ~
+EX ~
+SA Wizlist~
+End
+
+#DOC 152
+N WIZLIST~
+C 0 L -1
+KW WIZLIST~
+SY ~
+TX .
+Code and Concepts........... Locke and Surreality
+Weapons and OLC............. Surreality
+Contributions............... Krayy, Kalgen, Newt, Morgenes
+Kess Town Descriptions...... Callista
+Scripting Parser............ Locke
+ 
+Additional information is available at:
+http://www.nimud.org/
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 199
+N RP~
+C 0 L 0
+KW rp~
+SY rp <text|#code?|text>
+~
+TX ~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 601
+N KEYBOARD~
+C 0 L 0
+KW keyboard~
+SY ~
+TX .
+ _____________________________________________________________________
+|  __                                                     __________  |
+| [__]  [_][_][_][_] [_][_][_][_] [_][_][_][_] [_][_][_] |          | |
+|                                         ___            '----------' |
+| [_][_][_][_][_][_][_][_][_][_][_][_][_][___] [_][_][_] [_][_][_][_] |
+| [__][_][_][_][_][_][_][_][_][_][_][_][_][  | [_][_][_] [_][_][_][ | |
+| [___][_][_][_][_][_][_][_][_][_][_][_][____|           [_][_][_][_| |
+| [____][_][_][_][_][_][_][_][_][_][_][___][_]    [_]    [_][_][_][ | |
+| [__]   [__][_____________________][_]   [__] [_][_][_] [____][_][_| |
+|_____________________________________________________________________|
+
+For those using telnet, not a client, and your terminal supports ANSI key
+codes, you can use this feature.  Those using clients, you probably can't
+use them unless you find a special setting: consult your client's manual
+about how to use these codes.  
+
+F-key support            Numeric Keypad (numlock=off)
+-------------            --------------
+ F1 = inventory            UP  = north
+ F2 = equipment           DOWN = south
+ F3 = score               LEFT = west
+ F4 = look at self       RIGHT = east
+ F5 = skill list        Home(7)= northwest
+ F6 = spell list      PageUp(9)= northeast
+ F7 = show group      PageDn(3)= southeast
+ F8 = WHO list           End(1)= southwest
+ F9 = combat tactic   Insert(0)= help summary
+F10 = swap hands         Del(.)= scan in all directions
+F11 = draw weapons    Center(5)= look here
+F12 = sheath weapons
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 608
+N SCENE-FUNCTIONS~
+C 0 L 0
+KW scene-functions~
+SY ~
+TX Scene-related functions that examine or manipulate the interior data
+stored on a scene; values and bonuses.
+here or here()   Returns the vnum of the current room.
+purge(t)         Purges the contents of v#, or a specific prop by name
+cue(v#)          Cues (resets,spawns) a scene of v#
+move(t,v#)       Moves a target actor or prop to a vnum
+moveall(v#,tv#,{cmd})  Moves actors from v# to tv#, forcing cmd on actors
+rndplr or rndplr(v#)   Returns a random player in the current scene or v#
+rnddir           Returns a random valid direction from the owner's scene
+getdir(v#,n|s|e..)  Returns a valid direction index (number) by name at v#
+dig(v#,n|s|e..,tv#) Digs a normal exit from v# to tv# in specified direction
+undig(v#,n|s|e...)  "Undigs" an exit at v# in a specified direction
+open(v#,n|s|e..)    Opens a door in a specified direction if a door+exists
+close(v#,n|s|e..)   Closes a door in a specified direction if a door+exists
+setscenetitle(v#,s) Sets string s to be the title of scene v#
+scenetitle(v#)      Returns the scene's title
+setscenedesc(v#,s)  Sets the scene's description
+scenedesc(v#)       Returns a string of the scene's description
+setscenepos(v#,n)   Sets the scene position to n
+scenepos(v#)        Returns the scene's position
+settemplate(v#,n)   Sets the template reference of v# to n
+maxpeople(v#)       Returns the scene's max occupancy
+setmaxpeople(v#,n)  Sets the scene's max occupancy
+setlight(v#,n)      Sets the light level (# of lights) in a v#
+light(v#)           Returns the # of lights in a scene
+setsector(v#,n)     Sets the scene's sector to n
+sector(v#)          Returns the sector number of a given scene v#
+setterrain(v#,n)    Sets the terrain type of v#
+terrain(v#)         Returns the current terrain index of v#
+setwagon(v#,n)      Sets the wagon reference number of v# (see wagons)
+wagon(v#)           Returns the wagon reference number of v#
+ 
+dispense(t,v#)   Dispenses a prop of v# to target t; called on any type
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

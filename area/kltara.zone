@@ -1,0 +1,2178 @@
+#ZONE 
+N Kltaran Plains~
+B None~
+V 7300 7399
+S 1
+End
+
+
+
+#SCRIPTDATA
+#7310
+N exec-each~
+C
+wait(60);
+do({The executioner sharpens his axe.});
+~
+T 1
+End
+
+#7366
+N chicken~
+C
+do({:clucks and caws, hopping around.});
+wait(140);
+~
+T 1
+End
+
+#7370
+N Foglad~
+C
+wait(15);
+do({'Eh, uh, %name% is it?});
+wait(30);
+do({'If you plan to stay on the farm, you gotta earn your keep.});
+wait(30);
+do({'All you gotta do is go down to the Vadmet farm and catch some squirrels.  Bring the Missus their tails.  We're fixin' for a feast!});
+~
+T 10
+End
+
+#7371
+N sit-when-born~
+C
+wait(10);
+do({sit chair});
+~
+T 4
+End
+
+#7380
+N missus-frallad~
+C
+wait(100);
+do({'Find me some nice ones!});
+wait(500);
+do({'Well, go on..!});
+~
+T 10
+End
+
+#7381
+N missus-gets~
+C
+if ( cmp(word(%astr%,1),{squirrel}),{ goto({success}); },  { goto({fail}); } );
+goto({end});
+label(success);
+wait(5);
+do({'Oh, %name% thank you!});
+wait(15);
+do({'Let me see what I have to give you in return for your good deed...});
+wait(20);
+do({:rummages around in the cupboards for a gift.});
+wait(30);
+dispense(%actor%,{7380});
+echo(%actor%,{Missus Frallad gives you your reward.});
+goto({end});
+label(fail);
+wait(5);
+do({:examines it.});  
+wait(20);
+do({give %astr% %name%}); 
+label(end);
+~
+T 5
+End
+
+#0
+
+
+
+#ACTORS
+#7311
+N executioner~
+SD the executioner~
+LD
+ A hooded executioner stands with a long axe.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 25 25 25 25 25
+Sc 7310
+End
+
+#7355
+N bady~
+SD bady~
+LD
+ Bady, the innkeeper, is standing here.
+~
+D
+ Bady is a tall but stout man of medium build with a fresh moustache
+and a long, slender nose.
+~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 10 10 10 10 10
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 6 22
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sk 100 'stark'
+End
+
+#7364
+N sparrow~
+SD a sparrow~
+LD
+ A sparrow sits on a branch.
+~
+D
+ A small brown bird with little beady eyes.
+~
+A 1
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -20 E 471
+O ~
+AP 25 25 25 25 25
+At 0 10 20 2
+At 1 5 6 10
+End
+
+#7365
+N crow~
+SD a crow~
+LD
+ A crow caws from a branch.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -10 E 411
+O ~
+AP 25 25 25 25 25
+At 0 10 19 4
+At 1 5 10 5
+At 2 1 42 2
+At 3 1 25 17
+End
+
+#7366
+N chicken~
+SD a chicken~
+LD
+ A chicken crosses your path.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 164
+O ~
+AP 15 15 15 15 15
+At 0 10 18 5
+End
+
+#7370
+N foglad frallad~
+SD Foglad~
+LD
+ Foglad Frallad is waiting for his meal.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sc 7370
+Sc 5005
+At 0 10 24 11
+End
+
+#7371
+N ox~
+SD an ox~
+LD
+ An ox chews its cud.
+~
+D
+ A grey-coated ox with a muscular back.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -30 E 40
+O ~
+AP 20 13 13 13 13
+At 1 15 30 13
+End
+
+#7372
+N $n farmhand~
+SD $n the farmhand~
+LD
+ A farmhand tends the stock.
+~
+D
+ ~
+A 1027
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -100 E 100
+O ~
+AP 15 15 15 15 15
+Sc 7173
+Sc 5005
+Sc 7371
+At 0 10 12 1
+Sk 10 'climbing'
+Sk 25 'swimming'
+Sk 25 'riding'
+End
+
+#7373
+N $c stallion~
+SD a $c stallion~
+LD
+ A $c stallion graizes here.
+~
+D
+ ~
+A 8451
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+End
+
+#7379
+N cave lizard~
+SD a cave lizard~
+LD
+ A cave lizard slithers along the ground here.
+~
+D
+ ~
+A 33
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 6 6 6 6 6
+At 1 5 15 14
+At 2 3 5 9
+End
+
+#7380
+N missus frallad~
+SD missus frallad~
+LD
+ Missus Frallad is hankering to fix some squirrel-tail stew.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sc 7380
+Sc 7381
+End
+
+#7381
+N squirrel~
+SD a squirrel~
+LD
+ A squirrel is chewing on a nut.
+~
+D
+ A cute squirrel, plump and ready for Frallad's special stew.
+~
+A 129
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 4
+K 0 E 50
+O ~
+AP 3 3 3 3 3
+Sc 5012
+At 1 1 3 14
+End
+
+#0
+
+
+
+#OBJDATA
+#7310
+N apocalypse robe~
+SD an apocalypse robe~
+P ~
+D
+A large black robe is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+A thick black cloak worn by executioners.
+~
+L 0
+T 13
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7311
+N black hood~
+SD a black hood~
+P ~
+D
+A black hood is crumpled on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7313
+N long bladed axe~
+SD a long bladed axe~
+P ~
+D
+A long bladed axe is lying here.
+~
+A
+~
+PD
+~
+DR
+A dangerous looking weapon probably carried by an executioner.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 100 100 6
+End
+
+#7355
+N unset~
+SD ~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7366
+N egg~
+SD an egg~
+P ~
+D
+An egg is here.
+~
+A
+You suck down the raw egg like a true champion.
+~
+PD
+~
+DR
+A beautiful egg.
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 2
+O ~
+V 1 0 0 0
+End
+
+#7367
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7370
+N kitchen table~
+SD the kitchen table~
+P ~
+D
+The kitchen table is well kept.
+~
+A
+~
+PD
+~
+DR
+A beautifully painted wooden table with a tablecloth.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 20 65536 0 0
+End
+
+#7371
+N chair~
+SD a chair~
+P ~
+D
+A chair is by the table.
+~
+A
+~
+PD
+~
+DR
+A simple wooden chair.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 8192 0 0
+End
+
+#7378
+N shed toolshed old~
+SD an old shed~
+P ~
+D
+The old toolshed is barely standing.
+~
+A
+~
+PD
+~
+DR
+The old toolshed is dilapedated and falling apart.  Its roof has holes in
+it and it looks to be barely standing after all of these years.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 400 32768 0 7380
+End
+
+#7379
+N rusted key~
+SD a rusted key~
+P ~
+D
+A rusted key is here.
+~
+A
+~
+PD
+~
+DR
+There is a rusted key here.
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7380
+N missus list~
+SD list~
+P ~
+D
+4650 4700 4701 4702 5005 5307 5308 2000 2001 2002 2003 2004 2005 2500 2504 2511 2512 2517 2523 2522 2520 2521 2518 5162 5163 5164 5166 5167 4505 5011 5012 5013 5014 5015 5016 5017 5306 5309 5311 5173 5160 3001 3002 3003 3004 3005 3006 3007 3500 3501 3502 
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 28
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#7381
+N squirrel tail~
+SD a squirrel tail~
+P ~
+D
+The tail of a squirrel is lying here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#7300
+N Capital Road~
+Ref 0
+D
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 5017
+~
+~
+Dr 2 0 0 7301
+~
+~
+End
+
+#7301
+N Capital Road~
+Ref 0
+D
+Capital Road meets the Long March
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7300
+~
+~
+Dr 2 0 0 7305
+~
+~
+Dr 3 0 0 7302
+~
+~
+End
+
+#7302
+N The Long March~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7301
+~
+~
+Dr 3 0 0 7303
+~
+~
+End
+
+#7303
+N The Long March~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7302
+~
+~
+Dr 3 0 0 7304
+~
+~
+End
+
+#7304
+N The Long March~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7310
+~
+~
+Dr 1 0 0 7303
+~
+~
+Dr 6 0 0 7310
+~
+~
+End
+
+#7305
+N Capital Road~
+Ref 0
+D
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7301
+~
+~
+Dr 2 0 0 7306
+~
+~
+End
+
+#7306
+N Turn in Capital Road~
+Ref 0
+D
+~
+C
+RIMAGE crossroads.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7305
+~
+~
+Dr 3 0 0 7315
+~
+~
+End
+
+#7307
+N The Long March~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7310
+~
+~
+Dr 3 0 0 7308
+~
+~
+Dr 6 0 0 7308
+~
+~
+End
+
+#7308
+N The Long March near the Royal Prison~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 2048 0 7312
+The Royal Prison is just north of here.
+~
+~
+Dr 1 0 0 7307
+~
+~
+Dr 2 0 0 7313
+~
+~
+Dr 3 0 0 7309
+~
+~
+Dr 9 0 0 7307
+~
+~
+End
+
+#7309
+N The Long March~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7308
+~
+~
+Dr 3 0 0 7311
+~
+~
+End
+
+#7310
+N The Long March~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7304
+~
+~
+Dr 3 0 0 7307
+~
+~
+Dr 9 0 0 7304
+~
+~
+End
+
+#7311
+N Gallows Hill~
+Ref 0
+D
+This dreaded end has come to many a servant of the realm whose choices
+have lead them down the wrong path.  The ultimate punishment is the
+executioner's axe, a blade forged with royal money for use by the
+authorities of the King.  While Coranos is not fond of putting his citizens
+to death, the King will not stay the axe for a murderer, or for an act of
+treason against the crown.  
+   Gallows hill is covered with leafless trees, high above the forest,
+to the east you can see the prison.  The Long March leads east.
+~
+C
+SIGNPOST executioner.jpg
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7311 1 100 1
+R O 7311 2 100 1
+R O 7313 39 100 1
+R O 7310 10 100 1
+Dr 1 0 0 7309
+~
+~
+End
+
+#7312
+N Royal Prison~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 2048 0 7308
+~
+~
+End
+
+#7313
+N Guard House~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7308
+~
+~
+End
+
+#7315
+N Capital Road~
+Ref 0
+D
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7306
+~
+~
+Dr 3 0 0 7316
+~
+~
+End
+
+#7316
+N Capital Road~
+Ref 0
+D
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7315
+~
+~
+Dr 3 0 0 7317
+~
+~
+End
+
+#7317
+N Capital Road at Ostinbrun Road~
+Ref 0
+D
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7316
+~
+~
+Dr 2 0 0 7340
+~
+~
+Dr 3 0 0 7318
+~
+~
+End
+
+#7318
+N Capital Road~
+Ref 0
+D
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7317
+~
+~
+Dr 3 0 0 7319
+~
+~
+End
+
+#7319
+N Capital Road~
+Ref 0
+D
+~
+C
+RIMAGE capitalroad.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7318
+~
+~
+Dr 3 0 0 7320
+~
+~
+End
+
+#7320
+N Entrance to Kralan's Pass~
+Ref 0
+D
+~
+C
+RIMAGE mountainpass.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7319
+~
+~
+Dr 3 0 0 10000
+~
+~
+End
+
+#7340
+N Ostinbrun Road~
+Ref 0
+D
+~
+C
+RIMAGE farmroad.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7317
+~
+~
+Dr 2 0 0 7341
+~
+~
+End
+
+#7341
+N Ostibrun Road~
+Ref 0
+D
+~
+C
+RIMAGE road.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7340
+~
+~
+Dr 2 0 0 7342
+~
+~
+End
+
+#7342
+N Ostinbrun Road~
+Ref 0
+D
+~
+C
+RIMAGE road.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7341
+~
+~
+Dr 2 0 0 7343
+~
+~
+End
+
+#7343
+N Ostinbrun Road~
+Ref 0
+D
+~
+C
+RIMAGE road.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7342
+~
+~
+Dr 1 0 0 7384
+~
+~
+Dr 2 0 0 7344
+~
+~
+End
+
+#7344
+N Kralan's Ride~
+Ref 0
+D
+~
+C
+RIMAGE road2.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7343
+~
+~
+Dr 2 0 0 7345
+~
+~
+End
+
+#7345
+N Bridge over the Sullenbrok~
+Ref 0
+D
+~
+C
+RIMAGE bridge.jpg
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7344
+~
+~
+Dr 2 0 0 7346
+~
+~
+End
+
+#7346
+N Kralan's Ride~
+Ref 0
+D
+~
+C
+RIMAGE road2.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7345
+~
+~
+Dr 2 0 0 7347
+~
+~
+End
+
+#7347
+N Ostinbrun Road at the Hobbin Wollak~
+Ref 0
+D
+Ostinbrun Road turns a sharp southeast toward the village.  To the
+south is a dirt horsepath leading toward farmlands.
+~
+C
+RIMAGE inn.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7346
+~
+~
+Dr 1 0 0 7355
+~
+~
+Dr 2 0 0 7352
+~
+~
+Dr 9 0 0 7348
+~
+~
+End
+
+#7348
+N Outside of Ostinbrun~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7349
+~
+~
+Dr 6 0 0 7347
+~
+~
+End
+
+#7349
+N Ostinbrun Commons~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7350
+~
+~
+Dr 1 0 0 7351
+~
+~
+Dr 3 0 0 7348
+~
+~
+End
+
+#7350
+N North Ostinbrun~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7349
+~
+~
+End
+
+#7351
+N East Ostinbrun~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 7349
+~
+~
+End
+
+#7352
+N Dirt Horsepath~
+Ref 0
+D
+A narrow dirt horsepath leading north south along a grassy knoll.
+~
+C
+RIMAGE road.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7347
+~
+~
+Dr 2 0 0 7360
+~
+~
+End
+
+#7355
+N The Hobbin Wollak~
+Ref 0
+D
+Rough oak paneling lines the walls with a clapboard trim around white
+stucco, a series of beams support the roof.  A hallway leads east to the
+back rooms.  The Wollak is the meeting place for the local patrons of
+Ostinbrun, a familiar sight to old and new is the boars head mounted over
+the bar.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7355 1 100 1
+R O 10072 -1 100 1
+R O 10071 -1 100 1
+R O 10070 -1 100 1
+Dr 3 0 0 7347
+~
+~
+End
+
+#7360
+N Dirt Horsepath~
+Ref 0
+D
+Someone has made a home to the west.  The trail continues to the north
+and the south.  
+~
+C
+RIMAGE road.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7352
+~
+~
+Dr 2 0 0 7361
+~
+~
+End
+
+#7361
+N Frallad Farm~
+Ref 0
+D
+You are on the lands of Foglad Frallad and his family; an animal
+farm south of the main cornfields.
+~
+C
+RIMAGE farmlands3.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7366 5 10 1
+R C 124 -1 25 1
+R C 123 -1 25 1
+R C 127 -1 100 1
+R O 7366 -1 100 1
+Dr 0 0 0 7360
+~
+~
+Dr 3 0 0 7362
+~
+~
+End
+
+#7362
+N Frallad Meadow~
+Ref 0
+D
+A wide unkempt meadow ignored by the Frallad's for generations.
+~
+C
+RIMAGE overgrown.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7361
+~
+~
+Dr 2 0 0 7365
+~
+~
+Dr 3 0 0 7363
+~
+~
+End
+
+#7363
+N Frallad Meadow~
+Ref 0
+D
+Short priarie grass and spots of beautiful red and yellow flowers
+grow wildly near thorn bushes.
+~
+C
+RIMAGE meadow3.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7365 3 10 1
+Dr 1 0 0 7362
+~
+~
+Dr 2 0 0 7364
+~
+~
+End
+
+#7364
+N Frallad Meadow~
+Ref 0
+D
+A dense thicket amidst the Frallad Farm where thorns have overtaken
+and the ivy is very dense.  There seems to be clearings to the
+east and west.
+~
+C
+meadow2.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7364 5 20 1
+Dr 0 0 0 7363
+~
+~
+Dr 1 0 0 7365
+~
+~
+Dr 3 0 0 7366
+~
+~
+End
+
+#7365
+N Frallad Meadow~
+Ref 0
+D
+A wide grassy field with yellow haybales.
+~
+C
+RIMAGE meadow.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7362
+~
+~
+Dr 3 0 0 7364
+~
+~
+End
+
+#7366
+N Frallad Meadow~
+Ref 0
+D
+A dense thicket of undergrowth ignored by the Frallad's for generations.  
+~
+C
+RIMAGE overgrown.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7364
+~
+~
+Dr 3 0 0 7367
+~
+~
+End
+
+#7367
+N Dirt Road~
+Ref 0
+D
+You are walking along a dirt road southwest of a meadow.  The trail leads
+south through a rolling pasture.  
+~
+C
+RIMAGE wheatroad.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7366
+~
+~
+Dr 2 0 0 7368
+~
+~
+End
+
+#7368
+N Green Pastures~
+Ref 0
+D
+Soft rolling hills of tall green grasses, speckled with small purple and
+yellow flowers are all around you.  Occaisonal flutterings of butterfly
+wings and a caw from a hawk overhead disturb the otherwise silent landscape
+of the Souderbrun.  To the northeast you can see a farmhouse.  A dirt path
+leads south-southeast through the hills.  
+~
+C
+RIMAGE plains.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7371 2 40 1
+R C 156 -1 100 5
+R C 160 -1 100 1
+Dr 0 0 0 7367
+~
+~
+Dr 2 0 0 7369
+~
+~
+End
+
+#7369
+N Rolling Fields~
+Ref 0
+D
+A rolling field of yellowed grasses marks the edge of the Vadmet farm,
+south along the Sullenbrok, from which the sound of bubbling water can be
+heard somewhere in the trench below.  To the northeast in the distance is
+the city of Ostinbrun.  A dirt path leads southeast.  
+~
+C
+RIMAGE wheatroad.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7368
+~
+~
+Dr 2 0 0 7370
+~
+~
+Dr 9 0 0 7370
+~
+~
+End
+
+#7370
+N Outer Rim Of The Vadmet Farm~
+Ref 0
+D
+You are on the top of a hill overlooking the farm.  A trail leads to the
+southwest, across the tilled fields of Kltaran soil.  You can see a
+farmhouse just southeast of here, and a horse barn south of it.  A thin
+wooden fence outlines the northern edge of the farm here.  
+~
+C
+RIMAGE farmlands2.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7381 5 100 1
+R O 7381 -1 100 1
+Dr 0 0 0 7369
+~
+~
+Dr 1 0 0 7371
+~
+~
+Dr 3 0 0 7374
+~
+~
+Dr 6 0 0 7369
+~
+~
+Dr 8 0 0 7374
+~
+~
+Dr 9 0 0 7371
+~
+~
+End
+
+#7371
+N Outside Farmhouse~
+Ref 0
+D
+You are outside the Frallad farm; to the south is the stables, and
+to the east is the farmhouse where the Frallad's live.
+~
+C
+RIMAGE village2.jpg
+~
+F 2
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 5 0 7379
+~
+front door~
+Dr 2 5 0 7372
+~
+double cross sliding door~
+Dr 3 0 0 7370
+~
+~
+Dr 6 0 0 7370
+~
+~
+End
+
+#7372
+N Stables~
+Ref 0
+D
+The Frallad stables are known to be a great source of excellent
+mounts and pack animals.  Bred by Foglad Frallad himself, they
+are of excellent quality and price.
+~
+C
+RIMAGE farmhouse.jpg
+~
+F 6
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7372 1 100 1
+Dr 0 5 0 7371
+~
+double cross sliding door~
+End
+
+#7373
+N Stables Index~
+Ref 0
+D
+For Stables in Frallad farm.  See PET-SHOPS for more info.
+~
+C
+(null)~
+F 4098
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#7374
+N Vadmet Fields~
+Ref 0
+D
+You are standing amidst tall green grasses in pastures north of the
+main crops of the Vadmet farm.  Much work is to be done here; to
+the northeast, in the distance, you can see a trail.
+~
+C
+RIMAGE farmlands.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7381 5 100 1
+R O 7381 -1 100 1
+Dr 1 0 0 7370
+~
+~
+Dr 2 0 0 7377
+~
+~
+Dr 3 0 0 7375
+~
+~
+Dr 7 0 0 7370
+~
+~
+End
+
+#7375
+N Western Fields~
+Ref 0
+D
+A hardscrabble field that Aod Vadmet has yet to deal with properly; its
+growing some wild berries, but not much else.  
+~
+C
+RIMAGE wheat.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 7374
+~
+~
+Dr 2 0 0 7376
+~
+~
+End
+
+#7376
+N Fields of Wheat And Barley~
+Ref 0
+D
+Wide amber fields of grain; wheat and barley stalks peek out from
+behind each other in alternating rows.
+~
+C
+RIMAGE wheat.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7381 15 100 1
+R O 7381 -1 100 1
+Dr 0 0 0 7375
+~
+~
+Dr 1 0 0 7377
+~
+~
+End
+
+#7377
+N Hops Fields~
+Ref 0
+D
+Fields of hops plants, all lined in neat rows.  There is a house
+to the east of here.
+~
+C
+RIMAGE vadmet.jpg
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 7381 10 100 1
+R O 7381 -1 100 1
+Dr 0 0 0 7374
+~
+~
+Dr 1 5 0 7382
+~
+wooden door~
+Dr 2 0 0 7378
+~
+~
+Dr 3 0 0 7376
+~
+~
+End
+
+#7378
+N Old Shed Near Well~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R O 7378 -5 100 1
+Dr 0 0 0 7377
+~
+~
+End
+
+#7379
+N Inside Farmhouse~
+Ref 0
+D
+A quaint little farmhouse south of Kess, east of the Vadmet farms.  The
+Frallad's keep a cozy little establishment with a wooden fire, oven and
+second floor bedroom.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 7370 1 100 1
+R G 7 -1 100 35
+R G 12 -1 100 50
+R G 10 -1 100 25
+R G 51 -1 100 10
+R G 153 -1 100 20
+R G 103 -1 100 50
+R G 133 -1 100 10
+R O 38 -1 100 30
+R O 7371 -5 100 1
+R O 7370 -5 100 1
+R M 7380 1 100 1
+Dr 3 5 0 7371
+~
+front door~
+Dr 4 0 0 7381
+~
+~
+End
+
+#7380
+N Inside an Old Shed~
+Ref 0
+D
+The old shed has been standing here for a long time, and has seen better
+days.  Broken shelves that once housed precious objects are now cracked and
+hanging off their brackets.  Trash and miscellaneous leaves and busted
+implements are lying on the ground amidst a large metal grating.  
+To the north is the door out.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7378
+~
+~
+Dr 5 7 7379 7500
+~
+metal grating~
+End
+
+#7381
+N Upstairs Frallad Farmhouse~
+Ref 0
+D
+A cozy little bedroom for Foglad and his wife.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10706 -5 100 1
+Dr 5 0 0 7379
+~
+~
+End
+
+#7382
+N Vadmet House~
+Ref 0
+D
+You are in the Vadmet house, a two bedroom cottage on the farm where
+Aod and Elad live, just south of the city.
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 5 0 7377
+~
+wooden door~
+End
+
+#7383
+N Kitchen~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#7384
+N Dense Foilage~
+Ref 0
+D
+You are cutting through the forest to a nearby field.
+~
+C
+~
+F 2
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 18704
+~
+~
+Dr 3 0 0 7343
+~
+~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,49 @@
+#ZONE 
+N Dark Underearth~
+B None~
+V 10300 10399
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#10300
+N Dark Pits of Yeth~
+Ref 0
+D
+Bubbling black foulness permeates your vision; your feet are
+trapped in it, your eyes smothered by it, your lips are persed
+against it as it envelopes you.
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 11105 -5 100 1
+End
+
+#0
+
+
+
+#$

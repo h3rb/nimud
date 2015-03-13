@@ -1,0 +1,3466 @@
+#ZONE 
+N Eastern Wildlands~
+R A cockral flies northwest, you can hear its cry above you.
+~
+B Locke~
+V 10700 10899
+S 1
+End
+
+
+
+#SCRIPTDATA
+#10731
+N sleep~
+C
+do({sleep});
+~
+T 4
+End
+
+#10752
+N Confession~
+C
+~
+T 5
+End
+
+#10753
+N Scroll~
+C
+~
+T 5
+End
+
+#10754
+N put-money-in-pouch~
+C
+do( {open pouch});
+do({put all pouch});
+do({close pouch});
+wait(10000);
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#10730
+N elverling~
+SD an elverling~
+LD
+ An elverling yawns and scurries across the meadow.
+~
+D
+ A short mouse-like creature with a long bushy tail and a set of tiny
+hooves.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K -1 E 185
+O ~
+AP 15 15 15 15 15
+At 0 10 12 5
+End
+
+#10731
+N baby dragon~
+SD a baby dragon~
+LD
+ A red dragon unfurls its wings.
+~
+D
+ Hard scales, a pair of huge wings and a fiery breath is the bane
+of all dragonhunters.  This particular dragon appears to be
+docile, despite its red coloration.  It has huge claws, a set
+of razor sharp teeth, and steaming nostrils filled with sulfer.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K -20 E 400
+O ~
+AP 18 18 18 18 18
+Sc 10731
+At 1 10 20 14
+At 2 5 15 10
+At 3 5 15 9
+At 4 5 15 10
+End
+
+#10750
+N guard banded mail two handed sword~
+SD a guard~
+LD
+ a heavily-armed guard is watching you closely.
+~
+D
+ Before you is a short man, yet he is huge in width and depth, and it is
+all muscle.  He is wearing banded mail, and wielding a two handed sword. 
+His face is set in the grim determination of a guardian of a man.  
+~
+A 1
+AB 0
+M 100
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 554
+O ~
+AP 25 25 25 25 35
+At 0 10 20 13
+At 1 5 9 3
+End
+
+#10752
+N short emaciate man raven black ~
+SD a short, emaciated man~
+LD
+ A short, emaciated man with raven-black hair stands here.
+~
+D
+ Before you is a short, emaciated man.  His hair is raven black, and his
+skin obsidian.  His eyes are raven black, like his hair.  He wears a wicked
+looking dagger, curved as in a ritualistic fashion.  
+~
+A 1
+AB 0
+M 100
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 988
+O ~
+AP 25 25 25 25 40
+Sc 10754
+At 0 10 73 10
+At 1 5 65 0
+At 3 1 32 8
+At 4 1 35 10
+At 5 1 38 5
+At 6 5 65 2
+End
+
+#10753
+N tall man white~
+SD a tall man~
+LD
+ a tall man with very little hair that is all white.
+~
+D
+ Before you is a tall man, standing somewhere about halfway between six
+and seven feet tall.  His hair, what little he has anyways, is white.  It is
+in a semi-circle around the back and sides of his head.  He has a white
+beard and mustache, connected by his sideburns.  His eyes are an emerald
+green, and his skin pink.  
+~
+A 1
+AB 0
+M 5000
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 615
+O ~
+AP 25 25 25 25 35
+At 0 10 20 9
+At 1 5 5 3
+End
+
+#10754
+N miller~
+SD the miller~
+LD
+ The miller is standing here, waiting for you to make a decision.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 15
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 1
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 3
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I don't have that to sell you.~
+ Str2
+ I am not interested in that item.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 19 1
+End
+
+#0
+
+
+
+#OBJDATA
+#10706
+N down bed~
+SD a down bed~
+P ~
+D
+A down bed has been placed here, well kept.
+~
+A
+~
+PD
+~
+DR
+The bed is well kept, made from goosedown and cotton.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 200 24576 0 0
+End
+
+#10715
+N natural spring stream water~
+SD a natural spring~
+P ~
+D
+A natural spring spews forth clean water from an underground source.
+~
+A
+~
+PD
+~
+DR
+The Ostinbrok or the Sullenbrok may flow into this stream somewhere to
+the southwest.  
+~
+L 0
+T 25
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10750
+N A scroll~
+SD a tattered scroll~
+P ~
+D
+A scroll with tax collections on it.
+~
+A
+~
+PD
+~
+DR
+This is a scroll.  On it is the name Bjork Naemr Fyord- Tax Collector. 
+Under that name are the names of many a man, each with a dash next to it and
+an amount of money.  This is obviously a tax collection sheet.  
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10751
+N Body~
+SD a body~
+P ~
+D
+At the bottom of the still river, one with good eyes may see a body! 
+~
+A
+~
+PD
+~
+DR
+At the bottom of the river, one with good eyes may see a body. It is well preserved. One may see raven-black hair, icy blue eyes, and a sickly, green colored skin.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10753
+N evidence chest~
+SD a chest~
+P ~
+D
+A chest labeled "evidence" is here.
+~
+A
+~
+PD
+~
+DR
+This is an extremely ornate chest.  On it is carved the word "evidence". 
+It seems to have a dragon carved on it as well, but the shape is abstract
+enough that one can not be sure.  
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 1
+C 50
+O ~
+V 10000 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#10700
+N Ruthridge Road Extension~
+Ref 5482
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10701
+~
+~
+Dr 3 0 0 5311
+~
+~
+End
+
+#10701
+N Ruthridge Mill~
+Ref 5482
+D
+To the north is the mill.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10702
+~
+~
+Dr 1 0 0 10710
+~
+~
+Dr 3 0 0 10700
+~
+~
+End
+
+#10702
+N Miller's Quarry~
+Ref 0
+D
+A bed of rocks has been quarried for use in the mill.  Carefully
+placed millstones, some old and some newly carved, are here,
+stacked next to a large quarrying pit.
+   The mill is just north.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 10703
+~
+oak door~
+Dr 2 0 0 10701
+~
+~
+End
+
+#10703
+N Millhouse~
+Ref 0
+D
+Wide beams support the thatched roof.  A huge, slowly turning wheel
+grinds grain in large quantities.  The sound of running water and the
+constant creaking of the water wheel makes this place pretty noisy.  There
+is a small door in the eastern wall which leads to the miller's quarters.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10754 1 100 1
+R G 12 -1 60 20
+R G 11 -1 75 50
+R G 10 -1 50 50
+R G 9 -1 75 45
+Dr 1 5 0 10704
+~
+small door~
+Dr 2 5 0 10702
+~
+oak door~
+End
+
+#10704
+N Miller's House~
+Ref 0
+D
+A wide hearth seperates a dining area from the main kitchen.  Above you,
+a loft is supported by timbres, where the miller's family sleeps.  A short
+ladder leads up through a hole in the ceiling.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10708
+~
+~
+Dr 3 5 0 10703
+~
+small door~
+Dr 4 0 0 10705
+~
+hole in the ceiling~
+End
+
+#10705
+N Miller's Loft~
+Ref 0
+D
+A low-ceiling makes you duck down as you arrive in the loft.  To the east
+is a small room, and to the west is a larger room.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10706
+~
+~
+Dr 3 0 0 10707
+~
+~
+Dr 5 0 0 10704
+~
+hole~
+End
+
+#10706
+N Tara's Room~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10706 -5 100 1
+R C 145 -4 75 7
+Dr 3 0 0 10705
+~
+~
+End
+
+#10707
+N Master Suite~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10706 -5 100 1
+Dr 1 0 0 10705
+~
+~
+End
+
+#10708
+N Miller's Wheel on the Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10709
+~
+~
+Dr 2 0 0 10704
+~
+~
+Dr 3 0 0 10754
+~
+~
+End
+
+#10709
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 10708
+~
+~
+End
+
+#10710
+N Dirt Road Along Caerbrok~
+Ref 0
+D
+A dirt road along the Caerbrok is well worn.  You are travelling along it
+as it runs east to west, toward Kess, the capital of Kltara.  The river
+rushes by to the north, parallel to the road.  To the south is a wide
+expanse of underbrush and short grasses.  Sparce trees can be seen over the
+rolling wilderness, collected in groves here and there.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10750
+~
+~
+Dr 1 0 0 10711
+~
+~
+Dr 2 0 0 10751
+~
+~
+Dr 3 0 0 10701
+~
+~
+End
+
+#10711
+N Tree-lined Dirt Road~
+Ref 10710
+D
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10712
+~
+~
+Dr 3 0 0 10710
+~
+~
+End
+
+#10712
+N Tree-lined Dirt Road~
+Ref 10710
+D
+To the east is a clearing.
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10713
+~
+~
+Dr 3 0 0 10711
+~
+~
+End
+
+#10713
+N Clearing Near River~
+Ref 0
+D
+You are in a wide dirt clearing, somewhere east of Kess.  A dirt
+tree-lined road runs from west to east through the clearing, following the
+Caerbrok River which is just north of you.  To the south, a path leads
+through the wilderness.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10714
+~
+~
+Dr 2 0 0 10720
+~
+~
+Dr 3 0 0 10712
+~
+~
+End
+
+#10714
+N Tree-lined Road~
+Ref 0
+D
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10715
+~
+~
+Dr 3 0 0 10713
+~
+~
+End
+
+#10715
+N Tree-lined Road at Waterfall~
+Ref 0
+D
+You are at the end of a dirt road which leads west along the Caerbrok. 
+Here, an underground spring flows to the surface, its magesty of nature
+untouched by human hands.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+R O 10715 -5 100 1
+Dr 2 0 0 10724
+~
+~
+Dr 3 0 0 10714
+~
+~
+End
+
+#10720
+N Wide Clearing~
+Ref 0
+D
+You are standing in a wide clearing edged with a group of elm and maples
+that are rather young.  A thin, fading trail leads off to the south.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10713
+~
+~
+Dr 1 0 0 10721
+~
+~
+Dr 2 0 0 10723
+~
+~
+Dr 3 0 0 10722
+~
+~
+End
+
+#10721
+N Thicket~
+Ref 0
+D
+A wide thicket, overgrown with weeds, thorns and the occasional
+wildflower under crooked bow and forest canopy.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10724
+~
+~
+Dr 3 0 0 10720
+~
+~
+End
+
+#10722
+N Small Grove~
+Ref 0
+D
+You are standing in a small elm grove.  A wide grass-covered clearing is
+south of you.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10720
+~
+~
+Dr 2 0 0 10726
+~
+~
+End
+
+#10723
+N Thin, Faded Path~
+Ref 0
+D
+You are following a thin, fading path through the thicket.  The path
+leads from the north to the south.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10720
+~
+~
+Dr 2 0 0 10725
+~
+~
+End
+
+#10724
+N Thicket~
+Ref 0
+D
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10715
+~
+~
+Dr 3 0 0 10721
+~
+~
+End
+
+#10725
+N Thin Trail~
+Ref 0
+D
+You are following a thin trail leading through the thicket, the evidence
+of nearby animals is all around you.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10723
+~
+~
+Dr 1 0 0 10732
+~
+~
+End
+
+#10726
+N Meadow~
+Ref 0
+D
+You are in a meadow.  To the north is a cluster of elm trees.  The sound
+of birds chirping is nearby and the short grass is mixed with the fluttering
+of white moths.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10722
+~
+~
+Dr 2 0 0 10731
+~
+~
+Dr 3 0 0 10727
+~
+~
+End
+
+#10727
+N Meadow~
+Ref 0
+D
+The short grasses and blue flowers are lovely, and the trees around you
+are tall and old, appearing to be the oldest in this region.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 10731 1 100 1
+R O 4503 7 100 1
+R O 50 -3 75 8
+Dr 1 0 0 10726
+~
+~
+End
+
+#10730
+N Deer Trail~
+Ref 0
+D
+~
+C
+(null)~
+F 8194
+S 2
+M 0
+W 0
+T 0
+O ~
+End
+
+#10731
+N Meadow~
+Ref 0
+D
+A wide meadow expands to the north.  You are standing amongst a grove of
+impassable forest, which has grown close over the years.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10726
+~
+~
+Dr 1 0 0 10733
+~
+~
+End
+
+#10732
+N Clearing Near Rocks~
+Ref 0
+D
+A huge boulder obscures your view of the north.  You are standing in a
+small clearing near a trail which leads west.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 1024 0 10740
+~
+~
+Dr 3 0 0 10725
+~
+~
+End
+
+#10733
+N Vine-covered Forest~
+Ref 0
+D
+A wild and tangled vine-covered forest is dark and gloomy.  So dark in
+fact that you may wish to light your lantern or use a torch.  
+~
+C
+~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10734
+~
+~
+Dr 3 0 0 10731
+~
+~
+End
+
+#10734
+N Dark Forest~
+Ref 0
+D
+A dark forest overgrowing with vines and tangled thorns.  You hear in the
+distance a cockral yell and feel a bit uneasy.  
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10735
+~
+~
+Dr 3 0 0 10733
+~
+~
+End
+
+#10735
+N Dark Forest~
+Ref 0
+D
+The trees here are different; though covered in vines, they appear
+thicker and thier bark rougher.  The wood is hard and they do not bend, with
+tall spindly branches and dark grey, almost pitch black leaves.  You believe
+this is the darkwood forest.  
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10736
+~
+~
+Dr 3 0 0 10734
+~
+~
+End
+
+#10736
+N Darkwood Forest~
+Ref 0
+D
+A wide, bulky set of trunks line the darkwood forest's eaves and
+pathways.  No leaves seem to fall off these trees, despite their deciduous
+nature; wild mushrooms grow at their bases and the trees are quite obviously
+of a distinctly magical nature.  
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10737
+~
+~
+Dr 3 0 0 10735
+~
+~
+End
+
+#10737
+N Path in Darkwood Forest~
+Ref 0
+D
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10738
+~
+~
+Dr 2 0 0 10736
+~
+~
+End
+
+#10738
+N Path in Darkwood Forest~
+Ref 0
+D
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10739
+~
+~
+Dr 3 0 0 10737
+~
+~
+End
+
+#10739
+N Clearing~
+Ref 0
+D
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 10738
+~
+~
+End
+
+#10740
+N Behind Boulder~
+Ref 0
+D
+A massive sinkhole has formed behind this boulder.  
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 1024 0 10732
+~
+~
+Dr 5 0 0 10741
+~
+~
+End
+
+#10741
+N Collapsed Cavern~
+Ref 0
+D
+~
+C
+(null)~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 22000
+~
+~
+Dr 4 0 0 10740
+~
+~
+End
+
+#10750
+N River Bed~
+Ref 0
+D
+Here is a river bed, set on an inlet.  The water flowing
+past is rather slow.  The water is a clear blue and you
+can see to the bottom.
+~
+C
+~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10710
+~
+~
+End
+
+#10751
+N A Grove in the Forest~
+Ref 0
+D
+This is a grove in the forest.  With trees all around, one may see
+woodland creatures at any time in this grove.  Sometimes a small squirrel,
+other times a massive deer.  At times a cunning wolf, and at times a
+high-soaring eagle.  But there is always an animal here, at least one, and
+many would find this place...  Comfortable.  To the east is a hovel.  
+~
+C
+~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10710
+~
+~
+Dr 1 0 0 10752
+~
+~
+End
+
+#10752
+N A Hovel~
+Ref 0
+D
+Before one's eyes is a destitute place, with very little in the name of
+its owner of value.  There is, however, a quite rare book.  There's a
+hammock, and a chest, and a man in the room.  But that is all.  The hovel is
+built of wood and straw, and is obviously made by skilless hands.  
+~
+C
+~
+F 8192
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 10752 1 75 1
+R O 6011 27 75 1
+Dr 3 0 0 10751
+~
+~
+End
+
+#10753
+N Census and Excise Building~
+Ref 0
+D
+This is a fairly large room, and in it is a chest, a table, and a
+bookcase filled with books, rare and common.  On the chest there is a
+marking reading "evidence" There is a man, and someone who is obviously a
+guard.  The guard wears plate and wields a two-handed sword at all times.  
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 10753 -5 100 1
+R M 10753 1 100 1
+R M 10750 1 100 1
+R O 3101 10 100 1
+R O 6012 39 100 1
+Dr 3 5 0 5240
+~
+heavy ornate door~
+End
+
+#10754
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10708
+~
+~
+Dr 3 0 0 10755
+~
+~
+End
+
+#10755
+N ~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10756
+~
+~
+Dr 1 0 0 10754
+~
+~
+End
+
+#10756
+N ~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10757
+~
+~
+Dr 2 0 0 10755
+~
+~
+End
+
+#10757
+N ~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10758
+~
+~
+Dr 2 0 0 10756
+~
+~
+End
+
+#10758
+N ~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10757
+~
+~
+Dr 3 0 0 10759
+~
+~
+Dr 6 0 0 10759
+~
+~
+End
+
+#10759
+N ~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10758
+~
+~
+Dr 3 0 0 10760
+~
+~
+Dr 9 0 0 10758
+~
+~
+End
+
+#10760
+N the Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10761
+~
+~
+Dr 1 0 0 10759
+~
+~
+Dr 3 0 0 10766
+~
+~
+End
+
+#10761
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10762
+~
+~
+Dr 2 0 0 10760
+~
+~
+End
+
+#10762
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10763
+~
+~
+Dr 2 0 0 10761
+~
+~
+Dr 6 0 0 10763
+~
+~
+End
+
+#10763
+N Caerbrok Past the Viedrad Mire~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10764
+~
+~
+Dr 2 0 0 10762
+~
+~
+Dr 9 0 0 10762
+~
+~
+End
+
+#10764
+N Caerbrok Past the Viedrad Mire~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10765
+~
+~
+Dr 2 0 0 10763
+~
+~
+End
+
+#10765
+N Caerbrok Past the Viedrad Mire~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10764
+~
+~
+End
+
+#10766
+N the Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10760
+~
+~
+Dr 3 0 0 10767
+~
+~
+End
+
+#10767
+N the Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10766
+~
+~
+Dr 3 0 0 10768
+~
+~
+End
+
+#10768
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10767
+~
+~
+Dr 3 0 0 10769
+~
+~
+End
+
+#10769
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10768
+~
+~
+Dr 3 0 0 10770
+~
+~
+End
+
+#10770
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10769
+~
+~
+Dr 3 0 0 10771
+~
+~
+End
+
+#10771
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10770
+~
+~
+Dr 2 0 0 10772
+~
+~
+End
+
+#10772
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 4
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10771
+~
+~
+Dr 1 0 0 10793
+~
+~
+Dr 2 0 0 10774
+~
+~
+End
+
+#10773
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10776
+~
+~
+Dr 3 0 0 10777
+~
+~
+End
+
+#10774
+N Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10772
+~
+~
+Dr 1 0 0 10794
+~
+~
+Dr 2 0 0 10775
+~
+~
+End
+
+#10775
+N the Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10774
+~
+~
+Dr 3 2304 0 5110
+~
+~
+End
+
+#10776
+N the Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10773
+~
+~
+Dr 1 2048 0 5110
+~
+~
+Dr 3 0 0 10786
+~
+~
+End
+
+#10777
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10773
+~
+~
+Dr 2 0 0 10786
+~
+~
+Dr 3 0 0 10778
+~
+~
+End
+
+#10778
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10777
+~
+~
+Dr 2 0 0 10787
+~
+~
+Dr 3 0 0 10779
+~
+~
+End
+
+#10779
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10778
+~
+~
+Dr 2 0 0 10788
+~
+~
+Dr 3 0 0 10780
+~
+~
+End
+
+#10780
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10779
+~
+~
+Dr 2 0 0 10789
+~
+~
+Dr 3 0 0 10781
+~
+~
+End
+
+#10781
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10780
+~
+~
+Dr 2 0 0 10790
+~
+~
+Dr 3 0 0 10782
+~
+~
+End
+
+#10782
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10781
+~
+~
+Dr 2 0 0 10791
+~
+~
+Dr 3 0 0 10783
+~
+~
+End
+
+#10783
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10782
+~
+~
+Dr 2 0 0 10784
+~
+~
+Dr 3 0 0 10792
+~
+~
+End
+
+#10784
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10783
+~
+~
+Dr 1 0 0 10791
+~
+~
+Dr 2 0 0 10801
+~
+~
+Dr 3 0 0 10785
+~
+~
+End
+
+#10785
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10792
+~
+~
+Dr 1 0 0 10784
+~
+~
+Dr 2 0 0 10806
+~
+~
+Dr 3 0 0 10809
+~
+~
+End
+
+#10786
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10777
+~
+~
+Dr 1 0 0 10776
+~
+~
+Dr 2 0 0 10795
+~
+~
+Dr 3 0 0 10787
+~
+~
+End
+
+#10787
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10778
+~
+~
+Dr 1 0 0 10786
+~
+~
+Dr 3 0 0 10788
+~
+~
+End
+
+#10788
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10779
+~
+~
+Dr 1 0 0 10787
+~
+~
+Dr 2 0 0 10796
+~
+~
+Dr 3 0 0 10789
+~
+~
+End
+
+#10789
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10780
+~
+~
+Dr 1 0 0 10788
+~
+~
+Dr 3 0 0 10790
+~
+~
+End
+
+#10790
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10781
+~
+~
+Dr 1 0 0 10789
+~
+~
+Dr 2 0 0 10799
+~
+~
+Dr 3 0 0 10791
+~
+~
+End
+
+#10791
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10782
+~
+~
+Dr 1 0 0 10790
+~
+~
+Dr 2 0 0 10800
+~
+~
+Dr 3 0 0 10784
+~
+~
+End
+
+#10792
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10831
+~
+~
+Dr 1 0 0 10783
+~
+~
+Dr 2 0 0 10785
+~
+~
+Dr 3 0 0 10810
+~
+~
+End
+
+#10793
+N ~
+Ref 0
+D
+~
+C
+~
+F 4
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 10772
+~
+~
+End
+
+#10794
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 10774
+~
+~
+End
+
+#10795
+N the Caerbrok~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10786
+~
+~
+Dr 2 3072 0 5106
+~
+~
+End
+
+#10796
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10788
+~
+~
+End
+
+#10799
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10790
+~
+~
+Dr 3 0 0 10800
+~
+~
+End
+
+#10800
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10791
+~
+~
+Dr 1 0 0 10799
+~
+~
+Dr 3 0 0 10804
+~
+~
+End
+
+#10801
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10784
+~
+~
+End
+
+#10803
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+End
+
+#10804
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10800
+~
+~
+Dr 3 0 0 10805
+~
+~
+End
+
+#10805
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10804
+~
+~
+Dr 3 0 0 10806
+~
+~
+End
+
+#10806
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10785
+~
+~
+Dr 1 0 0 10805
+~
+~
+Dr 3 0 0 10807
+~
+~
+End
+
+#10807
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10806
+~
+~
+End
+
+#10809
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10810
+~
+~
+Dr 1 0 0 10785
+~
+~
+Dr 3 0 0 10811
+~
+~
+End
+
+#10810
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10812
+~
+~
+Dr 1 0 0 10792
+~
+~
+Dr 2 0 0 10809
+~
+~
+Dr 3 0 0 10813
+~
+~
+End
+
+#10811
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10813
+~
+~
+Dr 1 0 0 10809
+~
+~
+Dr 3 0 0 10816
+~
+~
+End
+
+#10812
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10831
+~
+~
+Dr 2 0 0 10810
+~
+~
+Dr 3 0 0 10814
+~
+~
+End
+
+#10813
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10814
+~
+~
+Dr 1 0 0 10810
+~
+~
+Dr 2 0 0 10811
+~
+~
+Dr 3 0 0 10820
+~
+~
+End
+
+#10814
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10812
+~
+~
+Dr 2 0 0 10813
+~
+~
+Dr 3 0 0 10815
+~
+~
+End
+
+#10815
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10880
+~
+~
+Dr 1 0 0 10814
+~
+~
+Dr 2 0 0 10820
+~
+~
+Dr 3 0 0 10818
+~
+~
+End
+
+#10816
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10811
+~
+~
+End
+
+#10817
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10818
+~
+~
+Dr 1 0 0 10820
+~
+~
+End
+
+#10818
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10815
+~
+~
+Dr 2 0 0 10817
+~
+~
+Dr 3 0 0 10821
+~
+~
+End
+
+#10820
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10815
+~
+~
+Dr 1 0 0 10813
+~
+~
+Dr 3 0 0 10817
+~
+~
+End
+
+#10821
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10818
+~
+~
+Dr 3 0 0 10822
+~
+~
+End
+
+#10822
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10821
+~
+~
+Dr 3 0 0 10823
+~
+~
+End
+
+#10823
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10822
+~
+~
+Dr 3 0 0 10824
+~
+~
+End
+
+#10824
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10823
+~
+~
+Dr 3 0 0 10825
+~
+~
+End
+
+#10825
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10824
+~
+~
+Dr 3 0 0 10826
+~
+~
+End
+
+#10826
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10825
+~
+~
+Dr 3 0 0 10827
+~
+~
+End
+
+#10827
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10826
+~
+~
+Dr 3 0 0 10828
+~
+~
+End
+
+#10828
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10827
+~
+~
+Dr 3 0 0 10829
+~
+~
+End
+
+#10829
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10828
+~
+~
+Dr 3 0 0 10830
+~
+~
+End
+
+#10830
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10829
+~
+~
+End
+
+#10831
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10792
+~
+~
+Dr 3 0 0 10812
+~
+~
+End
+
+#10869
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10873
+~
+~
+Dr 2 0 0 10874
+~
+~
+End
+
+#10870
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10890
+~
+~
+Dr 3 0 0 10871
+~
+~
+End
+
+#10871
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10870
+~
+~
+Dr 3 0 0 10872
+~
+~
+End
+
+#10872
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10871
+~
+~
+Dr 2 0 0 10873
+~
+~
+End
+
+#10873
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10872
+~
+~
+Dr 3 0 0 10869
+~
+~
+Dr 9 0 0 7701
+~
+~
+End
+
+#10874
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10869
+~
+~
+Dr 2 0 0 10875
+~
+~
+End
+
+#10875
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10874
+~
+~
+Dr 1 0 0 7703
+~
+~
+Dr 2 0 0 10876
+~
+~
+End
+
+#10876
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10875
+~
+~
+Dr 2 0 0 10877
+~
+~
+End
+
+#10877
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10876
+~
+~
+Dr 3 0 0 10878
+~
+~
+End
+
+#10878
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10877
+~
+~
+Dr 2 0 0 10879
+~
+~
+End
+
+#10879
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10878
+~
+~
+Dr 2 0 0 10880
+~
+~
+End
+
+#10880
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 7
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10879
+~
+~
+Dr 2 0 0 10815
+~
+~
+End
+
+#10881
+N ~
+Ref 0
+D
+~
+C
+~
+F 1026
+S 7
+M 0
+W 0
+T 0
+O ~
+End
+
+#10882
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10883
+~
+~
+Dr 2 0 0 10897
+~
+~
+End
+
+#10883
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10884
+~
+~
+Dr 2 0 0 10882
+~
+~
+End
+
+#10884
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 10883
+~
+~
+End
+
+#10890
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10891
+~
+~
+Dr 2 0 0 604
+~
+~
+Dr 3 0 0 10870
+~
+~
+End
+
+#10891
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10892
+~
+~
+Dr 3 0 0 10890
+~
+~
+End
+
+#10892
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10893
+~
+~
+Dr 3 0 0 10891
+~
+~
+End
+
+#10893
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10894
+~
+~
+Dr 3 0 0 10892
+~
+~
+End
+
+#10894
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10895
+~
+~
+Dr 3 0 0 10893
+~
+~
+End
+
+#10895
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10896
+~
+~
+Dr 3 0 0 10894
+~
+~
+End
+
+#10896
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10897
+~
+~
+Dr 3 0 0 10895
+~
+~
+End
+
+#10897
+N ~
+Ref 0
+D
+~
+C
+~
+F 1024
+S 6
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10882
+~
+~
+Dr 3 0 0 10896
+~
+~
+End
+
+#0
+
+
+
+#$

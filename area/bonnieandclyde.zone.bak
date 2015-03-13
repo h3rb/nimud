@@ -1,0 +1,433 @@
+#ZONE 
+N Bonnie and Clyde~
+B None~
+V 12000 12199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#12000
+N maroon couch~
+SD a maroon couch~
+P ~
+D
+A maroon couch is on the rug.
+~
+A
+~
+PD
+~
+DR
+Machine woven fabrics with a Sears Roebuck comforter tucked into the
+cushions.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 300 8192 0 0
+End
+
+#12001
+N twin bed~
+SD a twin bed~
+P ~
+D
+A twin bed with open canopy is here.
+~
+A
+~
+PD
+~
+DR
+Hand-made, possibly antique.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 200 24576 0 0
+End
+
+#12002
+N mailbox~
+SD a mailbox~
+P ~
+D
+A mailbox is on a post near the road.
+~
+A
+~
+PD
+~
+DR
+A simple tin mailbox with a red flag.  Someone has painted the name
+"Parker" on the side of the mailbox in black acrylic paint.  
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 10 1 0 0
+End
+
+#12003
+N armoire~
+SD an armoire~
+P ~
+D
+A free-standing armoire is here.
+~
+A
+~
+PD
+~
+DR
+Possibly stained cherry, although it could be a mahogany.  
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 0 0 0
+End
+
+#12004
+N pearl earring~
+SD a pearl earring~
+P ~
+D
+Someone dropped a pearl earring.
+~
+A
+You fasten the pearl earring with a gold clasp.
+~
+PD
+~
+DR
+~
+L 0
+T 32
+E 0
+W 131073
+Sz 0
+Ti 0
+Wt 1
+C 200
+O ~
+V 0 0 0 0
+Af 10001 1 -1 0 0
+End
+
+#12005
+N smith wesson 357 magnum revolver~
+SD a magnum 357 revolver~
+P ~
+D
+A smith and wesson .357 magnum revolver is here.
+~
+A
+~
+PD
+~
+DR
+Ebony handle, light grey chrome matte.
+~
+L 0
+T 6
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 4
+C 0
+O ~
+V 10 10 20 6
+End
+
+#12006
+N 38 .38 round ammunition round~
+SD a 38 round~
+P ~
+D
+A .38 round is here.
+~
+A
+~
+PD
+~
+DR
+Brass jacket.
+ 
+ .38 Caliber round, manufactured in Mexico.
+~
+L 0
+T 7
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 1 5 0 -1
+End
+
+#12007
+N weekly world news copy paper~
+SD a copy of the Weekly World News~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+The black and white ink is a familiar sight to those of the 20th century.
+Bound cheaply and distributed nationwide, the WWN is a common supermarket
+tabloid.  The headline reads "Bat Boy To Become Nation's Next Superhero"
+Followed by an add for a collector's edition Bruce Lee knife.  
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 5
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#12000
+N Outside an Old Farmhouse~
+Ref 0
+D
+You are standing outside an old white clapboard farmhouse situated
+somewhere in west Texas.  Long meandering hillsides are dotted with flowers.
+In the distance, you can spot a praire dog or two running wild in the hills.
+A dirt road leads east, climbing over the hills and through the amber waves
+of grain.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R O 12002 -5 100 1
+Dr 0 0 0 12001
+~
+~
+Dr 1 0 0 12006
+~
+~
+End
+
+#12001
+N Parker Homestead~
+Ref 0
+D
+A simple residence, the Parkers have modest furnishings and a few
+pictures of ancestry, dating back to possibly the mid 1800s.  A wide blue
+carpet covers the wood-plank floor.  A set of stairs climbs to the second
+floor.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 12000 -5 100 1
+Dr 2 0 0 12000
+~
+~
+Dr 4 0 0 12002
+~
+stairwell~
+End
+
+#12002
+N Upstairs Hall~
+Ref 0
+D
+Simple hall, stairwell leading down, three doors leading to adjacent
+rooms.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 12005
+~
+narrow doorway~
+Dr 1 0 0 12004
+~
+wide doorway~
+Dr 3 0 0 12003
+~
+wide doorway~
+Dr 5 0 0 12001
+~
+stairwell~
+End
+
+#12003
+N Master Bedroom~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 12001 -5 100 1
+Dr 1 0 0 12002
+~
+~
+End
+
+#12004
+N Bonnie's Room~
+Ref 0
+D
+The bedroom of a young girl.  Photographs of family members adorn her
+wall.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 12003 -5 100 1
+R O 12005 -3 100 1
+R O 12006 -3 100 6
+R O 67 -5 100 1
+Dr 3 0 0 12002
+~
+~
+End
+
+#12005
+N Small Bath~
+Ref 0
+D
+A small, mosaic tiled bathroom is here.  
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 12002
+~
+~
+End
+
+#12006
+N Dirt Road~
+Ref 0
+D
+A well worn horse and buggy path with deep grooves leading west to east
+through rolling hills and farmland.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 12007
+~
+~
+Dr 3 0 0 12000
+~
+~
+End
+
+#12007
+N Dirt Road~
+Ref 0
+D
+A well worn horse and buggy path with deep grooves leading west to east
+through rolling hills and farmland, approaching a crossroads to the east. 
+In the distance west you can see a small white farmhouse.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 12006
+~
+~
+End
+
+#0
+
+
+
+#$

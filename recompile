@@ -1,0 +1,56 @@
+#!/bin/csh
+# Backs up all files; removes .o's, recompiles after clean
+# Run best when server is down
+# Written by Locke.
+
+
+
+cd $cwd
+cd area
+rm nohup.out
+cd ../log
+rm *
+
+
+while ( 1 )
+    # If you want to have logs in a different directory,
+    #   change the 'set logfile' line to reflect the directory name.
+    set index = 1000
+    while ( 1 )
+	set backupdir = $cwd/backups/$index.backup
+	if ( ! -e $backupdir ) break
+	@ index++
+    end
+
+    echo Creating backup $backupdir 
+    mkdir $backupdir
+    rm $cwd/src/*.o 
+    rm $cwd/src/isles
+    tar -cvf $backupdir/source.tar $cwd/src >>$backupdir/manifest.txt
+    gzip $backupdir/source.tar  
+    cp $cwd/src/nimud $cwd/src/current
+
+    tar -cvf $backupdir/areas.tar $cwd/area >>$backupdir/manifest.txt
+    gzip $backupdir/areas.tar  
+
+    tar -cvf $backupdir/players.tar $cwd/player >>$backupdir/manifest.txt
+    gzip $backupdir/players.tar  
+
+    echo Cleaning.
+
+    cd $cwd/area
+    rm bugs.txt
+    rm ideas.txt
+    rm typos.txt
+    rm shutdown.txt
+    cp nohup.out log/boot/$index.out
+    rm nohup.out
+
+    cd $cwd/src
+    rm *.o
+    nohup make clean 
+    nohup make
+    cp nimud ../area
+
+    exit
+end

@@ -1,0 +1,1489 @@
+#ZONE 
+N Glop    Mega-City One ~
+B None~
+V 23000 23028
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#23000
+N juve~
+SD a juve~
+LD
+ A juve is standing here plotting mischief.
+~
+D
+ He is a tall, thin boy.  He is looking for his gang mates.  He and his
+mates have cost city authorities many millions of creds a week in
+vandalism repairs.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 864
+O ~
+AP 25 25 25 25 40
+At 0 10 64 1
+At 1 5 23 3
+At 2 1 32 5
+At 3 1 37 19
+At 5 1 26 14
+At 6 5 6 8
+End
+
+#23001
+N punk~
+SD a punk~
+LD
+ A punk is here plotting a crime wave.
+~
+D
+ This punk is from one of the rowdiest, scruffiest, and definitely most
+fashionable of all gangs -- the Grunge Mongers.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 23 12
+End
+
+#23002
+N futsie~
+SD a Futsie~
+LD
+ A Futsie is here reciting Monty Python sketches.
+~
+D
+ A sad victim of Future Shock, this man is immensely dangerous and will
+not be stopped by anyone who tries to deter him from revenge upon the
+Justice Department.
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 475
+O ~
+AP 25 25 25 25 25
+At 0 10 20 14
+At 1 5 5 11
+At 2 1 34 0
+At 3 1 31 11
+End
+
+#23003
+N citi-def militiaman~
+SD a Citi-Def Militiaman~
+LD
+ A Citi-Def Militiaman is here contemplating a Block War.
+~
+D
+ A member of a local Block's Citi-Def militia, this man is well-armed
+and undersupervised.
+~
+A 69
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 17 0
+At 1 5 22 0
+End
+
+#23004
+N dunk~
+SD a dunk~
+LD
+ A dunk is here blending into the crowd.
+~
+D
+ He blends into the crowd as his hand travels into another citizen's pocket.
+~
+A 197
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -150 E 110
+O ~
+AP 15 15 15 15 15
+At 0 10 15 11
+End
+
+#23005
+N tap~
+SD a tap~
+LD
+ A tap is here eyeing your belongings.
+~
+D
+ A practitioner in Mega-City One's largest growth industry, mugging, is
+looking you over for a possible business transaction.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K -400 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 12 13
+End
+
+#23006
+N rookie judge~
+SD a rookie judge~
+LD
+ A Rookie judge is on his first beat here.
+~
+D
+ A member of Mega-City One's Justice Department is here considering what
+crimes you have committed.  Being a rookie he will probably be easier on
+you though.
+~
+A 65
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 25 5
+End
+
+#23007
+N wallaby gleep~
+SD wallaby gleep~
+LD
+ Mr. Gleep is here wanting to know what you want.
+~
+D
+ Wallaby Gleep is a heavy-set man who gives you the impression that he is
+unintelligent and unimaginative, but looks can be deceiving.
+~
+A 7
+AB 552
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -600 E 221
+O ~
+AP 15 15 15 15 15
+At 0 10 24 14
+End
+
+#23008
+N pinkerton throt~
+SD pinkerton throt~
+LD
+ Pinky Throt is here Wringing his hands.
+~
+D
+ He is a thin angular crook, pretty close to everyone's idea of Ebeneezer
+Scrooge.  Indeed, the only thing guaranteed to bring a spark to his dead
+eyes is the mention of money.
+~
+A 39
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -900 E 226
+O ~
+AP 15 15 15 15 15
+At 0 10 25 14
+End
+
+#23009
+N ernie ramirez~
+SD ernie ramirez~
+LD
+ Ernie Ramirez is here collecting for the mob.
+~
+D
+ Ramirez is a dour man who knows that he's never going to get a better
+deal out of life.  He is content to run the bite fights for Throt and
+Gleep.
+~
+A 7
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 21 9
+End
+
+#23010
+N judge eckersely~
+SD judge eckersely~
+LD
+ Judge Eckersely is here shaking down a Perp.
+~
+D
+ He is a dedicated, if somewhat pessimistic Judge.  He is the Senior Judge
+of the Downtown Quadrant.
+~
+A 65
+AB 168
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 101
+O ~
+AP 15 15 15 15 15
+At 0 10 18 13
+End
+
+#23011
+N judge sara beddows~
+SD Judge Beddows~
+LD
+ Judge Beddows is here calling Resyk.
+~
+D
+ Beddows is a clone from the same stock as the ex-Chief Judge McGruder.
+She is fanatically dedicated to her job and has no ambitions other than
+to enforce the LAW.
+~
+A 65
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 18 9
+End
+
+#23012
+N bite fighter~
+SD a bite fighter~
+LD
+ A bite fighter is here sharpening his teeth.
+~
+D
+ A bite fighter is here with sharpened teeth and a bad attitude.
+~
+A 35
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -400 E 221
+O ~
+AP 15 15 15 15 15
+At 0 10 21 7
+End
+
+#0
+
+
+
+#OBJDATA
+#23000
+N spit gun~
+SD a spit gun~
+P ~
+D
+There is a spit gun laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 2
+C 0
+O ~
+V 37 10 10 0
+ED spit gun~
+A standard weapon in Mega-City One.  It uses general
+purpose ammunition.
+~
+End
+
+#23001
+N knee pads~
+SD a set of knee pads~
+P ~
+D
+There are some knee pads laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 3
+C 0
+O ~
+V 0 0 0 0
+ED knee pads~
+It is a set of Grak Brothers knee pads.  They are currently
+popular with the juve and punk gangs.
+~
+End
+
+#23002
+N stooky gland~
+SD a stooky gland~
+P ~
+D
+There is a stooky gland laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 26
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 20 0 0 0
+ED stooky gland~
+Stooky glands are known for the restorative properties.
+~
+End
+
+#23003
+N lawgiver~
+SD a lawgiver~
+P ~
+D
+There is a lawgiver laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 2
+C 0
+O ~
+V 37 10 10 0
+ED lawgiver gun~
+The standard weapon for the city's Judges.  It uses general
+high explosive ammunition.
+~
+End
+
+#23004
+N safe~
+SD the magnetically shielded safe~
+P ~
+D
+A indestructible, immobile safe is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 2
+W 0
+Sz 18
+Ti 0
+Wt 1000
+C 0
+O ~
+V 1005 13 8005 0
+ED safe~
+This safe looks like not even a Sov-Cit Nuke could open it.
+You better find the code box.
+~
+End
+
+#23005
+N code box~
+SD a code box~
+P ~
+D
+A code box of indeterminate use is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 2
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED code box~
+The box looks like some kind of access device.
+~
+End
+
+#23006
+N bashball bat~
+SD a bashball bat~
+P ~
+D
+A bashball bat is laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 0
+O ~
+V 0 0 0 7
+ED bashball bat~
+This is the same type of bat used by the little spuggers
+to play bashball.
+~
+End
+
+#23007
+N vibroblade~
+SD the Vibroblade~
+P ~
+D
+The Vibroblade is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 35
+W 8193
+Sz 18
+Ti 0
+Wt 2
+C 0
+O ~
+V 0 0 0 3
+ED vibroblade~
+Obviously of alien manufacture, this blade enhances fighting
+and survival skills.
+~
+End
+
+#23008
+N vacuum cleaner~
+SD a Hoover vacuum cleaner~
+P ~
+D
+A Hoover vacuum cleaner is here idling.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 2
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 0
+O ~
+V 0 0 0 12
+ED vacuum cleaner~
+This vacuum looks well built and will last you many years of
+cleaning pleasure.
+~
+End
+
+#23009
+N knife~
+SD a knife~
+P ~
+D
+A knife is sitting here...contemplating life.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 0
+O ~
+V 0 0 0 1
+ED knife~
+It is a knife. 'Nuff said. (Marvel joke).
+~
+End
+
+#23010
+N wet noodle~
+SD a wet noodle~
+P ~
+D
+A wet noodle is laying here with clam sauce on it.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8197
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 4
+ED noodle~
+It looks like a noodle freshly made at the Olive Garden.
+~
+End
+
+#23011
+N judge club~
+SD a Judge's club~
+P ~
+D
+A Judge's club is resting here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 0
+O ~
+V 0 0 0 7
+ED judge club~
+It is a standard Justice Hall issue club.  Many a Perp's
+head has been bashed with this baby.
+~
+End
+
+#23012
+N vault key~
+SD a vault key~
+P ~
+D
+A vault key is here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 2
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED vault key~
+The key looks like it could be useful.
+~
+End
+
+#23013
+N key card~
+SD a key card~
+P ~
+D
+A key card is laying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+ED key card~
+It looks like it fits a slot somewhere.
+~
+End
+
+#0
+
+
+
+#SCENES
+#23001
+N Entrance to Mega-City One~
+Ref 0
+D
+A road begins here in the glowing sands.  You follow it through a gate
+in a Plasteen wall onto the Megway of Mega-City One.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 23002
+The Megway continues in this direction.
+~
+~
+End
+
+#23002
+N Mahmount Allesh Megway~
+Ref 0
+D
+You are on one mile of over 13 and a half billion kilometers of
+roadway in Mega-City One.  The Megway continues north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 23001
+The entrance to Mega-City One is in this direction.
+~
+~
+Dr 2 0 0 23003
+There is an intersection ahead.
+~
+~
+End
+
+#23003
+N Intersection of Junket Way and Megway~
+Ref 0
+D
+The Megway intersects with Junket Way here.  Junket Way is to the east,
+the Megway continues north and south, and the Pustule Palace Cafe is
+to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23004 5 100 1
+Dr 0 0 0 23002
+The Megway continues in this direction.
+~
+~
+Dr 1 0 0 23010
+Junket way continues in this direction.
+~
+~
+Dr 2 0 0 23004
+The Megway continues in this direction.
+~
+~
+Dr 3 0 0 23021
+The Pustule Palace Cafe is in this direction.
+~
+~
+End
+
+#23004
+N Mahmount Allesh Megway~
+Ref 0
+D
+The traffic here is really congested due in part to the over 11 million
+people driving Mo-Pads, the mobile homes which are constantly on the
+move until their owners can find an apartment in one of the City-blocks.
+The Megway continues north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23000 5 100 1
+Dr 0 0 0 23003
+An intersection lies in this direction.
+~
+~
+Dr 2 0 0 23005
+The Megway continues in this direction.
+~
+~
+End
+
+#23005
+N Mahmount Allesh Megway~
+Ref 0
+D
+The Megway continues north and south.  On the off-ramps here you see
+many of the citizens of Mega-City One doing nothing.  You see of
+every hundred citizens, it can be guaranteed that 87 of them will
+be totally unemployed, and that a further five will not work more
+than ten hours a week.  To the east there is a dark alley and to the
+west is Rietzik's Shuggy Hall.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23004 5 100 1
+Dr 0 0 0 23004
+The Megway continues in this direction.
+~
+~
+Dr 1 0 0 23011
+A dark alley lies to the east.
+~
+~
+Dr 2 0 0 23006
+A large plaza is in this direction.
+~
+~
+Dr 3 0 0 23022
+A building is in this direction.
+~
+~
+End
+
+#23006
+N Central Plaza~
+Ref 0
+D
+You are at the Central Plaza of the downtown district.  There are a couple
+of juves Boingging (tm) in the air above you.  Max Jaffa Boulevard goes
+east, the Megway continues north and south, and Bazza's Home for the
+Terminally Sarky is to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23000 5 100 1
+Dr 0 0 0 23005
+The Megway continues in this direction.
+~
+~
+Dr 1 0 0 23012
+Max Jaffa Boulevard goes in this direction.
+~
+~
+Dr 2 0 0 23007
+The Megway continues in this direction.
+~
+~
+Dr 3 0 0 23023
+A home for Sarky people is to the west.
+~
+~
+End
+
+#23007
+N Corner of Ed Hilldreth Memorial Parkway and Megway~
+Ref 0
+D
+Another major intersection which is being negotiated by vehicles that
+are bound to minimum speed limits.  Many Slow Driving offenses are being
+handed out by the Judges.  The Megway goes north and south, a Parkway
+goes east, and Nu Phisog Parlour is west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23010 1 100 1
+Dr 0 0 0 23006
+A plaza is to the north.
+~
+~
+Dr 1 0 0 23013
+Ed Hilldreth Mem. Parkwy is to the east.
+~
+~
+Dr 2 0 0 23008
+The Megway continues in this direction.
+~
+~
+Dr 3 0 0 23024
+A City Block lies to the west.
+~
+~
+End
+
+#23008
+N Mahmount Allesh Megway~
+Ref 0
+D
+As you travel the Megway you notice many citizens participating in their
+favorite hobbies such as spot welding and metalwork, scratch building
+fashion Kneepads, giving blood, or just looking out the window.  The
+Megway continues north and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 23007
+The Megway continues in this direction.
+~
+~
+Dr 2 0 0 23009
+The Megway continues in this direction.
+~
+~
+End
+
+#23009
+N Mahmount Allesh Megway~
+Ref 0
+D
+The Megway ends here.  To the west is Ziggi Piggi's Home for the
+Semi-Stiff, to the east and south are construction areas, and the
+Megway goes north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23001 5 100 1
+Dr 0 0 0 23008
+The Megway is ahead.
+~
+~
+Dr 1 0 0 23014
+There is construction this way.
+~
+~
+Dr 2 0 0 23020
+There is construction ahead.
+~
+~
+Dr 3 0 0 23025
+Ziggi Piggi's Home the Semi-Stiff is ahead.
+~
+~
+End
+
+#23010
+N Junket Way~
+Ref 0
+D
+Junket Way a small Skedway continues east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23005 5 100 1
+Dr 1 0 0 23015
+An intersection is ahead.
+~
+~
+Dr 3 0 0 23003
+An intersection is ahead.
+~
+~
+End
+
+#23011
+N Davies Alley~
+Ref 0
+D
+You are in a very dark and seedy alley.  This is just the right place for
+a bite fight.  Bite fighting is an illegal activity where both combatants
+can only use their sharpened teeth as weapons.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23001 5 100 1
+Dr 1 0 0 23017
+An intersection is ahead.
+~
+~
+Dr 3 0 0 23005
+An intersection is ahead.
+~
+~
+End
+
+#23012
+N Max Jaffa Boulevard~
+Ref 0
+D
+Max Jaffa Boulevard continues east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23006 5 100 1
+Dr 1 0 0 23018
+An intersection is ahead.
+~
+~
+Dr 3 0 0 23006
+A large plaza is to the west.
+~
+~
+End
+
+#23013
+N Ed Hilldreth Memorial Parkway ~
+Ref 0
+D
+The Parkway goes east and west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23003 5 100 1
+Dr 1 0 0 23019
+An intersection is ahead.
+~
+~
+Dr 3 0 0 23007
+An intersection is ahead.
+~
+~
+End
+
+#23014
+N Construction site of the Harold Finkelbaum Block.~
+Ref 0
+D
+A Mega-City One City Block is being constructed at this site.  A
+typical block is from 100 to 1000 stories high with hundreds of
+thousands inhabitants.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23003 5 100 1
+Dr 3 0 0 23009
+An intersection is ahead.
+~
+~
+End
+
+#23015
+N Corner of Junket Way and Threep Lane~
+Ref 0
+D
+There is a second-hand kneepad stall is doing a brisk business with a
+group of juves on their way to school.  Junket Way goes west and Threep
+Lane travels south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23000 5 100 1
+Dr 2 0 0 23016
+Threep Lane continues ahead.
+~
+~
+Dr 3 0 0 23010
+Junket Way is ahead.
+~
+~
+End
+
+#23016
+N Threep Lane~
+Ref 0
+D
+Threep Lane continues north and south.  There is a building to the east
+with a sign next to the door.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign~
+Throt and Gleep's Megger Store est. 2107
+~
+Dr 0 0 0 23015
+An intersection is ahead.
+~
+~
+Dr 1 0 0 23026
+A door to the east bodes ill.
+~
+door~
+Dr 2 0 0 23017
+Threep Lane continues south.
+~
+~
+End
+
+#23017
+N Threep Lane~
+Ref 0
+D
+Threep Lane continues north and south.  There is a dark alley to the west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23005 5 100 1
+Dr 0 0 0 23016
+Threep Lane continues north.
+~
+~
+Dr 2 0 0 23018
+An intersection is ahead.
+~
+~
+Dr 3 0 0 23011
+A dark alley is west.
+~
+~
+End
+
+#23018
+N Corner of Max Jaffa Blvd and Threep Way~
+Ref 0
+D
+A proprietor of Uncle Sumpty's Ugly Emporium meanders by.  Threep Lane
+continues north and south while Max Jaffa Boulevard goes west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23006 5 100 1
+Dr 0 0 0 23017
+Threep Lane continues north.
+~
+~
+Dr 2 0 0 23019
+Threep Lane continues south.
+~
+~
+Dr 3 0 0 23012
+Max Jaffa Blvd continues west
+~
+~
+End
+
+#23019
+N Corner of Ed Hilldreth Mem. Prkwy and Threep Lane~
+Ref 0
+D
+Threep Lane goes north from here while Ed Hilldreth Memorial Parkway goes
+west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 23005 5 100 1
+Dr 0 0 0 23018
+Threep Lane continues north.
+~
+~
+Dr 3 0 0 23013
+Ed Hilldreth continues west.
+~
+~
+End
+
+#23020
+N Construction Site for the Brit-Cit One tunnel.~
+Ref 0
+D
+Construction is under way for the Black Atlantic Tunnel to connect
+Mega-City One and Brit-Cit One.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 23009
+An intersection lies north.
+~
+~
+End
+
+#23021
+N Pustule Palace Cafe~
+Ref 0
+D
+A scabrous hole.  Run by Ernie Ramirez, an ex-perp, it is a meeting place
+for the low-life in the area.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 23009 1 100 1
+Dr 1 0 0 23003
+An intersection lies east.
+~
+~
+End
+
+#23022
+N Rietzik's Shuggy Hall~
+Ref 0
+D
+A sleazy dive and the meeting place of a lot of perps.  Shuggy is a
+twenty-second Century version of pool, played on a hilly table, usually
+with large side bets.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 23005
+An intersection lies east.
+~
+~
+End
+
+#23023
+N Bazza's Home for the Terminally Sarky~
+Ref 0
+D
+This is an experimental psychiatric home.  Named after a 20th Century
+vid-critic, the home attempts, by various methods, to readjust the
+socially unacceptable attitudes of the inmates.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 23002 4 100 1
+Dr 1 0 0 23006
+A large plaza lies east.
+~
+~
+End
+
+#23024
+N Nu Phisog Parlour~
+Ref 0
+D
+Opened as a direct rival to the New You Face Parlour chain to offer quick
+and cheap face-changing facilities to the general public.  However,
+since the closure of Sump's Ugly clinics, the craze for face-changing has
+died down.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 23002 4 100 1
+Dr 1 0 0 23007
+An intersection lies east.
+~
+~
+End
+
+#23025
+N Ziggi Piggi's Home for the Semi-Stiff~
+Ref 0
+D
+The only suspended animation parlour in the area.  It has a high turnover
+rate.  It is rumored that the patrons are being used in body sharking and
+organ legging activities.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 23006 5 100 1
+Dr 1 0 0 23009
+An intersection lies east.
+~
+~
+End
+
+#23026
+N Throt & Gleep's Megger Store~
+Ref 0
+D
+This place promises to provide everything that the citizens don't need,
+with the utmost discourtesy.  Of course, something as crazy as this was
+bound to succeed.  There is a door to the north with a slot next to it.
+There is also a sign next to the slot.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED sign~
+To open insert card.
+~
+Dr 0 0 8013 23027
+~
+door~
+Dr 3 0 0 23016
+~
+door~
+End
+
+#23027
+N Stockroom of Throt & Gleep's Megger Store~
+Ref 0
+D
+Many useless items stock the shelves of this stockroom.  A door leads
+south and large vault door is to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED vault door~
+This vault seems impervious to breaking.  There is a keyhole in the lock
+however.
+~
+R M 23007 1 100 1
+Dr 0 0 8012 23028
+~
+vault door~
+Dr 2 0 8013 23026
+~
+door~
+End
+
+#23028
+N Throt & Gleep's Vault~
+Ref 0
+D
+The vault is musty with a slight smell of ozone in the air.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 23004 0 100 1
+Dr 2 0 8012 23027
+~
+vault door~
+End
+
+#0
+
+
+
+#$

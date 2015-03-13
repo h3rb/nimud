@@ -1,0 +1,29 @@
+#!/bin/csh
+# Backs up all files; removes .o's, recompiles after clean
+# Run best when server is down, must be run from /NiM5/
+# Written by Locke.
+
+cd $cwd
+rm nohup.out
+rm area/nimud
+
+while ( 1 )
+    # If you want to have logs in a different directory,
+    #   change the 'set logfile' line to reflect the directory name.
+    set index = 1000
+    while ( 1 )
+	set backupdir = backups/$index.backup
+	if ( ! -e $backupdir ) break
+	@ index++
+    end
+
+    echo Cleaning.
+
+    cd src
+    make clean && make
+    cp nimud ../area/nimud
+    cp -r ../area/* ../devo
+    cp -r ../area/mainland/* ../devo/mainland
+
+    exit
+end

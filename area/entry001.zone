@@ -1,0 +1,46 @@
+#ZONE 
+N Entry #1~
+B Bayne~
+V 30000 30099
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#30000
+N Entry #1~
+Ref 0
+D
+>>>> Welcome to your starting room. Change this!
+
+Good luck in the contest!
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#0
+
+#$

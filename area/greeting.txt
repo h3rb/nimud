@@ -1,0 +1,42 @@
+--[operating since april04-1993]
+Diku Concept: Katya Nyboe, Tom Madsen, Michael Seifert, 
+Sebastian Hammer, Hans Staerfeldt; Based on Merc 2.2 by 
+Furey, Hatchet, Kahn and others. Some elements inspired by
+LPmud, DUM, MUD1/2, Advent, Zork, Planetfall and DuneMUSH
+
+                         |~       
+                     |~  +
+                    /_\ /_\
+                    |,|/   \
+            |~      | /_____\       
+            +        \| o  `| |~    |~    
+           / \    -_-_-_-_- |/ \    .
+          /___\   \._._._./ |___\  / \
+          |`o |    |_   _|  | o`| /___\
+         /| -_-_-_-_-  O_|  |   | | o`|
+        |o| \._._._./   _|-_-_-_-_-_-_|
+        |_| _|-   -|    _|    ..   -|_|
+         \| \|-   O|    _| O  ++  O-|/
+          |  |O   -|  O _|   ____  -|
+          /\ |-         _|         -|
+   |~     |O\|     |~      |~     --|       |~     
+  [`]     |  |    [`]-.-.-[`]       |      [`]     
+  |^|-.-.-.-.-.-.-|^|]   [|^|-.-.-.-.-.-.-.|^|     
+  | | ] ] ] ]     | | /^\ | |      [ [ [ [ | |     
+  |_|             |_| |#| |_|              |_| 
+  |_|_____________|_|_|#|_|_|______________|_| 
+  +----------------.-------------------.-----+
+  + _____ _            ___      _            | Using the
+  ||__ __| |__   ___  |_ _| ___| | ___  ___  | Tyselorrd
+  |  | | | __ \ / _ \  | | / __| |/ _ \/ __| | Roleplaying
+  |  | | | | | |  __/  | | \__ \ |  __/\__ \ | Universe
+  |  |_| |_| |_|\___| |___|____/_|\___|____/ <
+  |                                          |
+  >             Dreams of Kltara             | a fantasy and
+  +---------------+=---+--------------------++ science fiction
+  | NiM5 Server | Host: Locke | Status: OPEN | adventure
+  +=-----------------------=+---------------++ 
+  \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/// !Since 1993!
+       running NiMUD by Locke and Surreal
+
+What is thy name? 

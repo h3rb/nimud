@@ -1,0 +1,729 @@
+
+
+#DOC 342
+N 14~
+C 12 L 0
+KW 14~
+SY ~
+TX .
+You may find yourself stuck or unable to leave.  Simply typing 'home' may
+get you out of it.  Keep in mind, however, that it may take you a while to
+return to where you were, so perhaps resting or waiting provides a better
+solution.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 343
+N TIPS~
+C 12 L 0
+KW TIPS~
+SY set tips
+~
+TX .
+Helpful tips can be displayed periodically, if you want them.  Just type
+'set tips' to enable or disable this feature.  Tips range from simple
+commands to game strategy, and can be viewed by typing "help tip_x" where X
+is the tip number (0-50) you wish to view.  You may also type help #tip to
+search for all "tip" related help documents.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 344
+N TIP_0~
+C 12 L 0
+KW TIP_0~
+SY ~
+TX .
+In dark places, its always good to have a lightsource.  You were
+given a lantern, have you figured out how to use it yet?
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 345
+N TIP_1~
+C 12 L 0
+KW TIP_1~
+SY ~
+TX .
+You may toggle these helpful tips by typing 'set tips'
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 346
+N TIP_10~
+C 12 L 0
+KW TIP_10~
+SY ~
+TX .
+On your path toward immortality, you may find yourself stricken with
+poisons.  Be careful to heal yourself when poisioned, or you might end up
+dying.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 347
+N TIP_11~
+C 12 L 0
+KW TIP_11~
+SY ~
+TX .
+Many shops offer distinct items, search carefully for them in various
+cities and towns.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 348
+N TIP_12~
+C 12 L 0
+KW TIP_12~
+SY ~
+TX .
+When you collect a large sum of money, you may purchase a house or
+specialized shop.  Contact an immortal if you are ready to do this.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 349
+N TIP_13~
+C 12 L 0
+KW TIP_13~
+SY ~
+TX .
+Roleplaying is more fun than fighting sometimes, and can lead to
+long-lasting relationships with real people.  Please explore the 'smote'
+'ooc' and 'say' commands more thoroughly, as it will enable you to more
+adequately and creatively express yourself.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 350
+N TIP_14~
+C 12 L 0
+KW TIP_14~
+SY ~
+TX .
+If you get stuck, try "home" -- it will take you back to where you have
+set your home.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 351
+N TIP_15~
+C 12 L 0
+KW TIP_15~
+SY ~
+TX .
+Masters can be found in the towns to teach you trade and skills, but some
+who know more esoteric arts are hidden in the wilderness.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 352
+N TIP_16~
+C 12 L 0
+KW TIP_16~
+SY ~
+TX .
+Sometimes the help files don't help you; they lie about features.  
+Sometimes the help files don't help; they lie about features or talk
+about things that don't exist.  
+ 
+Sorry!  We're working on it.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 353
+N TIP_17~
+C 12 L 0
+KW TIP_17~
+SY ~
+TX .
+Two weapons are better than one.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 354
+N TIP_18~
+C 12 L 0
+KW TIP_18~
+SY ~
+TX .
+Some items may be slung over your shoulder other than packs, such as
+waterskins and certain weapons.  Watch carefully for these.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 355
+N TIP_19~
+C 12 L 0
+KW TIP_19~
+SY ~
+TX .
+Assassins lurk in the shadows, be wary of their presence and act
+accordingly.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 356
+N TIP_2~
+C 12 L 0
+KW TIP_2~
+SY ~
+TX .
+Lycanthropy and vampirism are two forms of social disease, caused
+through contact with other players or monsters which have this
+disease.  Death or divine intervention are the only ways to escape
+the clutches of these degenerative diseases.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 357
+N TIP_20~
+C 12 L 0
+KW TIP_20~
+SY ~
+TX .
+Ranged weapons require ammunition and skill.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 358
+N TIP_21~
+C 12 L 0
+KW TIP_21~
+SY ~
+TX .
+Bars and pubs provide a variety of foods and drinks.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 359
+N TIP_22~
+C 12 L 0
+KW TIP_22~
+SY ~
+TX .
+You may find hidden items and treasure in places you'd least expect.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 360
+N TIP_25~
+C 12 L 0
+KW TIP_25~
+SY ~
+TX .
+You may wish to change your combat tactic with "tactic" -- or, explore
+advanced combat features such as "assist" "rescue" and "mercy"
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 361
+N TIP_26~
+C 12 L 0
+KW TIP_26~
+SY ~
+TX .
+Sometimes, speaking words triggers responses.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 362
+N TIP_27~
+C 12 L 0
+KW TIP_27~
+SY ~
+TX .
+Your lucky numbers are: 12, 21, 33, 69 and 42
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 363
+N TIP_28~
+C 12 L 0
+KW TIP_28~
+SY ~
+TX .
+Escapades in far-off places yield great rewards.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 364
+N TIP_29~
+C 12 L 0
+KW TIP_29~
+SY ~
+TX .
+You may drag objects you find to be too heavy to carry, or dump
+objects you feel have too much inside.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 365
+N TIP_3~
+C 12 L 0
+KW TIP_3~
+SY ~
+TX .
+Weapons are not automatically wielded when placed in your hands;
+instead you must occaisionally specify "wield <weapon>" -- another
+useful tip is to "swap" weapons between your two hands.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 366
+N TIP_30~
+C 12 L 0
+KW TIP_30~
+SY ~
+TX .
+Wagons and mounts can be used in conjunction with the command 'hitch'
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 367
+N TIP_31~
+C 12 L 0
+KW TIP_31~
+SY ~
+TX .
+In combat, you may order your mount to "trample" or "rush" your
+opponents.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 368
+N TIP_32~
+C 12 L 0
+KW TIP_32~
+SY ~
+TX .
+Hoods provide anonymity, and are used with the "raise" command
+when wearing a hooded cloak or robe.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 369
+N TIP_33~
+C 12 L 0
+KW TIP_33~
+SY ~
+TX .
+Thieves make use of commands "pick" "peek" "hide" and "steal".
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 370
+N TIP_34~
+C 12 L 0
+KW TIP_34~
+SY ~
+TX .
+You may pour one liquid from a container into another.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 371
+N TIP_35~
+C 12 L 0
+KW TIP_35~
+SY ~
+TX .
+As you advance in levels, you gain hero points, which may be traded
+to immortals for advancements or special items.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 372
+N TIP_36~
+C 12 L 0
+KW TIP_36~
+SY ~
+TX .
+Grouping together with other players helps you protect yourself;
+there is safety in numbers.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 373
+N TIP_37~
+C 12 L 0
+KW TIP_37~
+SY ~
+TX .
+You may wish to trade to build wealth.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 374
+N TIP_38~
+C 12 L 0
+KW TIP_38~
+SY ~
+TX .
+To learn to fight or flee is the art of staying alive.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 375
+N TIP_39~
+C 12 L 0
+KW TIP_39~
+SY ~
+TX .
+You're pretty smart, you'll figure it out.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 376
+N TIP_4~
+C 12 L 0
+KW TIP_4~
+SY ~
+TX .
+The "history" command allows you to view not only
+your own history, but the history of other players.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 377
+N TIP_40~
+C 12 L 0
+KW TIP_40~
+SY ~
+TX .
+Mud clients such as tinyfugue allow you to multi-play.  Playing
+simultaneous characters is allowed; in fact, it's encouraged.
+If you wish, visit tf.tcp.com to download TinyFugue.  It's
+a great client.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 378
+N TIP_41~
+C 12 L 0
+KW TIP_41~
+SY ~
+TX .
+Exploration and experimentation are the keys to winning this game.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 379
+N TIP_42~
+C 12 L 0
+KW TIP_42~
+SY ~
+TX .
+The meaning of life is what you make of it.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 380
+N TIP_43~
+C 12 L 0
+KW TIP_43~
+SY ~
+TX .
+Perseverance is key in winning rewards.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 381
+N TIP_44~
+C 12 L 0
+KW TIP_44~
+SY ~
+TX .
+Do you really need a tip or do you just forget how to turn these off?
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 382
+N TIP_45~
+C 12 L 0
+KW TIP_45~
+SY ~
+TX .
+We could all use a nice big tip.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 383
+N TIP_46~
+C 12 L 0
+KW TIP_46~
+SY ~
+TX .
+Visit our website http://www.mugs.net/theisles
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 384
+N TIP_47~
+C 12 L 0
+KW TIP_47~
+SY ~
+TX .
+Public bulletin boards provide ways to leave notes for other players
+who aren't logged on.  They usually get back to you within a day
+or so, maybe as long as week.  Locke always reads the board.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 385
+N TIP_48~
+C 12 L 0
+KW TIP_48~
+SY ~
+TX .
+Hey maybe you have a tip for us!  Try "bug" "typo" or "idea" next
+time something strikes you.
+ 
+By the way, you've only got two hands.  Make sure to use your pack
+or find a backpack to store stuff in.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 386
+N TIP_49~
+C 12 L 0
+KW TIP_49~
+SY ~
+TX .
+Use a client such as TinyFugue, Tintin++ or Cup-o-Mud to enhance your
+playing experience.
+ 
+With clients you may multiplay for sculpting many different characters.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 387
+N TIP_5~
+C 12 L 0
+KW TIP_5~
+SY ~
+TX .
+Wearing a belt is a good practice for keeping your weapons sheathed.
+By "sheathing" your weapons you free up your hands for
+manipulation of other items.  Keeping your pack open is also
+useful, as a closed pack is not immune to theft.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 388
+N TIP_50~
+C 12 L 0
+KW TIP_50~
+SY ~
+TX .
+The secret to long life is loving and laughing; try to do more of
+these things and you will benefit.
+ 
+Lucky number: 13
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 389
+N TIP_6~
+C 12 L 0
+KW TIP_6~
+SY ~
+TX .
+It may be a good idea to travel.  Certain places offer this opportunity,
+whereby you may purchase a "ticket" and then turning that ticket in to the
+person you have purchased it from often provides you with some way of
+traveling.  When on your travels, it is often a good idea to give gifts to
+pave your way.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 390
+N TIP_7~
+C 12 L 0
+KW TIP_7~
+SY ~
+TX .
+We support IMC (Inter-mud Communication) which allows you to speak with
+player and immortals of other muds.  Type "imc" for more information.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 391
+N TIP_8~
+C 12 L 0
+KW TIP_8~
+SY ~
+TX .
+Don't get too attached to any one object, as it may be that these items
+are not as valuable as the next ones you'll find.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 392
+N TIP_9~
+C 12 L 0
+KW TIP_9~
+SY ~
+TX .
+Hand-to-hand combat is an artform acquired through sparring.  You may
+spar with other players who agree to spar.  During a fight, if both parties
+type 'stop' the fight stops before you hurt each other too bad.  This is a
+good way to gain skill and proficiency in the martial arts.  
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

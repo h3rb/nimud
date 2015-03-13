@@ -1,0 +1,54 @@
+#ZONE 
+N Prison Planet~
+B None~
+V 12500 12599
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#12500
+N Oridian Penal Colony~
+Ref 0
+D
+You are locked in the Oridian Colony Prison Planet outside Ursa Minor,
+far off in a quadrant away from the galactic core and amongst the other
+forgotten members of this penal colony.  Rough, soot-marred walls form the
+metal casing for this vast planetary installation.  
+   You are located in the outlying warehouses, far from the main
+prison units, away from the prying eyes of the sentinal robots.
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17101
+~
+~
+End
+
+#0
+
+
+
+#$

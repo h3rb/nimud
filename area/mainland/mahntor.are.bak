@@ -1,0 +1,6019 @@
+#ZONE 
+N Tallez~
+B None~
+V 17300 17399
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#17300
+N knight ethereal dark~
+SD the Dark Ethereal Knight~
+LD
+ A dark ethereal knight hovers over the bloody clearing.
+~
+D
+ The ethereal knight is clad in shadowy black armor. It appears as though he
+was involved in the carnage that occurred here. His soul is trapped here, as
+he waits for release.
+~
+A 3
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 500
+O ~
+AP 25 30 30 25 30
+At 1 5 50 7
+End
+
+#17301
+N treant tree~
+SD the Old Treant~
+LD
+ A huge, gnarled tree stands here, battered by age and nature.
+~
+D
+ The old tree looks as though the wind has battered and torn at it for years.
+Very few leaves remain. Its limbs are crooked and gnarled. It moans as the 
+wind pushes it back and forth.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 250 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 22 7
+End
+
+#17302
+N dweller cave~
+SD the Cave Dweller~
+LD
+ A slimy, gross creature is here munching on a corpse.
+~
+D
+ The cave dweller looks like a mixture of several disgusting monsters. It has
+a bird's beak, huge white eyes, a furry body, and long clawed hands and feet.
+It sees you and snarls.
+~
+A 35
+AB 32788
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 12 2
+At 1 5 20 13
+End
+
+#17303
+N toad rock~
+SD the Rock Toad~
+LD
+ A rather large rock toad sits here, croaking loudly.
+~
+D
+ A grey toad. Its about the size of a cow. Small horns grow all over its body.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -250 E 300
+O ~
+AP 19 19 19 19 19
+At 0 10 11 13
+At 1 5 25 14
+End
+
+#17304
+N weeping willow tree~
+SD the weeping willow~
+LD
+ A large willow tree stands here, weeping.
+~
+D
+ The weeping willow has long thins branches. These branches seem to droop in
+anguish and dismay. You hear a faint sound of crying.
+~
+A 19
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 70
+K 1000 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 25 9
+End
+
+#17305
+N mist mistling~
+SD the Mistling~
+LD
+ A mistling emerges from the mist surrounding you.
+~
+D
+ It looks like a thin wisp of mist that has gained substance and size.
+~
+A 35
+AB 65536
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 14 10
+At 1 5 18 5
+End
+
+#17306
+N swamp wraith~
+SD the Swamp Wraith~
+LD
+ A swamp wraith emerges from the mist here.
+~
+D
+ The swamp wraith is made of mist and is in the image of a great warrior. He
+appears to emerge from the mist. You feel the cold radiating from his form as
+he nears you.
+~
+A 39
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 15 12
+End
+
+#17307
+N dakonenne villager~
+SD the Ogre Villager~
+LD
+ The dakonenne villager is here, going about its chores.
+~
+D
+ You see a pitifully overworked ogre. It is dressed in rags and shuffles along
+with its head hung low. It sees you and cringes in mortal terror.
+~
+A 193
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -200 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 16 5
+End
+
+#17308
+N warrior ogre~
+SD the Ogre Warrior~
+LD
+ The dakonenne warrior stands here, growling fiercely.
+~
+D
+ The dakonenne warrior is dressed in thick fur armor. He looks quite large and
+formidable.
+~
+A 229
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -350 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 11 12
+At 1 5 17 7
+At 2 1 28 10
+End
+
+#17309
+N guard ogre~
+SD the Ogre Guard~
+LD
+ The dakonenne guard is here manning his post faithfully.
+~
+D
+ The dakonenne guard stands here manning his post. It appears as though he would
+fight to the death before abandoning his post.
+~
+A 103
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 475
+O ~
+AP 25 25 25 25 25
+At 0 10 20 9
+At 1 5 16 9
+At 2 1 31 3
+End
+
+#17310
+N shaman ogre~
+SD The Ogre Shaman~
+LD
+ The dakonenne shaman is here chanting arcane words and waving his arms.
+~
+D
+ The dakonenne shaman is draped in thick fur cloaks and pelts. He has all types of
+charms and holy symbols draped about him. He looks at you and snarls.
+~
+A 231
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 25 0
+End
+
+#17311
+N chief chieftain ogre~
+SD the Ogre Chieftain~
+LD
+ The dakonenne chieftain is here, observing his subjects.
+~
+D
+ This is the biggest dakonenne you have ever seen. He is heavily equipped and looks
+quite formidable. He towers high above you and growls menacingly.
+~
+A 231
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 226
+O ~
+AP 15 15 15 15 15
+At 0 10 25 3
+End
+
+#17312
+N barbarian~
+SD the Plains Barbarian~
+LD
+ A plains barbarian is here, clad in heavy furs.
+~
+D
+ The plains barbarian is clad in heavy furs. He seems used to the chilling cold
+and icy wastes.
+~
+A 231
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 221
+O ~
+AP 15 15 15 15 15
+At 0 10 21 1
+End
+
+#17313
+N yeti white~
+SD the White Yeti~
+LD
+ The white yeti crouches here snarling.
+~
+D
+ The white yeti looks like a huge white snow ape. Its long arms end in long
+curved talons and its mouth is full of sharp teeth.
+~
+A 231
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -350 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 16 12
+At 1 5 23 8
+At 2 1 18 12
+End
+
+#17314
+N worm ice iceworm~
+SD the Ice Worm~
+LD
+ A huge ice worm burrows through the ice and snow here. It rears up and
+attacks!
+~
+D
+ The huge worm is almost 50 feet long. Its huge gaping mouth spews ice and snow
+as it charges directly at you.
+~
+A 103
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 13 8
+End
+
+#17315
+N citizen minotaur~
+SD the Minotaur Citizen~
+LD
+ A minotaur citizen is here, hurrying through the icy streets.
+~
+D
+ You see a rather ragged and cold minotaur. It appears to be looking for a warm
+place to seek refuge from the cold.
+~
+A 199
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 100 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 20 8
+At 1 5 25 3
+End
+
+#17316
+N guard minotaur~
+SD the Minotaur Guard~
+LD
+ A minotaur guard catches you trespassing and attacks!
+~
+D
+ The minotaur is clad in heavy furs. Beneath these furs, you see the gleam of
+his armor.
+~
+A 103
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -330 E 223
+O ~
+AP 15 15 15 15 15
+At 0 10 19 0
+End
+
+#17317
+N warrior minotaur~
+SD the Minotaur Warrior~
+LD
+ A minotaur warrior is here looking for intruders.
+~
+D
+ You see a huge minotaur that is dressed in thick furs and armor. He has black
+fur and red eyes. He looks quite capable of protecting the city.
+~
+A 101
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -330 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 13 8
+End
+
+#17318
+N minotaur gatekeeper~
+SD the Minotaur Gatekeeper~
+LD
+ A minotaur is here guarding the Keep of Mahn-Tor.
+~
+D
+ The minotaur stands rigidly before the gates of the keep. It looks quite
+miserable standing in the driven snow and ice.
+~
+A 71
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -330 E 225
+O ~
+AP 15 15 15 15 15
+At 0 10 23 9
+End
+
+#17319
+N minotaur high guard~
+SD the High Minotaur Guard~
+LD
+ The minotaur high guard is here guarding the Keep.
+~
+D
+ The high guard is dressed in blue plate armour. He looks quite dangerous and
+skilled.
+~
+A 103
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -330 E 224
+O ~
+AP 15 15 15 15 15
+At 0 10 24 2
+End
+
+#17320
+N minotaur royal guard~
+SD the Royal Minotaur Guard~
+LD
+ The royal minotaur guard considers you an intruder and attacks!
+~
+D
+ The royal guard is quite huge. He is dressed in heavy red armor and wields a
+huge glaive. He looks quite capable of protecting the keep.
+~
+A 103
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -330 E 226
+O ~
+AP 15 15 15 15 15
+At 0 10 22 14
+End
+
+#17321
+N guard minotaur elite~
+SD the Elite Minotaur Guard~
+LD
+ The elite minotaur guard sees you and attacks!
+~
+D
+ This minotaur wields a huge morningstar and is clad in heavy crimson plate and
+furs.
+~
+A 103
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -250 E 228
+O ~
+AP 15 15 15 15 15
+At 0 10 16 1
+End
+
+#17322
+N girl haremgirl harem slave~
+SD the Harem Girl~
+LD
+ A harem girl cowers here in fear.
+~
+D
+ She looks quite attractive. Her low cut gown reveals why she was chosen to be
+in the harem.
+~
+A 199
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 91
+O ~
+AP 15 15 15 15 15
+At 0 10 24 10
+End
+
+#17323
+N butler minotaur~
+SD the Minotaur Butler~
+LD
+ A minotaur butler stands here rigidly, awaiting orders.
+~
+D
+ He looks quite regal and refined to be a minotaur.
+~
+A 199
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 250 E 220
+O ~
+AP 15 15 15 15 15
+At 0 10 17 12
+End
+
+#17324
+N keeper minotaur ring-keeper~
+SD the Minotaur Ring-Keeper~
+LD
+ The minotaur ring-keeper stands guarding his post.
+~
+D
+ The ring-keeper is a huge minotaur. You notice a huge ring of multicolored
+keys hanging from his belt. He wears huge, spiked brass knuckles.
+~
+A 71
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -300 E 229
+O ~
+AP 15 15 15 15 15
+At 0 10 14 2
+End
+
+#17325
+N gorak minotaur warrior master~
+SD Gorak~
+LD
+ Gorak, the Minotaur Master Warrior, is here practicing his skills.
+~
+D
+ Gorak is HUGE. His bulging muscles are confined beneath heavy armor. He is the
+master of the warrior guild of Mahn-Tor.
+~
+A 101
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -300 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 22 1
+End
+
+#17326
+N darkoth minotaur anti-paladin master~
+SD Darkoth~
+LD
+ Darkoth, the minotaur anti-paladin, stands here grinning wickedly.
+~
+D
+ Darkoth is a living incarnation of evil. He radiates a dark aura, and a cold
+chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
+~
+A 101
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 22 10
+End
+
+#17327
+N tyrgoth minotaur paladin master~
+SD Tyrgoth~
+LD
+ Tyrgoth, the minotaur paladin, is here worshipping silently.
+~
+D
+ Tyrgoth is the minotaur incarnation of good. You feel safe and at ease in his
+presence. He is the leader of the Mahn-Tor paladins.
+~
+A 101
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 18 3
+End
+
+#17328
+N amyrok minotaur mage master~
+SD Amyrok~
+LD
+ Amyrok, the minotaur archmage, is here chanting arcane spells.
+~
+D
+ Amyrok is a small minotaur. He is clad in loose robes and emits an aura of
+power. He appears quite dangerous, despite his size. He is the leader of the
+mages of Mahn-Tor.
+~
+A 101
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 30
+O ~
+AP 15 15 15 15 15
+At 0 10 24 10
+End
+
+#17329
+N sumaron minotaur cleric master~
+SD Sumaron~
+LD
+ Sumaron, master cleric of Mahn-Tor, is here looking holy.
+~
+D
+ Sumaron is clad in white glowing robes. He is goodness incarnate. He is the
+master of all the clerics of Mahn-Tor.
+~
+A 101
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 31
+O ~
+AP 15 15 15 15 15
+At 0 10 14 3
+End
+
+#17330
+N nasturn minotaur druid master~
+SD Nasturn~
+LD
+ Nasturn, the minotaur druid, is here studying the arts of nature.
+~
+D
+ Nasturn is quite a natural looking minotaur. He is dressed in leather and
+wears no metal of any type. He looks at you and smiles.
+~
+A 101
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 229
+O ~
+AP 15 15 15 15 15
+At 0 10 20 4
+End
+
+#17331
+N belrak minotaur ranger master~
+SD Belrak~
+LD
+ Belrak, the minotaur ranger, looks unhappy about having visitors.
+~
+D
+ Belrak is clad in green and brown leather. He looks quite agile and thin, when
+compared to the normal minotaur. He looks at you with a slight smirk.
+~
+A 101
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 31
+O ~
+AP 15 15 15 15 15
+At 0 10 22 5
+End
+
+#17332
+N dorgar minotaur thief master~
+SD Dorgar~
+LD
+ Dorgar, the minotaur thief, is here hiding in the shadows.
+~
+D
+ Dorgar is clad all in black. He is tall and slender, unlike most minotaurs. He
+appears to be quite a skilled thief.
+~
+A 101
+AB 65536
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 228
+O ~
+AP 15 15 15 15 15
+At 0 10 13 10
+End
+
+#17333
+N mahn-tor minotaur grand master~
+SD Mahn-Tor~
+LD
+ Mahn-Tor, the minotaur grand master, is here looking down at you.
+~
+D
+ Mahn-Tor towers above you. He is simply huge. Mahn-Tor is clad in the best of
+armor and robes. He wields the largest axe you have ever seen. You can see why
+Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
+~
+A 201
+AB 1573002
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 34
+O ~
+AP 15 15 15 15 15
+At 0 10 12 4
+End
+
+#0
+
+
+
+#OBJDATA
+#17300
+N gloves combat~
+SD a pair of minotaur combat gloves~
+P ~
+D
+A pair of metal plated gloves lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 6
+C 10000
+O ~
+V 8 0 0 0
+ED gloves combat~
+These gloves are plated with metal plates that provide strength and 
+protection.
+~
+End
+
+#17301
+N spiked armor garde~
+SD a suit of spiked garde armor~
+P ~
+D
+A pile of spiked chainmail lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 8
+C 25000
+O ~
+V 7 0 0 0
+End
+
+#17302
+N greaves black~
+SD a pair of black minotaur greaves~
+P ~
+D
+Some black metal greaves lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 9
+C 25000
+O ~
+V 9 0 0 0
+End
+
+#17303
+N vambraces black~
+SD a pair of black minotaur vambraces~
+P ~
+D
+Some black metal vambraces lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 9
+C 25000
+O ~
+V 9 0 0 0
+End
+
+#17304
+N rod weaponry~
+SD the rod of weaponry~
+P ~
+D
+A shiny metal rod lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 321
+W 8193
+Sz 18
+Ti 0
+Wt 24
+C 50000
+O ~
+V 0 5 5 6
+End
+
+#17305
+N cloak pitch black~
+SD a pitch black cloak~
+P ~
+D
+A pile of black cloth lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 64
+W 1025
+Sz 18
+Ti 0
+Wt 3
+C 25000
+O ~
+V 150 0 0 0
+ED cloak pitch black~
+It appears to have pockets inside it.
+~
+End
+
+#17306
+N neckguard neck guard black plate~
+SD a black plate neckguard~
+P ~
+D
+A black plate collar rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 2624
+W 5
+Sz 18
+Ti 0
+Wt 10
+C 10000
+O ~
+V 9 0 0 0
+End
+
+#17307
+N spiked gauntlets~
+SD a pair of spiked gauntlets~
+P ~
+D
+A pair of spiked gauntlets lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 129
+Sz 18
+Ti 0
+Wt 10
+C 15000
+O ~
+V 3 0 0 0
+ED spiked gauntlets~
+They look pretty damaging.
+~
+End
+
+#17308
+N shield shadow~
+SD the shadow shield~
+P ~
+D
+A shadowy shield rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 2625
+W 513
+Sz 18
+Ti 0
+Wt 15
+C 50000
+O ~
+V 15 0 0 0
+ED shield shadow~
+You look into the depths of the shield and shiver at the evil it contains.
+~
+End
+
+#17309
+N nightbringer short sword shortsword~
+SD Nightbringer~
+P ~
+D
+A very evil looking shortsword lies here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 708
+W 8193
+Sz 0
+Ti 0
+Wt 9
+C 75000
+O ~
+V 1 40 1 3
+ED nightbringer short sword shortsword~
+The runes "NiGHtBrINgeR" are scrawled along the blade.
+~
+End
+
+#17310
+N visor helm golden~
+SD a golden helm and visor~
+P ~
+D
+A helm and visor made of pure gold rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3137
+W 17
+Sz 18
+Ti 0
+Wt 15
+C 25000
+O ~
+V 7 0 0 0
+End
+
+#17311
+N breast plate gilded gold~
+SD a gilded gold breast plate~
+P ~
+D
+A large golden breast plate lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 3137
+W 9
+Sz 18
+Ti 0
+Wt 18
+C 35000
+O ~
+V 15 0 0 0
+End
+
+#17312
+N cape white billowing silk~
+SD a billowing white cape~
+P ~
+D
+A pile of white silk lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 15000
+O ~
+V 5 0 0 54
+End
+
+#17313
+N shield huge tower~
+SD a huge tower shield~
+P ~
+D
+A huge shield lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 513
+Sz 18
+Ti 0
+Wt 14
+C 10000
+O ~
+V 10 0 0 0
+ED shield huge tower~
+A pure white shield with a gold cross emblazoned across it.
+~
+End
+
+#17314
+N dawnbringer mace huge~
+SD a huge mace named "Dawnbringer"~
+P ~
+D
+A huge mace lies here. It radiates an aura of power.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 3137
+W 8193
+Sz 18
+Ti 0
+Wt 24
+C 50000
+O ~
+V 13 5 5 6
+ED dawnbringer mace huge~
+The runes "DAwNbRIngER" are scrawled along the handle.
+~
+End
+
+#17315
+N spectacles wire rimmed~
+SD a pair of wire rimmed spectacles~
+P ~
+D
+A small pair of wire rimmed spectacles rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 17
+Sz 18
+Ti 0
+Wt 2
+C 25000
+O ~
+V 1 0 0 27
+ED spectacles wire rimmed~
+They'll make you look smart.
+~
+End
+
+#17316
+N ring banded~
+SD a banded ring~
+P ~
+D
+A small ring made of gold and silver bands lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 3
+Sz 18
+Ti 0
+Wt 2
+C 25000
+O ~
+V 1 0 0 0
+ED ring banded~
+The ring has entwined bands of gold and silver.
+~
+End
+
+#17317
+N globe minor~
+SD a minor globe of invulnerability~
+P ~
+D
+A small globe rests here. It shimmers and radiates power.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 1025
+Sz 18
+Ti 0
+Wt 1
+C 50000
+O ~
+V 10 0 0 0
+ED globe minor~
+Shimmering colors move inside the globe.
+~
+End
+
+#17318
+N staff gnarled magius~
+SD a gnarled magius staff~
+P ~
+D
+A gnarled staff lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 35000
+O ~
+V 0 4 4 6
+ED staff gnarled magius~
+It appears to be simply a gnarled old limb. It feels powerful though.
+~
+End
+
+#17319
+N girdle pouches many~
+SD a girdle of many pouches~
+P ~
+D
+A girdle lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 2049
+Sz 18
+Ti 0
+Wt 5
+C 15000
+O ~
+V 500 0 0 0
+ED girdle pouches many~
+It appears to be full of tiny pockets.
+~
+End
+
+#17320
+N robe heavy woolen~
+SD a heavy woolen robe~
+P ~
+D
+A heavy pile of wool lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 1025
+Sz 18
+Ti 0
+Wt 10
+C 15000
+O ~
+V 15 0 0 0
+End
+
+#17321
+N broach ivory~
+SD a broach of life~
+P ~
+D
+A small ivory broach lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 321
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 50000
+O ~
+V 2 0 0 0
+End
+
+#17322
+N manual arts healing book~
+SD a manual of healing arts~
+P ~
+D
+A small book lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 2
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 15000
+O ~
+V 30 0 0 0
+ED manual arts healing book~
+It appears to be a book of anatomy and medicine.
+~
+End
+
+#17323
+N mace huge mithril~
+SD a huge mithril mace~
+P ~
+D
+A huge mace made of mithril metal lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 65
+W 8193
+Sz 18
+Ti 0
+Wt 13
+C 25000
+O ~
+V 31 4 4 6
+End
+
+#17324
+N symbol holy golden~
+SD a golden holy symbol~
+P ~
+D
+A small holy symbol on a golden chain lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 5
+Sz 18
+Ti 0
+Wt 3
+C 10000
+O ~
+V 2 0 0 0
+End
+
+#17325
+N ring marble thick~
+SD a thick marble ring~
+P ~
+D
+A thick ring made of marble~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 5
+C 10000
+O ~
+V 4 0 0 0
+End
+
+#17326
+N bracelet thick marble~
+SD a thick marble bracelet~
+P ~
+D
+A thick bracelet made of marble lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 4097
+Sz 18
+Ti 0
+Wt 8
+C 30000
+O ~
+V 4 0 0 0
+End
+
+#17327
+N boots striding~
+SD boots of striding~
+P ~
+D
+A lithe pair of leather boots have been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 65
+Sz 18
+Ti 0
+Wt 5
+C 45000
+O ~
+V 5 0 0 0
+ED boots striding~
+They look comfortable to walk in.
+~
+End
+
+#17328
+N cloak icy white~
+SD an icy white cloak~
+P ~
+D
+A cold pile of white cloth lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 1025
+Sz 18
+Ti 0
+Wt 5
+C 25000
+O ~
+V 8 0 0 12
+ED cloak icy white~
+Smoke rises from it almost like it's made of dry ice.
+~
+End
+
+#17329
+N staff ice~
+SD an ice staff~
+P ~
+D
+A staff made of ice rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 13
+C 45000
+O ~
+V 0 6 3 6
+ED staff ice~
+The runes "FrIgID" are inscribed in the icy staff.
+~
+End
+
+#17330
+N ring carved wooden~
+SD a carved wooden ring~
+P ~
+D
+A wooden ring is on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 3
+C 25000
+O ~
+V 1 0 0 0
+End
+
+#17331
+N horn life~
+SD the horn of life~
+P ~
+D
+A severed minotaur horn lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 25000
+O ~
+V 30 8 8 0
+ED horn life~
+The horn is capped at both ends with gold. Unreadable runes are scrawled on it.
+~
+End
+
+#17332
+N belt life~
+SD the belt of life~
+P ~
+D
+A strange belt lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 2049
+Sz 18
+Ti 0
+Wt 9
+C 50000
+O ~
+V 3 0 0 0
+End
+
+#17333
+N stone blood red~
+SD a blood red stone~
+P ~
+D
+A blood red stone lies here collecting dust.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 66
+W 16385
+Sz 18
+Ti 0
+Wt 2
+C 45000
+O ~
+V 3 0 0 0
+ED stone blood red~
+The stone pulses with your own heart beat.
+~
+End
+
+#17334
+N crossbow huge~
+SD a huge crossbow~
+P ~
+D
+A huge crossbow rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 15
+C 35000
+O ~
+V 0 3 7 7
+End
+
+#17335
+N pack leather small~
+SD a small leather pack~
+P ~
+D
+A small leather pack rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 64
+W 1025
+Sz 18
+Ti 0
+Wt 9
+C 1000
+O ~
+V 200 0 0 0
+ED pack leather small~
+It looks pretty big on the inside.
+~
+End
+
+#17336
+N hood black leather~
+SD a black leather hood~
+P ~
+D
+A hood made of black leather rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 25000
+O ~
+V 5 0 0 0
+End
+
+#17337
+N sleeves black leather~
+SD a pair of black leather sleeves~
+P ~
+D
+Some leather sleeves lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 5
+C 3500
+O ~
+V 7 0 0 0
+End
+
+#17338
+N pants black leather~
+SD a pair of black leather pants~
+P ~
+D
+Some leather pants lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 33
+Sz 18
+Ti 0
+Wt 5
+C 15000
+O ~
+V 7 0 0 0
+ED pants black leather~
+They look sneaky.
+~
+End
+
+#17339
+N sword wicked short shortsword~
+SD a wicked shortsword~
+P ~
+D
+A wicked looking shortsword lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 11
+C 50000
+O ~
+V 34 3 5 11
+ED sword wicked short shortsword~
+It looks just perfect for backstabbing.
+~
+End
+
+#17340
+N globe major~
+SD a major globe of invulnerability~
+P ~
+D
+A large globe rests here, pulsing uneasily.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 67
+W 1025
+Sz 18
+Ti 0
+Wt 1
+C 100000
+O ~
+V 15 0 0 0
+ED globe major~
+Shimmering colors move inside the globe.
+~
+End
+
+#17341
+N chain chainmail black suit~
+SD a suit of black minotaur chainmail~
+P ~
+D
+A huge pile of black chainmail rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 9
+Sz 18
+Ti 0
+Wt 12
+C 100000
+O ~
+V 15 0 0 0
+End
+
+#17342
+N buckler spiked~
+SD a spiked buckler~
+P ~
+D
+A small spiked buckler rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 513
+Sz 18
+Ti 0
+Wt 5
+C 22500
+O ~
+V 10 0 0 0
+End
+
+#17343
+N ring studded~
+SD a studded ring~
+P ~
+D
+A small studded ring lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 3
+Sz 18
+Ti 0
+Wt 1
+C 5000
+O ~
+V 5 0 0 0
+End
+
+#17344
+N helm horned~
+SD a horned minotaur helm~
+P ~
+D
+A small horned helm rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 8
+C 20000
+O ~
+V 10 0 0 0
+End
+
+#17345
+N axe great~
+SD mahn-Tor's Great Axe~
+P ~
+D
+An extremely huge axe is resting here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 66
+W 8193
+Sz 18
+Ti 0
+Wt 26
+C 100000
+O ~
+V 42 5 5 3
+ED axe great~
+The runes "DeAtH" are scrawled along the blade.
+~
+End
+
+#17346
+N plate ethereal suit~
+SD a suit of ethereal plate~
+P ~
+D
+A suit of shimmering plate rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 513
+W 9
+Sz 18
+Ti 0
+Wt 2
+C 50000
+O ~
+V 10 0 0 46
+ED plate ethereal suit~
+You can almost see through it.
+~
+End
+
+#17347
+N helm ethereal~
+SD an ethereal helm~
+P ~
+D
+A shimmering helm rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 513
+W 17
+Sz 18
+Ti 0
+Wt 5
+C 15000
+O ~
+V 8 0 0 27
+ED helm ethereal~
+You can almost see through it.
+~
+End
+
+#17348
+N blade ethereal~
+SD an ethereal blade~
+P ~
+D
+A shimmering blade lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 513
+W 8193
+Sz 18
+Ti 0
+Wt 3
+C 10000
+O ~
+V 52034 4 3 3
+ED blade ethereal~
+You can almost see through it.
+~
+End
+
+#17349
+N branch willow~
+SD a willow branch~
+P ~
+D
+A small willow branch lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 3
+E 64
+W 16385
+Sz 18
+Ti 0
+Wt 3
+C 10000
+O ~
+V 20 0 0 0
+End
+
+#17350
+N key keep~
+SD the keep key~
+P ~
+D
+A small key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17351
+N key red~
+SD a red key~
+P ~
+D
+A small red key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17352
+N key black~
+SD a black key~
+P ~
+D
+A small black key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17353
+N key white~
+SD a white key~
+P ~
+D
+A small white key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17354
+N key brown~
+SD a brown key~
+P ~
+D
+A small brown key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17355
+N key yellow~
+SD a yellow key~
+P ~
+D
+A small yellow key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17356
+N key maroon~
+SD a maroon key~
+P ~
+D
+A small maroon key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17357
+N key green~
+SD a green key~
+P ~
+D
+A small green key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17358
+N key grey~
+SD a grey key~
+P ~
+D
+A small grey key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+End
+
+#17359
+N key runed~
+SD a runed key~
+P ~
+D
+A small runed key lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 0
+O ~
+V 2 0 0 0
+ED key runed~
+The key looks like it was made for royalty.
+~
+End
+
+#17360
+N boots fur lined~
+SD a pair of fur lined boots~
+P ~
+D
+A pair of boots are on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 64
+W 65
+Sz 18
+Ti 0
+Wt 5
+C 10000
+O ~
+V 3 0 0 0
+End
+
+#17361
+N pelt yeti white~
+SD the white pelt of a yeti~
+P ~
+D
+A white pelt lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 9
+C 5000
+O ~
+V 8 0 0 0
+End
+
+#17362
+N sword kopesh~
+SD a kopesh sword~
+P ~
+D
+A sword with a curved blade lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 13
+C 10000
+O ~
+V 0 5 3 3
+ED sword kopesh~
+The sword looks like it would be grasped so that the blade extended along the
+forearm of the wielder.
+~
+End
+
+#17363
+N vambraces steel~
+SD a pair of steel vambraces~
+P ~
+D
+A gleaming pair of vambraces lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 256
+Sz 18
+Ti 0
+Wt 7
+C 5000
+O ~
+V 6 0 0 0
+End
+
+#17364
+N greaves steel~
+SD a pair of steel greaves~
+P ~
+D
+A gleaming pair of greaves lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 7
+C 5000
+O ~
+V 6 0 0 0
+End
+
+#17365
+N axe battle battleaxe~
+SD a battle axe~
+P ~
+D
+A dangerous looking battle axe rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 18
+C 7500
+O ~
+V 0 4 4 3
+End
+
+#17366
+N plate steel breast~
+SD a steel breast plate~
+P ~
+D
+A breast plate of thick steel rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 10
+C 8000
+O ~
+V 6 0 0 0
+End
+
+#17367
+N helm steel~
+SD a steel helm~
+P ~
+D
+A steel helm has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 6
+C 3000
+O ~
+V 6 0 0 0
+End
+
+#17368
+N halberd huge~
+SD a huge halberd~
+P ~
+D
+A huge halberd has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 18
+C 20000
+O ~
+V 0 9 2 3
+End
+
+#17369
+N visor blue steel helm~
+SD a blue steel helm and visor~
+P ~
+D
+A helm and visor of blue steel rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 8
+C 10000
+O ~
+V 8 0 0 0
+End
+
+#17370
+N greaves blue steel~
+SD a pair of blue steel greaves~
+P ~
+D
+Some greaves made of blue steel rest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 8
+C 10000
+O ~
+V 8 0 0 0
+End
+
+#17371
+N vambraces blue steel~
+SD a pair of blue steel vambraces~
+P ~
+D
+Some vambraces made of blue steel rest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 8
+C 10000
+O ~
+V 8 0 0 0
+End
+
+#17372
+N sword two two-handed~
+SD a two-handed sword~
+P ~
+D
+A large sword lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 18
+C 20000
+O ~
+V 0 6 3 3
+End
+
+#17373
+N visor helm steel red~
+SD a red steel helm and visor~
+P ~
+D
+A helm and visor made of red steel rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 8
+C 20000
+O ~
+V 9 0 0 0
+End
+
+#17374
+N greaves red steel~
+SD a pair of red steel greaves~
+P ~
+D
+Some greaves made of red steel rest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 8
+C 20000
+O ~
+V 9 0 0 0
+End
+
+#17375
+N vambraces red steel~
+SD a pair of red steel vambraces~
+P ~
+D
+Some vambraces made of red steel rest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 8
+C 20000
+O ~
+V 9 0 0 0
+End
+
+#17376
+N glaive~
+SD a minotaur glaive~
+P ~
+D
+A very large glaive rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 19
+C 45000
+O ~
+V 0 5 4 3
+End
+
+#17377
+N visor helm crimson steel~
+SD a crimson steel helm and visor~
+P ~
+D
+A helm and visor made of crimson steel rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 8
+C 40000
+O ~
+V 10 0 0 0
+End
+
+#17378
+N greaves crimson steel~
+SD a pair of crimson steel greaves~
+P ~
+D
+Some greaves made of crimson steel rest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 33
+Sz 18
+Ti 0
+Wt 8
+C 40000
+O ~
+V 10 0 0 0
+End
+
+#17379
+N vambraces crimson steel~
+SD a pair of crimson steel vambraces~
+P ~
+D
+Some vambraces made of crimson steel rest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 257
+Sz 18
+Ti 0
+Wt 8
+C 40000
+O ~
+V 10 0 0 0
+End
+
+#17380
+N star morning morningstar~
+SD a huge morningstar~
+P ~
+D
+A huge morningstar rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 64
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 65000
+O ~
+V 0 7 3 6
+ED star morning morningstar~
+It looks damaging.
+~
+End
+
+#17381
+N spiked brass knuckles~
+SD some huge spiked brass knuckles~
+P ~
+D
+A set of spiked brass knuckles lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 9
+C 15000
+O ~
+V 0 4 3 1
+ED spiked brass knuckles~
+A band held in the hand that has spikes on the front side.
+~
+End
+
+#17382
+N ring key multi colored multi-colored~
+SD a multi-colored key ring~
+P ~
+D
+A ring of multi-colored keys rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 3
+C 500
+O ~
+V 10 0 0 0
+ED ring key multi colored multi-colored~
+It has several keys of different colors on it.
+~
+End
+
+#17383
+N maul huge wooden~
+SD a huge wooden maul~
+P ~
+D
+A huge wooden maul rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 22
+C 100000
+O ~
+V 0 5 5 6
+End
+
+#17384
+N potion misty~
+SD a misty potion~
+P ~
+D
+A small misty potion rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 10
+E 8257
+W 1
+Sz 18
+Ti 0
+Wt 3
+C 5000
+O ~
+V 20 0 0 0
+End
+
+#17385
+N pouch belt~
+SD a belt pouch~
+P ~
+D
+A belt pouch lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 2049
+Sz 18
+Ti 0
+Wt 5
+C 3500
+O ~
+V 75 0 0 0
+End
+
+#17386
+N spear ogre~
+SD an dakonenne spear~
+P ~
+D
+A crude spear rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 1000
+O ~
+V 0 2 5 11
+End
+
+#17387
+N club dakonenne war~
+SD an dakonenne war club~
+P ~
+D
+A large, crude club rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 2500
+O ~
+V 0 2 6 6
+End
+
+#17388
+N cloak bear skin bearskin~
+SD a bearskin cloak~
+P ~
+D
+A rough bearskin rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 1025
+Sz 18
+Ti 0
+Wt 12
+C 3500
+O ~
+V 8 0 0 0
+End
+
+#17389
+N ear ring earring feathered~
+SD a pair of feathered earrings~
+P ~
+D
+Some feathered earrings rest here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 65
+W 17
+Sz 18
+Ti 0
+Wt 2
+C 15000
+O ~
+V 1 0 0 0
+End
+
+#17390
+N gauntlets dakonenne power~
+SD gauntlets of dakonenne power~
+P ~
+D
+Some heavy gauntlets lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 66
+W 129
+Sz 18
+Ti 0
+Wt 13
+C 75000
+O ~
+V 7 0 0 0
+ED gauntlets dakonenne power~
+They look very "handy".
+~
+End
+
+#17391
+N club massive~
+SD a massive club~
+P ~
+D
+A massive club lies here, discarded.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 19
+C 15000
+O ~
+V 0 5 3 6
+End
+
+#17392
+N cape thick fur~
+SD a thick fur cape~
+P ~
+D
+A thick pile of fur lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 5
+C 2500
+O ~
+V 6 0 0 0
+End
+
+#17393
+N tunic fur lined~
+SD a fur lined tunic~
+P ~
+D
+A fur lined tunic rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 6
+C 1500
+O ~
+V 6 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#17300
+N Darkwood Forest~
+Ref 0
+D
+You are travelling through woods that are as dark as night. The trees above
+block all light and wind. The air is stagnant and smells of death and decay.
+The lack of sounds and other signs of life make your skin crawl and you feel
+very much like turning back and heading for safer areas. The path leads north
+into more open lands while it also leads south into the darkness of the forest.
+A small sign is posted here.
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+ED sign~
+....[]================================[]
+     |      BEWARE!      | Hope you   |
+     |   Travellers are  | enjoy it!  |
+     |  advised to stay  | <------->  |
+     |   in groups for   |  Skurge    |
+     |      safety.      | Ragnarok   |
+    []================================[]
+~
+Dr 1 0 0 17301
+~
+~
+Dr 3 0 0 20280
+~
+~
+End
+
+#17301
+N Darkwood Forest~
+Ref 0
+D
+You wearily travel through the darkness of the forest. Huge skeletal trees
+line the edges of the path and tower above you. Errant rays of light spear
+down through the gaps in the canopy above and provide small spots of light
+that seem to attract what little foliage can grow on the dark forest floor.
+The path winds north and south into darkness.
+~
+C
+~
+F 5
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17302
+~
+~
+Dr 3 0 0 17300
+~
+~
+End
+
+#17302
+N Intersection of Paths~
+Ref 0
+D
+The forest path splits here in three directions.  Small paths lead to the
+east, north, and south.  The trees above leave a gap which allows light to
+fill the intersection.  It is almost as though you are in a circle of light
+that provides sanctuary in this land of darkness.  Something has been
+scrawled in the dirt in blood here.  
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+ED blood dirt scrawl~
+BwWAre tHe SwAmP ......
+~
+Dr 1 0 0 17304
+~
+~
+Dr 2 0 0 17303
+~
+~
+Dr 3 0 0 17301
+~
+~
+End
+
+#17303
+N The edge of the forest and hills~
+Ref 0
+D
+You stand at the edge of a dark forest. A path leads north into the forest and
+its deadly darkness and silence. Looking west, you see a path that leads up
+into a foothills region. Standing here on the boundary between light and
+darkness, you feel very vulnerable and alone.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 17302
+~
+~
+Dr 3 0 -1 17309
+~
+~
+End
+
+#17304
+N Dense Darkwood~
+Ref 0
+D
+You walk along a small path leading through a dark forest. No sounds can be
+heard and little light penetrates the canopy of trees above you. The air here
+smells musty and you long for a fresh breath. You see an intersection of paths
+to the west. The path you are on leads south into the darkening woods.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 17305
+~
+~
+Dr 3 0 0 17302
+~
+~
+End
+
+#17305
+N Darkwood Forest~
+Ref 0
+D
+You continue on through darkness and gloom. The path below you has become a
+wet quagmire. It is difficult to walk, and you make squishing sounds as you
+move on. Looking east, you see a swampy path. The main path leads north and
+south into darkness.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17304
+~
+~
+Dr 1 0 -1 17327
+~
+~
+Dr 2 0 0 17306
+~
+~
+End
+
+#17306
+N A turn in the path~
+Ref 0
+D
+The forest path turns here towards the north and west. To the north, you see
+that the ground has become dank and swampy, while the western path appears
+to be entering a hilly area. You hear sounds of swamp creatures to the north
+east.
+~
+C
+~
+F 1
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17305
+~
+~
+Dr 3 0 0 17307
+~
+~
+End
+
+#17307
+N The bloody intersection~
+Ref 0
+D
+This is a small intersection. Paths lead east, west, and south. You are struck
+by the carnage here when you enter the clearing. There appears to have been a
+great battle here. Blood is everywhere and the ground is all torn up. Pieces
+of beaten armour and broken blades lie all around. Examining the tracks here
+lead you to believe that the dead and wounded were dragged off in two 
+directions, south and east.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17300 1 100 1
+Dr 1 0 0 17306
+~
+~
+Dr 2 0 0 17310
+~
+~
+Dr 3 0 0 17308
+~
+~
+End
+
+#17308
+N The rocky path~
+Ref 0
+D
+The path here winds among the low rocky hills. The long trek up and down the
+hills begins to tire you greatly. Looking east, you see a small clearing. More
+hills are to the north of here.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17309
+~
+~
+Dr 1 0 0 17307
+~
+~
+End
+
+#17309
+N The rocky path~
+Ref 0
+D
+The path here is very rocky and treacherous. The travelling is rough and you
+slip and fall often. Looking south, you see that the path continues into the
+hills. Smoother ground is to the east, but the path seems to lead into a dark
+forest in that direction.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17303
+~
+~
+Dr 2 0 0 17308
+~
+~
+End
+
+#17310
+N Up the rocky hillside~
+Ref 0
+D
+You are climbing on a rocky hillside. As you scramble about, loose rocks and
+small boulders bounce and fall down below you. Looking to the east and west,
+you see more stable ground. The hillside itself goes on higher to the south
+and it drops away to the north.
+~
+C
+~
+F 4
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17307
+~
+~
+Dr 1 0 0 17312
+~
+~
+Dr 2 0 0 17314
+~
+~
+Dr 3 0 0 17311
+~
+~
+End
+
+#17311
+N The sparse foothills~
+Ref 0
+D
+You are in foothills that are sparsely covered by scraggly bushes and weather
+beaten trees. There are little signs of life here. Only bare rock and dry dirt
+can be seen. Looking east, you see a small pass that will allow you to leave
+the foothills. The foothills themselves extend to the south.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17303 4 100 1
+Dr 1 0 0 17310
+~
+~
+Dr 2 0 0 17313
+~
+~
+End
+
+#17312
+N Standing on level ground~
+Ref 0
+D
+You are standing at the edge of a steep set of foothills. Looking down, you
+see what appears to be a marshy, dark forest. It reeks of death and decay.
+Even here, you catch its scent on the winds. From here, you can travel south
+deeper into the foothills or to the west where a small pass will allow you to
+climb down.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17303 4 100 1
+Dr 2 0 0 17315
+~
+~
+Dr 3 0 0 17310
+~
+~
+End
+
+#17313
+N In the foothills~
+Ref 0
+D
+You are in a barren set of foothills. Looking around, all you see are dead
+plants and boulders. From the south, you get a whiff of salty air. Barren paths
+lead east, north, and south into more barren hills.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17303 4 100 1
+Dr 0 0 0 17311
+~
+~
+Dr 1 0 0 17314
+~
+~
+Dr 2 0 0 17317
+~
+~
+End
+
+#17314
+N Before the huge tree~
+Ref 0
+D
+You enter a large ring of boulders. Sheltered by this wall of stones, a small
+cluster of plants have sprung up. In the center of this group of trees and
+bushes is a huge gnarled tree. It appears to have been twisted and torn by
+the forces of nature. It sways and moans as a strong wind from the south tears
+through its old feeble branches. The hills themselves lead in all directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17301 1 100 1
+Dr 0 0 0 17310
+~
+~
+Dr 1 0 0 17315
+~
+~
+Dr 2 0 0 17318
+~
+~
+Dr 3 0 0 17313
+~
+~
+End
+
+#17315
+N Before the dark cave~
+Ref 0
+D
+You stand directly before a huge dark cave. The rocks and boulders outside the
+cave are covered with blood stains and all types of broken and shattered bones
+lie around. An unbearable stench comes from within the cave itself. The dark
+cave entrance looms to the east. The hills themselves lead towards the
+north, south, and west.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17312
+~
+~
+Dr 1 1024 0 17316
+~
+~
+Dr 2 0 0 17319
+~
+~
+Dr 3 0 0 17314
+~
+~
+End
+
+#17316
+N Inside the Horrid Cave~
+Ref 0
+D
+The stench is overwhelming. You can hardly breathe as you enter the cave.
+Looking around, you realize that some bizarre and horrible creature uses this
+cave as a home. Skeletal remains lie all over. Several half-eaten corpses are
+rotting away slowly in the gloomy darkness. In the back of the cave, you see a
+large pile of rotting cloth, fur, and plant matter. Light and safety is
+towards the west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED pile~
+It appears to be some sort of nest......
+~
+R M 17302 1 100 1
+Dr 3 1024 0 17315
+~
+~
+Dr 5 0 0 24404
+~
+~
+End
+
+#17317
+N The hills overlooking the shore~
+Ref 0
+D
+Standing at the edge of the foothills, you are able to look down upon a rocky
+shoreline. It appears as though a vast ocean is to the south. Sea birds have
+made their nests here in the rocks and you are heartened by the presence of
+life here. It is possible to climb down to the shore here. The hills
+themselves are to the north. The edge of the hills leads to the east along the
+shoreline.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17313
+~
+~
+Dr 1 0 0 17318
+~
+~
+Dr 5 0 0 17320
+~
+~
+End
+
+#17318
+N The hills overlooking the shoreline~
+Ref 0
+D
+You stand on a barren section of hills that overlook a rocky shoreline. The
+stiff ocean wind has blown the rocks smooth here and you have to lean forward
+a bit to keep your balance. The salty sea air fills your nostrils and you
+notice signs of life in the rocky crags here. You can climb down towards the
+shore or head north into the hills themselves. The rocky summit you are
+standing leads east and west along the shoreline.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17314
+~
+~
+Dr 1 0 0 17319
+~
+~
+Dr 3 0 0 17317
+~
+~
+Dr 5 0 0 17321
+~
+~
+End
+
+#17319
+N The hills above the shoreline~
+Ref 0
+D
+You stand on a rocky summit overlooking a rough shoreline below. The sea wind
+blows hard across the rocks here and they have been worn smooth with time.
+Looking around, you notice that you can safely climb down towards the shore.
+The hills themselves stretch towards the north. The rough summit you stand
+upon leads west along the shoreline.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17303 4 100 1
+Dr 0 0 0 17315
+~
+~
+Dr 3 0 0 17318
+~
+~
+Dr 5 0 0 17322
+~
+~
+End
+
+#17320
+N The rocky shore~
+Ref 0
+D
+You are at the base of the rocky hills. Stretching to the south and east, you
+see a rocky shore. To the southeast, you see a small altar of some sorts that
+glows with an eerie blue light. It is possible to climb up into the hills here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17321
+~
+~
+Dr 2 0 0 17323
+~
+~
+Dr 4 0 0 17317
+~
+~
+End
+
+#17321
+N The rocky shoreline~
+Ref 0
+D
+You are on a rocky shore that borders a vast sea. A stiff wind blows here and
+whistles among the rocks. You see an altar of some sort built on the shore to
+the south. The shore itself leads east and west. Looking up, you see foothills
+and rocky crags.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17322
+~
+~
+Dr 2 0 0 17324
+~
+~
+Dr 3 0 0 17320
+~
+~
+Dr 4 0 0 17318
+~
+~
+End
+
+#17322
+N The rocky shore~
+Ref 0
+D
+You stand at the base of some rocky hills, where they meet a rocky shore. A
+vast sea is to your south. Looking to the southwest, you see a small altar
+that glows with a eerie blue light. The shore stretches out to the south and
+west. It is possible to climb up into the hills here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 17325
+~
+~
+Dr 3 0 0 17321
+~
+~
+Dr 4 0 0 17319
+~
+~
+End
+
+#17323
+N The edge of the sea~
+Ref 0
+D
+You walk along the water's edge. The vastness of the ocean is staggering as
+you look out across it. You notice a small altar that glows with blue light
+to the east. The shore itself extends north away from the water's edge.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17320
+~
+~
+Dr 1 0 0 17324
+~
+~
+End
+
+#17324
+N The Blood Sea Portal~
+Ref 0
+D
+You stand on a small pedestal like altar that has been built on the shore here.
+Standing here, you can look out across the sea. You can almost imagine that
+you see a far away island. Dominating the altar is a small blue portal of
+light. It is possible to walk south into the portal. The shore itself extends
+to the north, east, and west.
+There are small inscriptions on the rock at the base of the portal.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED portal blue~
+You see a swirling blue portal of light. You think you can see glimpses of
+something moving on the "other side".
+~
+ED small inscriptions inscription~
+"Enter all ye who wish to join the Brotherhood!"
+~
+Dr 0 0 0 17321
+~
+~
+Dr 1 0 0 17325
+~
+~
+Dr 2 0 0 17326
+~
+~
+Dr 3 0 0 17323
+~
+~
+End
+
+#17325
+N The edge of the sea~
+Ref 0
+D
+You walk along the water's edge. The tide appears to have risen. Very little
+debris is washed up on shore. You slip and slide as you tread across the
+slippery rocks that make up the shore. To the west you see a small altar that
+radiates blue light. The shore extends north away from the water's edge.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17322
+~
+~
+Dr 3 0 0 17324
+~
+~
+End
+
+#17326
+N Floating in blue light~
+Ref 0
+D
+You seem to be floating in blue weightlessness. You tumble head over heels and
+finally right yourself. Gaining your bearings, you notice that there are two
+"windows" in the sea of blue here. One to the south shows an image of a snowy
+plain. Another window the the north shows an image of a rocky shore.
+~
+C
+~
+F 12
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17324
+~
+~
+Dr 2 0 -1 17353
+~
+~
+End
+
+#17327
+N The swampy path~
+Ref 0
+D
+This damp path seems to lead into a deep, dark swamp. The trees above block
+out all light and stifle the wind. You smell swamp gas and hear damp squashing
+sounds all around you. The path leads east deeper into the swamp. You also see
+a dark forest to the west.
+~
+C
+~
+F 13
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17328
+~
+~
+Dr 3 0 0 17305
+~
+~
+End
+
+#17328
+N The swampy path~
+Ref 0
+D
+You tread lightly in a wet, swampy path. All around you, you see pools of
+quicksand and rotting vegetation. Unlike the forest to the west, the swamp is
+teeming with life. Some of it is harmless, some is not. The path leads east
+and west into more swamp.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17329
+~
+~
+Dr 3 0 0 17327
+~
+~
+End
+
+#17329
+N The swampy path~
+Ref 0
+D
+You weave your way through the treacherous swamp. Gas rises all around you and
+a damp mist covers the ground, making it impossible to travel safely, without
+carefully picking your way around obstacles. Large, gnarled trees rise above
+you. Their moss covered branches block out all traces of the sun. The path
+here leads east and west.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 17330
+~
+~
+Dr 3 0 0 17328
+~
+~
+End
+
+#17330
+N The turn in the swampy path~
+Ref 0
+D
+You come upon a bend in the swampy path. The ground here is fairly sturdy,
+as this place is elevated above the rest of the swamp. Looking around, you see
+a dark, mist filled swamp. Small paths lead south and west into the mist.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 17304 1 100 1
+Dr 2 0 0 17331
+~
+~
+Dr 3 0 0 17329
+~
+~
+End
+
+#17331
+N The swampy path~
+Ref 0
+D
+You tread lightly through the mirky water and sludge that makes up the path
+you follow. To the east, there is a thick wall of mist. You can see nothing
+within it. Harder ground rises to the north.
+~
+C
+~
+F 9
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17330
+~
+~
+Dr 1 0 0 17335
+~
+~
+End
+
+#17332
+N Lost in the Mist~
+Ref 0
+D
+You wander, hopelessly lost. Swirling mist obscures your vision and clouds
+your mind. You lose all concept of direction. Small, silent giggles can be
+heard all around. You can wander in any direction.
+~
+C
+~
+F 8201
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17305 3 100 1
+Dr 0 0 0 17337
+~
+~
+Dr 1 0 0 17334
+~
+~
+Dr 2 0 0 17335
+~
+~
+Dr 3 0 0 17334
+~
+~
+End
+
+#17333
+N Lost in the Mist~
+Ref 0
+D
+You are in a thick misty area. The mist swirls around you, seeming to taunt
+you and dare you to escape. You feel a slight electric charge in the mist. It
+almost caresses your body as it floats about you. You can wander in any
+direction.......
+~
+C
+~
+F 8201
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 17305 3 100 1
+Dr 0 0 0 17333
+~
+~
+Dr 1 0 0 17336
+~
+~
+Dr 2 0 0 17333
+~
+~
+Dr 3 0 0 17335
+~
+~
+End
+
+#17334
+N Lost in the Mist~
+Ref 0
+D
+You try to peer through the mist......You see nothing. It swirls about you,
+covering you in a damp sheen. There is no sound, all light is eagerly devoured
+by the mist. You feel totally and hopelessly lost.
+~
+C
+~
+F 8201
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17338
+~
+~
+Dr 1 0 0 17332
+~
+~
+Dr 2 0 0 17336
+~
+~
+Dr 3 0 0 17332
+~
+~
+End
+
+#17335
+N Lost in the Mist~
+Ref 0
+D
+You stumble through the marsh here. The swamp seems to have swallowed you up
+and denied you exit. This mist is your jailor. You cannot tell where you are.
+You hear quiet laughter all about you.
+~
+C
+~
+F 8201
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17332
+~
+~
+Dr 1 0 0 17333
+~
+~
+Dr 2 0 0 17337
+~
+~
+Dr 3 0 0 17331
+~
+~
+End
+
+#17336
+N Lost in the Mist~
+Ref 0
+D
+You wander, lost, for what seems an eternity. Then....From nowhere....You see
+what appears to be trees and hills to the east. The mist itself thickens to
+the west, while it grows thin to the east.
+~
+C
+~
+F 8201
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17306 1 100 1
+Dr 0 0 0 17334
+~
+~
+Dr 1 0 0 17339
+~
+~
+Dr 2 0 0 17338
+~
+~
+Dr 3 0 0 17333
+~
+~
+End
+
+#17337
+N Lost in the Mist~
+Ref 0
+D
+You wander through the thick mist. It swirls all about you and makes it hard
+to breathe. The ground below you makes a soft squishing sound as you trudge
+on, but this noise is absorbed by the mist and does not travel. You can wander
+in any direction.
+~
+C
+~
+F 8201
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17305 3 100 1
+Dr 0 0 0 17335
+~
+~
+Dr 1 0 0 17338
+~
+~
+Dr 2 0 0 17332
+~
+~
+Dr 3 0 0 17338
+~
+~
+End
+
+#17338
+N Lost in the Mist~
+Ref 0
+D
+You wander, lost hopelessly. The mist swirls all about you. You can discern no
+direction. You stumble blindly through the mist, oblivious to your
+surroundings.
+~
+C
+~
+F 8201
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17336
+~
+~
+Dr 1 0 0 17337
+~
+~
+Dr 2 0 0 17334
+~
+~
+Dr 3 0 0 17337
+~
+~
+End
+
+#17339
+N The solid path~
+Ref 0
+D
+A solid path rises out of the misty swamp. It leads north, into what appears
+to be a forested area. The trees, above, allow light and air to penetrate and
+you can see the sky above. A thick bank of mist is to your west.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17340
+~
+~
+Dr 3 0 0 17336
+~
+~
+End
+
+#17340
+N A forested path~
+Ref 0
+D
+The path here leads north through a thick forest. High bushes and forest
+undergrowth line both sides of the trail. Looking north, you see a thin line
+of smoke rising up above the tree line. You also notice a crude wooden gate
+farther north on the trail. The trail itself leads south into murky territory.
+~
+C
+~
+F 4
+S 3
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17341
+~
+~
+Dr 2 0 0 17339
+~
+~
+End
+
+#17341
+N Dakonenne Village Gate~
+Ref 0
+D
+You stand before a huge pair of crude, wooden gates. They are thrown open.
+Looking inside the gates, you see a crude village. Large humanoid creatures
+are milling to and fro.......Ogres! You can head north through the gate or
+south into the forest.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 17309 4 100 1
+Dr 0 0 0 17343
+~
+~
+Dr 2 0 0 17340
+~
+~
+End
+
+#17342
+N Among the crude huts~
+Ref 0
+D
+You walk among the huts of the dakonenne village. The village appears to be cut
+from the heart of the forest itself. The swamp, nearby, provides the ogres
+with a prime hunting ground. Small paths lead north and east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17308 4 100 1
+Dr 0 0 0 17345
+~
+~
+Dr 1 0 0 17343
+~
+~
+End
+
+#17343
+N Inside the gates~
+Ref 0
+D
+You stand just north of the gates to the village. Looking around, you see many
+crude huts and cooking fires. To the north, you see a huge fire pit. Behind 
+it, there appears to be a hut of sorts. Small paths lead east and west among 
+the crude huts. The gates to the south provide an exit from the village.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17307 5 100 1
+Dr 0 0 0 17346
+~
+~
+Dr 1 0 0 17344
+~
+~
+Dr 2 0 0 17341
+~
+~
+Dr 3 0 0 17342
+~
+~
+End
+
+#17344
+N Among the crude huts~
+Ref 0
+D
+You walk through the crude village. Small huts made of wood and thatch
+surround you. Every so often, you can hear grunts and snarls inside the huts.
+The smell here is unbearable. You wonder what type of creature could possibly
+live in such squalor. Small paths lead west and north here.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17307 5 100 1
+Dr 0 0 0 17347
+~
+~
+Dr 3 0 0 17343
+~
+~
+End
+
+#17345
+N The gathering place~
+Ref 0
+D
+This appears to be the clearing the ogres use to assemble. It is quite large
+and has a raised mound in the center that contains a crude throne. The ground
+in front of the throne is quite worn, as if it is sat on quite often. You get
+the impression that this place is a crude sort of auditorium. Small paths lead
+east and south.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17307 5 100 1
+Dr 1 0 0 17346
+~
+~
+Dr 2 0 0 17342
+~
+~
+End
+
+#17346
+N The firepit before the lodge~
+Ref 0
+D
+You stand at the edge of a huge firepit. The heat from the burning embers
+makes you sweat as you stand here. Large spits above the pit are empty but
+they appear to be quite large enough to hold hapless adventurers. A large
+lodge is towards the north, while paths lead east, west, and south into the
+village itself.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17307 5 100 1
+Dr 0 0 -1 17348
+~
+door~
+Dr 1 0 0 17347
+~
+~
+Dr 2 0 0 17343
+~
+~
+Dr 3 0 0 17345
+~
+~
+End
+
+#17347
+N The village dump~
+Ref 0
+D
+The smell here overpowers you. All around you are the rotting remains of the
+village's refuse. Partially eaten corpses, rotting food, and other truly
+disgusting things have been discarded here. Paths lead south and west towards
+fresher air.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17308 4 100 1
+Dr 2 0 0 17344
+~
+~
+Dr 3 0 0 17346
+~
+~
+End
+
+#17348
+N The entryway to the lodge~
+Ref 0
+D
+You are at the entry hall to a large lodge. Animal pelts and other trophies
+line the walls here. Large chests on either side of the door appear to be
+locked. The lodge stretches north, while the doors to the south provide an
+exit into the village.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17307 5 100 1
+Dr 0 0 -1 17349
+~
+~
+Dr 2 0 -1 17346
+~
+door~
+End
+
+#17349
+N The throne room~
+Ref 0
+D
+You stand in a large, crudely decorated throne room. A huge throne adorned
+with humanoid skulls sits against the west wall. A crude, blood stained altar
+is against the east wall. A doorway is directly to the north, long strands of
+beads blocking the view of the other side. Crude torches light the hall and 
+smoke clings to the ceiling.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17310 1 100 1
+Dr 0 0 0 17350
+~
+~
+Dr 2 0 0 17348
+~
+~
+End
+
+#17350
+N The chieftain's room~
+Ref 0
+D
+This appears to be the dakonenne chieftain's private quarters. A huge pile of furs
+is in the far corner. Large chests fill the room. All of them have heavy pad
+locks. The room is filled with trophies of dead enemies. It is quite lavishly
+decorated for such a crude inhabitant as an ogre. A beaded doorway is to the
+south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17311 1 100 1
+Dr 2 0 0 17349
+~
+~
+End
+
+#17351
+N The frigid wastelands~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bone. Swirling snow and wind make impossible for you to
+discern any directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17312 3 100 1
+Dr 0 0 0 17353
+~
+~
+Dr 1 0 0 17352
+~
+~
+Dr 2 0 0 17355
+~
+~
+Dr 3 0 0 17354
+~
+~
+End
+
+#17352
+N Arctic Tundra~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bine. Swirling snow and wind make it impossible to
+discern any directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17314 3 100 1
+Dr 0 0 -1 17357
+~
+~
+Dr 1 0 -1 17354
+~
+~
+Dr 2 0 -1 17358
+~
+~
+Dr 3 0 0 17351
+~
+~
+End
+
+#17353
+N The Glacier Temple~
+Ref 0
+D
+You are in a small temple. It appears to be built entirely from ice. The ice
+walls are frosted and are opaque. There is a small blue portal here. You can
+go north, to enter the portal. Looking south, you see a world of white outside
+the open doorway. Swirling snow and bright light obscure your view.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17326
+~
+~
+Dr 2 0 0 17351
+~
+~
+End
+
+#17354
+N Frigid Wasteland~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bone. Swirling snow and wind make it impossible for you
+to discern any directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17312 3 100 1
+Dr 0 0 0 17359
+~
+~
+Dr 1 0 0 17351
+~
+~
+Dr 2 0 0 17356
+~
+~
+Dr 3 0 0 17352
+~
+~
+End
+
+#17355
+N The frigid wastelands~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bone. Swirling snow and wind make it impossible for you
+to discern any directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17313 3 100 1
+Dr 0 0 0 17351
+~
+~
+Dr 1 0 0 17356
+~
+~
+Dr 2 0 0 17357
+~
+~
+Dr 3 0 0 17356
+~
+~
+End
+
+#17356
+N Frigid Wastelands~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bone. Swirling snow and wind make it impossible for you
+to discern any directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17314 3 100 1
+Dr 0 0 0 17354
+~
+~
+Dr 1 0 0 17355
+~
+~
+Dr 2 0 0 17359
+~
+~
+Dr 3 0 0 17355
+~
+~
+End
+
+#17357
+N Tundra~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bone. Swirling snow and wind make it impossible for you
+to discern any directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17313 3 100 1
+Dr 0 0 0 17355
+~
+~
+Dr 1 0 0 17358
+~
+~
+Dr 2 0 0 17352
+~
+~
+Dr 3 0 0 17359
+~
+~
+End
+
+#17358
+N Frigid Tundra~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bone. Swirling snow and wind make it impossible for you
+to discern any direction.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17352
+~
+~
+Dr 1 0 0 17359
+~
+~
+Dr 2 0 0 17360
+~
+~
+Dr 3 0 0 17357
+~
+~
+End
+
+#17359
+N Frigid Wasteland~
+Ref 0
+D
+You wander through the frigid wastelands. Your breath is a cloud before you.
+The cold cuts to the bone. Swirling snow and wind make it impossible for you
+to discern any directions.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 17312 3 100 1
+Dr 0 0 0 17356
+~
+~
+Dr 1 0 0 17357
+~
+~
+Dr 2 0 0 17354
+~
+~
+Dr 3 0 0 17358
+~
+~
+End
+
+#17360
+N Edge of the Tundra~
+Ref 0
+D
+You stand at the base of a steep rocky cliff. To the north, a vast arctic
+wasteland stretches out. The snow falls lightly here and the wind is not
+very fierce. You can climb up the rocky cliff or head north into the arctic
+wastes.
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17358
+~
+~
+End
+
+#17361
+N Cliff~
+Ref 0
+D
+You cling to the side of the cliff. Looking down, you are terrified by the
+sheer distance to the ground below. You can climb up higher into the cliffs,
+but the area above is obscured by smoke and you cannot tell what lies waiting
+above.
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 22883
+~
+~
+Dr 4 0 0 17362
+~
+~
+End
+
+#17362
+N Before the Gates~
+Ref 0
+D
+You stand at the edge of a high cliff.  Directly south, set back off the
+cliff's edge, you see a huge pair of gates.  These gates appear to be carved
+almost completely out of obsidian.  A huge city and keep appear to be on the
+other side of these gates.  There is also a possibility of climbing down the
+cliff face.  
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+ED gate gates ice huge~
+The gates to the city are made almost completely of ice. Looking closely, you
+can see intricate carvings in the gates. They appear to be of creatures that
+are half man and half bull.
+~
+R M 17316 3 100 1
+Dr 2 5 -1 17364
+~
+obsidian gate~
+Dr 5 0 0 17361
+~
+~
+End
+
+#17363
+N Streets of Tallez~
+Ref 0
+D
+You walk among the ice and snow covered shops and homes. Most of the doors are
+closed and only the light from the windows betrays the presence of inhabitants.
+A cold wind blows through here, scattering fine clouds of snow all about. Small
+streets lead south and east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17315 5 100 1
+Dr 1 0 0 17364
+~
+~
+Dr 2 0 0 17366
+~
+~
+End
+
+#17364
+N Inside Tallez~
+Ref 0
+D
+You stand just inside the gates to the citadel of Tallez.  The city
+itself spreads out in front of you.  The buildings are sturdy, as they
+appear to be made from the very rock of this mountain.  Ash falls all around
+and a fine misty steam can be seen filtering through the air.  Small city
+streets lead east and west, while a main road appears to lead south.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17315 5 100 1
+Dr 0 5 -1 17362
+~
+obsidian gate~
+Dr 1 0 -1 17365
+~
+~
+Dr 2 0 0 17367
+~
+~
+Dr 3 0 -1 17363
+~
+~
+End
+
+#17365
+N Streets of Tallez~
+Ref 0
+D
+You trudge among the ash-covered streets of Tallez.  The streets
+themselves are made of cobblestone and are quite treacherous.  Small homes
+and businesses along the street are closed tight and light from unknown
+sources throws eerie shadows across the dark street.  Small streets lead
+west and south here.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17315 5 100 1
+Dr 2 0 0 17368
+~
+~
+Dr 3 0 0 17364
+~
+~
+End
+
+#17366
+N Streets of Tallez~
+Ref 0
+D
+You trudge through the ash covered streets. The street itself is made of
+cobblestones and the footing is quite treacherous. To the south, you see what
+appears to be a small tavern. No lights shine through the windows. Small
+streets also lead north and east.
+A small sign hangs outside the tavern.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign small~
+[]=============[]
+ |   The Inn   |
+ |    of the   |
+ |    Broken   |
+ |     Horn    |
+[]=============[]
+~
+R M 17316 3 100 1
+Dr 0 0 0 17363
+~
+~
+Dr 1 0 -1 17367
+~
+~
+Dr 2 0 -1 17369
+~
+~
+End
+
+#17367
+N Square of the Uniter~
+Ref 0
+D
+This appears to be the main square of Tallez. A huge fountain graces the
+center of the square, but the extreme cold has turned it into an ice
+sculpture. The water has frozen in arcs through the air. Snow and ice covers
+the square and small streets lead east and west. To the north, you see
+the gates to the city. You also notice a small store to the south.
+A small sign hangs outside the store.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+ED sign~
+[]=========[]
+ |  Equip  |
+ |   Shop  |
+[]=========[]
+~
+R M 17315 5 100 1
+Dr 0 0 0 17364
+~
+~
+Dr 1 0 0 17368
+~
+~
+Dr 2 0 0 17370
+~
+~
+Dr 3 0 0 17366
+~
+~
+End
+
+#17368
+N Streets of Tallez~
+Ref 0
+D
+You walk among the small stores and homes of Tallez.  The cobblestone
+streets are covered with ash and steam.  Ash drifts have formed at the edges
+of the streets.  Steam rises from the rock.  Small streets lead in all
+directions.  There appears to be a large building to the east, but the steam
+obscures your view.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17316 3 100 1
+Dr 0 0 0 17365
+~
+~
+Dr 1 0 0 17375
+~
+~
+Dr 2 0 0 17371
+~
+~
+Dr 3 0 0 17367
+~
+~
+End
+
+#17369
+N The Inn of the Broken Horn~
+Ref 0
+D
+You enter an old tavern.  The room was lit mainly by two huge fireplaces
+at each end of the room.  Small tables and a large bar furnish the room. 
+The inhabitants of the inn are all lost to the depths of history.  A large
+door leads north, out of the bar and back out into the streets.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17366
+~
+~
+End
+
+#17370
+N Old Forge~
+Ref 0
+D
+You are in a crude equipment shop.  The store was once filled with racks
+of various items that adventurers could use.  Large fireplaces light and
+heat the room.  A large desk occupies the back of the room.  The door to the
+shop lies to the north.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17315 5 100 1
+Dr 0 0 0 17367
+~
+~
+End
+
+#17371
+N Old Store~
+Ref 0
+D
+You enter a small store that is dark and cold.  Old empty shelves line
+the walls and snow blows across the dirty stone floor.  It is evident that
+this store was once used, but it is no more.  A small doorway leads north
+out into the ash and wind.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17368
+~
+~
+End
+
+#17372
+N Gorak's Training Room~
+Ref 0
+D
+This room is full of all sorts of weapons and armours. Pieces of old targets
+and practice dummies lie all around. The walls are chipped and scored from
+weapon blows. This is obviously the room of an avid warrior. A red door leads
+east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED red~
+It looks like it leads back to the hall.
+~
+R M 17325 1 100 1
+Dr 1 0 2351 17388
+~
+red~
+End
+
+#17373
+N Darkoth's Dark Study~
+Ref 0
+D
+This room is dark. It reeks of death and evil. Arcane symbols and a small
+altar fill the room. Blood runs from the altar. It is evident that this room
+is used for unholy purposes. A black door leads west.
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+ED black~
+It looks like it leads back to the hall.
+~
+R M 17326 1 100 1
+Dr 1 0 2352 17389
+~
+black~
+End
+
+#17374
+N Tyrgoth's Inner Sanctum~
+Ref 0
+D
+Idols to the gods of good fill the room. White furniture and decorations give
+the room a holy appearance. It is evident that some being of supreme goodness
+lives here. A white door leads east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED white~
+It looks like it leads out to the hall.
+~
+R M 17327 1 100 1
+Dr 1 0 2353 17392
+~
+white~
+End
+
+#17375
+N Road to the Palace~
+Ref 0
+D
+You walk up a steep rocky road.  It leads up a steep grade to the east. 
+At the end of this steep road, you see a huge keep.  Smoke swirls all about
+you and you feel your lungs choke from the fumes.  Blurry lights to the east
+and west are all you can see from here.  
+~
+C
+~
+F 4
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17377
+~
+~
+Dr 3 0 0 17368
+~
+~
+End
+
+#17376
+N Small Guard House~
+Ref 0
+D
+You enter a small guard house.  A huge fireplace once warmed the room. 
+Looking around, you see that the room is no longer furnished.  Thick rugs
+and curtains help insulate the room and the beds themselves look quite warm.
+A small door leads south.   
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17317 3 100 1
+Dr 2 0 0 17377
+~
+~
+End
+
+#17377
+N Before the Palace~
+Ref 0
+D
+You stand before a huge keep that has been carved into the side of the
+volcano.  Huge wooden gates before you provide entrance to the keep.  It
+appears as though this place has been abandoned for an eternity.  You see
+the spires of the city to the west.  You also notice small guard houses to
+the north and south.  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 17318 1 100 1
+Dr 0 0 0 17376
+~
+~
+Dr 1 0 2350 17379
+~
+gate~
+Dr 2 0 0 17378
+~
+~
+Dr 3 0 0 17375
+~
+~
+End
+
+#17378
+N Small Guard House~
+Ref 0
+D
+The dilapidated structure was once raided by looters.  The room is
+smashed and the walls are cracked from impact scarring.  A small door leads
+north back to the palace.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17317 3 100 1
+Dr 0 0 0 17377
+~
+~
+End
+
+#17379
+N Courtyard~
+Ref 0
+D
+You are at the entry hall to the huge keep. The high vaulted ceiling is carved
+from solid stone. Huge stone pillars rise up from the floor to meet the
+ceiling far above. The architecture appears to be dwarven. A huge pair of
+gates stand to the west, protecting the keep from the harsh cold outside. A
+large hall leads east, deeper into the keep.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17319 2 100 1
+Dr 1 0 0 17380
+~
+~
+Dr 3 0 2350 17377
+~
+gate~
+End
+
+#17380
+N Foyer~
+Ref 0
+D
+You are in a huge hall. Large tapestries line the walls and huge statues of
+various make and appearance are spread about. The ceiling above supports huge
+candelabras, which once lit the room. To the east, you see a wide archway and
+hear sounds of movement. Looking west, you see the entry gates to the keep.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17319 2 100 1
+Dr 1 0 0 17381
+~
+grand arch~
+Dr 3 0 0 17379
+~
+~
+End
+
+#17381
+N Grand Hall~
+Ref 0
+D
+You are in the main hall of the Citadel of Tallez. This hall is huge. The wide
+floor of the hall is an expanse of marble. It shimmers in the light thrown
+off by the torches that line the walls. To the east, you see what appears to
+be a huge golden throne. The hall itself stretches south and a smaller hall
+leads to the west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 17383
+~
+~
+Dr 2 0 0 17382
+~
+~
+Dr 3 0 0 17380
+~
+grand arch~
+End
+
+#17382
+N The Great Hall~
+Ref 0
+D
+You stand in the great hall of the keep. Huge pillars rise up to the vaulted
+ceiling and torch light glimmers off the marble floor here. You are amazed at
+the sheer size of the hall. The hall itself leads north and east. You notice a
+smaller hall leading south, deeper into the keep.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17320 2 100 1
+Dr 0 0 -1 17381
+~
+~
+Dr 1 0 0 17384
+~
+~
+Dr 2 0 -1 17387
+~
+~
+End
+
+#17383
+N The Throne of Vlattensintri~
+Ref 0
+D
+You stand before the ^Bthrone^N of Vlattensintri.  This golden throne is
+so huge that it takes up almost the entire wall, stretching far above the
+floor.  Sitting upon it, you feel small and feeble.  It is evident that this
+throne is more of a decoration than anything else.  Only the largest of
+kings could sit upon it.  The hall leads south and west into other parts of
+the keep.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED throne huge gold golden~
+The huge tarnished gold throne has been here for centuries.  Handprints
+on the throne reveal a passage behind the throne to the east.
+~
+R M 17320 2 100 1
+Dr 1 1024 0 17385
+~
+throne huge golden gold~
+Dr 2 0 0 17384
+~
+~
+Dr 3 0 0 17381
+~
+~
+End
+
+#17384
+N The Great Hall~
+Ref 0
+D
+You are in a great hall. Huge torches light the room and their light shimmers
+off the marble floor below you. To the north, you see a huge golden throne.
+Looking up, you grow dizzy at the height to which the vaulted ceiling rises.
+The hall itself leads north and west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 17383
+~
+~
+Dr 3 0 0 17382
+~
+~
+End
+
+#17385
+N Secret Passage~
+Ref 0
+D
+You are in a small, torch lit hall. It leads from east to west. A large gold
+door is to the west. To the east, you see a heavy stone door.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED huge stone~
+A very formidable looking door.
+~
+ED gold~
+Looks like the back of a secret door of sorts.
+~
+R M 17321 2 100 1
+Dr 1 0 2359 17386
+~
+door huge stone~
+Dr 3 1024 0 17383
+~
+gold throne huge secret~
+End
+
+#17386
+N Entry to the Royal Chambers~
+Ref 0
+D
+You are at the entrance to the royal chambers of the keep.  An inch of
+dust covers the stone floor.  Large candelabras hang from the ceiling, once
+having provided light to the room.  A huge broken statue is strewn around. 
+Arched doorways lead south and east.  A huge stone door stands in the west
+wall.  
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED door huge stone~
+A huge stone door.......
+~
+Dr 1 0 0 17395
+~
+~
+Dr 2 0 0 17393
+~
+~
+Dr 3 0 2359 17385
+~
+door huge stone~
+End
+
+#17387
+N The Guard Post~
+Ref 0
+D
+The hall here has been built into a guard post of sorts. It appears as though
+it would be quite easy to defend in times of emergency. Obviously, something
+important lies beyond. A small hall leads south, while the main hall can be
+seen to the north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17324 1 100 1
+Dr 0 0 0 17382
+~
+~
+Dr 2 0 0 17388
+~
+~
+End
+
+#17388
+N Barracks~
+Ref 0
+D
+You walk down a torch lit hallway. It has been carved out of pure stone. It is
+very quiet in this hall. You notice rows of colored doors on each wall. To
+your east, you see a yellow door. To your west, you see a red door. The hall
+itself leads south and north.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED yellow~
+You see a yellow door. It has the name "Sumaron" written on it.
+~
+ED red~
+You see a red door. It has the name "Gorak" written on it.
+~
+Dr 0 0 0 17387
+~
+~
+Dr 1 0 2355 17390
+~
+yellow~
+Dr 2 0 0 17389
+~
+~
+Dr 3 0 2351 17372
+~
+red~
+End
+
+#17389
+N Barracks~
+Ref 0
+D
+You walk down a small, quiet, torch lit hallway. Doors of different colors are
+in each wall. To your east, you see a maroon door. To your west, you see a
+black door. The hall itself leads north and south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED maroon~
+You see a maroon door here. It has the name "Amyrok" written on it.
+~
+ED black~
+You see a black door. It has the name "Darkoth" inscribed on it.
+~
+Dr 0 0 0 17388
+~
+~
+Dr 1 0 2356 17391
+~
+maroon~
+Dr 2 0 0 17392
+~
+~
+Dr 3 0 2352 17373
+~
+black~
+End
+
+#17390
+N Sumaron's Sanctum~
+Ref 0
+D
+You enter a temple of sorts. A small altar is here and relics of many
+religions lie around. It is evident that this is the room of a studying cleric.
+A yellow door leads west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED yellow~
+It looks like it leads back to the hall.
+~
+R M 17329 1 100 1
+Dr 3 0 2355 17388
+~
+yellow~
+End
+
+#17391
+N Amyrok's Arcane Study~
+Ref 0
+D
+This room is full of shelves which hold various spell components. The center
+of the room is occupied by a huge pentagram. The entire room smells of smoke
+and incense. The room is obviously used extensively by a practicing mage. A
+maroon door leads west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED maroon~
+It looks like it leads back to the hall.
+~
+R M 17328 1 100 1
+Dr 3 0 2356 17389
+~
+maroon~
+End
+
+#17392
+N Barracks~
+Ref 0
+D
+You walk down a quiet hall. The stone walls here are wet with moisture.
+Colored doors can be seen in the walls here. To your east, you see a green
+door. To your west, you see a white door. The hall itself leads north and
+south.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED green~
+You see a green door here. It has the name "Nasturn" written on it.
+~
+ED white~
+You see a white door here. It has the name "Tyrgoth" inscribed on it.
+~
+Dr 0 0 0 17389
+~
+~
+Dr 1 0 2357 17394
+~
+green~
+Dr 2 0 0 17397
+~
+~
+Dr 3 0 2353 17374
+~
+white~
+End
+
+#17393
+N The Harem Room~
+Ref 0
+D
+This appears to be the harem room of the Keep. Huge piles of furs and beds
+fill the room. The lighting is dim, but the room is very warm. You can hear
+music playing quietly from somewhere. Beaded doorways lead north and east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17322 5 100 1
+Dr 0 0 0 17386
+~
+~
+Dr 1 0 0 17396
+~
+~
+End
+
+#17394
+N Nasturn's Humble Abode~
+Ref 0
+D
+This room is filled with all types of natural items. Trees and plants have
+been lovingly cultivated and grown by hand, in large pots. The room is like an
+indoor garden. A green door leads west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED green~
+It looks like it leads back to the hall.
+~
+R M 17330 1 100 1
+Dr 3 0 2357 17392
+~
+green~
+End
+
+#17395
+N Gilded Room~
+Ref 0
+D
+This room is decorated with sturdy stone furniture that is carved and gilded.
+Large candles light the room. A thick rug covers the floor. Thick furs and
+tapestries decorate the walls. Beaded doorways lead south and west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17323 1 100 1
+Dr 2 0 0 17396
+~
+~
+Dr 3 0 0 17386
+~
+~
+End
+
+#17396
+N Treasure of Tallez~
+Ref 0
+D
+This appears to be the master bedroom. A huge bed fills the rooms. Piles of
+furs and other rich furnishings adorn the room. Candles are everywhere and
+they help a huge fireplace light the room. The lavishness of the room
+overwhelms you. Beaded doorways lead north and west.
+~
+C
+~
+F 136
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 17333 1 100 1
+Dr 0 0 0 17395
+~
+~
+Dr 3 0 0 17393
+~
+~
+End
+
+#17397
+N Barracks~
+Ref 0
+D
+You are at the end of the hall. Colored doors line the walls to the north. To
+your west, you see a brown door. To you east, you see a grey door. The hall
+itself leads north back along the rows of doors.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED grey~
+You see a grey door here. It has the name "Dorgar" written on it.
+~
+ED brown~
+You see a brown door here. It has the name "Belrak" written on it.
+~
+Dr 0 0 0 17392
+~
+~
+Dr 1 0 2358 17398
+~
+grey~
+Dr 3 0 2354 17399
+~
+brown~
+End
+
+#17398
+N Dorgar's Dismal Domicile~
+Ref 0
+D
+This room is dirty and unkempt. Odds and ends of different items lie all over.
+It is apparent that some type of pack-rat lives here. It appears as though
+nothing has ever entered this room and ever left again. A grey door leads west.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED grey~
+It looks like it leads back to the hall.
+~
+R M 17332 1 100 1
+Dr 3 0 2358 17397
+~
+grey~
+End
+
+#17399
+N Belrak's Green Room~
+Ref 0
+D
+This room is full of green. The furniture and all other items show the color
+of nature. The room smells of pine and forest odors. From the items here, it
+appears as though a woodsman of some sorts lives here. A brown door leads east.
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+ED brown~
+It looks like it leads to the hall.
+~
+R M 17331 1 100 1
+Dr 1 0 2354 17397
+~
+brown~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,148 @@
+#ZONE 
+N Jiri's yet-untitled~
+B Jiri~
+V 5100 5199
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#5100
+N Receptionist~
+SD a friendly receptionist~
+LD
+ A friendly receptionist bows upon your entrance and welcomes you aboard Queen Elizabeth.
+~
+D
+ The receptionist wears a dark blue uniform and a big smile to greet
+everyone who boards the Queen Elizabeth.  The name tag on his uniforms says
+"Joe Bloggs".  
+~
+A 1
+AB 0
+M 0
+S 0
+Sz 24
+K 0 E 1
+AP 13 13 13 13 13
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#5100
+N A Luxury Cruise Liner~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+R M 5100 1 100 1
+End
+
+#5101
+N The Casino~
+Ref 0
+D
+Music is being played in the casino room where all the typical games can
+be found.  You see several roulette tables in the east, the slot machines to
+the west.  To the north there is a separate room for poker.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+End
+
+#5102
+N The Waikiki Bar~
+Ref 0
+D
+This Hawaiian-themed bar is adaptly, if not overly, decorated with fake
+palm trees and coconuts.  Drinks are being served by women in grass skirts
+and with hoops of flowers around their necks.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+End
+
+#5103
+N The Engine Room~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+End
+
+#5104
+N A Library~
+Ref 0
+D
+Perhaps the only public room on this ship that is quiet, this library
+offers a relatively large collection of books, with fictioms to the north
+and non-fictions to the west.  Stairs lead to an upper floor where visitors
+can lounge around and read quietly.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+End
+
+#5105
+N ~
+Ref 0
+D
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+End
+
+#0
+
+
+
+#$

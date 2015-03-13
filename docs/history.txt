@@ -1,0 +1,108 @@
+Version history, anecdotes and release dates:
+
+Latest
+------
+
+Unreleased
+NiM6
+?k
+
+Bug fixes.  Rock solid version; powerful scripting language
+and spell system complete.  Added social editing, race, skill
+editor and spell editor.  Build port enabled by default.
+
+
+ftp.game.org hosted packages
+----------------------------
+
+The following versions are hosted on ftp.game.org, by Derek 
+"Thoric" Snyder. He and I have our disagreements about certain
+aspects of MUD history and the origination of certain features,
+but I will tell you this: ftp.game.org has been an outstanding
+service and has been around a very long time.
+
+1/23/2004  
+NiM5.prerelease.src.tar.gz 
+327k
+
+A prerelease package of NiM5 around the time I had released a
+package called NiMUD 5.1a; contains some of the features inherent
+to the 5 series of releases.  These releases were attempts to
+incorperate various external contributions to the software, which
+I feel failed.  Some of the contributions made were less than
+satisfactory and contained downright erroneous documentation.
+
+08/11/1994
+TheIsles1.1.tar.gz
+
+Second release (after 1.0), still a Merc/Diku derived mud
+
+10/15/1994
+TheIsles15.code.tar.gz
+199k
+
+The third publically released version of 'The Isles' the original
+server I worked on as a first-time mud administrator.  My favorite
+code because of its reliability, a generally good mud server with
+basic, fun features simple enough for any user.  With minor
+text file modifications, TheIsles can import Diku areas.  There
+are some key features of the game which retained old Merc glory.
+I was 15, Surreal was turning 18.  We had been mudding for two
+years.
+
+Of note, this was the first publically released MUD source code
+that provided ANSI color.  We're sorry to say, we regretted its
+overuse in certain MUDs.  This came from our experience with Telegard
+and Renegade BBS software.
+
+I believe it was this version which was originally ported
+to Envy by Jason Dinkel and has now become ILAB/OLC.
+
+
+10/15/1994 
+TheIsles16.code.tar.gz
+215k
+
+With the release of 1.5, 1.6 diverged slightly from its original
+release and contained some major fixes, and some new beasts.
+
+I considered this a tweak of 1.5, and with more bugs it went over
+poorly.  It was at this time that I began what became a six year
+effort to overhaul this mudding's first 'Merc-derived' OLC-enabled
+mud, and is the source of our Wikipedia entry which an anonymous
+web author created.
+
+8/23/1997 
+TheIslesW32.zip
+863k
+
+A port to Win32 that ran locally only.  Ported by Lordrom
+(oyehia@dsuper.net) and released in 1997.
+
+4/15/1999 
+nimud2000.tar.gz
+462k
+
+The year-2000 compliant release of NiMUD.  Also referred to as
+the "Gold" release.  Fairly robust, but a primitive scripting
+language with no magic system.
+
+1/9/2000 
+nimud4.tar.gz
+859k
+
+Another release made in 2000, with a significant number of
+feature changes to warrant the release.  This is the version sent
+to the Library of Congress and was granted US Copyrights.
+
+1/9/2000 
+nimud4.zip
+897k
+
+ZIP archive for cygwin users of nimud4.
+
+2/18/2003
+Nimud.4.5.tar.gz
+977k
+
+Major fixes and area additions, documentation updates and bug fixes.

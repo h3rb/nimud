@@ -1,0 +1,1327 @@
+#ZONE 
+N Graveyard~
+B None~
+V 18600 18651
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#18600
+N henry gardener~
+SD Henry the Gardener~
+LD
+ Henry the Gardener is sitting here, looking drunk.
+~
+D
+ He is a tall but bulky man in his late fifties.  His features are worn with
+decades of hard work and his somewhat crouched expression is one of deep
+sorrow and depression.  He is haunted by a memory of a lost paradise.
+~
+A 81
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 350 E 632
+O ~
+AP 25 25 25 25 35
+At 0 10 19 2
+At 1 5 19 5
+At 2 1 24 7
+End
+
+#18601
+N zombie~
+SD the rotting zombie~
+LD
+ A rotting zombie is staggering towards you with outstretched hands.
+~
+D
+ Maggots crawl all over its decaying body.
+~
+A 35
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 100
+O ~
+AP 11 11 11 11 11
+End
+
+#18602
+N ghoul~
+SD the ghastly ghoul~
+LD
+ A ghastly ghoul is here.
+~
+D
+ It is a walking corpse with long fangs and long, sharp nails that most of
+resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
+~
+A 35
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 75
+O ~
+AP 13 13 13 13 13
+End
+
+#18603
+N skeleton~
+SD a dusty skeleton~
+LD
+ A dusty skeleton lies here.
+~
+D
+ The dusty bones are almost brown.  It must have been buried for a very long
+time.
+~
+A 35
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 35
+O ~
+AP 6 6 6 6 6
+End
+
+#18604
+N skeleton~
+SD a dusty skeleton~
+LD
+ A dusty skeleton lies here.
+~
+D
+ The dusty bones are almost brown.  It must have been buried for a very long
+time.
+~
+A 33
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 200
+O ~
+AP 15 15 15 15 15
+End
+
+#18605
+N zombie~
+SD the rotting zombie~
+LD
+ A rotting zombie is staggering towards you with outstretched hands.
+~
+D
+ Maggots crawl all over its decaying body.
+~
+A 161
+AB 512
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -750 E 70
+O ~
+AP 8 8 8 8 8
+End
+
+#0
+
+
+
+#OBJDATA
+#18600
+N candlestick~
+SD a candlestick~
+P ~
+D
+A pewter candlestick is standing here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 5
+C 150
+O ~
+V 0 0 24 0
+ED candlestick~
+It is a rather old-looking three-armed candlestick made from pewter.  Its
+candles are a yellowish white colour.
+~
+End
+
+#18601
+N brandy bottle~
+SD a brandy bottle~
+P ~
+D
+A brandy bottle is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 50
+O ~
+V 10 10 5 0
+ED brandy bottle~
+The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+like a small dragon's head.  Bottles like these are often worth a small
+amount money, even when empty.
+~
+End
+
+#18602
+N brandy bottle~
+SD a brandy bottle~
+P ~
+D
+A brandy bottle is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 17
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 50
+O ~
+V 10 0 5 0
+ED brandy bottle~
+The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+like a small dragon's head.  Bottles like these are often worth some money,
+even when empty.
+~
+End
+
+#18603
+N wheelbarrow~
+SD a wheelbarrow~
+P ~
+D
+A green-painted wheelbarrow is standing here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 22
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 100
+C 100
+O ~
+V 0 0 0 0
+ED wheelbarrow~
+It is a heavy wheelbarrow made from solid oaken planks that have been painted
+a dark, green colour.
+~
+End
+
+#18604
+N shovel~
+SD a shovel~
+P ~
+D
+A shovel is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 30
+O ~
+V 0 1 5 7
+ED shovel~
+It is a large metal shovel with a solid wooden handle.
+~
+End
+
+#18605
+N rake~
+SD a rake~
+P ~
+D
+A rake is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 8
+C 30
+O ~
+V 0 1 4 5
+ED rake~
+It is a large metal rake with a solid wooden handle.
+~
+End
+
+#18610
+N skeleton~
+SD a dusty skeleton~
+P ~
+D
+A dusty skeleton lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 15
+C 0
+O ~
+V 0 0 0 0
+ED skeleton~
+The dusty bones are almost brown.  It must have been buried for a very long
+time.
+A dusty skeleton is in an excellent condition.
+~
+End
+
+#18611
+N amethyst gem~
+SD a amethyst~
+P ~
+D
+A large, beautifully polished amethyst has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 8
+E 0
+W 16385
+Sz 18
+Ti 0
+Wt 1
+C 3000
+O ~
+V 0 0 0 0
+ED amethyst~
+It has a very deep purple colour.
+~
+End
+
+#18612
+N pendant silver~
+SD a silver pendant~
+P ~
+D
+A silver pendant has been left here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 5
+Sz 18
+Ti 0
+Wt 1
+C 400
+O ~
+V 4 0 0 0
+ED pendant silver~
+It resembles Thor's hammer and appears to be made of solid silver.
+~
+End
+
+#18613
+N dagger silver~
+SD a silver dagger~
+P ~
+D
+A long silver dagger is lying here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 1
+C 100
+O ~
+V 0 2 4 11
+ED dagger silver~
+It has a long, sharp blade that is made entirely from silver.  A small rune
+has been engraved on the blade next to the hilt.
+~
+End
+
+#0
+
+
+
+#SCENES
+#18600
+N A Gravel Road on the Graveyard~
+Ref 0
+D
+You are on a well-kept gravel road that leads north-south through the
+graveyard.  On both sides of the road grow dark evergreen trees.  An iron
+grate is to the north and narrow gravel paths lead east and west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 18650
+The gravel path leads eastwards between the dark evergreen trees.
+~
+~
+Dr 2 0 -1 18601
+The gravel road continues southwards.
+~
+~
+Dr 3 0 -1 18606
+The gravel path leads westwards between the dark evergreen trees.
+~
+~
+End
+
+#18601
+N A Gravel Road on the Graveyard~
+Ref 0
+D
+You are on a well-kept gravel road that leads north-south through the
+graveyard.  On both sides of the road grow dark evergreen trees.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18600
+The gravel road continues northwards.
+~
+~
+Dr 2 0 -1 18602
+The gravel road continues southwards.
+~
+~
+End
+
+#18602
+N A Gravel Road on the Graveyard~
+Ref 0
+D
+You are on a well-kept gravel road that leads north-south through the
+graveyard.  On both sides of the road grow dark evergreen trees.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18601
+The gravel road continues northwards.
+~
+~
+Dr 2 0 -1 18603
+The gravel road continues southwards.
+~
+~
+End
+
+#18603
+N A Gravel Road on the Graveyard~
+Ref 0
+D
+You are on a well-kept gravel road that leads north-south through the
+graveyard.  On both sides of the road grow dark evergreen trees.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 18602
+The gravel road continues northwards.
+~
+~
+Dr 2 0 -1 18604
+The gravel road continues southwards to an open space before a small
+building.
+~
+~
+End
+
+#18604
+N In front of the Chapel~
+Ref 0
+D
+You are on an open space before a small chapel.  A gravel road leads north
+through the graveyard and the chapel entrance is to the south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 18604 4 100 1
+Dr 0 0 -1 18603
+The gravel road continues northwards.
+~
+~
+Dr 1 0 -1 18638
+The gravel path leads eastwards between the dark evergreen trees.
+~
+~
+Dr 2 0 -1 18405
+The chapel door is made of dark wood.
+~
+door~
+Dr 3 0 -1 18618
+The gravel path leads westwards between the dark evergreen trees.
+~
+~
+End
+
+#18606
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+R M 18604 4 100 1
+Dr 1 0 -1 18600
+The gravel path continues eastwards towards a gravel road.
+~
+~
+Dr 2 0 -1 18608
+The gravel path continues southwards.
+~
+~
+Dr 5 0 -1 18607
+~
+tomb stone~
+End
+
+#18607
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18610 0 100 1
+Dr 4 0 -1 18606
+~
+tomb stone~
+End
+
+#18608
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and west.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 0 0 -1 18606
+The gravel path continues northwards.
+~
+~
+Dr 3 0 -1 18610
+The gravel path continues westwards.
+~
+~
+Dr 5 0 -1 18609
+~
+tomb stone~
+End
+
+#18609
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18603 5 100 1
+Dr 4 0 -1 18608
+~
+tomb stone~
+End
+
+#18610
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads east and south.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 1 0 -1 18608
+The gravel path continues eastwards.
+~
+~
+Dr 2 0 -1 18612
+The gravel path continues southwards.
+~
+~
+Dr 5 0 -1 18611
+~
+tomb stone~
+End
+
+#18611
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18603 5 100 1
+Dr 4 0 -1 18610
+~
+tomb stone~
+End
+
+#18612
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and east.  A small shed is to the west.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 18604 4 100 1
+Dr 0 0 -1 18610
+The gravel path continues northwards.
+~
+~
+Dr 1 0 -1 18614
+The gravel path continues eastwards.
+~
+~
+Dr 3 0 -1 18613
+It is a small black-painted shed with a wooden door.
+~
+door~
+End
+
+#18613
+N In a shed on the Graveyard~
+Ref 0
+D
+You are in a small shed that looks as if it is used to store all sorts of
+gardening equipment.  The only exit appears to be through a door to the east.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18600 1 100 1
+Dr 1 0 -1 18612
+~
+door~
+End
+
+#18614
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads south and west.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 2 0 -1 18616
+The gravel path continues southwards.
+~
+~
+Dr 3 0 -1 18612
+The gravel path continues westwards.
+~
+~
+Dr 5 0 -1 18615
+~
+tomb stone~
+End
+
+#18615
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18610 0 100 1
+Dr 4 0 -1 18614
+~
+tomb stone~
+End
+
+#18616
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and south.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 0 0 -1 18614
+The gravel path continues northwards.
+~
+~
+Dr 2 0 -1 18618
+The gravel path continues southwards.
+~
+~
+Dr 5 0 -1 18617
+~
+tomb stone~
+End
+
+#18617
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18602 1 100 1
+Dr 4 0 -1 18616
+~
+tomb stone~
+End
+
+#18618
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and east.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 0 0 -1 18616
+The gravel path continues northwards.
+~
+~
+Dr 1 0 -1 18604
+The gravel path continues eastwards towards a building of some sort.
+~
+~
+Dr 5 0 -1 18619
+~
+tomb stone~
+End
+
+#18619
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18610 0 100 1
+Dr 4 0 -1 18618
+~
+tomb stone~
+End
+
+#18638
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and west.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+R M 18605 3 100 1
+Dr 0 0 -1 18640
+The gravel path continues northwards.
+~
+~
+Dr 3 0 -1 18604
+The gravel path continues westwards towards a building of some sort.
+~
+~
+Dr 5 0 -1 18639
+~
+tomb stone~
+End
+
+#18639
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18603 5 100 1
+Dr 4 0 -1 18638
+~
+tomb stone~
+End
+
+#18640
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and south.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+R M 18604 4 100 1
+Dr 0 0 -1 18642
+The gravel path continues northwards.
+~
+~
+Dr 2 0 -1 18638
+The gravel path continues southwards.
+~
+~
+Dr 5 0 -1 18641
+~
+tomb stone~
+End
+
+#18641
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18610 0 100 1
+Dr 4 0 -1 18640
+~
+tomb stone~
+End
+
+#18642
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads east and south.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 1 0 -1 18644
+The gravel path continues eastwards.
+~
+~
+Dr 2 0 -1 18640
+The gravel path continues southwards.
+~
+~
+Dr 5 0 -1 18643
+~
+tomb stone~
+End
+
+#18643
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18603 0 100 1
+Dr 4 0 -1 18642
+~
+tomb stone~
+End
+
+#18644
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and west.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+R M 18605 3 100 1
+Dr 0 0 -1 18646
+The gravel path continues northwards.
+~
+~
+Dr 3 0 -1 18642
+The gravel path continues westwards.
+~
+~
+Dr 5 0 -1 18645
+~
+tomb stone~
+End
+
+#18645
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18601 1 100 1
+Dr 4 0 -1 18644
+~
+tomb stone~
+End
+
+#18646
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads south and west.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 2 0 -1 18644
+The gravel path continues southwards.
+~
+~
+Dr 3 0 -1 18648
+The gravel path continues westwards.
+~
+~
+Dr 5 0 -1 18647
+~
+tomb stone~
+End
+
+#18647
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 18610 0 100 1
+Dr 4 0 -1 18646
+~
+tomb stone~
+End
+
+#18648
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads north and east.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 0 0 -1 18650
+The gravel path continues northwards.
+~
+~
+Dr 1 0 -1 18646
+The gravel path continues eastwards.
+~
+~
+Dr 5 0 -1 18649
+~
+tomb stone~
+End
+
+#18649
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18603 5 100 1
+Dr 4 0 -1 18648
+~
+tomb stone~
+End
+
+#18650
+N A Gravel Path on the Graveyard~
+Ref 0
+D
+You are on a gravel path winding its way between dark evergreen trees on
+the graveyard.  The path leads south and west.  An old tomb is here.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+ED tomb stone~
+It is a large rectangular slab of dark grey stone that has been placed face
+up in the ground.  The name has been erased by the ravages of time.
+~
+Dr 2 0 -1 18648
+The gravel path continues southwards.
+~
+~
+Dr 3 0 -1 18600
+The gravel path continues westwards towards a gravel road.
+~
+~
+Dr 5 0 -1 18651
+~
+tomb stone~
+End
+
+#18651
+N In a dusty Tomb~
+Ref 0
+D
+You are in a dark burial chamber beneath a large tomb stone.
+The only exit appears to be up.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 18605 3 100 1
+Dr 4 0 -1 18650
+~
+tomb stone~
+End
+
+#0
+
+
+
+#$

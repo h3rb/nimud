@@ -1,0 +1,373 @@
+IMPORTANT: To use this software, you must comply with its license.  
+See docs/COPYING for more information about this.  In a nutshell: 
+don't steal our work, it's mean-spirited and disappointing, not to
+mention illegal.
+
+Muddywood's Finest: SPECIAL EDITION NIMUD
+Home of the Mudcademy Award, the Muddy!
+
+NiM5 edition by Locke (herb.gilliland_gmail.com)
+
+This is a superior edition of NiMUD.
+
+Persistent connectivity:
+** The game will attempt to recover connections during crashes and reboots. **
+
+It has a fully featured spell system and scripting language.
+
+Mobs=Actors
+Objs=Props
+Rooms=Scenes
+
+AEDIT now equals ZEDIT ("zone edit")
+MEDIT=AEDIT ("actor editor")
+OEDIT=PEDIT ("prop editor")
+REDIT=SEDIT ("scene editor")
+
+MSSP Support
+------------
+
+Running a new mud?  JOIN THE MSSP NETWORK! http://www.mudbytes.net/index.php?a=forum&f=39
+Contact scandum at the TopMudSites.com forums or at the tintin++ project on Sourceforge to add your MUD 
+to the network.  See settings in the telopt.c file with respect to your mud's contact information, web
+URL etc.  Supposedly MudBytes.net, MudConnect.com and others are now using the MSSP protocol to crawl 
+MUDs for up to date information about their usage and statistics.  NiMUD comes with this functionality 
+installed and will use it to broadcast player, zone and general mud information including contact, web 
+address, your mud's greeting, the server address and many other features.  
+
+See The Isles on the MSSP page.
+
+MSSP Protocol defintion http://tintin.sourceforge.net/mssp
+
+Client for debugging: http://tintin.sourceforge.net/
+TinTin++ (Requires using '#config {debug telnet} on' to display MSSP output from a MUD server.)
+
+MUD Crawlers supporing MSSP:
+MudByte's MUD crawler  http://www.kiasyn.com/mssp
+TinTin++ MUD crawler   http://tintin.sourceforge.net/mssp/mudlist.html
+
+MSSP Discussion Forum 
+http://www.mudbytes.net/index.php?a=forum&f=39
+
+NiMUD servers supporting MSSP:
+nimud.divineright.org 5333
+
+New editors:
+
+SPEDIT (spell editor, requires specialized scripts see existing spells)
+SKEDIT (skill editor, for creating and binding new skills)
+
+Scripting language: 
+
+Function list is extensive; not fully documented.  Upcoming releases will
+have added smart documentation features that read comments from the source
+code.  Some parts may be buggy, proceed with caution and use the examples
+provided.  The MUD will export scripts to the /export/ directory
+
+TRACE script recorder (use "trace" within the script editor to
+toggle the feature)
+
+Live debugger: login as a secondary immortal character and use the 'debug'
+command for a full screen live view of script execution on a particular entity
+
+Newest functions:
+
+breed()     - script generated player followers and mounts
+charge()    - payment function for scripted vendors
+mana()      - gem magick spell function
+
+Other fixes:
+
+Revisions to object system, world mapping system widget
+Minor cosmetic improvements ("Two of two's bug")
+Minor fixes to hireling followers and mounts, including save/load
+ - revisions to do_assist, do_mount, do_order
+
+
+NiMUD: Shared Adventure Game
+----------------------------
+
+Brought to you by Locke;
+
+NiM5 is an advanced multi-user gaming server.
+
+It is based on the works of the following softwares, though its source
+code may not resemble the works of these people, I feel it important
+to mention the "greats" - who have influenced this work, and which
+continue to influence artistic representations of other worlds.
+
+Z-games such as Zork, Planetfall and Wishbringer, Lurking Fear,
+creations of Steve Meretsky and others at Infocom.
+
+Diku and Merc variant Dikumud I multi-user domains, which have included
+the specific influences of:
+
+Nameless Merc, Locke's first mud, played on a green VAX/VMS terminal,
+Hidden Worlds a Merc 1.0 with early "building" opportunities, 
+Surreal and Locke's favorite, 
+DuneMUSH (our learning experience), 
+Zebesta, where we met our compatriots and fellow MUDkateers, 
+Kalgen and Zlixlt, well-done-derring-do, 
+Aldara ]I[, where God was in the details with the help of Morgenes,
+ROM (Rivers of MUD) and our rival Alander aka Russ Taylor, 
+
+And our neighbors:
+
+Armageddon (pre- and post-Morgenes), 
+newly recognized CORE, Valhalla (DikuMUD ][) from whom we learned,
+and newly noticed variants such as Realms of Despair 
+and a shout-out to ROM-based, Adventurer's Inn.
+
+Of course the great works of PennMUSH and TinyMUSH, where once
+was made FutureMUSH (run by Locke),
+the archaic knowledge of the DUMs such as CanDUM and others,
+the LambdaMOOs and the Divination Web aka DivWeb (a MUCK) run by cohorts 
+of Shawn Knight and the Beast 666 (a thelemic/wiccan/occult gathering 
+space once hosted at Carnegie Mellon University).
+
+And of course ISCABBS, without whom none of this would be possible.
+
+But perhaps you would like to kick it back farther with me for a minute
+to remember Valhalla BBS, a hack/phrack board in Pittsburgh, on which
+was White Knight, the infamous, and the RESIST movement, before it
+became a gay rights movement, back with the hackers and the rumorz
+of the original Razor Sam Hopkins who now is vice president of a
+local 'Burgh ISP called Nauticomm.
+
+Maybe you remember Telegard and Renegade, but I remember Chat Thing,
+a notorious late-night hangout at 300 baud, before my account was
+suspended and we met our match with Trade Wars and Baron Realms.
+
+Maybe you can remember the world of dialups, LD dialing ports, BBS lists,
+x-rated graphics dithered 2 bit and so unrecognizable in 3 colors and a
+world of Demoscenes by groups called Future Crew and Renaissance
+www.modarchive.org
+
+This is NiMUD a product which is not a whole or a sum of its parts.
+
+Introduction
+------------
+
+Welcome to NiM5!  This server was written by Herb Gilliland; the project 
+began in 1992 and continues to this day.  NiM5 was the first to release
+an open-source multi-user gaming software including such advanced features
+as OLC; you are free to use this software, but it comes AS IS and WITHOUT
+any WARRANTY expressed or implied.
+
+NiM5 contains hundreds of hours of work and you are benefitting, please
+keep our credits in your respective documentation.
+
+You must keep our contact email in your server software documentation,
+credits and help files; it is theisles@mugs.net or swervez@hotpop.com
+
+You may not release versions of this source code without express consent 
+from its author, Herb "Locke" Gilliland, who can be contacted at 
+the above email addresses; it is an important and relevant issue 
+to mention that NiM5 represents a new paradigm in multi-user gaming 
+terminology and vision, but yet is not a perfect piece of software and may 
+contain bugs which could have adverse effects.  We have done our best to 
+insure that no code contained herein could be considered "malicious" --
+but it is possible, through tampering, that the source could damage your 
+machine in some way.  It certainly hurts the social life (or helps,
+depending on how you look at it).
+
+You are encouraged to read the documentation contained in /NiM5/docs
+for more information on a variety of useful topics related to this 
+software and its functioning, including methods of debugging, extra 
+features not implemented in the standard release, suggestions for 
+development and tips for protecting yourself legally should you decide to 
+release a derived version of this software.  I should mention here
+that I am not a lawyer.
+
+Portions of the code are copyright (c) 2003 to Herbert Gilliland, and are 
+considered property under the U.S. department of copyrights registration 
+office.  The structure and contents of the code are registered with this 
+office and are the property of Herbert Gilliland.
+
+Do visit credits.txt for more information on this code's contributers.
+
+Requirements
+------------
+gcc               - for compiling binaries from the source, required
+                    or, djgpp
+
+- at least 4mb of usable stack space
+- between 12 and 40 megabytes of hard disk for file storage
+- an open port on your firewall, or if no firewall, an unused IP port
+- time and dedication
+- i386 compatible linux or equivalent operating platform, unix or solaris,
+  or cygwin
+
+perl              - for extensible mail functions and using perlstart,
+                    optional mud startup script, not required
+
+IMPORTANT: If you want to be  _building_ or _coding_ new features, it is
+best to run on two ports.  You cannot operate a development server without
+duplicating the database.  It is recommended you build areas solely on the
+development port, to retain stability for the players and minimize the
+number of unscheduled reboots.  The mud already crashes enough already
+without you to intervene with your own reboot requests.  Using the
+supplied scripts, and maintaining a copy of your core database, you
+will retain stability and the integrity of your data.  The /devo/ directory
+contains a copy of the data present in the /area/ directory, and can be
+served off the 'hot copy' executable found in ../src/nimud; the "cold copy"
+is located in the /area/ directory, along with the "live" database.  How
+you manage the /devo/ and /area/ versions is up to you, but keeping two
+copies eliminates inevitable data corruption when two un-syncronous mud 
+processes attempt to access the same data files.
+
+Use /NiM5/devo/publish script to copy the mud db over top of the "live"
+mud database when the "live" version is shut down.
+
+Compiling
+---------
+
+To compile the code, simply type "./recompile" from within the NiM5 
+install directory.  This script will create a fresh archived backup of the 
+original source code in "/NiM5/backups/1001.backup" directory.
+
+You may wish to categorize backups or delete outdate ones.  I encourage
+you to, on occasion, make platform backups of major versions by renaming
+the backup directories or moving them to some special place, a directory,
+preferably one that is web-accessible.
+
+If you make no changes to the headers (.h files) you can just "./refresh"
+to compile quickly on older machines.  Note: this also calls "./cleanup"
+
+NiM5 should properly compile on i386 machines, so if you've got an old
+computer for a coffee table, please, run a mud with it.
+
+Porting
+-------
+
+Previous versions of NiM5 have been successfully ported to Win32, Solaris, 
+BSD and MacOS X (which runs a version of FreeBSD).  It has compiled+run
+successfully on Debian, Redhat Linux, FreeBSD, Ultrix, AndrewUNIX, 
+and Solaris.  This version is actively developed on Debian and SunOS.
+
+Unsupported code within the source is still available for Sequent, MIPS
+and AIX.  It has not been compiled or run on a machine of this type
+for a very long time.
+
+The macintosh version may experience some difficulty compiling, if you are 
+a Mac user interested in developing a patch or fix for future versions, 
+you are more than welcome to as we hope to support Macintosh fully in the 
+future.  A version of the networking routines which worked fine on the 
+Macintosh port of the socket routines is located at /src/net_macfix.c and
+is incomplete.
+
+Getting Started
+---------------
+
+BEFORE YOU RUN ANY SCRIPTS MAKE SURE TO EDIT THE $filepath IN EACH OF THEM
+This is also mentioned in "Install.txt" which contains 4 steps necessary
+to install the MUD.
+
+--To run the mud:
+
+From the directory you installed, run "startup" or "startup <port>"
+
+Preferred cli/cron command: nohup ./startup <port> &
+
+Make sure to not run any other scripts ("package", "recompile" or 
+"cleanup") while the startup script is running for best results.
+
+Requires "perl"
+
+--To clean up the installation directories:
+
+From the directory you installed, run "cleanup"
+This script removes unwanted .txt files, backs up into backups directory
+removes .o files, backs up players, areas and source code, clears the log 
+directory clears nohup.out files stores file lists in each backup under 
+file 'manifest.txt'
+
+
+The workflow for using these scripts while developing, maintaining a
+dev port:
+
+cd src
+<edit files>
+./dev or "gdb ../devo/nimud" then in gdb "run 5334"
+telnet localhost 5334
+<test, crash, stack trace, etc, edit, fix, add>
+cd ..
+./refresh         (copies files from /area/ to /devo/, updates /area/nimud)
+telnet localhost <main port>
+reboot
+
+Other scripts:
+
+"go <port>"     for running a copy in /devo/ as ../src/nimud on port <port>
+
+This is the recommended script for developers.  Doesn't mess with the
+executable found in /area -- the main executable.  Instead, it uses the
+hot copy found in /src, and runs it on its own db found in /devo -- this
+is the recommended method because concurrent versions running on the same
+database is forbidden in principle.  DO NOT RUN MULTIPLE COPIES OF THE MUD
+ON THE SAME DATABASE FILES.  You can run multiple copies on multiple
+databases only.  It is not even preferred to use the same executable, but
+rather multiple copies. 
+
+"publish"      found in /devo/ -- used to copy development db overtop of live db
+
+"backup"        automatic core file backups stored in backups/
+
+"package"       prepares a public package for distribution including the mud,
+                areas, source code; cleans while preparing
+
+"start"         executes the public mud executable in /area/
+
+"stop"          stops the mud, kills all of your processes, logs you out of
+                your shell account.  considered 'last ditch'
+
+--dirs manifest:
+
+area           <- area files and boards
+devo           <- special database used for development testing
+backups        <- gets big
+bootlog        <- just the boot logs
+cleanup        <- cleanup script (See above)
+docs           <- documentation and licensing information
+docs/imc       <- imc2 documentation and licensing information
+docs/snippets  <- uninstalled 'optional' features from Erwin S. 
+                  Andreason's website
+log            <- log files
+player         <- player files
+package        <- stores the source in NiM5.src.tar.gz
+recompile      <- run only when down
+refresh        <- run only when down
+src            <- source code
+startup        <- startup script
+
+export         <- directory into which exported html and scripts go
+lingua         <- Perl translation algorithm...works to translate area files
+nasa           <- HEASARC data of stellar masses within 25 parsecs
+
+
+
+Known Issues
+------------
+
+This is where we deal with bugs we haven't fixed yet, but are aware of:
+
+1) using hurt() in a script causes NiMUD to access memory unsafely if the
+target has been killed by the hurt() function.  See func_hurt() in functions.c
+for details; the work around is to use hurt as the last call that talks to
+the %target% variable in a nimscript.
+
+2) Sometimes while editing an area, the mud hangs and dumps a massive file to
+disk in place of an area you were editing.  We're not sure why this is
+happening.  We've worked around this by providing several safeguards: use
+a development server and development copy of the database as described
+in the tag "IMPORTANT" above.  If this happens to you, the mud will hang
+while booting.  In this case, copy the .bak version over top of the area
+that is afflicted.  Example: mud hangs while loading interior.zone, copy
+interior.zone.bak over interior.zone and restart the mud by killing it at
+the command line.
+
+3) Sometimes scripts that are attached to spells disappear from the db, for
+an unknown reason.
+
+4) Helps are sometimes disappearing.  I believe there used to be a problem
+with loading or saving helps - perhaps we should investigate.

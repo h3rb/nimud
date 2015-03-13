@@ -1,0 +1,718 @@
+#ZONE 
+N Insane Asylum~
+B Mordecai Locke~
+V 5000 5099
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#5000
+N orderly~
+SD an orderly~
+LD
+ An orderly is keeping an eye out for trouble.
+~
+D
+ A big burly orderly with a stoic look on his face.
+~
+A 65
+AB 0
+M 0
+S 1
+Sz 26
+K 0 E 50
+AP 13 13 13 13 13
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#5015
+N arnie newsstand guy~
+SD Arnie~
+LD
+ There is a guy selling newspapers at the newsstand.
+~
+D
+ He's in his late twenties, with a dusting of beard and light blond
+streaks in his otherwise brown hair.  His eyes are grey-green and
+misty, as if he is a bit stoned.  He stares at you blankly when
+you look at him.
+~
+A 3
+AB 0
+M 0
+S 1
+Sz 20
+K -10 E 13
+AP 13 13 13 13 13
+Shop
+ T  8 0 0 0 0 0 0 0
+ P 75 125
+ H 0 24
+ F 2
+ R 0
+ BI 86  CI 0  SI 86
+ Str1
+ I ain't got that, man.~
+ Str2
+ Nah, forget it.~
+ Str3
+ The newsstand has a bunch of useless items.~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#5016
+N ticket seller man~
+SD the ticket seller~
+LD
+ There is a man in a glass booth selling tickets.
+~
+D
+ A middle aged man with a thick moustache.
+~
+A 19
+AB 0
+M 0
+S 1
+Sz 24
+K 0 E 1
+AP 25 25 25 25 25
+Shop
+ T  0 0 0 0 0 0 0 0
+ P 100 100
+ H 6 24
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I only sell tickets.~
+ Str2
+ Would you like to buy a ticket?~
+ Str3
+ The metro only runs from %s to %s.~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#0
+
+
+
+#OBJDATA
+#5000
+N blue orderly uniform~
+SD a blue orderly uniform~
+P ~
+D
+A crumpled blue garment is lying here.
+~
+A
+~
+PD
+~
+DR
+A crumpled blue orderly uniform with the words "Mayview Hospital" sewn
+into its sleeve.  
+~
+L 0
+T 13
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 1 0 0 0
+End
+
+#5002
+N small cabinet~
+SD a small cabinet~
+P ~
+D
+A small white cabinet bearing a red cross is bolted to the wall.
+~
+A
+~
+PD
+~
+DR
+A small cabinet bearing a worn cross painted in red.  It's bolted to the
+wall.  
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 30 5 0 0
+End
+
+#5010
+N greyhound bus 'to downtown'~
+SD a Greyhound bus~
+P ~
+D
+A Greyhound bus is idling nearby.
+~
+A
+You ride the Greyhound.
+~
+PD
+~
+DR
+If you want, you can 'go greyhound' to ride the bus.
+ 
+Painted on one side is a lipstick advertisement.  The transit sign
+reads "Downtown" and is lit.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 0 32768 0 5015
+End
+
+#5011
+N hospital key~
+SD a hospital key~
+P ~
+D
+A small brass key is here.
+~
+A
+~
+PD
+~
+DR
+A small brass key etched with "Mayview Hospital"
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 0 0 0 0
+End
+
+#5016
+N metro ticket~
+SD a metro ticket~
+P ~
+D
+Someone's dropped a metro ticket.
+~
+A
+~
+PD
+~
+DR
+A small stubby card with odd lettering printed on one side.  On
+the back is a magnetic strip.
+~
+L 0
+T 8
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 5
+V 0 0 0 0
+End
+
+#5018
+N penthouse elevator~
+SD the penthouse elevator~
+P ~
+D
+A special elevator leads to the penthouse.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 0 32768 0 8020
+End
+
+#0
+
+
+
+#SCENES
+#5000
+N Recreation Room~
+Ref 0
+D
+This is a wide open space filled with fun games, gadgets and comfy
+furnishings.  Along the eastern wall is a large window looking out onto the
+courtyard.  You hear, echoing through the halls, the catcalls and babblings
+of the mentally insane, yelling and screaming meaningless drivel at a
+variety of volumes.  The cackling laughter that bounces off your ears grates
+on your nerves and memories.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+Dr 0 0 0 5002
+~
+swinging door~
+Dr 1 512 0 5001
+The large plate-glass window has an opening at one end that has been
+neglected by the orderlies!
+~
+large plate-glass window~
+Dr 2 0 0 5003
+~
+~
+End
+
+#5001
+N The Hospital Grounds~
+Ref 0
+D
+A big basketball court and a wide open square of well manicured grass are
+the main features of the courtyard.  A high fence surrounds it, topped with
+barbed wire and fitted with a heavily chained gate.  
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 1 7 5011 5011
+~
+chain-link gate~
+Dr 3 512 0 5000
+The large plate-glass window is open, perhaps neglected by the
+orderlies.
+~
+large plate-glass window~
+End
+
+#5002
+N Nurse's Station~
+Ref 0
+D
+You are inside the nurse's station, where upon one wall is fixed a large
+clock, which is apparantly in disrepair, as it continually clicks between
+four-thirty and four-twenty repeatedly.  The nurses have left their
+^Bnight-call sheets^N and a few other documents scattered around the
+otherwise clean facility.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+ED night-call sheets~
+A set of sheets and rosters about patients, what medications they were
+given and the time of their next dose.  You note that the date on these
+sheets is very old.  
+~
+R O 5002 -5 100 1
+R O 540 -3 75 10
+Dr 2 0 0 5000
+~
+swinging door~
+End
+
+#5003
+N Long Hall~
+Ref 0
+D
+A long hall with doors along either side, mostly locked.  Through the
+windows you can see a variety of patients with varying degrees of psychosis.
+Some are banging their heads and babbling incoherently (a sound which fills
+your ears in a subdued cacophony) combined with the intermittant whining of
+a patient who may or may not be here by mistake.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+R M 5000 1 100 1
+R O 5000 10 100 1
+R O 5011 -1 100 1
+R M 5000 5 75 2
+R O 5000 10 100 1
+Dr 0 0 0 5000
+~
+~
+Dr 1 519 0 5009
+A thick steel door with a small plexiglass-and-wire-mesh window.
+~
+windowed door~
+Dr 2 0 0 5004
+~
+~
+Dr 3 519 0 5010
+A thick steel door with a small plexiglass-and-wire-mesh window.
+~
+windowed door~
+End
+
+#5004
+N Hospital Corridor~
+Ref 0
+D
+You are at the meeting of two halls -- one leads north to the
+recreational area, while the other leads east and west from here.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+Dr 0 0 0 5003
+~
+~
+Dr 1 0 0 5006
+~
+~
+Dr 3 5 0 5005
+~
+windowed door~
+End
+
+#5005
+N Treatment Room~
+Ref 0
+D
+This is the room where doctors administer experimental new treatments. 
+Though it has been recently cleaned, you can see evidence of bloodstains on
+the floor near what appears to be a large metal grating.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+Dr 1 5 0 5004
+~
+windowed door~
+Dr 5 1541 0 5007
+A large iron grating that aids in the removal of biohazardous waste.  
+~
+grating~
+End
+
+#5006
+N Waiting Area~
+Ref 0
+D
+A set of chairs line the walls of the waiting room.  You can see
+a few ^Bmagazines^N strewn about waiting to be read.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+ED magazines~
+A set of fine publications: the Wall Street Journal, Time Magazine,
+Newsweek and a well-worn copy of Highlights.  
+~
+Dr 1 5 0 5008
+~
+oak door~
+Dr 3 0 0 5004
+~
+~
+End
+
+#5007
+N Biohazardous Waste Removal System~
+Ref 0
+D
+The smell of unknown and probably toxic biohazardous waste is quite
+overpowering.  In fact, you can barely stop from adding some of
+your own biohazardous waste to the pile.  It squishes when you step
+and is of an undetermined brownish-yellow color.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+Dr 4 1541 0 5005
+A large iron grating leading to a well-lit room.
+~
+grating~
+End
+
+#5008
+N Doctor's Office~
+Ref 0
+D
+The office of one of the head psychiatrists.  A big boar's head is hung
+above his desk, and large bookcases filled with ^Bmedical journals^N line
+the walls.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+ED medical journals~
+A set of leather-bound medical journals dating back to 1967.  Among
+these, you can also see a copy of Jung's Dreams and Mythology as well as
+Freud's Civilization and Its Discontents.  
+~
+Dr 3 5 0 5006
+~
+oak door~
+End
+
+#5009
+N Rubber Room~
+Ref 0
+D
+A small 14x9 rubber room with padded walls, ceiling and floor.  A very
+small window allows light in from the outside world.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+Dr 3 519 0 5003
+~
+windowed door~
+End
+
+#5010
+N Rubber Room~
+Ref 0
+D
+A small 14x9 rubber room with padded walls, floor and ceiling and a small
+window which lets in light from the outside world.  
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+Dr 1 519 0 5003
+~
+windowed door~
+End
+
+#5011
+N Outside Mayview~
+Ref 0
+D
+You are standing on the street outside the Mayview Psychiatric
+and Mental Health Facility.  A large chain-linked fence surrounds
+the hospital grounds.  In the center of the fence is a wide
+chain-link gate.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+R O 5010 -5 100 1
+Dr 3 7 0 5001
+~
+chain-link gate~
+End
+
+#5015
+N Downtown~
+Ref 0
+D
+The bustling activity of downtown is accented by a wonderful array
+of lights and signs, cafe's, diners, theatres and sports bars, retail
+shops and hotels.  
+   There is a ^Bnewsstand^N near the ^Bmetro^N entrance.
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+ED metro~
+A sign points down a flight of stairs reading "Metro A" in big orange
+letters.
+~
+ED newsstand~
+A small vendor cart with a metal frame and wood paneling.  It is
+brimming with newspapers, magazines, posters, postcards and a few
+odd items, some knicknacks, and a tobacco humidor.
+~
+R M 5015 1 100 1
+Dr 0 0 0 5017
+~
+~
+Dr 5 0 0 5016
+~
+metro entrance~
+End
+
+#5016
+N Metro Platform A~
+Ref 0
+D
+A wide concrete platform overlooking a set of electrified train tracks.
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+R M 5016 1 100 1
+R O 5016 -4 100 10
+Dr 1 0 0 5020
+~
+~
+Dr 4 0 0 5015
+~
+metro exit~
+End
+
+#5017
+N Eastwick and Juno Street~
+Ref 0
+D
+You are at an intersection of Juno and Eastwick streets, located in the
+heart of downtown.  Directly to the northeast is a large glass
+superstructure that has a ^Bsign^N out front.  
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 2 0 0 5015
+~
+~
+Dr 7 0 0 5018
+~
+revolving door~
+End
+
+#5018
+N Manchester Towers - Lobby~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+R O 5018 -5 100 1
+Dr 8 0 0 5017
+~
+revolving door~
+End
+
+#5020
+N Metro Car~
+Ref 0
+D
+~
+C
+~
+F 4
+S 0
+M 0
+W 0
+T 0
+Dr 3 0 0 5016
+~
+~
+End
+
+#5023
+N ~
+Ref 0
+D
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+End
+
+#0
+
+
+
+#$

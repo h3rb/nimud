@@ -1,0 +1,2580 @@
+#ZONE 
+N Anon    Kingdom of Juargan~
+B None~
+V 19700 19785
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#19700
+N dwarf~
+SD the small dwarf~
+LD
+ A small dwarf is here mining at the tunnel walls.
+~
+D
+ The small dwarf is dirty and dressed only in a small tunic and leggings.  His
+beard is encrusted with cracked rock and dust from the tunnel walls.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 16 8
+At 1 5 15 13
+At 2 1 15 5
+End
+
+#19701
+N dwarf~
+SD the small dwarf~
+LD
+ A small dwarf is here, on the watch for Duergar.
+~
+D
+ The small dwarf is dressed in colorful clothing and has a full and long beard.
+His eyes are keen and sharp, well suited for sight in the dark tunnels of the
+mines.
+~
+A 5
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 500 E 756
+O ~
+AP 25 25 25 25 40
+At 0 10 15 1
+At 1 5 85 9
+At 3 1 19 0
+At 5 1 17 22
+At 6 5 82 9
+End
+
+#19702
+N dwarf guard~
+SD the dwarf guard~
+LD
+ A small dwarf is here, dressed in a makeshift suit of armor.
+~
+D
+ This small dwarf is the militia of the Dwarven Kingdom it watches over.  The
+small body is strong which makes him a match for any foe.  The armor of the
+dwarf is of no use to anyone but him, but provides adequate defense.
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 700 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 11 5
+At 1 5 22 12
+End
+
+#19703
+N dwarf yentle~
+SD Yentle the dwarf~
+LD
+ A small dwarf sits here trying to grow a new rock.
+~
+D
+ The insane little dwarf who thinks he can grow a rock.  He is dressed in many
+yellows and oranges, and seems to have a happy look about him despite his years
+of failure at growing rocks.
+~
+A 5
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 12 5
+At 1 5 20 9
+At 2 1 21 0
+End
+
+#19704
+N juargan dwarf king~
+SD Juargan the Dwarven King~
+LD
+ Juargan the Dwarven King sits here upon his throne, looking out over his gardens.
+~
+D
+ The small king is bulging at the seems with muscle.  He is dressed in nothing
+but a noble robe made of a grey silk.  His face has a visage of stone like his
+surroundings, as if his burden has become to much for him.
+~
+A 3
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 287
+O ~
+AP 19 19 19 19 19
+At 0 10 21 5
+At 1 5 23 8
+At 2 1 43 9
+End
+
+#19705
+N duergar dwarf~
+SD the duergar dwarf~
+LD
+ A repulsive Duergar is here, biting at its own arm.
+~
+D
+ The Duergar are the outcast dark dwarves.  They have grown insane through
+their isolation from the rest of the dwarven population and have become bitter
+enemies with them.
+~
+A 37
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 22 2
+At 1 5 22 7
+End
+
+#19706
+N grimdale king dwarf~
+SD Grimdale the ancient king~
+LD
+ A ancient and partially decayed dwarf lies here ever so silent.
+~
+D
+ The ancient king of the dwarves lies here.  Forgotten over the past decades
+his once cherished body has fallen into utter decay.  His once cheery face has
+turned into a crude scowl as you can feel that his soul is not at ease.
+~
+A 35
+AB 40
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -999 E 595
+O ~
+AP 25 25 25 25 35
+At 0 10 20 7
+At 1 5 11 4
+End
+
+#19707
+N rock worm dreaded~
+SD The dreaded rock worm~
+LD
+ The dreaded rock worm has blasted through the rock wall, its jaws open wide!
+~
+D
+ The jaws of this strange beast are large enough to fit at lease two dwarves
+into.  Judging by the size you can see that is has been eating quite a few too
+many dwarves as it's body is at least five feet in diameter.
+~
+A 35
+AB 8
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 500
+O ~
+AP 25 25 25 25 25
+At 0 10 16 14
+At 1 5 24 8
+End
+
+#19708
+N spirit dwarf~
+SD a dwarven spirit~
+LD
+ A small dwarven spirit is at unrest here.
+~
+D
+ The small spirit screams in agony as it is bound to this wretched existence.
+The soul of some unfortunate dwarf now has to fly aimlessly through this chamber
+of eternal pain.
+~
+A 35
+AB 168
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -999 E 350
+O ~
+AP 19 19 19 19 19
+At 0 10 11 8
+At 1 5 23 12
+End
+
+#0
+
+
+
+#OBJDATA
+#19700
+N key small~
+SD a small key~
+P ~
+D
+A small key of red rock lies here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 1
+C 10
+O ~
+V 2 0 0 0
+End
+
+#19701
+N pick mining~
+SD a mining pick~
+P ~
+D
+A small pick lies here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 18
+Ti 0
+Wt 10
+C 100
+O ~
+V 0 1 6 11
+End
+
+#19702
+N helm dwarven~
+SD a dwarven helm~
+P ~
+D
+A large dwarven helm lies here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 17
+Sz 18
+Ti 0
+Wt 10
+C 1000
+O ~
+V 6 0 0 0
+End
+
+#19703
+N plate dwarven breast~
+SD a dwarven breast plate~
+P ~
+D
+A dwarven breast plate lies here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 0
+W 9
+Sz 18
+Ti 0
+Wt 15
+C 1500
+O ~
+V 10 0 0 0
+End
+
+#19704
+N shield large dwarven~
+SD a large dwarven shield~
+P ~
+D
+A large dwarven shield lies here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1
+W 513
+Sz 18
+Ti 0
+Wt 7
+C 2000
+O ~
+V 4 0 0 0
+End
+
+#19705
+N coins large pile~
+SD a large pile of coins~
+P ~
+D
+A large pile of coins are piled here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 18
+Ti 0
+Wt 0
+C 0
+O ~
+V 30000 0 0 0
+End
+
+#19706
+N dwarven battle axe~
+SD a large dwarven battle axe~
+P ~
+D
+A large battle axe lies here on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 320
+W 8193
+Sz 18
+Ti 0
+Wt 5
+C 10000
+O ~
+V 0 2 12 1
+ED dwarven battle axe~
+It is engraved with beautiful dwarven runes.~
+End
+
+#19707
+N large stone sarcophagus~
+SD a large stone sarcophagus~
+P ~
+D
+A large stone sarcophagus lies here, the lid fallen on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 0
+Sz 18
+Ti 0
+Wt 1000
+C 0
+O ~
+V 1000 1 -1 0
+End
+
+#19708
+N staff ruling large~
+SD the staff of ruling~
+P ~
+D
+A large and intricate staff rests here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 2
+W 16385
+Sz 18
+Ti 0
+Wt 10
+C 10000
+O ~
+V 25 5 5 0
+End
+
+#0
+
+
+
+#SCENES
+#19700
+N The Spiral Stair~
+Ref 0
+D
+A spiral stone stair leads up higher in the mountain, spiraling into the
+spine of the Dra-Korrin.  A small glint of light can be seen far up the
+stair shaft.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 19701
+~
+~
+Dr 4 0 -1 19772
+~
+stone~
+End
+
+#19701
+N Mines~
+Ref 0
+D
+A small glint of the burning torches is all that lights the way here.  Spots
+along the jagged wall show that these mines are rich as gold and silver glitters
+all around you.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19700
+~
+~
+Dr 3 0 -1 19702
+~
+~
+End
+
+#19702
+N Mines~
+Ref 0
+D
+This small dark tunnel continues to the north where to light no longer allows
+normal sight.  To the east the small mine leads a a better lit area and you can
+smell a brisk fresh air.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19703
+~
+~
+Dr 1 0 -1 19701
+~
+~
+End
+
+#19703
+N Mines~
+Ref 0
+D
+This small tunnel is only five to six feet high and possibly the same
+dimensions wide.  It travels on a slight downslope to the west and to the south
+some light can be seen.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19702
+~
+~
+Dr 3 0 -1 19704
+~
+~
+End
+
+#19704
+N Mines~
+Ref 0
+D
+The small mine continues east and west here, small rocks and precious jewels
+scattered about.  There is a small tunnel that leads to the south here.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19703
+~
+~
+Dr 2 0 -1 19705
+~
+~
+Dr 3 0 -1 19706
+~
+~
+End
+
+#19705
+N Unfinished Mine~
+Ref 0
+D
+This is a small area that has been left unfinished at the moment.  It would
+have continued south from the main shaft that is to the north of here.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19704
+~
+~
+End
+
+#19706
+N Mines~
+Ref 0
+D
+This small shaft of the mines continues its tunneling east and west.  Small
+glints of metal can be seen within the walls.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19704
+~
+~
+Dr 3 0 -1 19707
+~
+~
+End
+
+#19707
+N Turn in the Mine~
+Ref 0
+D
+The small shaft travels east and south here, the masterful mining skills that
+made this turn possible are evidently by the smooth cuts in the walls.  Almost
+as if a hot knife made its way through some warm butter.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19706
+~
+~
+Dr 2 0 -1 19708
+~
+~
+End
+
+#19708
+N Mines~
+Ref 0
+D
+This is a three-way intersection in these mazes of mines with directions
+going north, west, and south which travels further down into the heart of the
+mountain itself.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19707
+~
+~
+Dr 2 0 -1 19709
+~
+~
+Dr 3 0 -1 19736
+~
+~
+End
+
+#19709
+N Dwarven mine~
+Ref 0
+D
+The walls of this mine are chipped and cut to perfection.  Workmanship of
+this type could only have been done by the masterful Dwarven race.  Tunnels
+continue to the south and east, and the tunnel travels upward to the north.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19708
+~
+~
+Dr 1 0 -1 19724
+~
+~
+Dr 2 0 -1 19710
+~
+~
+End
+
+#19710
+N Dwarven mine~
+Ref 0
+D
+Tunnels spread off in all directions except to the west where the wall is made
+of a dark and bleak stone.  A small glow emanates from the walls of the mines,
+but not enough to see by.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19709
+~
+~
+Dr 1 0 -1 19712
+~
+~
+Dr 2 0 -1 19711
+~
+~
+End
+
+#19711
+N Dwarven mine~
+Ref 0
+D
+The small shaft ends abruptly at a jewel encrusted wall.  To the north the
+small shaft continues some past some small rocks.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19710
+~
+~
+End
+
+#19712
+N Dwarven mine~
+Ref 0
+D
+This section of small shaft is a turning point and continues to the west and to
+the south.  Small glints of gold and silver can be seen in the walls.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19713
+~
+~
+Dr 3 0 -1 19710
+~
+~
+End
+
+#19713
+N Dwarven mine~
+Ref 0
+D
+The small shaft continues north and south deep inside this large mountain.  A
+light glow can be seen in the walls, but not enough to see by.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19712
+~
+~
+Dr 2 0 -1 19714
+~
+~
+End
+
+#19714
+N Dwarven mines~
+Ref 0
+D
+This section of the small shafts is a intersection of three separate tunnels.
+They lead north, east, and west.  A faint glow is within the walls of this
+small intersection.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19713
+~
+~
+Dr 1 0 -1 19719
+~
+~
+Dr 3 0 -1 19715
+~
+~
+End
+
+#19715
+N Dwarven mines~
+Ref 0
+D
+The small shaft of glittering gold and silver travels east and south here.
+The faint glow from within the walls give you a sense of safety.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19705 10 100 1
+Dr 1 0 -1 19714
+~
+~
+Dr 2 0 -1 19716
+~
+~
+End
+
+#19716
+N Dwarven mines~
+Ref 0
+D
+The small Dwarven carved shaft continues to the north and to the east here.
+Small clumps of precious metals can be seen within the rocky walls.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19715
+~
+~
+Dr 1 0 -1 19717
+~
+~
+End
+
+#19717
+N Dwarven mines~
+Ref 0
+D
+The small shaft of the mine continues to the west and to the south here.  A
+small amount of light can be seen to the south.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19718
+~
+~
+Dr 3 0 -1 19716
+~
+~
+End
+
+#19718
+N End of the mine~
+Ref 0
+D
+The south section of the small tunnel is covered in a blue light, and also
+radiating a aura of heat.  The eastern and western walls also glow but not as
+fierce as the southern section.
+~
+C
+~
+F 12
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19717
+~
+~
+End
+
+#19719
+N Dwarven mines~
+Ref 0
+D
+Small shafts lead off in all directions except northerly, where the wall seems
+to have a tinted blue color to it.  The southern tunnel seems to end a small
+ways down.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19721
+~
+~
+Dr 2 0 -1 19720
+~
+~
+Dr 3 0 -1 19714
+~
+~
+End
+
+#19720
+N Unfinished shaft~
+Ref 0
+D
+The walls here are jagged and unfinished in there cuts, leaving sharp and
+jagged edges at every turn.  The only exit appears to be to the north.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19719
+~
+~
+End
+
+#19721
+N Dwarven mines~
+Ref 0
+D
+This small shaft travels to the west and to the south, sporting small clumps
+of precious metals as they go.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19722
+~
+~
+Dr 3 0 -1 19719
+~
+~
+End
+
+#19722
+N Dwarven mines~
+Ref 0
+D
+A slight downslope is present as this tunnel continues to the south and to the
+north.  To the south is where the small slope is present, traveling slightly
+further down into the depths of the mountain.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19721
+~
+~
+Dr 2 0 -1 19723
+~
+~
+End
+
+#19723
+N Unfinished mine~
+Ref 0
+D
+The southern wall of this mine has been left uncarved and unfinished as you
+can see that the amount of metals in the walls have decreased slightly here.
+The tunnel leads to the north out of this dead end.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19722
+~
+~
+End
+
+#19724
+N Dwarven mine~
+Ref 0
+D
+This small shaft travels to the east and west while along the way several
+spots of precious metal and rock jut forth from the red rock.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19725
+~
+~
+Dr 3 0 -1 19709
+~
+~
+End
+
+#19725
+N Dwarven mine~
+Ref 0
+D
+The small tunnel continues to the west and to the south from this turning
+point.  Small spots of gold and silver can be seen in the walls.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 2 0 -1 19726
+~
+~
+Dr 3 0 -1 19724
+~
+~
+End
+
+#19726
+N Dwarven mines~
+Ref 0
+D
+This is a north and south shaft that has been carved to perfection.  The walls
+are almost square here, giving it a hall like appearance.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19725
+~
+~
+Dr 2 0 -1 19727
+~
+~
+End
+
+#19727
+N Dwarven mines~
+Ref 0
+D
+The small shaft here continues to the north and to the east. As it slopes
+slightly downward to the east, the walls have a more unfinished look to them.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19726
+~
+~
+Dr 1 0 -1 19728
+~
+~
+End
+
+#19728
+N Dwarven mines~
+Ref 0
+D
+This small east-west shaft, which travels slightly downward to the east, has
+a distinct smell to it.  The smell is revolting, coming close to that of rotting
+flesh.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19729
+~
+~
+Dr 3 0 -1 19727
+~
+~
+End
+
+#19729
+N Dwarven mines~
+Ref 0
+D
+This intersection combines three tunnels, the western tunnel leading up.  To
+the south is darkness, but there is a disgusting stench emanating from a very
+large cavern.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 0 0 -1 19732
+~
+~
+Dr 2 0 -1 19730
+~
+~
+Dr 3 0 -1 19728
+~
+~
+End
+
+#19730
+N Dwarven mines~
+Ref 0
+D
+This is a small north and south passage that is bleak and void of any gold or
+silver in the walls.  It continues into darkness to the south.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19729
+~
+~
+Dr 2 0 -1 19731
+~
+~
+End
+
+#19731
+N Dwarven mines~
+Ref 0
+D
+This small shaft ends abruptly at the southern wall.  There is a faint blue
+glow to the southern wall but no metals of jewels are present.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19730
+~
+~
+End
+
+#19732
+N Duergar Outcamp~
+Ref 0
+D
+This is a large cavern that stinks of decay and death.  To the north there is
+a rather large hut, while to the west there is a small fire and several big
+boulders.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19705 10 100 1
+Dr 0 0 -1 19733
+~
+~
+Dr 2 0 -1 19729
+~
+~
+Dr 3 0 -1 19735
+~
+~
+End
+
+#19733
+N Duergar Barracks~
+Ref 0
+D
+Several small cots line the walls here  inside this large thatched hut.  Small
+scraps of food and several small disfigured bodies lie about, no doubt the
+remains of some unfortunate dwarf.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19705 10 100 1
+Dr 2 0 -1 19732
+~
+~
+End
+
+#19734
+N Small cave~
+Ref 0
+D
+Many small and disfigured bodies have been piled up here stinking up the whole
+cavern.  Blood stains line the walls and entrails are strewn about the floor.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19735
+~
+~
+End
+
+#19735
+N By a small fire~
+Ref 0
+D
+Several large rocks surround a petty little fire that has formed a cloud in
+the ceiling of this large cavern.  A window of the hut looks out over this small
+meeting area.  To the north a small dark cave can be seen.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19705 10 100 1
+Dr 0 0 -1 19734
+~
+~
+Dr 1 0 -1 19732
+~
+~
+End
+
+#19736
+N Carved Tunnel~
+Ref 0
+D
+This small tunnel has been carved to perfection, the walls are smooth and the
+floor has been worn soft through years of passage.  The red coloring of the
+rock gives this small tunnel a soft glow.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19737
+~
+~
+Dr 1 0 -1 19708
+~
+~
+End
+
+#19737
+N Carved Tunnel~
+Ref 0
+D
+The walls of the small tunnel have been carved to perfection as well as the
+floor that has been worn smooth.  It travels south and west leading off into
+darkness.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19736
+~
+~
+Dr 3 0 -1 19738
+~
+~
+End
+
+#19738
+N Carved Tunnel~
+Ref 0
+D
+The walls here are red and smooth as they have been carved into perfection.
+The floor has been worm smooth with use and clear of any rubble.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19700 10 100 1
+Dr 1 0 -1 19737
+~
+~
+Dr 2 0 -1 19739
+~
+~
+End
+
+#19739
+N Stone Gates~
+Ref 0
+D
+Two monstrous pillars of stone support a great stone gate that leads south
+into a gigantic cavern with a small city inside.  The redden rock of the of
+mountain gives this small gate and cavern within a slight reddish glow.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19702 11 100 1
+Dr 0 0 -1 19738
+~
+~
+Dr 2 0 -1 19740
+~
+~
+End
+
+#19740
+N Walkway~
+Ref 0
+D
+A small stone walkway leads its way through the immense cavern and all of its
+scattered boulders and misplaced stalagmites.  To the south you can see a large
+area of many multicolored rock, rising up in the center of which is a small
+building.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19701 6 100 1
+Dr 0 0 -1 19739
+~
+~
+Dr 2 0 -1 19741
+~
+~
+Dr 3 0 -1 19750
+~
+~
+End
+
+#19741
+N Rock Garden~
+Ref 0
+D
+A small path works its way through all types of multicolored boulders of all
+sizes and shapes.  Despite it's hardness and great size it has a certain
+beauty to it.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19740
+~
+~
+Dr 1 0 -1 19742
+~
+~
+Dr 3 0 -1 19748
+~
+~
+End
+
+#19742
+N Rock Garden~
+Ref 0
+D
+A small path works its way south and west from this section of a enormously
+large, yet beautiful conglomeration of rocks and boulders.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19743
+~
+~
+Dr 3 0 -1 19741
+~
+~
+End
+
+#19743
+N Rock Garden~
+Ref 0
+D
+A small path works its way north and south through this large display of many
+different colored boulders and rocks.  A large building can be seen rising above
+the boulders directly to the west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19703 1 100 1
+Dr 0 0 -1 19742
+~
+~
+Dr 2 0 -1 19744
+~
+~
+End
+
+#19744
+N Rock Garden~
+Ref 0
+D
+A small path works its way to the north and to the west as the many different
+colored boulders and rocks perform a array of beauty before you.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19743
+~
+~
+Dr 3 0 -1 19745
+~
+~
+End
+
+#19745
+N Rock Garden~
+Ref 0
+D
+A small path works its way west and east through this array of multicolored
+boulders and rocks.  To the north a smooth path leads to a large and immaculate
+stone building.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19749
+~
+~
+Dr 1 0 -1 19744
+~
+~
+Dr 3 0 -1 19746
+~
+~
+End
+
+#19746
+N Rock Garden~
+Ref 0
+D
+A small path works its way east and north through this small section of the
+large array of boulders and rocks of all different colors.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19747
+~
+~
+Dr 1 0 -1 19745
+~
+~
+End
+
+#19747
+N Rock Garden~
+Ref 0
+D
+A small path works its way north and south through this small section of the
+large garden of multicolored boulders.  Directly to the east a large building
+can be seen rising above the piles of boulders.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19748
+~
+~
+Dr 2 0 -1 19746
+~
+~
+End
+
+#19748
+N Rock Garden~
+Ref 0
+D
+A small path works its way east and south through this section of the great
+multicolored array of boulders and rock formations.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19741
+~
+~
+Dr 2 0 -1 19747
+~
+~
+End
+
+#19749
+N Temple of Juargan~
+Ref 0
+D
+This large building is circular in shape and open on all sides, as the ceiling
+is supported by pillars made of the deep red stone from the heart of the
+Dra-Korrin.
+  In the center there is rests a large throne, formed of red rock.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+ED throne~
+The throne is made of deep red rock from the core of the Dra-Korrin.~
+R M 19702 11 100 1
+Dr 2 0 -1 19745
+~
+~
+End
+
+#19750
+N Walkway~
+Ref 0
+D
+A small stone walkway travels east and west through the many stalagmites and
+stray boulders that scatter the floor of the great cavern.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19740
+~
+~
+Dr 3 0 -1 19751
+~
+~
+End
+
+#19751
+N Walkway~
+Ref 0
+D
+A small stone walkway travels east and south through the debris of many
+boulders and stalagmites.  Another small walkway leads west to a small building
+pushing a black smoke from its roof.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19750
+~
+~
+Dr 2 0 -1 19753
+~
+~
+Dr 3 0 -1 19752
+~
+~
+End
+
+#19752
+N Blacksmith's Home~
+Ref 0
+D
+A large black forge lies in the center of this small house pushing waves of
+heat into your face, barley allowing you to stand within the entranceway.  A
+large trough of water and several anvils are resting here as well.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19751
+~
+~
+End
+
+#19753
+N Walkway~
+Ref 0
+D
+A small walkway travels north and south through the many scattered boulders
+and stalagmites.  A separate, less used path leads to the west.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19751
+~
+~
+Dr 2 0 -1 19759
+~
+~
+Dr 3 0 -1 19754
+~
+~
+End
+
+#19754
+N Path in the Rock~
+Ref 0
+D
+A small path leads west further into the less carved rock while to the east
+the larger walkway can be seen.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19753
+~
+~
+Dr 3 0 -1 19755
+~
+~
+End
+
+#19755
+N Path in the Rock~
+Ref 0
+D
+This small uncarved path travels south and east as the edge of the cavern
+blocks any travel further west.  The wall of the cavern has a deep red color to
+it and with the many stalactites parts resemble dripping blood.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19754
+~
+~
+Dr 2 0 -1 19756
+~
+~
+End
+
+#19756
+N Path in the Rock~
+Ref 0
+D
+This small, uncarved path leads north and south along the cavern wall, over
+many boulders at points.  To the east you can see a path leading up to a small
+hole in a large boulder.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19755
+~
+~
+Dr 1 0 -1 19771
+~
+~
+Dr 2 0 -1 19757
+~
+~
+End
+
+#19757
+N Path in the Rock~
+Ref 0
+D
+A small path travels over boulders and crevices to the north and east.  The
+edge of the cavern lies to the west while mounds of boulders are heaped to the
+south.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19702 11 100 1
+Dr 0 0 -1 19756
+~
+~
+Dr 1 0 -1 19758
+~
+~
+End
+
+#19758
+N Path in the Rock~
+Ref 0
+D
+A small and unused path travels over boulders and by many large hole as it
+makes its way to the west.  To the east the small path ends in the larger walk-
+way of the city.  To the south a path leads to a small hut perched on top of a
+large boulder.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 19760
+~
+~
+Dr 2 0 -1 19761
+~
+~
+Dr 3 0 -1 19757
+~
+~
+End
+
+#19759
+N Walkway~
+Ref 0
+D
+A stone walkway travels north and south through this section of this rocky
+city.  To the west you can see a uncarved and hug mound of rock and boulder.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19701 6 100 1
+Dr 0 0 -1 19753
+~
+~
+Dr 2 0 -1 19760
+~
+~
+End
+
+#19760
+N Walkway~
+Ref 0
+D
+A stone walkway travels north and south through this section of the city.  A
+small and unused path can be seen traveling west into the uncut and jagged rock.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19759
+~
+~
+Dr 2 0 -1 19762
+~
+~
+Dr 3 0 -1 19758
+~
+~
+End
+
+#19761
+N Pasty's Dwelling~
+Ref 0
+D
+This is a small stone dwelling with a large oven on the south wall.  There are
+many tables and chairs placed about the place and by the oven there is a table
+piled with grains and a small bowl of dough.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19758
+~
+~
+End
+
+#19762
+N Walkway~
+Ref 0
+D
+A stone walkway travels north and east through this section of the stone city.
+A small path leads south to a small rock dwelling.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19760
+~
+~
+Dr 1 0 -1 19763
+~
+~
+Dr 2 0 -1 19764
+~
+~
+End
+
+#19763
+N Walkway~
+Ref 0
+D
+A stone walkway leads west from here.  To the east the small walkway ends in a
+large building, and to the south a small path leads to a small stone dwelling.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19701 6 100 1
+Dr 1 0 -1 19766
+~
+~
+Dr 2 0 -1 19765
+~
+~
+Dr 3 0 -1 19762
+~
+~
+End
+
+#19764
+N Leatherbies Home~
+Ref 0
+D
+This is a small stone dwelling with many sizes of leather strewn about the
+place.  A small table with a few chairs sits in the center of the house.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19762
+~
+~
+End
+
+#19765
+N The Stone Jewel~
+Ref 0
+D
+Many different colors and sizes of jewels hang from the walls of this well
+kept dwelling.  A small counter sits on the far wall with other small tables
+lining the walls.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19763
+~
+~
+End
+
+#19766
+N Guard Barrack~
+Ref 0
+D
+Many small cots line the walls of this large building as it serves for the
+homes of many brave Dwarven men who pledge their lives to the suppression of
+their Duergar enemies.  A small archway leads south to a lower level.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19702 11 100 1
+Dr 2 0 -1 19767
+~
+~
+Dr 3 0 -1 19763
+~
+~
+End
+
+#19767
+N Alcove~
+Ref 0
+D
+A small alcove serves as a turning point for this small, dark tunnel that goes
+north and west from here.
+~
+C
+~
+F 13
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19766
+~
+~
+Dr 3 0 -1 19768
+~
+~
+End
+
+#19768
+N Entrance to Tomb~
+Ref 0
+D
+A large archway leads north to a dark vault.  An old stench emanates from it,
+as dust seems to continually flow from the old arch.  There is a small tunnel
+that travels east into a darkness.
+~
+C
+~
+F 13
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19769
+~
+~
+Dr 1 0 -1 19767
+~
+~
+End
+
+#19769
+N Ancients Tomb~
+Ref 0
+D
+Two large stone sarcophagus's lie stagnant in the center of this small tomb.
+The walls are lined with holes that contain many coffers containing, no doubt,
+the remains of some ancient dwarf.
+  A great stone door leads to the west, it has many inscriptions upon it.
+~
+C
+~
+F 13
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 19706 1 100 1
+Dr 2 0 -1 19768
+~
+~
+Dr 3 0 4700 19770
+~
+tomb vault door~
+End
+
+#19770
+N Ancients Vault~
+Ref 0
+D
+This is more of a small alcove than anything else.  The ceiling is covered
+with many descriptive carvings, as are the walls and floor.  Where it not for
+the years of decay and no upkeep, this would be a glamorous chamber.
+~
+C
+~
+F 9
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 19704 0 100 1
+Dr 1 0 4700 19769
+~
+tomb vault door~
+End
+
+#19771
+N Siven's Stone~
+Ref 0
+D
+A small and dark little room entombed within a large boulder, a very strange
+place to want to live.  There is a small table in the center, but the room is
+void of any other objects.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 19756
+~
+~
+End
+
+#19772
+N Small Cave~
+Ref 0
+D
+You barely squeeze through into this cave, and you don't see much to it
+either.  All you see are piles of stones.  At least none of the stones has
+fallen over your exit north.
+~
+C
+~
+F 8
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 19773
+You see a sparkling light north.
+~
+~
+Dr 5 0 -1 19700
+You see rocks and stones.
+~
+stone stones rock rocks~
+End
+
+#19773
+N Under Crystal Falls~
+Ref 0
+D
+As you wring your clothes, you see sunlight reflect beautifully off the
+waterfall, forming at rainbow.  With the sparkling illumination, you think you
+see a cave to the south.
+~
+C
+~
+F 12
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 19772
+You think you hear a small noise coming from there too.
+~
+~
+Dr 3 1024 -1 19774
+You see fish falling down the waterfall.
+~
+~
+End
+
+#19774
+N Crystal Falls~
+Ref 0
+D
+You see a VERY beautiful waterfall here.  It looks almost as if diamonds are
+falling down the mountain.  (You reach out and grab and no, it IS only water.)
+It looks so nice here, you feel like taking a nap.
+The trail leads north and south.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 20279
+You see the trail leading north.
+~
+~
+Dr 1 1024 0 19773
+You see fish falling down the waterfall.
+~
+~
+Dr 2 0 0 19775
+You see the trail leading back to the valley.
+~
+~
+End
+
+#19775
+N Last Hope Valley~
+Ref 0
+D
+You see a fresh green valley.  Flowers blossom everywhere around you, and you
+have a big urge to giggle.  To the north, you can see the source of this
+greenness, a waterfall.  To the west, you see the trail along the valley.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 19774
+You hear the rush of a waterfall.
+~
+~
+Dr 3 0 0 19776
+You see the valley.
+~
+~
+End
+
+#19776
+N Last Hope Valley~
+Ref 0
+D
+You see a fresh green valley.  Flowers blossom everywhere around you, and you
+have a big urge to giggle.  The valley continues to the east, or you can take
+a steep trail up.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19775
+You see the valley.
+~
+~
+Dr 3 0 0 19777
+~
+~
+End
+
+#19777
+N Hilltop Overgrown Road~
+Ref 0
+D
+What a view!  From here, you can see a waterfall toward the east, and lush
+green forests south-east.  To the north, you see the Mountains of Moria.  To
+the west, you see the dirty trail again.  A trail leads down to the valley
+below.
+~
+C
+~
+F 4
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19776
+~
+~
+Dr 3 0 0 19778
+You see the trail continue west.
+~
+~
+End
+
+#19778
+N Overgrown Road to Mordel~
+Ref 0
+D
+The dirt road you are treading on is as gentle as you can believe.  Rocks
+catch on you as you try to keep your balance.  The trail continues east and
+back west to relative safety.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19777
+You see the trail.
+~
+~
+Dr 3 0 0 19779
+You see the trail.
+~
+~
+End
+
+#19779
+N Overgrown Road~
+Ref 0
+D
+A trail heading east toward Mordel, the conquered lands that Tiktui has
+usurped in her attempts to conquer all of Tyselorrd.  To the west you can
+see the spires of Kyrinn behind the soft rolling landscape.  
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19778
+You see the trail.
+~
+~
+Dr 3 0 0 536
+~
+~
+End
+
+#19780
+N Up the Hill~
+Ref 0
+D
+You continue to climb this hill as sweat breaks out upon your forehead.  It
+looks like you are close to the plateau.  Down is the relative comfort of
+ground again, but you are SO close to the top!
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 21500
+~
+~
+Dr 3 0 0 19781
+~
+~
+End
+
+#19781
+N Up the Hill~
+Ref 0
+D
+You continue to climb this hill as sweat breaks out upon your forehead.  It
+looks like you are close to the plateau.  Down is the relative comfort of
+ground again, but you are SO close to the top!
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19780
+~
+~
+Dr 3 0 0 19782
+~
+~
+End
+
+#19782
+N Up the Hill~
+Ref 0
+D
+You continue to climb this hill as sweat breaks out upon your forehead.  It
+looks like you are close to the plateau.  Down is the relative comfort of
+ground again, but you are SO close to the top!
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19781
+~
+~
+Dr 3 0 0 19783
+~
+~
+End
+
+#19783
+N Up the Hill~
+Ref 0
+D
+You continue to climb this hill as sweat breaks out upon your forehead.  It
+looks like you are close to the plateau.  Down is the relative comfort of
+ground again, but you are SO close to the top!
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19782
+~
+~
+Dr 3 0 0 19784
+~
+~
+End
+
+#19784
+N The Hills~
+Ref 0
+D
+You sigh as the trail continues straight up into the mountain.  West leads
+back to the more stable ground, but you wonder what's on the other side of this
+little hill.....
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 19783
+~
+~
+Dr 3 0 0 19785
+You see the trail back.
+~
+~
+End
+
+#19785
+N The Hills~
+Ref 0
+D
+You see all around you ... hills.  You're lucky you get to get so much
+exercise today!  You wonder if you should save your breath and go back west or
+continue east toward the hills.  There is a trail leading south towards
+a black glassy mountain range.  A small plaque is on the rock.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+ED plaque~
+This extension (hills and darkwood forest) is made my Hatchet for any Merc Mud.
+copyright 1992
+~
+Dr 1 0 0 19784
+You see the trail along the hills.
+~
+~
+Dr 2 0 0 17900
+You see a black glassy mountain range.
+~
+~
+Dr 3 0 0 19000
+You see the dirty hills still.
+~
+~
+End
+
+#0
+
+
+
+#$

@@ -1,0 +1,11 @@
+NiM5 now automatically exports HTML documents for web support.
+
+
+To set up access to your NiM5 web pages,
+either add this line to startup (it may be there, uncomment it):
+
+cp ./area/html/* <your web path>
+
+Or make a symlink from your web dir to the /area/html directory.
+
+Then link in the appropriate files via your web pages.

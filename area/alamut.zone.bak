@@ -1,0 +1,398 @@
+#ZONE 
+N Alamut~
+B None~
+V 10200 10299
+S 1
+End
+
+
+
+#SCRIPTDATA
+#0
+
+
+
+#ACTORS
+#10200
+N shadiq~
+SD shadiq~
+LD
+ Shadiq the Master Assassin practices exercises.
+~
+D
+ A bald man of thick, muscular build, Shadiq trains the mountain guardsmen
+for Hassan's assassin armies.  
+~
+A 1043
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sk 25 'dual wield'
+Sk 25 'hafted'
+Sk 25 'exotic'
+Sk 10 'ranged'
+Sk 10 'thrown'
+Sk 25 'piercing'
+Sk 25 'bludgeons'
+Sk 10 'stealth'
+Sk 10 'tracking'
+Sk 30 'disarm'
+Sk 20 'dodge'
+Sk 10 'parry'
+Sk 20 'heroism'
+Sk 10 'elusion'
+End
+
+#10201
+N asir ibn al-alhazred alhazred~
+SD Asir ibn Alhazred~
+LD
+ War Master Asir ibn Alhazred stands guard.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 20 20 20 20 20
+At 0 10 15 14
+End
+
+#0
+
+
+
+#OBJDATA
+#10210
+N coin coins money taxes levies treasure~
+SD Hassan's taxes and levies for the year~
+P ~
+D
+A massive pile of unsorted coins fills the room.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 1000 0 0 0
+End
+
+#10211
+N key~
+SD a key~
+P ~
+D
+A key is here.
+~
+A
+~
+PD
+~
+DR
+The key is enscribed in Arabic.
+~
+L 0
+T 18
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#0
+
+
+
+#SCENES
+#10200
+N Hassan's Citadel~
+Ref 0
+D
+Tall walls of thick granite mark the rim of the Citadel Tower high on
+Mount Hirash in the northern Andraius range.  The view is spectacular, the
+peak of the mountain fortress is the highest in this region, and you can see
+for miles around.  To the southeast, beyond the foothills, is the Kaerbrok
+river valley where you can see the city of Kess and the plains, stretching
+southward, beyond your field of view.  To the north is a high parapet where
+visitors can watch the beaches of the Great Ocean, and, in the distance, a
+dark smudge is all that can be seen of Tyselorrd, land of the tyrants.  Soft
+waves crash into rocks, the tips of which are visible in the light.  To the
+southwest are another set of plains, here lies the small villages of Keveg
+and Vesper, and ports south along the western shores of the Isle.  Directly
+south you can see a pass through the mountains.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10201
+~
+~
+Dr 1 0 0 10203
+~
+~
+Dr 3 0 0 10204
+~
+~
+Dr 5 0 0 10202
+~
+~
+End
+
+#10201
+N Citadel Overlook~
+Ref 0
+D
+You are standing on a northern parapet in the mountain citadel of the
+Heveti.  To the south lies the outlying village, to the north you can see
+the shores of Rygor Isle, and the adoles beyond.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 3584 0 7702
+~
+ramparts~
+Dr 1 3584 0 5110
+~
+ramparts~
+Dr 2 0 0 10200
+~
+~
+End
+
+#10202
+N Commons - Below the Citadel~
+Ref 0
+D
+This is the common area of village, before the great citadel on the
+mountain Hirash.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R O 7012 -5 100 1
+R M 10201 1 100 1
+R O 10211 -1 100 1
+R O 4651 12 100 1
+R O 3003 24 100 1
+R O 4650 18 100 1
+R O 3513 40 100 1
+R O 3513 39 100 1
+Dr 1 0 0 10211
+~
+~
+Dr 2 0 0 10207
+~
+~
+Dr 4 0 0 10200
+~
+~
+Dr 5 7 0 10210
+~
+trapdoor~
+End
+
+#10203
+N Training Room~
+Ref 0
+D
+A great expanse of open shorings provides an ample training quarter for
+the Heveti mountain guards, the secret police of Hassan's assassin army.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 10200 1 100 1
+Dr 3 0 0 10200
+~
+~
+End
+
+#10204
+N Hassan's Quarters~
+Ref 0
+D
+A western wing of the citadel has been furnished for the great
+Assassin-King Hassan.  Tapestries decorate the walls and a pair of elongated
+windows looks out onto the countryside.  A small balcony is to the south.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10200
+~
+~
+Dr 2 5 0 10205
+~
+windowed iron door~
+End
+
+#10205
+N Balcony~
+Ref 0
+D
+A balcony looks down on the village commons.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 5 0 10204
+~
+windowed iron door~
+Dr 2 512 0 10202
+~
+air~
+End
+
+#10206
+N Path to Alamut~
+Ref 0
+D
+You are walking along a stone and gravel path that is steep and
+climbs into the mountains.
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 10207
+~
+~
+Dr 2 0 0 10006
+~
+~
+End
+
+#10207
+N Path to Alamut~
+Ref 0
+D
+You are at the edge of a steep cliff, overlooking the valley, on
+a path leading up a large mountain in the Andraius mountain range
+in the land of Kltara.
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 10202
+~
+~
+Dr 3 0 0 10206
+~
+~
+End
+
+#10210
+N Treasury~
+Ref 0
+D
+You are in the Citadel treasury.  Hassan's taxes and levy's are stored here. 
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 1000 -5 100 1
+R O 6012 -5 100 1
+R O 10210 -5 50 1
+R O 10210 -1 3 1
+Dr 4 7 10211 10202
+~
+trapdoor~
+End
+
+#10211
+N Kitchen~
+Ref 0
+D
+A massive kitchen with a stone-fired oven.
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 2404 -5 100 1
+Dr 3 0 0 10202
+~
+~
+End
+
+#0
+
+
+
+#$

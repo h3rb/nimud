@@ -1,0 +1,7 @@
+func_echo
+get all
+combat scripts
+Fix event scheduler
+Graphics.c
+Magic.c tweaks
+Test spells

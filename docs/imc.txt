@@ -1,0 +1,21 @@
+
+NiM5 comes with IMC2 v4.24b hooks for installing IMC2.  Many modifications were made to the files imc.h,
+imccfg.h and imc.c, but these modifications were in most cases surface; in an attempt
+to decipher the convaluded IMC definitions, I realized this feature is mainly prepared
+for SMAUG, though nimud variants are "claimed" to be supported.  I have installed this
+version in the hopes that future versions will utilize the same RWHO protocol standards,
+so I don't have to do this every time there is a new version of IMC.
+
+However, due to complaints from its author, I have removed the files and
+they are no longer available.  I do not have copies of these files, so
+you will have to modify a newer version yourself.  I don't really 
+recommend using IMC2.
+
+If you want to update your version of NiM to include a newer version, follow instructions 
+included in the newer version of IMC.
+
+You will have to join a hub; support is offered by:
+
+muddomain.com
+and Ntanel of mudworld.org
+who can be contacted at ucmmweb@yahoo.com

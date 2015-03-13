@@ -1,0 +1,792 @@
+#ZONE 
+N Xalos yet-untitled~
+B Xalos~
+V 5200 5299
+S 1
+End
+
+
+
+#SCRIPTDATA
+#5200
+N greeter~
+C
+wait(3);
+do({'Welcome to Elvania!});
+~
+T 10
+End
+
+#5201
+N Zandar~
+C
+if ( cmp(%astr%,{ahk van bon}),
+   { 
+     do({emote slaps you in the face});
+     hurt(%name%,30);
+},
+{ 
+   if ( cmp(%astr%,{dama roo fai}),
+       {
+         do({'Dama Roo Fai, Dama Roo Fai, DAMA ROO FAI!!});
+         wait(30);
+         do({echo Smoke starts to come out of Zandar's hand until it is engulfed in smoke.  In his palm is the magical key.});
+    wait(30);
+    do({drop key});
+} ); } );
+say Dama Roo Fai
+l
+~
+T 6
+End
+
+#0
+
+
+
+#ACTORS
+#5200
+N Drognan~
+SD the town greeter~
+LD
+ Drognan the town greeter stands here, welcoming people to Elvania.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+S 1
+Sz 24
+K 0 E 1
+AP 0 0 0 0 0
+Sc 5200
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#5201
+N Zandar spirit~
+SD an ancient spirit~
+LD
+ Zandar, an ancient spirit, stands here.
+~
+D
+ Zandar is an Ancient Spirit that is as old as the dirt under your feet. He has accumulated great wisdom over the years.
+~
+A 3
+AB 0
+M 0
+S 1
+Sz 24
+K 0 E 1
+AP 0 0 0 0 0
+Sc 5201
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#5202
+N Trainer~
+SD Vale the Trainer~
+LD
+ Vale the Trainer is here.
+~
+D
+ ~
+A 1043
+AB 0
+M 0
+S 0
+Sz 24
+K 0 E 1
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#5299
+N monsta~
+SD Experience Monsta~
+LD
+ Experience mOnnnsta!
+~
+D
+ He gives experience.
+~
+A 1
+AB 0
+M 0
+S 0
+Sz 24
+K 0 E 16960
+AP 0 0 0 0 0
+Sk 100 'stark'
+Sk 25 'parry'
+Sk 25 'dodge'
+End
+
+#0
+
+
+
+#OBJDATA
+#5200
+N dagger~
+SD a rusty dagger~
+P ~
+D
+A rusty dagger lays on the ground.
+~
+A
+~
+PD
+~
+DR
+This rusty dagger looks like it's gone through some ware and tear. It's not much, but it can still do some damage.
+~
+L 1
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 1
+C 3
+V 0 2 3 2
+End
+
+#5201
+N sword~
+SD a dirty short sword~
+P ~
+D
+a dirty show sword lays on the ground.
+~
+A
+~
+PD
+~
+DR
+This short sword doesn't look like it will do much, but atleast you won't have to get the blood on your hands.
+~
+L 1
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 3
+C 3
+V 0 1 5 3
+End
+
+#5202
+N club~
+SD a wooden club~
+P ~
+D
+a poorly-crafted wooden club lies on the ground.
+~
+A
+~
+PD
+~
+DR
+This wooden club is composed of low quality wood, with cracks running up and down it's sides.
+~
+L 1
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 2
+C 3
+V 0 1 4 7
+End
+
+#5203
+N shirt~
+SD a cloth shirt~
+P ~
+D
+a cotton shirt is here.
+~
+A
+~
+PD
+~
+DR
+This cotton shirt doesn't provide much protection, other than from bugs.
+~
+L 1
+T 13
+E 0
+W 9
+Sz 24
+Ti 0
+Wt 1
+C 4
+V 0 0 0 0
+End
+
+#5204
+N trousers~
+SD cloth trousers~
+P ~
+D
+cloth trousers are here.
+~
+A
+~
+PD
+~
+DR
+These cloth trousers arn't worth much more than keeping you decent.
+~
+L 1
+T 13
+E 0
+W 33
+Sz 24
+Ti 0
+Wt 2
+C 2
+V 0 0 0 0
+End
+
+#5205
+N sandals~
+SD a pair of sandals~
+P ~
+D
+a pair of sandals are here.
+~
+A
+~
+PD
+~
+DR
+These sandals were made for basic travel.
+~
+L 1
+T 13
+E 0
+W 65
+Sz 0
+Ti 0
+Wt 0
+C 2
+V 0 0 0 0
+End
+
+#5206
+N unset~
+SD ~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 0 0 0 0
+End
+
+#5297
+N pill~
+SD a pill~
+P ~
+D
+a pill is here.
+~
+A
+~
+PD
+~
+DR
+a pill
+~
+L 0
+T 26
+E 0
+W 4
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 0 0 0 0
+End
+
+#5298
+N staff~
+SD an immortal staff~
+P ~
+D
+An immortal's staff lies on the ground, pulsing with immense power.
+~
+A
+~
+PD
+~
+DR
+This immortal staff contains more power than a mortal can handle. If a mortal were to try and use this staff, they would either be killed by the staff itself or the staff's owner.
+~
+L 600
+T 5
+E 0
+W 16385
+Sz 0
+Ti 0
+Wt 0
+C 0
+V 200 2000 2000 7
+End
+
+#5299
+N robe~
+SD a robe of the immortals~
+P robes of the immortals~
+D
+A robe of the immortals lies here, pulsing with power beyond your imagination.
+~
+A
+~
+PD
+~
+DR
+These robes are said to hold so much power, if anything less than immortal were to try and wear them, they would be consumed with more energy than they could handle, resulting in death.
+~
+L 0
+T 13
+E 1
+W 9
+Sz 0
+Ti 0
+Wt 4
+C 999999999
+V 0 1 0 0
+End
+
+#0
+
+
+
+#SCENES
+#5200
+N Entrance to Elvania~
+Ref 0
+D
+The trees in this forest tower high above the land, with the treetops touching the clouds. This ancient forest of the elves is the oldest in exhistence and is said to hold many unsolved mysteries. The forest has a strong magical presence immensing from it.
+ 
+
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+R M 5200 1 100 1
+Dr 0 0 0 5201
+~
+~
+End
+
+#5201
+N The Meeting of Paths~
+Ref 0
+D
+This is a common meeting place for many people around Elvania.  The path
+to the North leads to the peaceful village of Elvania.  The Elvanian pond
+lies to the east and the Elvannian forest lies to the west.  South is the
+exit of Elvania.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+Dr 1 0 0 5202
+a path leading to Elvian Pond.
+~
+~
+Dr 2 0 0 5200
+a path leading outside of Elvania.
+~
+~
+End
+
+#5202
+N Elvian Pond Trail~
+Ref 0
+D
+This enchanted trail is lined by flowers of all different colors, with
+butterflys flapping around without a worry in the world.  The scent of the
+air is crisp, with the scent of the flowers in the air, a true site for sore
+eyes.  
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 3 0 0 5201
+a path leading to the west.
+~
+~
+Dr 9 0 0 5203
+a trail leads off to the southeast.
+~
+~
+End
+
+#5203
+N Elvian Pond Trail~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 1 0 0 5204
+~
+~
+Dr 6 0 0 5202
+the trail leads off to the northwest.
+~
+~
+End
+
+#5204
+N Elvian Pond Entrance~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 1 0 0 5205
+~
+~
+Dr 3 0 0 5203
+~
+~
+End
+
+#5205
+N Dungeon Entrance~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 0 0 0 5206
+~
+~
+Dr 1 0 0 5210
+~
+~
+Dr 2 0 0 5207
+~
+~
+Dr 3 0 0 5204
+~
+~
+Dr 7 0 0 5212
+~
+~
+End
+
+#5206
+N Northwest of Pond~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 1 0 0 5212
+~
+~
+Dr 2 0 0 5205
+~
+~
+Dr 9 0 0 5210
+~
+~
+End
+
+#5207
+N Zandar's Tomb~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+R O 5202 -1 100 1
+Dr 0 0 0 5205
+~
+~
+Dr 1 0 0 5211
+~
+~
+Dr 2 0 0 5208
+~
+~
+Dr 7 0 0 5210
+~
+~
+Dr 9 0 0 5209
+~
+~
+End
+
+#5208
+N Southwest of Pond~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 0 0 0 5207
+~
+~
+Dr 1 0 0 5209
+~
+~
+Dr 7 0 0 5211
+~
+~
+End
+
+#5209
+N Southside of Pond~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 0 0 0 5211
+~
+~
+Dr 3 0 0 5208
+~
+~
+Dr 6 0 0 5207
+~
+~
+End
+
+#5210
+N Elvian Pond~
+Ref 0
+D
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+Dr 0 0 0 5212
+~
+~
+Dr 1 0 0 5214
+~
+~
+Dr 2 0 0 5211
+~
+~
+Dr 3 0 0 5205
+~
+~
+Dr 6 0 0 5206
+~
+~
+Dr 7 0 0 5213
+~
+~
+Dr 8 0 0 5207
+~
+~
+End
+
+#5211
+N Elvian Pond~
+Ref 0
+D
+~
+C
+~
+F 0
+S 6
+M 0
+W 0
+T 0
+Dr 0 0 0 5210
+~
+~
+Dr 1 0 0 5215
+~
+~
+Dr 2 0 0 5209
+~
+~
+Dr 3 0 0 5207
+~
+~
+Dr 7 0 0 5214
+~
+~
+Dr 8 0 0 5208
+~
+~
+End
+
+#5212
+N Northside of Pond~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 1 0 0 5213
+~
+~
+Dr 2 0 0 5210
+~
+~
+Dr 3 0 0 5206
+~
+~
+Dr 8 0 0 5205
+~
+~
+End
+
+#5213
+N Northside of Pond~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 2 0 0 5214
+~
+~
+Dr 3 0 0 5212
+~
+~
+Dr 8 0 0 5210
+~
+~
+End
+
+#5214
+N ~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 0 0 0 5213
+~
+~
+Dr 3 0 0 5210
+~
+~
+Dr 8 0 0 5211
+~
+~
+End
+
+#5215
+N ~
+Ref 0
+D
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+Dr 3 0 0 5211
+~
+~
+End
+
+#0
+
+
+
+#$

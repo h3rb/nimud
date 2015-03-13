@@ -1,0 +1,302 @@
+#ZONE 
+N Road To Okham~
+B None~
+V 7400 7499
+S 1
+End
+
+
+
+#SCRIPTDATA
+#7400
+N ithian-caravan~
+C
+wait(10);
+do({'The terrible Tiktuans have engaged us at Okham.});
+wait(10);
+do({'We fight for the king!  For Kltara!});
+wait(10);
+do({'Follow me to the battle!});
+echo({[Type 'follow ithian' to join the Kltaran caravan]});
+wait(40);
+label(go);
+wait(10); do({north});
+wait(20); do({north});
+wait(20); do({nw});
+wait(20); do({nw});
+wait(20); do({north});
+wait(20); do({nw});
+wait(20); do({north});
+wait(20); do({east});
+wait(20); do({north});
+wait(20); do({east});
+wait(20); do({east});
+wait(20); do({north});
+wait(20); do({north});
+wait(20); do({north});
+wait(20); do({north});
+label(return);
+wait(10); do({south});
+wait(20); do({south});
+wait(20); do({south);
+wait(20); do({south});
+wait(20); do({west});
+wait(20); do({west});
+wait(20); do({south});
+wait(20); do({west});
+wait(20); do({south});
+wait(20); do({southeast});
+wait(20); do({south});
+wait(20); do({southeast});
+wait(20); do({southeast});
+wait(20); do({south});
+wait(20); do({south});
+jump(7400);
+~
+T 1
+End
+
+#7401
+N recruit-follow-born~
+C
+do({follow ithian});
+~
+T 4
+End
+
+#7402
+N recruit-taunt~
+C
+wait(random(random(random(random(random(random(50,150,150,150),150),150),150)); do({'Death to Tiktui!});
+wait(random(50,150)); do({'You shall taste my steel, Tiktuan scum!});
+wait(random(50,150)); do({'Fly from here, Tiktuan knave!});
+wait(random(50,150)); do({'Damn Tiktuans are employing dark arts aren't they?});
+wait(random(50,150)); do({'For Rygor!});
+wait(random(50,150)); do({'They've sacced Okham!  Tiktui will reign no more!});
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#7400
+N ithian~
+SD ithian~
+LD
+ Ithian is leading a war caravan to the Okham wall.
+~
+D
+ One of Rygor's greatest generals, Ithian is busily preparing the next
+group of fresh troops for the war against Tiktui.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 18 18 18 18 18
+Sc 7400
+End
+
+#7401
+N $n kltaran recruit~
+SD $n the recruit~
+LD
+ A kltaran recruit stands ready to fight for the crown.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 4 4 4 4 4
+Sc 7402
+Sc 7401
+Sc 6005
+End
+
+#0
+
+
+
+#OBJDATA
+#0
+
+
+
+#SCENES
+#7400
+N Road To Okham~
+Ref 0
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 7400 1 100 1
+R M 7401 12 85 4
+R O 6004 27 100 1
+R O 3007 40 25 1
+R O 6012 40 25 1
+R O 6012 39 100 1
+Dr 0 0 0 7401
+~
+~
+Dr 2 0 0 5110
+~
+~
+End
+
+#7401
+N Road To Okham~
+Ref 0
+D
+The road to Okham is worn with deep grooves from many war wagons leading
+north to aid the fight against Tiktui.  
+~
+C
+(null)~
+F 8192
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7402
+~
+~
+Dr 2 0 0 7400
+~
+~
+End
+
+#7402
+N Road To Okham~
+Ref 7401
+D
+The road bends to the northwest.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 0 7401
+~
+~
+Dr 3 0 0 7403
+~
+~
+Dr 6 0 0 7403
+~
+~
+End
+
+#7403
+N Road To Okham~
+Ref 7401
+D
+The road leads northwest and southeast.
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 7404
+~
+~
+Dr 1 0 0 7402
+~
+~
+Dr 6 0 0 7404
+~
+~
+Dr 9 0 0 7402
+~
+~
+End
+
+#7404
+N Edge Of The Viedrad~
+Ref 7401
+D
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 6016 10 100 1
+Dr 0 0 0 7405
+~
+~
+Dr 2 0 0 7403
+~
+~
+Dr 9 0 0 7403
+~
+~
+End
+
+#7405
+N Okham Road - Near Viedrad Basin~
+Ref 0
+D
+You are on the Okham Road near the Viedrad Basin.  To the northwest is
+the Old Okham Stockhouse, and south of here the road leads back to Kess.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 6002
+~
+~
+Dr 2 0 0 7404
+~
+~
+Dr 3 0 0 6000
+~
+~
+Dr 6 0 0 6000
+~
+~
+End
+
+#0
+
+
+
+#$

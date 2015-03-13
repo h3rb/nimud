@@ -1,0 +1,3064 @@
+#ZONE 
+N Doctor  Galaxy~
+B Sanami~
+V 24301 24371
+S 1
+End
+
+
+
+#SCRIPTDATA
+#24301
+N testing~
+C
+do({So walk around this area, and perform});
+do({some :emotes});
+~
+T 1
+End
+
+#0
+
+
+
+#ACTORS
+#24301
+N poor mudder~
+SD a poor mudder~
+LD
+ A poor mudder, lost in this place.
+~
+D
+ You will become him if you are not careful.
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 135
+O ~
+AP 15 15 15 15 15
+At 0 10 14 9
+End
+
+#24302
+N star~
+SD a beautiful star~
+LD
+ A beautiful white star smiles at you.
+~
+D
+ You can't tell what the star looks like, she is too bright!
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 500 E 544
+O ~
+AP 25 25 25 25 35
+At 0 10 20 10
+At 1 5 23 14
+At 2 1 28 11
+At 3 1 36 10
+End
+
+#24303
+N nebula young~
+SD a young nebula~
+LD
+ A young nebula, waiting to become a star.
+~
+D
+ It hasn't got a definite shape, it is just a cloud of mist.
+~
+A 65
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 200 E 662
+O ~
+AP 25 25 25 25 35
+At 0 10 18 13
+At 1 5 16 12
+At 2 1 23 8
+End
+
+#24304
+N comet speedy~
+SD a speedy comet~
+LD
+ A speedy comet is waiting to crush your head in.
+~
+D
+ You see the offspring of Halley's comet, here just to wipe everything out.
+~
+A 101
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -500 E 200
+O ~
+AP 15 15 15 15 15
+At 0 10 14 9
+End
+
+#24305
+N red supergiant~
+SD a red supergiant~
+LD
+ An enormous, red supergiant is forced to protect the galaxy.
+~
+D
+ You notice the giant is not as tough as his name sounds ...
+Still he can be very powerful.
+~
+A 195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 940
+O ~
+AP 25 25 25 25 40
+At 0 10 30 14
+At 1 5 33 1
+At 6 5 79 11
+End
+
+#24306
+N white dwarf~
+SD a white dwarf~
+LD
+ A tiny white dwarf is trying to sneak away from duty. 
+~
+D
+ Like the red giant, he is also appointed to stand guard for the galaxy.
+But somehow he manages to escape.  Though tiny, it can take a lot of hits!
+~
+A 69
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 18 3
+At 1 5 14 5
+End
+
+#24307
+N horsehead nebula~
+SD a horsehead nebula~
+LD
+ A huge nebula is here, resembling a horsehead.
+~
+D
+ You can only make out its shape from the darkness.  He was cursed to stay in
+here and his face may never be seen by anyone again.
+~
+A 67
+AB 98304
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 15 12
+At 1 5 17 8
+End
+
+#24308
+N andromeda~
+SD poor Andromeda~
+LD
+ The poor Andromeda is chained to the wall, suffering ...
+~
+D
+ She was once a princess of beauty.  However, her beauty has led to a Goddess's
+jealousy and she has to suffer here endlessly until Perseus comes.
+~
+A 83
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 400
+O ~
+AP 25 25 25 25 25
+At 0 10 18 12
+At 1 5 5 13
+End
+
+#24309
+N hercules~
+SD the mighty Hercules~
+LD
+ The Mighty Hercules is working hard on his extra Labours for the Gods.
+~
+D
+ He has been put to do the Ten Labours -- ten impossible tasks, by Hera, the
+queen goddess, who disliked him.  But he finished them all and at the end was
+granted immortality. He is a very brave and strong fighter.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 7
+O ~
+AP 15 15 15 15 15
+At 0 10 23 0
+End
+
+#24310
+N pegasus~
+SD the wild Pegasus~
+LD
+ The wild pegasus is grazing peacefully.
+~
+D
+ It is the legendary horse with wings on its back.
+~
+A 195
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 300 E 420
+O ~
+AP 25 25 25 25 25
+At 0 10 18 11
+At 1 5 14 1
+At 2 1 18 13
+End
+
+#24311
+N orion~
+SD Orion the hunter~
+LD
+ Orion is still hunting for Scorpio.
+~
+D
+ He is the legendary hunter who almost defeated Taurus the bull, but got
+killed by Scorpio.  The gods put them both up as constellations but one
+appears on one side of the sky and the other the other side so they will
+never meet. 
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 300 E 821
+O ~
+AP 25 25 25 25 40
+At 0 10 79 12
+At 1 5 55 1
+At 6 5 75 13
+End
+
+#24312
+N pleiades~
+SD the Pleiades~
+LD
+ The Pleiades are here, weeping for the loss of their sisters.
+~
+D
+ These are the seven sisters of the Myths, and as for why they are here, no
+one knows; even the Gods themselves have forgotten.
+~
+A 67
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 300 E 250
+O ~
+AP 19 19 19 19 19
+At 0 10 19 14
+At 1 5 22 13
+End
+
+#24313
+N draco head~
+SD the Head of Draco~
+LD
+ The gigantic Head of Draco lurks out from beneath and prepares to roast you.
+~
+D
+ This evil-looking head is even larger than a giant.  He is the last guardian 
+before entering the inner galaxy.  His neck is flexing in a random fashion so 
+hitting the head is certainly not easy.
+~
+A 99
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -1000 E 97
+O ~
+AP 15 15 15 15 15
+At 0 10 11 5
+End
+
+#24314
+N draco baby~
+SD a baby draco~
+LD
+ A baby draco is crawling on the Draco's body.
+~
+D
+ You see a tiny creature which looks like a dragon except that its body
+resembles a snake.  Gosh, is this a draco, you wonder, is this the thing
+we are on now?
+~
+A 197
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K -700 E 275
+O ~
+AP 19 19 19 19 19
+At 0 10 15 1
+At 1 5 18 10
+End
+
+#24315
+N aries~
+SD Aries~
+LD
+ Aries is sitting here, welcoming you.
+~
+D
+ You see a white goat here, the first guardian of the Zodiac,
+also the ruler of Spring. He looks as if he is expecting you.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 700 E 823
+O ~
+AP 25 25 25 25 40
+At 0 10 16 5
+At 1 5 12 14
+At 6 5 88 3
+End
+
+#24316
+N taurus~
+SD Taurus~
+LD
+ Taurus wants to leave, but has been forced to stay as a guardian here.
+~
+D
+ You see a wild-looking bull with a bad temper.  He is well-built and looks like 
+he can fight well ... indeed he has fought with Orion before and survived.
+~
+A 99
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 437
+O ~
+AP 25 25 25 25 25
+At 0 10 16 4
+At 1 5 5 13
+End
+
+#24317
+N gemini~
+SD Gemini~
+LD
+ Gemini is looking for his brother; have you seen him?
+~
+D
+ As soon as you see him you know that he is the most perfect man you have seen.
+You can't find any imperfections on him.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 959
+O ~
+AP 25 25 25 25 40
+At 0 10 54 5
+At 1 5 72 1
+At 3 1 25 2
+At 5 1 15 22
+At 6 5 87 14
+End
+
+#24318
+N gemini~
+SD Gemini~
+LD
+ Gemini is hiding from his brother, grinning evilly at you.
+~
+D
+ As soon as you see him you see the most imperfect man you have ever seen.
+How can there be such a contrast?  You wonder ...
+~
+A 231
+AB 1048712
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 909
+O ~
+AP 25 25 25 25 40
+At 0 10 63 14
+At 1 5 41 10
+At 3 1 33 17
+At 6 5 99 14
+End
+
+#24319
+N cancer~
+SD Cancer~
+LD
+ Cancer the crab is here, hoarding the treasure away from you.
+~
+D
+ You see a gigantic crab (YES, it is bigger than you!) with a crushed shell.
+Legend is that he was crushed by Hercules when he was sent by Hera to kill him.
+So Hera made Cancer a constellation for his work. 
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 0 E 80
+O ~
+AP 15 15 15 15 15
+At 0 10 20 5
+End
+
+#24320
+N leo~
+SD Leo~
+LD
+ Leo the lion is roaring at you, ready for a strike!
+~
+D
+ His metallic skin means that he could be the one which was killed by Hercules
+during his first Labour.  His skin is so weapon-proof that Hercules had to use
+his bare hands to tear the lion into two from its mouth!
+~
+A 99
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -100 E 801
+O ~
+AP 25 25 25 25 40
+At 0 10 68 5
+At 1 5 40 13
+At 3 1 34 4
+At 6 5 60 14
+End
+
+#24321
+N virgo~
+SD Virgo~
+LD
+ Virgo is sitting here, winking at you suggestively ... you are alarmed!
+~
+D
+ From what you have seen, you now realize that legends are legends, and Virgo
+may not be the maid of chastity and purity at all!  But still she looks
+gorgeous and is waiting for your first move, whatever it is ...
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 745
+O ~
+AP 25 25 25 25 40
+At 0 10 72 0
+At 1 5 57 10
+At 2 1 34 5
+At 5 1 38 17
+At 6 5 24 10
+End
+
+#24322
+N libra~
+SD Libra~
+LD
+ Libra, the fair and just, is staring at you, weighing up the sins of your past.
+~
+D
+ He is a wise old man and can see people's thoughts through their eyes....
+Now all he can see from you is greed and bloodshed.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 161
+O ~
+AP 15 15 15 15 15
+At 0 10 16 5
+End
+
+#24323
+N scorpio~
+SD Scorpio~
+LD
+ Scorpio is moving his tail towards you, waiting to put an end to some mortals.
+~
+D
+ Ever since he killed Orion in the myths, he has been punished by having 
+Sagittarius' arrow aimed at his heart forever.
+~
+A 99
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -200 E 69
+O ~
+AP 15 15 15 15 15
+At 0 10 25 7
+End
+
+#24324
+N sagittarius~
+SD Sagittarius~
+LD
+ Sagittarius the centaur is waiting to let go of his well aimed arrow ...
+~
+D
+ He is a centaur and a well trained archer. No one can escape his arrows.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 221
+O ~
+AP 15 15 15 15 15
+At 0 10 22 0
+End
+
+#24325
+N capricorn~
+SD Capricorn~
+LD
+ Capricorn is here, feeling bored ... he wants a fight!
+~
+D
+ You see a mean-looking ram here.  He used to be a fierce fighter in the ancient
+war but now the gods have decided to put him here, to live out the rest of his 
+days in peace.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 700 E 628
+O ~
+AP 25 25 25 25 35
+At 0 10 16 8
+At 1 5 20 1
+At 2 1 41 8
+End
+
+#24326
+N aquarius~
+SD Aquarius~
+LD
+ The beautiful Aquarius is standing here, holding THE vessel.
+~
+D
+ The pretty Water Bearer is smiling at you, you think you'd better give her a 
+hand with holding the vessel. 
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 969
+O ~
+AP 25 25 25 25 40
+At 0 10 49 11
+At 1 5 21 5
+At 2 1 14 10
+At 4 1 23 17
+At 6 5 62 8
+End
+
+#24327
+N pisces mermaid~
+SD Pisces the mermaid~
+LD
+ Pisces the mermaid is sitting here, waiting for your help.
+~
+D
+ She has been forced to serve her husband, who had been cursed to turn into a
+fish and she deserves your pity.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 1000 E 979
+O ~
+AP 25 25 25 25 40
+At 0 10 29 10
+At 1 5 72 5
+At 4 1 40 5
+At 6 5 42 0
+End
+
+#24328
+N pisces fish~
+SD Pisces the fish~
+LD
+ Pisces the fish, is jealous of your approach...
+~
+D
+ He was once a very handsome man but now has turned into an ugly big fish.
+So he becomes jealous of any living thing which is more handsome than him.
+~
+A 99
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K -1000 E 28
+O ~
+AP 15 15 15 15 15
+At 0 10 12 14
+End
+
+#24329
+N bear ursa major~
+SD Ursa Major the bear~
+LD
+ Ursa Major the bear is the last defense against any intruders.
+~
+D
+ The Huge Bear which resides in the northern skies is here. 
+You think you'd better turn back.  At least you have got a chance of survival.
+~
+A 99
+AB 136
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 18
+K 0 E 652
+O ~
+AP 25 25 25 25 35
+At 0 10 16 5
+At 1 5 17 8
+At 3 1 38 18
+End
+
+#24330
+N cassiopeia queen~
+SD Cassiopeia the Queen~
+LD
+ Cassiopeia, the queen of the Universe, is sitting on her throne.
+~
+D
+ She is the Queen of Dignity; facing her you feel all your dignity has gone.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 18
+K 700 E 162
+O ~
+AP 15 15 15 15 15
+At 0 10 20 14
+End
+
+#24331
+N cepheus king~
+SD Cepheus the King~
+LD
+ Cepheus, the king of the Universe, is sitting on his throne.
+~
+D
+ He is the King of Might as well as of the Universe. You suddenly feel very
+weak and useless in front of him.
+~
+A 67
+AB 128
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 700 E 151
+O ~
+AP 15 15 15 15 15
+At 0 10 16 10
+End
+
+#24332
+N polaris polar star~
+SD Polaris, the polar star~
+LD
+ Polaris, the polar star, who commands the whole Universe, stands before you!
+~
+D
+ He is the Master of the Universe, (NOT He-Man!), the most powerful!  
+Even the King and the Queen obey him.  As you look at him you notice he is 
+actually a STAR, with dazzling bright light ... maybe you shouldn't have come
+here at all?
+~
+A 67
+AB 138
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 18
+K 1000 E 100
+O ~
+AP 15 15 15 15 15
+At 0 10 25 7
+End
+
+#0
+
+
+
+#OBJDATA
+#24301
+N comet's tail~
+SD a comet's tail~
+P ~
+D
+A long, slender whip lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 3
+W 8193
+Sz 18
+Ti 0
+Wt 9
+C 1000
+O ~
+V 0 2 6 4
+End
+
+#24302
+N arm hercules~
+SD the Titanic Arm plates of Hercules~
+P ~
+D
+Arm plates of the Zodiac lie here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 257
+Sz 18
+Ti 0
+Wt 10
+C 10000
+O ~
+V 6 0 0 0
+ED arm~
+These mighty armors have been worn by this immortal, since the ancient time.
+~
+End
+
+#24304
+N belt orion~
+SD the Titanic Belt of Orion~
+P ~
+D
+A belt of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 2049
+Sz 18
+Ti 0
+Wt 7
+C 10000
+O ~
+V 9 0 0 0
+ED belt~
+You can immediately see that it belongs to Orion, from the three stars
+engraved on it.
+~
+End
+
+#24305
+N skull draco~
+SD an ugly skull of Draco~
+P ~
+D
+A massive skull of a dead Draco lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 194
+W 16385
+Sz 18
+Ti 0
+Wt 20
+C 10000
+O ~
+V 15 5 5 0
+End
+
+#24306
+N fleece aries~
+SD the Titanic Fleece of Aries~
+P ~
+D
+A fleece of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 5
+Sz 18
+Ti 0
+Wt 9
+C 10000
+O ~
+V 9 0 0 0
+ED fleece~
+From a look it resembles the Golden Fleece that exists in the Greek myths.
+~
+End
+
+#24307
+N hoof taurus~
+SD the Titanic Hoof of Taurus~
+P ~
+D
+A hoof of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 65
+Sz 18
+Ti 0
+Wt 10
+C 10000
+O ~
+V 3 0 0 0
+ED hoof~
+It is with these hooves that Taurus can stand against Orion's attacks.
+~
+End
+
+#24308
+N mask gemini~
+SD the Titanic Mask of Gemini~
+P ~
+D
+A mask of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1217
+W -32767
+Sz 18
+Ti 0
+Wt 7
+C 10000
+O ~
+V 2 0 0 0
+ED mask~
+You notice the mask has got two faces, one smiling and the other crying.
+You don't know which way you should wear it.
+~
+End
+
+#24309
+N shell cancer~
+SD the Titanic Shell of Cancer~
+P ~
+D
+A shell of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 9
+Sz 18
+Ti 0
+Wt 15
+C 10000
+O ~
+V 10 0 0 0
+ED shell~
+A shell which is dented in the middle, resulting from the Hercules' mighty
+pound when the Crab was still an enemy of Hercules in ancient times.
+~
+End
+
+#24310
+N skin leo~
+SD the Titanic Skin of Leo~
+P ~
+D
+A skin of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 1025
+Sz 18
+Ti 0
+Wt 15
+C 10000
+O ~
+V 11 0 0 0
+ED skin~
+A skin made of metal, which was worn by Hercules during his Ten Labours.
+~
+End
+
+#24311
+N bracelet virgo~
+SD the Titanic Bracelet of Virgo~
+P ~
+D
+A bracelet of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 4097
+Sz 18
+Ti 0
+Wt 4
+C 10000
+O ~
+V 4 0 0 0
+ED bracelet~
+A bracelet of purity and youth, only worn by selected virgins.
+~
+End
+
+#24312
+N scale libra~
+SD the Titanic Scale of Libra~
+P ~
+D
+A shield of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 513
+Sz 18
+Ti 0
+Wt 15
+C 10000
+O ~
+V 8 0 0 0
+ED scale~
+It is a shield of justice, used in the ancient battle against injustice.
+~
+End
+
+#24313
+N scale libra~
+SD the Titanic Scale of Libra~
+P ~
+D
+A shield of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 194
+W 513
+Sz 18
+Ti 0
+Wt 15
+C 10000
+O ~
+V 0 0 0 0
+ED scale~
+It is a shield of injustice, it picks on the innocent.
+~
+End
+
+#24314
+N sting scorpio~
+SD the Sting of Scorpio~
+P ~
+D
+Sting of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 1089
+W 8193
+Sz 18
+Ti 0
+Wt 7
+C 10000
+O ~
+V 0 4 4 11
+ED sting~
+This dreadful weapon put a lot of mortals to death before Scorpio was banished.
+~
+End
+
+#24315
+N arrow sagittarius~
+SD the Arrow of Sagittarius~
+P ~
+D
+The Arrow of Sagittarius lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 32
+E 1089
+W 16385
+Sz 18
+Ti 0
+Wt 7
+C 5000
+O ~
+V 100 25 50 3
+ED arrow~
+It's an arrow of lightning; it will never miss any target.
+~
+End
+
+#24316
+N bow sagittarius~
+SD the Titanic Bow of Sagittarius~
+P ~
+D
+The Titanic Bow of Sagittarius lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 31
+E 1089
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 10000
+O ~
+V 9315 0 1 3
+ED bow~
+The gigantic bow used by the Archer; it is a very powerful weapon.
+~
+End
+
+#24317
+N horns capricorn~
+SD the Titanic Horns of Capricorn~
+P ~
+D
+A pair of horns of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 129
+Sz 18
+Ti 0
+Wt 6
+C 10000
+O ~
+V 4 0 0 0
+ED horn~
+These strange horns are the work of gods, shaped to fit on hands.
+They look powerful indeed.
+~
+End
+
+#24318
+N vessel aquarius~
+SD the Ancient Vessel of Aquarius~
+P ~
+D
+A vessel of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 4
+E 1089
+W 16385
+Sz 18
+Ti 0
+Wt 12
+C 10000
+O ~
+V 10 10 10 0
+ED vessel~
+This vessel has been carried by the Water Bearer ever since she came to the
+Zodiac.
+~
+End
+
+#24319
+N tail pisces~
+SD the Titanic Tail of Pisces~
+P ~
+D
+A fish tail of the Zodiac lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1089
+W 33
+Sz 18
+Ti 0
+Wt 10
+C 10000
+O ~
+V 10 0 0 0
+ED tail~
+This tail can actually be worn by mortals somehow as leggings ... another
+work of the gods.
+~
+End
+
+#24320
+N ring dignity~
+SD the Ring of Dignity~
+P ~
+D
+A ring of specialty lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 1123
+W 3
+Sz 18
+Ti 0
+Wt 3
+C 20000
+O ~
+V 0 0 0 0
+ED ring~
+This ring belongs to Cassiopeia, queen of the Universe.
+Mortals, do not touch!
+~
+End
+
+#24321
+N sceptre might~
+SD the Sceptre of Might~
+P ~
+D
+A sceptre of interest lies here.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 1
+E 1123
+W 16349
+Sz 18
+Ti 0
+Wt 4
+C 20000
+O ~
+V 0 0 -1 0
+ED sceptre~
+You'd better give it back, or the king of the Universe will punish you.
+~
+End
+
+#24322
+N ring universe~
+SD the ring of the universe~
+P ~
+D
+Here lies a fortune ... a small ring of power.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 9
+E 355
+W 3
+Sz 18
+Ti 0
+Wt 3
+C 40000
+O ~
+V 4 0 0 0
+ED ring~
+It conceals the power of the universe.
+~
+End
+
+#24323
+N great dipper~
+SD the Great Dipper of the Skies~
+P ~
+D
+A dazzling white object lies on the ground.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 5
+E 355
+W 8193
+Sz 18
+Ti 0
+Wt 20
+C 30000
+O ~
+V 0 4 6 6
+End
+
+#24324
+N spring shoot~
+SD a spring shoot~
+P ~
+D
+A shoot grows here, covered with dew.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 3
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 0
+O ~
+V 0 0 0 0
+End
+
+#24325
+N summer flower~
+SD a summer flower~
+P ~
+D
+A flower grows here, waiting to be picked up.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 3
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 0
+O ~
+V 0 0 0 0
+End
+
+#24326
+N autumn leaf~
+SD an autumn leaf~
+P ~
+D
+A leaf lies here, as if just fallen from a tree.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 3
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 0
+O ~
+V 0 0 0 0
+End
+
+#24327
+N winter branch~
+SD a winter branch~
+P ~
+D
+A branch lies here, still covered with snow.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 3
+W 1
+Sz 18
+Ti 0
+Wt 2
+C 0
+O ~
+V 0 0 0 0
+End
+
+#24328
+N chains andromeda~
+SD chains of Andromeda~
+P ~
+D
+Some chains lie on the floor.~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 13
+E 33
+W 1
+Sz 18
+Ti 0
+Wt 50
+C 0
+O ~
+V 0 0 0 0
+ED chains~
+They certainly look important!
+~
+End
+
+#0
+
+
+
+#SCENES
+#24301
+N Inside a Tavern~
+Ref 0
+D
+You are inside a dimly-lit room.  The atmosphere makes you feel uncomfortable.
+In front of you stands a mysterious gypsy.  She whispers 'Your fate and
+destiny lie beyond this world.'  You are still wondering what she means when
+you suddenly notice the crystal ball ... it glows fiercely and displays the
+Universe!
+~
+C
+~
+F 8
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 -1 16306
+The shadows cloud your vision.
+~
+~
+Dr 5 0 -1 24302
+~
+~
+End
+
+#24302
+N Inside the Crystal Ball~
+Ref 0
+D
+You have touched the crystal ball and find that you have gone inside it:
+a world of stars and wonders!  As you look back you figure out there is no
+choice but to go forward.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24303
+~
+~
+End
+
+#24303
+N Inside the Galaxy~
+Ref 0
+D
+You are now inside the galaxy, around you you see stars and nebulae smiling
+at your presence, and comets and meteors wandering around you.  You realize
+that this world may not be the true galaxy after all, but just another
+fantasy zone.  Exits lie virtually in all directions.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24304
+~
+~
+Dr 1 0 -1 24308
+~
+~
+Dr 2 0 -1 24302
+~
+~
+Dr 3 0 -1 24321
+~
+~
+End
+
+#24304
+N On an InterGalactic Walkway~
+Ref 0
+D
+You are on a well-paved path which seems that it was made deliberately for
+visitors like you.  The walkway continues north and a small exit lies west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24302 1 100 1
+Dr 0 0 -1 24305
+~
+~
+Dr 2 0 -1 24303
+~
+~
+Dr 3 0 -1 24322
+~
+~
+End
+
+#24305
+N End of the InterGalactic Walkway~
+Ref 0
+D
+You notice the walkway has come to an abrupt end and you wonder why. You see
+that there is still a small path which leads north and one to the west.
+To the east lies a bridge.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24306
+~
+~
+Dr 1 0 -1 24309
+~
+~
+Dr 2 0 -1 24304
+~
+~
+Dr 3 0 -1 24323
+~
+~
+End
+
+#24306
+N At the Undeveloped Part of the Galaxy~
+Ref 0
+D
+This place looks deserted, covered with space debris.  Not a sign of life
+is around.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24306 1 100 1
+Dr 2 0 -1 24305
+~
+~
+Dr 3 0 -1 24324
+~
+~
+End
+
+#24308
+N On the Bridge of Stars~
+Ref 0
+D
+This bridge has been made by the stars to honour their ancestors.  The
+bridge itself shines brightly and makes you feel that you are walking on
+a path of light.  An entrance to an ancient building lies north and to
+the east lies the Milky Way.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24302 1 100 1
+Dr 0 0 -1 24331
+~
+~
+Dr 1 0 -1 24312
+~
+~
+Dr 3 0 -1 24303
+~
+~
+End
+
+#24309
+N On the Bridge of Nebulae~
+Ref 0
+D
+This bridge, like the other, was made as a memorial.  The nebulae had to
+make one just to show that they are as capable as the stars.  North lies
+a throne room.
+~
+C
+~
+F 1
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24305 1 100 1
+Dr 0 0 -1 24310
+~
+~
+Dr 1 0 -1 24314
+~
+~
+Dr 3 0 -1 24305
+~
+~
+End
+
+#24310
+N The Throne Room of the Nebula King~
+Ref 0
+D
+You can only faintly make out that it is a throne room as it is too
+dark in here.  In the middle is an empty throne.  You wonder where
+the King has gone, maybe he is hiding from you?
+~
+C
+~
+F 9
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24303 4 100 1
+Dr 2 0 -1 24309
+~
+~
+End
+
+#24312
+N At the Start of the Milky Way~
+Ref 0
+D
+It is here that the famous old Milky Way starts flowing.  You are surrounded
+by streams of mist the moment you tread on it.  You can't see well in
+here ... luckily you haven't fallen yet!
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24302 1 100 1
+Dr 0 0 -1 24313
+~
+~
+Dr 3 0 -1 24308
+~
+~
+End
+
+#24313
+N Along the Milky Way~
+Ref 0
+D
+You are still travelling inside this path of mist.  You notice a small
+opening to the east.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24301 1 100 1
+Dr 0 0 -1 24314
+~
+~
+Dr 1 0 -1 24317
+~
+~
+Dr 2 0 -1 24312
+~
+~
+End
+
+#24314
+N At the End of the Milky Way~
+Ref 0
+D
+Just as you started enjoying this journey inside the mist, you have come to
+the end of it.  West leads to a bridge and east leads to somewhere else.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24306 1 100 1
+Dr 1 0 -1 24318
+~
+~
+Dr 2 0 -1 24313
+~
+~
+Dr 3 0 -1 24309
+~
+~
+End
+
+#24317
+N A Small Clearing~
+Ref 0
+D
+You are inside a small clearing.  You can see that there are signs of a
+living creature nearby.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 24304 2 100 1
+Dr 0 0 -1 24318
+~
+~
+Dr 3 0 -1 24313
+~
+~
+End
+
+#24318
+N An Edge of the Galaxy~
+Ref 0
+D
+You are on the very edge of the galaxy.  Nothing is here except that there
+is a path which leads down.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24303 1 100 1
+Dr 2 0 -1 24317
+~
+~
+Dr 3 0 -1 24314
+~
+~
+Dr 5 0 -1 24319
+~
+~
+End
+
+#24319
+N Very Near to a Gigantic Star~
+Ref 0
+D
+You are very near to a gigantic red star.  While you are still fascinated
+by its beauty, the star keeps on growing ... suddenly you realize that you'd
+better leave.
+~
+C
+~
+F 4
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24320
+~
+~
+Dr 1 0 -1 24320
+~
+~
+Dr 2 0 -1 24320
+~
+~
+Dr 3 0 -1 24320
+~
+~
+End
+
+#24320
+N Too Bright to Tell~
+Ref 0
+D
+Indeed it is too bright to tell.  Because what you are witnessing is the
+rare event of a Supernova, how a star explodes itself into galactic dust.
+You may find yourself lucky to witness this rare event but even luckier,
+you have finally got out of this galaxy as your body turns into dust.
+That really HURTS!  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#24321
+N The Star Cluster~
+Ref 0
+D
+You are inside the home of the stars.  All you can see around you are stars
+and nothing else.  You eyes become pretty hurt as you look at them.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24302 7 100 1
+Dr 0 0 -1 24322
+~
+~
+Dr 1 0 -1 24303
+~
+~
+End
+
+#24322
+N Another Edge of the Galaxy~
+Ref 0
+D
+This is another uninhabited place.  Exits lie north, east and south.
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 24301 1 100 1
+Dr 0 0 -1 24323
+~
+~
+Dr 1 0 -1 24304
+~
+~
+Dr 2 0 -1 24321
+~
+~
+End
+
+#24323
+N Corner of the Galaxy~
+Ref 0
+D
+You wonder why the galaxy is limited.  All you have done in Astronomy
+courses now prove worthless.  Well who told you to take one at the start?  
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24301 1 100 1
+Dr 0 0 -1 24324
+~
+~
+Dr 1 0 -1 24305
+~
+~
+Dr 2 0 -1 24322
+~
+~
+End
+
+#24324
+N Lost in Space~
+Ref 0
+D
+You are now lost in space.  Compasses don't work here, sorry.  What's more
+you can sense darkness engulfing you.  You'd better get out quick.
+~
+C
+~
+F 1
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24325
+~
+~
+Dr 1 0 -1 24306
+~
+~
+Dr 2 0 -1 24323
+~
+~
+End
+
+#24325
+N Black Hole~
+Ref 0
+D
+Well you have chosen the wrong path, sorry.  Nothing can escape from this
+monster, not even light.
+PANIC!  You can't escape!
+~
+C
+~
+F 7
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#24326
+N The Homes of the Pleiades~
+Ref 0
+D
+This is where the famous Seven Sisters live.  You'd better not disturb them.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24312 7 100 1
+Dr 1 0 -1 24329
+~
+~
+Dr 2 0 -1 24327
+~
+~
+End
+
+#24327
+N Western Side of the Temple~
+Ref 0
+D
+You are still wandering around this temple.  You notice exits lie in all
+directions except west.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24326
+~
+~
+Dr 1 0 -1 24330
+~
+~
+Dr 2 0 -1 24328
+~
+~
+End
+
+#24328
+N Orion's Hunting Lodge~
+Ref 0
+D
+This is dedicated to the Great Hunter of all time -- Orion.
+Scattered on the floor is the famous hunting equipment used by him.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24311 1 100 1
+Dr 0 0 -1 24327
+~
+~
+Dr 1 0 -1 24331
+~
+~
+End
+
+#24329
+N Northern Side of the Temple~
+Ref 0
+D
+You are still wandering around this temple.  You notice exits lie in all
+directions except north.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 24332
+~
+~
+Dr 2 0 -1 24330
+~
+~
+Dr 3 0 -1 24326
+~
+~
+End
+
+#24330
+N The Offering Chamber~
+Ref 0
+D
+This is the sacred offering chamber in which sacrifices are made.  You see a
+young girl here, chained to the wall, as if she is waiting for execution.
+You look up and realize the chains are sent down directly from above.
+Below you recognize the temple of Thalos.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24308 1 100 1
+Dr 0 0 -1 24329
+~
+~
+Dr 1 0 -1 24333
+~
+~
+Dr 2 0 -1 24331
+~
+~
+Dr 3 0 -1 24327
+~
+~
+Dr 4 0 -1 24339
+~
+~
+Dr 5 0 -1 20250
+~
+~
+End
+
+#24331
+N The Entrance of the Ancient Temple~
+Ref 0
+D
+You have entered into this old temple, which was built originally for the gods
+in Mount Olympia, but it is now deserted as someone took over this part of the
+Universe.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24330
+~
+~
+Dr 1 0 -1 24334
+~
+~
+Dr 2 0 -1 24308
+~
+~
+Dr 3 0 -1 24328
+~
+~
+End
+
+#24332
+N Hercules' Mighty Throne~
+Ref 0
+D
+You stand before the throne of a long-forgotten hero.  It is full of bounty
+that he got from the Ten Labours. 
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24309 1 100 1
+Dr 2 0 -1 24333
+~
+~
+Dr 3 0 -1 24329
+~
+~
+End
+
+#24333
+N Eastern Side of the Temple~
+Ref 0
+D
+You are still wandering around this temple.  You notice exits lie in all
+directions except east.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24302 1 100 1
+Dr 0 0 -1 24332
+~
+~
+Dr 2 0 -1 24334
+~
+~
+Dr 3 0 -1 24330
+~
+~
+End
+
+#24334
+N Perseus' Chamber~
+Ref 0
+D
+It is the chamber of the prince, Perseus.  However, he seems not to be here.
+Maybe he has gone to get Pegasus to save Andromeda?
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24333
+~
+~
+Dr 3 0 -1 24331
+~
+~
+End
+
+#24339
+N On the Mystic Chains~
+Ref 0
+D
+You are dangling on the chains.  You notice exits lie in all directions.
+Up above you see the chains continue upwards.  But a forcefield prevents
+you from going further upwards.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24348
+~
+~
+Dr 1 0 -1 24351
+~
+~
+Dr 2 0 -1 24342
+~
+~
+Dr 3 0 -1 24345
+~
+~
+Dr 4 0 9324 24354
+You see the forcefield of Spring.
+~
+forcefield~
+Dr 5 0 -1 24330
+~
+~
+End
+
+#24342
+N On a Hill~
+Ref 0
+D
+Suddenly you find yourself on a hillside.  As you look around, you notice
+that Spring has descended upon you.
+~
+C
+~
+F 0
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24315 1 100 1
+Dr 0 0 -1 24339
+~
+~
+Dr 1 0 -1 24353
+~
+~
+Dr 3 0 -1 24343
+~
+~
+End
+
+#24343
+N Inside a Spanish Bull-Ring~
+Ref 0
+D
+You are inside what used to be a ground for bull fighting.  But you notice
+there are no Matadors around.  Maybe they are all dead?
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 24316 1 100 1
+Dr 1 0 -1 24342
+~
+~
+Dr 3 0 -1 24344
+~
+~
+End
+
+#24344
+N Inside a study~
+Ref 0
+D
+This is a strange study. Besides the desks and chairs you also see a large
+mirror in the middle.  So, you wonder, is this how you make a Gemini into
+two Gemini?
+~
+C
+~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 24317 1 100 1
+Dr 1 0 -1 24343
+~
+~
+End
+
+#24345
+N Along the seashore~
+Ref 0
+D
+You start to feel the heat of Summer.  Amongst the rocky beach you notice
+hidden forms which could be camouflaged crabs. 
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 24319 1 100 1
+Dr 1 0 -1 24339
+~
+~
+Dr 3 0 -1 24346
+~
+~
+End
+
+#24346
+N Within the Deep Jungle~
+Ref 0
+D
+Nearby you can hear the roar of an animal.  Peering through the dense
+overgrowth you think you glimpse a pair of menacing eyes.
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24320 1 100 1
+Dr 1 0 -1 24345
+~
+~
+End
+
+#24347
+N Inside a Luxurious Bedroom~
+Ref 0
+D
+A peaceful feeling overtakes you.  You see a magnificent four-poster bed.
+It's a double bed and there is only room for one more!  Well, what now ... ?
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24321 1 100 1
+Dr 3 0 -1 24348
+~
+~
+End
+
+#24348
+N The Supreme Court~
+Ref 0
+D
+You are standing inside the dock of a court.  You feel an overwhelming
+sense of guilt and you want to protest your innocence!  You fear retribution
+and feel yourself exposed, just like the trees in Autumn.
+~
+C
+~
+F 8
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24322 1 100 1
+Dr 2 0 -1 24339
+~
+~
+Dr 3 0 -1 24349
+~
+~
+End
+
+#24349
+N In the Dry Desert~
+Ref 0
+D
+You are confused by the shifting sands around you.  Through the shimmering
+heat you see the hazy outline of a giant scorpion ... is this a mirage?
+~
+C
+~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+R M 24323 1 100 1
+Dr 1 0 -1 24348
+~
+~
+Dr 3 0 -1 24350
+~
+~
+End
+
+#24350
+N In the Woods~
+Ref 0
+D
+You find yourself in the center of a Heveti hunting party.  You'd better
+hide yourself before you become the 'center attraction'!
+~
+C
+~
+F 0
+S 3
+M 0
+W 0
+T 0
+O ~
+R M 24324 1 100 1
+Dr 1 0 -1 24349
+~
+~
+End
+
+#24351
+N On a Mountain Peak~
+Ref 0
+D
+You are on the highest peak of the Universe.  You look around and notice
+clouds below you.  One of the clouds resembles a goat-like form.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24325 1 100 1
+Dr 1 0 -1 24352
+~
+~
+Dr 3 0 -1 24339
+~
+~
+End
+
+#24352
+N Inside a Waterfall~
+Ref 0
+D
+The noise is deafening.  You are about to take a drink when you realize
+that the water is being poured out of a vessel of mind-boggling proportions!
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24326 1 100 1
+Dr 3 0 -1 24351
+~
+~
+End
+
+#24353
+N Inside a Gigantic Clam~
+Ref 0
+D
+You feel uneasy here as if some evil magic is being cast on you.
+You suspect something fishy is going on in here.
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+R M 24327 1 100 1
+Dr 3 0 -1 24342
+~
+~
+End
+
+#24354
+N End of the Mystic Chains~
+Ref 0
+D
+You have reached the end of the mystic chains.  Looking up, you notice a
+small landing on which you can climb.  However, there seems to be another
+forcefield blocking your way.  
+~
+C
+~
+F 0
+S 5
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 9325 24355
+You see the forcefield of Summer.
+~
+forcefield~
+Dr 5 0 9324 24339
+You see the forcefield of Spring.
+~
+~
+End
+
+#24355
+N On the Draco~
+Ref 0
+D
+You realize you are standing on scaly ground.  As you wonder what the ground
+is made of, you feel the ground move.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24302 1 100 1
+Dr 0 0 -1 24356
+~
+~
+Dr 5 0 9325 24354
+~
+~
+End
+
+#24356
+N Tail of the Draco~
+Ref 0
+D
+At last you realize that you are on a giant snake-like dragon called the
+Draco, the guardian of the inner galaxy.  You realize that the Draco is
+actually flying now! 
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24357
+~
+~
+Dr 2 0 -1 24355
+~
+~
+End
+
+#24357
+N Path of the Draco~
+Ref 0
+D
+As you struggle along this scaly creature you realize that the only way
+you can reach to the inner galaxy is by going all the way to the head.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24358
+~
+~
+Dr 2 0 -1 24356
+~
+~
+End
+
+#24358
+N Near the Legs of Draco~
+Ref 0
+D
+You are approaching the leg part of this creature.  You look around and see
+that the surrounding is all dark except for some faint lights from the
+distant stars.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24314 1 100 1
+Dr 0 0 -1 24359
+~
+~
+Dr 2 0 -1 24357
+~
+~
+End
+
+#24359
+N On the Back of Draco~
+Ref 0
+D
+At last you are half way through this long, weary journey. You can see
+the wings are to the east but it seems that another forcefield is in the way.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 9326 24360
+You see the forcefield of Autumn.
+~
+forcefield~
+Dr 2 0 -1 24358
+~
+~
+End
+
+#24360
+N Between the Wings of Draco~
+Ref 0
+D
+You hear some giant flapping sounds nearby.  You desperately try to get hold
+of something as the forceful gusts sweep you away.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24314 2 100 1
+Dr 1 0 -1 24361
+~
+~
+Dr 3 0 9326 24359
+~
+~
+End
+
+#24361
+N Near the Arms of Draco~
+Ref 0
+D
+From above you can faintly make out the gigantic arms which extend far
+beyond into the darkness.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 2 0 -1 24362
+~
+~
+Dr 3 0 -1 24360
+~
+~
+End
+
+#24362
+N On the Neck of Draco~
+Ref 0
+D
+Your journey is now approaching the end.  However, this neck seems to be
+endless.
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24361
+~
+~
+Dr 3 0 -1 24363
+~
+~
+End
+
+#24363
+N Approaching the Head of Draco~
+Ref 0
+D
+You have come to the end of Draco, but you can't find the head!
+You see a forcefield to the south, some distance away, beyond reach.
+If only the head were here ...
+~
+C
+~
+F 1
+S 4
+M 0
+W 0
+T 0
+O ~
+R M 24313 1 100 1
+Dr 1 0 -1 24362
+~
+~
+Dr 2 0 9327 24364
+You see the forcefield of Winter.~
+forcefield~
+End
+
+#24364
+N At the Entrance of the Great Dipper~
+Ref 0
+D
+Now you are in the innermost part of the galaxy.  What you are walking on now
+is the path of the Great Dipper or the Plough.  You notice that there are
+seven rooms in this zone, representing the seven stars of the Dipper.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 9327 24363
+You see the forcefield of Winter.~
+forcefield~
+Dr 2 0 -1 24365
+~
+~
+Dr 3 0 -1 24366
+~
+~
+End
+
+#24365
+N Cassiopeia's Throne~
+Ref 0
+D
+This is the Throne room of the Queen of the Universe.  From here you can see
+every star and constellation in the Universe. 
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24330 1 100 1
+Dr 0 0 -1 24364
+~
+~
+Dr 3 0 -1 24367
+~
+~
+End
+
+#24366
+N Along the Path of the Dipper~
+Ref 0
+D
+You see stars around you but nothing of special interest.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 24364
+~
+~
+Dr 2 0 -1 24367
+~
+~
+End
+
+#24367
+N Cepheus' Throne~
+Ref 0
+D
+This is the Throne room of the King of the Universe.  From here you can see
+every star and constellation in the Universe. 
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24331 1 100 1
+Dr 0 0 -1 24366
+~
+~
+Dr 1 0 -1 24365
+~
+~
+Dr 2 0 -1 24368
+~
+~
+End
+
+#24368
+N Along the path of the Dipper~
+Ref 0
+D
+You see stars around you but nothing of special interest.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 -1 24367
+~
+~
+Dr 3 0 -1 24369
+~
+~
+End
+
+#24369
+N Along the path of the Dipper~
+Ref 0
+D
+You see stars around you but nothing of special interest.
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 -1 24368
+~
+~
+Dr 2 0 -1 24370
+~
+~
+End
+
+#24370
+N End of the Dipper~
+Ref 0
+D
+You have finished the path of the Dipper.  Here, the most prominent feature
+is a set of claw-marks.  You also notice a room to the south; it looks as
+if Polaris could lie here. 
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24329 1 100 1
+Dr 0 0 -1 24369
+~
+~
+Dr 2 0 -1 24371
+~
+~
+End
+
+#24371
+N The Polar Star~
+Ref 0
+D
+You have entered the private chamber of Polaris.  This is a room of great
+significance.  You can see a powerful telescope pointing down towards the
+Universe (SNOOPING!).  It is from here that Polaris commands the Universe.
+You feel you have come to end of your search in this galaxy ...
+~
+C
+~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+R M 24332 1 100 1
+Dr 0 0 0 24370
+~
+~
+End
+
+#0
+
+
+
+#$
