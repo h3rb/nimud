@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -51,7 +51,7 @@ char *default_color_variable_di = NTEXT;
 /*
  * Syntax:  clear
  */
-void cmd_clear ( PLAYER_DATA *ch, char *argument )
+void cmd_clear ( PLAYER *ch, char *argument )
 {
     if ( !HAS_ANSI(ch) )
     send_to_actor( "You do not have ansi support enabled.\n\r", ch );
@@ -61,32 +61,32 @@ void cmd_clear ( PLAYER_DATA *ch, char *argument )
     return;
 }
 
-void cmd_tips( PLAYER_DATA *ch, char *argument )
+void cmd_tips( PLAYER *ch, char *argument )
 {
     cmd_config( ch, "tips" );     
 };
 
-void cmd_client( PLAYER_DATA *ch, char *argument )
+void cmd_client( PLAYER *ch, char *argument )
 {
     cmd_config( ch, "client" );
 }
 
-void cmd_blank ( PLAYER_DATA *ch, char *argument )
+void cmd_blank ( PLAYER *ch, char *argument )
 {
     cmd_config( ch, "blank" );
 }
 
-void cmd_brief ( PLAYER_DATA *ch, char *argument )
+void cmd_brief ( PLAYER *ch, char *argument )
 {
     cmd_config( ch, "-brief" );
 }
 
-void cmd_compact ( PLAYER_DATA *ch, char *argument )
+void cmd_compact ( PLAYER *ch, char *argument )
 {
     cmd_config( ch, "compact" );
 }
 
-void cmd_holylight ( PLAYER_DATA *ch, char *argument )
+void cmd_holylight ( PLAYER *ch, char *argument )
 {
     cmd_config( ch, "holylight" );
 }
@@ -95,7 +95,7 @@ void cmd_holylight ( PLAYER_DATA *ch, char *argument )
  * Syntax:  pager
  *          pager [number]
  */
-void cmd_pager ( PLAYER_DATA *ch, char *argument )
+void cmd_pager ( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
@@ -138,21 +138,21 @@ void cmd_pager ( PLAYER_DATA *ch, char *argument )
  *          prompt all
  *          prompt [text]
  */
-void cmd_prompt( PLAYER_DATA *ch, char *argument )
+void cmd_prompt( PLAYER *ch, char *argument )
 {
    char buf[MAX_STRING_LENGTH];
    char buf2[MAX_STRING_LENGTH];
 
    if( argument[0] == '\0' )
    {
-      if (!IS_SET(ch->act2, PLR_PROMPT))
+      if (!IS_SET(ch->flag2, PLR_PROMPT))
       {
          send_to_actor( "Prompt ON.\n\r", ch );
-         SET_BIT(ch->act2, PLR_PROMPT);
+         SET_BIT(ch->flag2, PLR_PROMPT);
       }
       else
       {
-         REMOVE_BIT( ch->act2, PLR_PROMPT );
+         REMOVE_BIT( ch->flag2, PLR_PROMPT );
          send_to_actor( "Prompt OFF.\n\r", ch );
       }
       return;
@@ -176,7 +176,7 @@ else
    if( !str_cmp( argument, "inverse" ) )
       strcpy( buf, "^2^I^0^4 ^h ^6 ^m ^3 ^e ^N " );
    else
-   if( !str_cmp( argument, "invnum" ) )
+   if( !str_cmp( argument, "indbkey" ) )
       strcpy( buf, "^2^I^0^4 ^H ^6 ^M ^3 ^E ^N " );
    else
    {
@@ -194,8 +194,8 @@ else
    if ( ch->desc->connected <= NET_PLAYING ) 
    send_to_actor( buf2, ch );
 
-   if (!IS_SET(ch->act2, PLR_PROMPT))
-         SET_BIT(ch->act2, PLR_PROMPT);
+   if (!IS_SET(ch->flag2, PLR_PROMPT))
+         SET_BIT(ch->flag2, PLR_PROMPT);
 
    return;
 }
@@ -204,7 +204,7 @@ else
 /*
  * Syntax:  password [old] [new]
  */
-void cmd_password( PLAYER_DATA *ch, char *argument )
+void cmd_password( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
@@ -213,7 +213,7 @@ void cmd_password( PLAYER_DATA *ch, char *argument )
     char *p;
     char cEnd;
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
 	return;
 
     /*
@@ -306,7 +306,7 @@ void cmd_password( PLAYER_DATA *ch, char *argument )
  *          ansi [keyword] [#]
  *          ansi [keyword] [color]
  */
-void cmd_ansi( PLAYER_DATA *ch, char *argument )
+void cmd_ansi( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
@@ -314,7 +314,7 @@ void cmd_ansi( PLAYER_DATA *ch, char *argument )
     int c;
     int c2;
 
-    if ( IS_NPC(ch) || !HAS_ANSI(ch) )
+    if ( NPC(ch) || !HAS_ANSI(ch) )
     {
         cmd_help( ch, "ansi" );
         return;
@@ -429,13 +429,13 @@ void cmd_ansi( PLAYER_DATA *ch, char *argument )
  *          config [keyword]
  *          config [+/-][keyword]
  */
-void cmd_config( PLAYER_DATA *ch, char *argument )
+void cmd_config( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char arg_map[MIL];
     char buf[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
 	return;
 
     argument = one_argument( argument, arg );
@@ -445,74 +445,74 @@ void cmd_config( PLAYER_DATA *ch, char *argument )
     {
         send_to_actor( "[ Keyword  ] Option\n\r", ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_AUTOEXIT)
+    send_to_actor(  IS_SET(ch->flag2, PLR_AUTOEXIT)
         ? "[*EXITS    ] You automatically see exits.\n\r"
         : "[ exits    ] You don't automatically see exits.\n\r"
         , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_ALIASES)
+    send_to_actor(  IS_SET(ch->flag2, PLR_ALIASES)
         ? "[*ALIASES  ] You have activated use of aliases.\n\r"
         : "[ aliases  ] You aren't using any command aliases.\n\r"
         , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_VERBOSE)
+    send_to_actor(  IS_SET(ch->flag2, PLR_VERBOSE)
         ? "[*VERBOSE  ] You automatically see verbose exits.\n\r"
         : "[ verbose  ] You don't automatically see verbose exits.\n\r"
         , ch );
 
     if ( HAS_ANSI(ch) ) {
-    send_to_actor(  IS_SET(ch->act2, PLR_TIMECOLOR)
+    send_to_actor(  IS_SET(ch->flag2, PLR_TIMECOLOR)
         ? "[*TIMECOLOR] Room descriptions change color based on time.\n\r"
         : "[ timecolor] You don't see time-based color effects.\n\r"
         , ch );
     }
 
-    send_to_actor(  IS_SET(ch->act2, PLR_AUTOMAP) 
+    send_to_actor(  IS_SET(ch->flag2, PLR_AUTOMAP) 
         ? "[*MAP      ] You automatically see a map.\n\r"
         : "[ map      ] You don't automatically see a map.\n\r"
         , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_BLANK)
+    send_to_actor(  IS_SET(ch->flag2, PLR_BLANK)
         ? "[*BLANK    ] You have a blank line before your prompt.\n\r"
         : "[ blank    ] You have no blank line before your prompt.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_BRIEF)
+    send_to_actor(  IS_SET(ch->flag2, PLR_BRIEF)
         ? "[*BRIEF    ] You see brief descriptions.\n\r"
         : "[ brief    ] You see long descriptions.\n\r"
 	    , ch );
          
-    send_to_actor(  IS_SET(ch->act2, PLR_COMBINE)
+    send_to_actor(  IS_SET(ch->flag2, PLR_COMBINE)
         ? "[*COMPACT  ] You see prop lists in combined format.\n\r"
         : "[ compact  ] You see prop lists in single format.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_PROMPT)
+    send_to_actor(  IS_SET(ch->flag2, PLR_PROMPT)
         ? "[*PROMPT   ] You have a prompt.\n\r"
         : "[ prompt   ] You don't have a prompt.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_ANSI)
+    send_to_actor(  IS_SET(ch->flag2, PLR_ANSI)
         ? "[*ANSI     ] You receive ansi color codes.\n\r"
         : "[ ansi     ] You don't receive ansi color codes.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_MXP)
+    send_to_actor(  IS_SET(ch->flag2, PLR_MXP)
         ? "[*MXP      ] You receive MXP color codes.\n\r"
         : "[ mxp      ] You don't receive MXP color codes.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_CLRSCR)
+    send_to_actor(  IS_SET(ch->flag2, PLR_CLRSCR)
         ? "[*CLRSCR   ] You receive clear screen codes.\n\r"
         : "[ clrscr   ] You don't receive clear screen codes.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_CLRSCR)
+    send_to_actor(  IS_SET(ch->flag2, PLR_CLRSCR)
         ? "[*AGE      ] You are using the Ascii Graphics Engine.\n\r"
         : "[ age      ] You have muted the Ascii Graphics Engine.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act2, PLR_TELNET_GA)
+    send_to_actor(  IS_SET(ch->flag2, PLR_TELNET_GA)
         ? "[*TELNETGA ] You receive a telnet GA sequence.\n\r"
         : "[ telnetga ] You don't receive a telnet GA sequence.\n\r"
 	    , ch );
@@ -528,17 +528,17 @@ void cmd_config( PLAYER_DATA *ch, char *argument )
             , ch );
 
 
-    send_to_actor(  IS_SET(ch->act2, PLR_SILENCE)
+    send_to_actor(  IS_SET(ch->flag2, PLR_SILENCE)
         ? "[*SILENCE  ] You are silenced.\n\r"
 	    : ""
 	    , ch );
 
-    send_to_actor( !IS_SET(ch->act2, PLR_NO_EMOTE)
+    send_to_actor( !IS_SET(ch->flag2, PLR_NO_EMOTE)
         ? ""
         : "[ emote    ] It is impossible to emote.\n\r"
         , ch );
 
-    send_to_actor( !IS_SET(ch->act2, PLR_IDLE)
+    send_to_actor( !IS_SET(ch->flag2, PLR_IDLE)
         ? ""
         : "[ IDLE     ] It is possible for you to idle forever.\n\r"
         , ch );
@@ -551,7 +551,7 @@ void cmd_config( PLAYER_DATA *ch, char *argument )
         send_to_actor( buf, ch );
     }
 
-    if ( PC(ch,mapsize) == 0 || !IS_SET(ch->act2, PLR_AUTOMAP) )
+    if ( PC(ch,mapsize) == 0 || !IS_SET(ch->flag2, PLR_AUTOMAP) )
     send_to_actor( "[ mapping  ] Your automap is default resolution.\n\r", ch );
     else
     {
@@ -562,32 +562,32 @@ void cmd_config( PLAYER_DATA *ch, char *argument )
 
 if ( IS_IMMORTAL(ch) )
 {
-    send_to_actor( IS_SET(ch->act2, CHANNEL_IMMTALK )
+    send_to_actor( IS_SET(ch->flag2, CHANNEL_IMMTALK )
         ? "[*IMMTALK  ] You are listening to the immortal banter.\n\r"
         : "[ immtalk  ] You are deaf to the immortal banter.\n\r"
 	    , ch );
 
-    send_to_actor( IS_SET(ch->act2, CHANNEL_WISHES )
+    send_to_actor( IS_SET(ch->flag2, CHANNEL_WISHES )
         ? "[*WISHES   ] You are listening to mortal wishes.\n\r"
         : "[ wishes   ] You are deaf to mortal wishes.\n\r"
 	    , ch );
 
-    send_to_actor( IS_SET(ch->act2, WIZ_EQUIPMENT )
+    send_to_actor( IS_SET(ch->flag2, WIZ_EQUIPMENT )
         ? "[*EQUIPMENT] You see equipment lists when looking at someone.\n\r"
         : "[ equipment] You do not see equipment lists when looking at someone.\n\r"
 	    , ch );
 
-    send_to_actor( IS_SET(ch->act2, WIZ_HOLYLIGHT )
+    send_to_actor( IS_SET(ch->flag2, WIZ_HOLYLIGHT )
         ? "[*HOLYLIGHT] A holy light surrounds you.\n\r"
         : "[ holylight] You are not using holylight.\n\r"
 	    , ch );
 
-    send_to_actor( IS_SET(ch->act, WIZ_NOTIFY)
+    send_to_actor( IS_SET(ch->flag, WIZ_NOTIFY)
         ? "[*NOTIFY   ] You view immortal notifications.\n\r"
         : "[ notify   ] You do not view immortal notifications.\n\r"
 	, ch );
 
-    send_to_actor( IS_SET(ch->act2, WIZ_TRANSLATE)
+    send_to_actor( IS_SET(ch->flag2, WIZ_TRANSLATE)
 	? "[*TRANSLATE] You understand all speech automatically.\n\r"
 	: "[ translate] You do not understand all speech automatically.\n\r"
         , ch );
@@ -599,7 +599,7 @@ if ( IS_IMMORTAL(ch) )
     char arg2[MAX_STRING_LENGTH];
 	bool fSet;
     int bit = 0;
-    int *act_var = &ch->act2;
+    int *actor_var = &ch->flag2;
 
     fSet = arg[0] == '+';
     if ( arg[0] == '-' || arg[0] == '+' )
@@ -657,7 +657,7 @@ if ( IS_IMMORTAL(ch) )
         if ( !str_prefix( arg, "notify" ) )
         {
             bit = WIZ_NOTIFY;
-            act_var = &ch->act;
+            actor_var = &ch->flag;
         }
         else if ( !str_prefix( arg, "holylight" ) ) bit = WIZ_HOLYLIGHT;
         else if ( !str_prefix( arg, "equipment" ) ) bit = WIZ_EQUIPMENT;
@@ -679,25 +679,25 @@ if ( IS_IMMORTAL(ch) )
         if ( fSet )
         {
             snprintf( buf, MAX_STRING_LENGTH, "Enabled.\n\r" );
-            SET_BIT    (*act_var, bit);
+            SET_BIT    (*actor_var, bit);
         }
         else
         if ( !fSet && arg2[0] == '-' )
         {
             snprintf( buf, MAX_STRING_LENGTH, "Disabled.\n\r" );
-            REMOVE_BIT (*act_var, bit);
+            REMOVE_BIT (*actor_var, bit);
         }
         else
         {
-            if (IS_SET(ch->act2, bit))
+            if (IS_SET(ch->flag2, bit))
             {
             snprintf( buf, MAX_STRING_LENGTH, "Disabled.\n\r" );
-            REMOVE_BIT (*act_var, bit);
+            REMOVE_BIT (*actor_var, bit);
             }
             else
             {
             snprintf( buf, MAX_STRING_LENGTH, "Enabled.\n\r" );
-            SET_BIT    (*act_var, bit);
+            SET_BIT    (*actor_var, bit);
             }
         }
 
@@ -713,7 +713,7 @@ if ( IS_IMMORTAL(ch) )
  * Syntax:  notify
  *          notify [keyword]
  */
-void cmd_notify( PLAYER_DATA *ch, char *argument )
+void cmd_notify( PLAYER *ch, char *argument )
 {
     char arg1 [MAX_INPUT_LENGTH];
 
@@ -723,32 +723,32 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp(arg1, "death")
       || !str_cmp(arg1, "deaths") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY_DEATH) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY_DEATH) )
        {
           send_to_actor( "Death notification is now OFF.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY_DEATH);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY_DEATH);
           return;
        }
        else
        {
           send_to_actor( "Death notification is now ON.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY_DEATH);
+          SET_BIT(ch->flag, WIZ_NOTIFY_DEATH);
           return;
        }
     }
     else
     if ( !str_cmp(arg1, "damage") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY_DAMAGE) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY_DAMAGE) )
        {
           send_to_actor( "Damage notification is now OFF.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY_DAMAGE);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY_DAMAGE);
           return;
        }
        else
        {
           send_to_actor( "Damage notification is now ON.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY_DAMAGE);
+          SET_BIT(ch->flag, WIZ_NOTIFY_DAMAGE);
           return;
        }
     }
@@ -756,32 +756,32 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp(arg1, "script")
       || !str_cmp(arg1, "scripts") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY_SCRIPT) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY_SCRIPT) )
        {
           send_to_actor( "Script debug notification is now OFF.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY_SCRIPT);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY_SCRIPT);
           return;
        }
        else
        {
           send_to_actor( "Script debug notification is now ON.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY_SCRIPT);
+          SET_BIT(ch->flag, WIZ_NOTIFY_SCRIPT);
           return;
        }
     }
 
     if ( !str_cmp(arg1, "notify") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY) )
        {
           send_to_actor( "Notify is now INACTIVE.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY);
           return;
        }
        else
        {
           send_to_actor( "Notify is now ACTIVE.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY);
+          SET_BIT(ch->flag, WIZ_NOTIFY);
           return;
        }
     }
@@ -789,16 +789,16 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp(arg1, "bug")
       || !str_cmp(arg1, "bugs") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY_BUG) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY_BUG) )
        {
           send_to_actor( "Bug notification is now OFF.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY_BUG);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY_BUG);
           return;
        }
        else
        {
           send_to_actor( "Bug notification is now ON.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY_BUG);
+          SET_BIT(ch->flag, WIZ_NOTIFY_BUG);
           return;
        }
     }
@@ -806,17 +806,17 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp(arg1, "log")
       || !str_cmp(arg1, "logs") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY_LOG) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY_LOG) )
        {
           send_to_actor( "Log notification is now OFF.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY_LOG);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY_LOG);
           return;
        }
        else
        {
           send_to_actor( "Log notification is now ON.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY_LOG);
-          if ( IS_SET( ch->act, WIZ_NOTIFY_BUG ) ) REMOVE_BIT(ch->act, WIZ_NOTIFY_BUG);
+          SET_BIT(ch->flag, WIZ_NOTIFY_LOG);
+          if ( IS_SET( ch->flag, WIZ_NOTIFY_BUG ) ) REMOVE_BIT(ch->flag, WIZ_NOTIFY_BUG);
           return;
 
        }
@@ -825,17 +825,17 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp(arg1, "event")
       || !str_cmp(arg1, "events") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY_EVENT) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY_EVENT) )
        {
           send_to_actor( "Event notification is now OFF.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY_EVENT);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY_EVENT);
           return;
        }
        else
        {
           send_to_actor( "Event notification is now ON.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY_EVENT);
-          if ( IS_SET( ch->act, WIZ_NOTIFY_BUG ) ) REMOVE_BIT(ch->act, WIZ_NOTIFY_BUG);
+          SET_BIT(ch->flag, WIZ_NOTIFY_EVENT);
+          if ( IS_SET( ch->flag, WIZ_NOTIFY_BUG ) ) REMOVE_BIT(ch->flag, WIZ_NOTIFY_BUG);
           return;
 
        }
@@ -844,16 +844,16 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp(arg1, "login")
       || !str_cmp(arg1, "logins") )
     {
-       if ( IS_SET(ch->act, WIZ_NOTIFY_LOGIN) )
+       if ( IS_SET(ch->flag, WIZ_NOTIFY_LOGIN) )
        {
           send_to_actor( "Login notify is now OFF.\n\r", ch );
-          REMOVE_BIT(ch->act, WIZ_NOTIFY_LOGIN);
+          REMOVE_BIT(ch->flag, WIZ_NOTIFY_LOGIN);
           return;
        }
        else
        {
           send_to_actor( "Login notify is now ON.\n\r", ch );
-          SET_BIT(ch->act, WIZ_NOTIFY_LOGIN);
+          SET_BIT(ch->flag, WIZ_NOTIFY_LOGIN);
           return;
        }
     }
@@ -861,42 +861,42 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
     {
         send_to_actor( "[ Keyword  ] Option\n\r", ch );
 
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY_LOGIN)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_LOGIN)
         ? "[*LOGINS   ] You are monitoring player logins.\n\r"
         : "[ logins   ] You don't monitor player logins.\n\r"
         , ch );
 
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY_BUG)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_BUG)
         ? "[*BUGS     ] You see all bug reports.\n\r"
         : "[ bugs     ] You are currently ignoring bug reports.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY_SCRIPT)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_SCRIPT)
         ? "[*SCRIPTS  ] You are debugging scripts.\n\r"
         : "[ scripts  ] You are not debugging scripts.\n\r"
 	    , ch );
          
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY_LOG)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_LOG)
         ? "[*LOGS     ] You are viewing log entries.\n\r"
         : "[ logs     ] You are not viewing log entries.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY_LOG)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_LOG)
         ? "[*EVENTS   ] You are viewing events.\n\r"
         : "[ event    ] You are not viewing events.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY_DEATH)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_DEATH)
         ? "[*DEATHS   ] You are notified of player deaths.\n\r"
         : "[ deaths   ] You are not notified of player deaths.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY_DAMAGE)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_DAMAGE)
         ? "[*DAMAGE   ] You are notified of combat damage.\n\r"
         : "[ damage   ] You are not notified of combat damage.\n\r"
 	    , ch );
 
-    send_to_actor(  IS_SET(ch->act, WIZ_NOTIFY)
+    send_to_actor(  IS_SET(ch->flag, WIZ_NOTIFY)
         ? "[*NOTIFY   ] Notify is currently active.\n\r"
         : "[ notify   ] Notify has been rendered inactive.\n\r"
 	    , ch );
@@ -912,10 +912,10 @@ void cmd_notify( PLAYER_DATA *ch, char *argument )
 /*
  * Sets the user's flag design.
  */
-void cmd_flag( PLAYER_DATA *ch, char *argument ) {
+void cmd_flag( PLAYER *ch, char *argument ) {
   char arg[MSL];
 
-  if ( IS_NPC(ch) ) return;
+  if ( NPC(ch) ) return;
   argument = one_argcase( argument, arg );
   argument =arg;
   if ( *argument == '\0' ) {

@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -43,9 +43,9 @@
 /*
  * List occupants.
  */
-void show_occupants_to_actor( PROP_DATA *prop, PLAYER_DATA *ch )
+void show_occupants_to_actor( PROP *prop, PLAYER *ch )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
 
     for ( och = ch->in_scene->people; och != NULL; och = och->next_in_scene )
     {
@@ -59,9 +59,9 @@ void show_occupants_to_actor( PROP_DATA *prop, PLAYER_DATA *ch )
 /*
  * Count occupants.
  */
-int count_occupants( PROP_DATA *prop )
+int count_occupants( PROP *prop )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
     int count = 0;
 
     if ( prop->in_scene == NULL )
@@ -75,9 +75,9 @@ int count_occupants( PROP_DATA *prop )
 
 
 
-bool has_occupant( PROP_DATA *prop )
+bool has_occupant( PROP *prop )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
 
     for ( och = actor_list; och != NULL; och = och->next )
     {
@@ -89,9 +89,9 @@ bool has_occupant( PROP_DATA *prop )
 
 
 
-bool occupant( PROP_DATA *prop )
+bool occupant( PROP *prop )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
 
     for ( och = actor_list; och != NULL; och = och->next )
     {
@@ -102,9 +102,9 @@ bool occupant( PROP_DATA *prop )
 }
 
 
-PLAYER_DATA *hitched( PROP_DATA *prop )
+PLAYER *hitched( PROP *prop )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
 
     for ( och = actor_list; och != NULL; och = och->next )
     {
@@ -117,10 +117,10 @@ PLAYER_DATA *hitched( PROP_DATA *prop )
 
 
 
-PROP_DATA *get_furn_here( PLAYER_DATA *ch, char *argument )
+PROP *get_furn_here( PLAYER *ch, char *argument )
 {
-    PROP_DATA *prop;
-    PROP_DATA *saved = NULL;
+    PROP *prop;
+    PROP *saved = NULL;
 
     for ( prop = ch->in_scene->contents;  prop != NULL;  prop = prop->next_content )
     {
@@ -135,7 +135,7 @@ PROP_DATA *get_furn_here( PLAYER_DATA *ch, char *argument )
 
 
 
-void set_furn( PLAYER_DATA *ch, PROP_DATA *prop )
+void set_furn( PLAYER *ch, PROP *prop )
 {
     ch->furniture = NULL;
 

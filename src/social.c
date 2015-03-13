@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -50,10 +50,10 @@
  *          "Hello," you greet, "Have a nice day"
  *          if no #<keyword> is found, it defaults to "say"
  */
-void cmd_smote( PLAYER_DATA *ch, char *argument )
+void cmd_smote( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *actor;
+    PLAYER *actor;
     char *c, *p = "";
     char *message, *tailer;
     int smote = 0;	/* Defaults to "say" */
@@ -135,7 +135,7 @@ void cmd_smote( PLAYER_DATA *ch, char *argument )
 	strcat( buf, "." );
     message = format_indent( str_dup(buf), "   ", 74, FALSE );
     snprintf( buf, MAX_STRING_LENGTH, "%sIn %s:\n\r  $t%s",
-             color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code,
+             color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              lang_table[ch->speaking].name,
              HAS_ANSI(ch) ? ANSI_NORMAL : "" );
     act( buf, ch, message, NULL, TO_ACTOR  );
@@ -168,8 +168,8 @@ void cmd_smote( PLAYER_DATA *ch, char *argument )
     	    message = format_indent( str_dup(buf), "   ", 74, FALSE );
 
             snprintf( buf, MAX_STRING_LENGTH, "%sIn %s:\n\r  $t%s",
-                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].act_code,
-                      !IS_NPC(actor) && learned(ch,lang_table[ch->speaking].pgsn) <= 0 ?
+                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
+                      !NPC(actor) && learned(ch,lang_table[ch->speaking].pgsn) <= 0 ?
                       "a strange, foreign tongue" : lang_table[ch->speaking].name,
             	      HAS_ANSI(actor) ? ANSI_NORMAL : "" );
                       
@@ -177,8 +177,8 @@ void cmd_smote( PLAYER_DATA *ch, char *argument )
     	    free_string( message );
 	}
 
-        if ( IS_NPC(ch) && IS_NPC(actor)
-          && actor->pIndexData->vnum == ch->pIndexData->vnum ) 
+        if ( NPC(ch) && NPC(actor)
+          && actor->pIndexData->dbkey == ch->pIndexData->dbkey ) 
             continue;
 
         script_update( actor, TYPE_ACTOR, TRIG_SAY, ch, NULL, argument, NULL );
@@ -194,9 +194,9 @@ void cmd_smote( PLAYER_DATA *ch, char *argument )
  * Syntax:  immtalk
  *          immtalk [text]
  */
-void cmd_immtalk( PLAYER_DATA *ch, char *argument )
+void cmd_immtalk( PLAYER *ch, char *argument )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
     char *message;
@@ -205,9 +205,9 @@ void cmd_immtalk( PLAYER_DATA *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-        TOGGLE_BIT(ch->act2, CHANNEL_IMMTALK);
+        TOGGLE_BIT(ch->flag2, CHANNEL_IMMTALK);
 
-        if ( IS_SET(ch->act2, CHANNEL_IMMTALK) )
+        if ( IS_SET(ch->flag2, CHANNEL_IMMTALK) )
              send_to_actor( "Immtalk on.\n\r", ch );
         else send_to_actor( "Immtalk off.\n\r", ch );
         return;
@@ -215,7 +215,7 @@ void cmd_immtalk( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg, "list" ) || !str_cmp( arg, "record" ) || !str_cmp( arg, "history" ) ) {
         page_to_actor( "Things said you witnessed:\n\r", ch );
-        if ( IS_NPC(ch) ) page_to_actor( PC(ch,immt_buf), ch );
+        if ( NPC(ch) ) page_to_actor( PC(ch,immt_buf), ch );
         return;
     }
 
@@ -224,8 +224,8 @@ void cmd_immtalk( PLAYER_DATA *ch, char *argument )
     for ( och = actor_list;  och != NULL;  och = och->next )
     {
         if ( !IS_IMMORTAL(och)
-          || !IS_SET(och->act2,CHANNEL_IMMTALK)
-          || IS_NPC(och) )
+          || !IS_SET(och->flag2,CHANNEL_IMMTALK)
+          || NPC(och) )
         continue;
       
       strjoin(PC(och,immt_buf), NAME(ch));
@@ -256,9 +256,9 @@ void cmd_immtalk( PLAYER_DATA *ch, char *argument )
  * Syntax:  chat
  *          chat [text]
  */
-void cmd_chat( PLAYER_DATA *ch, char *argument )
+void cmd_chat( PLAYER *ch, char *argument )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
     char *message;
@@ -267,9 +267,9 @@ void cmd_chat( PLAYER_DATA *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-        TOGGLE_BIT(ch->act2, CHANNEL_CHAT);
+        TOGGLE_BIT(ch->flag2, CHANNEL_CHAT);
 
-        if ( IS_SET(ch->act2, CHANNEL_CHAT) )
+        if ( IS_SET(ch->flag2, CHANNEL_CHAT) )
              send_to_actor( "Chat on.\n\r", ch );
         else send_to_actor( "Chat off.\n\r", ch );
         return;
@@ -277,18 +277,18 @@ void cmd_chat( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg, "list" ) || !str_cmp( arg, "record" ) || !str_cmp( arg, "history" ) ) {
         page_to_actor( "Things people said in the chat channel:\n\r", ch );
-        if ( IS_NPC(ch) ) page_to_actor( PC(ch,chat_buf), ch );
+        if ( NPC(ch) ) page_to_actor( PC(ch,chat_buf), ch );
         return;
     }
 
-    if ( !IS_SET(ch->act2, CHANNEL_CHAT) ) cmd_chat( ch, "" );
+    if ( !IS_SET(ch->flag2, CHANNEL_CHAT) ) cmd_chat( ch, "" );
 
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
     for ( och = actor_list;  och != NULL;  och = och->next )
     {
-        if ( !IS_SET(och->act2,CHANNEL_CHAT)
-          || IS_NPC(och) )
+        if ( !IS_SET(och->flag2,CHANNEL_CHAT)
+          || NPC(och) )
         continue;
 
       strjoin(PC(och,chat_buf), NAME(ch));
@@ -319,11 +319,11 @@ void cmd_chat( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  reply [text]
  */
-void cmd_reply(PLAYER_DATA *ch, char *argument )
+void cmd_reply(PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     char *message;
     int position;
 
@@ -352,12 +352,12 @@ void cmd_reply(PLAYER_DATA *ch, char *argument )
     if ( victim != ch )
     {
     snprintf( buf, MAX_STRING_LENGTH, "%sYou reply to $N:\n\r   \"$t\"$R",
-             color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code );
+             color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code );
     act( buf, ch, message, victim, TO_ACTOR );
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "%sYour thoughts unfocus as a message from\n\r$N echos in your mind:\n\r   \"$t\"$R",
-             color_table[GET_PC(victim,colors[COLOR_COMM],7)].act_code );
+             color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code );
 
     position            = victim->position;
     victim->position    = POS_STANDING;
@@ -374,11 +374,11 @@ void cmd_reply(PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  tell [person] [text]
  */
-void cmd_tell( PLAYER_DATA *ch, char *argument )
+void cmd_tell( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     char *message;
     int position;
 
@@ -388,7 +388,7 @@ void cmd_tell( PLAYER_DATA *ch, char *argument )
     {
         page_to_actor( "Syntax:    tell [target] [message]\n\r", ch );
         page_to_actor( "People told you:\n\r", ch );
-        if ( IS_NPC(ch) ) page_to_actor( PC(ch,tell_buf), ch );
+        if ( NPC(ch) ) page_to_actor( PC(ch,tell_buf), ch );
         return;
     }
 
@@ -405,14 +405,14 @@ void cmd_tell( PLAYER_DATA *ch, char *argument )
     ch->reply = victim;
     victim->reply = ch;
     snprintf( buf, MAX_STRING_LENGTH, "%sYour message echoes in $N's mind:\n\r   \"$t\"$R",
-             color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code );
+             color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code );
     act( buf, ch, message, victim, TO_ACTOR );
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "%sA message from $N echoes in your mind:\n\r   \"$t\"$R",
-             color_table[GET_PC(victim,colors[COLOR_COMM],7)].act_code );
+             color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code );
 
-    if ( !IS_NPC(victim) ) {
+    if ( !NPC(victim) ) {
       strjoin(PC(victim,tell_buf), NAME(ch));
       strjoin(PC(victim,tell_buf), ": ");
       strjoin(PC(victim,tell_buf), message);
@@ -437,11 +437,11 @@ void cmd_tell( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  whisper [person] [text]
  */
-void cmd_whisper( PLAYER_DATA *ch, char *argument )
+void cmd_whisper( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     char *message;
     int position;
 
@@ -464,7 +464,7 @@ void cmd_whisper( PLAYER_DATA *ch, char *argument )
     if ( victim != ch )
     {
     snprintf( buf, MAX_STRING_LENGTH, "%sYou whisper to $N in %s:\n\r   \"$t\"$R",
-             color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code,
+             color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              lang_table[ch->speaking].name );
     act( buf, ch, message, victim, TO_ACTOR );
     }
@@ -472,7 +472,7 @@ void cmd_whisper( PLAYER_DATA *ch, char *argument )
     act( "$n whispers something to $N.", ch, NULL, victim, TO_SCENE );
 
     snprintf( buf, MAX_STRING_LENGTH, "%s$N whispers to you in %s:\n\r   \"$t\"$R",
-             color_table[GET_PC(victim,colors[COLOR_COMM],7)].act_code,
+             color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code,
              lang_table[ch->speaking].name );
 
     position            = victim->position;
@@ -493,9 +493,9 @@ void cmd_whisper( PLAYER_DATA *ch, char *argument )
  * Syntax:  wish
  *          wish [text]
  */
-void cmd_wish( PLAYER_DATA *ch, char *argument )
+void cmd_wish( PLAYER *ch, char *argument )
 {
-    PLAYER_DATA *och;
+    PLAYER *och;
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
     char *message;
@@ -504,9 +504,9 @@ void cmd_wish( PLAYER_DATA *ch, char *argument )
 
     if ( IS_IMMORTAL(ch) && arg[0] == '\0' )
     {
-        TOGGLE_BIT(ch->act2, CHANNEL_WISHES);
+        TOGGLE_BIT(ch->flag2, CHANNEL_WISHES);
 
-        if ( IS_SET(ch->act2, CHANNEL_WISHES) )
+        if ( IS_SET(ch->flag2, CHANNEL_WISHES) )
              send_to_actor( "Wishes on.\n\r", ch );
         else send_to_actor( "Wishes off.\n\r", ch );
         return;
@@ -519,10 +519,10 @@ void cmd_wish( PLAYER_DATA *ch, char *argument )
         if ( och->desc != NULL )
         {
             if ( ch != och )
-            if ( IS_NPC(ch)
-              || IS_NPC(och)
+            if ( NPC(ch)
+              || NPC(och)
               || (!IS_IMMORTAL(ch) && !IS_IMMORTAL(och))
-              || !IS_SET(och->act2,CHANNEL_WISHES) )
+              || !IS_SET(och->flag2,CHANNEL_WISHES) )
             continue;
 
 	            snprintf( buf, MAX_STRING_LENGTH, "%s%s wish%s:\n\r%s   %s\n\r",
@@ -544,14 +544,14 @@ void cmd_wish( PLAYER_DATA *ch, char *argument )
 
 
 
-void shout( PLAYER_DATA *ch, PLAYER_DATA *rch, char *message, int dir )
+void shout( PLAYER *ch, PLAYER *rch, char *message, int dir )
 {
     char buf[MAX_STRING_LENGTH];
 
     if ( ch == rch )
     {
         snprintf( buf, MAX_STRING_LENGTH, "%sYou shout, in %s:\n\r  \"$t\"$R",
-                 color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code,
+                 color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
                  lang_table[ch->speaking].name );
         act( buf, ch, message, NULL, TO_ACTOR );
         return;
@@ -588,11 +588,11 @@ void shout( PLAYER_DATA *ch, PLAYER_DATA *rch, char *message, int dir )
 /*
  * Syntax:  shout [text]
  */
-void cmd_shout( PLAYER_DATA *ch, char *argument )
+void cmd_shout( PLAYER *ch, char *argument )
 {
     int door;
-    SCENE_INDEX_DATA *pScene;
-    PLAYER_DATA *rch;
+    SCENE *pScene;
+    PLAYER *rch;
     char *message;
 
     if ( *argument == '\0' )
@@ -617,7 +617,7 @@ void cmd_shout( PLAYER_DATA *ch, char *argument )
 }
 
 
-void say_to( PLAYER_DATA *ch, PLAYER_DATA *victim, char *argument )
+void say_to( PLAYER *ch, PLAYER *victim, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char *verb;
@@ -639,7 +639,7 @@ void say_to( PLAYER_DATA *ch, PLAYER_DATA *victim, char *argument )
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
     snprintf( buf, MAX_STRING_LENGTH, "%sYou %s to %s in %s:\n\r  \"$t\"%s",
-             color_table[GET_PC(victim,colors[COLOR_COMM],7)].act_code,
+             color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code,
              verb,
              NAME(victim),
              lang_table[ch->speaking].name,
@@ -647,7 +647,7 @@ void say_to( PLAYER_DATA *ch, PLAYER_DATA *victim, char *argument )
     act( buf, ch, message, NULL, TO_ACTOR  );
 
     snprintf( buf, MAX_STRING_LENGTH, "%s%s %ss %syou in %s:\n\r   \"$t\"%s",
-                  color_table[GET_PC(victim,colors[COLOR_COMM],7)].act_code,
+                  color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code,
                   capitalize(PERS(ch, victim)),
                   verb,
                   verb[0] != 'a' ? "to " : "",
@@ -673,24 +673,24 @@ void say_to( PLAYER_DATA *ch, PLAYER_DATA *victim, char *argument )
 /*
  * Syntax:  say [text]
  */
-void cmd_say( PLAYER_DATA *ch, char *argument )
+void cmd_say( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *actor;
+    PLAYER *actor;
     char *verb;
     char *message;
 
     if ( argument[0] == '\0' )
     {
         page_to_actor( "Things said near you:\n\r", ch );
-        if ( IS_NPC(ch) ) page_to_actor( PC(ch,say_buf), ch );
+        if ( NPC(ch) ) page_to_actor( PC(ch,say_buf), ch );
         return;
     }
     /*
      * Guest character support.
      * Force guests to speak OOC.
      */
-    if ( !IS_NPC(ch) && !str_cmp( ch->name, "guest" ) )
+    if ( !NPC(ch) && !str_cmp( ch->name, "guest" ) )
     {
         cmd_ooc( ch, argument );
         return;
@@ -706,7 +706,7 @@ void cmd_say( PLAYER_DATA *ch, char *argument )
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
     snprintf( buf, MAX_STRING_LENGTH, "%sYou %s, in %s:\n\r  \"$t\"%s",
-             color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code,
+             color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              verb,
              lang_table[ch->speaking].name,
              HAS_ANSI(ch) ? ANSI_NORMAL : "" );
@@ -715,7 +715,7 @@ void cmd_say( PLAYER_DATA *ch, char *argument )
     for ( actor = ch->in_scene->people;  actor != NULL;  actor = actor->next_in_scene )
     {
         snprintf( buf, MAX_STRING_LENGTH, "%s%s %ss, in %s:\n\r   \"$t\"%s",
-                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].act_code,
+                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
                       capitalize(PERS(ch, actor)),
                       verb,
                  learned(actor,lang_table[ch->speaking].pgsn) > 0 ?
@@ -728,11 +728,11 @@ void cmd_say( PLAYER_DATA *ch, char *argument )
                   check_speech( actor, ch, lang_table[ch->speaking].pgsn ) ),
                  NULL, TO_ACTOR );
 
-        if ( IS_NPC(ch) && IS_NPC(actor)
-          && actor->pIndexData->vnum == ch->pIndexData->vnum ) 
+        if ( NPC(ch) && NPC(actor)
+          && actor->pIndexData->dbkey == ch->pIndexData->dbkey ) 
             continue;
 
-    if ( !IS_NPC(actor) ) {
+    if ( !NPC(actor) ) {
       strjoin(PC(actor,say_buf), NAME(ch));
       strjoin(PC(actor,say_buf), ": ");
       strjoin(PC(actor,say_buf),
@@ -759,10 +759,10 @@ void cmd_say( PLAYER_DATA *ch, char *argument )
  * Syntax:  talk [text]
  * Only to those sitting at your furniture.
  */
-void cmd_talk( PLAYER_DATA *ch, char *argument )
+void cmd_talk( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *actor;
+    PLAYER *actor;
     char *verb;
     char *message;
 
@@ -775,7 +775,7 @@ void cmd_talk( PLAYER_DATA *ch, char *argument )
      * Guest character support.
      * Force guests to speak OOC.
      */
-    if ( !IS_NPC(ch) && !str_cmp( ch->name, "guest" ) )
+    if ( !NPC(ch) && !str_cmp( ch->name, "guest" ) )
     {
         cmd_ooc( ch, argument );
         return;
@@ -798,7 +798,7 @@ void cmd_talk( PLAYER_DATA *ch, char *argument )
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
     snprintf( buf, MAX_STRING_LENGTH, "%sFrom %s, you %s, in %s:\n\r  \"$t\"%s",
-             color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code,
+             color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              STR(ch->furniture, short_descr),
              verb,
              lang_table[ch->speaking].name,
@@ -809,7 +809,7 @@ void cmd_talk( PLAYER_DATA *ch, char *argument )
     {
         snprintf( buf, MAX_STRING_LENGTH, "%sFrom %s, %s %ss, in %s:\n\r   \"$t\"%s",
                       STR(ch->furniture, short_descr),
-                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].act_code,
+                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
                       capitalize(PERS(ch, actor)),
                       verb,
                  learned(actor,lang_table[ch->speaking].pgsn) > 0 ?
@@ -822,8 +822,8 @@ void cmd_talk( PLAYER_DATA *ch, char *argument )
                   check_speech( actor, ch, lang_table[ch->speaking].pgsn ) ),
                  NULL, TO_ACTOR );
 
-        if ( IS_NPC(ch) && IS_NPC(actor)
-          && actor->pIndexData->vnum == ch->pIndexData->vnum ) 
+        if ( NPC(ch) && NPC(actor)
+          && actor->pIndexData->dbkey == ch->pIndexData->dbkey ) 
             continue;
 
         script_update( actor, TYPE_ACTOR, TRIG_SAY, ch, NULL, argument, NULL );
@@ -840,17 +840,17 @@ void cmd_talk( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  say [text]
  */
-void cmd_ooc( PLAYER_DATA *ch, char *argument )
+void cmd_ooc( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *actor;
+    PLAYER *actor;
     char *verb;
     char *message;
 
     if ( argument[0] == '\0' )
     {
         page_to_actor( "Out-of-character comments recently:\n\r", ch );
-        if ( IS_NPC(ch) ) page_to_actor( PC(ch,ooc_buf), ch );
+        if ( NPC(ch) ) page_to_actor( PC(ch,ooc_buf), ch );
         return;
     }
 
@@ -864,7 +864,7 @@ void cmd_ooc( PLAYER_DATA *ch, char *argument )
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
     snprintf( buf, MAX_STRING_LENGTH, "%sYou %s, out-of-character:\n\r  \"$t\"%s",
-             color_table[GET_PC(ch,colors[COLOR_COMM],7)].act_code,
+             color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              verb,
              HAS_ANSI(ch) ? ANSI_NORMAL : "" );
     act( buf, ch, message, NULL, TO_ACTOR  );
@@ -872,7 +872,7 @@ void cmd_ooc( PLAYER_DATA *ch, char *argument )
     for ( actor = ch->in_scene->people;  actor != NULL;  actor = actor->next_in_scene )
     {
         snprintf( buf, MAX_STRING_LENGTH, "%s%s %ss, out-of-character:\n\r   \"$t\"%s",
-                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].act_code,
+                      color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
                       capitalize(PERS(ch, actor)),
                       verb,
                       HAS_ANSI(actor) ? ANSI_NORMAL : "" );
@@ -880,11 +880,11 @@ void cmd_ooc( PLAYER_DATA *ch, char *argument )
         if ( actor != ch && actor->desc != NULL )
             act( buf, actor, message, NULL, TO_ACTOR );
 
-        if ( IS_NPC(ch) && IS_NPC(actor)
-          && actor->pIndexData->vnum == ch->pIndexData->vnum ) 
+        if ( NPC(ch) && NPC(actor)
+          && actor->pIndexData->dbkey == ch->pIndexData->dbkey ) 
             continue;
 
-    if ( !IS_NPC(actor) ) {
+    if ( !NPC(actor) ) {
       if ( strlen(PC(actor,ooc_buf)) > MSL - 1024 ) PC(actor,ooc_buf)[0]='\0';
       strcat(PC(actor,ooc_buf), NAME(ch));
       strcat(PC(actor,ooc_buf), ": ");
@@ -903,7 +903,7 @@ void cmd_ooc( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax: speak [language]
  */
-void cmd_speak( PLAYER_DATA *ch, char *argument )
+void cmd_speak( PLAYER *ch, char *argument )
 {
     int x;
 
@@ -922,7 +922,7 @@ void cmd_speak( PLAYER_DATA *ch, char *argument )
     for ( x = 0; x < MAX_LANGUAGE; x++ )
     {
         if ( !str_prefix( argument, lang_table[x].name )
-          && (IS_NPC(ch) || learned(ch,lang_table[x].pgsn) > 0) )
+          && (NPC(ch) || learned(ch,lang_table[x].pgsn) > 0) )
         {
             ch->speaking = x;
             send_to_actor( "You now speak ", ch );
@@ -940,12 +940,12 @@ void cmd_speak( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax: emote [action]
  */
-void cmd_emote( PLAYER_DATA *ch, char *argument )
+void cmd_emote( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char *plast;
 
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, PLR_NO_EMOTE) )
+    if ( !NPC(ch) && IS_SET(ch->flag2, PLR_NO_EMOTE) )
     {
         send_to_actor( "It is impossible to show your emotions.\n\r", ch );
         return;
@@ -980,12 +980,12 @@ void cmd_emote( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  bug [report]
  */
-void cmd_bug( PLAYER_DATA *ch, char *argument )
+void cmd_bug( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
 
     snprintf( buf, MAX_STRING_LENGTH, "Notify> BUG: [%5d] %s- %s",
-             ch->in_scene->vnum, STR(ch,name), argument );
+             ch->in_scene->dbkey, STR(ch,name), argument );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
     append_file( ch, BUG_FILE, argument );
@@ -997,12 +997,12 @@ void cmd_bug( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  idea [suggestion]
  */
-void cmd_idea( PLAYER_DATA *ch, char *argument )
+void cmd_idea( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
 
     snprintf( buf, MAX_STRING_LENGTH, "Notify> IDEA: [%5d] %s- %s",
-             ch->in_scene->vnum, STR(ch,name), argument );
+             ch->in_scene->dbkey, STR(ch,name), argument );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
     append_file( ch, IDEA_FILE, argument );
@@ -1014,12 +1014,12 @@ void cmd_idea( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  typo [error]
  */
-void cmd_typo( PLAYER_DATA *ch, char *argument )
+void cmd_typo( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
 
     snprintf( buf, MAX_STRING_LENGTH, "Notify> TYPO: [%5d] %s- %s",
-             ch->in_scene->vnum, STR(ch,name), argument );
+             ch->in_scene->dbkey, STR(ch,name), argument );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
     append_file( ch, TYPO_FILE, argument );
@@ -1029,7 +1029,7 @@ void cmd_typo( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_qui( PLAYER_DATA *ch, char *argument )
+void cmd_qui( PLAYER *ch, char *argument )
 {
     send_to_actor( "If you want to QUIT, you have to spell it out.\n\r", ch );
     return;
@@ -1039,12 +1039,12 @@ void cmd_qui( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  quit
  */
-void cmd_quit( PLAYER_DATA *ch, char *argument )
+void cmd_quit( PLAYER *ch, char *argument )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     char buf[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
         cmd_return( ch, "" );
         return;
@@ -1062,7 +1062,7 @@ void cmd_quit( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
         cmd_help( ch, "FAREWELL" );
 
     if ( IS_IMMORTAL( ch ) )
@@ -1085,10 +1085,10 @@ void cmd_quit( PLAYER_DATA *ch, char *argument )
     save_actor_prop( ch );
     d = ch->desc;
 
-    extract_char( ch, TRUE );
+    extractor_char( ch, TRUE );
 
     /*
-     * After extract_char the ch is no longer valid!
+     * After extractor_char the ch is no longer valid!
      */
     if ( d != NULL ) close_socket( d );
     return;
@@ -1099,9 +1099,9 @@ void cmd_quit( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  save
  */
-void cmd_save( PLAYER_DATA *ch, char *argument )
+void cmd_save( PLAYER *ch, char *argument )
 {
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
         return;
     save_copyover();
     save_contents();
@@ -1121,10 +1121,10 @@ void cmd_save( PLAYER_DATA *ch, char *argument )
  * Syntax:  follow [person]
  *          follow self
  */
-void cmd_follow( PLAYER_DATA *ch, char *argument )
+void cmd_follow( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -1139,7 +1139,7 @@ void cmd_follow( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL )
+    if ( IS_AFFECTED(ch, BONUS_CHARM) && ch->master != NULL )
     {
         act( "But you'd rather follow $N!", ch, NULL, ch->master, TO_ACTOR );
         return;
@@ -1170,7 +1170,7 @@ void cmd_follow( PLAYER_DATA *ch, char *argument )
 
 
 
-void add_follower( PLAYER_DATA *ch, PLAYER_DATA *master )
+void add_follower( PLAYER *ch, PLAYER *master )
 {
     if ( ch->master != NULL )
     {
@@ -1179,8 +1179,8 @@ void add_follower( PLAYER_DATA *ch, PLAYER_DATA *master )
     }
 
     ch->master        = master;
-    if ( (!IS_NPC(ch)      && ch->desc      && !CONNECTED(ch->desc))
-      || (!IS_NPC(master)  && master->desc  && !CONNECTED(master->desc)) )
+    if ( (!NPC(ch)      && ch->desc      && !CONNECTED(ch->desc))
+      || (!NPC(master)  && master->desc  && !CONNECTED(master->desc)) )
     return;
 
     if ( can_see( master, ch ) )
@@ -1192,7 +1192,7 @@ void add_follower( PLAYER_DATA *ch, PLAYER_DATA *master )
 }
 
 
-bool in_group( PLAYER_DATA *ch, PLAYER_DATA *victim )
+bool in_group( PLAYER *ch, PLAYER *victim )
 {
     if ( ch == NULL || victim == NULL ) return FALSE;
 
@@ -1209,10 +1209,10 @@ bool in_group( PLAYER_DATA *ch, PLAYER_DATA *victim )
 }
 
 
-void ungroup( PLAYER_DATA *ch )
+void ungroup( PLAYER *ch )
 {
-    PLAYER_DATA *victim;
-    PLAYER_DATA *newleader=NULL;
+    PLAYER *victim;
+    PLAYER *newleader=NULL;
 
     if ( ch->leader == NULL ) {
        for ( victim = actor_list;  victim != NULL;  victim = victim->next )
@@ -1220,7 +1220,7 @@ void ungroup( PLAYER_DATA *ch )
            if ( victim->leader == ch )
            { if ( !newleader ) newleader=victim;
 
-        if ( !IS_NPC(victim) )
+        if ( !NPC(victim) )
         display_interp( victim, color_table[PC(victim,colors[COLOR_GROUPS])].di );
 
               act( "$N has parted company with the group.", victim, NULL, ch, TO_ACTOR );
@@ -1230,7 +1230,7 @@ void ungroup( PLAYER_DATA *ch )
            }
        }
 
-        if ( !IS_NPC(ch) )
+        if ( !NPC(ch) )
         display_interp( ch, color_table[PC(ch,colors[COLOR_GROUPS])].di );
         act( "You left the group.", ch, NULL, NULL, TO_ACTOR );
         display_interp( ch, "^N" );
@@ -1239,9 +1239,9 @@ void ungroup( PLAYER_DATA *ch )
     if ( ch->leader != NULL ) {
         victim = ch->leader;
 
-        if ( !IS_NPC(ch) )
+        if ( !NPC(ch) )
         display_interp( ch, color_table[PC(ch,colors[COLOR_GROUPS])].di );
-        if ( !IS_NPC(victim) )
+        if ( !NPC(victim) )
         display_interp( victim, color_table[PC(victim,colors[COLOR_GROUPS])].di );
 
               act( "$N has parted company with the group.", victim, NULL, ch, TO_ACTOR );
@@ -1258,7 +1258,7 @@ void ungroup( PLAYER_DATA *ch )
 
 
 
-void stop_follower( PLAYER_DATA *ch )
+void stop_follower( PLAYER *ch )
 {
     if ( ch->master == NULL )
     {
@@ -1266,10 +1266,10 @@ void stop_follower( PLAYER_DATA *ch )
         return;
     }
 
-    if ( IS_AFFECTED(ch, AFF_CHARM) )
+    if ( IS_AFFECTED(ch, BONUS_CHARM) )
     {
-        REMOVE_BIT( ch->bonuses, AFF_CHARM );
-        bonus_strip( ch, skill_vnum(skill_lookup("charm")) );
+        REMOVE_BIT( ch->bonuses, BONUS_CHARM );
+        bonus_strip( ch, skill_dbkey(skill_lookup("charm")) );
     }
 
     if ( can_see( ch->master, ch ) )
@@ -1283,9 +1283,9 @@ void stop_follower( PLAYER_DATA *ch )
 
 
 
-void die_follower( PLAYER_DATA *ch )
+void die_follower( PLAYER *ch )
 {
-    PLAYER_DATA *fch;
+    PLAYER *fch;
 
     if ( ch->master != NULL )
         stop_follower( ch );
@@ -1304,13 +1304,13 @@ void die_follower( PLAYER_DATA *ch )
 /*
  * Syntax:  order [person] [action]
  */
-void cmd_order( PLAYER_DATA *ch, char *argument )
+void cmd_order( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char arg_cmd[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
-    PLAYER_DATA *och;
-    PLAYER_DATA *och_next;
+    PLAYER *victim;
+    PLAYER *och;
+    PLAYER *och_next;
     bool found;
     bool fAll;
 
@@ -1323,7 +1323,7 @@ void cmd_order( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( IS_AFFECTED( ch, AFF_CHARM ) )
+    if ( IS_AFFECTED( ch, BONUS_CHARM ) )
     {
         send_to_actor( "You feel like taking, not giving, orders.\n\r", ch );
         return;
@@ -1349,7 +1349,7 @@ void cmd_order( PLAYER_DATA *ch, char *argument )
             return;
         }
 
-        if ( ( !IS_AFFECTED(victim, AFF_CHARM) && !IS_SET(victim->act,ACT_PET) )
+        if ( ( !IS_AFFECTED(victim, BONUS_CHARM) && !IS_SET(victim->flag,ACTOR_PET) )
            || victim->master != ch )
         {
             send_to_actor( "Do it yourself!\n\r", ch );
@@ -1420,7 +1420,7 @@ void cmd_order( PLAYER_DATA *ch, char *argument )
     {
         och_next = och->next_in_scene;
 
-        if ( ( IS_AFFECTED(och, AFF_CHARM) || ( IS_NPC(och) && IS_SET(och->act,ACT_PET) ) )
+        if ( ( IS_AFFECTED(och, BONUS_CHARM) || ( NPC(och) && IS_SET(och->flag,ACTOR_PET) ) )
         &&   och->master == ch
         && ( fAll || och == victim ) )
         {
@@ -1442,14 +1442,14 @@ void cmd_order( PLAYER_DATA *ch, char *argument )
  * Syntax: monitor [target]
  *         monitor
  */
-void cmd_monitor( PLAYER_DATA *ch, char *argument )
+void cmd_monitor( PLAYER *ch, char *argument )
 {
    char arg[MAX_STRING_LENGTH];
-   PLAYER_DATA *victim;
+   PLAYER *victim;
 
    one_argument( argument, arg );
 
-   if ( IS_NPC(ch) ) return;
+   if ( NPC(ch) ) return;
 
    display_interp( ch, color_table[PC(ch,colors[COLOR_GROUPS])].di );
 
@@ -1462,7 +1462,7 @@ void cmd_monitor( PLAYER_DATA *ch, char *argument )
        else {
            victim = ch->monitor;
            ch->monitor = NULL;
-         if ( !IS_NPC(victim) )
+         if ( !NPC(victim) )
         display_interp( victim, color_table[PC(victim,colors[COLOR_GROUPS])].di );
            act( "You stop monitoring $n.", ch, NULL, victim, TO_ACTOR );
            act( "$N is no longer monitoring you.", victim, NULL, ch, TO_ACTOR );
@@ -1493,7 +1493,7 @@ void cmd_monitor( PLAYER_DATA *ch, char *argument )
 
    if ( ch->monitor ) cmd_monitor( ch, "" );
 
-   if ( !IS_NPC(victim) ) {
+   if ( !NPC(victim) ) {
    display_interp( victim, color_table[PC(victim,colors[COLOR_GROUPS])].di );
    act( "You begin monitoring $n.", ch, NULL, victim, TO_ACTOR );
    act( "$N is now monitoring your status.", victim, NULL, ch, TO_ACTOR );
@@ -1507,9 +1507,9 @@ void cmd_monitor( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_gtell( PLAYER_DATA *ch, char *argument )
+void cmd_gtell( PLAYER *ch, char *argument )
 {
-   PLAYER_DATA *victim;
+   PLAYER *victim;
 
    if ( *argument == '\0' )
    {
@@ -1517,7 +1517,7 @@ void cmd_gtell( PLAYER_DATA *ch, char *argument )
         return;
    }
 
-   if ( IS_NPC(ch) ) return;
+   if ( NPC(ch) ) return;
 
    display_interp( ch, color_table[PC(ch,colors[COLOR_GROUPS])].di );
 
@@ -1531,7 +1531,7 @@ void cmd_gtell( PLAYER_DATA *ch, char *argument )
       if ( in_group(ch, victim) && victim != ch )
       {
 
-      if ( !IS_NPC(victim) )
+      if ( !NPC(victim) )
       display_interp( victim, color_table[PC(victim,colors[COLOR_GROUPS])].di );
 
       act( "$N tells the group:\n\r   \"$t\"", victim, argument, ch, TO_ACTOR );
@@ -1549,13 +1549,13 @@ void cmd_gtell( PLAYER_DATA *ch, char *argument )
  *          group self
  *          group
  */
-void cmd_group( PLAYER_DATA *ch, char *argument )
+void cmd_group( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_STRING_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     display_interp( ch, color_table[PC(ch,colors[COLOR_GROUPS])].di );
 
@@ -1572,7 +1572,7 @@ void cmd_group( PLAYER_DATA *ch, char *argument )
 
         for ( victim = actor_list;  victim != NULL;  victim = victim->next )
         {
-            if ( IS_NPC(victim) ) continue;
+            if ( NPC(victim) ) continue;
 
             if ( in_group( ch, victim ) )
             {
@@ -1605,7 +1605,7 @@ void cmd_group( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( IS_NPC(victim) ) 
+    if ( NPC(victim) ) 
     {
         act( "$N doesn't need to be grouped.  Grouping is for human players.", ch, NULL, victim, TO_ACTOR );
         display_interp( ch, "^N" );
@@ -1637,7 +1637,7 @@ void cmd_group( PLAYER_DATA *ch, char *argument )
 
         victim->leader = ch;
 
-        if ( !IS_NPC(victim) )
+        if ( !NPC(victim) )
         display_interp( victim, color_table[PC(victim,colors[COLOR_GROUPS])].di );
 
         act( "You join $N's group.", victim, NULL, ch, TO_ACTOR );
@@ -1664,9 +1664,9 @@ void cmd_group( PLAYER_DATA *ch, char *argument )
 /*
  * Dismisses a follower.
  */
-void cmd_dismiss( PLAYER_DATA *ch, char *argument ) {
+void cmd_dismiss( PLAYER *ch, char *argument ) {
     char arg[MIL];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     argument = one_argument(argument,arg);
 
@@ -1682,7 +1682,7 @@ void cmd_dismiss( PLAYER_DATA *ch, char *argument ) {
         return;
     }
 
-    if ( victim->master != ch || ( !IS_AFFECTED(victim, AFF_CHARM) && !IS_SET(victim->act,ACT_PET) ) )
+    if ( victim->master != ch || ( !IS_AFFECTED(victim, BONUS_CHARM) && !IS_SET(victim->flag,ACTOR_PET) ) )
     {
         act( "You have no control over $N!", ch, NULL, victim, TO_ACTOR );
         return;
@@ -1692,6 +1692,6 @@ void cmd_dismiss( PLAYER_DATA *ch, char *argument ) {
     act( "$n dismissed you.", ch, NULL, victim, TO_VICT );
     act( "You dismissed $N.", ch, NULL, victim, TO_ACTOR );
     cmd_drop( victim, "all" );
-    extract_char( victim, TRUE );    
+    extractor_char( victim, TRUE );    
     return;
 }

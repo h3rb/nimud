@@ -1673,11 +1673,11 @@ M 0
 W 0
 T 0
 O ~
-ED stream~
-The stream is pretty small, but it looks too cold to swim.
-~
 ED hut~
 The hut looks well built, but it seems to have taken some damage.
+~
+ED stream~
+The stream is pretty small, but it looks too cold to swim.
 ~
 Dr 1 0 -1 16517
 You see a small path.

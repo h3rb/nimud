@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -66,32 +66,32 @@
  */
 
 /* Without zone checking for skills, spells and help data.
- * create <vnum>
+ * create <dbkey>
  */
-#define CREATE_COMMAND(var,hash,new,get,tvnum) \
+#define CREATE_COMMAND(var,hash,new,get,tdbkey) \
     if ( !str_cmp( arg1, "create" ) )\
     {  int iHash;  value = atoi( arg2 ); if ( arg2[0] == '\0'  || value == 0 )\
-        { send_to_actor( "Syntax:  create [vnum]\n\r", ch ); return; }\
+        { send_to_actor( "Syntax:  create [dbkey]\n\r", ch ); return; }\
         if ( get( value ) != NULL )\
         {  send_to_actor( "Vnum is already in use.\n\r", ch );  return;  }\
-        var = new(); var->vnum = value; if ( value > tvnum ) tvnum = value;\
+        var = new(); var->dbkey = value; if ( value > tdbkey ) tdbkey = value;\
         iHash = value % MAX_KEY_HASH; var->next = hash[iHash];\
         hash[iHash]  = var; ch->desc->pEdit = (void *)var;\
         send_to_actor( "Created.\n\r", ch ); return;    }
 
 /*
  * With zone checking.
- * create <vnum>
+ * create <dbkey>
  */
-#define CREATE_COMMANDZ(var,hash,new,get,tvnum) \
+#define CREATE_COMMANDZ(var,hash,new,get,tdbkey) \
 if ( !str_cmp( arg1, "create" ) )\
  {value = atoi( arg2 );  if ( arg2[0] == '\0'  || value == 0 ) {\
-  send_to_actor( "Syntax:  create [vnum]\n\r", ch ); return; }\
-  pZone = get_vnum_zone( value ); if ( pZone == NULL ) { \
-  send_to_actor( "That vnum is not assigned an zone.\n\r", ch ); return; }\
+  send_to_actor( "Syntax:  create [dbkey]\n\r", ch ); return; }\
+  pZone = get_dbkey_zone( value ); if ( pZone == NULL ) { \
+  send_to_actor( "That dbkey is not assigned an zone.\n\r", ch ); return; }\
   if ( !IS_BUILDER( ch, pZone ) ) { send_to_actor( "Vnum is outside your zone.\n\r", ch ); return; }\
   if ( get( value ) != NULL ) { send_to_actor( "Vnum already exists.\n\r", ch ); return; }\
-  var = new(); var->zone = pZone; var->vnum = value; if ( value > tvnum ) tvnum = value;  iHash = value % MAX_KEY_HASH;  \
+  var = new(); var->zone = pZone; var->dbkey = value; if ( value > tdbkey ) tdbkey = value;  iHash = value % MAX_KEY_HASH;  \
   var->next = hash[iHash]; hash[iHash]  = var; ch->desc->pEdit = (void *)var;\
   SET_BIT( pZone->zone_flags, ZONE_CHANGED ); send_to_actor( "Created.\n\r", ch ); return;  }
 
@@ -140,9 +140,9 @@ if ( !str_cmp( arg1, "create" ) )\
  * Spell Editor
  */
 
-void spedit( PLAYER_DATA *ch, char *argument )
+void spedit( PLAYER *ch, char *argument )
 {
-    SPELL_DATA *pSpell=NULL;
+    SPELL *pSpell=NULL;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
@@ -154,7 +154,7 @@ void spedit( PLAYER_DATA *ch, char *argument )
     argument = one_argument( argument, arg1 );
     strcpy( arg2, argument );
 
-    pSpell = (SPELL_DATA *)(ch->desc->pEdit);
+    pSpell = (SPELL *)(ch->desc->pEdit);
 
     if ( !str_cmp( arg1, "done" ) || !pSpell )
     {
@@ -168,7 +168,7 @@ void spedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pSpell->vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", pSpell->dbkey );
         cmd_spedit( ch, "show" );
         return;
     }
@@ -213,13 +213,13 @@ void spedit( PLAYER_DATA *ch, char *argument )
     EDIT_VALUE("slot",    "Slot set.",
                pSpell->slot, atoi);
 
-    CREATE_COMMAND(pSpell,spell_index_hash,
-                          new_spell_data,
+    CREATE_COMMAND(pSpell,spell__hash,
+                          new_spell,
                           get_spell_index,
-                          top_vnum_spell);
+                          top_dbkey_spell);
 
     if ( !str_cmp( arg1, "group" ) ) {
-        SKILL_DATA *pGroup;
+        SKILL *pGroup;
 
         pGroup = skill_lookup( arg2 );
         if ( !pGroup ) {
@@ -227,19 +227,19 @@ void spedit( PLAYER_DATA *ch, char *argument )
         return; 
         }
 
-        pSpell->group_code = pGroup->vnum;
+        pSpell->group_code = pGroup->dbkey;
         send_to_actor("Group set.\n\r", ch );
         return;
     }
 
     if ( !str_cmp( arg1, "script" ) )
     {
-        INSTANCE_DATA *pTrig;
-        SCRIPT_DATA *script;
+        INSTANCE *pTrig;
+        SCRIPT *script;
 
         if ( !str_cmp( arg2, "clear" ) || !str_cmp( arg2, "kill" ) )
         {
-            INSTANCE_DATA *pNext;
+            INSTANCE *pNext;
 
             for ( pTrig = pSpell->instances; pTrig != NULL; pTrig = pNext )
             {
@@ -254,7 +254,7 @@ void spedit( PLAYER_DATA *ch, char *argument )
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [vnum]\n\r", ch );
+            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
 
@@ -276,20 +276,20 @@ void spedit( PLAYER_DATA *ch, char *argument )
 
 /*
  * Syntax:  spedit [name]
- *          spedit [vnum]
- *          spedit create [vnum]
+ *          spedit [dbkey]
+ *          spedit create [dbkey]
  *         *spedit create 
  */
-void cmd_spedit( PLAYER_DATA *ch, char *argument )
+void cmd_spedit( PLAYER *ch, char *argument )
 {
-    SPELL_DATA *pSpell=NULL;
-    INSTANCE_DATA *pInstance;
+    SPELL *pSpell=NULL;
+    INSTANCE *pInstance;
     int value;
     char arg1[MSL];
     char arg2[MSL];
     char buf[MSL];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
 
@@ -307,9 +307,9 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) )
     {
 
-        SKILL_DATA *pGroup;
+        SKILL *pGroup;
 
-        if ( ( pSpell = (SPELL_DATA *)ch->desc->pEdit ) == NULL )
+        if ( ( pSpell = (SPELL *)ch->desc->pEdit ) == NULL )
         {
         send_to_actor( "Spells:  You are not editing that spell.\n\r", ch );
         return;
@@ -318,7 +318,7 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
             pGroup = get_skill_index( pSpell->group_code );
 
             snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N]  Target [^B%s^N]\n\r", 
-                     pSpell->vnum,
+                     pSpell->dbkey,
                      pSpell->level,
                      pSpell->name,
                      target_bit_name( pSpell->target ) ); 
@@ -340,7 +340,7 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
                   pInstance = pInstance->next ) {
               snprintf( buf, MAX_STRING_LENGTH, "Script [^B%s^N] %d\n\r",
                        pInstance->script->name, 
-                       pInstance->script->vnum );
+                       pInstance->script->dbkey );
               send_to_actor( buf, ch );
             }
         return;
@@ -354,13 +354,13 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  spedit create [vnum]\n\r", ch );
+                send_to_actor( "Syntax:  spedit create [dbkey]\n\r", ch );
                 return;
             }
-  CREATE_COMMAND(pSpell,spell_index_hash,
-                        new_spell_data,
+  CREATE_COMMAND(pSpell,spell__hash,
+                        new_spell,
                         get_spell_index,
-                        top_vnum_spell);
+                        top_dbkey_spell);
             ch->desc->pEdit = (void *)pSpell;
             if ( ch->desc->pEdit != NULL )
             ch->desc->connected = NET_SPEDITOR;
@@ -368,15 +368,15 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_prefix( arg1, "list" ) )
     {
-        int tvnum;
+        int tdbkey;
 
-        for ( tvnum=0; tvnum <= top_vnum_spell; tvnum++ )
+        for ( tdbkey=0; tdbkey <= top_dbkey_spell; tdbkey++ )
         { 
-            pSpell = get_spell_index( tvnum );
+            pSpell = get_spell_index( tdbkey );
             if ( !pSpell ) continue;
 
             snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N] ", 
-                     pSpell->vnum,
+                     pSpell->dbkey,
                      pSpell->level,
                      pSpell->name);
             send_to_actor( buf, ch );
@@ -404,9 +404,9 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
  * Skill Editor
  */
 
-void skedit( PLAYER_DATA *ch, char *argument )
+void skedit( PLAYER *ch, char *argument )
 {
-    SKILL_DATA *pSkill=NULL;
+    SKILL *pSkill=NULL;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
@@ -418,7 +418,7 @@ void skedit( PLAYER_DATA *ch, char *argument )
     argument = one_argument( argument, arg1 );
     strcpy( arg2, argument );
 
-    pSkill = (SKILL_DATA *)(ch->desc->pEdit);
+    pSkill = (SKILL *)(ch->desc->pEdit);
 
     if ( !str_cmp( arg1, "done" ) || !pSkill )
     {
@@ -432,7 +432,7 @@ void skedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pSkill->vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", pSkill->dbkey );
         cmd_skedit( ch, "show" );
         return;
     }
@@ -463,7 +463,7 @@ void skedit( PLAYER_DATA *ch, char *argument )
     EDIT_VALUE("delay", "Beat delay set.",
                pSkill->delay, atoi);
 
-    EDIT_VALUE("slot", "Slot.  Do not duplicate a spell vnum.",
+    EDIT_VALUE("slot", "Slot.  Do not duplicate a spell dbkey.",
                pSkill->slot, atoi);
 
     STR_EDIT_VALUE("name",pSkill->name);
@@ -516,7 +516,7 @@ void skedit( PLAYER_DATA *ch, char *argument )
 /*--*/
 
     if ( !str_cmp( arg1, "group" ) ) {
-        SKILL_DATA *pGroup;
+        SKILL *pGroup;
 
         pGroup = skill_lookup( arg2 );
         if ( !pGroup ) {
@@ -524,15 +524,15 @@ void skedit( PLAYER_DATA *ch, char *argument )
         return; 
         }
 
-        pSkill->group_code = pGroup->vnum;
+        pSkill->group_code = pGroup->dbkey;
         send_to_actor("Group set.\n\r", ch );
         return;
     }
 
-    CREATE_COMMAND(pSkill,skill_index_hash,
-                          new_skill_data,
+    CREATE_COMMAND(pSkill,skill__hash,
+                          new_skill,
                           get_skill_index,
-                          top_vnum_skill);
+                          top_dbkey_skill);
 
     interpret( ch, arg );
     return;
@@ -542,27 +542,27 @@ void skedit( PLAYER_DATA *ch, char *argument )
 
 /*
  * Syntax:  skedit [name]
- *          skedit [vnum]
- *          skedit create [vnum]
+ *          skedit [dbkey]
+ *          skedit create [dbkey]
  *         *skedit create 
  */
-void cmd_skedit( PLAYER_DATA *ch, char *argument )
+void cmd_skedit( PLAYER *ch, char *argument )
 {
-    SKILL_DATA *pSkill;
+    SKILL *pSkill;
     int value;
     char arg1[MSL];
     char arg2[MSL];
     char buf[MSL];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
 
     if ( !str_cmp( arg1, "show" ) )
     {
-        SKILL_DATA *pGroup;
+        SKILL *pGroup;
 
-        if ( ( pSkill = (SKILL_DATA *)ch->desc->pEdit ) == NULL )
+        if ( ( pSkill = (SKILL *)ch->desc->pEdit ) == NULL )
         {
         send_to_actor( "Skills:  You are not editing that skill.\n\r", ch );
         return;
@@ -571,7 +571,7 @@ void cmd_skedit( PLAYER_DATA *ch, char *argument )
         pGroup = get_skill_index( pSkill->group_code );
 
         snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N]  Target [^B%s^N]\n\r", 
-                 pSkill->vnum,
+                 pSkill->dbkey,
                  pSkill->level,
                  pSkill->name,
                  target_bit_name( pSkill->target ) ); 
@@ -605,26 +605,26 @@ void cmd_skedit( PLAYER_DATA *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  skedit create [vnum]\n\r", ch );
+                send_to_actor( "Syntax:  skedit create [dbkey]\n\r", ch );
                 return;
             }
-    CREATE_COMMAND(pSkill,skill_index_hash,
-                          new_skill_data,
+    CREATE_COMMAND(pSkill,skill__hash,
+                          new_skill,
                           get_skill_index,
-                          top_vnum_skill);
+                          top_dbkey_skill);
         }
     else
     if ( !str_cmp( arg1, "list" ) )
     {
-        int tvnum;
+        int tdbkey;
 
-        for ( tvnum=0; tvnum <= top_vnum_skill; tvnum++ )
+        for ( tdbkey=0; tdbkey <= top_dbkey_skill; tdbkey++ )
         { 
-            pSkill = get_skill_index( tvnum );
+            pSkill = get_skill_index( tdbkey );
             if ( !pSkill ) continue;
 
             snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N] ", 
-                     pSkill->vnum,
+                     pSkill->dbkey,
                      pSkill->level,
                      pSkill->name);
             send_to_actor( buf, ch );
@@ -662,13 +662,13 @@ void cmd_skedit( PLAYER_DATA *ch, char *argument )
 
 /*-----------------------------------------------------------------*/
 
-ZONE_DATA *get_zone_data( int vnum )
+ZONE *get_zone( int dbkey )
 {
-    ZONE_DATA *pZone;
+    ZONE *pZone;
 
     for (pZone = zone_first; pZone != NULL; pZone = pZone->next )
     {
-        if (pZone->vnum == vnum)
+        if (pZone->dbkey == dbkey)
             return pZone;
     }
 
@@ -677,14 +677,14 @@ ZONE_DATA *get_zone_data( int vnum )
 
 
 
-ZONE_DATA *get_vnum_zone( int vnum )
+ZONE *get_dbkey_zone( int dbkey )
 {
-    ZONE_DATA *pZone;
+    ZONE *pZone;
 
     for ( pZone = zone_first; pZone != NULL; pZone = pZone->next )
     {
-        if ( vnum >= pZone->lvnum
-          && vnum <= pZone->uvnum )
+        if ( dbkey >= pZone->ldbkey
+          && dbkey <= pZone->udbkey )
             return pZone;
     }
 
@@ -717,16 +717,16 @@ int get_zone_flags_number( char *argument )
 
 
 
-void zedit( PLAYER_DATA *ch, char *argument )
+void zedit( PLAYER *ch, char *argument )
 {
-    ZONE_DATA *pZone;
+    ZONE *pZone;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
     char buf [MAX_STRING_LENGTH];
     int  value;
 
-    pZone = (ZONE_DATA *)ch->desc->pEdit;
+    pZone = (ZONE *)ch->desc->pEdit;
     strcpy( arg, argument );
     smash_tilde( argument );
     argument = one_argument( argument, arg1 );
@@ -742,7 +742,7 @@ void zedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pZone->vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", pZone->dbkey );
         cmd_astat( ch, buf );
         return;
     }
@@ -766,9 +766,9 @@ void zedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "generate" ) )
     {
         if ( !str_cmp( arg2, "overwrite" ) )
-        generate( ch, pZone->lvnum, pZone->uvnum, TRUE );
+        generate( ch, pZone->ldbkey, pZone->udbkey, TRUE );
         else
-        generate( ch, pZone->lvnum, pZone->uvnum, FALSE );
+        generate( ch, pZone->ldbkey, pZone->udbkey, FALSE );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         return;
@@ -800,7 +800,7 @@ void zedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "create" ) )
     {
-        ZONE_DATA *pNewzone;
+        ZONE *pNewzone;
 
         if ( zone_first == NULL )
         {
@@ -917,7 +917,7 @@ void zedit( PLAYER_DATA *ch, char *argument )
 
         value = atoi( arg2 );
 
-        if ( IS_NPC(ch) || value < GET_PC(ch,security,0) || value > 9 )
+        if ( NPC(ch) || value < GET_PC(ch,security,0) || value > 9 )
         {
             if ( GET_PC(ch,security,9) != 9 )
             {
@@ -979,56 +979,56 @@ void zedit( PLAYER_DATA *ch, char *argument )
     }
 
 
-    if ( !str_cmp( arg1, "lvnum" ) )
+    if ( !str_cmp( arg1, "ldbkey" ) )
     {
         if ( !is_number( arg2 ) || arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  lvnum [#lower]\n\r", ch );
+            send_to_actor( "Syntax:  ldbkey [#lower]\n\r", ch );
             return;
         }
         value = atoi( arg2 );
 
-        if ( get_vnum_zone( value ) != NULL
-          && get_vnum_zone( value ) != pZone )
+        if ( get_dbkey_zone( value ) != NULL
+          && get_dbkey_zone( value ) != pZone )
         {
             send_to_actor( "ZEdit:  Vnum range already assigned.\n\r", ch );
             return;
         }
 
-        pZone->lvnum = value;
+        pZone->ldbkey = value;
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
 
-        send_to_actor( "Lower vnum set.\n\r", ch );
+        send_to_actor( "Lower dbkey set.\n\r", ch );
         return;
     }
 
 
-    if ( !str_cmp( arg1, "uvnum" ) )
+    if ( !str_cmp( arg1, "udbkey" ) )
     {
         if ( !is_number( arg2 ) || arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  uvnum [#upper]\n\r", ch );
+            send_to_actor( "Syntax:  udbkey [#upper]\n\r", ch );
             return;
         }
 
         value = atoi( arg2 );
 
-        if ( get_vnum_zone( value ) != NULL
-          && get_vnum_zone( value ) != pZone )
+        if ( get_dbkey_zone( value ) != NULL
+          && get_dbkey_zone( value ) != pZone )
         {
             send_to_actor( "ZEdit:  Vnum range already assigned.\n\r", ch );
             return;
         }
 
-        pZone->uvnum = value;
+        pZone->udbkey = value;
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
 
-        send_to_actor( "Upper vnum set.\n\r", ch );
+        send_to_actor( "Upper dbkey set.\n\r", ch );
         return;
     }
 
 
-    if ( !str_cmp( arg1, "vnum" ) )
+    if ( !str_cmp( arg1, "dbkey" ) )
     {
        argument = one_argument( argument, arg1 );
        strcpy( arg2, argument );
@@ -1036,33 +1036,33 @@ void zedit( PLAYER_DATA *ch, char *argument )
        if ( !is_number( arg1 ) || arg1[0] == '\0'
          || !is_number( arg2 ) || arg2[0] == '\0' )
        {
-            send_to_actor( "Syntax:  vnum [#lower] [#upper]\n\r", ch );
+            send_to_actor( "Syntax:  dbkey [#lower] [#upper]\n\r", ch );
             return;
         }
 
         value = atoi( arg1 );
 
-        if ( get_vnum_zone( value ) != NULL
-          && get_vnum_zone( value ) != pZone )
+        if ( get_dbkey_zone( value ) != NULL
+          && get_dbkey_zone( value ) != pZone )
         {
-            send_to_actor( "ZEdit:  Lower vnum already assigned.\n\r", ch );
+            send_to_actor( "ZEdit:  Lower dbkey already assigned.\n\r", ch );
             return;
         }
 
-        pZone->lvnum = value;
-        send_to_actor( "Lower vnum set.\n\r", ch );
+        pZone->ldbkey = value;
+        send_to_actor( "Lower dbkey set.\n\r", ch );
 
         value = atoi( arg2 );
 
-        if ( get_vnum_zone( value ) != NULL
-          && get_vnum_zone( value ) != pZone )
+        if ( get_dbkey_zone( value ) != NULL
+          && get_dbkey_zone( value ) != pZone )
         {
-            send_to_actor( "ZEdit:   Upper vnum already assigned.\n\r", ch );
+            send_to_actor( "ZEdit:   Upper dbkey already assigned.\n\r", ch );
             return;
         }
 
-        pZone->uvnum = value;
-        send_to_actor( "Upper vnum set.\n\r", ch );
+        pZone->udbkey = value;
+        send_to_actor( "Upper dbkey set.\n\r", ch );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         return;
@@ -1074,12 +1074,12 @@ void zedit( PLAYER_DATA *ch, char *argument )
 
 
 
-bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
+bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
                  char *arg1, char *arg2 )
 {
-    ZONE_DATA *pZone, *ozone = NULL;
-    EXIT_DATA *pexit;
-    EXIT_DATA *oexit = NULL;
+    ZONE *pZone, *ozone = NULL;
+    EXIT *pexit;
+    EXIT *oexit = NULL;
     int value;
 
     pexit = pScene->exit[door];
@@ -1117,13 +1117,13 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
 
     if ( is_number( arg1 ) )
     {
-        SCENE_INDEX_DATA *to_scene;
+        SCENE *to_scene;
 
         value = atoi( arg1 );
 
-        if ( (to_scene = get_scene_index( value )) == NULL )
+        if ( (to_scene = get_scene( value )) == NULL )
         {
-            if ( (ozone = get_vnum_zone( value )) == NULL )
+            if ( (ozone = get_dbkey_zone( value )) == NULL )
             {
                 send_to_actor( "Vnum does not fall within an zone define.\n\r", ch );
                 return TRUE;
@@ -1149,13 +1149,13 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
 
                 snprintf( buf, MAX_STRING_LENGTH, "create %d", value );
                 redit( ch, buf );
-                to_scene = get_scene_index( value );
+                to_scene = get_scene( value );
                 if ( to_scene == NULL )
                 {
-                    bug( "Redit_exit: NULL after attempted create, vnum %d.", value );
+                    bug( "Redit_exit: NULL after attempted create, dbkey %d.", value );
                     return TRUE;
                 }
-                to_scene->sector_type = pScene->sector_type;
+                to_scene->move = pScene->move;
                 to_scene->scene_flags  = pScene->scene_flags;
                 }
             }
@@ -1180,14 +1180,14 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
         pScene->exit[door] = new_exit();
 
         pScene->exit[door]->to_scene = to_scene;
-        pScene->exit[door]->vnum = value;
+        pScene->exit[door]->dbkey = value;
 
         if ( ozone != NULL )
         {
         door                            = rev_dir[door];
         to_scene->exit[door]             = new_exit();
         to_scene->exit[door]->to_scene    = pScene;
-        to_scene->exit[door]->vnum       = pScene->vnum;
+        to_scene->exit[door]->dbkey       = pScene->dbkey;
         SET_BIT( ozone->zone_flags, ZONE_CHANGED );
         }
 
@@ -1200,7 +1200,7 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  [direction] scene [vnum]\n\r", ch );
+            send_to_actor( "Syntax:  [direction] scene [dbkey]\n\r", ch );
             return TRUE;
         }
 
@@ -1211,14 +1211,14 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
 
         value = atoi( arg2 );
 
-        if ( get_scene_index( value ) == NULL )
+        if ( get_scene( value ) == NULL )
         {
             send_to_actor( "Cannot link to non-existant scene.\n\r", ch );
             return TRUE;
         }
 
-        pScene->exit[door]->to_scene = get_scene_index( value );
-        pScene->exit[door]->vnum = value;
+        pScene->exit[door]->to_scene = get_scene( value );
+        pScene->exit[door]->dbkey = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         send_to_actor( "Exit destination set.\n\r", ch );
@@ -1230,7 +1230,7 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  [direction] key [vnum]\n\r", ch );
+            send_to_actor( "Syntax:  [direction] key [dbkey]\n\r", ch );
             return TRUE;
         }
 
@@ -1241,7 +1241,7 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
 
         value = atoi( arg2 );
 
-        if ( get_prop_index( value ) == NULL )
+        if ( get_prop_template( value ) == NULL )
         {
             send_to_actor( "Cannot use a non-existant prop as a key.\n\r", ch );
             return TRUE;
@@ -1282,7 +1282,7 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
         if ( pScene->exit[door] == NULL )
         {
             pScene->exit[door]          = new_exit();
-            pScene->exit[door]->vnum    = pScene->vnum;
+            pScene->exit[door]->dbkey    = pScene->dbkey;
             pScene->exit[door]->to_scene = pScene;
         }
 
@@ -1318,10 +1318,10 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
             return TRUE;
         }
 
-        SET_BIT( pexit->rs_flags, EX_ISDOOR );
-        SET_BIT( pexit->exit_info, EX_ISDOOR );
-        SET_BIT( oexit->rs_flags, EX_ISDOOR );
-        SET_BIT( oexit->exit_info, EX_ISDOOR );
+        SET_BIT( pexit->rs_flags, EXIT_ISDOOR );
+        SET_BIT( pexit->exit_flags, EXIT_ISDOOR );
+        SET_BIT( oexit->rs_flags, EXIT_ISDOOR );
+        SET_BIT( oexit->exit_flags, EXIT_ISDOOR );
         send_to_actor( "Door copied to reverse side.\n\r", ch );
 
         if ( arg2[0] != '\0' )
@@ -1347,7 +1347,7 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
     {
         int flag = exit_name_bit( arg2 );
 
-        if ( flag == EX_NONE )
+        if ( flag == EXIT_NONE )
         {
             send_to_actor( "Syntax:  [direction] flag [exit flag]\n\r", ch );
             return TRUE;
@@ -1360,14 +1360,14 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
         }
 
         TOGGLE_BIT(pScene->exit[door]->rs_flags,  flag);
-        TOGGLE_BIT(pScene->exit[door]->exit_info, flag);
+        TOGGLE_BIT(pScene->exit[door]->exit_flags, flag);
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         send_to_actor( "Exit flag toggled.\n\r", ch );
         return TRUE;
     }
 
-    if ( (value = exit_name_bit( arg1 )) != EX_NONE )
+    if ( (value = exit_name_bit( arg1 )) != EXIT_NONE )
     {
         if ( (pexit = pScene->exit[door]) == NULL )
         {
@@ -1385,12 +1385,12 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
         }
 
         TOGGLE_BIT(pexit->rs_flags, value);
-        TOGGLE_BIT(pexit->exit_info, value);
+        TOGGLE_BIT(pexit->exit_flags, value);
 
         if ( oexit != NULL && IS_BUILDER( ch, ozone ) )
         {
             TOGGLE_BIT(oexit->rs_flags, value);
-            TOGGLE_BIT(oexit->exit_info, value);
+            TOGGLE_BIT(oexit->exit_flags, value);
         }
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -1404,11 +1404,11 @@ bool redit_exit( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, int door,
 
 
 
-void redit( PLAYER_DATA *ch, char *argument )
+void redit( PLAYER *ch, char *argument )
 {
-    ZONE_DATA *pZone;
-    SCENE_INDEX_DATA *pScene;
-    EXTRA_DESCR_DATA *ed;
+    ZONE *pZone;
+    SCENE *pScene;
+    EXTRA_DESCR *ed;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
@@ -1435,7 +1435,7 @@ void redit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pScene->vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", pScene->dbkey );
         cmd_rstat( ch, buf );
         return;
     }
@@ -1465,17 +1465,17 @@ void redit( PLAYER_DATA *ch, char *argument )
    }
 
    if ( !str_cmp( arg1, "copy" ) ) {
-        SCENE_INDEX_DATA *pScene_from;
+        SCENE *pScene_from;
         argument = one_argument( argument, arg1 );
 
         if ( !is_number( arg1 ) ) {
-            send_to_actor( "Copies basic item information TO this record:\n\rcopy [vnum-to-copy-from]\n\r", ch );
+            send_to_actor( "Copies basic item information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
             return;
         }
 
-        pScene_from = get_scene_index( atoi( arg1 ) );
+        pScene_from = get_scene( atoi( arg1 ) );
         if ( !pScene_from ) {
-            send_to_actor( "Invalid scene vnum to copy from.\n\r", ch );
+            send_to_actor( "Invalid scene dbkey to copy from.\n\r", ch );
             return;
         }
 
@@ -1490,7 +1490,7 @@ void redit( PLAYER_DATA *ch, char *argument )
         pScene->scene_flags  = pScene_from->scene_flags;
         pScene->max_people  = pScene_from->max_people;
         pScene->light       = pScene_from->light;
-        pScene->sector_type = pScene_from->sector_type;
+        pScene->move = pScene_from->move;
         pScene->terrain     = pScene_from->terrain;
         pScene->wagon       = pScene_from->wagon;
 
@@ -1522,9 +1522,9 @@ void redit( PLAYER_DATA *ch, char *argument )
     }
 
 
-    if ( sector_number( arg1 ) != SECT_MAX )
+    if ( move_number( arg1 ) != MOVE_MAX )
     {
-        pScene->sector_type  = sector_number( arg1 );
+        pScene->move  = move_number( arg1 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         send_to_actor( "Sector type set.\n\r", ch );
@@ -1617,7 +1617,7 @@ void redit( PLAYER_DATA *ch, char *argument )
 
         if ( !str_cmp( arg1, "delete" ) )
         {
-            EXTRA_DESCR_DATA *ped;
+            EXTRA_DESCR *ped;
 
             if ( arg2[0] == '\0' )
             {
@@ -1661,7 +1661,7 @@ void redit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "reference" ) 
      ||  !str_cmp( arg1, "ref" ) )
     {
-        SCENE_INDEX_DATA *template;
+        SCENE *template;
   
         value = atoi( arg2 );
 
@@ -1672,12 +1672,12 @@ void redit( PLAYER_DATA *ch, char *argument )
              return;
         }
 
-        template = get_scene_index( value );
+        template = get_scene( value );
    
         if ( template == NULL 
           || !IS_SET(template->scene_flags, SCENE_TEMPLATE) )
         {
-              send_to_actor( "Invalid vnum for template.\n\r", ch);
+              send_to_actor( "Invalid dbkey for template.\n\r", ch);
               return;
         }
  
@@ -1689,12 +1689,12 @@ void redit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "script" ) )
     {
-        INSTANCE_DATA *pTrig;
-        SCRIPT_DATA *script;
+        INSTANCE *pTrig;
+        SCRIPT *script;
 
         if ( !str_cmp( arg2, "clear" ) || !str_cmp( arg2, "kill" ) )
         {
-            INSTANCE_DATA *pNext;
+            INSTANCE *pNext;
 
             for ( pTrig = pScene->instances; pTrig != NULL; pTrig = pNext )
             {
@@ -1709,7 +1709,7 @@ void redit( PLAYER_DATA *ch, char *argument )
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [vnum]\n\r", ch );
+            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -1724,10 +1724,10 @@ void redit( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    CREATE_COMMANDZ(pScene,scene_index_hash,
-                           new_scene_index,
-                           get_scene_index,
-                           top_vnum_scene);
+    CREATE_COMMANDZ(pScene,scene_hash,
+                           new_scene,
+                           get_scene,
+                           top_dbkey_scene);
 
     if ( !str_cmp( arg1, "name" ) )
     {
@@ -1748,13 +1748,13 @@ void redit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "strcpy" ) )
     {
-        SCENE_INDEX_DATA *fScene;
+        SCENE *fScene;
 
-        fScene = get_scene_index( atoi( arg2 ) );
+        fScene = get_scene( atoi( arg2 ) );
 
         if ( fScene == NULL )
         {
-        send_to_actor( "Syntax:  strcpy [vnum]\n\r", ch );
+        send_to_actor( "Syntax:  strcpy [dbkey]\n\r", ch );
         return;
         }
 
@@ -1809,7 +1809,7 @@ void redit( PLAYER_DATA *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  wagonref [prop vnum]\n\r", ch );
+            send_to_actor( "Syntax:  wagonref [prop dbkey]\n\r", ch );
             return;
         }
 
@@ -1817,7 +1817,7 @@ void redit( PLAYER_DATA *ch, char *argument )
         pScene->wagon = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Wagon prop vnum reference set.\n\r", ch);
+        send_to_actor( "Wagon prop dbkey reference set.\n\r", ch);
         return;
     }
 
@@ -1828,12 +1828,12 @@ void redit( PLAYER_DATA *ch, char *argument )
 
 
 
-void oedit( PLAYER_DATA *ch, char *argument )
+void oedit( PLAYER *ch, char *argument )
 {
-    ZONE_DATA *pZone;
-    PROP_INDEX_DATA *pProp;
-    EXTRA_DESCR_DATA *ed;
-    BONUS_DATA *pAf;
+    ZONE *pZone;
+    PROP_TEMPLATE *pProp;
+    EXTRA_DESCR *ed;
+    BONUS *pAf;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
@@ -1846,7 +1846,7 @@ void oedit( PLAYER_DATA *ch, char *argument )
     argument = one_argument( argument, arg1 );
     strcpy( arg2, argument );
 
-    pProp = (PROP_INDEX_DATA *)ch->desc->pEdit;
+    pProp = (PROP_TEMPLATE *)ch->desc->pEdit;
     pZone = pProp->zone;
 
     if ( !IS_BUILDER( ch, pZone ) )
@@ -1857,7 +1857,7 @@ void oedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pProp->vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", pProp->dbkey );
         cmd_pindex( ch, buf );
         return;
     }
@@ -1893,15 +1893,15 @@ void oedit( PLAYER_DATA *ch, char *argument )
     }
 
     if ( !str_cmp( arg1, "copy" ) ) {
-        PROP_INDEX_DATA *pProp_from;
+        PROP_TEMPLATE *pProp_from;
         argument = one_argument( argument, arg1 );
 
         if ( !is_number( arg1 ) ) {
-            send_to_actor( "Copies basic item information TO this record:\n\rcopy [vnum-to-copy-from]\n\r", ch );
+            send_to_actor( "Copies basic item information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
             return;
         }
 
-        pProp_from = get_prop_index( atoi( arg1 ) );
+        pProp_from = get_prop_template( atoi( arg1 ) );
         if ( !pProp_from ) {
             send_to_actor( "Invalid prop to copy from.\n\r", ch );
             return;
@@ -2307,12 +2307,12 @@ void oedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "script" ) )
     {
-        INSTANCE_DATA *pTrig;
-        SCRIPT_DATA *script;
+        INSTANCE *pTrig;
+        SCRIPT *script;
 
         if ( !str_cmp( arg2, "clear") || !str_cmp( arg2, "kill" ) )
         {
-            INSTANCE_DATA *pNext;
+            INSTANCE *pNext;
 
             for ( pTrig = pProp->instances; pTrig != NULL; pTrig = pNext )
             {
@@ -2327,7 +2327,7 @@ void oedit( PLAYER_DATA *ch, char *argument )
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [vnum]\n\r", ch );
+            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -2342,10 +2342,10 @@ void oedit( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-CREATE_COMMANDZ(pProp,prop_index_hash,
-                      new_prop_index,
-                      get_prop_index,
-                      top_vnum_prop);
+CREATE_COMMANDZ(pProp,prop_template_hash,
+                      new_prop_template,
+                      get_prop_template,
+                      top_dbkey_prop);
 
     if ( !str_cmp( arg1, "ed" ) )
     {
@@ -2437,7 +2437,7 @@ CREATE_COMMANDZ(pProp,prop_index_hash,
 
         if ( !str_cmp( arg1, "delete" ) )
         {
-            EXTRA_DESCR_DATA *ped;
+            EXTRA_DESCR *ped;
 
             if ( arg2[0] == '\0' )
             {
@@ -2479,7 +2479,7 @@ CREATE_COMMANDZ(pProp,prop_index_hash,
 
         if ( !str_cmp( arg1, "format" ) )
         {
-            EXTRA_DESCR_DATA *ped;
+            EXTRA_DESCR *ped;
 
             if ( arg2[0] == '\0' )
             {
@@ -2518,10 +2518,10 @@ CREATE_COMMANDZ(pProp,prop_index_hash,
 
 
 
-void aedit( PLAYER_DATA *ch, char *argument )
+void aedit( PLAYER *ch, char *argument )
 {
-    ZONE_DATA *pZone;
-    ACTOR_INDEX_DATA *pActor;
+    ZONE *pZone;
+    ACTOR_TEMPLATE *pActor;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
@@ -2535,7 +2535,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
     strcpy( arg2, argument );
     value = atoi( arg2 );
 
-    pActor = (ACTOR_INDEX_DATA *)ch->desc->pEdit;
+    pActor = (ACTOR_TEMPLATE *)ch->desc->pEdit;
     pZone = pActor->zone;
  
     if ( !IS_BUILDER( ch, pZone ) )
@@ -2546,7 +2546,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d %s", pActor->vnum, arg2 );
+        snprintf( buf, MAX_STRING_LENGTH, "%d %s", pActor->dbkey, arg2 );
         cmd_aindex( ch, buf );
         return;
     }
@@ -2567,17 +2567,17 @@ void aedit( PLAYER_DATA *ch, char *argument )
     }
 
     if ( !str_cmp( arg1, "copy" ) ) {
-        ACTOR_INDEX_DATA *pActor_from;
+        ACTOR_TEMPLATE *pActor_from;
         argument = one_argument( argument, arg1 );
 
         if ( !is_number( arg1 ) ) {
-            send_to_actor( "Copies basic actor information TO this record:\n\rcopy [vnum-to-copy-from]\n\r", ch );
+            send_to_actor( "Copies basic actor information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
             return;
         }
 
-        pActor_from = get_actor_index( atoi( arg1 ) );
+        pActor_from = get_actor_template( atoi( arg1 ) );
         if ( !pActor_from ) {
-            send_to_actor( "Invalid actor vnum to copy from.\n\r", ch );
+            send_to_actor( "Invalid actor dbkey to copy from.\n\r", ch );
             return;
         }
 
@@ -2596,7 +2596,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
         pActor->sex         = pActor_from->sex;
         pActor->exp         = pActor_from->exp;
         pActor->karma       = pActor_from->karma;
-        pActor->act         = pActor_from->act;
+        pActor->flag         = pActor_from->flag;
         pActor->timer       = pActor_from->timer;
         pActor->money       = pActor_from->money;
         pActor->credits     = pActor_from->credits;
@@ -2613,10 +2613,10 @@ void aedit( PLAYER_DATA *ch, char *argument )
         /*
          * Copy skills. (appends)
          */
-        { SKILL_DATA *pSkill;
+        { SKILL *pSkill;
         for ( pSkill = pActor_from->learned; pSkill != NULL; pSkill = pSkill->next )
         {
-           SKILL_DATA *pNew = skill_copy( pSkill );
+           SKILL *pNew = skill_copy( pSkill );
            pNew->next = pActor->learned;
            pActor->learned = pNew;
         }
@@ -2627,8 +2627,8 @@ void aedit( PLAYER_DATA *ch, char *argument )
     }
 
     if ( !str_cmp( arg1, "spells" ) || !str_cmp( arg1, "spells" ) ) {
-             SPELL_DATA *pSpell;
-        SPELL_BOOK_DATA *pSpellBook;
+             SPELL *pSpell;
+        SPELL_BOOK *pSpellBook;
 
          if ( !str_cmp( arg2, "clear" ) ) {
          clear_spell_book( pActor->pSpells );
@@ -2639,8 +2639,8 @@ void aedit( PLAYER_DATA *ch, char *argument )
 
          pSpell = get_spell_index( atoi(arg2) );
          if ( pSpell != NULL ) {
-              pSpellBook = new_spell_book_data( );
-              pSpellBook->vnum = pSpell->vnum;
+              pSpellBook = new_spell_book( );
+              pSpellBook->dbkey = pSpell->dbkey;
               pSpellBook->next = pActor->pSpells; 
               pActor->pSpells = pSpellBook;
               send_to_actor( "Spell added to actor's book.\n\r", ch );
@@ -2651,7 +2651,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
         send_to_actor( buf, ch );
         for ( pSpellBook = pActor->pSpells;  pSpellBook != NULL;  pSpellBook = pSpellBook->next )
         {
-             pSpell = get_spell_index ( pSpellBook->vnum ); 
+             pSpell = get_spell_index ( pSpellBook->dbkey ); 
              if ( pSpell != NULL )   {
              send_to_actor( pSpell->name, ch );
              send_to_actor( "\n\r", ch );
@@ -2663,7 +2663,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "skills" ) )
     {
-        SKILL_DATA *pSkill;
+        SKILL *pSkill;
         int col=0;
 
         for ( pSkill=pActor->learned; pSkill != NULL; pSkill = pSkill->next )
@@ -2701,7 +2701,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "shop" ) )
     {
-        SHOP_DATA *pShop;
+        SHOP *pShop;
 
         argument = one_argument( argument, arg1 );
         strcpy( arg2, argument );
@@ -2733,7 +2733,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
             }
 
             pActor->pShop         = new_shop();
-            pActor->pShop->keeper = pActor->vnum;
+            pActor->pShop->keeper = pActor->dbkey;
             shop_last->next     = pActor->pShop;
             send_to_actor( "Shop created.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -3068,7 +3068,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "skill" ) )
     {
-        SKILL_DATA *pSkill;
+        SKILL *pSkill;
 
         argument = one_argument( argument, arg1 );
         strcpy( arg2, argument );
@@ -3091,9 +3091,9 @@ void aedit( PLAYER_DATA *ch, char *argument )
         {
             int sn;
 
-            for ( sn = 0; sn < top_vnum_skill; sn++ )
+            for ( sn = 0; sn < top_dbkey_skill; sn++ )
             {
-                SKILL_DATA *pNewSkill;
+                SKILL *pNewSkill;
 
                 pSkill = get_skill_index( sn );
                 if ( !pSkill ) continue;
@@ -3106,11 +3106,11 @@ void aedit( PLAYER_DATA *ch, char *argument )
         }
         else    
         if ( pSkill )  {
-           SKILL_DATA *pActorSkill;
+           SKILL *pActorSkill;
   
            for ( pActorSkill = pActor->learned; pActorSkill != NULL;
                  pActorSkill = pActorSkill->next ) {
-                if ( pSkill->vnum == pActorSkill->vnum ) break;
+                if ( pSkill->dbkey == pActorSkill->dbkey ) break;
            }
 
            if ( !pActorSkill ) {
@@ -3239,10 +3239,10 @@ void aedit( PLAYER_DATA *ch, char *argument )
     }
 
 
-    if ( ( value = act_name_bit( arg1 ) ) != ACT_NONE )
+    if ( ( value = actor_name_bit( arg1 ) ) != ACTOR_NONE )
     {
-        TOGGLE_BIT(pActor->act, value);
-        SET_BIT( pActor->act, ACT_IS_NPC );
+        TOGGLE_BIT(pActor->flag, value);
+        SET_BIT( pActor->flag, ACTOR_NPC );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         send_to_actor( "Act flag toggled.\n\r", ch);
@@ -3275,7 +3275,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
             return;
         }
 
-        i = URANGE( 0, atoi( arg1 ), MAX_ATTACK_DATA-1 );
+        i = URANGE( 0, atoi( arg1 ), MAX_ATTACK-1 );
 
         argument = one_argument( argument, arg1 );
         strcpy( arg2, argument );
@@ -3333,12 +3333,12 @@ void aedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "script" ) )
     {
-        INSTANCE_DATA *pTrig;
-        SCRIPT_DATA *script;
+        INSTANCE *pTrig;
+        SCRIPT *script;
 
         if ( !str_cmp( arg2, "kill" ) )
         {
-            INSTANCE_DATA *pNext;
+            INSTANCE *pNext;
 
             for ( pTrig = pActor->instances; pTrig != NULL;  )
             {
@@ -3355,7 +3355,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [vnum]\n\r", ch );
+            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -3422,14 +3422,14 @@ void aedit( PLAYER_DATA *ch, char *argument )
         value = atoi( arg2 );
         if ( arg2[0] == '\0' || value == 0 )
         {
-            send_to_actor( "Syntax:  aedit create [vnum]\n\r", ch );
+            send_to_actor( "Syntax:  aedit create [dbkey]\n\r", ch );
             return;
         }
             ch->desc->connected=NET_AEDITOR;
-            CREATE_COMMANDZ(pActor,actor_index_hash,
-                                   new_actor_index,
-                                   get_actor_index,
-                                   top_vnum_actor);   return;
+            CREATE_COMMANDZ(pActor,actor_template_hash,
+                                   new_actor_template,
+                                   get_actor_template,
+                                   top_dbkey_actor);   return;
 
     }
 
@@ -3439,10 +3439,10 @@ void aedit( PLAYER_DATA *ch, char *argument )
 }
 
 
-void sedit( PLAYER_DATA *ch, char *argument )
+void sedit( PLAYER *ch, char *argument )
 {
-    ZONE_DATA *pZone;
-    SCRIPT_DATA *script;
+    ZONE *pZone;
+    SCRIPT *script;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
@@ -3456,8 +3456,8 @@ void sedit( PLAYER_DATA *ch, char *argument )
     strcpy( arg2, argument );
     value = atoi( arg2 );
 
-    script = (SCRIPT_DATA *)ch->desc->pEdit;
-    pZone = !script ? NULL : get_vnum_zone(script->vnum);
+    script = (SCRIPT *)ch->desc->pEdit;
+    pZone = !script ? NULL : get_dbkey_zone(script->dbkey);
  
     if ( pZone == NULL || !IS_BUILDER( ch, pZone ) )
     {
@@ -3467,7 +3467,7 @@ void sedit( PLAYER_DATA *ch, char *argument )
     /*
      * Set this script as your trace.
      */
-    if ( !str_cmp( arg1, "trace" ) && !IS_NPC(ch) )
+    if ( !str_cmp( arg1, "trace" ) && !NPC(ch) )
     {
         if ( ch->userdata->trace != NULL )
         {
@@ -3487,7 +3487,7 @@ void sedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "show" ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d %s", script->vnum, arg2 );
+        snprintf( buf, MAX_STRING_LENGTH, "%d %s", script->dbkey, arg2 );
         cmd_sindex( ch, buf );
         return;
     }
@@ -3545,10 +3545,10 @@ void sedit( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-CREATE_COMMANDZ(script,script_index_hash,
+CREATE_COMMANDZ(script,script__hash,
                        new_script,
                        get_script_index,
-                       top_vnum_script);
+                       top_dbkey_script);
 
     interpret( ch, arg );
     return;
@@ -3558,23 +3558,23 @@ CREATE_COMMANDZ(script,script_index_hash,
 
 /*
  * Syntax: zedit [num]
- *         zedit create [vnum]
+ *         zedit create [dbkey]
  */
-void cmd_zedit( PLAYER_DATA *ch, char *argument )
+void cmd_zedit( PLAYER *ch, char *argument )
 {
-    ZONE_DATA *pZone;
+    ZONE *pZone;
     int value;
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     pZone = ch->in_scene->zone;
 
     if ( is_number( argument ) )
     {
         value = atoi( argument );
-        if ( ( pZone = get_zone_data( value ) ) == NULL )
+        if ( ( pZone = get_zone( value ) ) == NULL )
         {
-            send_to_actor( "That zone vnum does not exist.\n\r", ch );
+            send_to_actor( "That zone dbkey does not exist.\n\r", ch );
             return;
         }
     }
@@ -3598,20 +3598,20 @@ void cmd_zedit( PLAYER_DATA *ch, char *argument )
 
 /*
  * Syntax:  redit
- *          redit [vnum]
+ *          redit [dbkey]
  *          redit reset
- *          redit create [vnum]
+ *          redit create [dbkey]
  */
-void cmd_redit( PLAYER_DATA *ch, char *argument )
+void cmd_redit( PLAYER *ch, char *argument )
 {
-    SCENE_INDEX_DATA *pScene;
-    ZONE_DATA *pZone;
+    SCENE *pScene;
+    ZONE *pZone;
     int value;
     int iHash;
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
 
@@ -3620,9 +3620,9 @@ void cmd_redit( PLAYER_DATA *ch, char *argument )
     if ( is_number( arg1 ) )
     {
         value = atoi( arg1 );
-        if ( ( pScene = get_scene_index( value ) ) == NULL )
+        if ( ( pScene = get_scene( value ) ) == NULL )
         {
-            send_to_actor( "Scene Edit:  That vnum does not exist.\n\r", ch );
+            send_to_actor( "Scene Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
     }
@@ -3640,14 +3640,14 @@ void cmd_redit( PLAYER_DATA *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  redit create [vnum]\n\r", ch );
+                send_to_actor( "Syntax:  redit create [dbkey]\n\r", ch );
                 return;
             }
-CREATE_COMMANDZ(pScene,scene_index_hash,
-                       new_scene_index,
-                       get_scene_index,
-                       top_vnum_scene);
-               if ( get_scene_index( value ) != NULL ) 
+CREATE_COMMANDZ(pScene,scene_hash,
+                       new_scene,
+                       get_scene,
+                       top_dbkey_scene);
+               if ( get_scene( value ) != NULL ) 
                { char b[MSL]; snprintf( b, MSL, "%d", value );
                  cmd_goto( ch,b ); }
                ch->desc->connected = NET_REDITOR;
@@ -3662,28 +3662,28 @@ CREATE_COMMANDZ(pScene,scene_index_hash,
 
 
 /*
- * Syntax:  oedit [vnum]
- *          oedit create [vnum]
+ * Syntax:  oedit [dbkey]
+ *          oedit create [dbkey]
  */
-void cmd_oedit( PLAYER_DATA *ch, char *argument )
+void cmd_oedit( PLAYER *ch, char *argument )
 {
-    PROP_INDEX_DATA *pProp;
-    ZONE_DATA *pZone;
+    PROP_TEMPLATE *pProp;
+    ZONE *pZone;
     int value;
     int iHash;
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
 
     if ( is_number( arg1 ) )
     {
         value = atoi( arg1 );
-        if ( ( pProp = get_prop_index( value ) ) == NULL )
+        if ( ( pProp = get_prop_template( value ) ) == NULL )
         {
-            send_to_actor( "Prop: Edit:  That vnum does not exist.\n\r", ch );
+            send_to_actor( "Prop: Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -3693,10 +3693,10 @@ void cmd_oedit( PLAYER_DATA *ch, char *argument )
     }
     else
     {
-CREATE_COMMANDZ(pProp,prop_index_hash,
-                      new_prop_index,
-                      get_prop_index,
-                      top_vnum_prop);
+CREATE_COMMANDZ(pProp,prop_template_hash,
+                      new_prop_template,
+                      get_prop_template,
+                      top_dbkey_prop);
     }
 
     send_to_actor( "Prop: Edit:  There is no default prop to edit.\n\r", ch );
@@ -3707,28 +3707,28 @@ CREATE_COMMANDZ(pProp,prop_index_hash,
 
 
 /*
- * Syntax:  aedit [vnum]
- *          aedit create [vnum]
+ * Syntax:  aedit [dbkey]
+ *          aedit create [dbkey]
  */
-void cmd_aedit( PLAYER_DATA *ch, char *argument )
+void cmd_aedit( PLAYER *ch, char *argument )
 {
-    ACTOR_INDEX_DATA *pActor;
-    ZONE_DATA *pZone;
+    ACTOR_TEMPLATE *pActor;
+    ZONE *pZone;
     int value;
     int iHash;
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
 
     if ( is_number( arg1 ) )
     {
         value = atoi( arg1 );
-        if ( ( pActor = get_actor_index( value ) ) == NULL )
+        if ( ( pActor = get_actor_template( value ) ) == NULL )
         {
-            send_to_actor( "Actor: Edit:  That vnum does not exist.\n\r", ch );
+            send_to_actor( "Actor: Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -3743,14 +3743,14 @@ void cmd_aedit( PLAYER_DATA *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  aedit create [vnum]\n\r", ch );
+                send_to_actor( "Syntax:  aedit create [dbkey]\n\r", ch );
                 return;
             }
             ch->desc->connected=NET_AEDITOR;
-            CREATE_COMMANDZ(pActor,actor_index_hash,
-                                   new_actor_index,
-                                   get_actor_index,
-                                   top_vnum_actor);   return;
+            CREATE_COMMANDZ(pActor,actor_template_hash,
+                                   new_actor_template,
+                                   get_actor_template,
+                                   top_dbkey_actor);   return;
         }
     }
 
@@ -3761,17 +3761,17 @@ void cmd_aedit( PLAYER_DATA *ch, char *argument )
 
 
 /*
- * Syntax:  sedit [vnum]
- *          sedit create [vnum]
+ * Syntax:  sedit [dbkey]
+ *          sedit create [dbkey]
  */
-void cmd_sedit( PLAYER_DATA *ch, char *argument )
+void cmd_sedit( PLAYER *ch, char *argument )
 {
-    SCRIPT_DATA *script;
+    SCRIPT *script;
     int value;
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     if ( MTD(argument) ) { cmd_scfind( ch, "zone" ); return; }
 
@@ -3783,7 +3783,7 @@ void cmd_sedit( PLAYER_DATA *ch, char *argument )
         value = atoi( arg1 );
         if ( ( script = get_script_index( value ) ) == NULL )
         {
-            send_to_actor( "Script: Edit:  That vnum does not exist.\n\r", ch );
+            send_to_actor( "Script: Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -3794,10 +3794,10 @@ void cmd_sedit( PLAYER_DATA *ch, char *argument )
     else
     {
             ch->desc->connected = NET_SEDITOR;
-            CREATE_COMMAND(script,script_index_hash,
+            CREATE_COMMAND(script,script__hash,
                                   new_script,
                                   get_script_index,
-                                  top_vnum_script);
+                                  top_dbkey_script);
             return;
     }
 
@@ -3808,15 +3808,15 @@ void cmd_sedit( PLAYER_DATA *ch, char *argument )
 
 
 /*
- * Syntax:  aindex [vnum]
+ * Syntax:  aindex [dbkey]
  */
-void cmd_aindex( PLAYER_DATA *ch, char *argument )
+void cmd_aindex( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    ACTOR_INDEX_DATA *victim;
-    INSTANCE_DATA *pTrig;
+    ACTOR_TEMPLATE *victim;
+    INSTANCE *pTrig;
     int iAtt;
 
     argument = one_argument( argument, arg );
@@ -3828,7 +3828,7 @@ void cmd_aindex( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( ( victim = get_actor_index( atoi( arg ) ) ) == NULL )
+    if ( ( victim = get_actor_template( atoi( arg ) ) ) == NULL )
     {
     send_to_actor( "Invalid actor index VNUM.\n\r", ch );
         return;
@@ -3838,14 +3838,14 @@ void cmd_aindex( PLAYER_DATA *ch, char *argument )
     send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Vnum:     [^B%5d^N]  Zone:   [^B%5d^N] %s\n\r",
-            victim->vnum,
-    victim->zone == NULL ? -1        : victim->zone->vnum,
+            victim->dbkey,
+    victim->zone == NULL ? -1        : victim->zone->dbkey,
     victim->zone == NULL ? "No zone" : victim->zone->name );
     send_to_actor( buf, ch );
 
     if ( !str_cmp( arg2, "skills" )  )
     {
-        SKILL_DATA *pSkill;
+        SKILL *pSkill;
         for ( pSkill=victim->learned; pSkill != NULL;  pSkill = pSkill->next )
         {
                 snprintf( buf, MAX_STRING_LENGTH, "Skill: ^B%s^M at ^B%d%%^N\n\r", pSkill->name, 
@@ -3860,7 +3860,7 @@ void cmd_aindex( PLAYER_DATA *ch, char *argument )
     victim->long_descr );
     send_to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Act:    [^B%s^N]\n\r", act_bit_name( victim->act ) );
+    snprintf( buf, MAX_STRING_LENGTH, "Act:    [^B%s^N]\n\r", actor_bit_name( victim->flag ) );
     send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Bonus: [^B%s^N]\n\r",
@@ -3893,7 +3893,7 @@ void cmd_aindex( PLAYER_DATA *ch, char *argument )
     snprintf( buf, MAX_STRING_LENGTH, "Description:\n\r%s", victim->description );
     send_to_actor( buf, ch );
 
-    for ( iAtt = 0; iAtt < MAX_ATTACK_DATA; iAtt++ )
+    for ( iAtt = 0; iAtt < MAX_ATTACK; iAtt++ )
     {
         if ( victim->attacks[iAtt] != NULL )
         {
@@ -3909,14 +3909,14 @@ void cmd_aindex( PLAYER_DATA *ch, char *argument )
 
     for ( pTrig = victim->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[^4%5d^N] %s\n\r", pTrig->script->vnum, pTrig->script->name );
+        snprintf( buf, MAX_STRING_LENGTH, "[^4%5d^N] %s\n\r", pTrig->script->dbkey, pTrig->script->name );
         send_to_actor( buf, ch );
     }
 
 
     if ( victim->pShop != NULL )
     {
-        SHOP_DATA *pShop;
+        SHOP *pShop;
         int iTrade;
 
         pShop = victim->pShop;
@@ -4028,14 +4028,14 @@ void cmd_aindex( PLAYER_DATA *ch, char *argument )
 
 
 /*
- * Syntax:  sindex [vnum]
+ * Syntax:  sindex [dbkey]
  */
-void cmd_sindex( PLAYER_DATA *ch, char *argument )
+void cmd_sindex( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    SCRIPT_DATA *script;
+    SCRIPT *script;
 
     argument = one_argument( argument, arg );
     argument = one_argument( argument, arg2 );
@@ -4052,13 +4052,13 @@ void cmd_sindex( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [^B%5d^N]  Name:   [^B%s^N]\n\r", script->vnum, script->name );
+    snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [^B%5d^N]  Name:   [^B%s^N]\n\r", script->dbkey, script->name );
     send_to_actor( buf, ch );
 
-    if( !script->zone ) script->zone = get_vnum_zone(script->vnum);
+    if( !script->zone ) script->zone = get_dbkey_zone(script->dbkey);
 
     snprintf( buf, MAX_STRING_LENGTH, "zone:   [^B%5d^N] ^B%s^N\n\r",
-             script->zone == NULL ? -1        : script->zone->vnum,
+             script->zone == NULL ? -1        : script->zone->dbkey,
              script->zone == NULL ? "No zone" : script->zone->name );
     send_to_actor( buf, ch );
 
@@ -4074,7 +4074,7 @@ void cmd_sindex( PLAYER_DATA *ch, char *argument )
 
 
 
-void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER_DATA *ch )
+void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
 
@@ -4122,7 +4122,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER_DATA *ch 
         }
         break;
   case ITEM_RANGED_WEAPON: {
-            snprintf( buf, MAX_STRING_LENGTH, "Damages from ^B%d^N (v2) - ^B%d^N (v3) (average ^B%d^N) using ammo vnum ^B%d^N (v1).\n\r",
+            snprintf( buf, MAX_STRING_LENGTH, "Damages from ^B%d^N (v2) - ^B%d^N (v3) (average ^B%d^N) using ammo dbkey ^B%d^N (v1).\n\r",
                      UMIN(v2,v3),
                      UMAX(v2,v3),
                      (UMIN(v2,v3)+UMAX(v2,v3))/2,
@@ -4159,13 +4159,13 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER_DATA *ch 
                      v1, v1/100 );
             send_to_actor( buf, ch );
 
-            if ( get_prop_index( v3 ) != NULL )
+            if ( get_prop_template( v3 ) != NULL )
             {
                 snprintf( buf, MAX_STRING_LENGTH, ", requires key ^B%d^N (v3)", v3 );
                 send_to_actor( buf, ch );
             }
 
-            if ( get_scene_index( v4 ) != NULL )
+            if ( get_scene( v4 ) != NULL )
             {
                 snprintf( buf, MAX_STRING_LENGTH, ", and leads to %d (v4)", v4 );
                 send_to_actor( buf, ch );
@@ -4195,7 +4195,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER_DATA *ch 
             snprintf( buf, MAX_STRING_LENGTH, "Holds up to ^B%d^N (v1) halfstones of weight", v1 );
             send_to_actor( buf, ch );
 
-            if ( get_prop_index( v3 ) != NULL )
+            if ( get_prop_template( v3 ) != NULL )
             {
                 snprintf( buf, MAX_STRING_LENGTH, ", and requires key %d (v3)", v3 );
                 send_to_actor( buf, ch );
@@ -4250,10 +4250,10 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER_DATA *ch 
   case ITEM_VEHICLE:
         {
             snprintf( buf, MAX_STRING_LENGTH, "Provides access to ^B%s^N, ^B%s^N, ^B%s^M and ^B%s^M. (v1-4)\n\r",
-                     sector_name( v1 ),
-                     sector_name( v2 ),
-                     sector_name( v3 ),
-                     sector_name( v4 ) );
+                     move_name( v1 ),
+                     move_name( v2 ),
+                     move_name( v3 ),
+                     move_name( v4 ) );
             send_to_actor( buf, ch );
         }
         break;
@@ -4300,15 +4300,15 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER_DATA *ch 
 
 
 /*
- * Syntax:  pindex [vnum]
+ * Syntax:  pindex [dbkey]
  */
-void cmd_pindex( PLAYER_DATA *ch, char *argument )
+void cmd_pindex( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    BONUS_DATA *paf;
-    PROP_INDEX_DATA *prop;
-    INSTANCE_DATA *pTrig;
+    BONUS *paf;
+    PROP_TEMPLATE *prop;
+    INSTANCE *pTrig;
 
     one_argument( argument, arg );
 
@@ -4318,7 +4318,7 @@ void cmd_pindex( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( ( prop = get_prop_index( atoi( arg ) ) ) == NULL )
+    if ( ( prop = get_prop_template( atoi( arg ) ) ) == NULL )
     {
     send_to_actor( "Invalid VNUM reference.\n\r", ch );
         return;
@@ -4326,13 +4326,13 @@ void cmd_pindex( PLAYER_DATA *ch, char *argument )
 
     snprintf( buf, MAX_STRING_LENGTH, "Name:   [^B%s^N]\n\rzone:   [^B%5d^N] %s\n\r",
     prop->name,
-    prop->zone == NULL ? -1        : prop->zone->vnum,
+    prop->zone == NULL ? -1        : prop->zone->dbkey,
     prop->zone == NULL ? "No zone" : prop->zone->name );
     send_to_actor( buf, ch );
 
 
     snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [^B%5d^N]     Type:  [^B%s^N]\n\r",
-    prop->vnum,
+    prop->dbkey,
     item_type_name( prop->item_type ) );
     send_to_actor( buf, ch );
 
@@ -4389,7 +4389,7 @@ void cmd_pindex( PLAYER_DATA *ch, char *argument )
 
     if ( prop->extra_descr != NULL )
     {
-        EXTRA_DESCR_DATA *ed;
+        EXTRA_DESCR *ed;
 
         send_to_actor( "ED keywords: [", ch );
 
@@ -4414,7 +4414,7 @@ void cmd_pindex( PLAYER_DATA *ch, char *argument )
 
     for ( pTrig = prop->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] ^B%s^N\n\r", pTrig->script->vnum, pTrig->script->name );
+        snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] ^B%s^N\n\r", pTrig->script->dbkey, pTrig->script->name );
         send_to_actor( buf, ch );
     }
 
@@ -4422,18 +4422,18 @@ void cmd_pindex( PLAYER_DATA *ch, char *argument )
 }
 
 
-void display_spawns( PLAYER_DATA *ch )
+void display_spawns( PLAYER *ch )
 {
     char final[MAX_STRING_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    SCENE_INDEX_DATA *pScene = ch->in_scene;
-    SPAWN_DATA *pSpawn;
-    ACTOR_INDEX_DATA        *pActor = NULL;
-    ACTOR_INDEX_DATA     *LastMob = NULL;
-    PROP_INDEX_DATA         *prop = NULL;
-    PROP_INDEX_DATA     *LastObj = NULL;
-    ACTOR_INDEX_DATA *pActorIndex;
-    PROP_INDEX_DATA *pPropIndex;
+    SCENE *pScene = ch->in_scene;
+    SPAWN *pSpawn;
+    ACTOR_TEMPLATE        *pActor = NULL;
+    ACTOR_TEMPLATE     *LastMob = NULL;
+    PROP_TEMPLATE         *prop = NULL;
+    PROP_TEMPLATE     *LastObj = NULL;
+    ACTOR_TEMPLATE *pActorIndex;
+    PROP_TEMPLATE *pPropIndex;
     bool last;
     int iSpawn = 0;
     int olevel = 2;
@@ -4460,16 +4460,16 @@ void display_spawns( PLAYER_DATA *ch )
 
     case 'M':
 
-        if ( ( pActorIndex = get_actor_index( pSpawn->rs_vnum ) ) == NULL )
+        if ( ( pActorIndex = get_actor_template( pSpawn->rs_dbkey ) ) == NULL )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Actor - Bad Vnum %d\n\r", pSpawn->rs_vnum );
+            snprintf( buf, MAX_STRING_LENGTH, "Load Actor - Bad Vnum %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
 
         pActor = pActorIndex;
         snprintf( buf, MAX_STRING_LENGTH, "Loads %s (%d) in scene (max %d, %d%% chance) %d times\n\r",
-                       pActor->short_descr, pSpawn->rs_vnum,
+                       pActor->short_descr, pSpawn->rs_dbkey,
                        pSpawn->loc, pSpawn->percent, pSpawn->num );
         strcat( final, buf );
 
@@ -4479,9 +4479,9 @@ void display_spawns( PLAYER_DATA *ch )
             break;
 
         case 'O':
-        if ( ( pPropIndex = get_prop_index( pSpawn->rs_vnum ) ) == NULL )
+        if ( ( pPropIndex = get_prop_template( pSpawn->rs_dbkey ) ) == NULL )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Object - Bad Vnum %d\n\r", pSpawn->rs_vnum );
+            snprintf( buf, MAX_STRING_LENGTH, "Load Object - Bad Vnum %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
@@ -4491,28 +4491,28 @@ void display_spawns( PLAYER_DATA *ch )
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Loads %s (%d) inside %s", prop->short_descr,
-                          pSpawn->rs_vnum,
+                          pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_ONTOP && LastObj != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Loads %s (%d) on top of %s",
-                          prop->short_descr, pSpawn->rs_vnum,
+                          prop->short_descr, pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_INSCENE )
         {
             snprintf( buf, MAX_STRING_LENGTH, "Loads %s (%d) in scene",
-                          prop->short_descr, pSpawn->rs_vnum );
+                          prop->short_descr, pSpawn->rs_dbkey );
             strcat( final, buf );
             LastObj = prop;
         }
    else if ( LastMob != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Loads %s (%d) on %s of %s",
-                          prop->short_descr, pSpawn->rs_vnum,
+                          prop->short_descr, pSpawn->rs_dbkey,
                           wear_loc_name( pSpawn->loc ),
                           LastMob ? LastMob->short_descr : "!NO ACTOR!" );
             strcat( final, buf );
@@ -4531,9 +4531,9 @@ void display_spawns( PLAYER_DATA *ch )
         break;
 
         case 'C':
-            if ( pSpawn->rs_vnum >= MAX_COMPONENTS || pSpawn->rs_vnum<0 )
+            if ( pSpawn->rs_dbkey >= MAX_COMPONENTS || pSpawn->rs_dbkey<0 )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Component - Bad Component %d\n\r", pSpawn->rs_vnum );
+            snprintf( buf, MAX_STRING_LENGTH, "Load Component - Bad Component %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
@@ -4541,28 +4541,28 @@ void display_spawns( PLAYER_DATA *ch )
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Component (%d) inside %s", 
-                          pSpawn->rs_vnum,
+                          pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_ONTOP && LastObj != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Component (%d) on top of %s",
-                          pSpawn->rs_vnum,
+                          pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_INSCENE )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Component (%d) in scene",
-                          pSpawn->rs_vnum );
+                          pSpawn->rs_dbkey );
             strcat( final, buf );
             LastObj = prop;
         }
    else if ( LastMob != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Component (%d) on %s of %s",
-                          pSpawn->rs_vnum,
+                          pSpawn->rs_dbkey,
                           wear_loc_name( pSpawn->loc ),
                           LastMob ? LastMob->short_descr : "!NO ACTOR!" );
             strcat( final, buf );
@@ -4579,9 +4579,9 @@ void display_spawns( PLAYER_DATA *ch )
         break;
 
         case 'G': 
-            if ( pSpawn->rs_vnum >= MAX_GOODS || pSpawn->rs_vnum<0 )
+            if ( pSpawn->rs_dbkey >= MAX_GOODS || pSpawn->rs_dbkey<0 )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Goods - Bad Good %d\n\r", pSpawn->rs_vnum );
+            snprintf( buf, MAX_STRING_LENGTH, "Load Goods - Bad Good %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
@@ -4589,27 +4589,27 @@ void display_spawns( PLAYER_DATA *ch )
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Goods (%d) inside %s", 
-                          pSpawn->rs_vnum,
+                          pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_ONTOP && LastObj != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Goods (%d) on top of %s",
-                          pSpawn->rs_vnum,
+                          pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_INSCENE )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Goods (%d) in scene", pSpawn->rs_vnum );
+            snprintf( buf, MAX_STRING_LENGTH, "Goods (%d) in scene", pSpawn->rs_dbkey );
             strcat( final, buf );
             LastObj = prop;
         }
    else if ( LastMob != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, " Loads (%d) on %s of %s",
-                          pSpawn->rs_vnum,
+                          pSpawn->rs_dbkey,
                           wear_loc_name( pSpawn->loc ),
                           LastMob ? LastMob->short_descr : "!NO ACTOR!" );
             strcat( final, buf );
@@ -4634,9 +4634,9 @@ void display_spawns( PLAYER_DATA *ch )
 
 
 
-void add_spawn( SCENE_INDEX_DATA *scene, SPAWN_DATA *pSpawn, int i )
+void add_spawn( SCENE *scene, SPAWN *pSpawn, int i )
 {
-    SPAWN_DATA *reset;
+    SPAWN *reset;
     int iSpawn = 0;
 
     SET_BIT( scene->zone->zone_flags, ZONE_CHANGED );
@@ -4672,13 +4672,13 @@ void add_spawn( SCENE_INDEX_DATA *scene, SPAWN_DATA *pSpawn, int i )
 
 
 /*
- * Syntax:  resets [num] prop [vnum] [location] [chance] [times]
- *          resets [num] actor [vnum] [location] [chance] [times]
+ * Syntax:  resets [num] prop [dbkey] [location] [chance] [times]
+ *          resets [num] actor [dbkey] [location] [chance] [times]
  *          resets [num] delete
  *          resets here
  *          cue here
  */
-void cmd_spawns( PLAYER_DATA *ch, char *argument )
+void cmd_spawns( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
@@ -4686,7 +4686,7 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
     char arg4[MAX_INPUT_LENGTH];
     char arg5[MAX_INPUT_LENGTH];
     char arg6[MAX_INPUT_LENGTH];
-    SPAWN_DATA *pSpawn;
+    SPAWN *pSpawn;
 
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
@@ -4721,7 +4721,7 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
 
     if ( is_number( arg1 ) )
     {
-        SCENE_INDEX_DATA *pScene = ch->in_scene;
+        SCENE *pScene = ch->in_scene;
 
         if ( !str_cmp( arg2, "delete" ) )
         {
@@ -4743,7 +4743,7 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
         else
         {
             int iSpawn = 0;
-            SPAWN_DATA *prev = NULL;
+            SPAWN *prev = NULL;
 
             for ( pSpawn = pScene->spawn_first; pSpawn != NULL; pSpawn = pSpawn->next )
             {
@@ -4766,7 +4766,7 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
         }
 
         SET_BIT( pScene->zone->zone_flags, ZONE_CHANGED );
-        free_spawn_data( pSpawn );
+        free_spawn( pSpawn );
         send_to_actor( "Cue scratched.\n\r", ch );
         }
         else
@@ -4775,11 +4775,11 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
           || (!str_prefix( arg2, "component" ) && is_number( arg3 )) 
           || (!str_prefix( arg2, "good" ) && is_number( arg3 )) )
         {
-            pSpawn = new_spawn_data();
+            pSpawn = new_spawn();
             if ( !str_prefix( arg2, "actor" ) )
             {
             pSpawn->command = 'M';
-            pSpawn->rs_vnum = atoi( arg3 );
+            pSpawn->rs_dbkey = atoi( arg3 );
             pSpawn->loc     = is_number( arg4 ) ? atoi( arg4 ) : 1;
             pSpawn->percent = is_number( arg5 ) ? atoi( arg5 ) : 75;
             }
@@ -4787,7 +4787,7 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
             if ( !str_prefix( arg2, "prop" ) )
             {
             pSpawn->command = 'O';
-            pSpawn->rs_vnum = atoi( arg3 );
+            pSpawn->rs_dbkey = atoi( arg3 );
             if ( !str_cmp( arg4, "inside" ) || !str_cmp( arg4, "in" ) )
                                             pSpawn->loc     = SPAWN_LOC_INSIDE;
        else if ( !str_cmp( arg4, "on" ) )   pSpawn->loc     = SPAWN_LOC_ONTOP;
@@ -4801,7 +4801,7 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
             if ( !str_prefix( arg2, "good" ) )
             {
             pSpawn->command = 'G';
-            pSpawn->rs_vnum = atoi( arg3 );
+            pSpawn->rs_dbkey = atoi( arg3 );
             if ( !str_cmp( arg4, "inside" ) || !str_cmp( arg4, "in" ) )
                                             pSpawn->loc     = SPAWN_LOC_INSIDE;
        else if ( !str_cmp( arg4, "on" ) )   pSpawn->loc     = SPAWN_LOC_ONTOP;
@@ -4815,7 +4815,7 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
             if ( !str_prefix( arg2, "component" ) )
             {
             pSpawn->command = 'C';
-            pSpawn->rs_vnum = atoi( arg3 );
+            pSpawn->rs_dbkey = atoi( arg3 );
             if ( !str_cmp( arg4, "inside" ) || !str_cmp( arg4, "in" ) )
                                             pSpawn->loc     = SPAWN_LOC_INSIDE;
        else if ( !str_cmp( arg4, "on" ) )   pSpawn->loc     = SPAWN_LOC_ONTOP;
@@ -4839,10 +4839,10 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
         send_to_actor( "Syntax: CUE <number> COMPONENT <num> <location> [chance] [num to load]\n\r", ch );
         send_to_actor( "        CUE <number> COMPONENT <num> SCENE [chance] [num to load]\n\r", ch );
         send_to_actor( "        CUE <number> COMPONENT <num> IN|ON [chance] [num to load]\n\r", ch );
-        send_to_actor( "Syntax: CUE <number> PROP <vnum> <location> [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> PROP <vnum> SCENE [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> PROP <vnum> IN|ON [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> ACTOR <vnum> [<max #> <chance> <num to load>]\n\r", ch );
+        send_to_actor( "Syntax: CUE <number> PROP <dbkey> <location> [chance] [num to load]\n\r", ch );
+        send_to_actor( "        CUE <number> PROP <dbkey> SCENE [chance] [num to load]\n\r", ch );
+        send_to_actor( "        CUE <number> PROP <dbkey> IN|ON [chance] [num to load]\n\r", ch );
+        send_to_actor( "        CUE <number> ACTOR <dbkey> [<max #> <chance> <num to load>]\n\r", ch );
         send_to_actor( "        CUE <number> DELETE\n\r", ch );
         send_to_actor( "        CUE HERE\n\r", ch );
         }
@@ -4857,17 +4857,17 @@ void cmd_spawns( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  astat [num]
  */
-void cmd_astat( PLAYER_DATA *ch, char *argument )
+void cmd_astat( PLAYER *ch, char *argument )
 {
     char arg1 [MAX_INPUT_LENGTH];
     char buf  [MAX_STRING_LENGTH];
-    ZONE_DATA *pZone;
+    ZONE *pZone;
 
     smash_tilde( argument );
     strcpy( arg1, argument );
 
     if ( is_number( arg1 ) )
-        pZone = get_zone_data( atoi( arg1 ) );
+        pZone = get_zone( atoi( arg1 ) );
     else
         pZone = ch->in_scene->zone;
         
@@ -4875,7 +4875,7 @@ void cmd_astat( PLAYER_DATA *ch, char *argument )
       pZone = ch->in_scene->zone;
 
     snprintf( buf, MAX_STRING_LENGTH, "Name:     [%5d] %s\n\r",
-             pZone->vnum, pZone->name );
+             pZone->dbkey, pZone->name );
     send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "File:     [%s]\n\r",
@@ -4890,7 +4890,7 @@ void cmd_astat( PLAYER_DATA *ch, char *argument )
              pZone->security, pZone->builders );
     send_to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnums:    [%d-%d]\n\r", pZone->lvnum, pZone->uvnum );
+    snprintf( buf, MAX_STRING_LENGTH, "Vnums:    [%d-%d]\n\r", pZone->ldbkey, pZone->udbkey );
     send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Repop:\n\r%s", pZone->repop );
@@ -4908,7 +4908,7 @@ void cmd_astat( PLAYER_DATA *ch, char *argument )
 void save_zone_list( void )
 {
    FILE *fp, *f_from, *f_to;
-   ZONE_DATA *pZone;
+   ZONE *pZone;
    char buf[MSL]; 
    char nfn[MIL];
    int cidx;
@@ -5054,11 +5054,11 @@ void save_string_to_file( char *fname, char *content )
 void save_config( void )
 {
     FILE *fp;
-    TERRAIN_DATA *pTerrain;
-    SKILL_DATA *pSkill;
-    extern BAN_DATA *ban_list;
-    BAN_DATA *pban;
-    int tvnum;
+    TERRAIN *pTerrain;
+    SKILL *pSkill;
+    extern BAN *ban_list;
+    BAN *pban;
+    int tdbkey;
 
     if ( ( fp = fopen( MUD_FILE, "w" ) ) == NULL )
     {
@@ -5068,10 +5068,10 @@ void save_config( void )
     else
     {
         fprintf( fp, "#CONFIG\n" );
-        fprintf( fp, "Date %d %d %d %d\n", weather_info.hour, weather_info.day,
-                     weather_info.month, weather_info.year );
+        fprintf( fp, "Date %d %d %d %d\n", weather.hour, weather.day,
+                     weather.month, weather.year );
         fprintf( fp, "Moon %d %d\n",
-                     weather_info.moon_phase, weather_info.next_phase );
+                     weather.moon_phase, weather.next_phase );
 
         for ( pban = ban_list; pban != NULL; pban = pban->next )
         {
@@ -5090,24 +5090,24 @@ void save_config( void )
          */
         for ( pTerrain = terrain_list;  pTerrain != NULL;  pTerrain = pTerrain->next )
         {
-             fprintf( fp, "#TERRAIN %d\n", pTerrain->vnum );
+             fprintf( fp, "#TERRAIN %d\n", pTerrain->dbkey );
              fprintf( fp, "N %s~\n",  pTerrain->name   );
              fprintf( fp, "Dsp %s~\n", fix_string( pTerrain->spring ) );
              fprintf( fp, "Dwi %s~\n", fix_string( pTerrain->winter ) );
              fprintf( fp, "Dsu %s~\n", fix_string( pTerrain->summer ) );
              fprintf( fp, "Dfa %s~\n", fix_string( pTerrain->fall   ) );
              fprintf( fp, "C %c\n",   pTerrain->map_char  );
-             fprintf( fp, "S %d\nEnd\n", pTerrain->sector );
+             fprintf( fp, "S %d\nEnd\n", pTerrain->move );
         }
 
         /*
          * Output master skill list.
          */
-        for( tvnum=0; tvnum <= top_vnum_skill; tvnum++ ) {
+        for( tdbkey=0; tdbkey <= top_dbkey_skill; tdbkey++ ) {
         {
-             pSkill = get_skill_index( tvnum );
+             pSkill = get_skill_index( tdbkey );
              if ( !pSkill ) continue;
-             fprintf( fp, "#SKILL %d\n", pSkill->vnum );
+             fprintf( fp, "#SKILL %d\n", pSkill->dbkey );
 
              fprintf( fp, "N %s~\n",     pSkill->name         );
              fprintf( fp, "Lvl %d\n",    pSkill->skill_level  );
@@ -5155,9 +5155,9 @@ void save_contents( void )
     }
     else
     {
-        int iHash,tvnum;
-        SPELL_DATA *pSpell;
-        SCENE_INDEX_DATA *scene;
+        int iHash,tdbkey;
+        SPELL *pSpell;
+        SCENE *scene;
 
 
         /*
@@ -5165,12 +5165,12 @@ void save_contents( void )
          * Must be done here because scene file is at the end
          * of the db.
          */
-        for( tvnum=0; tvnum <= top_vnum_spell; tvnum++ ) {
+        for( tdbkey=0; tdbkey <= top_dbkey_spell; tdbkey++ ) {
         {
-             INSTANCE_DATA *pInstance;
-             pSpell = get_spell_index( tvnum );
+             INSTANCE *pInstance;
+             pSpell = get_spell_index( tdbkey );
              if ( !pSpell ) continue;
-             fprintf( fp, "#SPELL %d\n", pSpell->vnum );
+             fprintf( fp, "#SPELL %d\n", pSpell->dbkey );
              fprintf( fp, "N %s~\n",  pSpell->name   );
              fprintf( fp, "Lvl %d\n", pSpell->level );
              fprintf( fp, "Target %d\n", pSpell->target );
@@ -5181,8 +5181,8 @@ void save_contents( void )
 
              for ( pInstance = pSpell->instances;  pInstance != NULL;  
                       pInstance = pInstance->next )
-              if ( get_script_index( pInstance->script->vnum ) )
-                    fprintf( fp, "Sc %d\n", pInstance->script->vnum );
+              if ( get_script_index( pInstance->script->dbkey ) )
+                    fprintf( fp, "Sc %d\n", pInstance->script->dbkey );
 
              fprintf( fp, "End\n" );
         }
@@ -5193,21 +5193,21 @@ void save_contents( void )
 
         for ( iHash = 0;  iHash < MAX_KEY_HASH;  iHash++ )
         {
-        for ( scene = scene_index_hash[iHash]; scene != NULL;  scene = scene->next )
+        for ( scene = scene_hash[iHash]; scene != NULL;  scene = scene->next )
         {
             if ( !IS_SET(scene->scene_flags, SCENE_SAVE) )
             continue;
 
-            fprintf( fp, "Scene %d\n", scene->vnum );
+            fprintf( fp, "Scene %d\n", scene->dbkey );
 
             if ( IS_SET(scene->scene_flags, SCENE_WAGON) )
             {
-                PROP_INDEX_DATA *pPropIndex;
+                PROP_TEMPLATE *pPropIndex;
 
-                pPropIndex = get_prop_index( scene->wagon );
+                pPropIndex = get_prop_template( scene->wagon );
                 if ( pPropIndex != NULL )
                 {
-                    PROP_DATA *pProp;
+                    PROP *pProp;
 
                     for ( pProp = prop_list; pProp != NULL; pProp = pProp->next )
                     {
@@ -5217,7 +5217,7 @@ void save_contents( void )
                     }
 
                     if ( pProp != NULL )
-                    fprintf( fp, "Wagon %d\n", pProp->in_scene->vnum );
+                    fprintf( fp, "Wagon %d\n", pProp->in_scene->dbkey );
                 }
             }
 
@@ -5237,7 +5237,7 @@ void save_contents( void )
      * To avoid prop duplication.
      */
     {
-        PLAYER_DATA *ch;
+        PLAYER *ch;
         
         for ( ch = actor_list;  ch != NULL;  ch = ch->next )
             cmd_save( ch, "internal" );
@@ -5249,29 +5249,29 @@ void save_contents( void )
 
 
 
-void save_actors( FILE *fp, ZONE_DATA *pZone )
+void save_actors( FILE *fp, ZONE *pZone )
 {
     int iHash;
-    ACTOR_INDEX_DATA *pActorIndex;
-    INSTANCE_DATA *script;
-    ATTACK_DATA *attack;
-    SKILL_DATA *pSkill;
+    ACTOR_TEMPLATE *pActorIndex;
+    INSTANCE *script;
+    ATTACK *attack;
+    SKILL *pSkill;
     int iTrade;
     int iAttack;
 
     fprintf( fp, "#ACTORS\n" );
     for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
     {
-        for( pActorIndex = actor_index_hash[iHash]; pActorIndex != NULL; pActorIndex = pActorIndex->next )
+        for( pActorIndex = actor_template_hash[iHash]; pActorIndex != NULL; pActorIndex = pActorIndex->next )
         {
             if ( pActorIndex != NULL && pActorIndex->zone == pZone )
             {
-                fprintf( fp, "#%d\n",     pActorIndex->vnum );
+                fprintf( fp, "#%d\n",     pActorIndex->dbkey );
                 fprintf( fp, "N %s~\n",   fix_string( pActorIndex->name ) );
                 fprintf( fp, "SD %s~\n",  fix_string( pActorIndex->short_descr ) );
                 fprintf( fp, "LD\n %s~\n", fix_string( pActorIndex->long_descr ) );
                 fprintf( fp, "D\n %s~\n",  fix_string( pActorIndex->description ) );
-                fprintf( fp, "A %d\n",    pActorIndex->act );
+                fprintf( fp, "A %d\n",    pActorIndex->flag );
                 fprintf( fp, "AB %d\n",   pActorIndex->bonuses );
                 fprintf( fp, "M %d\n",    pActorIndex->money );
                 fprintf( fp, "Credits %d\n",    pActorIndex->credits );
@@ -5282,9 +5282,9 @@ void save_actors( FILE *fp, ZONE_DATA *pZone )
                 fprintf( fp, "O %s~\n", pActorIndex->owner );
             
                 {
-                  SPELL_BOOK_DATA *pSpellBook;
+                  SPELL_BOOK *pSpellBook;
                   for ( pSpellBook = pActorIndex->pSpells;  pSpellBook != NULL;  pSpellBook = pSpellBook->next )
-                  fprintf( fp, "Spell %d\n", pSpellBook->vnum );
+                  fprintf( fp, "Spell %d\n", pSpellBook->dbkey );
                 }     
 
                 fprintf( fp, "AP %d %d %d %d %d\n",
@@ -5319,10 +5319,10 @@ void save_actors( FILE *fp, ZONE_DATA *pZone )
                 }
 
                 for ( script = pActorIndex->instances;  script != NULL;  script = script->next )
-              if ( script->script && get_script_index( script->script->vnum ) )
-                    fprintf( fp, "Sc %d\n", script->script->vnum );
+              if ( script->script && get_script_index( script->script->dbkey ) )
+                    fprintf( fp, "Sc %d\n", script->script->dbkey );
 
-                for ( iAttack = 0;  iAttack < MAX_ATTACK_DATA; iAttack++ )
+                for ( iAttack = 0;  iAttack < MAX_ATTACK; iAttack++ )
                 {
                     if ( pActorIndex->attacks[iAttack] != NULL )
                     {
@@ -5353,15 +5353,15 @@ void save_actors( FILE *fp, ZONE_DATA *pZone )
 
 
 
-void save_scripts( FILE *fp, ZONE_DATA *pZone )
+void save_scripts( FILE *fp, ZONE *pZone )
 {
     int iHash;
-    SCRIPT_DATA *pIndex;
+    SCRIPT *pIndex;
 
     fprintf( fp, "#SCRIPTDATA\n" );
     for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
     {
-        for( pIndex = script_index_hash[iHash]; pIndex != NULL; pIndex = pIndex->next )
+        for( pIndex = script__hash[iHash]; pIndex != NULL; pIndex = pIndex->next )
         {
             if ( pIndex != NULL && pIndex->zone == pZone )
             {
@@ -5380,7 +5380,7 @@ void save_scripts( FILE *fp, ZONE_DATA *pZone )
                 fprintf( ifp, "%s", fix_string(pIndex->commands ) );
                 fclose( ifp );
 
-                fprintf( fp, "#%d\n",     pIndex->vnum );
+                fprintf( fp, "#%d\n",     pIndex->dbkey );
                 fprintf( fp, "N %s~\n",   fix_string( pIndex->name ) );
                 fprintf( fp, "C\n%s~\n",  fix_string( pIndex->commands ) );
                 fprintf( fp, "T %d\n",    pIndex->type );
@@ -5395,22 +5395,22 @@ void save_scripts( FILE *fp, ZONE_DATA *pZone )
 
 
 
-void save_props( FILE *fp, ZONE_DATA *pZone )
+void save_props( FILE *fp, ZONE *pZone )
 {
     int iHash;
-    PROP_INDEX_DATA *pPropIndex;
-    BONUS_DATA *pAf;
-    EXTRA_DESCR_DATA *pEd;
-    INSTANCE_DATA *script;
+    PROP_TEMPLATE *pPropIndex;
+    BONUS *pAf;
+    EXTRA_DESCR *pEd;
+    INSTANCE *script;
 
     fprintf( fp, "#OBJDATA\n" );
     for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
     {
-        for( pPropIndex = prop_index_hash[iHash]; pPropIndex != NULL; pPropIndex = pPropIndex->next )
+        for( pPropIndex = prop_template_hash[iHash]; pPropIndex != NULL; pPropIndex = pPropIndex->next )
         {
             if ( pPropIndex != NULL && pPropIndex->zone == pZone )
             {
-                fprintf( fp, "#%d\n",     pPropIndex->vnum );
+                fprintf( fp, "#%d\n",     pPropIndex->dbkey );
                 fprintf( fp, "N %s~\n",   fix_string( pPropIndex->name ) );
                 fprintf( fp, "SD %s~\n",  fix_string( pPropIndex->short_descr ) );
                 fprintf( fp, "P %s~\n",   fix_string( pPropIndex->short_descr_plural ) );
@@ -5429,8 +5429,8 @@ void save_props( FILE *fp, ZONE_DATA *pZone )
                 fprintf( fp, "O %s~\n",   pPropIndex->owner );
 
                 for ( script = pPropIndex->instances;  script != NULL;  script = script->next )
-              if ( get_script_index( script->script->vnum ) )
-                    fprintf( fp, "Sc %d\n", script->script->vnum );
+              if ( get_script_index( script->script->dbkey ) )
+                    fprintf( fp, "Sc %d\n", script->script->dbkey );
 
                 switch ( pPropIndex->item_type )
                 {
@@ -5485,30 +5485,30 @@ void save_props( FILE *fp, ZONE_DATA *pZone )
 
 
 
-void save_scenes( FILE *fp, ZONE_DATA *pZone )
+void save_scenes( FILE *fp, ZONE *pZone )
 {
     int iHash;
-    SCENE_INDEX_DATA *pSceneIndex;
-    EXTRA_DESCR_DATA *pEd;
-    SPAWN_DATA *pSpawn;
-    EXIT_DATA *pExit;
+    SCENE *pSceneIndex;
+    EXTRA_DESCR *pEd;
+    SPAWN *pSpawn;
+    EXIT *pExit;
     int door;
 
     fprintf( fp, "#SCENES\n" );
     for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
     {
-        for( pSceneIndex = scene_index_hash[iHash]; pSceneIndex != NULL; pSceneIndex = pSceneIndex->next )
+        for( pSceneIndex = scene_hash[iHash]; pSceneIndex != NULL; pSceneIndex = pSceneIndex->next )
         {
             if ( pSceneIndex->zone == pZone )
             {
-                fprintf( fp, "#%d\n",    pSceneIndex->vnum );
+                fprintf( fp, "#%d\n",    pSceneIndex->dbkey );
                 fprintf( fp, "N %s~\n",  fix_string( pSceneIndex->name ) );
                 fprintf( fp, "Ref %d\n", pSceneIndex->template );
                 fprintf( fp, "D\n%s~\n", fix_string( pSceneIndex->description ) );
 		fprintf( fp, "C\n%s~\n", fix_string( pSceneIndex->client ) );
                 REMOVE_BIT(pSceneIndex->scene_flags, SCENE_MARK);
                 fprintf( fp, "F %d\n",   pSceneIndex->scene_flags  );
-                fprintf( fp, "S %d\n",   pSceneIndex->sector_type );
+                fprintf( fp, "S %d\n",   pSceneIndex->move );
                 fprintf( fp, "M %d\n",   pSceneIndex->max_people  );
                 fprintf( fp, "W %d\n",   pSceneIndex->wagon       );
                 fprintf( fp, "T %d\n",   pSceneIndex->terrain     );
@@ -5526,7 +5526,7 @@ void save_scenes( FILE *fp, ZONE_DATA *pZone )
                     if ( pSpawn != NULL )
                     {
                       fprintf( fp, "R %c %d %d %d %d\n", pSpawn->command,
-                                                         pSpawn->rs_vnum,
+                                                         pSpawn->rs_dbkey,
                                                          pSpawn->loc,
                                                          pSpawn->percent,
                                                          pSpawn->num );
@@ -5536,13 +5536,13 @@ void save_scenes( FILE *fp, ZONE_DATA *pZone )
                 for( door = 0; door < MAX_DIR; door++ )
                 {
                     if ( (pExit = pSceneIndex->exit[door] ) != NULL
-                          && pExit->vnum > 0
-                          && (fBootDb || get_scene_index( pExit->vnum ) != NULL) )
+                          && pExit->dbkey > 0
+                          && (fBootDb || get_scene( pExit->dbkey ) != NULL) )
                     {
                         fprintf( fp, "Dr %d %d %d %d\n", door,
                                                         pExit->rs_flags,
                                                         pExit->key,
-                                                        pExit->vnum );
+                                                        pExit->dbkey );
 
                         fprintf( fp, "%s~\n", fix_string( pExit->description ) );
                         if ( pExit->keyword != NULL )
@@ -5561,7 +5561,7 @@ void save_scenes( FILE *fp, ZONE_DATA *pZone )
 
 
 
-void save_zone( ZONE_DATA *pZone )
+void save_zone( ZONE *pZone )
 {
     FILE *fp;
 
@@ -5579,7 +5579,7 @@ void save_zone( ZONE_DATA *pZone )
     if ( !MTD(pZone->repop) )
     fprintf( fp, "R %s~\n",        fix_string( pZone->repop ) );
     fprintf( fp, "B %s~\n",        fix_string( pZone->builders ) );
-    fprintf( fp, "V %d %d\n",      pZone->lvnum, pZone->uvnum );
+    fprintf( fp, "V %d %d\n",      pZone->ldbkey, pZone->udbkey );
     fprintf( fp, "S %d\n",         pZone->security );
     if ( IS_SET(pZone->zone_flags, ZONE_STATIC) )
     fprintf( fp, "Static\n" );
@@ -5598,10 +5598,10 @@ void save_zone( ZONE_DATA *pZone )
 
 void save_helps( void )
 {
-  HELP_DATA * pHelp;
+  HELP * pHelp;
   FILE * fp;
   char HFILE  [MAX_STRING_LENGTH];
-  int cidx,vnum;
+  int cidx,dbkey;
 
   for ( cidx=0; cidx < MAX_HELP_CLASS; cidx++ ) {
      char buf [MAX_STRING_LENGTH];
@@ -5614,12 +5614,12 @@ void save_helps( void )
          perror( HFILE );
      }
 
-     for ( vnum=0; vnum <= top_vnum_help; vnum++ ) {
-       pHelp = get_help_index( vnum ); 
+     for ( dbkey=0; dbkey <= top_dbkey_help; dbkey++ ) {
+       pHelp = get_help_index( dbkey ); 
        if ( !pHelp || pHelp->class != cidx ) continue;
 
        one_argcase( pHelp->name, buf ); replace_char(buf, ' ', '_');
-       fprintf(fp, "\n\n#DOC %d\nN %s~\n", vnum, buf );
+       fprintf(fp, "\n\n#DOC %d\nN %s~\n", dbkey, buf );
 
        fprintf(fp, "C %d L %d\nKW %s~\n",
                pHelp->class, pHelp->level, pHelp->keyword );
@@ -5640,9 +5640,9 @@ void save_helps( void )
    return;
 }
 
-void cmd_hstat( PLAYER_DATA *ch, char *argument )
+void cmd_hstat( PLAYER *ch, char *argument )
 {
-   HELP_DATA *pHelp;
+   HELP *pHelp;
    char buf  [MAX_STRING_LENGTH];
    char arg1[MAX_INPUT_LENGTH];
  
@@ -5680,14 +5680,14 @@ void cmd_hstat( PLAYER_DATA *ch, char *argument )
  * Syntax: hedit [name]
  *         hedit create [name]
  */
-void cmd_hedit( PLAYER_DATA *ch, char *argument )
+void cmd_hedit( PLAYER *ch, char *argument )
 {
-    HELP_DATA *pHelp;
+    HELP *pHelp;
     int value;
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
 
@@ -5696,7 +5696,7 @@ void cmd_hedit( PLAYER_DATA *ch, char *argument )
         value = atoi( arg1 );
         if ( ( pHelp = get_help_index( value ) ) == NULL )
         {
-            send_to_actor( "Edit: That vnum does not exist.\n\r", ch );
+            send_to_actor( "Edit: That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -5716,18 +5716,18 @@ void cmd_hedit( PLAYER_DATA *ch, char *argument )
 }
 
 
-void hedit( PLAYER_DATA *ch, char *argument )
+void hedit( PLAYER *ch, char *argument )
 {
-    HELP_DATA *pHelp;
+    HELP *pHelp;
     char arg[MAX_STRING_LENGTH];
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
     char arg3[MAX_STRING_LENGTH];
     char buf [MAX_STRING_LENGTH];
     char *o=argument;
-    int  value, tvnum, endvnum=top_vnum_help;
+    int  value, tdbkey, enddbkey=top_dbkey_help;
 
-    pHelp = (HELP_DATA *)ch->desc->pEdit;
+    pHelp = (HELP *)ch->desc->pEdit;
     strcpy( arg, argument );
     smash_tilde( argument );
     argument = one_argument( argument, arg1 );
@@ -5744,9 +5744,9 @@ void hedit( PLAYER_DATA *ch, char *argument )
         int col=0;
            /* search for keywords that match */
 
-        for ( tvnum=0;tvnum <= top_vnum_help; tvnum++ )
+        for ( tdbkey=0;tdbkey <= top_dbkey_help; tdbkey++ )
         { 
-            pHelp = get_help_index( tvnum );
+            pHelp = get_help_index( tdbkey );
             if ( !pHelp ) continue;
 
             if ( str_infix( o, pHelp->keyword )
@@ -5755,7 +5755,7 @@ void hedit( PLAYER_DATA *ch, char *argument )
             continue;   col++;
 
             snprintf( buf, MAX_STRING_LENGTH, "[%3d] Name [%-18s] ", 
-                     pHelp->vnum,
+                     pHelp->dbkey,
                      pHelp->name );
 
             if ( col % 2 == 0 ) page_to_actor("\n\r", ch );
@@ -5766,20 +5766,20 @@ void hedit( PLAYER_DATA *ch, char *argument )
     else
     if ( !str_cmp( arg1, "list" ) )
     {
-        tvnum = atoi(arg2);
-        endvnum = atoi(arg3);  
-        if (endvnum < tvnum) endvnum=top_vnum_help;
+        tdbkey = atoi(arg2);
+        enddbkey = atoi(arg3);  
+        if (enddbkey < tdbkey) enddbkey=top_dbkey_help;
         
-        for ( ;tvnum <= endvnum; tvnum++ )
+        for ( ;tdbkey <= enddbkey; tdbkey++ )
         { 
-            pHelp = get_help_index( tvnum );
+            pHelp = get_help_index( tdbkey );
             if ( !pHelp ) continue;
 
             snprintf( buf, MAX_STRING_LENGTH, "[%3d] Name [%-18s] ", 
-                     pHelp->vnum,
+                     pHelp->dbkey,
                      pHelp->name );
 
-            if ( tvnum % 2 == 0 ) send_to_actor("\n\r", ch );
+            if ( tdbkey % 2 == 0 ) send_to_actor("\n\r", ch );
             send_to_actor( buf, ch );
         }
         return;
@@ -5806,8 +5806,8 @@ void hedit( PLAYER_DATA *ch, char *argument )
    for ( ; ; )
    {
       char *hname;
-      HELP_DATA *hSort;
-      int svnum;
+      HELP *hSort;
+      int sdbkey;
 
       if ( fread_letter( fp ) != '#' ) {
          bug( "Load_helpdata: # not found.", 0 );
@@ -5818,9 +5818,9 @@ void hedit( PLAYER_DATA *ch, char *argument )
          break;
       }
 
-      if ( !pHelp ) pHelp = new_help_data();
+      if ( !pHelp ) pHelp = new_help();
 
-      pHelp->vnum = top_vnum_help;
+      pHelp->dbkey = top_dbkey_help;
       pHelp->name       = str_dup( hname );
       pHelp->class      = fread_number( fp );
       pHelp->level      = fread_number( fp );
@@ -5831,8 +5831,8 @@ void hedit( PLAYER_DATA *ch, char *argument )
       pHelp->example    = fread_string( fp );
       pHelp->seealso    = fread_string( fp );
 
-            pHelp->next = help_index_hash[pHelp->vnum % MAX_KEY_HASH];
-            help_index_hash[pHelp->vnum % MAX_KEY_HASH] = pHelp;
+            pHelp->next = help__hash[pHelp->dbkey % MAX_KEY_HASH];
+            help__hash[pHelp->dbkey % MAX_KEY_HASH] = pHelp;
             pHelp = NULL;
    }
 
@@ -5845,7 +5845,7 @@ void hedit( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' ) {
        clrscr(ch);
-       snprintf( buf, MAX_STRING_LENGTH, "%d", pHelp->vnum );
+       snprintf( buf, MAX_STRING_LENGTH, "%d", pHelp->dbkey );
        cmd_hstat( ch, buf ); 
        return;
     }
@@ -5974,9 +5974,9 @@ void hedit( PLAYER_DATA *ch, char *argument )
  *          zsave changed
  *          zsave zone
  */
-void cmd_zsave( PLAYER_DATA *ch, char *argument )
+void cmd_zsave( PLAYER *ch, char *argument )
 {
-    ZONE_DATA *pZone;
+    ZONE *pZone;
 
         save_zone_list();
 

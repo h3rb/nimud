@@ -59,8 +59,8 @@ extern int         top_zone           ;
 extern int         top_ed             ;
 extern int         top_exit           ;
 extern int         top_help           ;
-extern int         top_actor_index    ;
-extern int         top_prop_index     ;
+extern int         top_actor_template    ;
+extern int         top_prop_template     ;
 extern int         top_spawn          ;
 extern int         top_scene          ;
 extern int         top_spell          ;
@@ -70,23 +70,23 @@ extern int         top_variable       ;
 extern int         top_event          ;
 extern int         top_instance       ;
 extern int         top_script         ;
-extern int         top_player_data    ;
+extern int         top_player    ;
 extern int         top_userdata       ;
-extern int         top_alias_data     ;
+extern int         top_alias     ;
 extern int         top_attack         ;
 extern int         top_prop           ;
 extern int         top_connection     ;
 extern int         top_note           ;
 
-extern int         top_vnum_help      ;
-extern int         top_vnum_spell     ;
-extern int         top_vnum_skill     ;
+extern int         top_dbkey_help      ;
+extern int         top_dbkey_spell     ;
+extern int         top_dbkey_skill     ;
 
-extern int         top_vnum_script    ;
-extern int         top_vnum_actor     ;
-extern int         top_vnum_prop      ;
-extern int         top_vnum_scene     ;
-extern int         top_vnum_terrain   ;
+extern int         top_dbkey_script    ;
+extern int         top_dbkey_actor     ;
+extern int         top_dbkey_prop      ;
+extern int         top_dbkey_scene     ;
+extern int         top_dbkey_terrain   ;
 
 extern int         num_players        ;
 
@@ -94,7 +94,7 @@ struct telopt_type
 {
 	int      size;
 	char   * code;
-	int   (* func) (CONNECTION_DATA *d, unsigned char *src, int srclen);
+	int   (* func) (CONNECTION *d, unsigned char *src, int srclen);
 };
 
 const struct telopt_type telopt_table [] =
@@ -115,7 +115,7 @@ const struct telopt_type telopt_table [] =
 	{ 0, NULL,                 NULL}
 };
 
-int translate_telopts(CONNECTION_DATA *d, char *src, int srclen, char *out)
+int translate_telopts(CONNECTION *d, char *src, int srclen, char *out)
 {
 	int cnt, skip;
 	unsigned char *pti, *pto;
@@ -237,7 +237,7 @@ int translate_telopts(CONNECTION_DATA *d, char *src, int srclen, char *out)
 	return strlen(out);
 }
 
-void debug_telopts( CONNECTION_DATA *d, unsigned char *src, int srclen )
+void debug_telopts( CONNECTION *d, unsigned char *src, int srclen )
 {
 	if (srclen > 1 && TELOPT_DEBUG)
 	{
@@ -280,7 +280,7 @@ void debug_telopts( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	Send to client to have it disable local echo
 */
 
-void send_echo_off( CONNECTION_DATA *d )
+void send_echo_off( CONNECTION *d )
 {
 	connection_printf(d, "%c%c%c", IAC, WILL, TELOPT_ECHO);
 }
@@ -289,7 +289,7 @@ void send_echo_off( CONNECTION_DATA *d )
 	Send to client to have it enable local echo
 */
 
-void send_echo_on( CONNECTION_DATA *d )
+void send_echo_on( CONNECTION *d )
 {
 	connection_printf(d, "%c%c%c", IAC, WONT, TELOPT_ECHO);
 }
@@ -299,17 +299,17 @@ void send_echo_on( CONNECTION_DATA *d )
 	Send when client connects to enable TTYPE
 */
 
-void send_do_ttype( CONNECTION_DATA *d )
+void send_do_ttype( CONNECTION *d )
 {
 	connection_printf(d, "%c%c%c", IAC, DO, TELOPT_TTYPE);
 }
 
-void send_char_mode( CONNECTION_DATA *d ) 
+void send_char_mode( CONNECTION *d ) 
 {
         connection_printf( d, "%c%c%c%c%c%c%c", IAC, WILL, SUPPRESS_GA, IAC, WILL, TELOPT_ECHO );
 }
 
-int process_will_ttype( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_will_ttype( CONNECTION *d, unsigned char *src, int srclen )
 {
 	if (*d->terminal_type == 0)
 	{
@@ -318,7 +318,7 @@ int process_will_ttype( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	return 3;
 }
 
-int process_sb_ttype_is( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_sb_ttype_is( CONNECTION *d, unsigned char *src, int srclen )
 {
 	char val[MAX_INPUT_LENGTH];
 	char *pto;
@@ -352,12 +352,12 @@ int process_sb_ttype_is( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	Send when client connects to enable NAWS
 */
 
-void send_do_naws( CONNECTION_DATA *d )
+void send_do_naws( CONNECTION *d )
 {
 	connection_printf(d, "%c%c%c", IAC, DO, TELOPT_NAWS);
 }
 
-int process_sb_naws( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_sb_naws( CONNECTION *d, unsigned char *src, int srclen )
 {
 	if (srclen > 6 && src[3] != IAC && src[4] != IAC && src[5] != IAC && src[6] != IAC)
 	{
@@ -371,12 +371,12 @@ int process_sb_naws( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	Send when client connects to enable NEW ENVIRON
 */
 
-void send_do_new_environ( CONNECTION_DATA *d )
+void send_do_new_environ( CONNECTION *d )
 {
 	connection_printf(d, "%c%c%c", IAC, DO, TELOPT_NEW_ENVIRON);
 }
 
-int process_will_new_environ( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_will_new_environ( CONNECTION *d, unsigned char *src, int srclen )
 {
 	connection_printf(d, "%c%c%c%c%c%s%c%c", IAC, SB, TELOPT_NEW_ENVIRON, ENV_SEND, ENV_VAR, "SYSTEMTYPE", 
 IAC, SE);
@@ -384,7 +384,7 @@ IAC, SE);
 	return 3;
 }
 
-int process_sb_new_environ( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_sb_new_environ( CONNECTION *d, unsigned char *src, int srclen )
 {
 	char var[MAX_INPUT_LENGTH], val[MAX_INPUT_LENGTH];
 	char *pto;
@@ -443,12 +443,12 @@ int process_sb_new_environ( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	Send when client connects to enable MSSP
 */
 
-void send_will_mssp( CONNECTION_DATA *d )
+void send_will_mssp( CONNECTION *d )
 {
 	connection_printf(d, "%c%c%c", IAC, WILL, TELOPT_MSSP);
 }
 
-int process_do_mssp( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_do_mssp( CONNECTION *d, unsigned char *src, int srclen )
 {
 	char buffer[MAX_STRING_LENGTH] = { 0 };
 
@@ -477,14 +477,14 @@ int process_do_mssp( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	cat_sprintf(buffer, "%c%s%c%s", MSSP_VAR, "SUBGENRE",          MSSP_VAL, "Multiple");
 
 	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "AREAS",             MSSP_VAL, top_zone);
-	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "HELPFILES",         MSSP_VAL, top_vnum_help);
-	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "MOBILES",           MSSP_VAL, top_vnum_actor);
-	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "OBJECTS",           MSSP_VAL, top_vnum_prop);
-	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "ROOMS",             MSSP_VAL, top_vnum_scene);
+	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "HELPFILES",         MSSP_VAL, top_dbkey_help);
+	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "MOBILES",           MSSP_VAL, top_dbkey_actor);
+	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "OBJECTS",           MSSP_VAL, top_dbkey_prop);
+	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "ROOMS",             MSSP_VAL, top_dbkey_scene);
 	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "RESETS",            MSSP_VAL, top_spawn);
 
 	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "MUDPROGS",          MSSP_VAL, 0);
-	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "MUDTRIGS",          MSSP_VAL, top_vnum_script);
+	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "MUDTRIGS",          MSSP_VAL, top_dbkey_script);
 
 	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "CLASSES",           MSSP_VAL, 0);
 	cat_sprintf(buffer, "%c%s%c%d", MSSP_VAR, "LEVELS",            MSSP_VAL, MAX_MORTAL_LEVEL);
@@ -515,7 +515,7 @@ int process_do_mssp( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	Send when client connects to enable MCCP.
 */
 
-void send_will_mccp( CONNECTION_DATA *d )
+void send_will_mccp( CONNECTION *d )
 {
 	connection_printf(d, "%c%c%c", IAC, WILL, TELOPT_MCCP);
 }
@@ -532,7 +532,7 @@ void zlib_free( void *opaque, void *address )
 }
 
 
-int start_compress( CONNECTION_DATA *d )
+int start_compress( CONNECTION *d )
 {
 	char start_mccp[] = { IAC, SB, TELOPT_MCCP, IAC, SE, 0 };
 	z_stream *stream;
@@ -579,7 +579,7 @@ int start_compress( CONNECTION_DATA *d )
 }
 
 
-void end_compress( CONNECTION_DATA *d )
+void end_compress( CONNECTION *d )
 {
 	if (d->mccp == NULL)
 	{
@@ -613,7 +613,7 @@ void end_compress( CONNECTION_DATA *d )
 }
 
 
-void write_compressed( CONNECTION_DATA *d )
+void write_compressed( CONNECTION *d )
 {
 	d->mccp->next_in    = d->outbuf;
 	d->mccp->avail_in   = d->outtop;
@@ -634,7 +634,7 @@ void write_compressed( CONNECTION_DATA *d )
 }
 
 
-void process_compressed( CONNECTION_DATA *d )
+void process_compressed( CONNECTION *d )
 {
 	int length;
 
@@ -652,14 +652,14 @@ void process_compressed( CONNECTION_DATA *d )
 }
 
 
-int process_do_mccp( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_do_mccp( CONNECTION *d, unsigned char *src, int srclen )
 {
 	start_compress(d);
 
 	return 3;
 }
 
-int process_dont_mccp( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int process_dont_mccp( CONNECTION *d, unsigned char *src, int srclen )
 {
 	end_compress(d);
 
@@ -670,7 +670,7 @@ int process_dont_mccp( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	Returns the length of a telnet subnegotiation, return srclen + 1 for incomplete state.
 */
 
-int skip_sb( CONNECTION_DATA *d, unsigned char *src, int srclen )
+int skip_sb( CONNECTION *d, unsigned char *src, int srclen )
 {
 	int i;
 
@@ -689,7 +689,7 @@ int skip_sb( CONNECTION_DATA *d, unsigned char *src, int srclen )
 	Call this to announce support for telopts marked as such in tables.c
 */
 
-void announce_support( CONNECTION_DATA *d)
+void announce_support( CONNECTION *d)
 {
 	int i;
 
@@ -714,7 +714,7 @@ void announce_support( CONNECTION_DATA *d)
 	Utility function
 */
 
-void connection_printf( CONNECTION_DATA *d, char *fmt, ... )
+void connection_printf( CONNECTION *d, char *fmt, ... )
 {
 	char buf[MAX_STRING_LENGTH];
 	int size;
@@ -747,7 +747,7 @@ char *cat_sprintf(char *dest, char *fmt, ...)
         Send response generated above to recv_sb_mssp() in client.c for interpretation
 */
 
-int write_to_descriptor(CONNECTION_DATA *d, char *txt, int length)
+int write_to_descriptor(CONNECTION *d, char *txt, int length)
 {
         debug_telopts(d, txt, length);
 

@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -230,12 +230,12 @@ const     struct   goods_type    goods_table    [] =
 };
 
                                                             
-PROP_DATA *create_good( int good )
+PROP *create_good( int good )
 {
-   PROP_DATA *prop;
+   PROP *prop;
    char buf[MAX_STRING_LENGTH];
     
-   prop = create_prop( get_prop_index(PROP_VNUM_GOODS), 0 );
+   prop = create_prop( get_prop_template(PROP_VNUM_GOODS), 0 );
      
    snprintf( buf, MAX_STRING_LENGTH, "%s %s", goods_table[good].name,
                           goods_table[good].unit );
@@ -266,12 +266,12 @@ PROP_DATA *create_good( int good )
 }
 
 
-PROP_DATA *create_comp( int comp )
+PROP *create_comp( int comp )
 {
-   PROP_DATA *prop;
+   PROP *prop;
    char buf[MAX_STRING_LENGTH];
     
-   prop = create_prop( get_prop_index(PROP_VNUM_COMP), 0 );
+   prop = create_prop( get_prop_template(PROP_VNUM_COMP), 0 );
      
    snprintf( buf, MAX_STRING_LENGTH, "%s %s component",
                  smash_article( smash_arg( comp_table[comp].usage, "of" ) ),
@@ -308,7 +308,7 @@ PROP_DATA *create_comp( int comp )
 
 
 /*
-struct  shop_data
+struct  shop
 */
 
 
@@ -316,19 +316,19 @@ struct  shop_data
  * Show the shop list to a character.
  * Can coalesce duplicated items.
  */
-void shop_list_to_actor( PLAYER_DATA *keeper, PLAYER_DATA *ch )
+void shop_list_to_actor( PLAYER *keeper, PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
     char final[MAX_STRING_LENGTH*2];
     char **prgpstrShow;
     int *prgnShow;
     char *pstrShow;
-    PROP_DATA **lastprop;
-    PROP_DATA *prop;
+    PROP **lastprop;
+    PROP *prop;
     int nShow, iShow, vShow;
     int count;
     bool fCombine;
-    PROP_DATA *list = keeper->carrying;
+    PROP *list = keeper->carrying;
 
     if ( ch->desc == NULL )
 	return;
@@ -341,7 +341,7 @@ void shop_list_to_actor( PLAYER_DATA *keeper, PLAYER_DATA *ch )
 	count++;
     prgpstrShow	= alloc_mem( count * sizeof(char *) );
     prgnShow    = alloc_mem( count * sizeof(int)    );
-    lastprop     = alloc_mem( count * sizeof(PROP_DATA *) );
+    lastprop     = alloc_mem( count * sizeof(PROP *) );
     nShow = 0;
 
     /*
@@ -447,7 +447,7 @@ void shop_list_to_actor( PLAYER_DATA *keeper, PLAYER_DATA *ch )
      */
     free_mem( prgpstrShow, count * sizeof(char *)      );
     free_mem( prgnShow,    count * sizeof(int)         );
-    free_mem( lastprop,     count * sizeof(PROP_DATA *)  );
+    free_mem( lastprop,     count * sizeof(PROP *)  );
 
     return;
 }
@@ -458,15 +458,15 @@ void shop_list_to_actor( PLAYER_DATA *keeper, PLAYER_DATA *ch )
  * Show the shop list to a character.
  * Can coalesce duplicated items.
  */
-PROP_DATA *get_shop_list_prop( PLAYER_DATA *keeper, PLAYER_DATA *ch, int number )
+PROP *get_shop_list_prop( PLAYER *keeper, PLAYER *ch, int number )
 {
-    PROP_DATA **lastprop;
-    PROP_DATA *prop;
+    PROP **lastprop;
+    PROP *prop;
     int nShow;
     int iShow;
     int count;
     bool fCombine;
-    PROP_DATA *list = keeper->carrying;
+    PROP *list = keeper->carrying;
 
     if ( ch->desc == NULL )
     return NULL;
@@ -477,7 +477,7 @@ PROP_DATA *get_shop_list_prop( PLAYER_DATA *keeper, PLAYER_DATA *ch, int number 
     count = 0;
     for ( prop = list; prop != NULL; prop = prop->next_content )
 	count++;
-    lastprop     = alloc_mem( count * sizeof(PROP_DATA *) );
+    lastprop     = alloc_mem( count * sizeof(PROP *) );
     nShow	= 0;
 
     /*
@@ -538,18 +538,18 @@ PROP_DATA *get_shop_list_prop( PLAYER_DATA *keeper, PLAYER_DATA *ch, int number 
     /*
      * Clean up.
      */
-    free_mem( lastprop,     count * sizeof(PROP_DATA *)  );
+    free_mem( lastprop,     count * sizeof(PROP *)  );
 
     return prop;
 }
 #endif
 
 
-PROP_DATA *get_shop_list_prop( PLAYER_DATA *keeper, PLAYER_DATA *ch, int number )
+PROP *get_shop_list_prop( PLAYER *keeper, PLAYER *ch, int number )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     int count;
-    PROP_DATA *list = keeper->carrying;
+    PROP *list = keeper->carrying;
 
     if ( ch->desc == NULL )
     return NULL;
@@ -570,10 +570,10 @@ PROP_DATA *get_shop_list_prop( PLAYER_DATA *keeper, PLAYER_DATA *ch, int number 
 
 
 
-PLAYER_DATA *find_keeper( PLAYER_DATA *ch, char *arg, bool Report )
+PLAYER *find_keeper( PLAYER *ch, char *arg, bool Report )
 {
-    PLAYER_DATA *keeper = NULL;
-    SHOP_DATA *pShop = NULL;
+    PLAYER *keeper = NULL;
+    SHOP *pShop = NULL;
 
     if ( *arg != 0 )
     {
@@ -589,7 +589,7 @@ PLAYER_DATA *find_keeper( PLAYER_DATA *ch, char *arg, bool Report )
     {
     for ( keeper = ch->in_scene->people; keeper; keeper = keeper->next_in_scene )
     {
-	if ( IS_NPC(keeper) && (pShop = keeper->pIndexData->pShop) != NULL )
+	if ( NPC(keeper) && (pShop = keeper->pIndexData->pShop) != NULL )
 	    break;
     }
     }
@@ -603,13 +603,13 @@ PLAYER_DATA *find_keeper( PLAYER_DATA *ch, char *arg, bool Report )
     /*
      * Shop hours.
      */
-    if ( weather_info.hour == 12 && number_range(0,2) == 1 )
+    if ( weather.hour == 12 && number_range(0,2) == 1 )
     {
         cmd_smote( keeper, "#grumble I'm on my lunch break, leave me be!" );
         return NULL;
     }
 
-    if ( weather_info.hour < pShop->open_hour || weather_info.hour > pShop->close_hour )
+    if ( weather.hour < pShop->open_hour || weather.hour > pShop->close_hour )
     {
         char buf[MAX_STRING_LENGTH];
         char a[MAX_INPUT_LENGTH];
@@ -652,9 +652,9 @@ pShop->close_hour,  pShop->close_hour < 12 ? "in the morning" :
 /*
  * Careful of the recursion.
  */
-int get_cost( PLAYER_DATA *keeper, PROP_DATA *prop, bool fBuy )
+int get_cost( PLAYER *keeper, PROP *prop, bool fBuy )
 {
-    SHOP_DATA *pShop;
+    SHOP *pShop;
     int cost;
 
     if ( prop == NULL || ( pShop = keeper->pIndexData->pShop ) == NULL )
@@ -662,7 +662,7 @@ int get_cost( PLAYER_DATA *keeper, PROP_DATA *prop, bool fBuy )
 
     if ( fBuy )
     {
-        PROP_DATA *pProp;
+        PROP *pProp;
         
         cost = prop->cost;
 
@@ -681,7 +681,7 @@ int get_cost( PLAYER_DATA *keeper, PROP_DATA *prop, bool fBuy )
     }
     else
     {
-        PROP_DATA *prop2;
+        PROP *prop2;
         int itype;
 
         cost = 0;
@@ -726,13 +726,13 @@ int get_cost( PLAYER_DATA *keeper, PROP_DATA *prop, bool fBuy )
  *         repair appraise [prop]
  *         repair appraisal [prop]
  */
-void cmd_repair( PLAYER_DATA *ch, char *argument )
+void cmd_repair( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *keeper;
-    SHOP_DATA *pShop;
-    PROP_DATA *pProp;
+    PLAYER *keeper;
+    SHOP *pShop;
+    PROP *pProp;
     char *p;
     int cost;
     bool AppraiseOnly = FALSE;
@@ -774,12 +774,12 @@ void cmd_repair( PLAYER_DATA *ch, char *argument )
          * No? Use skill.
          */
 
-        SKILL_DATA *pSkill = skill_lookup( "repair" );
+        SKILL *pSkill = skill_lookup( "repair" );
         WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
 
-        if ( skill_check( ch, find_skill_pc( ch, pSkill->vnum ), 50 ) )
+        if ( skill_check( ch, find_skill_pc( ch, pSkill->dbkey ), 50 ) )
         {
-             advance_skill( ch, find_skill_pc( ch, pSkill->vnum ), 1, 0 );
+             advance_skill( ch, find_skill_pc( ch, pSkill->dbkey ), 1, 0 );
              pProp->value[1] = pProp->value[1] + 10;
              if ( pProp->value[1] > pProp->value[2] ) {
                   pProp->value[1] = pProp->value[2];
@@ -855,13 +855,13 @@ void cmd_repair( PLAYER_DATA *ch, char *argument )
  * Syntax:  list
  *          list [person]
  */
-void cmd_list( PLAYER_DATA *ch, char *argument )
+void cmd_list( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
-    PLAYER_DATA *keeper;
-    SHOP_DATA *pShop;
+    PLAYER *keeper;
+    SHOP *pShop;
 
     argument = one_argument( argument, arg );
 
@@ -930,7 +930,7 @@ void cmd_list( PLAYER_DATA *ch, char *argument )
 
 
 
-bool transact( PLAYER_DATA *keeper, PROP_DATA *prop, PLAYER_DATA *ch, int price )
+bool transact( PLAYER *keeper, PROP *prop, PLAYER *ch, int price )
 {
     char buf[MAX_STRING_LENGTH];
     char *p;
@@ -978,11 +978,11 @@ bool transact( PLAYER_DATA *keeper, PROP_DATA *prop, PLAYER_DATA *ch, int price 
 
 
 
-void buy_ai( PLAYER_DATA *ch, PLAYER_DATA *keeper, int offer )
+void buy_ai( PLAYER *ch, PLAYER *keeper, int offer )
 {
 /*    char buf[MAX_STRING_LENGTH];
-    SHOP_DATA *pShop = keeper->pShop;
-    PROP_DATA *prop;
+    SHOP *pShop = keeper->pShop;
+    PROP *prop;
     int i;
 
     if ( (prop = ch->haggling) == NULL )
@@ -1035,13 +1035,13 @@ void buy_ai( PLAYER_DATA *ch, PLAYER_DATA *keeper, int offer )
  *          buy [component] [keeper]
  *          buy [prop] [keeper]
  */
-void cmd_buy( PLAYER_DATA *ch, char *argument )
+void cmd_buy( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
-    PLAYER_DATA *keeper;
+    PROP *prop;
+    PLAYER *keeper;
     int t, number;
 
 
@@ -1107,13 +1107,13 @@ void cmd_buy( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  trade [item] [keeper]
  */
-void cmd_trade( PLAYER_DATA *ch, char *argument )
+void cmd_trade( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
 /*    char buf[MAX_STRING_LENGTH]; */
-    PLAYER_DATA *keeper;
-    SHOP_DATA *pShop;
+    PLAYER *keeper;
+    SHOP *pShop;
     int t;
 
     return;
@@ -1142,7 +1142,7 @@ void cmd_trade( PLAYER_DATA *ch, char *argument )
     if ( ch->haggling != NULL )
     {
         if ( ch->haggling->carried_by == NULL )
-        extract_prop( ch->haggling );
+        extractor_prop( ch->haggling );
 
         ch->haggling = NULL;
         send_to_actor( "You stop haggling for the current item.\n\r", ch );
@@ -1163,13 +1163,13 @@ void cmd_trade( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_sell( PLAYER_DATA *ch, char *argument ) {
+void cmd_sell( PLAYER *ch, char *argument ) {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     char tells[MAX_INPUT_LENGTH];
-    PLAYER_DATA *keeper;
-    PROP_DATA *prop;
-    SHOP_DATA *pShop;
+    PLAYER *keeper;
+    PROP *prop;
+    SHOP *pShop;
     int cost, x, willBuy = FALSE;
 
     one_argument( argument, arg );
@@ -1226,7 +1226,7 @@ void cmd_sell( PLAYER_DATA *ch, char *argument ) {
     create_amount( cost, ch, NULL, NULL );
 
     if ( prop->item_type == ITEM_TRASH ) {
-                extract_prop( prop );
+                extractor_prop( prop );
     } else {
         prop_from_actor( prop );
         prop_to_actor( prop, keeper );
@@ -1239,7 +1239,7 @@ void cmd_sell( PLAYER_DATA *ch, char *argument ) {
 /*
  * Syntax:  barter [number] [keeper]
  */
-void cmd_barter( PLAYER_DATA *ch, char *argument )
+void cmd_barter( PLAYER *ch, char *argument )
 {
     return;
 }
@@ -1254,14 +1254,14 @@ void cmd_barter( PLAYER_DATA *ch, char *argument )
  *          offer agree [quantity]
  *          offer accept [quantity]
  */
-void cmd_offer( PLAYER_DATA *ch, char *argument )
+void cmd_offer( PLAYER *ch, char *argument )
 {
     return;
 }
 
 
 
-void cmd_appraise( PLAYER_DATA *ch, char *argument )
+void cmd_appraise( PLAYER *ch, char *argument )
 {
     return;
 }

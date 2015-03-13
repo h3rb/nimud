@@ -3881,12 +3881,12 @@ M 0
 W 0
 T 0
 O ~
-ED small inscriptions inscription~
-"Enter all ye who wish to join the Brotherhood!"
-~
 ED portal blue~
 You see a swirling blue portal of light. You think you can see glimpses of
 something moving on the "other side".
+~
+ED small inscriptions inscription~
+"Enter all ye who wish to join the Brotherhood!"
 ~
 Dr 0 0 0 17321
 ~
@@ -5594,11 +5594,11 @@ M 0
 W 0
 T 0
 O ~
-ED gold~
-Looks like the back of a secret door of sorts.
-~
 ED huge stone~
 A very formidable looking door.
+~
+ED gold~
+Looks like the back of a secret door of sorts.
 ~
 R M 17321 2 100 1
 Dr 1 0 2359 17386
@@ -5684,11 +5684,11 @@ M 0
 W 0
 T 0
 O ~
-ED red~
-You see a red door. It has the name "Gorak" written on it.
-~
 ED yellow~
 You see a yellow door. It has the name "Sumaron" written on it.
+~
+ED red~
+You see a red door. It has the name "Gorak" written on it.
 ~
 Dr 0 0 0 17387
 ~
@@ -5720,11 +5720,11 @@ M 0
 W 0
 T 0
 O ~
-ED black~
-You see a black door. It has the name "Darkoth" inscribed on it.
-~
 ED maroon~
 You see a maroon door here. It has the name "Amyrok" written on it.
+~
+ED black~
+You see a black door. It has the name "Darkoth" inscribed on it.
 ~
 Dr 0 0 0 17388
 ~
@@ -5808,11 +5808,11 @@ M 0
 W 0
 T 0
 O ~
-ED white~
-You see a white door here. It has the name "Tyrgoth" inscribed on it.
-~
 ED green~
 You see a green door here. It has the name "Nasturn" written on it.
+~
+ED white~
+You see a white door here. It has the name "Tyrgoth" inscribed on it.
 ~
 Dr 0 0 0 17389
 ~
@@ -5945,11 +5945,11 @@ M 0
 W 0
 T 0
 O ~
-ED brown~
-You see a brown door here. It has the name "Belrak" written on it.
-~
 ED grey~
 You see a grey door here. It has the name "Dorgar" written on it.
+~
+ED brown~
+You see a brown door here. It has the name "Belrak" written on it.
 ~
 Dr 0 0 0 17392
 ~

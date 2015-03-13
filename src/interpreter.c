@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -148,10 +148,10 @@ char * eval_expression        args( ( void * owner, int type, char *exp ) );
  * Locating things from owner/type; used in functions to locate things 
  */
 
-SCENE_INDEX_DATA *find_scene_here( void * owner, int type, char *exp ) {
-       SCENE_INDEX_DATA *pScene;
+SCENE *find_scene_here( void * owner, int type, char *exp ) {
+       SCENE *pScene;
 
-       pScene = get_scene_index( atoi(exp) );
+       pScene = get_scene( atoi(exp) );
        if ( pScene ) return pScene;
 
        FOREACH(type,return ACTOR(owner)->in_scene,
@@ -169,9 +169,9 @@ SCENE_INDEX_DATA *find_scene_here( void * owner, int type, char *exp ) {
        return NULL;
 }
 
-PLAYER_DATA *find_actor_here( void * owner, int type, char *exp ) {
-       PLAYER_DATA *rch;
-       PLAYER_DATA *found=NULL;
+PLAYER *find_actor_here( void * owner, int type, char *exp ) {
+       PLAYER *rch;
+       PLAYER *found=NULL;
 
        if ( type == TYPE_ACTOR ) found=get_actor_scene( ACTOR(owner), exp );
        if ( type == TYPE_PROP ) { 
@@ -203,7 +203,7 @@ PLAYER_DATA *find_actor_here( void * owner, int type, char *exp ) {
        return found;
 }
 
-PROP_DATA   *find_prop_here( void * owner, int type, char *exp ) {
+PROP   *find_prop_here( void * owner, int type, char *exp ) {
 
        if ( type == TYPE_ACTOR ) {
            return get_prop_here( ACTOR(owner), exp );
@@ -240,17 +240,17 @@ PROP_DATA   *find_prop_here( void * owner, int type, char *exp ) {
  * In other words, determine the type of the variable and
  * return the correct variable list.
  */
-VARIABLE_DATA **globals( void * owner, int type )
+VARIABLE **globals( void * owner, int type )
 {
-    PROP_DATA *prop;
-    PLAYER_DATA *ch;
-    SCENE_INDEX_DATA *scene;
+    PROP *prop;
+    PLAYER *ch;
+    SCENE *scene;
 
     switch ( type )
     {
-       case TYPE_PROP: prop  = (PROP_DATA *)owner;        return &prop->globals; break;
-       case TYPE_ACTOR: ch   = (PLAYER_DATA *)owner;       return &ch->globals; break;
-      case TYPE_SCENE: scene = (SCENE_INDEX_DATA *)owner; return &scene->globals; break;
+       case TYPE_PROP: prop  = (PROP *)owner;        return &prop->globals; break;
+       case TYPE_ACTOR: ch   = (PLAYER *)owner;       return &ch->globals; break;
+      case TYPE_SCENE: scene = (SCENE *)owner; return &scene->globals; break;
         default: return NULL; break;
     }
 }
@@ -261,9 +261,9 @@ VARIABLE_DATA **globals( void * owner, int type )
 /* 
  * Remove a variable from the list.
  */
-void rem_variable( VARIABLE_DATA **vlist, char *name )
+void rem_variable( VARIABLE **vlist, char *name )
 {
-   VARIABLE_DATA *v, *vp;
+   VARIABLE *v, *vp;
 
     vp = NULL;
     for ( v = *vlist;  v != NULL;  v = v->next )
@@ -291,9 +291,9 @@ void rem_variable( VARIABLE_DATA **vlist, char *name )
  * Searches a variable list for a variable with supplied name.
  * This is useful but is never used anywhere in this code.
  */
-VARIABLE_DATA *get_variable( VARIABLE_DATA *vlist, char *name )
+VARIABLE *get_variable( VARIABLE *vlist, char *name )
 {
-    VARIABLE_DATA *v;
+    VARIABLE *v;
 
     for ( v = vlist;  v != NULL;  v = v->next )
     {
@@ -312,10 +312,10 @@ VARIABLE_DATA *get_variable( VARIABLE_DATA *vlist, char *name )
  * Called by translate_variables for locating variables assocated
  * with an owner.
  */
-VARIABLE_DATA *find_variable( void * owner, int type, char *name )
+VARIABLE *find_variable( void * owner, int type, char *name )
 {
-    VARIABLE_DATA *v;
-    INSTANCE_DATA *instance = PARSING(owner,type);
+    VARIABLE *v;
+    INSTANCE *instance = PARSING(owner,type);
 
     /*
      * Search priority: locals then globals.
@@ -353,7 +353,7 @@ VARIABLE_DATA *find_variable( void * owner, int type, char *name )
  */
 char *translate_variables_noliterals( void * owner, int type, char *exp )
 {
-    VARIABLE_DATA *var;
+    VARIABLE *var;
     static char buf[MAX_STRING_LENGTH];
     char *p;
     char *vpoint;
@@ -434,9 +434,9 @@ char *translate_variables_noliterals( void * owner, int type, char *exp )
  * Translates all variables on said owner's expression if "%string%,"
  * ignoring parsing of literals.  (Strips the literals out)
  */
-char *translate_variables_noliterals_list( VARIABLE_DATA *list, char *exp )
+char *translate_variables_noliterals_list( VARIABLE *list, char *exp )
 {
-    VARIABLE_DATA *var;
+    VARIABLE *var;
     static char buf[MAX_STRING_LENGTH];
     char *p;
     char *vpoint;
@@ -520,7 +520,7 @@ char *translate_variables_noliterals_list( VARIABLE_DATA *list, char *exp )
  */
 char *translate_variables( void * owner, int type, char *exp )
 {
-    VARIABLE_DATA *var;
+    VARIABLE *var;
     static char buf[MAX_STRING_LENGTH];
     char *p;
     char *vpoint;
@@ -627,12 +627,12 @@ char *translate_variables( void * owner, int type, char *exp )
  *
  * To add a new function, simply add it to the long if-statements.
  */
-VARIABLE_DATA *eval_function( void * owner, int type, char *exp )
+VARIABLE *eval_function( void * owner, int type, char *exp )
 {
-    VARIABLE_DATA *value=NULL;
+    VARIABLE *value=NULL;
     char name[MAX_STRING_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    VARIABLE_DATA *ppoint[MAX_PARAMS];
+    VARIABLE *ppoint[MAX_PARAMS];
     char params [MAX_PARAMS][MAX_STRING_LENGTH];
     char *p;
     char *original;
@@ -1022,7 +1022,7 @@ case 'j':
 break;
 
 case 'v':
-    FUNC("vnum",     func_vnum    (owner, type, ppoint[0]) );
+    FUNC("dbkey",     func_dbkey    (owner, type, ppoint[0]) );
     else
     GRAPHICS_FUNCTION(func_vline, "vline");
     else
@@ -1152,13 +1152,13 @@ case 's':
     else
     SET_FUNCTIONSI(func_setlight,     "setlight" );
     else        
-    SET_FUNCTIONSI(func_setsector,    "setsector" );
+    SET_FUNCTIONSI(func_setmove,    "setmove" );
     else
     SET_FUNCTIONSI(func_setterrain,   "setterrain" );
     else
     SET_FUNCTIONSI(func_setwagon,     "setwagon" );
     else
-    GET_FUNCTIONSI(func_sector,       "sector" );
+    GET_FUNCTIONSI(func_move,       "move" );
     else
     SET_FUNCTIONAS(func_setactorname, "setactorname" );
     else
@@ -1379,10 +1379,10 @@ break;
  * Assigns a variable, creating a new one if required.
  * Note string routines embedded in scriptedure.
  */
-void assign_var( void * owner, int type, VARIABLE_DATA *var, char *name )
+void assign_var( void * owner, int type, VARIABLE *var, char *name )
 {
-    VARIABLE_DATA *v;
-    INSTANCE_DATA *trig = PARSING(owner,type);
+    VARIABLE *v;
+    INSTANCE *trig = PARSING(owner,type);
 
     if ( !trig )
     return;
@@ -1399,7 +1399,7 @@ void assign_var( void * owner, int type, VARIABLE_DATA *var, char *name )
     }
     else
     {
-        v = new_variable_data( );
+        v = new_var( );
         v->next = trig->locals;
         trig->locals = v;
         v->name = str_dup( name );
@@ -1422,14 +1422,14 @@ void assign_var( void * owner, int type, VARIABLE_DATA *var, char *name )
  * Puts it on an instance as a local variable.
  * Does not check for duplicates.
  */
-void assign_local( INSTANCE_DATA *pInstance, VARIABLE_DATA *var, char *name )
+void assign_local( INSTANCE *pInstance, VARIABLE *var, char *name )
 {
-    VARIABLE_DATA *v;
+    VARIABLE *v;
 
     if ( !pInstance )
     return;
 
-    v = new_variable_data( );
+    v = new_var( );
     v->next = pInstance->locals;  /* add to list */
     pInstance->locals = v;
     v->name = str_dup( name );
@@ -1455,7 +1455,7 @@ void parse_assign( char *l, void * owner, int type )
 {
     char vname[MAX_STRING_LENGTH];
     char *p;
-    VARIABLE_DATA *value;
+    VARIABLE *value;
 
     /*
      * Grab the variable name from the beginning of the line.
@@ -1501,14 +1501,14 @@ void parse_assign( char *l, void * owner, int type )
  * memory leaks; this function makes calls to all script language
  * functions with eval_function() and parse_assign().
  */
-void parse_script( INSTANCE_DATA *instance, void * owner, int type )
+void parse_script( INSTANCE *instance, void * owner, int type )
 {
-    PLAYER_DATA *ch = NULL;
-    PROP_DATA *prop;
-    SCENE_INDEX_DATA *scene;
+    PLAYER *ch = NULL;
+    PROP *prop;
+    SCENE *scene;
     char *commands;
 
-    int rvnum = 0;
+    int rdbkey = 0;
 
     if ( instance == NULL )
     {
@@ -1532,19 +1532,19 @@ void parse_script( INSTANCE_DATA *instance, void * owner, int type )
     switch ( type )
     {
        case TYPE_PROP:
-         prop  = (PROP_DATA *)owner;
+         prop  = (PROP *)owner;
          prop->current  = instance;
-         rvnum = prop->in_scene ? prop->in_scene->vnum : 0;
+         rdbkey = prop->in_scene ? prop->in_scene->dbkey : 0;
         break;
        case TYPE_ACTOR:
-         ch   = (PLAYER_DATA *)owner;
+         ch   = (PLAYER *)owner;
          ch->current   = instance;
-         rvnum = ch->in_scene->vnum;
+         rdbkey = ch->in_scene->dbkey;
         break;
        case TYPE_SCENE:
-         scene = (SCENE_INDEX_DATA *)owner;
+         scene = (SCENE *)owner;
          scene->current = instance;
-         rvnum = scene->vnum;
+         rdbkey = scene->dbkey;
         break;
        default:
          bug( "Parse_script: Invalid requested owner-type.", 0 );
@@ -1563,7 +1563,7 @@ void parse_script( INSTANCE_DATA *instance, void * owner, int type )
          * If so, remove all variables associated with this script.
          */
 
-        VARIABLE_DATA *pVar, *pVar_next;
+        VARIABLE *pVar, *pVar_next;
 
         for ( pVar = instance->locals;  pVar != NULL; pVar = pVar_next )
         {
@@ -1604,7 +1604,7 @@ void parse_script( INSTANCE_DATA *instance, void * owner, int type )
         parse_assign( commands, owner, type );
         else
         {
-            VARIABLE_DATA *value;
+            VARIABLE *value;
 
             value = eval_function( owner, type, commands );
             free_variable( value );
@@ -1627,7 +1627,7 @@ void parse_script( INSTANCE_DATA *instance, void * owner, int type )
  *
  * Assumes its already in the instance list for the owner.
  */
-int trigger( void * owner, int type, INSTANCE_DATA *trig )
+int trigger( void * owner, int type, INSTANCE *trig )
 {
     int returned;
 
@@ -1656,26 +1656,26 @@ int trigger( void * owner, int type, INSTANCE_DATA *trig )
  * specifically in cmd_cast, as well as the update routines
  * in update.c, and some of the other cmd_ functions.
  */
-int script_update( void * owner, int type, int ttype, PLAYER_DATA *actor,
-                    PROP_DATA *catalyst, char *astr, char *bstr  )
+int script_update( void * owner, int type, int ttype, PLAYER *actor,
+                    PROP *catalyst, char *astr, char *bstr  )
 {
-    INSTANCE_DATA *trig;
-    SCENE_INDEX_DATA *scene =NULL;
-    PLAYER_DATA *ch =NULL;
-    PROP_DATA *prop =NULL;
+    INSTANCE *trig;
+    SCENE *scene =NULL;
+    PLAYER *ch =NULL;
+    PROP *prop =NULL;
     int returned=0;
     
     switch ( type )
     {
-       case TYPE_PROP:  prop = (PROP_DATA *)owner; 
+       case TYPE_PROP:  prop = (PROP *)owner; 
                         trig = prop->instances; 
                       break;
 
-       case TYPE_ACTOR:  ch  = (PLAYER_DATA *)owner; 
+       case TYPE_ACTOR:  ch  = (PLAYER *)owner; 
                          trig = ch->instances; 
                       break;
 
-       case TYPE_SCENE: scene = (SCENE_INDEX_DATA *)owner; 
+       case TYPE_SCENE: scene = (SCENE *)owner; 
                         trig = scene->instances;
                        break;
 
@@ -1693,8 +1693,8 @@ int script_update( void * owner, int type, int ttype, PLAYER_DATA *actor,
         continue;
 
         {
-            INSTANCE_DATA *oldtrig = PARSING(owner,type);
-            VARIABLE_DATA *var;
+            INSTANCE *oldtrig = PARSING(owner,type);
+            VARIABLE *var;
 
             switch ( type )
             {
@@ -1707,7 +1707,7 @@ int script_update( void * owner, int type, int ttype, PLAYER_DATA *actor,
     if ( trig != NULL && trig->script->type != TRIG_EACH_PULSE ) {
           char buf[MAX_STRING_LENGTH];
           snprintf( buf, MAX_STRING_LENGTH, "Notify> Script %d, %s triggered by %s%s%s%s%s%s%s%s", 
-                   trig->script->vnum, 
+                   trig->script->dbkey, 
                    trig->script->name, actor ? NAME(actor) : "",
                    catalyst != NULL ? " " : "",
 		   catalyst != NULL  ? STR(catalyst,short_descr) : "",	   
@@ -1722,22 +1722,22 @@ int script_update( void * owner, int type, int ttype, PLAYER_DATA *actor,
 /*
  * Create default parameter variables.
  */
-            var = new_variable_data( );
+            var = new_var( );
             if ( actor )
             {
                 var->type  = TYPE_ACTOR;
-                var->value = (PLAYER_DATA *)actor;
+                var->value = (PLAYER *)actor;
                 assign_var( owner, type, var, "%actor%" );
 
                 var->type = TYPE_STRING;
-                var->value = (char *)str_dup( STR((PLAYER_DATA *)actor,name));
+                var->value = (char *)str_dup( STR((PLAYER *)actor,name));
                 assign_var( owner, type, var, "%name%" );
             }
 
             if ( catalyst )
             {
                 var->type = TYPE_PROP;
-                var->value = (PROP_DATA *)catalyst;
+                var->value = (PROP *)catalyst;
                 assign_var( owner, type, var, "%catalyst%" );
             }
 
@@ -1782,10 +1782,10 @@ int script_update( void * owner, int type, int ttype, PLAYER_DATA *actor,
  *
  * Called in a variety of locations.
  */
-void trigger_list( PROP_DATA *list, int ttype, PLAYER_DATA  *actor,
-                  PROP_DATA *catalyst, char *astr, char *bstr )
+void trigger_list( PROP *list, int ttype, PLAYER  *actor,
+                  PROP *catalyst, char *astr, char *bstr )
 {
-    PROP_DATA *prop, *prop_next;
+    PROP *prop, *prop_next;
 
     for ( prop = list;  prop != NULL;  prop = prop_next )
     {
@@ -1797,7 +1797,7 @@ void trigger_list( PROP_DATA *list, int ttype, PLAYER_DATA  *actor,
 }
 
 
-extern VARIABLE_DATA *mud_var_list;  /* from mem.c */
+extern VARIABLE *mud_var_list;  /* from mem.c */
 
 
 /*
@@ -1805,18 +1805,18 @@ extern VARIABLE_DATA *mud_var_list;  /* from mem.c */
  * information about a single instance, or general info on the actor's current
  * state of execution.
  */
-void cmd_script( PLAYER_DATA *ch, char *argument )
+void cmd_script( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
-    PLAYER_DATA *victim;
+    PROP *prop;
+    PLAYER *victim;
 /*
     void * owner;
     int type;
  */
 
-    if ( IS_NPC(ch) || ch->userdata == NULL )
+    if ( NPC(ch) || ch->userdata == NULL )
         return;
 
     one_argument( argument, arg );
@@ -1830,7 +1830,7 @@ void cmd_script( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg, "variables" ) )
     {
-        VARIABLE_DATA *pVar;
+        VARIABLE *pVar;
 
         for ( pVar = mud_var_list;  pVar != NULL;  pVar = pVar->next_master_var )
         {
@@ -1842,12 +1842,12 @@ void cmd_script( PLAYER_DATA *ch, char *argument )
                 case TYPE_STRING:
 snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                 case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER_DATA *)(pVar->value) ) ); break;
+snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                 case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP_DATA *)(pVar->value))->pIndexData->vnum );
+snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
  break;
                 case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->value))->vnum ); 
+snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
  break;
                        default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
             }
@@ -1861,8 +1861,8 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->val
     if ( (victim = get_actor_world(ch,arg)) == NULL )
     {
         bool fFound = FALSE;
-        INSTANCE_DATA *pTrig;
-        VARIABLE_DATA *pVar;
+        INSTANCE *pTrig;
+        VARIABLE *pVar;
 
         prop = get_prop_here( ch, arg );
 
@@ -1886,7 +1886,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->val
             fFound = TRUE;
 
             snprintf( buf, MAX_STRING_LENGTH, "-==[WATCHING]==---------[%5d] %s (%d, auto %d)\n\r%s",
-                     pTrig->script->vnum, pTrig->script->name,
+                     pTrig->script->dbkey, pTrig->script->name,
                      pTrig->wait, pTrig->autowait,
                      pTrig->location ? pTrig->location : "" );
             send_to_actor( buf, ch );
@@ -1901,12 +1901,12 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->val
                 case TYPE_STRING:
 snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                 case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER_DATA *)(pVar->value) ) ); break;
+snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                 case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP_DATA *)(pVar->value))->pIndexData->vnum );
+snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
  break;
                 case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->value))->vnum ); 
+snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
  break;
                        default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
             }
@@ -1919,11 +1919,11 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->val
         
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
         bool fFound = FALSE;
-        INSTANCE_DATA *pTrig;
-        VARIABLE_DATA *pVar;
+        INSTANCE *pTrig;
+        VARIABLE *pVar;
 
         ch->userdata->trackscr = (void *)victim;
         ch->userdata->trackscr_type = TYPE_ACTOR;
@@ -1937,7 +1937,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->val
             fFound = TRUE;
 
             snprintf( buf, MAX_STRING_LENGTH, "-==[WATCHING]==---[%5d] %s (%d, aw:%d)\n\r%s",
-                     pTrig->script->vnum, pTrig->script->name,
+                     pTrig->script->dbkey, pTrig->script->name,
                      pTrig->wait, pTrig->autowait,
                      pTrig->location ? pTrig->location : "" );
             send_to_actor( buf, ch );
@@ -1952,12 +1952,12 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->val
                 case TYPE_STRING:
 snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                 case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER_DATA *)(pVar->value) ) ); break;
+snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                 case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP_DATA *)(pVar->value))->pIndexData->vnum );
+snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
  break;
                 case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->value))->vnum ); 
+snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
  break;
                        default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
             }
@@ -1974,9 +1974,9 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->val
 /*
  * Godspeak.  Tests scripting language for debugging purposes.
  */  
-void cmd_gspeak( PLAYER_DATA *ch, char *argument )
+void cmd_gspeak( PLAYER *ch, char *argument )
 {
-      VARIABLE_DATA *var; 
+      VARIABLE *var; 
       char arg[MAX_STRING_LENGTH];
       char arg1[MAX_STRING_LENGTH];
       char arg2[MAX_STRING_LENGTH];
@@ -1988,11 +1988,11 @@ void cmd_gspeak( PLAYER_DATA *ch, char *argument )
       argument = one_argument( argument, arg2 ); 
 
       if ( arg[0] == '\0' || *p == '\0' ) {
-           INSTANCE_DATA *pInst, *pInstNext;
+           INSTANCE *pInst, *pInstNext;
 
            send_to_actor( "Any scripts running on yourself are now halted.\n\r", ch );
            send_to_actor( "To test an expression, try .expression()\n\r", ch );
-           send_to_actor( "To run a script on yourself, type .run vnum\n\r", ch );
+           send_to_actor( "To run a script on yourself, type .run dbkey\n\r", ch );
 
            for ( pInst = ch->instances;  pInst != NULL;  pInst = pInstNext )
            { pInstNext = pInst->next;  free_instance( pInst ); }
@@ -2001,7 +2001,7 @@ void cmd_gspeak( PLAYER_DATA *ch, char *argument )
       }
 
       if ( !str_cmp( arg, "run" ) && ch->instances == NULL ) {
-           SCRIPT_DATA *pScript;
+           SCRIPT *pScript;
 
            pScript = get_script_index( atoi(arg1) );
            if ( pScript == NULL ) {
@@ -2019,10 +2019,10 @@ void cmd_gspeak( PLAYER_DATA *ch, char *argument )
            ch->instances->location = pScript->commands;
            ch->current = ch->instances;
 
-           var = new_variable_data( );  /* temporary variable */
+           var = new_var( );  /* temporary variable */
 
            var->type  = TYPE_ACTOR;
-           var->value = (PLAYER_DATA *)ch;
+           var->value = (PLAYER *)ch;
            assign_var( ch, TYPE_ACTOR, var, "%actor%" );
 
            var->type = TYPE_STRING;
@@ -2052,9 +2052,9 @@ void cmd_gspeak( PLAYER_DATA *ch, char *argument )
        send_to_actor( p, ch );
        send_to_actor( "\n\r\n\rEvaluates to:\n\r\n\r", ch );
        send_to_actor( var->type == TYPE_STRING ? var->value : 
-                     var->type == TYPE_ACTOR ? STR((PLAYER_DATA *)(var->value),name) : 
-                     var->type == TYPE_PROP ? STR((PROP_DATA *)(var->value), short_descr) :
-                     var->type == TYPE_SCENE ? ((SCENE_INDEX_DATA *)(var->value))->name :
+                     var->type == TYPE_ACTOR ? STR((PLAYER *)(var->value),name) : 
+                     var->type == TYPE_PROP ? STR((PROP *)(var->value), short_descr) :
+                     var->type == TYPE_SCENE ? ((SCENE *)(var->value))->name :
                       "(unknown)", ch );
        send_to_actor( "\n\r", ch ); 
        free_variable( var );
@@ -2082,7 +2082,7 @@ char param_buf[MSL];
 /*
  * Convert a variable to its string equivalent.
  */
-void STR_PARAM_parse( VARIABLE_DATA *var, char *_val, void *owner, int type ) {
+void STR_PARAM_parse( VARIABLE *var, char *_val, void *owner, int type ) {
     char *p;
     int i;
 
@@ -2104,20 +2104,20 @@ void STR_PARAM_parse( VARIABLE_DATA *var, char *_val, void *owner, int type ) {
 }
 
 /*
- * Return a target owner information based on vnum and type,
+ * Return a target owner information based on dbkey and type,
  * such that for scenes you would have R340 and props O514 etc.
  */
 void * get_target( void * owner, int type, int * target_type, char *exp )
 {
-    int vnum;
+    int dbkey;
 
 	switch (  *exp	)
 	{
 		case 'r':
         case 'R': *target_type = TYPE_SCENE;
 				  if ( type == TYPE_SCENE ) return owner;
-                  if ( type == TYPE_ACTOR  ) return ((PLAYER_DATA *)owner)->in_scene;
-                  if ( type == TYPE_PROP  ) return ((PROP_DATA *)owner)->in_scene;
+                  if ( type == TYPE_ACTOR  ) return ((PLAYER *)owner)->in_scene;
+                  if ( type == TYPE_PROP  ) return ((PROP *)owner)->in_scene;
 				  break;
 		case 'o':
         case 'O': *target_type = TYPE_PROP;  break;
@@ -2128,36 +2128,36 @@ void * get_target( void * owner, int type, int * target_type, char *exp )
 
 	exp++;
 
-	vnum = atoi(exp);
+	dbkey = atoi(exp);
 
 	if ( type == TYPE_PROP )
 	{
-		PROP_DATA *cprop = (PROP_DATA *) owner;
+		PROP *cprop = (PROP *) owner;
 
         if ( *target_type == TYPE_PROP )
 		{
-			PROP_DATA *prop;
+			PROP *prop;
 
 			for ( prop = cprop->in_prop;
-				  prop != NULL && prop->pIndexData->vnum != vnum;
+				  prop != NULL && prop->pIndexData->dbkey != dbkey;
 				  prop = prop->next_content );
 
 			if ( prop != NULL ) return prop;
 
 			for ( prop = cprop->in_scene->contents;
-				  prop != NULL && prop->pIndexData->vnum != vnum;
+				  prop != NULL && prop->pIndexData->dbkey != dbkey;
 				  prop = prop->next_content );
 
 			if ( prop != NULL ) return prop;
 
 			for ( prop = cprop->contains;
-				  prop != NULL && prop->pIndexData->vnum != vnum;
+				  prop != NULL && prop->pIndexData->dbkey != dbkey;
 				  prop = prop->next_content );
 
 			if ( prop != NULL ) return prop;
 
 			for ( prop = prop_list;
-				  prop != NULL && prop->pIndexData->vnum != vnum;
+				  prop != NULL && prop->pIndexData->dbkey != dbkey;
 				  prop = prop->next );
 
 			return prop;
@@ -2165,16 +2165,16 @@ void * get_target( void * owner, int type, int * target_type, char *exp )
 
         if ( *target_type == TYPE_ACTOR )
 		{
-			PLAYER_DATA *actor;
+			PLAYER *actor;
 
 			for ( actor = cprop->carried_by->in_scene->people;
-				  actor != NULL && IS_NPC(actor) && actor->pIndexData->vnum != vnum;
+				  actor != NULL && NPC(actor) && actor->pIndexData->dbkey != dbkey;
 				  actor = actor->next_in_scene );
 
             if ( actor != NULL ) return actor;
 
 			for ( actor = actor_list;
-				  actor != NULL && IS_NPC(actor) && actor->pIndexData->vnum != vnum;
+				  actor != NULL && NPC(actor) && actor->pIndexData->dbkey != dbkey;
 				  actor = actor->next );
 
 			return actor;
@@ -2183,26 +2183,26 @@ void * get_target( void * owner, int type, int * target_type, char *exp )
 
 	if ( type == TYPE_ACTOR )
 	{
-        PLAYER_DATA *cactor = (PLAYER_DATA *) owner;
+        PLAYER *cactor = (PLAYER *) owner;
 
         if ( *target_type == TYPE_PROP )
 		{
-			PROP_DATA *prop;
+			PROP *prop;
 
 			for ( prop = cactor->carrying;
-				  prop != NULL && prop->pIndexData->vnum != vnum;
+				  prop != NULL && prop->pIndexData->dbkey != dbkey;
 				  prop = prop->next_content );
 
 			if ( prop != NULL ) return prop;
 
 			for ( prop = cactor->in_scene->contents;
-				  prop != NULL && prop->pIndexData->vnum != vnum;
+				  prop != NULL && prop->pIndexData->dbkey != dbkey;
 				  prop = prop->next_content );
 
 			if ( prop != NULL ) return prop;
 
 			for ( prop = prop_list;
-				  prop != NULL && prop->pIndexData->vnum != vnum;
+				  prop != NULL && prop->pIndexData->dbkey != dbkey;
 				  prop = prop->next );
 
 			return prop;
@@ -2210,16 +2210,16 @@ void * get_target( void * owner, int type, int * target_type, char *exp )
 
         if ( *target_type == TYPE_ACTOR )
 		{
-			PLAYER_DATA *actor;
+			PLAYER *actor;
 
 			for ( actor = cactor->in_scene->people;
-				  actor != NULL && IS_NPC(actor) && actor->pIndexData->vnum != vnum;
+				  actor != NULL && NPC(actor) && actor->pIndexData->dbkey != dbkey;
 				  actor = actor->next_in_scene );
 
             if ( actor != NULL ) return actor;
 
 			for ( actor = actor_list;
-				  actor != NULL && IS_NPC(actor) && actor->pIndexData->vnum != vnum;
+				  actor != NULL && NPC(actor) && actor->pIndexData->dbkey != dbkey;
 				  actor = actor->next );
 
 			return actor;
@@ -2255,7 +2255,7 @@ void mini_parse_script( void * owner, int type, char *exp )
         parse_assign( commands, owner, type );
         else
         {
-            VARIABLE_DATA *value;
+            VARIABLE *value;
 
             value = eval_function( owner, type, commands );
             free_variable( value );
@@ -2269,10 +2269,10 @@ void mini_parse_script( void * owner, int type, char *exp )
 
 
 
-void instance_track( INSTANCE_DATA *instance, void * owner ) {
+void instance_track( INSTANCE *instance, void * owner ) {
 {
-    VARIABLE_DATA *pVar;
-    PLAYER_DATA *bch;
+    VARIABLE *pVar;
+    PLAYER *bch;
     char buf[MSL];
     char *p;
 
@@ -2310,7 +2310,7 @@ void instance_track( INSTANCE_DATA *instance, void * owner ) {
 
             snprintf( buf, MAX_STRING_LENGTH, 
 "_______[%5d] %s (%d/aw:%d) Last-If: %d_______________\n\r",
-                     instance->script->vnum, 
+                     instance->script->dbkey, 
                      instance->script->name,
                      instance->wait, instance->autowait, 
                      instance->last_conditional );
@@ -2331,11 +2331,11 @@ void instance_track( INSTANCE_DATA *instance, void * owner ) {
                     case TYPE_STRING: 
 snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                     case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER_DATA *)(pVar->value) ) ); break;
+snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                     case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP_DATA  *)(pVar->value))->pIndexData->vnum ); break;
+snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP  *)(pVar->value))->pIndexData->dbkey ); break;
                     case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE_INDEX_DATA *)(pVar->value))->vnum ); break;
+snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); break;
                     default:          
 snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
                 }

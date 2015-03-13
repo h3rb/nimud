@@ -177,91 +177,91 @@ O ~
 AP 15 15 15 15 15
 Sc 6001
 At 0 10 16 12
-Sk 10 'nasang'
-Sk 10 'wodan'
-Sk 10 'taug'
-Sk 10 'gana'
-Sk 10 'zad'
-Sk 10 'dadro'
-Sk 10 'meditation'
-Sk 10 'zeich'
-Sk 10 'kora'
-Sk 10 'nelse'
-Sk 10 'san'
-Sk 10 'cobbling'
-Sk 10 'coopering'
-Sk 10 'carpentry'
-Sk 10 'mining'
-Sk 10 'panning'
-Sk 10 'sewing'
-Sk 10 'gunsmithing'
-Sk 10 'silversmithing'
-Sk 10 'bronze smithing'
-Sk 10 'ironsmithing'
-Sk 10 'goldsmithing'
-Sk 10 'fletching'
-Sk 10 'repair'
-Sk 10 'craft'
-Sk 10 'exotic'
-Sk 10 'sharpshooting'
-Sk 10 'ranged'
-Sk 10 'thrown'
-Sk 10 'whips'
-Sk 10 'bludgeons'
-Sk 10 'hafted'
-Sk 10 'piercing'
-Sk 10 'edged'
-Sk 10 'weapon proficiencies'
-Sk 10 'pickpocketing'
-Sk 10 'lock picking'
-Sk 10 'peek'
-Sk 10 'backstab'
-Sk 10 'legerdemain'
-Sk 10 'foraging'
-Sk 10 'stealth'
 Sk 10 'camoflage'
-Sk 10 'riding'
-Sk 10 'climbing'
-Sk 10 'fishing'
-Sk 10 'swimming'
-Sk 10 'tracking'
-Sk 10 'wilderness survival'
-Sk 10 'disarm'
-Sk 10 'parry'
-Sk 10 'dodge'
-Sk 10 'heroism'
-Sk 10 'elusion'
-Sk 10 'defense'
-Sk 10 'enhanced damage'
-Sk 10 'melee'
-Sk 10 'fifth attack'
-Sk 10 'fourth attack'
-Sk 10 'third attack'
-Sk 10 'second attack'
-Sk 10 'dual wield'
-Sk 10 'offense'
-Sk 10 'imarind'
-Sk 10 'brood'
-Sk 10 'gaelic'
-Sk 10 'german'
-Sk 10 'japanese'
-Sk 10 'russian'
-Sk 10 'french'
-Sk 10 'argot'
-Sk 10 'stark'
-Sk 10 'language'
-Sk 10 'none'
-Sk 10 'unknown'
-Sk 10 'charm'
-Sk 10 'invisibility'
-Sk 10 'sleep'
-Sk 10 'lycanthropy'
-Sk 10 'poison'
-Sk 100 'stark'
-Sk 100 'stark'
-Sk 35 'foraging'
 Sk 5 'tracking'
+Sk 35 'foraging'
+Sk 100 'stark'
+Sk 100 'stark'
+Sk 10 'poison'
+Sk 10 'lycanthropy'
+Sk 10 'sleep'
+Sk 10 'invisibility'
+Sk 10 'charm'
+Sk 10 'unknown'
+Sk 10 'none'
+Sk 10 'language'
+Sk 10 'stark'
+Sk 10 'argot'
+Sk 10 'french'
+Sk 10 'russian'
+Sk 10 'japanese'
+Sk 10 'german'
+Sk 10 'gaelic'
+Sk 10 'brood'
+Sk 10 'imarind'
+Sk 10 'offense'
+Sk 10 'dual wield'
+Sk 10 'second attack'
+Sk 10 'third attack'
+Sk 10 'fourth attack'
+Sk 10 'fifth attack'
+Sk 10 'melee'
+Sk 10 'enhanced damage'
+Sk 10 'defense'
+Sk 10 'elusion'
+Sk 10 'heroism'
+Sk 10 'dodge'
+Sk 10 'parry'
+Sk 10 'disarm'
+Sk 10 'wilderness survival'
+Sk 10 'tracking'
+Sk 10 'swimming'
+Sk 10 'fishing'
+Sk 10 'climbing'
+Sk 10 'riding'
 Sk 10 'camoflage'
+Sk 10 'stealth'
+Sk 10 'foraging'
+Sk 10 'legerdemain'
+Sk 10 'backstab'
+Sk 10 'peek'
+Sk 10 'lock picking'
+Sk 10 'pickpocketing'
+Sk 10 'weapon proficiencies'
+Sk 10 'edged'
+Sk 10 'piercing'
+Sk 10 'hafted'
+Sk 10 'bludgeons'
+Sk 10 'whips'
+Sk 10 'thrown'
+Sk 10 'ranged'
+Sk 10 'sharpshooting'
+Sk 10 'exotic'
+Sk 10 'craft'
+Sk 10 'repair'
+Sk 10 'fletching'
+Sk 10 'goldsmithing'
+Sk 10 'ironsmithing'
+Sk 10 'bronze smithing'
+Sk 10 'silversmithing'
+Sk 10 'gunsmithing'
+Sk 10 'sewing'
+Sk 10 'panning'
+Sk 10 'mining'
+Sk 10 'carpentry'
+Sk 10 'coopering'
+Sk 10 'cobbling'
+Sk 10 'san'
+Sk 10 'nelse'
+Sk 10 'kora'
+Sk 10 'zeich'
+Sk 10 'meditation'
+Sk 10 'dadro'
+Sk 10 'zad'
+Sk 10 'gana'
+Sk 10 'taug'
+Sk 10 'wodan'
+Sk 10 'nasang'
 End
 
 #6002
@@ -307,8 +307,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 10 0 10 10 10
-Sc 6003
 Sc 6004
+Sc 6003
 End
 
 #6004
@@ -374,8 +374,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 4 4 4 4 4
-Sc 6007
 Sc 6005
+Sc 6007
 End
 
 #6010
@@ -420,8 +420,8 @@ Sz 24
 K 2 E 75
 O ~
 AP 4 4 4 4 4
-Sc 6007
 Sc 6006
+Sc 6007
 End
 
 #6012
@@ -532,8 +532,8 @@ Sz 24
 K 0 E 60
 O ~
 AP 2 2 2 2 2
-Sc 5012
 Sc 6006
+Sc 5012
 At 1 10 15 14
 At 2 5 10 10
 End
@@ -558,8 +558,8 @@ Sz 24
 K 0 E 300
 O ~
 AP 20 4 4 10 20
-Sc 6017
 Sc 6018
+Sc 6017
 End
 
 #6018

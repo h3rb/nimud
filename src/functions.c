@@ -44,8 +44,8 @@
 
 /* Kludgy work-around. */
 extern char param_buf[MSL];
-extern PROP_DATA *pPropFreeList;
-extern PLAYER_DATA *pActorFreeList;
+extern PROP *pPropFreeList;
+extern PLAYER *pActorFreeList;
 
 extern int gotoloops;  /* for stopping infinitely recursive scripts */
 
@@ -68,8 +68,8 @@ dSET_FUNCTIONSI(func_setmaxpeople,max_people);
 dGET_FUNCTIONSI(func_maxpeople,   max_people);
 dSET_FUNCTIONSI(func_setlight,    light);
 dGET_FUNCTIONSI(func_light,       light);
-dSET_FUNCTIONSI(func_setsector,   sector_type);
-dGET_FUNCTIONSI(func_sector,      sector_type);  /* add SB */
+dSET_FUNCTIONSI(func_setmove,   move);
+dGET_FUNCTIONSI(func_movetype,      move);  /* add SB */
 dSET_FUNCTIONSI(func_setterrain,  terrain);
 dGET_FUNCTIONSI(func_terrain,     terrain);
 dSET_FUNCTIONSI(func_setwagon,    wagon);
@@ -161,31 +161,31 @@ dGET_FUNCTIONPI(func_size,       size);
  * Global function declarations for setting global variables
  */
 
-dGET_FUNCTIONI(func_month,   weather_info.month); 
-dSET_FUNCTIONI(func_setmonth,weather_info.month);
+dGET_FUNCTIONI(func_month,   weather.month); 
+dSET_FUNCTIONI(func_setmonth,weather.month);
 
-dGET_FUNCTIONI(func_day,     weather_info.day); 
-dSET_FUNCTIONI(func_setday,  weather_info.day);
+dGET_FUNCTIONI(func_day,     weather.day); 
+dSET_FUNCTIONI(func_setday,  weather.day);
 
-dGET_FUNCTIONI(func_dayofweek,    (weather_info.day%7) ); 
+dGET_FUNCTIONI(func_dayofweek,    (weather.day%7) ); 
 
-dGET_FUNCTIONI(func_time,    weather_info.hour); 
-dSET_FUNCTIONI(func_settime, weather_info.hour);
+dGET_FUNCTIONI(func_time,    weather.hour); 
+dSET_FUNCTIONI(func_settime, weather.hour);
 
-dGET_FUNCTIONI(func_year,    weather_info.year); 
-dSET_FUNCTIONI(func_setyear, weather_info.year);
+dGET_FUNCTIONI(func_year,    weather.year); 
+dSET_FUNCTIONI(func_setyear, weather.year);
 
-dGET_FUNCTIONI(func_sky,     weather_info.sky); 
-dSET_FUNCTIONI(func_setsky,  weather_info.sky);
+dGET_FUNCTIONI(func_sky,     weather.sky); 
+dSET_FUNCTIONI(func_setsky,  weather.sky);
 
-dGET_FUNCTIONI(func_moon,    weather_info.moon_phase); 
-dSET_FUNCTIONI(func_setmoon, weather_info.moon_phase);
+dGET_FUNCTIONI(func_moon,    weather.moon_phase); 
+dSET_FUNCTIONI(func_setmoon, weather.moon_phase);
 
-dGET_FUNCTIONI(func_temperature,     weather_info.temperature); 
-dSET_FUNCTIONI(func_settemperature,  weather_info.temperature);
+dGET_FUNCTIONI(func_temperature,     weather.temperature); 
+dSET_FUNCTIONI(func_settemperature,  weather.temperature);
 
-dGET_FUNCTIONI(func_phase,   weather_info.next_phase); 
-dSET_FUNCTIONI(func_setphase,weather_info.next_phase);
+dGET_FUNCTIONI(func_phase,   weather.next_phase); 
+dSET_FUNCTIONI(func_setphase,weather.next_phase);
 
 /*
  * For access to math functions
@@ -269,19 +269,19 @@ dGRAPHICS_FUNCTION(func_draw,      draw_to_buffer( type == TYPE_ACTOR ?
                                   ((va && va->type == TYPE_ACTOR) ? 
                                    ACTOR(va->value) : NULL )) );
 
-#define V  VARIABLE_DATA
+#define V  VARIABLE
 
 /*
  * Locals
  */
 
-int prop_where( PROP_INDEX_DATA *p );
+int prop_where( PROP_TEMPLATE *p );
 
 /*
  * MSP audio-related functions
  */
 
-VARIABLE_DATA *func_check( void *owner, int type, V *n ) {
+VARIABLE *func_check( void *owner, int type, V *n ) {
   char _v[MSL];
   STR_PARAM(n,_v);
   if ( number_range(0,100) < atoi(_v) ) {
@@ -292,7 +292,7 @@ VARIABLE_DATA *func_check( void *owner, int type, V *n ) {
 }
 
 
-VARIABLE_DATA *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b ) {
+VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b ) {
    char buf[MSL];
    char _n[MSL]; // name
    char _t[MSL]; // target or type
@@ -301,9 +301,9 @@ VARIABLE_DATA *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
    char _l[MSL]; // loops
    char _b[MSL]; // balance
 
-   PLAYER_DATA *a=NULL;
-   SCENE_INDEX_DATA *s=NULL;
-   PROP_DATA *o=NULL;
+   PLAYER *a=NULL;
+   SCENE *s=NULL;
+   PROP *o=NULL;
  
    int loops;
 
@@ -321,7 +321,7 @@ VARIABLE_DATA *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
    if ( t->type == TYPE_ACTOR ) {
         a=ACTOR(t->value);
         if ( a ) {
-            if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
             return NULL;
         }
    }
@@ -330,7 +330,7 @@ VARIABLE_DATA *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
         s=SCENE(t->value);
         if ( s ) {
             for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
         }
    }
    else
@@ -344,7 +344,7 @@ VARIABLE_DATA *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
             s=o->in_scene;
             if ( s ) { 
              for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
             }
             o = o->in_prop;
             if ( o ) {
@@ -359,7 +359,7 @@ VARIABLE_DATA *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
              s=o->in_scene;
              if ( s ) { 
                for ( a = s->people; a!=NULL; a=a->next ) 
-                 if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+                 if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
               }
             }
         }
@@ -381,7 +381,7 @@ VARIABLE_DATA *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
    return NULL;
 }
 
-VARIABLE_DATA *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b ) {
+VARIABLE *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b ) {
    char buf[MSL];
    char _n[MSL]; // name
    char _t[MSL]; // target or type
@@ -390,9 +390,9 @@ VARIABLE_DATA *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
    char _l[MSL]; // loops
    char _b[MSL]; // balance
 
-   PLAYER_DATA *a=NULL;
-   SCENE_INDEX_DATA *s=NULL;
-   PROP_DATA *o=NULL;
+   PLAYER *a=NULL;
+   SCENE *s=NULL;
+   PROP *o=NULL;
  
    int loops;
 
@@ -410,7 +410,7 @@ VARIABLE_DATA *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
    if ( t->type == TYPE_ACTOR ) {
         a=ACTOR(t->value);
         if ( a ) {
-            if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
             return NULL;
         }
    }
@@ -419,7 +419,7 @@ VARIABLE_DATA *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
         s=SCENE(t->value);
         if ( s ) {
             for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
         }
    }
    else
@@ -433,7 +433,7 @@ VARIABLE_DATA *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
             s=o->in_scene;
             if ( s ) { 
              for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
             }
             o = o->in_prop;
             if ( o ) {
@@ -448,7 +448,7 @@ VARIABLE_DATA *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
              s=o->in_scene;
              if ( s ) { 
                for ( a = s->people; a!=NULL; a=a->next ) 
-                 if ( !IS_NPC(a) && IS_SET(a->act2,PLR_MSP) ) send_to_actor( buf, a );
+                 if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
               }
             }
         }
@@ -477,7 +477,7 @@ VARIABLE_DATA *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l,
 /*
  * Don't do anything, but provide a place for goto to go to.
  */
-VARIABLE_DATA *func_label( void * owner, int type )
+VARIABLE *func_label( void * owner, int type )
 {
     return NULL;
 }
@@ -488,9 +488,9 @@ VARIABLE_DATA *func_label( void * owner, int type )
 /*
  * Goto a specified label.
  */
-VARIABLE_DATA *func_goto( void * owner, int type, VARIABLE_DATA *label )
+VARIABLE *func_goto( void * owner, int type, VARIABLE *label )
 {
-    INSTANCE_DATA *instance = PARSING(owner,type);
+    INSTANCE *instance = PARSING(owner,type);
     char buf[MAX_STRING_LENGTH];
     char _label[MSL];
     char *exp;
@@ -585,9 +585,9 @@ VARIABLE_DATA *func_goto( void * owner, int type, VARIABLE_DATA *label )
 /*
  * Goto a specified label.
  */
-VARIABLE_DATA *func_ifgoto( void * owner, int type, VARIABLE_DATA *a, VARIABLE_DATA *yes, VARIABLE_DATA *no )
+VARIABLE *func_ifgoto( void * owner, int type, VARIABLE *a, VARIABLE *yes, VARIABLE *no )
 {
-    INSTANCE_DATA *instance = PARSING(owner,type);
+    INSTANCE *instance = PARSING(owner,type);
     char buf[MAX_STRING_LENGTH];
     char _a[MSL];
     char _yes[MSL];
@@ -691,10 +691,10 @@ VARIABLE_DATA *func_ifgoto( void * owner, int type, VARIABLE_DATA *a, VARIABLE_D
  *
  * Returns evaluated function calls based on condition.
  */
-VARIABLE_DATA *func_if( void * owner, int type,
-                        VARIABLE_DATA *exp,
-                        VARIABLE_DATA *iftrue,
-                        VARIABLE_DATA *iffalse )
+VARIABLE *func_if( void * owner, int type,
+                        VARIABLE *exp,
+                        VARIABLE *iftrue,
+                        VARIABLE *iffalse )
 {
     int val;
     char _exp[MSL];
@@ -703,7 +703,7 @@ VARIABLE_DATA *func_if( void * owner, int type,
     char *__iftrue;
     char *__iffalse;
     char *commands;
-    INSTANCE_DATA *instance = PARSING(owner,type);
+    INSTANCE *instance = PARSING(owner,type);
     char buf[MAX_STRING_LENGTH];
 
     if ( !instance ) return NULL;
@@ -736,7 +736,7 @@ VARIABLE_DATA *func_if( void * owner, int type,
             parse_assign( commands, owner, type );
             else
             {
-                VARIABLE_DATA *value;
+                VARIABLE *value;
 
                 value = eval_function( owner, type, commands );
                 free_variable( value );
@@ -766,7 +766,7 @@ VARIABLE_DATA *func_if( void * owner, int type,
             parse_assign( commands, owner, type );
             else
             {
-                VARIABLE_DATA *value;  /* mem leak ? */
+                VARIABLE *value;  /* mem leak ? */
 
                 value = eval_function( owner, type, commands );
                 free_variable( value );
@@ -790,9 +790,9 @@ VARIABLE_DATA *func_if( void * owner, int type,
  *
  * Set the value returned by the function.
  */
-VARIABLE_DATA *func_return( void * owner, int type, VARIABLE_DATA *value )
+VARIABLE *func_return( void * owner, int type, VARIABLE *value )
 {
-    INSTANCE_DATA *instance = PARSING( owner, type );
+    INSTANCE *instance = PARSING( owner, type );
     int x;
     char _value[MSL];
 
@@ -827,10 +827,10 @@ VARIABLE_DATA *func_return( void * owner, int type, VARIABLE_DATA *value )
  *
  * Halts a script, optionally sets the return value
  */
-VARIABLE_DATA *func_halt( void * owner, int type, VARIABLE_DATA *value )
+VARIABLE *func_halt( void * owner, int type, VARIABLE *value )
 {
-    INSTANCE_DATA *instance = PARSING(owner,type);
-/*    VARIABLE_DATA *pVar, *pVar_next; */
+    INSTANCE *instance = PARSING(owner,type);
+/*    VARIABLE *pVar, *pVar_next; */
     int x;
     char _value[MSL];
 
@@ -861,9 +861,9 @@ VARIABLE_DATA *func_halt( void * owner, int type, VARIABLE_DATA *value )
  *
  * Halt without prettiness (for debugging purposes).
  */
-VARIABLE_DATA *func_permhalt( void * owner, int type )
+VARIABLE *func_permhalt( void * owner, int type )
 {
-    INSTANCE_DATA *instance = PARSING(owner,type);
+    INSTANCE *instance = PARSING(owner,type);
 
     instance->location = NULL;
     SET_BIT(instance->state, SCRIPT_HALT);
@@ -877,9 +877,9 @@ VARIABLE_DATA *func_permhalt( void * owner, int type )
  *
  * Delay execution by number of pulses.
  */
-VARIABLE_DATA *func_wait( void * owner, int type, VARIABLE_DATA *value )
+VARIABLE *func_wait( void * owner, int type, VARIABLE *value )
 {
-    INSTANCE_DATA *instance = PARSING(owner,type);
+    INSTANCE *instance = PARSING(owner,type);
     char _value[MSL];
     int x;
 
@@ -898,9 +898,9 @@ VARIABLE_DATA *func_wait( void * owner, int type, VARIABLE_DATA *value )
  *
  * Set the instances' iterative delay counter value.
  */
-VARIABLE_DATA *func_autowait( void * owner, int type, VARIABLE_DATA *value )
+VARIABLE *func_autowait( void * owner, int type, VARIABLE *value )
 {
-    INSTANCE_DATA *instance = PARSING(owner,type);
+    INSTANCE *instance = PARSING(owner,type);
     char _value[MSL];
     int x;
 
@@ -915,23 +915,23 @@ VARIABLE_DATA *func_autowait( void * owner, int type, VARIABLE_DATA *value )
 /* -------------------------------------------------------------- */
 
 /*
- * Install(target,vnum);
- * Install(vnum);
+ * Install(target,dbkey);
+ * Install(dbkey);
  *
  * Installs a new script on a scene, prop or actor target.  Great
  * for special items or curse-type scripts.  Associated function:
  * Uninstall();
  */
 
-VARIABLE_DATA *func_install( void *owner, int type, 
-                             VARIABLE_DATA *target, 
-                             VARIABLE_DATA *script )
+VARIABLE *func_install( void *owner, int type, 
+                             VARIABLE *target, 
+                             VARIABLE *script )
 {
-   INSTANCE_DATA *pInstance;
-   PLAYER_DATA *ch=NULL;
-   SCENE_INDEX_DATA *pScene=NULL;
-   PROP_DATA *pProp=NULL;
-   SCRIPT_DATA *pScript;
+   INSTANCE *pInstance;
+   PLAYER *ch=NULL;
+   SCENE *pScene=NULL;
+   PROP *pProp=NULL;
+   SCRIPT *pScript;
    char _target[MSL];
    char _script[MSL];
 
@@ -974,14 +974,14 @@ VARIABLE_DATA *func_install( void *owner, int type,
 }
 
 /*
- * UnInstall(target,vnum);
- * UnInstall(vnum);
+ * UnInstall(target,dbkey);
+ * UnInstall(dbkey);
  *
- * Removes all instances of a script with a certain vnum.
+ * Removes all instances of a script with a certain dbkey.
  */
-VARIABLE_DATA *func_uninstall( void *owner, int type, 
-                               VARIABLE_DATA *target,
-                               VARIABLE_DATA *script ) {
+VARIABLE *func_uninstall( void *owner, int type, 
+                               VARIABLE *target,
+                               VARIABLE *script ) {
    
    return NULL;
 }
@@ -992,9 +992,9 @@ VARIABLE_DATA *func_uninstall( void *owner, int type,
  * Return an instance of supplied name on supplied owner.
  * Used in Call();
  */
-INSTANCE_DATA *find_instance( void * owner, int type, char *trigname )
+INSTANCE *find_instance( void * owner, int type, char *trigname )
 {
-	INSTANCE_DATA *trig;
+	INSTANCE *trig;
 
 	switch( type )
 	{
@@ -1014,16 +1014,16 @@ INSTANCE_DATA *find_instance( void * owner, int type, char *trigname )
 }
 
 /*
- * Call(vnum,target);
+ * Call(dbkey,target);
  * Call(name,target);
- * Call(vnum);
+ * Call(dbkey);
  * Call(name);
- * Begins another script instance by name or vnum.
+ * Begins another script instance by name or dbkey.
  */
-VARIABLE_DATA *func_call( void * owner, int type, VARIABLE_DATA *trigname,
-                          VARIABLE_DATA *target )
+VARIABLE *func_call( void * owner, int type, VARIABLE *trigname,
+                          VARIABLE *target )
 {
-    INSTANCE_DATA *instance;
+    INSTANCE *instance;
     char buf[MAX_STRING_LENGTH];
     char _trigname[MSL];
     void *target_owner;
@@ -1057,7 +1057,7 @@ VARIABLE_DATA *func_call( void * owner, int type, VARIABLE_DATA *trigname,
  * Self();
  * Return a pointer to oneself.
  */
-VARIABLE_DATA *func_self( void * owner, int type )
+VARIABLE *func_self( void * owner, int type )
 {
     RETURNS(type,owner);
 }
@@ -1068,9 +1068,9 @@ VARIABLE_DATA *func_self( void * owner, int type )
  * Foe();
  * Return a pointer to a foe.  RESERVED
  */
-VARIABLE_DATA *func_foe( void * owner, int type )
+VARIABLE *func_foe( void * owner, int type )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
   
     if ( type != TYPE_ACTOR ) return NULL;
 
@@ -1088,9 +1088,9 @@ VARIABLE_DATA *func_foe( void * owner, int type )
  * Following();
  * Return a pointer to a master.  RESERVED
  */
-VARIABLE_DATA *func_following( void * owner, int type )
+VARIABLE *func_following( void * owner, int type )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
   
     if ( type != TYPE_ACTOR ) return NULL;
 
@@ -1110,8 +1110,8 @@ VARIABLE_DATA *func_following( void * owner, int type )
  * Is(a,b);
  * Compare two values.
  */
-VARIABLE_DATA *func_cmp( void * owner, int type, VARIABLE_DATA *astr,
-                         VARIABLE_DATA *bstr )
+VARIABLE *func_cmp( void * owner, int type, VARIABLE *astr,
+                         VARIABLE *bstr )
 {
     static char buf[MAX_STRING_LENGTH];
     char _astr[MSL];
@@ -1135,7 +1135,7 @@ VARIABLE_DATA *func_cmp( void * owner, int type, VARIABLE_DATA *astr,
  * Pre(a,b);
  * Str_prefix(a,b) - returns true if a is a prefix of b
  */
-VARIABLE_DATA *func_pre( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *bstr )
+VARIABLE *func_pre( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
 {
     static char buf[MAX_STRING_LENGTH];
     char _astr[MSL];
@@ -1155,7 +1155,7 @@ VARIABLE_DATA *func_pre( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_D
  * In(a,b);
  * Str_infix.  Returns true if a is in b
  */
-VARIABLE_DATA *func_in( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *bstr )
+VARIABLE *func_in( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
 {
     char buf[MAX_STRING_LENGTH];
     char _astr[MSL];
@@ -1176,7 +1176,7 @@ VARIABLE_DATA *func_in( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DA
  * Returns a number value of the index of a,b.
  * Strstr.
  */
-VARIABLE_DATA *func_strstr( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *bstr )
+VARIABLE *func_strstr( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
 {
     char buf[MAX_STRING_LENGTH];
     char _astr[MSL];
@@ -1195,9 +1195,9 @@ VARIABLE_DATA *func_strstr( void * owner, int type, VARIABLE_DATA *astr, VARIABL
  * Pcmp(a,b);
  * Pointer comparisons.
  */
-VARIABLE_DATA *func_pcmp( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *bstr )
+VARIABLE *func_pcmp( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
 {
-    VARIABLE_DATA *v1, *v2;
+    VARIABLE *v1, *v2;
     char buf[MAX_STRING_LENGTH];
 
     if( PARAMETER(astr,TYPE_STRING) )
@@ -1224,7 +1224,7 @@ VARIABLE_DATA *func_pcmp( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_
  * Cat(a,b);
  * Concatenate two strings.
  */
-VARIABLE_DATA *func_cat( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *bstr )
+VARIABLE *func_cat( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
 {
     static char buf[MAX_STRING_LENGTH];
     char _astr[MSL];
@@ -1244,7 +1244,7 @@ VARIABLE_DATA *func_cat( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_D
  * Word(a,b);
  * One_arg returning a number.
  */
-VARIABLE_DATA *func_word( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *value )
+VARIABLE *func_word( void * owner, int type, VARIABLE *astr, VARIABLE *value )
 {
     static char buf[MAX_STRING_LENGTH];
     char _astr[MSL];
@@ -1266,18 +1266,18 @@ VARIABLE_DATA *func_word( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_
 /* -------------------------------------------------------------- */
 /*
  * Echo(text);           echoes to caller
- * Echo(scene,text);     echoes to scene by vnum
+ * Echo(scene,text);     echoes to scene by dbkey
  * Echo(target,text);    echoes to target
  *
  * Displays some text.
  */
-VARIABLE_DATA *func_echo( void * owner, int type, VARIABLE_DATA *target, 
-                           VARIABLE_DATA *out )
+VARIABLE *func_echo( void * owner, int type, VARIABLE *target, 
+                           VARIABLE *out )
 {
     char _out[MSL];
     char _target[MSL];
-    SCENE_INDEX_DATA *pScene=NULL;
-    PLAYER_DATA *rch=NULL;
+    SCENE *pScene=NULL;
+    PLAYER *rch=NULL;
     char *p;
 
     STR_PARAM(out,_out);
@@ -1294,7 +1294,7 @@ VARIABLE_DATA *func_echo( void * owner, int type, VARIABLE_DATA *target,
      {
          rch = find_actor_here( owner, type, _target );
          if ( !rch ) pScene = find_scene_here( owner, type, _target );
-         if ( !rch && !pScene && is_number( _target ) ) pScene=get_scene_index(atoi(_target));
+         if ( !rch && !pScene && is_number( _target ) ) pScene=get_scene(atoi(_target));
      }
     }
     else {
@@ -1334,21 +1334,21 @@ VARIABLE_DATA *func_echo( void * owner, int type, VARIABLE_DATA *target,
  *
  * Displays some text to all but the target.
  */
-VARIABLE_DATA *func_oecho( void * owner, int type, VARIABLE_DATA *target, 
-                           VARIABLE_DATA *out )
+VARIABLE *func_oecho( void * owner, int type, VARIABLE *target, 
+                           VARIABLE *out )
 {
     char _out[MSL];
     char _target[MSL];
-    SCENE_INDEX_DATA *pScene=NULL;
-    PLAYER_DATA *rch=NULL;
-    PLAYER_DATA *nch=NULL;
+    SCENE *pScene=NULL;
+    PLAYER *rch=NULL;
+    PLAYER *nch=NULL;
     char *p;
 
     STR_PARAM(out,_out); p=_out;
     STR_PARAM(target,_target);  
 
     if ( is_number(_target) ) {
-         pScene = get_scene_index( atoi(_target) );
+         pScene = get_scene( atoi(_target) );
     }
     else {         
          nch = find_actor_here( owner, type, _target ); 
@@ -1371,30 +1371,30 @@ VARIABLE_DATA *func_oecho( void * owner, int type, VARIABLE_DATA *target,
 
 /* -------------------------------------------------------------- */
 /*
- * Transform(vnum);
+ * Transform(dbkey);
  * Transform from one prop into another
  * Possible memory leak so be careful with this one (untested)
  */
-VARIABLE_DATA *func_transform( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_transform( void * owner, int type, VARIABLE *target )
 {
     char _target[MSL];
-    int vnum;
-    PROP_INDEX_DATA *pPropIndex;
-    PROP_DATA *pMe;
+    int dbkey;
+    PROP_TEMPLATE *pPropIndex;
+    PROP *pMe;
 
     if ( type != TYPE_PROP ) return NULL;
 
     STR_PARAM(target,_target);
-    vnum = atoi(_target);
+    dbkey = atoi(_target);
 
-    pPropIndex = get_prop_index( vnum );
+    pPropIndex = get_prop_template( dbkey );
     if ( !pPropIndex ) return NULL;
 
     pMe = PROP(owner);
 
     if ( pPropIndex->item_type == ITEM_LIST )
     {
-        PROP_INDEX_DATA *pIndex;
+        PROP_TEMPLATE *pIndex;
         char *scanarg;
         char buf[20];
         int num;
@@ -1419,7 +1419,7 @@ VARIABLE_DATA *func_transform( void * owner, int type, VARIABLE_DATA *target )
         }
 
         num       = atoi( buf );
-        pIndex = get_prop_index( num );
+        pIndex = get_prop_template( num );
         if ( pIndex != NULL ) pPropIndex = pIndex;
     }
 
@@ -1431,7 +1431,7 @@ VARIABLE_DATA *func_transform( void * owner, int type, VARIABLE_DATA *target )
      */
     if ( pPropIndex->instances != NULL )
     {
-    INSTANCE_DATA *inst, *pInst;
+    INSTANCE *inst, *pInst;
 
     for ( pInst = pPropIndex->instances;  pInst != NULL;  pInst = pInst->next )
     {
@@ -1467,7 +1467,7 @@ VARIABLE_DATA *func_transform( void * owner, int type, VARIABLE_DATA *target )
     switch ( pMe->item_type ) {
     default:
     if ( pMe->item_type >= ITEM_MAX )
-        bug( "Read_prop: vnum %d bad type.", pPropIndex->vnum );
+        bug( "Read_prop: dbkey %d bad type.", pPropIndex->dbkey );
         break;
 
     case ITEM_SCROLL:
@@ -1536,15 +1536,15 @@ VARIABLE_DATA *func_transform( void * owner, int type, VARIABLE_DATA *target )
 
 /*
  * Reverb(text);
- * Emits text from all props with a matching vnum.
+ * Emits text from all props with a matching dbkey.
  */
-VARIABLE_DATA *func_broadcast( void * owner, int type, VARIABLE_DATA *out )
+VARIABLE *func_broadcast( void * owner, int type, VARIABLE *out )
 {
     char _out[MSL];
-    PROP_DATA *p;
-    PLAYER_DATA *rch;
-    SCENE_INDEX_DATA *pScene=NULL;
-    int vnum;
+    PROP *p;
+    PLAYER *rch;
+    SCENE *pScene=NULL;
+    int dbkey;
 
     if ( type != TYPE_PROP ) return NULL;  /* catch for scripts running on other things */
 
@@ -1554,11 +1554,11 @@ VARIABLE_DATA *func_broadcast( void * owner, int type, VARIABLE_DATA *out )
 
     if ( p == NULL ) return NULL;
 
-    vnum = p->pIndexData->vnum;
+    dbkey = p->pIndexData->dbkey;
 
     for ( p = prop_list;  p != NULL;  p = p->next ) {
 
-    if ( p->pIndexData->vnum != vnum ) continue;
+    if ( p->pIndexData->dbkey != dbkey ) continue;
 
     if ( p->carried_by != NULL ) {
          send_to_actor( _out, p->carried_by );
@@ -1580,24 +1580,24 @@ VARIABLE_DATA *func_broadcast( void * owner, int type, VARIABLE_DATA *out )
 
 /* -------------------------------------------------------------- */
 /*
- * Has(prop vnum);
- * Has(target,prop vnum);
+ * Has(prop dbkey);
+ * Has(target,prop dbkey);
  */
-VARIABLE_DATA *func_has( void *owner, int type, VARIABLE_DATA *target, 
-                                                VARIABLE_DATA *propvnum ) {
-    char _propvnum[MSL];
+VARIABLE *func_has( void *owner, int type, VARIABLE *target, 
+                                                VARIABLE *propdbkey ) {
+    char _propdbkey[MSL];
     char _target[MSL];
-    PROP_INDEX_DATA *pIndexData=NULL;
-    PROP_DATA *prop=NULL;
+    PROP_TEMPLATE *pIndexData=NULL;
+    PROP *prop=NULL;
 
-    STR_PARAM(propvnum,_propvnum);
+    STR_PARAM(propdbkey,_propdbkey);
     STR_PARAM(target,_target);
 
            FOREACH( target->type, 
                     prop = ACTOR(target->value)->carrying, 
                     prop =  PROP(target->value)->contains,
                     prop = SCENE(target->value)->contents,
-                    prop = NULL; pIndexData = get_prop_index(atoi(_target)) );
+                    prop = NULL; pIndexData = get_prop_template(atoi(_target)) );
 
            if ( !prop ) {     
            FOREACH( type,
@@ -1608,13 +1608,13 @@ VARIABLE_DATA *func_has( void *owner, int type, VARIABLE_DATA *target,
            }
 
     if ( !pIndexData ) {
-        pIndexData = get_prop_index(atoi(_propvnum));
+        pIndexData = get_prop_template(atoi(_propdbkey));
     }
 
     if ( !prop || !pIndexData ) return NULL;
 
     for( ; prop; prop = prop->next_content ) {
-       if ( prop->pIndexData->vnum == pIndexData->vnum ) break;
+       if ( prop->pIndexData->dbkey == pIndexData->dbkey ) break;
     }
 
     RETURNS(TYPE_PROP,prop);
@@ -1623,20 +1623,20 @@ VARIABLE_DATA *func_has( void *owner, int type, VARIABLE_DATA *target,
 
 /* -------------------------------------------------------------- */
 /*
- * Holds(prop vnum);
- * Holds(target,prop vnum);
+ * Holds(prop dbkey);
+ * Holds(target,prop dbkey);
  */
-VARIABLE_DATA *func_holds( void *owner, int type, VARIABLE_DATA *target, 
-                                                  VARIABLE_DATA *propvnum ) {
-    char _propvnum[MSL];
+VARIABLE *func_holds( void *owner, int type, VARIABLE *target, 
+                                                  VARIABLE *propdbkey ) {
+    char _propdbkey[MSL];
     char _target[MSL];
-    PROP_INDEX_DATA *pIndexData=NULL;
-    PROP_DATA *prop=NULL;
+    PROP_TEMPLATE *pIndexData=NULL;
+    PROP *prop=NULL;
 
-    STR_PARAM(propvnum,_propvnum);
+    STR_PARAM(propdbkey,_propdbkey);
     STR_PARAM(target,_target);
 
-    if ( _propvnum[0] == '\0' ) {
+    if ( _propdbkey[0] == '\0' ) {
         switch ( type ) {
            case TYPE_ACTOR: prop=ACTOR(owner)->carrying; break;
             case TYPE_PROP: prop=PROP(owner)->contains;  break;
@@ -1644,7 +1644,7 @@ VARIABLE_DATA *func_holds( void *owner, int type, VARIABLE_DATA *target,
               default: prop=NULL;
         }
         if ( prop == NULL ) { RETURNS(TYPE_STRING,str_dup("0")); }
-        pIndexData = get_prop_index(atoi(_target));
+        pIndexData = get_prop_template(atoi(_target));
      } else {
         switch ( target->type ) {
            case TYPE_ACTOR: prop=ACTOR(target->value)->carrying; break;
@@ -1653,13 +1653,13 @@ VARIABLE_DATA *func_holds( void *owner, int type, VARIABLE_DATA *target,
               default: prop=NULL;
         }
         if ( prop == NULL ) { RETURNS(TYPE_STRING,str_dup("0")); }
-        pIndexData = get_prop_index(atoi(_propvnum));
+        pIndexData = get_prop_template(atoi(_propdbkey));
      } 
 
     if ( !prop || !pIndexData ) { RETURNS(TYPE_STRING,str_dup("0")); }
 
     for( ; prop; prop = prop->next_content ) {
-       if ( prop->pIndexData->vnum == pIndexData->vnum ) break;
+       if ( prop->pIndexData->dbkey == pIndexData->dbkey ) break;
     }
 
     if ( prop ) { RETURNS(TYPE_STRING,str_dup("1")); }
@@ -1672,13 +1672,13 @@ VARIABLE_DATA *func_holds( void *owner, int type, VARIABLE_DATA *target,
  * History(target,text)
  * For the history command.
  */
-VARIABLE_DATA *func_history( void * owner, int type, VARIABLE_DATA *target, 
-VARIABLE_DATA *out )
+VARIABLE *func_history( void * owner, int type, VARIABLE *target, 
+VARIABLE *out )
 {
     char buf[MAX_STRING_LENGTH];
     char _out[MSL];
     char _target[MSL];
-    PLAYER_DATA *ch;
+    PLAYER *ch;
 
     if ( type != TYPE_ACTOR) return NULL;
 
@@ -1689,7 +1689,7 @@ VARIABLE_DATA *out )
          get_actor_world( ACTOR(owner), _target );
     if ( !ch ) return NULL;
 
-    if ( !IS_NPC(ch) ) {
+    if ( !NPC(ch) ) {
        if ( PC(ch,history) != NULL )
        snprintf( buf, MAX_STRING_LENGTH, "%s\n\r%s\n\r", PC(ch,history),  _out );  /* leak? */
        else strcpy( _out, buf );
@@ -1706,12 +1706,12 @@ VARIABLE_DATA *out )
  * Dream(text)
  * Outputs to all sleeping players in the zone.
  */
-VARIABLE_DATA *func_dream( void * owner, int type, VARIABLE_DATA *out )
+VARIABLE *func_dream( void * owner, int type, VARIABLE *out )
 {
-    ZONE_DATA *pZone;
-    PLAYER_DATA *ch;
-    SCENE_INDEX_DATA *pScene;
-    PROP_DATA *pProp;
+    ZONE *pZone;
+    PLAYER *ch;
+    SCENE *pScene;
+    PROP *pProp;
     char _out[MSL];
 
     STR_PARAM(out,_out);
@@ -1731,7 +1731,7 @@ VARIABLE_DATA *func_dream( void * owner, int type, VARIABLE_DATA *out )
     if ( pZone == NULL ) return NULL;
 
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
 
     for ( d = connection_list; d; d = d->next )
     {
@@ -1754,7 +1754,7 @@ VARIABLE_DATA *func_dream( void * owner, int type, VARIABLE_DATA *out )
  * Numberize(value);
  * Converts from a number to an English equivalent.
  */
-VARIABLE_DATA * func_numw( void * owner, int type, VARIABLE_DATA *astr )
+VARIABLE * func_numw( void * owner, int type, VARIABLE *astr )
 {
     char _astr[MSL];
     int v;
@@ -1773,8 +1773,8 @@ VARIABLE_DATA * func_numw( void * owner, int type, VARIABLE_DATA *astr )
  * Replace(old,new);
  * String_replace().
  */
-VARIABLE_DATA * func_strp( void * owner, int type, VARIABLE_DATA *value,
-                           VARIABLE_DATA *old, VARIABLE_DATA *new )
+VARIABLE * func_strp( void * owner, int type, VARIABLE *value,
+                           VARIABLE *old, VARIABLE *new )
 {
     char buf[MAX_STRING_LENGTH];
     char _value[MSL];
@@ -1816,13 +1816,13 @@ VARIABLE_DATA * func_strp( void * owner, int type, VARIABLE_DATA *value,
  * Do(Command1,Command2 .. 6);
  * Self-Interpret.
  */
-VARIABLE_DATA * func_do( void * owner, int type,
-                         VARIABLE_DATA *exp0,
-                         VARIABLE_DATA *exp1,
-                         VARIABLE_DATA *exp2,
-                         VARIABLE_DATA *exp3,
-                         VARIABLE_DATA *exp4,
-                         VARIABLE_DATA *exp5 )
+VARIABLE * func_do( void * owner, int type,
+                         VARIABLE *exp0,
+                         VARIABLE *exp1,
+                         VARIABLE *exp2,
+                         VARIABLE *exp3,
+                         VARIABLE *exp4,
+                         VARIABLE *exp5 )
 {
     char _exp0[MIL];
     char _exp1[MIL];
@@ -1868,13 +1868,13 @@ VARIABLE_DATA * func_do( void * owner, int type,
  * As(target,Command1,Command2 .. 5);
  * Do something as another actor (only)
  */
-VARIABLE_DATA * func_as( void * owner, int type,
-                         VARIABLE_DATA *target,
-                         VARIABLE_DATA *exp0,
-                         VARIABLE_DATA *exp1,
-                         VARIABLE_DATA *exp2,
-                         VARIABLE_DATA *exp3,
-                         VARIABLE_DATA *exp4 )
+VARIABLE * func_as( void * owner, int type,
+                         VARIABLE *target,
+                         VARIABLE *exp0,
+                         VARIABLE *exp1,
+                         VARIABLE *exp2,
+                         VARIABLE *exp3,
+                         VARIABLE *exp4 )
 {
     char _target[MSL];
     char _exp0[MIL];
@@ -1882,7 +1882,7 @@ VARIABLE_DATA * func_as( void * owner, int type,
     char _exp2[MIL];
     char _exp3[MIL];
     char _exp4[MIL];
-    PLAYER_DATA *ch;
+    PLAYER *ch;
 
     if ( target && (target->type == TYPE_ACTOR) )   ch = ACTOR(target->value);
     else 
@@ -1923,12 +1923,12 @@ VARIABLE_DATA * func_as( void * owner, int type,
  * Jump(location);
  * Moves to a scene.
  */
-VARIABLE_DATA * func_jump( void * owner, int type, VARIABLE_DATA *location )
+VARIABLE * func_jump( void * owner, int type, VARIABLE *location )
 {
-    PLAYER_DATA *actor;
-    SCENE_INDEX_DATA *pScene=NULL;
+    PLAYER *actor;
+    SCENE *pScene=NULL;
     char _loc[MSL];
-    int rvnum;
+    int rdbkey;
 
     if ( type != TYPE_ACTOR ) {
        if ( type == TYPE_PROP ) {
@@ -1943,19 +1943,19 @@ VARIABLE_DATA * func_jump( void * owner, int type, VARIABLE_DATA *location )
     STR_PARAM(location,_loc);
     
     if ( location->type == TYPE_SCENE ) pScene = SCENE(location->value);
-    rvnum = atoi(_loc);
+    rdbkey = atoi(_loc);
 
     switch ( type ) {
       case TYPE_ACTOR:
-       if ( !pScene ) pScene = get_scene_index( rvnum );
+       if ( !pScene ) pScene = get_scene( rdbkey );
        if ( pScene ) {
     /*
      * Move all of your hirelings, mounts and conjured followers.
      */
 
-    { PLAYER_DATA *pch;
+    { PLAYER *pch;
       for ( pch = actor_list; pch!=NULL; pch=pch->next )
-      if ( IS_NPC(pch) && pch->master == actor ) {
+      if ( NPC(pch) && pch->master == actor ) {
        actor_from_scene( pch );
        actor_to_scene( pch, pScene );
        if ( pch->riding ) {
@@ -1985,19 +1985,19 @@ VARIABLE_DATA * func_jump( void * owner, int type, VARIABLE_DATA *location )
  * As(target,command,command,command,command);
  * Interpret as someone else.
  */
-VARIABLE_DATA * func_interpret( void * owner, int type,
-                         VARIABLE_DATA *who,
-                         VARIABLE_DATA *exp1,
-                         VARIABLE_DATA *exp2,
-                         VARIABLE_DATA *exp3,
-                         VARIABLE_DATA *exp4 )
+VARIABLE * func_interpret( void * owner, int type,
+                         VARIABLE *who,
+                         VARIABLE *exp1,
+                         VARIABLE *exp2,
+                         VARIABLE *exp3,
+                         VARIABLE *exp4 )
 {
     char _who[MSL];
     char _exp1[MSL];
     char _exp2[MSL];
     char _exp3[MSL];
     char _exp4[MSL];
-    PLAYER_DATA *actor;
+    PLAYER *actor;
 
     if ( PARAMETER(who, TYPE_ACTOR) )
     actor = ACTOR(who->value);
@@ -2038,7 +2038,7 @@ VARIABLE_DATA * func_interpret( void * owner, int type,
  * mob-set: unimplemented
  * target: itself
  */
-VARIABLE_DATA *func_aset( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *bstr )
+VARIABLE *func_aset( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
 {
     return NULL;
 }
@@ -2050,10 +2050,10 @@ VARIABLE_DATA *func_aset( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_
  * object-set: partially implemented
  * target: variable
  */
-VARIABLE_DATA *func_pset( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_DATA *bstr )
+VARIABLE *func_pset( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
 {
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     char *p = "";
     char _bstr[MSL];
 
@@ -2069,14 +2069,14 @@ VARIABLE_DATA *func_pset( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_
     if ( !str_cmp( _bstr, "name"        ) ) p = prop->name;
     if ( !str_cmp( _bstr, "description" ) ) p = prop->real_description;
     if ( !str_cmp( _bstr, "plural"      ) ) p = pluralize( prop->short_descr );
-    if ( !str_cmp( _bstr, "vnum"        ) )
+    if ( !str_cmp( _bstr, "dbkey"        ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", prop->pIndexData->vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", prop->pIndexData->dbkey );
         p = buf;
     }
     if ( !str_cmp( _bstr, "scene" ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", prop->in_scene->vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", prop->in_scene->dbkey );
         p = buf;
     }
 
@@ -2088,10 +2088,10 @@ VARIABLE_DATA *func_pset( void * owner, int type, VARIABLE_DATA *astr, VARIABLE_
  * Heal(target,gain);
  * Heals a target for a certain amount.
  */
-VARIABLE_DATA *func_heal( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_heal( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _gain[MSL];
 
@@ -2122,10 +2122,10 @@ VARIABLE_DATA *func_heal( void * owner, int type, VARIABLE_DATA *target,
  * HealAll(target,gain);
  * Heals a target and group for a certain amount.
  */
-VARIABLE_DATA *func_healall( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_healall( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _gain[MSL];
 
@@ -2147,7 +2147,7 @@ VARIABLE_DATA *func_healall( void * owner, int type, VARIABLE_DATA *target,
     if ( ch->hit > MAXHIT(ch) ) ch->hit = MAXHIT(ch);
     if ( ch->hit <= 0 ) ch->hit = 1;
 
-    { PLAYER_DATA *gch;
+    { PLAYER *gch;
       for ( gch = ch->in_scene->people;  gch != NULL; gch=gch->next ) 
       if ( in_group( ch, gch ) ) {
        gch->hit += atoi( _gain );
@@ -2165,14 +2165,14 @@ VARIABLE_DATA *func_healall( void * owner, int type, VARIABLE_DATA *target,
  * Creates a bonus on a target.  
  * Players / actors only.
  */
-VARIABLE_DATA *func_bonus( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *location,
-                          VARIABLE_DATA *bitvector, 
-                          VARIABLE_DATA *modifier,
-                          VARIABLE_DATA *duration,
-                          VARIABLE_DATA *aftype )
+VARIABLE *func_bonus( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *location,
+                          VARIABLE *bitvector, 
+                          VARIABLE *modifier,
+                          VARIABLE *duration,
+                          VARIABLE *aftype )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _location[MSL];
     char _bitvector[MSL];
@@ -2198,13 +2198,13 @@ VARIABLE_DATA *func_bonus( void * owner, int type, VARIABLE_DATA *target,
     STR_PARAM(duration,_duration);
     STR_PARAM(aftype,_aftype);
     {
-    BONUS_DATA af;
+    BONUS af;
 
     af.type      = bonus_name_bit(_aftype);
     af.duration  = atoi(_duration);
     af.location  = bonus_name_loc(_location);
     af.modifier  = atoi(_modifier);
-    af.bitvector = act_name_bit(_bitvector);
+    af.bitvector = actor_name_bit(_bitvector);
     bonus_join( ch, &af );
     }    
     return NULL;
@@ -2221,10 +2221,10 @@ VARIABLE_DATA *func_bonus( void * owner, int type, VARIABLE_DATA *target,
  * list and all local instance variables, removing the pointers to
  * the dead char before the hurt() function ends.
  */
-VARIABLE_DATA *func_hurt( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_hurt( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _gain[MSL];
     int dam;
@@ -2249,12 +2249,12 @@ VARIABLE_DATA *func_hurt( void * owner, int type, VARIABLE_DATA *target,
 
 /* notify */
 {
-    PLAYER_DATA *rch;
+    PLAYER *rch;
     char buf[12];
 
     for( rch = ch->in_scene->people; rch != NULL; rch = rch->next_in_scene )
     {
-        if ( IS_IMMORTAL(rch) && IS_SET(rch->act,WIZ_NOTIFY_DAMAGE))
+        if ( IS_IMMORTAL(rch) && IS_SET(rch->flag,WIZ_NOTIFY_DAMAGE))
         {
             snprintf( buf, MAX_STRING_LENGTH, "[%3d->%c%c] ",
                      dam,
@@ -2278,7 +2278,7 @@ VARIABLE_DATA *func_hurt( void * owner, int type, VARIABLE_DATA *target,
     if ( ch->position== POS_DEAD ) raw_kill( ch );
 
     if ( !IS_AWAKE(ch) )
-    stop_fighting( ch, !IS_NPC(ch) ? TRUE : FALSE ); 
+    stop_fighting( ch, !NPC(ch) ? TRUE : FALSE ); 
 
     return NULL;
 }
@@ -2290,11 +2290,11 @@ VARIABLE_DATA *func_hurt( void * owner, int type, VARIABLE_DATA *target,
  * You have been bombed.  Everyone in the scene, limited exceptions.
  * Can kill you.
  */
-VARIABLE_DATA *func_bomb( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_bomb( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    SCENE_INDEX_DATA *scene = NULL;
-    PLAYER_DATA *us=NULL;
+    SCENE *scene = NULL;
+    PLAYER *us=NULL;
     char _target[MSL];
     char _gain[MSL];
 
@@ -2318,7 +2318,7 @@ VARIABLE_DATA *func_bomb( void * owner, int type, VARIABLE_DATA *target,
      us=find_actor_here(owner,type,_target);
 
      if ( ! us ) 
-     scene = (get_scene_index( atoi(_target) ));
+     scene = (get_scene( atoi(_target) ));
      else scene = us->in_scene;
 
      if ( scene == NULL ) 
@@ -2332,7 +2332,7 @@ VARIABLE_DATA *func_bomb( void * owner, int type, VARIABLE_DATA *target,
      
     if ( scene == NULL ) return NULL;
     else { 
-       PLAYER_DATA *ch;
+       PLAYER *ch;
 
              if ( !us ) {
        switch ( type ) {
@@ -2346,9 +2346,9 @@ VARIABLE_DATA *func_bomb( void * owner, int type, VARIABLE_DATA *target,
 
        for ( ch = scene->people; ch != NULL; ch = ch->next_in_scene )
         if ( us->fighting ==ch || (ch != us && ch->master != us && !IS_IMMORTAL(ch)) ) {  
-          if ( !IS_NPC(ch) && in_group( ch, us ) ) continue;
-          if ( IS_NPC(ch) && in_group( us, ch->master ) ) continue;
-          if ( IS_NPC(ch) && IS_SET(ch->act,ACT_GOOD) ) continue;
+          if ( !NPC(ch) && in_group( ch, us ) ) continue;
+          if ( NPC(ch) && in_group( us, ch->master ) ) continue;
+          if ( NPC(ch) && IS_SET(ch->flag,ACTOR_GOOD) ) continue;
           ch->hit -= atoi( _gain );
           if ( ch->hit > MAXHIT(ch) ) ch->hit = MAXHIT(ch); 
           if ( ch->hit <= 0 ) ch->hit=1;
@@ -2366,10 +2366,10 @@ VARIABLE_DATA *func_bomb( void * owner, int type, VARIABLE_DATA *target,
  * Mana();
  * Change in mana.
  */
-VARIABLE_DATA *func_mana( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_mana( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch=NULL;
+    PLAYER *ch=NULL;
     char _target[MSL];
     char _gain[MSL];
 
@@ -2401,10 +2401,10 @@ VARIABLE_DATA *func_mana( void * owner, int type, VARIABLE_DATA *target,
  * Returns TRUE if a player has everything required for a spell.
  * This function needs debugged.  Uses two keyed lists.
  */
-VARIABLE_DATA *func_reagents( void * owner, int type,
-                          VARIABLE_DATA *list, VARIABLE_DATA *quantity )
+VARIABLE *func_reagents( void * owner, int type,
+                          VARIABLE *list, VARIABLE *quantity )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _list[MSL];
     char _quantity[MSL];
     char *p, *point2;
@@ -2427,7 +2427,7 @@ VARIABLE_DATA *func_reagents( void * owner, int type,
     point2 = _quantity;
     for ( p = one_argument( p, buf );  *p != '\0' && fOk; p=one_argument( p, buf )  )
     {
-        PROP_DATA *pProp, *pPropNext, *pProp2, *pPropNext2;
+        PROP *pProp, *pPropNext, *pProp2, *pPropNext2;
         int quant;
 
         point2 = one_argument( p, buf2 );
@@ -2464,10 +2464,10 @@ VARIABLE_DATA *func_reagents( void * owner, int type,
  * Mixes reagents.
  * This function needs debugged.   Uses two keyed lists.
  */
-VARIABLE_DATA *func_mix( void * owner, int type, 
-                          VARIABLE_DATA *list, VARIABLE_DATA *quantity )
+VARIABLE *func_mix( void * owner, int type, 
+                          VARIABLE *list, VARIABLE *quantity )
 {
-    PLAYER_DATA *ch=NULL;
+    PLAYER *ch=NULL;
     char _list[MSL];
     char _quantity[MSL];
     char *p, *point2;
@@ -2489,7 +2489,7 @@ VARIABLE_DATA *func_mix( void * owner, int type,
     point2 = _quantity;
     for ( p = one_argument( p, buf );  *p != '\0' && fOk; p = one_argument( p, buf ) )
     {
-        PROP_DATA *pProp, *pPropNext, *pProp2, *pPropNext2;
+        PROP *pProp, *pPropNext, *pProp2, *pPropNext2;
         int quant;
 
         point2 = one_argument( p, buf2 );
@@ -2507,7 +2507,7 @@ VARIABLE_DATA *func_mix( void * owner, int type,
                        {
                          prop_from_prop( pProp2 );
 //                         wtf_logf( "mix: found and extracting %s", STR(pProp2,short_descr) );
-                         extract_prop( pProp2 ); 
+                         extractor_prop( pProp2 ); 
                          quant--;
                        }
                  }
@@ -2517,7 +2517,7 @@ VARIABLE_DATA *func_mix( void * owner, int type,
                {
                  prop_from_actor( pProp );
 //                 wtf_logf( "mix: found and extracting %s", STR(pProp,short_descr) );
-                 extract_prop( pProp );
+                 extractor_prop( pProp );
                  quant--;            
                }             
         }
@@ -2543,10 +2543,10 @@ VARIABLE_DATA *func_mix( void * owner, int type,
  * Consumes gems, returns "1" if pass "0" if not enough mana
  * Assumes the caller is the one casting.
  */
-VARIABLE_DATA *func_gem( void * owner, int type, 
-                          VARIABLE_DATA *mana_type, VARIABLE_DATA *quantity )
+VARIABLE *func_gem( void * owner, int type, 
+                          VARIABLE *mana_type, VARIABLE *quantity )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _mana_type[MSL];
     char _quantity[MSL];
     int amount;
@@ -2588,10 +2588,10 @@ VARIABLE_DATA *func_gem( void * owner, int type,
  * Pay();
  * You have been paid.
  */
-VARIABLE_DATA *func_pay( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_pay( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _gain[MSL];
 
@@ -2623,10 +2623,10 @@ VARIABLE_DATA *func_pay( void * owner, int type, VARIABLE_DATA *target,
  * Charge();
  * You have been charged?  Returns "1" if successful, "0" if not
  */
-VARIABLE_DATA *func_charge( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *loss )
+VARIABLE *func_charge( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *loss )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char *p;
     char _target[MSL];
     char _loss[MSL];  
@@ -2669,10 +2669,10 @@ VARIABLE_DATA *func_charge( void * owner, int type, VARIABLE_DATA *target,
 /*
  * You have been positioned.
  */
-VARIABLE_DATA *func_pos( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_pos( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _gain[MSL];
 
@@ -2700,10 +2700,10 @@ VARIABLE_DATA *func_pos( void * owner, int type, VARIABLE_DATA *target,
 /*
  * You have been stripped of all your worldly possessions (except money).
  */
-VARIABLE_DATA *func_strip( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_strip( void * owner, int type, VARIABLE *target )
 {
-    PLAYER_DATA *ch;
-    PROP_DATA *pProp, *pPropNext;
+    PLAYER *ch;
+    PROP *pProp, *pPropNext;
     char _target[MSL];
     int count_coins;
 
@@ -2726,7 +2726,7 @@ VARIABLE_DATA *func_strip( void * owner, int type, VARIABLE_DATA *target )
 
         pPropNext = pProp->next_content;
         prop_from_actor( pProp );
-        extract_prop( pProp );
+        extractor_prop( pProp );
     }
 
     create_amount( count_coins, ch, NULL, NULL );
@@ -2737,10 +2737,10 @@ VARIABLE_DATA *func_strip( void * owner, int type, VARIABLE_DATA *target )
 /*
  * Removes all weapons from player top level.
  */
-VARIABLE_DATA *func_disarm( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_disarm( void * owner, int type, VARIABLE *target )
 {
-    PLAYER_DATA *ch;
-    PROP_DATA *pProp, *pPropNext;
+    PLAYER *ch;
+    PROP *pProp, *pPropNext;
     char _target[MSL];
 
     if ( (target->type == TYPE_ACTOR) )
@@ -2763,7 +2763,7 @@ VARIABLE_DATA *func_disarm( void * owner, int type, VARIABLE_DATA *target )
         if ( pProp->item_type == ITEM_WEAPON 
           || pProp->item_type == ITEM_RANGED_WEAPON ) {
 		prop_from_actor( pProp );
-        	extract_prop( pProp );
+        	extractor_prop( pProp );
         }
     }  
 
@@ -2775,14 +2775,14 @@ VARIABLE_DATA *func_disarm( void * owner, int type, VARIABLE_DATA *target )
 /*
  * Checks verse a skill, 0=fail
  */
-VARIABLE_DATA *func_skill( void * owner, int type, VARIABLE_DATA *target,
-                           VARIABLE_DATA *sn, VARIABLE_DATA *v ) 
+VARIABLE *func_skill( void * owner, int type, VARIABLE *target,
+                           VARIABLE *sn, VARIABLE *v ) 
 {
-    PLAYER_DATA *ch=NULL;
+    PLAYER *ch=NULL;
     char _target[MSL];
     char _sn[MSL];
     char _value[MSL];
-    SKILL_DATA *pSkill=NULL;
+    SKILL *pSkill=NULL;
     int check=100;
 
     if ( (target->type == TYPE_ACTOR) )    ch = ACTOR(target->value);
@@ -2808,10 +2808,10 @@ VARIABLE_DATA *func_skill( void * owner, int type, VARIABLE_DATA *target,
 /*
  * Sets the value of a skill on a player.
  */
-VARIABLE_DATA *func_setskill( void * owner, int type, VARIABLE_DATA *target,
-                           VARIABLE_DATA *sn, VARIABLE_DATA *v ) 
+VARIABLE *func_setskill( void * owner, int type, VARIABLE *target,
+                           VARIABLE *sn, VARIABLE *v ) 
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _sn[MSL];
     char _value[MSL];
@@ -2843,14 +2843,14 @@ VARIABLE_DATA *func_setskill( void * owner, int type, VARIABLE_DATA *target,
  * Cue()
  * Cues a scene.
  */
-VARIABLE_DATA *func_cue( void * owner, int type, VARIABLE_DATA *dest )
+VARIABLE *func_cue( void * owner, int type, VARIABLE *dest )
 {
-    SCENE_INDEX_DATA *pScene;
+    SCENE *pScene;
     char _dest[MSL];
 
     STR_PARAM(dest,_dest);
 
-       pScene = get_scene_index( atoi( _dest ) );
+       pScene = get_scene( atoi( _dest ) );
        if ( pScene != NULL ) {
           spawn_scene( pScene );
        }
@@ -2863,7 +2863,7 @@ VARIABLE_DATA *func_cue( void * owner, int type, VARIABLE_DATA *dest )
  * Purge();
  * Purges the contents of a scene.
  */
-VARIABLE_DATA *func_purge( void * owner, int type, VARIABLE_DATA *dest )
+VARIABLE *func_purge( void * owner, int type, VARIABLE *dest )
 {
     char _dest[MSL];
 
@@ -2879,7 +2879,7 @@ VARIABLE_DATA *func_purge( void * owner, int type, VARIABLE_DATA *dest )
  * Force();
  * Kludgy.  Icky.  Don't use.
  */
-VARIABLE_DATA *func_force( void * owner, int type, VARIABLE_DATA *dest )
+VARIABLE *func_force( void * owner, int type, VARIABLE *dest )
 {
     char _dest[MSL];
 
@@ -2895,13 +2895,13 @@ VARIABLE_DATA *func_force( void * owner, int type, VARIABLE_DATA *dest )
  * Peace();
  * Stops fights.
  */
-VARIABLE_DATA *func_peace( void * owner, int type, VARIABLE_DATA *dest )
+VARIABLE *func_peace( void * owner, int type, VARIABLE *dest )
 {
     char _dest[MSL];
 
     STR_PARAM(dest,_dest);
 
-    cmd_peace( type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list, _dest );    
+    cmd_peace( type == TYPE_ACTOR ? (PLAYER *)owner : actor_list, _dest );    
 
     return NULL;
 }
@@ -2912,13 +2912,13 @@ VARIABLE_DATA *func_peace( void * owner, int type, VARIABLE_DATA *dest )
  * Stops followers from following.
  * Called on itself.
  */
-VARIABLE_DATA *func_elude( void * owner, int type )
+VARIABLE *func_elude( void * owner, int type )
 {
     if ( type != TYPE_ACTOR ) return NULL;
     else
     {
-       PLAYER_DATA *pActor = (PLAYER_DATA *)owner;
-       PLAYER_DATA *pFollow;
+       PLAYER *pActor = (PLAYER *)owner;
+       PLAYER *pFollow;
 
        for ( pFollow = actor_list;  pFollow != NULL;  pFollow = pFollow->next )
        {
@@ -2934,18 +2934,18 @@ VARIABLE_DATA *func_elude( void * owner, int type )
  * Move();
  * Moves a target to a new scene.
  */
-VARIABLE_DATA *func_move( void * owner, int type, VARIABLE_DATA *target, 
-                                                  VARIABLE_DATA *dest )
+VARIABLE *func_move( void * owner, int type, VARIABLE *target, 
+                                                  VARIABLE *dest )
 {
-    SCENE_INDEX_DATA *pScene;
-    PLAYER_DATA *ch, *och;
+    SCENE *pScene;
+    PLAYER *ch, *och;
     char _dest[MSL];
     char _target[MSL];
 
     STR_PARAM(dest,_dest);
     STR_PARAM(target,_target);
     
-    och = type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list;
+    och = type == TYPE_ACTOR ? (PLAYER *)owner : actor_list;
 
     if ( target != NULL )
     ch = target->type == TYPE_ACTOR ? target->value
@@ -2957,7 +2957,7 @@ VARIABLE_DATA *func_move( void * owner, int type, VARIABLE_DATA *target,
 
     if ( dest->type == TYPE_SCENE ) pScene = SCENE(dest->value);
     else
-    pScene = get_scene_index( atoi( _dest ) );
+    pScene = get_scene( atoi( _dest ) );
 
        if ( pScene != NULL ) {
 
@@ -2965,9 +2965,9 @@ VARIABLE_DATA *func_move( void * owner, int type, VARIABLE_DATA *target,
      * Move all of your hirelings, mounts and conjured followers.
      */
 
-    { PLAYER_DATA *pch;
+    { PLAYER *pch;
       for ( pch = actor_list; pch!=NULL; pch=pch->next )
-      if ( IS_NPC(pch) && pch->master == ch ) {
+      if ( NPC(pch) && pch->master == ch ) {
        actor_from_scene( pch );
        actor_to_scene( pch, pScene );
        if ( pch->riding ) {
@@ -2998,18 +2998,18 @@ VARIABLE_DATA *func_move( void * owner, int type, VARIABLE_DATA *target,
 /* -------------------------------------------------------------- */
 /*
  * Here();
- * Returns vnum of "where" the owner is.
+ * Returns dbkey of "where" the owner is.
  */
-VARIABLE_DATA *func_here( void *owner, int type )
+VARIABLE *func_here( void *owner, int type )
 {
    char buf[MAX_STRING_LENGTH];
-   SCENE_INDEX_DATA *pScene;
+   SCENE *pScene;
 
    switch( type ) {
        case TYPE_STRING: pScene = NULL; break;
-       case TYPE_ACTOR: pScene = ((PLAYER_DATA *)owner)->in_scene; break;
+       case TYPE_ACTOR: pScene = ((PLAYER *)owner)->in_scene; break;
        case TYPE_PROP:
-              {   PROP_DATA *pProp;
+              {   PROP *pProp;
 
                       pProp = PROP(owner);
                       pScene = pProp->in_scene;
@@ -3026,7 +3026,7 @@ VARIABLE_DATA *func_here( void *owner, int type )
 
    if ( pScene == NULL ) return NULL;
 
-   snprintf( buf, MAX_STRING_LENGTH, "%d", pScene->vnum );
+   snprintf( buf, MAX_STRING_LENGTH, "%d", pScene->dbkey );
 
    RETURNS(TYPE_STRING, str_dup(buf) );
 }
@@ -3039,11 +3039,11 @@ VARIABLE_DATA *func_here( void *owner, int type )
  * Forces all players to run cmd.
  * This function needs to be debugged.
  */
-VARIABLE_DATA *func_moveall( void * owner, int type, VARIABLE_DATA *from,
-                          VARIABLE_DATA *dest, VARIABLE_DATA *cmd )
+VARIABLE *func_moveall( void * owner, int type, VARIABLE *from,
+                          VARIABLE *dest, VARIABLE *cmd )
 {
-    PLAYER_DATA *ch, *ch_next, *och;
-    SCENE_INDEX_DATA *pScene, *pDest;
+    PLAYER *ch, *ch_next, *och;
+    SCENE *pScene, *pDest;
     char _from[MSL];
     char _dest[MSL];
     char _cmd[MIL];
@@ -3052,13 +3052,13 @@ VARIABLE_DATA *func_moveall( void * owner, int type, VARIABLE_DATA *from,
 
     if ( from->type == TYPE_SCENE ) pScene = SCENE(from->value);
     else
-    pScene =     get_scene_index( atoi( _from ) );
+    pScene =     get_scene( atoi( _from ) );
 
     STR_PARAM(dest,_dest);
 
     if ( dest->type == TYPE_SCENE ) pDest = SCENE(dest->value);
     else
-    pDest = get_scene_index( atoi( _dest ) );
+    pDest = get_scene( atoi( _dest ) );
 
     STR_PARAM(cmd,_cmd);
 
@@ -3068,16 +3068,16 @@ VARIABLE_DATA *func_moveall( void * owner, int type, VARIABLE_DATA *from,
 
 	ch_next = ch->next_in_scene;
 
-          if ( IS_NPC(ch) ) continue;
+          if ( NPC(ch) ) continue;
 
     /*
      * Move all of your hirelings, mounts and conjured followers.
      */
 
-    { PLAYER_DATA *pch, *pch_next;
+    { PLAYER *pch, *pch_next;
       for ( pch = pScene->people; pch!=NULL; pch=pch_next ) {
        pch_next = pch->next_in_scene;
-      if ( IS_NPC(pch) && pch->master == ch ) {       
+      if ( NPC(pch) && pch->master == ch ) {       
        actor_from_scene( pch );  actor_to_scene( pch, pDest );
        if ( pch->riding ) {  actor_from_scene( pch->riding );  actor_to_scene( pch->riding, pDest );  }
       }
@@ -3102,10 +3102,10 @@ VARIABLE_DATA *func_moveall( void * owner, int type, VARIABLE_DATA *from,
 /* -------------------------------------------------------------- */
 /*
  * findall();
- * Finds all hirelings/followers of a player of a certain vnum
+ * Finds all hirelings/followers of a player of a certain dbkey
  * Returns the number of found followers for that player
  */
-VARIABLE_DATA *func_findall( void * owner, int type, VARIABLE_DATA *who )
+VARIABLE *func_findall( void * owner, int type, VARIABLE *who )
 {
 
     return NULL;
@@ -3114,11 +3114,11 @@ VARIABLE_DATA *func_findall( void * owner, int type, VARIABLE_DATA *who )
 /* -------------------------------------------------------------- */
 /*
  * forall();
- * Finds all hirelings/followers of a player of a certain vnum
+ * Finds all hirelings/followers of a player of a certain dbkey
  * Forces each to execute a command; not yet implemented
  */
-VARIABLE_DATA *func_forall( void * owner, int type, VARIABLE_DATA *from,
-                          VARIABLE_DATA *dest, VARIABLE_DATA *cmd )
+VARIABLE *func_forall( void * owner, int type, VARIABLE *from,
+                          VARIABLE *dest, VARIABLE *cmd )
 {
     return NULL;
 }
@@ -3127,30 +3127,30 @@ VARIABLE_DATA *func_forall( void * owner, int type, VARIABLE_DATA *from,
 /* -------------------------------------------------------------- */
 
 
-VARIABLE_DATA *func_home( void * owner, int type, VARIABLE_DATA *target,
-                          VARIABLE_DATA *dest )
+VARIABLE *func_home( void * owner, int type, VARIABLE *target,
+                          VARIABLE *dest )
 {
-    PLAYER_DATA *ch;
-    SCENE_INDEX_DATA *pScene;
+    PLAYER *ch;
+    SCENE *pScene;
     char _target[MSL];
     char _dest[MSL];
 
 
     if ( (target->type == TYPE_ACTOR) )
-    ch = (PLAYER_DATA *)(target->value);
+    ch = (PLAYER *)(target->value);
     else 
     {
     STR_PARAM(target,_target);
 
     ch = 
-    get_actor_world( type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list, 
+    get_actor_world( type == TYPE_ACTOR ? (PLAYER *)owner : actor_list, 
                    _target );
     }
 
     STR_PARAM(dest,_dest);
     
-    if ( ch != NULL && !IS_NPC(ch) ) {
-       pScene = get_scene_index( atoi( _dest ) );
+    if ( ch != NULL && !NPC(ch) ) {
+       pScene = get_scene( atoi( _dest ) );
        if ( pScene != NULL ) {
           PC(ch,home) = atoi( _dest );
        }
@@ -3164,28 +3164,28 @@ VARIABLE_DATA *func_home( void * owner, int type, VARIABLE_DATA *target,
  * Murder! Death(); Kill.
  * Slay somebody.
  */
-VARIABLE_DATA *func_death( void * owner, int type, VARIABLE_DATA *target,
-                           VARIABLE_DATA *dest )
+VARIABLE *func_death( void * owner, int type, VARIABLE *target,
+                           VARIABLE *dest )
 {
-    PLAYER_DATA *ch;
-    SCENE_INDEX_DATA *pScene;
+    PLAYER *ch;
+    SCENE *pScene;
     char _target[MSL];
     char _dest[MSL];
 
     if ( (target->type == TYPE_ACTOR) )
-    ch = (PLAYER_DATA *)(target->value);
+    ch = (PLAYER *)(target->value);
     else 
     {
     STR_PARAM(target,_target);
     ch = 
-    get_actor_world( type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list, 
+    get_actor_world( type == TYPE_ACTOR ? (PLAYER *)owner : actor_list, 
                    _target );
     }
 
     STR_PARAM(dest,_dest);
     
-    if ( ch != NULL && !IS_NPC(ch) ) {
-       pScene = get_scene_index( atoi( _dest ) );
+    if ( ch != NULL && !NPC(ch) ) {
+       pScene = get_scene( atoi( _dest ) );
        if ( pScene != NULL ) {
           PC(ch,death) = atoi( _dest );
        }
@@ -3200,10 +3200,10 @@ VARIABLE_DATA *func_death( void * owner, int type, VARIABLE_DATA *target,
  * Opens a door quietly.
  * This function is not implemented.
  */
-VARIABLE_DATA *func_open( void * owner, int type, VARIABLE_DATA *loc,
-                          VARIABLE_DATA *dir )
+VARIABLE *func_open( void * owner, int type, VARIABLE *loc,
+                          VARIABLE *dir )
 {
-    SCENE_INDEX_DATA *pScene;
+    SCENE *pScene;
     char _loc[MSL];
     char _dir[MSL];
     int direction;
@@ -3211,7 +3211,7 @@ VARIABLE_DATA *func_open( void * owner, int type, VARIABLE_DATA *loc,
     STR_PARAM(loc,_loc);
     STR_PARAM(dir,_dir);
     
-    pScene = get_scene_index( atoi( _loc ) );
+    pScene = get_scene( atoi( _loc ) );
     direction = atoi( _dir );
 
     return NULL;
@@ -3223,10 +3223,10 @@ VARIABLE_DATA *func_open( void * owner, int type, VARIABLE_DATA *loc,
  * Closes a door quietly.
  * This function is not implemented.
  */
-VARIABLE_DATA *func_close( void * owner, int type, VARIABLE_DATA *loc,
-                           VARIABLE_DATA *dir )
+VARIABLE *func_close( void * owner, int type, VARIABLE *loc,
+                           VARIABLE *dir )
 {
-    SCENE_INDEX_DATA *pScene;
+    SCENE *pScene;
     char _loc[MSL];
     char _dir[MSL];
     int direction;
@@ -3234,7 +3234,7 @@ VARIABLE_DATA *func_close( void * owner, int type, VARIABLE_DATA *loc,
     STR_PARAM(loc,_loc);
     STR_PARAM(dir,_dir);
     
-    pScene = get_scene_index( atoi( _loc ) );
+    pScene = get_scene( atoi( _loc ) );
     direction = atoi( _dir );
 
     return NULL;
@@ -3243,41 +3243,41 @@ VARIABLE_DATA *func_close( void * owner, int type, VARIABLE_DATA *loc,
 /* -------------------------------------------------------------- */
 /*
  * Dispense();
- * "Gives" a brand new copy of a prop template to a target actor or room vnum.
+ * "Gives" a brand new copy of a prop template to a target actor or room dbkey.
  */
-VARIABLE_DATA *func_dispense( void * owner, int type, VARIABLE_DATA *target,
-                              VARIABLE_DATA *disp )
+VARIABLE *func_dispense( void * owner, int type, VARIABLE *target,
+                              VARIABLE *disp )
 {
-    PLAYER_DATA *ch=NULL;
-    SCENE_INDEX_DATA *pScene=NULL;
-    PROP_DATA *pProp;
+    PLAYER *ch=NULL;
+    SCENE *pScene=NULL;
+    PROP *pProp;
     char _target[MSL];
     char _disp[MSL];
 
-    if ( (target->type == TYPE_ACTOR) ) ch = (PLAYER_DATA *)(target->value);
+    if ( (target->type == TYPE_ACTOR) ) ch = (PLAYER *)(target->value);
     else 
     {
     STR_PARAM(target,_target);
     if ( is_number( _target ) ) {
-      pScene = get_scene_index( atoi(_target) );
+      pScene = get_scene( atoi(_target) );
     } else
     ch = find_actor_here(owner,type,_target);
-//    get_actor_scene( type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list, 
+//    get_actor_scene( type == TYPE_ACTOR ? (PLAYER *)owner : actor_list, 
 //                   _target );
     }
 
     STR_PARAM(disp,_disp);
     
     if ( pScene != NULL ) {
-       PROP_INDEX_DATA *pIndex;
-       pIndex = get_prop_index( atoi( _disp ) );
+       PROP_TEMPLATE *pIndex;
+       pIndex = get_prop_template( atoi( _disp ) );
        pProp = create_prop( pIndex, 1 );
        pProp->timer = pIndex->timer;
        if ( pProp != NULL ) prop_to_scene( pProp, pScene );
     } else
     if ( ch != NULL ) {
-       PROP_INDEX_DATA *pIndex;
-       pIndex = get_prop_index( atoi( _disp ) );
+       PROP_TEMPLATE *pIndex;
+       pIndex = get_prop_template( atoi( _disp ) );
        pProp = create_prop( pIndex, 1 );
        pProp->timer = pIndex->timer;
        if ( pProp != NULL ) prop_to_actor( pProp, ch );
@@ -3294,22 +3294,22 @@ VARIABLE_DATA *func_dispense( void * owner, int type, VARIABLE_DATA *target,
  * could also use this to place a crown on a player's head or
  * stick a medal around a player's neck
  */
-VARIABLE_DATA *func_equip( void * owner, int type, VARIABLE_DATA *target,
-                              VARIABLE_DATA *disp, VARIABLE_DATA *loc )
+VARIABLE *func_equip( void * owner, int type, VARIABLE *target,
+                              VARIABLE *disp, VARIABLE *loc )
 {
-    PLAYER_DATA *ch;
-    PROP_DATA *pProp;
+    PLAYER *ch;
+    PROP *pProp;
     char _target[MSL];
     char _disp[MSL];
     char _loc[MSL];
 
     if ( (target->type == TYPE_ACTOR) )
-    ch = (PLAYER_DATA *)(target->value);
+    ch = (PLAYER *)(target->value);
     else 
     {
     STR_PARAM(target,_target);
     ch = 
-    get_actor_scene( type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list, 
+    get_actor_scene( type == TYPE_ACTOR ? (PLAYER *)owner : actor_list, 
                    _target );
     }
 
@@ -3317,8 +3317,8 @@ VARIABLE_DATA *func_equip( void * owner, int type, VARIABLE_DATA *target,
     STR_PARAM(loc,_loc);
     
     if ( ch != NULL ) {
-       PROP_INDEX_DATA *pIndex;
-       pIndex = get_prop_index( atoi( _disp ) );
+       PROP_TEMPLATE *pIndex;
+       pIndex = get_prop_template( atoi( _disp ) );
        pProp = create_prop( pIndex, 1 );
        if ( pProp != NULL ) {
            prop_to_actor( pProp, ch );
@@ -3341,18 +3341,18 @@ VARIABLE_DATA *func_equip( void * owner, int type, VARIABLE_DATA *target,
  * assumes the target is a string describing an object in the script
  * owner's inventory using get_prop_carry().
  */
-VARIABLE_DATA *func_inside( void * owner, int type, VARIABLE_DATA *target,
-                              VARIABLE_DATA *disp )
+VARIABLE *func_inside( void * owner, int type, VARIABLE *target,
+                              VARIABLE *disp )
 {
-    PROP_DATA *pProp, *prop=NULL;
+    PROP *pProp, *prop=NULL;
     char _target[MSL];
     char _disp[MSL];
 
     if ( (target->type == TYPE_PROP) )
-     prop = (PROP_DATA *)(target->value);
+     prop = (PROP *)(target->value);
     else 
     {
-     PLAYER_DATA *ch = type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list;
+     PLAYER *ch = type == TYPE_ACTOR ? (PLAYER *)owner : actor_list;
      STR_PARAM(target,_target);
      prop = get_prop_carry( ch, _target );
     }
@@ -3360,8 +3360,8 @@ VARIABLE_DATA *func_inside( void * owner, int type, VARIABLE_DATA *target,
     STR_PARAM(disp,_disp);
     
     if ( prop != NULL ) {
-       PROP_INDEX_DATA *pIndex;
-       pIndex = get_prop_index( atoi( _disp ) );
+       PROP_TEMPLATE *pIndex;
+       pIndex = get_prop_template( atoi( _disp ) );
        pProp = create_prop( pIndex, 1 );
        if ( pProp != NULL ) {
            prop_to_prop( pProp, prop );
@@ -3379,32 +3379,32 @@ VARIABLE_DATA *func_inside( void * owner, int type, VARIABLE_DATA *target,
  * Create();
  * Summons a new actor to a scene.
  */
-VARIABLE_DATA *func_create( void * owner, int type, VARIABLE_DATA *vnum, VARIABLE_DATA *loc )
+VARIABLE *func_create( void * owner, int type, VARIABLE *dbkey, VARIABLE *loc )
 {
-    PLAYER_DATA *ch;
-    SCENE_INDEX_DATA *pScene, *pLoc;
+    PLAYER *ch;
+    SCENE *pScene, *pLoc;
     char _loc[MSL];
-    char _vnum[MSL];
+    char _dbkey[MSL];
  
-    STR_PARAM(vnum,_vnum);
+    STR_PARAM(dbkey,_dbkey);
     STR_PARAM(loc,_loc);
 
     pScene = NULL;
 
     if ( type == TYPE_ACTOR ) {
-        ch = (PLAYER_DATA *)owner;
+        ch = (PLAYER *)owner;
         if ( ch != NULL ) pScene = ch->in_scene;
     }
     else if ( type == TYPE_SCENE ) pScene = SCENE(owner);
     else if ( type == TYPE_PROP  ) pScene = PROP(owner)->in_scene;
     
-    if ( (pLoc = get_scene_index( atoi(_loc) )) != NULL ) {
+    if ( (pLoc = get_scene( atoi(_loc) )) != NULL ) {
         pScene = pLoc;
     }
     
     if ( pScene != NULL ) {
-       ACTOR_INDEX_DATA *pIndex;
-       pIndex = get_actor_index( atoi( _vnum ) );
+       ACTOR_TEMPLATE *pIndex;
+       pIndex = get_actor_template( atoi( _dbkey ) );
        ch = create_actor( pIndex );
        if ( ch != NULL ) actor_to_scene( ch, pScene );
     }
@@ -3418,45 +3418,45 @@ VARIABLE_DATA *func_create( void * owner, int type, VARIABLE_DATA *vnum, VARIABL
  * Breed();
  * Breeds a new hireling (pet), attaching it to a master.
  */
-VARIABLE_DATA *func_breed( void * owner, int type, VARIABLE_DATA *vnum, VARIABLE_DATA *master )
+VARIABLE *func_breed( void * owner, int type, VARIABLE *dbkey, VARIABLE *master )
 {
-    PLAYER_DATA *ch=NULL;
-    SCENE_INDEX_DATA *pScene=NULL;
+    PLAYER *ch=NULL;
+    SCENE *pScene=NULL;
     char _master[MSL];
-    char _vnum[MSL];
+    char _dbkey[MSL];
  
-    STR_PARAM(vnum,_vnum);
+    STR_PARAM(dbkey,_dbkey);
 
     STR_PARAM(master,_master);
 
     if ( master && (master->type == TYPE_ACTOR) )
-    ch = (PLAYER_DATA *)(master->value);
+    ch = (PLAYER *)(master->value);
     else 
     {
     STR_PARAM(master,_master);
     ch=find_actor_here(owner,type,_master);
     if ( !ch )
-    ch=get_actor_scene( type == TYPE_ACTOR ? (PLAYER_DATA *)owner : actor_list, _master );
+    ch=get_actor_scene( type == TYPE_ACTOR ? (PLAYER *)owner : actor_list, _master );
     }
 
     if ( !ch ) {
-         if ( type == TYPE_ACTOR )      ch = (PLAYER_DATA *)owner;    
+         if ( type == TYPE_ACTOR )      ch = (PLAYER *)owner;    
     else if ( type == TYPE_PROP  )  ch = PROP(owner)->carried_by;
      }
 
     if ( ch ) pScene = ch->in_scene;
 
     if ( pScene && ch ) {
-       ACTOR_INDEX_DATA *pIndex;
-       PLAYER_DATA *pet;
+       ACTOR_TEMPLATE *pIndex;
+       PLAYER *pet;
 
-       pIndex = get_actor_index( atoi( _vnum ) );
+       pIndex = get_actor_template( atoi( _dbkey ) );
        pet = create_actor( pIndex );
        if ( pet != NULL ) {
-         pet->owner = IS_NPC(ch) ? itoa(ch->pIndexData->vnum) : NAME(ch);
+         pet->owner = NPC(ch) ? itoa(ch->pIndexData->dbkey) : NAME(ch);
          actor_to_scene( pet, pScene );
          add_follower( pet, ch );
-         SET_BIT( pet->act, ACT_PET );
+         SET_BIT( pet->flag, ACTOR_PET );
          RETURNS(TYPE_ACTOR, pet);        
        }
     }
@@ -3473,7 +3473,7 @@ VARIABLE_DATA *func_breed( void * owner, int type, VARIABLE_DATA *vnum, VARIABLE
  *
  * Similar to what drug cartels do in Mexico to their 'undesirables'
  */
-VARIABLE_DATA *func_eat( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_eat( void * owner, int type, VARIABLE *target )
 {
     char _target[MSL];
 
@@ -3484,7 +3484,7 @@ VARIABLE_DATA *func_eat( void * owner, int type, VARIABLE_DATA *target )
     } 
     else  
     if ( IS_PRESENT(target,_target) ) {
-    PROP_DATA *prop=NULL;
+    PROP *prop=NULL;
 
     FOREACH(target->type,
             prop = (type == TYPE_ACTOR ? 
@@ -3509,7 +3509,7 @@ VARIABLE_DATA *func_eat( void * owner, int type, VARIABLE_DATA *target )
  * SameScene();
  * Returns true if in the same scene as the owner.
  */
-VARIABLE_DATA *func_samescene( void * owner, int type, VARIABLE_DATA *var )
+VARIABLE *func_samescene( void * owner, int type, VARIABLE *var )
 {
     char buf[MAX_STRING_LENGTH];
     int val;
@@ -3560,7 +3560,7 @@ VARIABLE_DATA *func_samescene( void * owner, int type, VARIABLE_DATA *var )
  * Possibly a way to alert all other similar actors in a zone of
  * something.  Reminiscent of CityGuard scripts.  Not yet implemented.
  */
-VARIABLE_DATA *func_alert( void * owner, int type, VARIABLE_DATA *name, VARIABLE_DATA *limits )
+VARIABLE *func_alert( void * owner, int type, VARIABLE *name, VARIABLE *limits )
 {
     return NULL;
 }
@@ -3571,7 +3571,7 @@ VARIABLE_DATA *func_alert( void * owner, int type, VARIABLE_DATA *name, VARIABLE
  * Name();
  * Converts any old parameter into its string 'name' and returns that string
  */
-VARIABLE_DATA *func_name( void * owner, int type, VARIABLE_DATA *var )
+VARIABLE *func_name( void * owner, int type, VARIABLE *var )
 {
     char *value;
     char _var[MSL];
@@ -3600,35 +3600,35 @@ VARIABLE_DATA *func_name( void * owner, int type, VARIABLE_DATA *var )
 /*
  * Vnum();         RESERVED
  * Vnum(target); 
- * Converts any old parameter into its vnum and returns that number
+ * Converts any old parameter into its dbkey and returns that number
  */
-VARIABLE_DATA *func_vnum( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_dbkey( void * owner, int type, VARIABLE *target )
 {
     char _target[MSL];
     char buf[MSL];
-    int vnum;
+    int dbkey;
 
     STR_PARAM(target,_target);
 
     if ( IS_PRESENT(target,_target) ) {
         FOREACH(target->type,
-            vnum= IS_NPC(ACTOR(target->value)) ? 
-                         ACTOR(target->value)->pIndexData->vnum : 0,
-            vnum = PROP(target->value)->pIndexData->vnum,
-            vnum = SCENE(target->value)->vnum,
-            vnum = 0);
+            dbkey= NPC(ACTOR(target->value)) ? 
+                         ACTOR(target->value)->pIndexData->dbkey : 0,
+            dbkey = PROP(target->value)->pIndexData->dbkey,
+            dbkey = SCENE(target->value)->dbkey,
+            dbkey = 0);
     }
     else
     {
          FOREACH(type,
-            vnum= IS_NPC(ACTOR(owner)) ? 
-                         ACTOR(owner)->pIndexData->vnum : 0,
-            vnum = PROP(owner)->pIndexData->vnum,
-            vnum = SCENE(owner)->vnum,
-            vnum = 0);
+            dbkey= NPC(ACTOR(owner)) ? 
+                         ACTOR(owner)->pIndexData->dbkey : 0,
+            dbkey = PROP(owner)->pIndexData->dbkey,
+            dbkey = SCENE(owner)->dbkey,
+            dbkey = 0);
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", vnum );
+    snprintf( buf, MAX_STRING_LENGTH, "%d", dbkey );
 
     RETURNS(TYPE_STRING,str_dup(buf));
 }
@@ -3638,7 +3638,7 @@ VARIABLE_DATA *func_vnum( void * owner, int type, VARIABLE_DATA *target )
  * Eval();
  * Evaluates an expression.
  */
-VARIABLE_DATA *func_eval( void * owner, int type, VARIABLE_DATA *value )
+VARIABLE *func_eval( void * owner, int type, VARIABLE *value )
 {
     char _value[MSL];
 
@@ -3654,17 +3654,17 @@ VARIABLE_DATA *func_eval( void * owner, int type, VARIABLE_DATA *value )
  * Rndplr();
  * Returns the name of a random player in the scene.
  */
-VARIABLE_DATA *func_rndplr( void * owner, int type, VARIABLE_DATA *from )
+VARIABLE *func_rndplr( void * owner, int type, VARIABLE *from )
 {
-    SCENE_INDEX_DATA *pScene;
+    SCENE *pScene;
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *och, *rch = NULL;
-    PLAYER_DATA *ch;
+    PLAYER *och, *rch = NULL;
+    PLAYER *ch;
     char _from[MSL];
 
     STR_PARAM(from,_from);
 
-    pScene =     get_scene_index( atoi( _from ) );
+    pScene =     get_scene( atoi( _from ) );
 
     och = actor_list;
 
@@ -3694,7 +3694,7 @@ VARIABLE_DATA *func_rndplr( void * owner, int type, VARIABLE_DATA *from )
         count = 0;
         for ( ch = pScene->people; ch != NULL; ch = ch->next_in_scene )
         {
-            if ( IS_NPC(ch) )
+            if ( NPC(ch) )
             continue;
 
             if ( och != NULL )
@@ -3711,7 +3711,7 @@ VARIABLE_DATA *func_rndplr( void * owner, int type, VARIABLE_DATA *from )
 
         for( ch = pScene->people; count > 0 && ch != NULL; ch = ch->next_in_scene )
         {
-            if ( IS_NPC(ch) )
+            if ( NPC(ch) )
             continue;
 
             /*
@@ -3752,12 +3752,12 @@ VARIABLE_DATA *func_rndplr( void * owner, int type, VARIABLE_DATA *from )
  * Dig();
  * Digs an exit in the world.
  */
-VARIABLE_DATA *func_dig( void * owner, int type, VARIABLE_DATA *loc, 
-                                                 VARIABLE_DATA *dir,
-	                                         VARIABLE_DATA *dest )
+VARIABLE *func_dig( void * owner, int type, VARIABLE *loc, 
+                                                 VARIABLE *dir,
+	                                         VARIABLE *dest )
 {
-    SCENE_INDEX_DATA *pScene = NULL;
-    SCENE_INDEX_DATA *toScene;
+    SCENE *pScene = NULL;
+    SCENE *toScene;
     char _loc[MSL];
     char _dest[MSL];
     char _dir[MSL];
@@ -3767,8 +3767,8 @@ VARIABLE_DATA *func_dig( void * owner, int type, VARIABLE_DATA *loc,
     STR_PARAM(dest,_dest);
     STR_PARAM(dir,_dir);
 
-    pScene =     get_scene_index( atoi( _loc ) );
-    toScene =     get_scene_index( atoi( _dest ) );
+    pScene =     get_scene( atoi( _loc ) );
+    toScene =     get_scene( atoi( _dest ) );
     door = get_dir( _dir );
 
     if ( pScene != NULL && toScene != NULL ) {
@@ -3778,7 +3778,7 @@ VARIABLE_DATA *func_dig( void * owner, int type, VARIABLE_DATA *loc,
 		 pScene->exit[door] = new_exit();
 
 		 pScene->exit[door]->to_scene = toScene;
-		 pScene->exit[door]->vnum =toScene->vnum;
+		 pScene->exit[door]->dbkey =toScene->dbkey;
 
 	 door                           = rev_dir[door];
 
@@ -3787,7 +3787,7 @@ VARIABLE_DATA *func_dig( void * owner, int type, VARIABLE_DATA *loc,
 	 toScene->exit[door]             = new_exit();
 
 	 toScene->exit[door]->to_scene    = pScene;
-	 toScene->exit[door]->vnum       = pScene->vnum;
+	 toScene->exit[door]->dbkey       = pScene->dbkey;
     }
 
     return NULL;
@@ -3798,10 +3798,10 @@ VARIABLE_DATA *func_dig( void * owner, int type, VARIABLE_DATA *loc,
  * Undig();
  * Removes an exit (unlink)
  */
-VARIABLE_DATA *func_undig( void * owner, int type, VARIABLE_DATA *loc, 
-                                                 VARIABLE_DATA *dir )
+VARIABLE *func_undig( void * owner, int type, VARIABLE *loc, 
+                                                 VARIABLE *dir )
 {
-    SCENE_INDEX_DATA *pScene = NULL;
+    SCENE *pScene = NULL;
     char _loc[MSL];
     char _dir[MSL];
     int door;
@@ -3811,7 +3811,7 @@ VARIABLE_DATA *func_undig( void * owner, int type, VARIABLE_DATA *loc,
     else
     {
     STR_PARAM(loc,_loc);
-    pScene =     get_scene_index( atoi( _loc ) );
+    pScene =     get_scene( atoi( _loc ) );
     }
 
     STR_PARAM(dir,_dir);
@@ -3822,7 +3822,7 @@ VARIABLE_DATA *func_undig( void * owner, int type, VARIABLE_DATA *loc,
     if ( pScene != NULL 
       && pScene->exit[door] != NULL )
     {
-        EXIT_DATA *oexit;
+        EXIT *oexit;
         oexit = pScene->exit[door]->to_scene 
              && pScene->exit[door]->to_scene->exit[rev_dir[door]] 
              ? pScene->exit[door]->to_scene->exit[rev_dir[door]] : NULL;
@@ -3845,10 +3845,10 @@ VARIABLE_DATA *func_undig( void * owner, int type, VARIABLE_DATA *loc,
  * AddOwed();
  * Bills add up.  Add to bounty owed to player.
  */
-VARIABLE_DATA *func_addowed( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_addowed( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _gain[MSL];
 
@@ -3874,10 +3874,10 @@ VARIABLE_DATA *func_addowed( void * owner, int type, VARIABLE_DATA *target,
  * AddBounty();
  * Add to bounty on player.
  */
-VARIABLE_DATA *func_addbounty( void * owner, int type, VARIABLE_DATA *target, 
-                          VARIABLE_DATA *gain )
+VARIABLE *func_addbounty( void * owner, int type, VARIABLE *target, 
+                          VARIABLE *gain )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
     char _gain[MSL];
 
@@ -3904,11 +3904,11 @@ VARIABLE_DATA *func_addbounty( void * owner, int type, VARIABLE_DATA *target,
  * Bounty();
  * Return the value of bounty on a target.
  */
-VARIABLE_DATA *func_bounty( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_bounty( void * owner, int type, VARIABLE *target )
 {
     char buf[MAX_STRING_LENGTH];
     int val;
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
 
 
@@ -3935,11 +3935,11 @@ VARIABLE_DATA *func_bounty( void * owner, int type, VARIABLE_DATA *target )
  * Owed();
  * Return amount owed to a player.
  */
-VARIABLE_DATA *func_owed( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_owed( void * owner, int type, VARIABLE *target )
 {
     char buf[MAX_STRING_LENGTH];
     int val;
-    PLAYER_DATA *ch = NULL;
+    PLAYER *ch = NULL;
     char _target[MSL];
 
     if ( (target->type == TYPE_ACTOR) )
@@ -3964,11 +3964,11 @@ VARIABLE_DATA *func_owed( void * owner, int type, VARIABLE_DATA *target )
  * Level();
  * Returns the level.
  */
-VARIABLE_DATA *func_level( void * owner, int type, VARIABLE_DATA *target )
+VARIABLE *func_level( void * owner, int type, VARIABLE *target )
 {
     char buf[MAX_STRING_LENGTH];
     int val;
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char _target[MSL];
 
     if ( (target->type == TYPE_ACTOR) )
@@ -4006,8 +4006,8 @@ VARIABLE_DATA *func_level( void * owner, int type, VARIABLE_DATA *target )
  * Push();
  * Push a value onto a stack.
  */
-VARIABLE_DATA *func_push( void* owner, int type,  VARIABLE_DATA *stack,
-                          VARIABLE_DATA *value )
+VARIABLE *func_push( void* owner, int type,  VARIABLE *stack,
+                          VARIABLE *value )
 {
     char _stack[MSL];
     char _value[MSL];
@@ -4026,7 +4026,7 @@ VARIABLE_DATA *func_push( void* owner, int type,  VARIABLE_DATA *stack,
  * Pop();
  * Pop the top value off a stack.
  */
-VARIABLE_DATA *func_pop( void * owner, int type, VARIABLE_DATA *stack )
+VARIABLE *func_pop( void * owner, int type, VARIABLE *stack )
 {
     char buf[MAX_STRING_LENGTH];
     char _stack[MSL];
@@ -4048,8 +4048,8 @@ VARIABLE_DATA *func_pop( void * owner, int type, VARIABLE_DATA *stack )
  * Masks=Ascending, Descending
  * Not yet implemented.
  */
-VARIABLE_DATA *func_sort( void * owner, int type, VARIABLE_DATA *stack,
-                          VARIABLE_DATA *mask )
+VARIABLE *func_sort( void * owner, int type, VARIABLE *stack,
+                          VARIABLE *mask )
 {
 /*
     char _stack[MSL];
@@ -4064,7 +4064,7 @@ VARIABLE_DATA *func_sort( void * owner, int type, VARIABLE_DATA *stack,
  * LRnd();
  * Returns a random value from a list stack.
  */
-VARIABLE_DATA *func_lrnd( void * owner, int type, VARIABLE_DATA *stack )
+VARIABLE *func_lrnd( void * owner, int type, VARIABLE *stack )
 {
     char argument[MAX_STRING_LENGTH];
     char _stack[MSL];
@@ -4090,7 +4090,7 @@ VARIABLE_DATA *func_lrnd( void * owner, int type, VARIABLE_DATA *stack )
  * LShift();
  * Shift a list left;
  */
-VARIABLE_DATA *func_lshift( void * owner, int type,VARIABLE_DATA *stack )
+VARIABLE *func_lshift( void * owner, int type,VARIABLE *stack )
 {
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
@@ -4116,7 +4116,7 @@ VARIABLE_DATA *func_lshift( void * owner, int type,VARIABLE_DATA *stack )
  * RShift();
  * Shifts list values right (wraps).
  */
-VARIABLE_DATA *func_rshift( void * owner, int type, VARIABLE_DATA *stack )
+VARIABLE *func_rshift( void * owner, int type, VARIABLE *stack )
 {
     char _stack[MSL];
     char buf[MSL];
@@ -4148,9 +4148,9 @@ VARIABLE_DATA *func_rshift( void * owner, int type, VARIABLE_DATA *stack )
  * Empty set is returned if nothing found.
  * Check for this using the empty() function.
  */
-VARIABLE_DATA *func_empty( void * owner, int type, VARIABLE_DATA *stack )
+VARIABLE *func_empty( void * owner, int type, VARIABLE *stack )
 {
-    VARIABLE_DATA *vd = NULL;
+    VARIABLE *vd = NULL;
     char _stack[MSL];
 
     STR_PARAM(stack,_stack);
@@ -4163,9 +4163,9 @@ VARIABLE_DATA *func_empty( void * owner, int type, VARIABLE_DATA *stack )
  * Returns a list stack of users currently online.
  * Masking not yet implemented.
  */
-VARIABLE_DATA *func_users( void * owner, int type,  VARIABLE_DATA *mask )
+VARIABLE *func_users( void * owner, int type,  VARIABLE *mask )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char buf[MAX_STRING_LENGTH];
     char _mask[MSL];
     
@@ -4185,9 +4185,9 @@ VARIABLE_DATA *func_users( void * owner, int type,  VARIABLE_DATA *mask )
  * RndDir();
  * Ideal version: Gives you a random valid direction
  */
-VARIABLE_DATA *func_rnddir( void * owner, int type )
+VARIABLE *func_rnddir( void * owner, int type )
 {
-/*    SCENE_INDEX_DATA *pScene; */
+/*    SCENE *pScene; */
 
    /*
     int doors=0;
@@ -4205,11 +4205,11 @@ VARIABLE_DATA *func_rnddir( void * owner, int type )
 /* -------------------------------------------------------------- */
 /*
  * GetDir();
- * Returns the vnum to the direction by name or by number.
+ * Returns the dbkey to the direction by name or by number.
  */
-VARIABLE_DATA *func_getdir( void * owner, int type, VARD *loc, VARD *dir ) {
-    VARIABLE_DATA *newvar;
-    SCENE_INDEX_DATA *pScene;
+VARIABLE *func_getdir( void * owner, int type, VARD *loc, VARD *dir ) {
+    VARIABLE *newvar;
+    SCENE *pScene;
     char buf[MAX_STRING_LENGTH];
     char _dir[MSL]; 
     char _loc[MSL];
@@ -4218,15 +4218,15 @@ VARIABLE_DATA *func_getdir( void * owner, int type, VARD *loc, VARD *dir ) {
     STR_PARAM(loc,_loc);
     STR_PARAM(dir,_dir);
 
-    pScene = get_scene_index( atoi(_loc) );
+    pScene = get_scene( atoi(_loc) );
     if ( pScene ) {
 
     door = is_number(_dir) ? atoi(_dir) : get_dir( _dir );
 
     if ( pScene->exit[door] && pScene->exit[door]->to_scene ) {
-        int vnum = pScene->exit[door]->to_scene->vnum;
+        int dbkey = pScene->exit[door]->to_scene->dbkey;
 
-        snprintf( buf, MAX_STRING_LENGTH, "%d", vnum );
+        snprintf( buf, MAX_STRING_LENGTH, "%d", dbkey );
         newvar = new_variable( TYPE_STRING, str_dup( buf ) );
     } else newvar=NULL;
 
@@ -4239,10 +4239,10 @@ VARIABLE_DATA *func_getdir( void * owner, int type, VARD *loc, VARD *dir ) {
 /* -------------------------------------------------------------- */
 /*
  * Returns a list stack of the event queue names.
-VARIABLE_DATA *func_queue( VARIABLE_DATA *mask )
+VARIABLE *func_queue( VARIABLE *mask )
 {
-    VARIABLE_DATA *vd = NULL;
-    QUEUE_DATA *qd;
+    VARIABLE *vd = NULL;
+    QUEUE *qd;
     char buf[MAX_STRING_LENGTH];
     char _mask[MSL];
 
@@ -4252,7 +4252,7 @@ VARIABLE_DATA *func_queue( VARIABLE_DATA *mask )
     for ( qd = event_queue; qd != NULL;  qd = qd->next ) 
             snprintf( buf, MAX_STRING_LENGTH, "%s;%s", buf, qd->name );
         
-    vd = new_variable( );
+    vd = new_var( );
     vd->value = str_dup( buf );
     return vd;
     RETURNS(TYPE_STRING,str_dup(buf));    
@@ -4265,9 +4265,9 @@ VARIABLE_DATA *func_queue( VARIABLE_DATA *mask )
 /*
  * Returns a list stack of the prop names in the database.
  * (huge)
-VARIABLE_DATA *func_props( VARIABLE_DATA *mask )
+VARIABLE *func_props( VARIABLE *mask )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     char buf[MAX_STRING_LENGTH];
     char _mask[MSL];
 
@@ -4285,9 +4285,9 @@ VARIABLE_DATA *func_props( VARIABLE_DATA *mask )
 /* -------------------------------------------------------------- */
 /*
  * Returns a list stack of the command list names.
-VARIABLE_DATA *func_commands( VARIABLE_DATA *mask )
+VARIABLE *func_commands( VARIABLE *mask )
 {
-    COMMAND_DATA *cd;
+    COMMAND *cd;
     char buf[MAX_STRING_LENGTH];
     char _mask[MSL];
 
@@ -4307,8 +4307,8 @@ VARIABLE_DATA *func_commands( VARIABLE_DATA *mask )
  * Iterates through each value in a list stack.
  * Sets a list of variables equal to the supplied value.
  */
-VARIABLE_DATA *func_foreach( void * owner, int type, VARIABLE_DATA 
-*stack, VARIABLE_DATA *code )
+VARIABLE *func_foreach( void * owner, int type, VARIABLE 
+*stack, VARIABLE *code )
 {
     char var_name[MAX_STRING_LENGTH];
     char _stack[MSL];
@@ -4336,10 +4336,10 @@ VARIABLE_DATA *func_foreach( void * owner, int type, VARIABLE_DATA
  * Iterates through each value in a list stack.
  * Returns a list of variables equal to the stack.
  */
-VARIABLE_DATA *func_each( void * owner, int type, VARIABLE_DATA *stack )
+VARIABLE *func_each( void * owner, int type, VARIABLE *stack )
 {
 #if defined (NEVER)
-    VARIABLE_DATA *vd;
+    VARIABLE *vd;
     char var_name[MAX_STRING_LENGTH];
     ch/r astr[MAX_STRING_LENGTH];
     char bstr[MAX_STRING_LENGTH];
@@ -4360,7 +4360,7 @@ VARIABLE_DATA *func_each( void * owner, int type, VARIABLE_DATA *stack )
         snprintf( buf, MAX_STRING_LENGTH, "%s;%s", buf, vd->value );
     }
 
-    vd = new_variable( );
+    vd = new_var( );
     vd->value = str_dup( buf );
 
     return new_variable( TYPE_STRING, str_dup(buf) );
@@ -4372,7 +4372,7 @@ VARIABLE_DATA *func_each( void * owner, int type, VARIABLE_DATA *stack )
 
 /*
  * Builder function.
- * A builder function accesses the vnum of a builder script.
+ * A builder function accesses the dbkey of a builder script.
  * VNUMs are auto-generated from a special dynamic space
  * area designated as "mainland.zone"
  *
@@ -4381,9 +4381,9 @@ VARIABLE_DATA *func_each( void * owner, int type, VARIABLE_DATA *stack )
  * permits, and are not necessarily a "mainland"
  *
  * Builder scripts are called in this form:
- * build( script vnum, location, owner, param1, param2, param3 );
+ * build( script dbkey, location, owner, param1, param2, param3 );
  *
- * where: script vnum is the vnum of the script to execute,
+ * where: script dbkey is the dbkey of the script to execute,
  *        location in area we are attempting to build in,
  *        new target owner (player or facilitating object)
  *        param1, 2, 3 optional parameters for script set by scripter
@@ -4424,7 +4424,7 @@ VARIABLE_DATA *func_each( void * owner, int type, VARIABLE_DATA *stack )
  * <direction> description
  * <content>
  * @
- * dig <direction> <scene vnum> ==> creates new scene in %scene2,3,4..n% digs from old scene w/o focus change
+ * dig <direction> <scene dbkey> ==> creates new scene in %scene2,3,4..n% digs from old scene w/o focus change
  * cue ==> populates 
  *
  * scene <variable> ==> changes focus to another scene
@@ -4592,7 +4592,7 @@ cube 3 3 3
 
  */
 
-int prop_where( PROP_INDEX_DATA *p ) {
+int prop_where( PROP_TEMPLATE *p ) {
   if ( !IS_SET(p->wear_flags, ITEM_TAKE) ) 
     return SPAWN_LOC_INSCENE;
 
@@ -4628,12 +4628,12 @@ int prop_where( PROP_INDEX_DATA *p ) {
 }
 
 
-V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V *p2, V *p3 ) {
+V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, V *p2, V *p3 ) {
 
-   PLAYER_DATA *o=NULL;          // Demystified 'target' "owner"
+   PLAYER *o=NULL;          // Demystified 'target' "owner"
    char _o[MSL];                 // Vnum if Actor, name if Player
-   SCENE_INDEX_DATA *loc;        // Location, or next best location, to attach new area
-   SCRIPT_DATA *bscript;         // The pointer to the demystified "builder script"
+   SCENE *loc;        // Location, or next best location, to attach new area
+   SCRIPT *bscript;         // The pointer to the demystified "builder script"
    char *k;                      // Pointer to the current location on the builder script
    char buf[MSL];                // General purpose string buffer
    char output[MSL];             // Contains output to NOTIFY/scripts
@@ -4643,20 +4643,20 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
    char path_descr[MSL];         // Holds our "path connector" room description
    V *vars=NULL;                 // All variables relevant to execution of the building script
 
-   SCENE_INDEX_DATA *s=NULL;     // Pointers to active objects, initially "NULL"  
-   ACTOR_INDEX_DATA *a=NULL;
-   PROP_INDEX_DATA  *p=NULL;
+   SCENE *s=NULL;     // Pointers to active objects, initially "NULL"  
+   ACTOR_TEMPLATE *a=NULL;
+   PROP_TEMPLATE  *p=NULL;
    int active=TYPE_STRING;       // Which type are we currently building?  Initial nonsense value
 
-   int tvnum[4];                 // Top Vnums increased when we generate new objects, one for each type
+   int tdbkey[4];                 // Top Vnums increased when we generate new objects, one for each type
    int created[4];               // Tally of number created
-   ZONE_DATA *w;                 // The "world" zone, usually "mainland.zone"
+   ZONE *w;                 // The "world" zone, usually "mainland.zone"
 
    // init string space
    title[0]='\0';
    output[0]='\0';
 
-   // find our dynamic "world" zone where we've allocated a million plus vnums,
+   // find our dynamic "world" zone where we've allocated a million plus dbkeys,
    // this is where we're generating the new database entries.
    for ( w = zone_first; w != NULL; w=w->next ) if ( !str_cmp( w->filename, "mainland.zone" ) ) break;
    if ( !w ) { // world zone is missing, i guess this feature is "off"
@@ -4664,24 +4664,24 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
      RETURNS(TYPE_STRING,str_dup("0"));
    }
 
-   // figure out the top vnums in the world "zone"
-   // tvnum[0] isn't really used and it's initialized to 0
+   // figure out the top dbkeys in the world "zone"
+   // tdbkey[0] isn't really used and it's initialized to 0
    // start created[] counters at 0
-   created[0]=created[1]=created[2]=created[3]=tvnum[0]=0;
-   for ( tvnum[TYPE_PROP]=w->lvnum;  tvnum[TYPE_PROP]<w->uvnum; tvnum[TYPE_PROP]++ ) 
-       if ( get_prop_index( tvnum[TYPE_PROP] ) == NULL ) break;
-   for ( tvnum[TYPE_ACTOR]=w->lvnum;  tvnum[TYPE_ACTOR]<w->uvnum; tvnum[TYPE_ACTOR]++ ) 
-       if ( get_actor_index( tvnum[TYPE_ACTOR] ) == NULL ) break;
-   for ( tvnum[TYPE_SCENE]=w->lvnum;  tvnum[TYPE_SCENE]<w->uvnum; tvnum[TYPE_SCENE]++ ) 
-       if ( get_scene_index( tvnum[TYPE_SCENE] ) == NULL ) break;
+   created[0]=created[1]=created[2]=created[3]=tdbkey[0]=0;
+   for ( tdbkey[TYPE_PROP]=w->ldbkey;  tdbkey[TYPE_PROP]<w->udbkey; tdbkey[TYPE_PROP]++ ) 
+       if ( get_prop_template( tdbkey[TYPE_PROP] ) == NULL ) break;
+   for ( tdbkey[TYPE_ACTOR]=w->ldbkey;  tdbkey[TYPE_ACTOR]<w->udbkey; tdbkey[TYPE_ACTOR]++ ) 
+       if ( get_actor_template( tdbkey[TYPE_ACTOR] ) == NULL ) break;
+   for ( tdbkey[TYPE_SCENE]=w->ldbkey;  tdbkey[TYPE_SCENE]<w->udbkey; tdbkey[TYPE_SCENE]++ ) 
+       if ( get_scene( tdbkey[TYPE_SCENE] ) == NULL ) break;
 
    // locate our script
-   if ( svnum->type != TYPE_STRING ) bscript=NULL;
+   if ( sdbkey->type != TYPE_STRING ) bscript=NULL;
    else {
-     int vnum=atoi((char *)(svnum->value));
-     bscript = get_script_index( vnum );
+     int dbkey=atoi((char *)(sdbkey->value));
+     bscript = get_script_index( dbkey );
      if ( bscript == NULL || bscript->type != TRIG_BUILDER ) {
-         snprintf( buf, MSL, "Build(): Bad script vnum %d; does not exist or is not right type\n\r", vnum );
+         snprintf( buf, MSL, "Build(): Bad script dbkey %d; does not exist or is not right type\n\r", dbkey );
          NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
          RETURNS(TYPE_STRING,str_dup("0"));
      }
@@ -4691,11 +4691,11 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
    // one buildable room with a free cardinal exit (not up or down)
    // inside the same area, or it fails.  we can use a path connector to
    // attach something to a room that has redundant exits.
-   if ( location->type == TYPE_SCENE ) loc= (SCENE_INDEX_DATA *)(location->value);
+   if ( location->type == TYPE_SCENE ) loc= (SCENE *)(location->value);
    else
    if ( location->type == TYPE_STRING ) {
-     int vnum=atoi( (char *) (location->value) );
-     loc= get_scene_index( vnum );
+     int dbkey=atoi( (char *) (location->value) );
+     loc= get_scene( dbkey );
    } else {
      switch ( location->type ) { case TYPE_ACTOR: loc= ACTOR(location->value)->in_scene; break;
                                  case TYPE_PROP:  loc= PROP(location->value)->in_scene;
@@ -4718,11 +4718,11 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
        if ( loc->exit[dir] == NULL ) { found=TRUE; break; }
      }
      if ( !found ) { // the default loc is full, try others in same area
-       ZONE_DATA *pZone=loc->zone;
-       int vnum=0;
+       ZONE *pZone=loc->zone;
+       int dbkey=0;
        found=FALSE;
-       for ( vnum = pZone->lvnum; vnum < pZone->uvnum; vnum++ ) { 
-         loc = get_scene_index( vnum ); 
+       for ( dbkey = pZone->ldbkey; dbkey < pZone->udbkey; dbkey++ ) { 
+         loc = get_scene( dbkey ); 
          if ( loc && IS_SET(loc->scene_flags,SCENE_BUILDABLE) ) 
           for ( dir =0; dir < MAX_DIR; dir++ ) {
             if ( dir == DIR_UP || dir == DIR_DOWN ) continue;
@@ -4752,13 +4752,13 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
      NOTIFY( "Build(): Unable to locate a suitable owner, aborting\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
      RETURNS(TYPE_STRING,str_dup("0"));
    }
-   if ( IS_NPC(o) ) snprintf( _o, MSL, "%d", o->pIndexData->vnum );
+   if ( NPC(o) ) snprintf( _o, MSL, "%d", o->pIndexData->dbkey );
    else snprintf( _o, MSL, "%s", o->name );
 
    // Duplicate parameters and populate our temporary variable list
    { V *v;
 
-   if ( p1 ) { v=new_variable_data(); v->next=vars; vars=v; v->type=p1->type; v->name=str_dup( "%1%" );
+   if ( p1 ) { v=new_var(); v->next=vars; vars=v; v->type=p1->type; v->name=str_dup( "%1%" );
    switch( p1->type ) {
         case TYPE_ACTOR: case TYPE_SCENE:
          case TYPE_PROP: v->value = p1->value; break;
@@ -4767,7 +4767,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
    }
    }
 
-   if ( p2 ) { v=new_variable_data(); v->next=vars; vars=v; v->type=p2->type; v->name=str_dup( "%2%" );
+   if ( p2 ) { v=new_var(); v->next=vars; vars=v; v->type=p2->type; v->name=str_dup( "%2%" );
    switch( p2->type ) {
         case TYPE_ACTOR: case TYPE_SCENE:
          case TYPE_PROP: v->value = p2->value; break;
@@ -4776,7 +4776,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
    }
    }
 
-   if ( p3 ) { v=new_variable_data(); v->next=vars; vars=v; v->type=p3->type; v->name=str_dup( "%3%" );
+   if ( p3 ) { v=new_var(); v->next=vars; vars=v; v->type=p3->type; v->name=str_dup( "%3%" );
    switch( p3->type ) {
         case TYPE_ACTOR: case TYPE_SCENE:
          case TYPE_PROP: v->value = p3->value; break;
@@ -4805,7 +4805,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
      while ( 1 ) {
 
        // Did we fill the space?
-       if ( tvnum[1] > w->uvnum || tvnum[2] > w->uvnum || tvnum[3] > w->uvnum ) break;
+       if ( tdbkey[1] > w->udbkey || tdbkey[2] > w->udbkey || tdbkey[3] > w->udbkey ) break;
 
        // Skip ahead spaces
        while ( *k != '\0' && isspace(*k) ) k++;
@@ -4836,14 +4836,14 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
             if ( v->type != TYPE_SCENE ) {
               NOTIFY( "Build(): scene %var% is referencing the wrong type\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
             } else {
-              s=(SCENE_INDEX_DATA *)v->value;  active=TYPE_SCENE;
+              s=(SCENE *)v->value;  active=TYPE_SCENE;
             }
           } else { // it's just the word scene, followed by a different command, so create
            int iHash;  V *n;
-           s = new_scene_index();              s->zone =w;  s->owner = str_dup( _o );
-           s->vnum=tvnum[TYPE_SCENE]++;        iHash = s->vnum % MAX_KEY_HASH; 
-           s->next = scene_index_hash[iHash];  scene_index_hash[iHash]  = s;
-           n = new_variable_data();
+           s = new_scene();              s->zone =w;  s->owner = str_dup( _o );
+           s->dbkey=tdbkey[TYPE_SCENE]++;        iHash = s->dbkey % MAX_KEY_HASH; 
+           s->next = scene_hash[iHash];  scene_hash[iHash]  = s;
+           n = new_var();
            snprintf( buf, MSL, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_SCENE;
            n->value = (void *) s;        n->next = vars; vars=n;
@@ -4852,15 +4852,15 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
 
        } else
        if ( !str_cmp( arg, "dig" ) ) {    // digs a new exit to a new scene w/o switching focus
-          int iHash;  V *n; SCENE_INDEX_DATA *x;
+          int iHash;  V *n; SCENE *x;
           int dir;
           k=one_argument(k, arg);
           dir = get_dir( arg );
           if ( active == TYPE_SCENE ) {
-           x = new_scene_index();              x->zone =w;  x->owner = str_dup( _o );
-           x->vnum=tvnum[TYPE_SCENE]++;        iHash = x->vnum % MAX_KEY_HASH; 
-           x->next = scene_index_hash[iHash];  scene_index_hash[iHash]  = x;
-           n = new_variable_data();
+           x = new_scene();              x->zone =w;  x->owner = str_dup( _o );
+           x->dbkey=tdbkey[TYPE_SCENE]++;        iHash = x->dbkey % MAX_KEY_HASH; 
+           x->next = scene_hash[iHash];  scene_hash[iHash]  = x;
+           n = new_var();
            snprintf( buf, MSL, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_SCENE;
            n->value = (void *) x;        n->next = vars; vars=n;
@@ -4882,15 +4882,15 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
             if ( s ) { 
               one_argument(k,arg);
               while( arg[0] == '%' ) {
-               V *v; SPAWN_DATA *c; bool fAct=FALSE; bool fCont=FALSE; bool fFurn=FALSE;
+               V *v; SPAWN *c; bool fAct=FALSE; bool fCont=FALSE; bool fFurn=FALSE;
                k=one_argument(k,arg);
                v=get_variable(vars,arg);
                if ( v && v->value ) {
                 switch ( v->type ) {
-     case TYPE_ACTOR: fAct=TRUE; c=new_spawn_data(); c->command='M'; c->rs_vnum=((ACTOR_INDEX_DATA *)(v->value))->vnum; c->loc=1; break;
-      case TYPE_PROP: c=new_spawn_data(); c->command='O'; c->rs_vnum=((PROP_INDEX_DATA *)(v->value))->vnum; 
-      c->loc=fAct ? prop_where((PROP_INDEX_DATA *)(v->value)) : (fCont ? SPAWN_LOC_INSIDE : (fFurn ? SPAWN_LOC_ONTOP : SPAWN_LOC_INSCENE)); 
-   switch( ((PROP_INDEX_DATA *)(v->value))->item_type ) { case ITEM_FURNITURE: fFurn=TRUE; break; case ITEM_CONTAINER: fCont=TRUE; break; default: break; }
+     case TYPE_ACTOR: fAct=TRUE; c=new_spawn(); c->command='M'; c->rs_dbkey=((ACTOR_TEMPLATE *)(v->value))->dbkey; c->loc=1; break;
+      case TYPE_PROP: c=new_spawn(); c->command='O'; c->rs_dbkey=((PROP_TEMPLATE *)(v->value))->dbkey; 
+      c->loc=fAct ? prop_where((PROP_TEMPLATE *)(v->value)) : (fCont ? SPAWN_LOC_INSIDE : (fFurn ? SPAWN_LOC_ONTOP : SPAWN_LOC_INSCENE)); 
+   switch( ((PROP_TEMPLATE *)(v->value))->item_type ) { case ITEM_FURNITURE: fFurn=TRUE; break; case ITEM_CONTAINER: fCont=TRUE; break; default: break; }
                  break;
                    default: c=NULL; break;
                 }
@@ -4913,14 +4913,14 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
             if ( v->type != TYPE_ACTOR ) {
               NOTIFY( "Build(): actor %var% is referencing the wrong type\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
             } else {
-              a=(ACTOR_INDEX_DATA *)v->value;  active=TYPE_ACTOR;
+              a=(ACTOR_TEMPLATE *)v->value;  active=TYPE_ACTOR;
             }
           } else { // it's just the word actor, followed by a different command, so create
            int iHash;  V *n;
-           a = new_actor_index();              a->zone =w;    a->owner = str_dup( _o );
-           a->vnum=tvnum[TYPE_ACTOR]++;        iHash = s->vnum % MAX_KEY_HASH; 
-           a->next = actor_index_hash[iHash];  actor_index_hash[iHash]  = a;
-           n = new_variable_data();
+           a = new_actor_template();              a->zone =w;    a->owner = str_dup( _o );
+           a->dbkey=tdbkey[TYPE_ACTOR]++;        iHash = s->dbkey % MAX_KEY_HASH; 
+           a->next = actor_template_hash[iHash];  actor_template_hash[iHash]  = a;
+           n = new_var();
            snprintf( buf, MSL, "%%actor%d%%", ++created[TYPE_ACTOR] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_ACTOR;
            n->value = (void *) a;        n->next = vars; vars=n;
@@ -4941,14 +4941,14 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
             if ( v->type != TYPE_PROP ) {
               NOTIFY( "Build(): prop %var% is referencing wrong type\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
             } else {
-              p=(PROP_INDEX_DATA *)v->value;  active=TYPE_PROP;
+              p=(PROP_TEMPLATE *)v->value;  active=TYPE_PROP;
             }
           } else { // it's just the word prop, followed by a different command, so create
            int iHash;  V *n;
-           p = new_prop_index();               p->zone =w;   p->owner = str_dup( _o );
-           p->vnum=tvnum[TYPE_PROP]++;        iHash = p->vnum % MAX_KEY_HASH; 
-           p->next = prop_index_hash[iHash];   prop_index_hash[iHash]  = p;
-           n = new_variable_data();
+           p = new_prop_template();               p->zone =w;   p->owner = str_dup( _o );
+           p->dbkey=tdbkey[TYPE_PROP]++;        iHash = p->dbkey % MAX_KEY_HASH; 
+           p->next = prop_template_hash[iHash];   prop_template_hash[iHash]  = p;
+           n = new_var();
            snprintf( buf, MSL, "%%prop%d%%", ++created[TYPE_PROP] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_PROP;
            n->value = (void *) p;        n->next = vars; vars=n;
@@ -5018,7 +5018,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
            }
        } else
        if ( !str_cmp( arg, "ed" ) ) {     // adds an extra-description to the active object 
-          EXTRA_DESCR_DATA *ed;
+          EXTRA_DESCR *ed;
           k=grab_to_eol( k, arg );
           ed = new_extra_descr();
           ed->keyword = str_dup( arg );
@@ -5038,12 +5038,12 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
            if ( !is_number(arg) ) {
              V *v=get_variable(vars,arg);
              if ( v && v->type == TYPE_SCENE && v->value ) {
-                 SCENE_INDEX_DATA *x=(SCENE_INDEX_DATA *)(v->value);
-                 if ( IS_SET(x->scene_flags,SCENE_TEMPLATE) ) s->template=x->vnum;
+                 SCENE *x=(SCENE *)(v->value);
+                 if ( IS_SET(x->scene_flags,SCENE_TEMPLATE) ) s->template=x->dbkey;
              }
            } else {
-             SCENE_INDEX_DATA *x=get_scene_index(atoi(arg));
-             if ( x && IS_SET(x->scene_flags,SCENE_TEMPLATE) ) s->template=x->vnum;
+             SCENE *x=get_scene(atoi(arg));
+             if ( x && IS_SET(x->scene_flags,SCENE_TEMPLATE) ) s->template=x->dbkey;
            }
          } else {
            NOTIFY( "Build(): ref called on wrong type, or no active object", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
@@ -5077,7 +5077,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
                     NOTIFY( " Used on wrong type or it's just not a flag\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT ); }
             break;
             case TYPE_ACTOR: 
-             if ( ( value = act_name_bit(buf) ) != ACT_NONE ) { TOGGLE_BIT(a->act, value);  SET_BIT( a->act, ACT_IS_NPC ); }
+             if ( ( value = actor_name_bit(buf) ) != ACTOR_NONE ) { TOGGLE_BIT(a->flag, value);  SET_BIT( a->flag, ACTOR_NPC ); }
              else
              if ( ( value = bonus_name_bit(buf) ) != AFFECT_NONE )  TOGGLE_BIT(a->bonuses, value);
              else { NOTIFY( "Build(): actor flag: ", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT ); NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
@@ -5086,7 +5086,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
             case TYPE_SCENE: 
              if ( scene_name_bit(buf) != SCENE_NONE ) TOGGLE_BIT(s->scene_flags, scene_name_bit(buf));
              else
-             if ( sector_number(buf) != SECT_MAX ) s->sector_type  = sector_number(buf);
+             if ( move_number(buf) != MOVE_MAX ) s->move  = move_number(buf);
              else { NOTIFY( "Build(): scene flag: ", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT ); NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                     NOTIFY( " Used on wrong type or it's just not a flag\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT ); }
             break;
@@ -5141,11 +5141,11 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
           NOTIFY( "Build(): cast/money called on wrong type, or no object active", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
        } else
        if ( !str_cmp( arg, "script" ) ) {  // adds a script to the active object
-        SCRIPT_DATA *script;
+        SCRIPT *script;
         k=one_argument(k,arg);
-        if ( (script = get_script_index(atoi(arg))) == NULL ) NOTIFY( "Build(): script <vnum>; bad vnum\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
+        if ( (script = get_script_index(atoi(arg))) == NULL ) NOTIFY( "Build(): script <dbkey>; bad dbkey\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
         else {
-         INSTANCE_DATA *pTrig;
+         INSTANCE *pTrig;
          pTrig = new_instance();
          pTrig->script    = script;
          switch ( active ) {
@@ -5153,7 +5153,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
              case TYPE_SCENE: pTrig->next = s->instances; s->instances = pTrig; break;
               case TYPE_PROP: pTrig->next = p->instances; p->instances = pTrig; break;
                  default: free_instance( pTrig ); 
-     NOTIFY( "Build(): script <vnum>; called before active object\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
+     NOTIFY( "Build(): script <dbkey>; called before active object\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                    break;
          }
         }
@@ -5186,7 +5186,7 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
             }             
            } else 
            if ( is_number(arg) ) {
-            SCENE_INDEX_DATA *x=get_scene_index(atoi(arg));
+            SCENE *x=get_scene(atoi(arg));
             if ( x && !s->exit[dir] ) {
              s->exit[dir] = new_exit(); s->exit[dir]->to_scene = x;
              if ( !s->exit[dir]->to_scene->exit[rev_dir[dir]] ) s->exit[dir]->to_scene->exit[rev_dir[dir]] = new_exit();
@@ -5198,18 +5198,18 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
                if ( arg[0] == '%' ) {
                  V *v=get_variable(vars,arg);
                  if ( v && v->type == TYPE_PROP && v->value ) {
-                  s->exit[dir]->key = ((PROP_INDEX_DATA *)(v->value))->vnum;
+                  s->exit[dir]->key = ((PROP_TEMPLATE *)(v->value))->dbkey;
                  }
-               } else { PROP_INDEX_DATA *x=get_prop_index(atoi(arg)); if (x) s->exit[dir]->key = x->vnum; }
+               } else { PROP_TEMPLATE *x=get_prop_template(atoi(arg)); if (x) s->exit[dir]->key = x->dbkey; }
              }
            } else
            if ( !str_cmp( arg, "door" ) ) {
              if ( s->exit[dir] ) { k=grab_to_eol(k,arg);
-              SET_BIT( s->exit[dir]->rs_flags, EX_ISDOOR );
-              SET_BIT( s->exit[dir]->exit_info, EX_ISDOOR ); 
+              SET_BIT( s->exit[dir]->rs_flags, EXIT_ISDOOR );
+              SET_BIT( s->exit[dir]->exit_flags, EXIT_ISDOOR ); 
               if ( s->exit[dir]->to_scene && s->exit[dir]->to_scene->exit[rev_dir[dir]] ) { 
-               SET_BIT( s->exit[dir]->to_scene->exit[rev_dir[dir]]->rs_flags, EX_ISDOOR );
-               SET_BIT( s->exit[dir]->to_scene->exit[rev_dir[dir]]->exit_info, EX_ISDOOR );
+               SET_BIT( s->exit[dir]->to_scene->exit[rev_dir[dir]]->rs_flags, EXIT_ISDOOR );
+               SET_BIT( s->exit[dir]->to_scene->exit[rev_dir[dir]]->exit_flags, EXIT_ISDOOR );
               }
              }
            } else
@@ -5219,13 +5219,13 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
            if ( !str_cmp( arg, "desc" ) || !str_cmp(arg, "description") ) { k=grab_to_at(k,arg);
              if ( s->exit[dir] ) { free_string( s->exit[dir]->description ); s->exit[dir]->description = str_dup(arg); }
            } else
-           if ( (val = exit_name_bit( arg )) != EX_NONE ) {
+           if ( (val = exit_name_bit( arg )) != EXIT_NONE ) {
              if ( s->exit[dir] ) {
               SET_BIT(s->exit[dir]->rs_flags, val);
-              SET_BIT(s->exit[dir]->exit_info, val);
+              SET_BIT(s->exit[dir]->exit_flags, val);
               if ( s->exit[dir]->to_scene && s->exit[dir]->to_scene->exit[rev_dir[dir]] ) {
                SET_BIT(s->exit[dir]->to_scene->exit[rev_dir[dir]]->rs_flags, val);
-               SET_BIT(s->exit[dir]->to_scene->exit[rev_dir[dir]]->exit_info, val);
+               SET_BIT(s->exit[dir]->to_scene->exit[rev_dir[dir]]->exit_flags, val);
               }
              }
            }
@@ -5242,11 +5242,11 @@ V *func_build( void *owner, int type, V *svnum, V *location, V *target, V *p1, V
              if ( !loc->exit[rev_dir[f]] ) loc->exit[rev_dir[f]]=new_exit(); loc->exit[rev_dir[f]]->to_scene=s;
            } else { 
             // generate a path room because we can't make a direct connection
-            int iHash;  V *n;  SCENE_INDEX_DATA *x;
-            x = new_scene_index();              x->zone =w;  x->owner = str_dup( _o );
-            x->vnum=tvnum[TYPE_SCENE]++;        iHash = x->vnum % MAX_KEY_HASH;
-            x->next = scene_index_hash[iHash];  scene_index_hash[iHash]  = x;
-            n = new_variable_data();
+            int iHash;  V *n;  SCENE *x;
+            x = new_scene();              x->zone =w;  x->owner = str_dup( _o );
+            x->dbkey=tdbkey[TYPE_SCENE]++;        iHash = x->dbkey % MAX_KEY_HASH;
+            x->next = scene_hash[iHash];  scene_hash[iHash]  = x;
+            n = new_var();
             snprintf( buf, MSL, "%%path%d%%", ++created[0] );  // make a new variable, we'll use counter[0] because its a path
             n->name = str_dup( buf );     n->type = TYPE_SCENE;
             n->value = (void *) x;        n->next = vars; vars=n;

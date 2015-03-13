@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -42,7 +42,7 @@
 
 
 
-bool	check_social	args( ( PLAYER_DATA *ch, char *command,
+bool	check_social	args( ( PLAYER *ch, char *command,
 			    char *argument ) );
 
 
@@ -454,21 +454,21 @@ const	struct	cmd_type	command_table	[] =
 
 
 
-void cmd_library( PLAYER_DATA *ch, char *argument ) {
+void cmd_library( PLAYER *ch, char *argument ) {
 
     if ( *argument == '\0' ) { cmd_at( ch, "2000 pfind zone" ); return; }
 
     if ( is_number(argument) ) {
-        int vnum=0;  int level=atoi(argument);
+        int dbkey=0;  int level=atoi(argument);
 
-        for( ; vnum <= top_vnum_actor; vnum++ ) {
+        for( ; dbkey <= top_dbkey_actor; dbkey++ ) {
            char buf[MSL];
-           ACTOR_INDEX_DATA *pActor = get_actor_index( vnum );
+           ACTOR_TEMPLATE *pActor = get_actor_template( dbkey );
            if ( pActor 
              && pActor->exp > (level/2) 
              && pActor->exp < (level+level/2) ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s | %dk %dgp %dxp\n\r", 
-                         pActor->vnum, pActor->short_descr,
+                         pActor->dbkey, pActor->short_descr,
                          pActor->karma, pActor->money, pActor->exp );
               send_to_actor( buf, ch );
            }
@@ -476,14 +476,14 @@ void cmd_library( PLAYER_DATA *ch, char *argument ) {
     }
 
     if ( !str_cmp( argument, "scripted" ) ) {
-        int vnum=0;
+        int dbkey=0;
 
-        for( ; vnum <= top_vnum_actor; vnum++ ) {
+        for( ; dbkey <= top_dbkey_actor; dbkey++ ) {
            char buf[MSL];
-           ACTOR_INDEX_DATA *pActor = get_actor_index( vnum );
+           ACTOR_TEMPLATE *pActor = get_actor_template( dbkey );
            if ( pActor && pActor->instances && pActor->instances->script ) {
               snprintf( buf, MAX_STRING_LENGTH, "A[%d] %s (%s)\n\r", 
-                         pActor->vnum, pActor->short_descr, 
+                         pActor->dbkey, pActor->short_descr, 
                          pActor->instances->script->name );
               send_to_actor( buf, ch );
            }
@@ -491,15 +491,15 @@ void cmd_library( PLAYER_DATA *ch, char *argument ) {
     }
 
     if ( !str_cmp( argument, "items" ) ) {
-        int vnum=0;
+        int dbkey=0;
 
-        for( ; vnum <= top_vnum_prop; vnum++ ) {
+        for( ; dbkey <= top_dbkey_prop; dbkey++ ) {
            char buf[MSL];
-           PROP_INDEX_DATA *pProp = get_prop_index( vnum );
+           PROP_TEMPLATE *pProp = get_prop_template( dbkey );
 
            if ( pProp && pProp->instances && pProp->instances->script ) {
               snprintf( buf, MAX_STRING_LENGTH, "P[%d] %s (%s)\n\r", 
-                         pProp->vnum, pProp->short_descr, 
+                         pProp->dbkey, pProp->short_descr, 
                          pProp->instances->script->name );
               send_to_actor( buf, ch );
            }
@@ -507,14 +507,14 @@ void cmd_library( PLAYER_DATA *ch, char *argument ) {
     }
 
     if ( !str_cmp( argument, "wardrobe" ) ) {
-        int vnum=0;
+        int dbkey=0;
 
-        for( ; vnum <= top_vnum_prop; vnum++ ) {
+        for( ; dbkey <= top_dbkey_prop; dbkey++ ) {
            char buf[MSL];
-           PROP_INDEX_DATA *pProp = get_prop_index( vnum );
+           PROP_TEMPLATE *pProp = get_prop_template( dbkey );
            if ( pProp && pProp->item_type == ITEM_CLOTHING ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to AC bonus) %s\n\r", 
-                         pProp->vnum, pProp->short_descr, pProp->value[1],
+                         pProp->dbkey, pProp->short_descr, pProp->value[1],
                          wear_bit_name(pProp->wear_flags) );
               send_to_actor( buf, ch );
            }
@@ -522,14 +522,14 @@ void cmd_library( PLAYER_DATA *ch, char *argument ) {
     }
 
     if ( !str_cmp( argument, "armor" ) ) {
-        int vnum=0;
+        int dbkey=0;
 
-        for( ; vnum <= top_vnum_prop; vnum++ ) {
+        for( ; dbkey <= top_dbkey_prop; dbkey++ ) {
            char buf[MSL];
-           PROP_INDEX_DATA *pProp = get_prop_index( vnum );
+           PROP_TEMPLATE *pProp = get_prop_template( dbkey );
            if ( pProp && pProp->item_type == ITEM_ARMOR ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to AC bonus) %s\n\r", 
-                         pProp->vnum, pProp->short_descr, pProp->value[0],
+                         pProp->dbkey, pProp->short_descr, pProp->value[0],
                          wear_bit_name(pProp->wear_flags) );
               send_to_actor( buf, ch );
            }
@@ -537,14 +537,14 @@ void cmd_library( PLAYER_DATA *ch, char *argument ) {
     }
 
     if ( !str_cmp( argument, "weapons" ) ) {
-        int vnum=0;
+        int dbkey=0;
 
-        for( ; vnum <= top_vnum_prop; vnum++ ) {
+        for( ; dbkey <= top_dbkey_prop; dbkey++ ) {
            char buf[MSL];
-           PROP_INDEX_DATA *pProp = get_prop_index( vnum );
+           PROP_TEMPLATE *pProp = get_prop_template( dbkey );
            if ( pProp && pProp->item_type == ITEM_WEAPON ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to %d) %s\n\r", 
-                         pProp->vnum, pProp->short_descr, pProp->value[1],
+                         pProp->dbkey, pProp->short_descr, pProp->value[1],
                          pProp->value[2], attack_table[pProp->value[3]].name );
               send_to_actor( buf, ch );
            }
@@ -558,7 +558,7 @@ int comlist [512];
 /*
  * Syntax:  comlist
  */
-void cmd_comlist( PLAYER_DATA *ch, char *argument )
+void cmd_comlist( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char final[4 * MAX_STRING_LENGTH];
@@ -595,7 +595,7 @@ void cmd_comlist( PLAYER_DATA *ch, char *argument )
  * Can be recursively called from 'at', 'order', 'force'.
  * Is not called with scripts anymore.
  */
-void interpret( PLAYER_DATA *ch, char *argument )
+void interpret( PLAYER *ch, char *argument )
 {
     char command[MAX_INPUT_LENGTH];
     char logline[MAX_INPUT_LENGTH];
@@ -617,23 +617,23 @@ void interpret( PLAYER_DATA *ch, char *argument )
     /*
      * Implement freeze command.
      */
-    if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE) )
+    if ( !NPC(ch) && IS_SET(ch->flag, PLR_FREEZE) )
     {
     send_to_actor( "You are encased in a solid block of ice.\n\r", ch );
 	return;
     }
 
    /* Save our souls. */
-    if ( !IS_NPC(ch) ) cmd_save( ch, "internal" );
+    if ( !NPC(ch) ) cmd_save( ch, "internal" );
 
     /*
      * Add to traced script if tracing.
      */
-    if ( !IS_NPC(ch) && ch->userdata->trace != NULL )
+    if ( !NPC(ch) && ch->userdata->trace != NULL )
     {
         char cmmnd[MAX_INPUT_LENGTH+10];
         char buf[MAX_STRING_LENGTH];
-        SCRIPT_DATA *trace;
+        SCRIPT *trace;
 
         trace = ch->userdata->trace;
 
@@ -688,13 +688,13 @@ void interpret( PLAYER_DATA *ch, char *argument )
      * To avoid endless loops frozen in one spot, goto cannot be used
      * as the start of a command trigger.
      */
-    if ( !IS_NPC(ch) )  /* Mobs aren't able trigger actors this way, sorry. */
+    if ( !NPC(ch) )  /* Mobs aren't able trigger actors this way, sorry. */
     {
         if ( ch->in_scene != NULL
           && str_cmp( command, "goto" )
           && !found )
         {
-            PLAYER_DATA *actor;
+            PLAYER *actor;
 
             for ( actor = ch->in_scene->people;
                   actor != NULL;
@@ -717,7 +717,7 @@ void interpret( PLAYER_DATA *ch, char *argument )
       && str_cmp( command, "goto" )
       && !found )
     {
-        PROP_DATA *prop;
+        PROP *prop;
 
         for ( prop = ch->carrying;
               prop != NULL;
@@ -738,7 +738,7 @@ void interpret( PLAYER_DATA *ch, char *argument )
       && str_cmp( command, "goto" )
       && !found )
     {
-        PROP_DATA *prop;
+        PROP *prop;
         char *command_dup;
 
         for ( prop = ch->in_scene->contents;
@@ -785,7 +785,7 @@ void interpret( PLAYER_DATA *ch, char *argument )
      * Look for command in command table.
      */
     trust = get_trust( ch );
-    if ( IS_NPC(ch) ) trust = LEVEL_SUPREME;
+    if ( NPC(ch) ) trust = LEVEL_SUPREME;
     for ( cmd = 0; command_table[cmd].name[0] != '\0'; cmd++ )
     {
     if ( command_table[cmd].level == -2 ) continue;
@@ -793,7 +793,7 @@ void interpret( PLAYER_DATA *ch, char *argument )
 	if ( command[0] == command_table[cmd].name[0]
     &&   !str_prefix( command, command_table[cmd].name ) )
 	{
-        if (IS_NPC(ch) && (ch->desc == NULL)
+        if (NPC(ch) && (ch->desc == NULL)
                        && command_table[cmd].level <= FORCE_LEVEL )
         found = TRUE;
         else
@@ -804,8 +804,8 @@ void interpret( PLAYER_DATA *ch, char *argument )
     }
 
     /* Execute aliases */
-    if ( !IS_NPC(ch) && IS_SET(ch->act2,PLR_ALIASES) ) {
-      ALIAS_DATA *alias = find_alias( ch, command );
+    if ( !NPC(ch) && IS_SET(ch->flag2,PLR_ALIASES) ) {
+      ALIAS *alias = find_alias( ch, command );
       if ( alias ) {
          interpret( ch, alias->exp );
          return;
@@ -818,9 +818,9 @@ void interpret( PLAYER_DATA *ch, char *argument )
     if ( command_table[cmd].log != LOG_NEVER )
     {
    
-    if ( ( !IS_NPC(ch) && IS_SET(ch->act, PLR_LOG) )
+    if ( ( !NPC(ch) && IS_SET(ch->flag, PLR_LOG) )
     ||   fLogAll
-    ||   ( command_table[cmd].log == LOG_ALWAYS && !IS_NPC(ch) ) )
+    ||   ( command_table[cmd].log == LOG_ALWAYS && !NPC(ch) ) )
     {
         LOG_LEVEL = get_trust(ch);
         sprintf( log_buf, "Log %s: %s", STR(ch,name), logline );
@@ -917,10 +917,10 @@ void interpret( PLAYER_DATA *ch, char *argument )
 
 
 
-bool check_social( PLAYER_DATA *ch, char *command, char *argument )
+bool check_social( PLAYER *ch, char *command, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     int cmd;
     bool found;
 
@@ -938,7 +938,7 @@ bool check_social( PLAYER_DATA *ch, char *command, char *argument )
     if ( !found )
 	return FALSE;
 
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, PLR_NO_EMOTE) )
+    if ( !NPC(ch) && IS_SET(ch->flag2, PLR_NO_EMOTE) )
     {
 	send_to_actor( "You are anti-social!\n\r", ch );
 	return TRUE;
@@ -994,8 +994,8 @@ bool check_social( PLAYER_DATA *ch, char *command, char *argument )
 	act( social_table[cmd].vict_found,    ch, NULL, victim, TO_VICT    );
 
     /*
-	if ( !IS_NPC(ch) && IS_NPC(victim)
-	&&   !IS_AFFECTED(victim, AFF_CHARM)
+	if ( !NPC(ch) && NPC(victim)
+	&&   !IS_AFFECTED(victim, BONUS_CHARM)
     &&   IS_AWAKE(victim)
     &&   victim->desc == NULL )
 	{
@@ -1033,7 +1033,7 @@ bool check_social( PLAYER_DATA *ch, char *command, char *argument )
 /*
  * Evaluates multiple line command parses and does them all in one pulse.
  * Kinda kludgy, but useful.
-void multi_interpret ( PLAYER_DATA *actor, char *com_list )
+void multi_interpret ( PLAYER *actor, char *com_list )
 {
     char buf[MAX_STRING_LENGTH];
 
@@ -1052,7 +1052,7 @@ void multi_interpret ( PLAYER_DATA *actor, char *com_list )
 /*
  * figures out ansi keyboard commands and assigns them to keys
  */
-void ansi_keyboard( PLAYER_DATA *ch, char *argument ) {
+void ansi_keyboard( PLAYER *ch, char *argument ) {
     /* support for arrow keys in non-character mode */
      char *p=argument; p++;
        switch ( *p ) {

@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -96,23 +96,23 @@ const char    echo_on_str     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
 /*
  * Other local functions (OS-independent).
  */
-void    newbie              args( ( CONNECTION_DATA *d, char *argument ) );
-void    newbie_check        args( ( CONNECTION_DATA *d ) );
+void    newbie              args( ( CONNECTION *d, char *argument ) );
+void    newbie_check        args( ( CONNECTION *d ) );
 bool    check_parse_name   args( ( char *name ) );
-bool    check_playing      args( ( CONNECTION_DATA *d, char *name ) );
-bool    check_reconnect    args( ( CONNECTION_DATA *d, char *name,
+bool    check_playing      args( ( CONNECTION *d, char *name ) );
+bool    check_reconnect    args( ( CONNECTION *d, char *name,
                                    bool fConn ) );
-void    stop_idling        args( ( PLAYER_DATA *ch ) );
-bool    apply_ok           args( ( PLAYER_DATA *ch ) );
-void    print_doc_menu     args( ( PLAYER_DATA *ch ) );
-void    print_login_menu   args( ( PLAYER_DATA *ch ) );
-void    print_stat_menu    args( ( PLAYER_DATA *ch ) );
+void    stop_idling        args( ( PLAYER *ch ) );
+bool    apply_ok           args( ( PLAYER *ch ) );
+void    print_doc_menu     args( ( PLAYER *ch ) );
+void    print_login_menu   args( ( PLAYER *ch ) );
+void    print_stat_menu    args( ( PLAYER *ch ) );
 
 /*
  * Guest character support.
  */
 int       guestnumber = 0;
-PLAYER_DATA *generate_guest  args( ( void ) );
+PLAYER *generate_guest  args( ( void ) );
 
 
 
@@ -120,43 +120,43 @@ PLAYER_DATA *generate_guest  args( ( void ) );
 /*
  * Setup new player racial information, as well as default info.
  */
-void setup_race( PLAYER_DATA *ch )
+void setup_race( PLAYER *ch )
 {
     int race;
 /*    char buf[MAX_STRING_LENGTH]; */
 
     ch->position         = POS_STANDING;
 
-    ch->act              = 0;
-    SET_BIT(ch->act2, PLR_BLANK | PLR_COMBINE | PLR_PROMPT);
+    ch->flag              = 0;
+    SET_BIT(ch->flag2, PLR_BLANK | PLR_COMBINE | PLR_PROMPT);
     ch->pagelen          = 30;
     ch->hit              = MAXHIT(ch);
     ch->move             = MAXMOVE(ch);
 
-    PC(ch,birth_day)   = weather_info.day;
-    PC(ch,birth_month) = weather_info.month;
+    PC(ch,birth_day)   = weather.day;
+    PC(ch,birth_month) = weather.month;
     PC(ch,stat_points) = 5;
 
     /*
      * Starting skills and groups.
      */
-    update_skill(ch, skill_vnum(skill_lookup("offense")), 25);
-    update_skill(ch, skill_vnum(skill_lookup("defense")), 50);
-    update_skill(ch, skill_vnum(skill_lookup("wp")),      25);
-    update_skill(ch, skill_vnum(skill_lookup("survival")),30);
-    update_skill(ch, skill_vnum(skill_lookup("swimming")),10);
-    update_skill(ch, skill_vnum(skill_lookup("climb")),   10);
-    update_skill(ch, skill_vnum(skill_lookup("riding")),  10);
-    update_skill(ch, skill_vnum(skill_lookup("dodge")),   25);
-    update_skill(ch, skill_vnum(skill_lookup("parry")),   15);
-    update_skill(ch, skill_vnum(skill_lookup("language")),100);
-    update_skill(ch, skill_vnum(skill_lookup("stark")),   100);
-    update_skill(ch, skill_vnum(skill_lookup("evasion")), 35);
-    update_skill(ch, skill_vnum(skill_lookup("hafted")),  10);
+    update_skill(ch, skill_dbkey(skill_lookup("offense")), 25);
+    update_skill(ch, skill_dbkey(skill_lookup("defense")), 50);
+    update_skill(ch, skill_dbkey(skill_lookup("wp")),      25);
+    update_skill(ch, skill_dbkey(skill_lookup("survival")),30);
+    update_skill(ch, skill_dbkey(skill_lookup("swimming")),10);
+    update_skill(ch, skill_dbkey(skill_lookup("climb")),   10);
+    update_skill(ch, skill_dbkey(skill_lookup("riding")),  10);
+    update_skill(ch, skill_dbkey(skill_lookup("dodge")),   25);
+    update_skill(ch, skill_dbkey(skill_lookup("parry")),   15);
+    update_skill(ch, skill_dbkey(skill_lookup("language")),100);
+    update_skill(ch, skill_dbkey(skill_lookup("stark")),   100);
+    update_skill(ch, skill_dbkey(skill_lookup("evasion")), 35);
+    update_skill(ch, skill_dbkey(skill_lookup("hafted")),  10);
 
     race = race_lookup( ch->race );
 
-    PC(ch,birth_year)  = weather_info.year - RACE(race,start_age);
+    PC(ch,birth_year)  = weather.year - RACE(race,start_age);
 
     ch->bonuses      = RACE(race,bonus_bits);
 
@@ -195,9 +195,9 @@ void setup_race( PLAYER_DATA *ch )
  * Assign default new-character information, props, etc.
  * Due to nature of props, do not call twice.
  */
-void new_char( PLAYER_DATA *ch )
+void new_char( PLAYER *ch )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( ch == NULL )
     return;    
@@ -207,47 +207,47 @@ void new_char( PLAYER_DATA *ch )
      */
     if ( ch->carrying == NULL )
     {
-    prop = create_prop( get_prop_index( PROP_VNUM_DEFAULT_LIGHT ), 1 );
+    prop = create_prop( get_prop_template( PROP_VNUM_DEFAULT_LIGHT ), 1 );
     prop_to_actor( prop, ch );
     prop->wear_loc = WEAR_HOLD_2;
-    prop = create_prop( get_prop_index( PROP_VNUM_DEFAULT_WEAPON ), 1 );
+    prop = create_prop( get_prop_template( PROP_VNUM_DEFAULT_WEAPON ), 1 );
     prop_to_actor( prop, ch );
     prop->wear_loc = WEAR_BELT_1;
-    prop = create_prop( get_prop_index( PROP_VNUM_DEFAULT_VEST ), 1 );
+    prop = create_prop( get_prop_template( PROP_VNUM_DEFAULT_VEST ), 1 );
     prop_to_actor( prop, ch );
     prop->size = ch->size;
     equip_char( ch, prop, WEAR_BODY );
-    prop = create_prop( get_prop_index( PROP_VNUM_DEFAULT_BELT ), 1 );
+    prop = create_prop( get_prop_template( PROP_VNUM_DEFAULT_BELT ), 1 );
     prop_to_actor( prop, ch );
     prop->size = ch->size;
     equip_char( ch, prop, WEAR_WAIST );
-    prop = create_prop( get_prop_index( PROP_VNUM_DEFAULT_PACK ), 1 );
+    prop = create_prop( get_prop_template( PROP_VNUM_DEFAULT_PACK ), 1 );
     prop_to_actor( prop, ch );
     prop->size = ch->size;
     equip_char( ch, prop, WEAR_SHOULDER_L );
 
-    prop_to_prop( create_prop( get_prop_index( PROP_VNUM_DEFAULT_TINDERBOX ), 1),
+    prop_to_prop( create_prop( get_prop_template( PROP_VNUM_DEFAULT_TINDERBOX ), 1),
                 prop );
 
      if ( ch->race <= 3 ) 
-    prop_to_prop( create_prop( get_prop_index( PROP_VNUM_DEFAULT_LETTER ), 1),
+    prop_to_prop( create_prop( get_prop_template( PROP_VNUM_DEFAULT_LETTER ), 1),
                 prop );
 
-    prop_to_prop( create_prop( get_prop_index( PROP_VNUM_DEFAULT_FOOD ), 1),
+    prop_to_prop( create_prop( get_prop_template( PROP_VNUM_DEFAULT_FOOD ), 1),
                 prop );
-    prop_to_prop( create_prop( get_prop_index( PROP_VNUM_DEFAULT_DRINK ), 1),
+    prop_to_prop( create_prop( get_prop_template( PROP_VNUM_DEFAULT_DRINK ), 1),
                 prop );
 
     create_amount( number_range( 5, 10 ) * 10, ch, NULL, NULL );
     }
 
-    if ( ch->userdata == NULL ) ch->userdata = new_user_data( );
+    if ( ch->userdata == NULL ) ch->userdata = new_user( );
 
     if ( ch->userdata->level != LEVEL_BUILDER )
     ch->userdata->level         = LEVEL_MORTAL;
-    SET_BIT(ch->act2, PLR_COMBINE);
-    SET_BIT(ch->act2, PLR_BLANK);
-    SET_BIT(ch->act2, PLR_TIPS);
+    SET_BIT(ch->flag2, PLR_COMBINE);
+    SET_BIT(ch->flag2, PLR_BLANK);
+    SET_BIT(ch->flag2, PLR_TIPS);
 
     ch->userdata->app_time = 230; /* I think thats 24 hours if its in 5's anyways close enough */
 
@@ -256,7 +256,7 @@ void new_char( PLAYER_DATA *ch )
 
 
 
-void print_stat_menu( PLAYER_DATA *ch )
+void print_stat_menu( PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
 
@@ -300,9 +300,9 @@ void print_stat_menu( PLAYER_DATA *ch )
 
 
 
-void stat_menu( PLAYER_DATA *ch, char *argument )
+void stat_menu( PLAYER *ch, char *argument )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     char buf[MAX_STRING_LENGTH];
 
     d= ch->desc;
@@ -395,7 +395,7 @@ void stat_menu( PLAYER_DATA *ch, char *argument )
 
     free_string( PC(ch,denial) );
     PC(ch,denial) = NULL;
-    ch->in_scene = get_scene_index( SCENE_VNUM_START );
+    ch->in_scene = get_scene( SCENE_VNUM_START );
 
     new_char( ch );    
     save_actor_prop( ch );
@@ -426,9 +426,9 @@ void stat_menu( PLAYER_DATA *ch, char *argument )
 }
 
 
-void stat_menu_choice( PLAYER_DATA *ch, char *argument )
+void stat_menu_choice( PLAYER *ch, char *argument )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
 
     d = ch->desc;
 
@@ -523,10 +523,10 @@ void stat_menu_choice( PLAYER_DATA *ch, char *argument )
           int value = atoi(argument);
           int race = race_lookup(ch->race);
 
-          PC(ch,birth_year) = weather_info.year - 
+          PC(ch,birth_year) = weather.year - 
      URANGE(15,value,RACE(race,base_age));
          
-          if ( PC(ch,birth_year) != weather_info.year - value )
+          if ( PC(ch,birth_year) != weather.year - value )
               send_to_actor( "Invalid age.\n\r", ch );
 
           print_stat_menu( ch );
@@ -554,9 +554,9 @@ void stat_menu_choice( PLAYER_DATA *ch, char *argument )
 
 
 
-void actor_gen( PLAYER_DATA *ch, char *argument )
+void actor_gen( PLAYER *ch, char *argument )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     char arg[MAX_STRING_LENGTH];
     char *pwdnew;
     char *p;
@@ -747,7 +747,7 @@ send_to_actor("\n\r", ch );
 send_to_actor("--------------------------------[Application]--------------------------------\n\r", ch );
 send_to_actor("Enter a few lines describing your experience mudding and your intentions as a\n\r", ch );
 send_to_actor("contributer to this software. Your message will be read as a resume of sorts.\n\r\n\r", ch );
-actor_to_scene( ch, get_scene_index( SCENE_VNUM_APPLY ) );
+actor_to_scene( ch, get_scene( SCENE_VNUM_APPLY ) );
 cmd_note( ch, "enter" );
 actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
 #endif
@@ -758,7 +758,7 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
 #if defined(APPLY_BUILDER) 
      case NET_CHAR_GEN_APPLY_BUILDER:
            if ( d->pString == NULL  ) {
-           actor_to_scene( ch, get_scene_index( SCENE_VNUM_APPLY ) );
+           actor_to_scene( ch, get_scene( SCENE_VNUM_APPLY ) );
            cmd_note( ch, "subject New Builder or Writer" );
            cmd_note( ch, "to immortal" );
            cmd_note( ch, "post" );
@@ -897,15 +897,15 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
  * Create a brand new character, with the name "guest"
  * note: guest characters are ignored in fwrite_char() in save.c
  */
-PLAYER_DATA *generate_guest( void )
+PLAYER *generate_guest( void )
 {
-    PLAYER_DATA *nch;
+    PLAYER *nch;
     char buf[MAX_STRING_LENGTH];
 
     if (guestnumber < 0) guestnumber = 0;
     guestnumber++;
 
-    nch = new_player_data( );
+    nch = new_player( );
     nch->name        = str_dup( "Guest"          );
 
     snprintf( buf, MAX_STRING_LENGTH, "Guest #%d", guestnumber );
@@ -924,8 +924,8 @@ PLAYER_DATA *generate_guest( void )
     nch->userdata->level = LEVEL_MORTAL;
 
     cmd_prompt(nch, "Guest> " );
-    nch->act = ACT_NOSCAN | ACT_WIMPY;
-    nch->in_scene = get_scene_index( SCENE_VNUM_GUEST );
+    nch->flag = ACTOR_NOSCAN | ACTOR_WIMPY;
+    nch->in_scene = get_scene( SCENE_VNUM_GUEST );
 
     snprintf( buf, MAX_STRING_LENGTH, "GUEST CHARACTER CREATED: #%d", guestnumber );
     log_string( buf );
@@ -939,11 +939,11 @@ PLAYER_DATA *generate_guest( void )
 /*
  * Deal with sockets that haven't logged in yet.
  */
-void newbie( CONNECTION_DATA *d, char *argument )
+void newbie( CONNECTION *d, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     bool fOld;
     extern bool wizlock;
 
@@ -964,12 +964,12 @@ void newbie( CONNECTION_DATA *d, char *argument )
      */
     if ( d->character == NULL )
     {
-    ch = new_player_data( );
+    ch = new_player( );
 
     d->character			= ch;
     ch->desc				= d;
     ch->name                = str_dup( "Guest" );
-    ch->act                 = PLR_BLANK | PLR_COMBINE | PLR_PROMPT;
+    ch->flag                 = PLR_BLANK | PLR_COMBINE | PLR_PROMPT;
     }
 
     ch = d->character;
@@ -1063,7 +1063,7 @@ void newbie( CONNECTION_DATA *d, char *argument )
         fOld = load_actor_prop( d, argument );
         ch   = d->character;
 
-        if ( IS_SET(ch->act, PLR_DENY) )
+        if ( IS_SET(ch->flag, PLR_DENY) )
         {
             sprintf( log_buf, "Denying access to %s@%s.", argument, d->host );
             log_string( log_buf );
@@ -1076,7 +1076,7 @@ void newbie( CONNECTION_DATA *d, char *argument )
             return;
         }
 
-        if ( wizlock && (!IS_HERO(ch) || !IS_SET(ch->act, PLR_WIZBIT)) )
+        if ( wizlock && (!IS_HERO(ch) || !IS_SET(ch->flag, PLR_WIZBIT)) )
 	    {
         write_to_buffer( d, "The game is currently closed to mortals.\n\r", 0 );
         DC(d) = NET_LOGIN_MENU;
@@ -1210,11 +1210,11 @@ void newbie( CONNECTION_DATA *d, char *argument )
      * Move mounts from waiting list to full game.
      */
     {
-        PLAYER_DATA *wch;
+        PLAYER *wch;
 
         for ( wch = mount_list;  wch != NULL;  wch = wch->next )
         {
-            PLAYER_DATA *prev;
+            PLAYER *prev;
 
             if ( wch->master != ch )
             continue;
@@ -1256,12 +1256,12 @@ void newbie( CONNECTION_DATA *d, char *argument )
     if ( ch->in_scene == NULL )
     {
          if ( IS_IMMORTAL(ch) )
-         ch->in_scene = get_scene_index( SCENE_VNUM_LIMBO );
-    else ch->in_scene = get_scene_index( SCENE_VNUM_DEATH );
+         ch->in_scene = get_scene( SCENE_VNUM_LIMBO );
+    else ch->in_scene = get_scene( SCENE_VNUM_DEATH );
     }
      
     if ( ch->in_scene == NULL )
-         ch->in_scene = get_scene_index( SCENE_VNUM_TEMPLATE );
+         ch->in_scene = get_scene( SCENE_VNUM_TEMPLATE );
 
     sprintf( log_buf, "%s@%s has connected.", ch->name, d->host );
     log_string( log_buf );
@@ -1280,14 +1280,14 @@ void newbie( CONNECTION_DATA *d, char *argument )
 
 
 
-void newbie_check( CONNECTION_DATA *d )
+void newbie_check( CONNECTION *d )
 {
-    PLAYER_DATA *ch = d->character;
+    PLAYER *ch = d->character;
 
     if ( ch == NULL ) return;
 
 
-    if ( DC(d) == NET_DOC_MENU && d->showstr_point == NULL )
+    if ( DC(d) == NET_DOC_MENU && d->pager_point == NULL )
     send_to_actor( "> ", d->character );
 
     return;
@@ -1295,7 +1295,7 @@ void newbie_check( CONNECTION_DATA *d )
 
 
 
-bool  apply_ok( PLAYER_DATA *ch )
+bool  apply_ok( PLAYER *ch )
 {
     if ( !str_cmp( ch->name, "guest" ) )
 	{
@@ -1414,13 +1414,13 @@ bool check_parse_name( char *name )
      */
 #ifdef NOACTORJR
     {
-	extern ACTOR_INDEX_DATA *actor_index_hash[MAX_KEY_HASH];
-	ACTOR_INDEX_DATA *pActorIndex;
+	extern ACTOR_TEMPLATE *actor_template_hash[MAX_KEY_HASH];
+	ACTOR_TEMPLATE *pActorIndex;
 	int iHash;
 
 	for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
 	{
-	    for ( pActorIndex  = actor_index_hash[iHash];
+	    for ( pActorIndex  = actor_template_hash[iHash];
 		  pActorIndex != NULL;
 		  pActorIndex  = pActorIndex->next )
 	    {
@@ -1440,16 +1440,16 @@ bool check_parse_name( char *name )
 /*
  * Look for link-dead player to reconnect.
  */
-bool check_reconnect( CONNECTION_DATA *d, char *name, bool fConn )
+bool check_reconnect( CONNECTION *d, char *name, bool fConn )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     char buf[MAX_STRING_LENGTH];
 
     if ( !d) return FALSE;
 
     for ( ch = actor_list; ch != NULL; ch = ch->next )
     {
-	if ( !IS_NPC(ch)
+	if ( !NPC(ch)
 	&& ( !fConn || ch->desc == NULL )
 	&&  (d->character && !str_cmp( d->character->name, ch->name )) )
 	{
@@ -1487,9 +1487,9 @@ bool check_reconnect( CONNECTION_DATA *d, char *name, bool fConn )
 /*
  * Check if already playing.
  */
-bool check_playing( CONNECTION_DATA *d, char *name )
+bool check_playing( CONNECTION *d, char *name )
 {
-    CONNECTION_DATA *dold;
+    CONNECTION *dold;
 
     for ( dold = connection_list; dold; dold = dold->next )
     {

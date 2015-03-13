@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -105,20 +105,20 @@ char * garble_text( char *t, int prcnt_comp )
 /*
  * Fun fun fun.
  */
-int check_speech( PLAYER_DATA *ch, PLAYER_DATA *speaker, int gsn )
+int check_speech( PLAYER *ch, PLAYER *speaker, int gsn )
 {
-   SKILL_DATA *pSkill = find_group_pc( ch, get_skill_index( gsn ) );
-   SKILL_DATA *pIndex = get_skill_index( gsn );
+   SKILL *pSkill = find_group_pc( ch, get_skill_index( gsn ) );
+   SKILL *pIndex = get_skill_index( gsn );
    int percent;
 
    if ( !pSkill || !pIndex ) return 0;
 
    percent = pSkill->skill_level;
 
-   if( !IS_NPC(ch) && IS_SET(ch->act2, WIZ_TRANSLATE) )
+   if( !NPC(ch) && IS_SET(ch->flag2, WIZ_TRANSLATE) )
       return 100;
 
-   if( !IS_NPC(speaker) && IS_SET(speaker->act2, WIZ_TRANSLATE) )
+   if( !NPC(speaker) && IS_SET(speaker->flag2, WIZ_TRANSLATE) )
      return 100;
 
    if ( percent >= pIndex->max_learn )

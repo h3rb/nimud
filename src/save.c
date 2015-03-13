@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -54,27 +54,27 @@ extern	int	_filbuf		args( (FILE *) );
 /*
  * Array of containers read for proper re-nesting of props.
  */
-PROP_DATA *  rgObjNest   [MAX_NEST];
+PROP *  rgObjNest   [MAX_NEST];
 
 
 
-void       fwrite_char ( PLAYER_DATA *ch, FILE *fp );
-void       fwrite_actor  ( PLAYER_DATA *ch, FILE *fp );
-void       fwrite_prop  ( PROP_DATA *prop, FILE *fp, int iNest );
+void       fwrite_char ( PLAYER *ch, FILE *fp );
+void       fwrite_actor  ( PLAYER *ch, FILE *fp );
+void       fwrite_prop  ( PROP *prop, FILE *fp, int iNest );
 void       fread_prop   ( void *owner, int owner_type, FILE *fp );
-PLAYER_DATA *fread_char  ( PLAYER_DATA *ch, FILE *fp );
-PLAYER_DATA *fread_actor   ( PLAYER_DATA *ch, FILE *fp );
+PLAYER *fread_char  ( PLAYER *ch, FILE *fp );
+PLAYER *fread_actor   ( PLAYER *ch, FILE *fp );
 
 /*
  * Save a character and inventory.   ACTOR infrastructure removed.
  */
-void save_actor_prop( PLAYER_DATA *ch )
+void save_actor_prop( PLAYER *ch )
 {
-    PLAYER_DATA *pet;
+    PLAYER *pet;
     char output[MAX_INPUT_LENGTH];
     FILE *fp;
 
-    if (IS_NPC(ch))
+    if (NPC(ch))
     return;
 
     if ( PC(ch,level) == 0 )
@@ -100,7 +100,7 @@ void save_actor_prop( PLAYER_DATA *ch )
 
     for ( pet = actor_list; pet != NULL; pet = pet->next )
     {
-        if ( ( pet->master == ch ) && IS_SET(pet->act, ACT_PET) )
+        if ( ( pet->master == ch ) && IS_SET(pet->flag, ACTOR_PET) )
         fwrite_actor( pet, fp );
     }
 
@@ -118,9 +118,9 @@ void save_actor_prop( PLAYER_DATA *ch )
 /*
  * Write the char.
  */
-void fwrite_char( PLAYER_DATA *ch, FILE *fp )
+void fwrite_char( PLAYER *ch, FILE *fp )
 {
-    BONUS_DATA *paf;
+    BONUS *paf;
 
     /*
      * Guest character support.
@@ -145,16 +145,16 @@ void fwrite_char( PLAYER_DATA *ch, FILE *fp )
     fprintf( fp, "Bucks %d\n",   ch->bucks         );
 
 #if defined(NEVER)
-    { INSTANCE_DATA *pInstance;
+    { INSTANCE *pInstance;
       for ( pInstance = ch->instances;  pInstance != NULL;
             pInstance = pInstance->next )
 /* only for always running scripts, dont save completed ones */
       if ( !MTD(pInstance->location) ) 
-      fprintf( fp, "Script %d", pInstance->script->vnum );
+      fprintf( fp, "Script %d", pInstance->script->dbkey );
     }
 #endif
 
-    { ALIAS_DATA *alias;  for ( alias = PC(ch,aliases); alias!=NULL; alias=alias->next ) fprintf( fp, "alias %s~ %s~\n", alias->name, alias->exp ); }
+    { ALIAS *alias;  for ( alias = PC(ch,aliases); alias!=NULL; alias=alias->next ) fprintf( fp, "alias %s~ %s~\n", alias->name, alias->exp ); }
 
     fprintf( fp, "Logins %d\n", PC(ch,logins) );
     fprintf( fp, "Lv %d\n",   PC(ch,level)    );
@@ -173,7 +173,7 @@ void fwrite_char( PLAYER_DATA *ch, FILE *fp )
     fprintf( fp, "History\n%s~\n", PC(ch,history) ); 
     fprintf( fp, "Pl %d\n",
                  PC(ch,played) + (int) (current_time - PC(ch,logon) ) );
-    fprintf( fp, "R %d\n", ch->in_scene->vnum );
+    fprintf( fp, "R %d\n", ch->in_scene->dbkey );
 
         {
                    int count;
@@ -187,12 +187,12 @@ void fwrite_char( PLAYER_DATA *ch, FILE *fp )
     fprintf( fp, "H %d %d\n", ch->hit, ch->move );
     fprintf( fp, "MK %d %d\n", ch->mana, ch->karma );
 
-        {  SPELL_BOOK_DATA *pSpell;
+        {  SPELL_BOOK *pSpell;
            for ( pSpell = ch->spells; pSpell != NULL;  pSpell = pSpell->next )
-                fprintf( fp, "Spell %d %s~\n", pSpell->vnum, pSpell->name);
+                fprintf( fp, "Spell %d %s~\n", pSpell->dbkey, pSpell->name);
         }
 
-    fprintf( fp, "A %d A2 %d\n", ch->act, ch->act2 );
+    fprintf( fp, "A %d A2 %d\n", ch->flag, ch->flag2 );
     fprintf( fp, "AB %d\n",   ch->bonuses         );
     if ( !MTD(PC(ch,denial)) )
       fprintf( fp, "Denial %s~\n",  fix_string( PC(ch,denial) ) );
@@ -204,9 +204,9 @@ void fwrite_char( PLAYER_DATA *ch, FILE *fp )
     fprintf( fp, "AC %d\n",   ch->armor               );
     fprintf( fp, "De %d\n",   PC(ch,deaf)                );
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
-    fprintf( fp, "V %d\n",   ch->pIndexData->vnum    );
+    fprintf( fp, "V %d\n",   ch->pIndexData->dbkey    );
     }
     else
     {
@@ -243,7 +243,7 @@ void fwrite_char( PLAYER_DATA *ch, FILE *fp )
         PC(ch,condition[2]) );
  
         {
-        SKILL_DATA *pSkill;
+        SKILL *pSkill;
 	for ( pSkill = ch->learned; pSkill != NULL; pSkill = pSkill->next )
 	{
             if ( pSkill->skill_level > 0 )
@@ -277,12 +277,12 @@ void fwrite_char( PLAYER_DATA *ch, FILE *fp )
 /*
  * Write the actor.
  */
-void fwrite_actor( PLAYER_DATA *ch, FILE *fp )
+void fwrite_actor( PLAYER *ch, FILE *fp )
 {
-    BONUS_DATA *paf;
+    BONUS *paf;
     
     fprintf( fp, "#ACTOR\n"                          );
-    fprintf( fp, "V %d\n",    ch->pIndexData->vnum    );
+    fprintf( fp, "V %d\n",    ch->pIndexData->dbkey    );
     if ( ch->name != NULL )
     fprintf( fp, "N %s~\n", ch->name                  );
     if ( ch->short_descr != NULL )
@@ -293,20 +293,20 @@ void fwrite_actor( PLAYER_DATA *ch, FILE *fp )
     fprintf( fp, "D\n%s~\n",  fix_string( ch->description ) );
     fprintf( fp, "Sx %d\n",   ch->sex                 );
     fprintf( fp, "Sz %d\n",   ch->size                );
-    fprintf( fp, "R %d\n",    ch->in_scene->vnum       );
+    fprintf( fp, "R %d\n",    ch->in_scene->dbkey       );
     fprintf( fp, "Owner %s~\n",   ch->owner               );
     fprintf( fp, "T %d\n",    ch->timer               );
 
 /*
-    { INSTANCE_DATA *pInstance;
+    { INSTANCE *pInstance;
       for ( pInstance = ch->instances;  pInstance != NULL;
             pInstance = pInstance->next )
-      fprintf( fp, "Script %d", pInstance->script->vnum );
+      fprintf( fp, "Script %d", pInstance->script->dbkey );
     }
  */
 
     fprintf( fp, "H %d %d\n", ch->hit, ch->move       );
-    fprintf( fp, "A %d A2 %d\n", ch->act, ch->act2    );
+    fprintf( fp, "A %d A2 %d\n", ch->flag, ch->flag2    );
     fprintf( fp, "AB %d\n",   ch->bonuses         );
     fprintf( fp, "P %d\n",    /* Bug fix from Alander */
         ch->position == POS_FIGHTING ? POS_STANDING : ch->position );
@@ -354,10 +354,10 @@ void fwrite_actor( PLAYER_DATA *ch, FILE *fp )
 /*
  * Write a prop list and each prop's contents.
  */
-void fwrite_prop( PROP_DATA *prop, FILE *fp, int iNest )
+void fwrite_prop( PROP *prop, FILE *fp, int iNest )
 {
-    EXTRA_DESCR_DATA *ed;
-    BONUS_DATA *paf;
+    EXTRA_DESCR *ed;
+    BONUS *paf;
 
     /*
      * Slick recursion to write lists backwards,
@@ -374,7 +374,7 @@ void fwrite_prop( PROP_DATA *prop, FILE *fp, int iNest )
 
     fprintf( fp, "\n#PROP\n" );
     fprintf( fp, "Nest %d\n",   iNest                );
-    fprintf( fp, "V %d\n",   prop->pIndexData->vnum   );
+    fprintf( fp, "V %d\n",   prop->pIndexData->dbkey   );
     if ( prop->name )
     fprintf( fp, "N %s~\n",  prop->name               );
     if ( prop->short_descr )     
@@ -394,10 +394,10 @@ void fwrite_prop( PROP_DATA *prop, FILE *fp, int iNest )
     fprintf( fp, "Sz %d\n",  prop->size               );
 
 /*
-    { INSTANCE_DATA *pInstance;
+    { INSTANCE *pInstance;
       for ( pInstance = prop->instances;  pInstance != NULL;
             pInstance = pInstance->next )
-      fprintf( fp, "Script %d", pInstance->script->vnum );
+      fprintf( fp, "Script %d", pInstance->script->dbkey );
     }
  */
 
@@ -453,14 +453,14 @@ void fwrite_prop( PROP_DATA *prop, FILE *fp, int iNest )
 /*
  * Load a char and inventory into a new ch structure.
  */
-bool load_actor_prop( CONNECTION_DATA *d, char *name )
+bool load_actor_prop( CONNECTION *d, char *name )
 {
     char output[MAX_INPUT_LENGTH];
-    PLAYER_DATA *ch, *actor;
+    PLAYER *ch, *actor;
     FILE *fp;
     bool found;
 
-    ch = new_player_data( );
+    ch = new_player( );
 
     d->character			= ch;
     ch->desc				= d;
@@ -554,7 +554,7 @@ bool load_actor_prop( CONNECTION_DATA *d, char *name )
                     break;                          \
                 }
 
-PLAYER_DATA *fread_char( PLAYER_DATA *ch, FILE *fp )
+PLAYER *fread_char( PLAYER *ch, FILE *fp )
 {
     char *word;
     bool fMatch;
@@ -573,28 +573,28 @@ PLAYER_DATA *fread_char( PLAYER_DATA *ch, FILE *fp )
 	    break;
 
 	case 'A':
-        KEY( "A",  ch->act,            fread_number( fp ) );
-        KEY( "A2",  ch->act2,           fread_number( fp ) );
+        KEY( "A",  ch->flag,            fread_number( fp ) );
+        KEY( "A2",  ch->flag2,           fread_number( fp ) );
         KEY( "AB",  ch->bonuses,    fread_number( fp ) );
         KEY( "AC",  ch->armor,          fread_number( fp ) );
 
         if ( !str_cmp( word, "Alias" ) ) {
-          ALIAS_DATA *alias=new_alias_data();  alias->next=PC(ch,aliases); PC(ch,aliases)=alias; 
+          ALIAS *alias=new_alias();  alias->next=PC(ch,aliases); PC(ch,aliases)=alias; 
           alias->name = fread_string(fp); alias->exp=fread_string(fp);
           fMatch=TRUE; break;
         }
 
         if ( !str_cmp( word, "Af" ) )
 	    {
-		BONUS_DATA *paf;
-        SKILL_DATA *pSkill;
+		BONUS *paf;
+        SKILL *pSkill;
 
         paf = new_bonus( );
         pSkill = skill_lookup( fread_word( fp ) );
         if ( !pSkill )
         bug( "Fread_char: unknown skill.", 0 );
         else
-        paf->type = pSkill->vnum;
+        paf->type = pSkill->dbkey;
 		paf->duration	= fread_number( fp );
 		paf->modifier	= fread_number( fp );
 		paf->location	= fread_number( fp );
@@ -768,9 +768,9 @@ fread_number(fp); fMatch = TRUE; break; }
 
         if ( !str_cmp( word, "R" ) )
 	    {
-		ch->in_scene = get_scene_index( fread_number( fp ) );
+		ch->in_scene = get_scene( fread_number( fp ) );
 		if ( ch->in_scene == NULL )
-             ch->in_scene = get_scene_index( SCENE_VNUM_TEMPLATE );
+             ch->in_scene = get_scene( SCENE_VNUM_TEMPLATE );
 		fMatch = TRUE;
 		break;
 	    }
@@ -791,7 +791,7 @@ fread_number(fp); fMatch = TRUE; break; }
  */
 #if defined(NEVER)
         if ( !str_cmp( word, "Script" ) ) {
-           INSTANCE_DATA *pInstance = new_instance();
+           INSTANCE *pInstance = new_instance();
            pInstance->script = get_script_index( fread_number( fp ) );
            if ( !pInstance->script ) { free_instance(pInstance); break; }
            pInstance->next = ch->instances;
@@ -804,10 +804,10 @@ fread_number(fp); fMatch = TRUE; break; }
  
         if ( !str_cmp( word, "Spell" ) )
             {
-                 SPELL_BOOK_DATA *pSpell;
+                 SPELL_BOOK *pSpell;
 
-                 pSpell = new_spell_book_data( );
-                 pSpell->vnum = fread_number( fp );
+                 pSpell = new_spell_book( );
+                 pSpell->dbkey = fread_number( fp );
                  pSpell->name = fread_string( fp );
                  pSpell->next = ch->spells;
                  ch->spells = pSpell;
@@ -817,7 +817,7 @@ fread_number(fp); fMatch = TRUE; break; }
 
         if ( !str_cmp( word, "Sk" ) )
 	    {
-		SKILL_DATA *pSkill;
+		SKILL *pSkill;
 		int value;
                 int teacher;
                 int skill_time;
@@ -833,7 +833,7 @@ fread_number(fp); fMatch = TRUE; break; }
                 bugs( "Fread_char: unknown skill '%s'", w );
                 else
                 {
-                    pSkill=update_skill(ch,pSkill->vnum,value);
+                    pSkill=update_skill(ch,pSkill->dbkey,value);
                     pSkill->skill_time = skill_time;
                     pSkill->teacher = teacher;
                 }
@@ -845,7 +845,7 @@ fread_number(fp); fMatch = TRUE; break; }
 	case 'V':
         if ( !str_cmp( word, "V" ) )
 	    {
-		ch->pIndexData = get_actor_index( fread_number( fp ) );
+		ch->pIndexData = get_actor_template( fread_number( fp ) );
 		fMatch = TRUE;
 		break;
 	    }
@@ -867,14 +867,14 @@ fread_number(fp); fMatch = TRUE; break; }
 
 
 
-PLAYER_DATA *fread_actor ( PLAYER_DATA *ch, FILE *fp )
+PLAYER *fread_actor ( PLAYER *ch, FILE *fp )
 {
     char *word;
     bool fMatch;
     bool fVnum = FALSE;
 
-    ch = new_player_data( );
-    free_user_data( ch->userdata );
+    ch = new_player( );
+    free_user( ch->userdata );
     ch->userdata = NULL;
 
     ch->pIndexData     = NULL;
@@ -906,22 +906,22 @@ PLAYER_DATA *fread_actor ( PLAYER_DATA *ch, FILE *fp )
 	    break;
 
 	case 'A':
-        KEY( "A",   ch->act,            fread_number( fp ) );
-        KEY( "A2",  ch->act2,           fread_number( fp ) );
+        KEY( "A",   ch->flag,            fread_number( fp ) );
+        KEY( "A2",  ch->flag2,           fread_number( fp ) );
         KEY( "AB",  ch->bonuses,    fread_number( fp ) );
         KEY( "AC",  ch->armor,          fread_number( fp ) );
 
         if ( !str_cmp( word, "Af" ) || !str_cmp( word, "Af" ) )
 	    {
-		BONUS_DATA *paf;
-        SKILL_DATA *pSkill;
+		BONUS *paf;
+        SKILL *pSkill;
 
         paf = new_bonus( );
         pSkill = skill_lookup( fread_word( fp ) );
         if ( !pSkill )
         bug( "Fread_actor: unknown skill.", 0 );
         else
-        paf->type = pSkill->vnum;
+        paf->type = pSkill->dbkey;
 		paf->duration	= fread_number( fp );
 		paf->modifier	= fread_number( fp );
 		paf->location	= fread_number( fp );
@@ -973,7 +973,7 @@ PLAYER_DATA *fread_actor ( PLAYER_DATA *ch, FILE *fp )
 
     if ( ch->pIndexData->instances != NULL )
     {
-    INSTANCE_DATA *trig, *pTrig;
+    INSTANCE *trig, *pTrig;
 
     for ( pTrig = ch->pIndexData->instances;  pTrig != NULL;  pTrig = pTrig->next )
     {
@@ -1026,9 +1026,9 @@ PLAYER_DATA *fread_actor ( PLAYER_DATA *ch, FILE *fp )
 
         if ( !str_cmp( word, "R" ) )
 	    {
-		ch->in_scene = get_scene_index( fread_number( fp ) );
+		ch->in_scene = get_scene( fread_number( fp ) );
 		if ( ch->in_scene == NULL )
-        ch->in_scene = get_scene_index( SCENE_VNUM_TEMPLATE );
+        ch->in_scene = get_scene( SCENE_VNUM_TEMPLATE );
 
 		fMatch = TRUE;
 		break;
@@ -1050,7 +1050,7 @@ PLAYER_DATA *fread_actor ( PLAYER_DATA *ch, FILE *fp )
 
 #if defined(NEVER)
         if ( !str_cmp( word, "Script" ) ) {
-           INSTANCE_DATA *pInstance = new_instance();
+           INSTANCE *pInstance = new_instance();
            pInstance->script = get_script_index( fread_number( fp ) );
            if ( !pInstance->script ) { free_instance(pInstance); break; }
            pInstance->next = ch->instances;
@@ -1069,13 +1069,13 @@ PLAYER_DATA *fread_actor ( PLAYER_DATA *ch, FILE *fp )
 	case 'V':
         if ( !str_cmp( word, "V" ) )
 	    {
-            ch->pIndexData = get_actor_index( fread_number( fp ) );
+            ch->pIndexData = get_actor_template( fread_number( fp ) );
             if ( ch->pIndexData == NULL )
-            ch->pIndexData = get_actor_index( ACTOR_VNUM_TEMPLATE );
+            ch->pIndexData = get_actor_template( ACTOR_VNUM_TEMPLATE );
 
             if ( ch->pIndexData->instances != NULL )
             {
-                INSTANCE_DATA *trig, *pTrig;
+                INSTANCE *trig, *pTrig;
 
                 for ( pTrig = ch->pIndexData->instances;
                       pTrig != NULL;  pTrig = pTrig->next )
@@ -1110,13 +1110,13 @@ PLAYER_DATA *fread_actor ( PLAYER_DATA *ch, FILE *fp )
 
 void fread_prop( void *owner, int owner_type, FILE *fp )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     char *word;
     int iNest;
     bool fMatch;
     bool fNest;
     bool fVnum;
-    extern PROP_DATA *prop_free;     /* From mem.c */
+    extern PROP *prop_free;     /* From mem.c */
     
     prop     = new_prop( );
     fNest   = FALSE;
@@ -1139,7 +1139,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
         KEY( "A",        prop->action_descr,   fread_string( fp ) );
         if ( !str_cmp( word, "Af" ) )
 	    {
-        BONUS_DATA *paf = new_bonus( );
+        BONUS *paf = new_bonus( );
 
 		paf->duration	= fread_number( fp );
 		paf->modifier	= fread_number( fp );
@@ -1165,7 +1165,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 
         if ( !str_cmp( word, "Ex" ) )
 	    {
-        EXTRA_DESCR_DATA *ed = new_extra_descr( );
+        EXTRA_DESCR *ed = new_extra_descr( );
         ed->keyword          = fread_string( fp );
         ed->description      = fread_string( fp );
         ed->next             = prop->extra_descr;
@@ -1191,7 +1191,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 
     if ( prop->pIndexData->instances != NULL )
     {
-    INSTANCE_DATA *trig, *pTrig;
+    INSTANCE *trig, *pTrig;
 
     for ( pTrig = prop->pIndexData->instances;  pTrig != NULL;  pTrig = pTrig->next )
     {
@@ -1211,18 +1211,18 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 		    if ( iNest == 0 || rgObjNest[iNest] == NULL )
             {
                 if ( owner == NULL )
-                extract_prop( prop );
+                extractor_prop( prop );
                 else
                 {
                    if ( owner_type == TYPE_ACTOR )
                    {
                        int flags = prop->extra_flags;
-                       prop_to_actor( prop, (PLAYER_DATA *)owner );
+                       prop_to_actor( prop, (PLAYER *)owner );
                        if ( IS_SET(flags,ITEM_USED) )
                        SET_BIT(prop->extra_flags,ITEM_USED);
                    }
                    else
-                   prop_to_scene( prop, (SCENE_INDEX_DATA *)owner );
+                   prop_to_scene( prop, (SCENE *)owner );
                 }
             }
 		    else
@@ -1269,7 +1269,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 
 #if defined(NEVER)
         if ( !str_cmp( word, "Script" ) ) {
-           INSTANCE_DATA *pInstance = new_instance();
+           INSTANCE *pInstance = new_instance();
            pInstance->script = get_script_index( fread_number( fp ) );
            if ( !pInstance->script ) { free_instance(pInstance); break; }
            pInstance->next = prop->instances;
@@ -1283,7 +1283,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
         if ( !str_cmp( word, "Sk" ) )
 	    {
 		int iValue;
-		SKILL_DATA *pSkill;
+		SKILL *pSkill;
 
 		iValue = fread_number( fp );
 		pSkill     = skill_lookup( fread_word( fp ) );
@@ -1297,7 +1297,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 		}
 		else
 		{
-		    prop->value[iValue] = pSkill->vnum;
+		    prop->value[iValue] = pSkill->dbkey;
 		}
 		fMatch = TRUE;
 		break;
@@ -1322,11 +1322,11 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 
         if ( !str_cmp( word, "V" ) )
 	    {
-        int vnum;
+        int dbkey;
                 
-        vnum = fread_number( fp );
-        if ( ( prop->pIndexData = get_prop_index( vnum ) ) == NULL )
-               prop->pIndexData = get_prop_index( PROP_VNUM_TEMPLATE );
+        dbkey = fread_number( fp );
+        if ( ( prop->pIndexData = get_prop_template( dbkey ) ) == NULL )
+               prop->pIndexData = get_prop_template( PROP_VNUM_TEMPLATE );
         fVnum = TRUE;
 		fMatch = TRUE;
 		break;

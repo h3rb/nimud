@@ -2210,11 +2210,11 @@ M 0
 W 0
 T 0
 O ~
-ED glass windows~
-The windows must be meant to be dark.  At least they are completely clean.
-~
 ED benches rows~
 The benches are not of the comfortable kind.
+~
+ED glass windows~
+The windows must be meant to be dark.  At least they are completely clean.
 ~
 R M 18405 1 100 1
 Dr 0 0 -1 18604
@@ -2334,12 +2334,12 @@ M 0
 W 0
 T 0
 O ~
-ED stain stains~
-That's odd ... they seem a little GREEN.
-~
 ED door writing~
 Above the door is some strange writing!  It is worn with age, but it refers
 to an ancient ruler named 'Shohan'.
+~
+ED stain stains~
+That's odd ... they seem a little GREEN.
 ~
 Dr 1 0 0 18417
 ~
@@ -2502,12 +2502,6 @@ M 0
 W 0
 T 0
 O ~
-ED altar~
-It stands 2 feet high with the remnants of candle-wax on top.  There is
-an inscription on the side:  'Praise the almighty Cristis the bringer of
-good and justice to the world.  He who fought the evilest finally is at
-peace.  May the Gods remember him forever ...'
-~
 ED ghost cristis~
 His rest has been disturbed by evil creatures who have invaded his domain
 and grave.  He holds up a parchment for you to read:
@@ -2521,6 +2515,12 @@ and grave.  He holds up a parchment for you to read:
      Roch'tar, the reincarnate Vampire, now rules these tombs.
    You must find and defeat him and his minions!
      May God bless you on your Quest!
+~
+ED altar~
+It stands 2 feet high with the remnants of candle-wax on top.  There is
+an inscription on the side:  'Praise the almighty Cristis the bringer of
+good and justice to the world.  He who fought the evilest finally is at
+peace.  May the Gods remember him forever ...'
 ~
 R M 18413 5 100 1
 Dr 2 0 0 18419
@@ -2595,25 +2595,6 @@ M 0
 W 0
 T 0
 O ~
-ED stone door trapdoor~
-It's rather small and looks quite heavy but maybe with some kind of leverage
-you could move it.  It has a queerly shaped hole that looks big enough
-for an equally queerly shaped pole to fit inside.  If only you had it!
-~
-ED tapestry tapestries~
-The tapestries were woven into beautiful and exciting scenes of battles
-long ago.  One on the left your shows the historic battle between Jubal the
-Benevolent and Hroth Kragen's forces that eventually Jubal's army won (of
-course).
-~
-ED staircase stairs~
-Though quite cracked they do look very stable.
-~
-ED oak~
-They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
-If not for one thing they would be perfectly preserved.  There appears
-to be some letters crudely scratched into the wood.
-~
 ED letters graffiti~
 'Beware here all of man, because past here lies only death.'
 
@@ -2621,6 +2602,25 @@ ED letters graffiti~
 
 Beneath, there are two criss-crossing scratchmarks in an X formation that
 look like someone (or something) raked their claws across the wood.
+~
+ED oak~
+They're HUGE!  They are at least 12 feet tall and about 10 feet wide.
+If not for one thing they would be perfectly preserved.  There appears
+to be some letters crudely scratched into the wood.
+~
+ED staircase stairs~
+Though quite cracked they do look very stable.
+~
+ED tapestry tapestries~
+The tapestries were woven into beautiful and exciting scenes of battles
+long ago.  One on the left your shows the historic battle between Jubal the
+Benevolent and Hroth Kragen's forces that eventually Jubal's army won (of
+course).
+~
+ED stone door trapdoor~
+It's rather small and looks quite heavy but maybe with some kind of leverage
+you could move it.  It has a queerly shaped hole that looks big enough
+for an equally queerly shaped pole to fit inside.  If only you had it!
 ~
 Dr 2 0 -1 18422
 Finely polished oak doors stand to the south.

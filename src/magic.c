@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -53,23 +53,23 @@ char *target_name;
 /*
  * Clears the spellbook.
  */
-void clear_spell_book( SPELL_BOOK_DATA *pSpellBook ) {
-    SPELL_BOOK_DATA *spell, *spell_next;
+void clear_spell_book( SPELL_BOOK *pSpellBook ) {
+    SPELL_BOOK *s, *spell_next;
 
-    for( spell = pSpellBook;  spell != NULL;  spell = spell_next ) {
-         spell_next = spell->next;
-         free_spell_book_data( spell );
+    for( s = pSpellBook;  s != NULL;  s = spell_next ) {
+         spell_next = s->next;
+         free_spell_book( s );
     }
 }
 
 /*
  * Is this spell in this book?
  */
-bool has_spell( SPELL_BOOK_DATA *book, int vnum ) {
-    SPELL_BOOK_DATA *pSpell;
+bool has_spell( SPELL_BOOK *book, int dbkey ) {
+    SPELL_BOOK *pSpell;
 
     for ( pSpell = book;  pSpell != NULL;  pSpell = pSpell->next ) 
-    { if ( vnum == pSpell->vnum ) return TRUE;  }
+    { if ( dbkey == pSpell->dbkey ) return TRUE;  }
 
     return FALSE;
 }
@@ -79,7 +79,7 @@ bool has_spell( SPELL_BOOK_DATA *book, int vnum ) {
  * Compute a saving throw.
  * Negative apply's make saving throw better.
  */
-bool saves_spell( int level, PLAYER_DATA *victim )
+bool saves_spell( int level, PLAYER *victim )
 {
     int save;
 
@@ -94,10 +94,10 @@ bool saves_spell( int level, PLAYER_DATA *victim )
 /*
  * Calculate the mana of a certain type on an actor 1 level deep.
  */
-int find_gem_mana( PLAYER_DATA *ch, int bit )
+int find_gem_mana( PLAYER *ch, int bit )
 {
-    PROP_DATA *prop;
-    PROP_DATA *cont;
+    PROP *prop;
+    PROP *cont;
     int mana = 0;
 
     if ( bit == 0 ) return -1;
@@ -125,10 +125,10 @@ int find_gem_mana( PLAYER_DATA *ch, int bit )
 /*
  * Takes mana from appropriate gems 1 level deep.
  */
-void take_mana_gem( PLAYER_DATA *ch, int mana, int bit )
+void take_mana_gem( PLAYER *ch, int mana, int bit )
 {
-    PROP_DATA *prop, *prop_next;
-    PROP_DATA *cont, *cont_next;
+    PROP *prop, *prop_next;
+    PROP *cont, *cont_next;
 
     if ( mana == 0 ) return;
 
@@ -145,7 +145,7 @@ void take_mana_gem( PLAYER_DATA *ch, int mana, int bit )
                 act( "$p is drained of all its power, and shatters into thousands of shards!",
                      ch, prop, NULL, TO_ACTOR );
                 prop_from_actor( prop );
-                extract_prop( prop );
+                extractor_prop( prop );
                 }
                 return;
             }
@@ -155,7 +155,7 @@ void take_mana_gem( PLAYER_DATA *ch, int mana, int bit )
                 act( "$p is drained of all its power, and shatters into thousands of shards!",
                      ch, prop, NULL, TO_ACTOR );
                 prop_from_actor( prop );
-                extract_prop( prop );
+                extractor_prop( prop );
             }
         }
         else
@@ -174,7 +174,7 @@ void take_mana_gem( PLAYER_DATA *ch, int mana, int bit )
                    act( "$p is drained of all its power, and shatters into thousands of shards!",
                         ch, cont, NULL, TO_ACTOR );
                    prop_from_actor( cont );
-                   extract_prop( cont );
+                   extractor_prop( cont );
                    }
                    return;
                }
@@ -184,7 +184,7 @@ void take_mana_gem( PLAYER_DATA *ch, int mana, int bit )
                    act( "$p is drained of all its power, and shatters into thousands of shards!",
                         ch, cont, NULL, TO_ACTOR );
                    prop_from_actor( cont );
-                   extract_prop( cont );
+                   extractor_prop( cont );
                }
             }
             }
@@ -200,10 +200,10 @@ void take_mana_gem( PLAYER_DATA *ch, int mana, int bit )
  * view spellbook command
  */   
 
-void cmd_spellbook( PLAYER_DATA *ch, char *argument )
+void cmd_spellbook( PLAYER *ch, char *argument )
 { 
-   SPELL_DATA *pSpell;
-   SPELL_BOOK_DATA *pSpellBook;
+   SPELL *pSpell;
+   SPELL_BOOK *pSpellBook;
    char buf[MAX_STRING_LENGTH];
    bool fMatch;
    int count;
@@ -218,9 +218,9 @@ void cmd_spellbook( PLAYER_DATA *ch, char *argument )
    fMatch = FALSE;
    for ( pSpellBook = ch->spells;  pSpellBook != NULL;  pSpellBook = pSpellBook->next )
    {
-       if ( (pSpell = get_spell_index( pSpellBook->vnum )) != NULL )
+       if ( (pSpell = get_spell_index( pSpellBook->dbkey )) != NULL )
        {
-           SKILL_DATA *pGroup = get_skill_index( pSpell->group_code );
+           SKILL *pGroup = get_skill_index( pSpell->group_code );
 
            strcat( buf, "Page " );
            strcat( buf, numberize( count++ ) );
@@ -251,12 +251,12 @@ void cmd_spellbook( PLAYER_DATA *ch, char *argument )
 /*
  * Cast spells at targets using a magical prop.
  */
-int prop_cast_spell( PROP_DATA *item, int vnum, PLAYER_DATA *ch, 
-                     PLAYER_DATA *victim, PROP_DATA *prop )
+int prop_cast_spell( PROP *item, int dbkey, PLAYER *ch, 
+                     PLAYER *victim, PROP *prop )
 {
-    SPELL_DATA *pSpell= get_spell_index(vnum);
-    INSTANCE_DATA *pInstance;
-    SCRIPT_DATA *pScript;
+    SPELL *pSpell= get_spell_index(dbkey);
+    INSTANCE *pInstance;
+    SCRIPT *pScript;
     int target_type=TYPE_ACTOR;
     void *vo;
 
@@ -310,8 +310,8 @@ int prop_cast_spell( PROP_DATA *item, int vnum, PLAYER_DATA *ch,
     target_name = "";
 
     {
-        INSTANCE_DATA *pCopy = new_instance( );
-        VARIABLE_DATA *var;
+        INSTANCE *pCopy = new_instance( );
+        VARIABLE *var;
 
         /*
          * Copy and activate the instance.
@@ -321,7 +321,7 @@ int prop_cast_spell( PROP_DATA *item, int vnum, PLAYER_DATA *ch,
         pCopy->next     = ch->instances;
         ch->instances   = pCopy;
 
-        var = new_variable_data( );  /* temporary variable */
+        var = new_var( );  /* temporary variable */
 
         if ( vo ) {
         var->type  = target_type;
@@ -344,8 +344,8 @@ int prop_cast_spell( PROP_DATA *item, int vnum, PLAYER_DATA *ch,
     &&   victim != ch
     &&   victim->master != ch )
     {
-	PLAYER_DATA *vch;
-	PLAYER_DATA *vch_next;
+	PLAYER *vch;
+	PLAYER *vch_next;
 
         /*
          * Start fights.
@@ -371,14 +371,14 @@ int prop_cast_spell( PROP_DATA *item, int vnum, PLAYER_DATA *ch,
 /*
  * The act of inscription; a way to copy a spell from a master.
  */
-void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
-   SPELL_DATA *pSpell;
-   PLAYER_DATA *rch = NULL;
-   ACTOR_INDEX_DATA *pActorIndex = NULL;
+void cmd_scribe( PLAYER *ch, char *argument ) {
+   SPELL *pSpell;
+   PLAYER *rch = NULL;
+   ACTOR_TEMPLATE *pActorIndex = NULL;
    char buf[MAX_STRING_LENGTH]; 
    bool fMatch;
    int count=1;
-   SPELL_BOOK_DATA *pSpellBook;
+   SPELL_BOOK *pSpellBook;
 
    while ( *argument == ' ') argument++;   
 
@@ -406,8 +406,8 @@ void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
       pActorIndex = NULL;
       for ( rch = ch->in_scene->people;  rch != NULL; rch = rch->next_in_scene )
       {
-        if ( IS_NPC(rch)
-          && IS_SET(rch->act, ACT_PRACTICE) )
+        if ( NPC(rch)
+          && IS_SET(rch->flag, ACTOR_PRACTICE) )
         {
             pActorIndex = rch->pIndexData;
             break;
@@ -424,9 +424,9 @@ void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
      */
    for ( pSpellBook = rch->spells;  pSpellBook != NULL;  pSpellBook = pSpellBook->next )
    {
-      if ( (pSpell = get_spell_index( pSpellBook->vnum )) != NULL )
+      if ( (pSpell = get_spell_index( pSpellBook->dbkey )) != NULL )
       {
-           SKILL_DATA *pGroup = find_skill_pc( ch, pSpell->group_code );
+           SKILL *pGroup = find_skill_pc( ch, pSpell->group_code );
 
            strcat( buf, "Page " );
            strcat( buf, numberize( count++ ) );
@@ -462,7 +462,7 @@ void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
    /*
     * Check to see if they already know it.
     */
-   if ( has_spell(ch->spells, pSpell->vnum) ) {
+   if ( has_spell(ch->spells, pSpell->dbkey) ) {
        send_to_actor( "You have already scribed that spell.\n\r", ch );
        return;
    }
@@ -473,8 +473,8 @@ void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
    pActorIndex = NULL;
    for ( rch = ch->in_scene->people;  rch != NULL; rch = rch->next_in_scene )
    {
-       if ( IS_NPC(rch)
-         && IS_SET(rch->act, ACT_PRACTICE) )
+       if ( NPC(rch)
+         && IS_SET(rch->flag, ACTOR_PRACTICE) )
        {
            pActorIndex = rch->pIndexData;
            break;
@@ -489,22 +489,22 @@ void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
         return;
    }
    
-   if ( has_spell(pActorIndex->pSpells, pSpell->vnum) ) {
+   if ( has_spell(pActorIndex->pSpells, pSpell->dbkey) ) {
 
-        SPELL_BOOK_DATA *pNewPage;
-        SPELL_BOOK_DATA *pEndPage;
-        SKILL_DATA *pGroup = find_skill_pc( ch, pSpell->group_code );
+        SPELL_BOOK *pNewPage;
+        SPELL_BOOK *pEndPage;
+        SKILL *pGroup = find_skill_pc( ch, pSpell->group_code );
 
         if ( pSpell->level > ch->exp_level ) {
              send_to_actor( "You are not yet ready for that spell.\n\r", ch );
              return;
         } 
 
-         pNewPage = new_spell_book_data( );
+         pNewPage = new_spell_book( );
          act( "$n scribe$v a new spell with $N's instruction.", ch, NULL, rch, TO_SCENE );
 
          pNewPage->next = NULL;
-         pNewPage->vnum = pSpell->vnum;  
+         pNewPage->dbkey = pSpell->dbkey;  
          pNewPage->name = str_dup( pActorIndex->short_descr );
 
          if ( ch->spells == NULL ) ch->spells = pNewPage;
@@ -518,7 +518,7 @@ void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
                   pSpell->name, pActorIndex->short_descr );
          send_to_actor( buf, ch );
 
-         if ( pGroup ) update_skill(ch,pGroup->vnum,pGroup->required_percent);
+         if ( pGroup ) update_skill(ch,pGroup->dbkey,pGroup->required_percent);
          return;                   
    }
    else act( "$E does not know of that spell.", ch, NULL, rch, TO_ACTOR );
@@ -530,14 +530,14 @@ void cmd_scribe( PLAYER_DATA *ch, char *argument ) {
 
 
 
-void cmd_cast( PLAYER_DATA *ch, char *argument )
+void cmd_cast( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim=NULL;
-    SPELL_DATA *pSpell;
-    INSTANCE_DATA *pInstance;
-    PROP_DATA *prop;
+    PLAYER *victim=NULL;
+    SPELL *pSpell;
+    INSTANCE *pInstance;
+    PROP *prop;
     int target_type=TYPE_ACTOR;
     void *vo;
     int mana;
@@ -546,7 +546,7 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
     /*
      * Switched NPC's can cast spells, but others can, too, if they are alone.
      */
-    if ( IS_NPC(ch) && (ch->master != NULL) )
+    if ( NPC(ch) && (ch->master != NULL) )
 	return;
 
     target_name = one_argument( argument, arg1 );
@@ -562,13 +562,13 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
      * Unfinished redundancy check.
      */
     pSpell = find_spell( arg1 );
-    if ( !pSpell || !has_spell( ch->spells, pSpell->vnum ) ) { 
+    if ( !pSpell || !has_spell( ch->spells, pSpell->dbkey ) ) { 
      send_to_actor( "What spell is that?\n\r", ch ); return; }
 
     for ( pInstance = pSpell->instances;  pInstance != NULL;  pInstance = pInstance->next )
      { /* start */
 
-     SCRIPT_DATA *pScript;
+     SCRIPT *pScript;
 
     pScript = pInstance->script;
     if ( !pScript ) { send_to_actor( "No such spell.\n\r", ch ); return; }
@@ -577,10 +577,10 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
      * Check to see if spell is known.
      */
     {
-          SPELL_BOOK_DATA *pSpellBook;
+          SPELL_BOOK *pSpellBook;
 
           for ( pSpellBook = ch->spells;  pSpellBook != NULL; pSpellBook = pSpellBook->next )
-          if ( pSpellBook->vnum == pSpell->vnum ) break;
+          if ( pSpellBook->dbkey == pSpell->dbkey ) break;
 
           if ( pSpellBook == NULL ) {
               send_to_actor( "You don't know of that spell.\n\r", ch );
@@ -595,7 +595,7 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
 
     if ( pSpell->mana_cost == 0 ) { mana = 0; send_to_actor( "You prepare the spell.\n\r", ch ); 
      } else  
-    mana = IS_NPC(ch) ? 0 : ( get_curr_int(ch)/25 ) * pSpell->mana_cost;
+    mana = NPC(ch) ? 0 : ( get_curr_int(ch)/25 ) * pSpell->mana_cost;
 
     /*
      * Locate targets.
@@ -628,7 +628,7 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
 		return;
 	    }
 
-            if ( IS_SET(victim->act, ACT_GOOD) ) {
+            if ( IS_SET(victim->flag, ACTOR_GOOD) ) {
                 send_to_actor( "You don't want to fight them.\n\r", ch );
                 return;
             }
@@ -691,7 +691,7 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
     actor_mana = pSpell->mana_type == MANA_NONE ? ch->mana :
                  find_gem_mana( ch, pSpell->mana_type );
 
-    if ( !IS_NPC(ch) && mana > actor_mana )
+    if ( !NPC(ch) && mana > actor_mana )
     {
         switch ( pSpell->mana_type )
         {
@@ -712,9 +712,9 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
     if ( IS_IMMORTAL(ch) || actor_mana >= mana )
     {
 
-//    SKILL_DATA *pGroup = find_skill_pc( ch, pSpell->group_code );
+//    SKILL *pGroup = find_skill_pc( ch, pSpell->group_code );
 
-    if ( !IS_NPC(ch) && number_percent( ) > 50 )
+    if ( !NPC(ch) && number_percent( ) > 50 )
     {
 	send_to_actor( "You lost your concentration.\n\r", ch );
         if ( mana > ch->mana ) {
@@ -742,8 +742,8 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
      * assign it to the caster.
      */
     {
-        INSTANCE_DATA *pCopy;
-        VARIABLE_DATA *var;
+        INSTANCE *pCopy;
+        VARIABLE *var;
 
         pCopy           = new_instance( );
         pCopy->script   = pScript;
@@ -752,7 +752,7 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
         pCopy->next     = ch->instances;
         ch->instances   = pCopy;
 
-        var = new_variable_data( );  /* temporary variable */
+        var = new_var( );  /* temporary variable */
 
         if ( vo ) {
         var->type  = target_type;
@@ -778,8 +778,8 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
     &&   victim != ch
     &&   victim->master != ch )
     {
-	PLAYER_DATA *vch;
-	PLAYER_DATA *vch_next;
+	PLAYER *vch;
+	PLAYER *vch_next;
 
 	for ( vch = ch->in_scene->people; vch; vch = vch_next )
 	{
@@ -800,7 +800,7 @@ void cmd_cast( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_mana( PLAYER_DATA *ch, char *argument ) {
+void cmd_mana( PLAYER *ch, char *argument ) {
    char buf[MAX_STRING_LENGTH];
 
    snprintf( buf, MAX_STRING_LENGTH, "Fire: %d   Water: %d   Earth: %d   Air: %d\n\r\n\r",
@@ -819,9 +819,9 @@ void cmd_mana( PLAYER_DATA *ch, char *argument ) {
 
 
 
-void cmd_reagents( PLAYER_DATA *ch, char *argument ) {
+void cmd_reagents( PLAYER *ch, char *argument ) {
 
-        PROP_DATA *pProp, *pProp2;
+        PROP *pProp, *pProp2;
         int quantities[MAX_COMPONENTS];
         int displayed=0;
         int i;

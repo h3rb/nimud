@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -56,10 +56,6 @@
  */
 
 
-/* Turn On Hotboot
- */
-/*#define HOTBOOT*/
-
 /* Turn on HTML export.
  */
 #define HTML
@@ -83,7 +79,6 @@
 
 /*
  * Short scalar types.
- * Diavolo reports AIX compiler has bugs with short types.
  */
 #if    !defined(FALSE)
 #define FALSE     0
@@ -111,39 +106,39 @@
 /*
  * Structure types.
  */
-typedef struct  bonus_data         BONUS_DATA;
-typedef struct  zone_data          ZONE_DATA;
-typedef struct  ban_data           BAN_DATA;
-typedef struct  player_data        PLAYER_DATA;
-typedef struct  user_data          USER_DATA;
-typedef struct  connection_data    CONNECTION_DATA;
-typedef struct  exit_data          EXIT_DATA;
-typedef struct  extra_descr_data   EXTRA_DESCR_DATA;
-typedef struct  help_data          HELP_DATA;
-typedef struct  kill_data          KILL_DATA;
-typedef struct  actor_index_data   ACTOR_INDEX_DATA;
-typedef struct  number_data        NUMBER_DATA;
-typedef struct  attack_data        ATTACK_DATA;
-typedef struct  note_data          NOTE_DATA;
-typedef struct  prop_data          PROP_DATA;
-typedef struct  prop_index_data    PROP_INDEX_DATA;
+typedef struct  bonus         BONUS;
+typedef struct  zone          ZONE;
+typedef struct  ban           BAN;
+typedef struct  player        PLAYER;
+typedef struct  user          USER;
+typedef struct  connection    CONNECTION;
+typedef struct  exit          EXIT;
+typedef struct  extra_descr   EXTRA_DESCR;
+typedef struct  help          HELP;
+typedef struct  kill          KILL;
+typedef struct  actor_template   ACTOR_TEMPLATE;
+typedef struct  number        NUMBER;
+typedef struct  attack        ATTACK;
+typedef struct  note          NOTE;
+typedef struct  prop          PROP;
+typedef struct  prop_template    PROP_TEMPLATE;
 typedef struct  command_queue      COMMAND_QUEUE;
-typedef struct  alias_data         ALIAS_DATA;
-typedef struct  spell_data         SPELL_DATA;
-typedef struct  skill_data         SKILL_DATA;
-typedef struct  spell_book_data    SPELL_BOOK_DATA;
-typedef struct  scene_index_data   SCENE_INDEX_DATA;
-typedef struct  spawn_data         SPAWN_DATA;
-typedef struct  shop_data          SHOP_DATA;
-typedef struct  weather_info_data  TIME_INFO_DATA;
-typedef struct  weather_data       WEATHER_DATA;
-typedef struct  star_data          STAR_DATA;    
-typedef struct  script_data        SCRIPT_DATA;
-typedef struct  instance_data      INSTANCE_DATA;
-typedef struct  variable_data      VARIABLE_DATA;
-typedef struct  event_data         EVENT_DATA;
-typedef struct  terrain_data       TERRAIN_DATA;
-typedef struct  castle_data        CASTLE_DATA;
+typedef struct  alias         ALIAS;
+typedef struct  spell         SPELL;
+typedef struct  skill         SKILL;
+typedef struct  spell_book    SPELL_BOOK;
+typedef struct  scene   SCENE;
+typedef struct  spawn         SPAWN;
+typedef struct  shop          SHOP;
+typedef struct  weather  TIME_INFO;
+typedef struct  weather       WEATHER;
+typedef struct  star          STAR;    
+typedef struct  script        SCRIPT;
+typedef struct  instance      INSTANCE;
+typedef struct  variable      VARIABLE;
+typedef struct  event         EVENT;
+typedef struct  terrain       TERRAIN;
+typedef struct  castle        CASTLE;
 
 /*
  * Specialty lists for numbers and strings.
@@ -178,8 +173,8 @@ typedef struct  pc_name            PC_NAME;
 /*
  * Function types.
  */
-typedef void CMD_FUN    args( ( PLAYER_DATA *ch, char *argument ) );
-typedef bool HIT_FUN    args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam ) );
+typedef void CMD_FUN    args( ( PLAYER *ch, char *argument ) );
+typedef bool HIT_FUN    args( ( PLAYER *ch, PLAYER *victim, int hit, int dam ) );
 
 
 
@@ -217,7 +212,6 @@ typedef bool HIT_FUN    args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, i
  * Adjust the pulse numbers to suit yourself.
  */
 #define MAX_ZONE                  200
-#define MAX_ATTACK_DATA            10
 #define MAX_COIN                    5
 #define MAX_COLORS                 10
 #define MAX_USED_COLORS             3
@@ -288,9 +282,9 @@ typedef bool HIT_FUN    args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, i
 /*
  * Site ban structure.
  */
-struct    ban_data
+struct    ban
 {
-    BAN_DATA *    next;
+    BAN *    next;
     char *    name;
 };
 
@@ -324,7 +318,7 @@ struct    ban_data
 /*
  * Starmap
  *
- * A vnum table populated by HEASARC data; though you might
+ * A dbkey table populated by HEASARC data; though you might
  * be able to use other .tdat style NASA files.  The supplied
  * starmap.tdat is actually a copy of woolley.tdat, a publically
  * accessible stellar map of stellar masses within the nearest
@@ -343,8 +337,8 @@ struct    ban_data
  * telescopic observations; in the game, the data can be used to
  * seed planetary systems.
  */
-struct star_data {
-  STAR_DATA *next;
+struct star {
+  STAR *next;
   char *name;
   int sequence_number;  // Woolley Catalog Sequence Number
   char component_id;    // Component Identification Suffix
@@ -396,7 +390,7 @@ struct star_data {
 };
 
 
-struct    weather_data 
+struct    weather 
 {
     int      moon_phase;
     int      next_phase;
@@ -417,11 +411,11 @@ struct    weather_data
 /*
  * For world generator.
  */
-struct    terrain_data
+struct    terrain
 {
-    TERRAIN_DATA  *next;
-    int        vnum;
-    int        sector;
+    TERRAIN  *next;
+    int        dbkey;
+    int        move;
     char       map_char;
     char *     fall;
     char *     spring;
@@ -436,12 +430,12 @@ struct    terrain_data
 /*
  * Connection (channel) structure.
  */
-struct    connection_data
+struct    connection
 {
-    CONNECTION_DATA *    next;
-    CONNECTION_DATA *    snoop_by;
-    PLAYER_DATA *        character;
-    PLAYER_DATA *        original;
+    CONNECTION *    next;
+    CONNECTION *    snoop_by;
+    PLAYER *        character;
+    PLAYER *        original;
     char *        host;
     int          lingua;
     int        connection;
@@ -455,8 +449,8 @@ struct    connection_data
     char                inlast      [MAX_INPUT_LENGTH];
     char                screen[80*50];      /* for graphical windows       */
     int            repeat;
-    char *              showstr_head;
-    char *              showstr_point;
+    char *              pager_head;
+    char *              pager_point;
     char *        outbuf;
     int            outsize;
     int            outtop;
@@ -570,10 +564,10 @@ struct gem_list_type
 /*
  * Help table types.
  */
-struct help_data
+struct help
 {
-   HELP_DATA *    next;
-   int vnum;
+   HELP *    next;
+   int dbkey;
    int    level;
    char *    keyword;
    char *    title;
@@ -620,9 +614,9 @@ struct help_class
 #define SHOP_CREDITS        0x00000020 // shop deals in credits
 #define SHOP_BUCKS          0x00000040 // shop deals in bucks
 
-struct    shop_data
+struct    shop
 {
-    SHOP_DATA * next;                   /* Next Shop in List            */
+    SHOP * next;                   /* Next Shop in List            */
     int    keeper;            /* Vnum of shop keeper actor    */
     int      buy_type [MAX_TRADE];   /* Item types shop will buy     */
     int      trades   [MAX_TRADE];   /* Item types shop will buy     */
@@ -690,10 +684,10 @@ struct coin_type
 /*
  * Un colour type.
  */
-struct color_data
+struct color
 {
    char         code[10];
-   char         act_code[5];
+   char         actor_code[5];
    char         name[15];
    char         mxp[10];
    char *       di;  // display interp
@@ -703,7 +697,7 @@ struct color_data
 /*
  * Board information.
  */
-struct board_data
+struct board
 {
     char *name;
     char *filename;
@@ -717,9 +711,9 @@ struct board_data
 /*
  * Data structure for notes.
  */
-struct    note_data
+struct    note
 {
-    NOTE_DATA *    next;
+    NOTE *    next;
     char *    sender;
     char *    date;
     char *      to_list;
@@ -734,9 +728,9 @@ struct    note_data
 /*
  * An affect.
  */
-struct    bonus_data
+struct    bonus
 {
-    BONUS_DATA *    next;
+    BONUS *    next;
     char *         msg_off;
     int        location;
     int        modifier;
@@ -764,9 +758,9 @@ struct    bonus_data
 /*
  * For extra attacks on actors.
  */
-struct attack_data
+struct attack
 {
-     ATTACK_DATA * next;
+     ATTACK * next;
      int           idx;       /* See attack_table for this value */
      int        dam1;
      int        dam2;
@@ -845,60 +839,60 @@ struct attack_type
 /*
  * Act bits.  (Behavior)
  */
-#define ACT_IS_NPC           0x00000001         /* Auto set for actors  */
-#define ACT_NPC              0x00000001         /* Auto set for actors  */
-#define ACT_SENTINEL         0x00000002         /* Stays in one scene   */
+#define ACTOR_NPC           0x00000001         /* Auto set for actors  */
+#define ACTOR_NPC              0x00000001         /* Auto set for actors  */
+#define ACTOR_SENTINEL         0x00000002         /* Stays in one scene   */
 /* was scavenger */
-#define ACT_HALT             0x00000008         /* die script die!      */
+#define ACTOR_HALT             0x00000008         /* die script die!      */
 
-#define ACT_GOOD             0x00000010         /* Can't be attacked    */
-#define ACT_AGGRESSIVE       0x00000020         /* Attacks PC's         */
-#define ACT_STAY_ZONE        0x00000040         /* Won't leave zone     */
-#define ACT_WIMPY            0x00000080         /* Flees when hurt      */
-#define ACT_PET              0x00000100         /* Auto set for pets    */
-#define ACT_PRACTICE         0x00000400         /* Can practice PC's    */
-#define ACT_MERCY            0x00000800         /* Mob will retreat     */
-#define ACT_BOUNTY           0x00001000
-#define ACT_MOUNT            0x00002000         /* can be mounted       */
-#define ACT_NOSCAN           0x00004000         /* not seen on scan     */
+#define ACTOR_GOOD             0x00000010         /* Can't be attacked    */
+#define ACTOR_AGGRESSIVE       0x00000020         /* Attacks PC's         */
+#define ACTOR_STAY_ZONE        0x00000040         /* Won't leave zone     */
+#define ACTOR_WIMPY            0x00000080         /* Flees when hurt      */
+#define ACTOR_PET              0x00000100         /* Auto set for pets    */
+#define ACTOR_PRACTICE         0x00000400         /* Can practice PC's    */
+#define ACTOR_MERCY            0x00000800         /* Mob will retreat     */
+#define ACTOR_BOUNTY           0x00001000
+#define ACTOR_MOUNT            0x00002000         /* can be mounted       */
+#define ACTOR_NOSCAN           0x00004000         /* not seen on scan     */
 
-#define ACT_LYCANTHROPE      0x00008000         /* lycanthropic         */
-#define ACT_VAMPIRE          0x00010000         /* vampiric             */
+#define ACTOR_LYCANTHROPE      0x00008000         /* lycanthropic         */
+#define ACTOR_VAMPIRE          0x00010000         /* vampiric             */
 
-#define ACT_NOCORPSE         0x00020000         /* death does not produce a corpse */
+#define ACTOR_NOCORPSE         0x00020000         /* death does not produce a corpse */
 
 
 /*
  * Bonus bits.
  */
-#define AFF_BLIND            0x00000001
-#define AFF_INVISIBLE        0x00000002
-#define AFF_DETECT_EVIL      0x00000004
-#define AFF_DETECT_INVIS     0x00000008
-#define AFF_DETECT_MAGIC     0x00000010
-#define AFF_DETECT_HIDDEN    0x00000020
-#define AFF_HOLD             0x00000040
-#define AFF_SANCTUARY        0x00000080
-#define AFF_FAERIE_FIRE      0x00000100
-#define AFF_INFRARED         0x00000200
-#define AFF_CURSE            0x00000400
-#define AFF_FLAMING          0x00000800        /* Unused       */
-#define AFF_POISON           0x00001000
-#define AFF_PROTECT          0x00002000
-#define AFF_PARALYSIS        0x00004000        /* Unused       */
-#define AFF_SNEAK            0x00008000
-#define AFF_HIDE             0x00010000
-#define AFF_SLEEP            0x00020000
+#define BONUS_BLIND            0x00000001
+#define BONUS_INVISIBLE        0x00000002
+#define BONUS_DETECT_EVIL      0x00000004
+#define BONUS_DETECT_INVIS     0x00000008
+#define BONUS_DETECT_MAGIC     0x00000010
+#define BONUS_DETECT_HIDDEN    0x00000020
+#define BONUS_HOLD             0x00000040
+#define BONUS_SANCTUARY        0x00000080
+#define BONUS_FAERIE_FIRE      0x00000100
+#define BONUS_INFRARED         0x00000200
+#define BONUS_CURSE            0x00000400
+#define BONUS_FLAMING          0x00000800        /* Unused       */
+#define BONUS_POISON           0x00001000
+#define BONUS_PROTECT          0x00002000
+#define BONUS_PARALYSIS        0x00004000        /* Unused       */
+#define BONUS_SNEAK            0x00008000
+#define BONUS_HIDE             0x00010000
+#define BONUS_SLEEP            0x00020000
 
-#define AFF_METAMORPH        0x00040000
+#define BONUS_METAMORPH        0x00040000
 
-#define AFF_FLYING           0x00080000
-#define AFF_PASS_DOOR        0x00100000
-#define AFF_FREEACTION       0x00200000
-#define AFF_BREATHING        0x00400000
+#define BONUS_FLYING           0x00080000
+#define BONUS_PASS_DOOR        0x00100000
+#define BONUS_FREEACTION       0x00200000
+#define BONUS_BREATHING        0x00400000
 
-#define AFF_FALLING          0x00800000        /* Don't ask.. :P */
-#define AFF_CHARM            0x01000000
+#define BONUS_FALLING          0x00800000        /* Don't ask.. :P */
+#define BONUS_CHARM            0x01000000
 
 
 /*
@@ -975,10 +969,10 @@ struct attack_type
  ITEM_ARMOR         Armor Bonus     Current Damage  Max Damage     -
  ITEM_POTION        Spell Level     Spell SN        Spell SN       Spell SN
  ITEM_BOOK          -               -               -              -
- ITEM_FURNITURE     Capacity        Furniture Flags Key (vnum)     Scene (vnum)
+ ITEM_FURNITURE     Capacity        Furniture Flags Key (dbkey)     Scene (dbkey)
  ITEM_CLOTHING      -               -               -              -
  ITEM_PAPER         -               -               -              -
- ITEM_CONTAINER     Maximum Weight  Container Flags Key (vnum)     -
+ ITEM_CONTAINER     Maximum Weight  Container Flags Key (dbkey)     -
  ITEM_THROWN        Spell Level     Spell SN        Spell SN       Spell SN
  ITEM_DRINK_CON     Current Volume  Capacity        Liquid Type    Drink Flags
  ITEM_KEY           -               -               -              -
@@ -991,7 +985,7 @@ struct attack_type
  ITEM_FOUNTAIN      Spell Level     Spell SN        Spell SN       Spell SN
  ITEM_PILL          Spell Level     Spell SN        Spell SN       Spell SN
  ITEM_TOOL          Tool Flags      Number of uses  Max uses       -
- ITEM_LIST          Number of vnums -               -              -
+ ITEM_LIST          Number of dbkeys -               -              -
  ITEM_BOARD         Board Index     -               -              -
  ITEM_COMPONENT     Component Type  -               -              -
  ITEM_GOODS         Goods Type      -               -              -
@@ -1089,7 +1083,7 @@ struct attack_type
 
 
 /*
- * Apply types (for affects).             Can't use these as slot numbers.
+ * Apply types (for bonuses).             Can't use these as slot numbers.
  * Used in #OBJECTS.
  */
 #define APPLY_NONE                10000
@@ -1153,18 +1147,18 @@ struct attack_type
  * Exit flags.
  * Used in #SCENES.
  */
-#define EX_ISDOOR            0x00000001
-#define EX_CLOSED            0x00000004
-#define EX_LOCKED            0x00000002
-#define EX_PICKPROOF         0x00000008
-#define EX_EAT_KEY           0x00000010
-#define EX_BASHPROOF         0x00000020
-#define EX_JAMMED            0x00000040
-#define EX_SECRET            0x00000080          /* can see only when open  */
-#define EX_TRANSPARENT       0x00000100          /* see through when closed */
-#define EX_WINDOW            0x00000200          /* shoot through, not move */
-#define EX_CONCEALED         0x00000400          /* can't see at all        */
-#define EX_NOMOVE            0x00000800          /* only look through       */
+#define EXIT_ISDOOR            0x00000001
+#define EXIT_CLOSED            0x00000004
+#define EXIT_LOCKED            0x00000002
+#define EXIT_PICKPROOF         0x00000008
+#define EXIT_EAT_KEY           0x00000010
+#define EXIT_BASHPROOF         0x00000020
+#define EXIT_JAMMED            0x00000040
+#define EXIT_SECRET            0x00000080          /* can see only when open  */
+#define EXIT_TRANSPARENT       0x00000100          /* see through when closed */
+#define EXIT_WINDOW            0x00000200          /* shoot through, not move */
+#define EXIT_CONCEALED         0x00000400          /* can't see at all        */
+#define EXIT_NOMOVE            0x00000800          /* only look through       */
 
 
 
@@ -1172,20 +1166,20 @@ struct attack_type
  * Sector types.
  * Used in #SCENES.
  */
-#define SECT_INSIDE                   0          /* cant see weather        */
-#define SECT_CITY                     1          /* outdoor mv as inside    */
-#define SECT_FIELD                    2          /* illuminated by moon     */
-#define SECT_FOREST                   3          /* not illuminated         */
-#define SECT_HILLS                    4          /* slower moving           */
-#define SECT_MOUNTAIN                 5          /* requires grapple        */
-#define SECT_WATER_SWIM               6          /* dropped props float away */
-#define SECT_WATER_NOSWIM             7          /* 4 pulse time on props    */
-#define SECT_UNDERWATER               8          /* needs breathing help    */
-#define SECT_AIR                      9          /* requires FLY or vehicle */
-#define SECT_DESERT                  10          /* high movement loss      */
-#define SECT_ICELAND                 11          /* colder ( or something ) */
-#define SECT_CLIMB                   12          /* things fall, no grapple */
-#define SECT_MAX                     13
+#define MOVE_INSIDE                   0          /* cant see weather        */
+#define MOVE_CITY                     1          /* outdoor mv as inside    */
+#define MOVE_FIELD                    2          /* illuminated by moon     */
+#define MOVE_FOREST                   3          /* not illuminated         */
+#define MOVE_HILLS                    4          /* slower moving           */
+#define MOVE_MOUNTAIN                 5          /* requires grapple        */
+#define MOVE_WATER_SWIM               6          /* dropped props float away */
+#define MOVE_WATER_NOSWIM             7          /* 4 pulse time on props    */
+#define MOVE_UNDERWATER               8          /* needs breathing help    */
+#define MOVE_AIR                      9          /* requires FLY or vehicle */
+#define MOVE_DESERT                  10          /* high movement loss      */
+#define MOVE_ICELAND                 11          /* colder ( or something ) */
+#define MOVE_CLIMB                   12          /* things fall, no grapple */
+#define MOVE_MAX                     13
 
 
 
@@ -1363,9 +1357,9 @@ struct attack_type
 
 
 /*
- * ACT bits for players.
+ * Flag bits for players.
  */
-#define PLR_IS_NPC           0x00000001         /* Don't EVER set.      */
+#define PLR_NPC           0x00000001         /* Don't EVER set.      */
 
 #define PLR_LOG              0x00000010 
 #define PLR_DENY             0x00000020 
@@ -1393,7 +1387,7 @@ struct attack_type
 #define PLR_APPLIED          0x10000000
 
 /*
- *  Act2 Bits
+ *  flag2 Bits
  * Channel / Config bits.
  */
 #define CHANNEL_IMMTALK      0x00000001
@@ -1431,46 +1425,46 @@ struct attack_type
 
 
 /* event.c */
-struct event_data {
+struct event {
         void * owner;
         int    type;
         int    time;
-        INSTANCE_DATA *instance;    /* The instance of the script. */
-	EVENT_DATA *next;
+        INSTANCE *instance;    /* The instance of the script. */
+	EVENT *next;
 };
 
 
 /* interpreter.c */
-struct script_data
+struct script
 {
-   SCRIPT_DATA *        next;       
+   SCRIPT *        next;       
    int               type;       /* When is this script triggered? */
    char *               commands;   /* The code */
    char *               name;       
-   int                  vnum;
-   ZONE_DATA *          zone;
+   int                  dbkey;
+   ZONE *          zone;
 };
 
 
 /* function.c */
-struct instance_data
+struct instance
 {
-   INSTANCE_DATA *      next;
-   SCRIPT_DATA *        script;            /* From Index                 */
-   VARIABLE_DATA *      locals;            /* Local variables            */
+   INSTANCE *      next;
+   SCRIPT *        script;            /* From Index                 */
+   VARIABLE *      locals;            /* Local variables            */
    char *               location;          /* Read Head                  */
    int                  state;             /* Instance State             */
    int                  wait;              /* Countdown to next parse    */
    int                  autowait;          /* Iterative countdown delay  */
-   VARIABLE_DATA *      returned;          /* Returned value             */
+   VARIABLE *      returned;          /* Returned value             */
    int                  last_conditional;  /* Last evaluated conditional */
 };
 
 
-struct variable_data
+struct variable
 {
-   VARIABLE_DATA *      next;
-   VARIABLE_DATA *      next_master_var;   /* Mud-wide variable list */
+   VARIABLE *      next;
+   VARIABLE *      next_master_var;   /* Mud-wide variable list */
    char *               name;              /* Variable's name */
    int               type;              /* String, Int, Float, Scene, Actor or Prop */
    void *               value;             /* Current value */
@@ -1482,26 +1476,26 @@ struct variable_data
  * Prototype for a actor.
  * This is the in-memory version of #ACTORS.   ACTORIND <- quick search key
  */
-struct    actor_index_data
+struct    actor_template
 {
-    ACTOR_INDEX_DATA *  next;
+    ACTOR_TEMPLATE *  next;
     char *              owner; // for build()
     char *              name;
     char *              short_descr;
     char *              long_descr;
     char *              description;
-    SHOP_DATA *         pShop;
-    ZONE_DATA *         zone;
-    INSTANCE_DATA *     instances;
-    VARIABLE_DATA *     globals;            /* For setting global variables */
-    int                 vnum;
+    SHOP *         pShop;
+    ZONE *         zone;
+    INSTANCE *     instances;
+    VARIABLE *     globals;            /* For setting global variables */
+    int                 dbkey;
     int              count;
     int              race;
     int              sex;
     int              exp;                /* experience point value      */
     int              karma;              /* karma value                 */
-    SPELL_BOOK_DATA     *pSpells;          
-    int                 act;
+    SPELL_BOOK     *pSpells;          
+    int                 flag;
     int              timer;
     int                 bonuses;
     int                 money;
@@ -1514,16 +1508,16 @@ struct    actor_index_data
     int              perm_wis;
     int              perm_dex;
     int              perm_con;
-    ATTACK_DATA *       attacks         [MAX_ATTACK_DATA];
-    SKILL_DATA         *learned;
+    ATTACK *       attacks         [MAX_ATTACK];
+    SKILL         *learned;
     int              fmode;
 };
 
 
-struct    skill_data
+struct    skill
 {
-    SKILL_DATA *next;
-    int         vnum;                   /* Vnum                         */
+    SKILL *next;
+    int         dbkey;                   /* Vnum                         */
     char *      name;                   /* Name of skill                */
 
     int      level;                  /* level required to learn/use  */
@@ -1531,7 +1525,7 @@ struct    skill_data
     int      skill_level;            /* max learn from teacher       */
 
                                         /* This variable, when used in
-                                           PLAYER_DATA's learned list,
+                                           PLAYER's learned list,
                                            holds the % learned of the
                                            skill. */
 
@@ -1544,7 +1538,7 @@ struct    skill_data
 
     char *      msg_off;                /* Wear off message/to Victim   */
 
-    int      group_code;             /* Group vnum 0=none            */
+    int      group_code;             /* Group dbkey 0=none            */
     int      required_percent;       /* % required in group          */
 
     int      req_str;                /* Required stats               */
@@ -1563,10 +1557,10 @@ struct    skill_data
 };
 
 
-struct spell_data
+struct spell
 { 
-       SPELL_DATA *next;
-       int     vnum;
+       SPELL *next;
+       int     dbkey;
        char   *name;
        int     group_code;
        int  level;
@@ -1579,14 +1573,14 @@ struct spell_data
        int  slot;       /* special link for objects */
 
        int     minimum_position; 
-       INSTANCE_DATA *instances;
+       INSTANCE *instances;
 };
 
-struct spell_book_data
+struct spell_book
 {
-       SPELL_BOOK_DATA *next;
+       SPELL_BOOK *next;
        char* name;
-       int vnum;
+       int dbkey;
 };
 
 
@@ -1599,10 +1593,10 @@ struct pc_name
         char *         name;
 };
 
-struct alias_data {
+struct alias {
 	char *name;
 	char *exp;
-	ALIAS_DATA *next;
+	ALIAS *next;
 };
 
 struct command_queue {
@@ -1644,11 +1638,11 @@ struct command_queue {
  * Advanced war machine data.
  */
 
-struct castle_data {
+struct castle {
 
-    CASTLE_DATA *next;
+    CASTLE *next;
 
-    int vnum;             /* Castle VNUM                        */
+    int dbkey;             /* Castle VNUM                        */
 
   /* Kingdom */
     int peasants;      /* Number of farming peasants         */
@@ -1749,9 +1743,9 @@ struct castle_data {
 /*
  * Memory saver - data only PC's have.    PCDATA
  */
-struct user_data
+struct user
 {
-    USER_DATA *         next;
+    USER *         next;
     char      tell_last[MSL];
     char      chat_last[MSL];
     char      say_last[MSL];
@@ -1799,52 +1793,52 @@ struct user_data
     int              birth_month;
     int              birth_year;
     int                 warmth_rating;
-    INSTANCE_DATA       *d_owner        [MAX_DEBUG];   /* debugger */
-    INSTANCE_DATA       *d_type         [MAX_DEBUG];   /* debugger */
-    SCRIPT_DATA        *trace;                         /* script trace gen   */
+    INSTANCE       *d_owner        [MAX_DEBUG];   /* debugger */
+    INSTANCE       *d_type         [MAX_DEBUG];   /* debugger */
+    SCRIPT        *trace;                         /* script trace gen   */
     int                 trace_wait;
     void *              trackscr;
     int                 trackscr_type;
-    ALIAS_DATA         *aliases;                       /* player defined aliases */
+    ALIAS         *aliases;                       /* player defined aliases */
     int              app_time;                      /* for delayed approval system */
 };
 
 /*
  * One character (PC or NPC).   CHDATA  <-quick search key
  */
-struct player_data
+struct player
 {
-    PLAYER_DATA *         next;           /* For actor_list              */
-    PLAYER_DATA *         next_in_scene;  /* For scene->people           */
-    CONNECTION_DATA *   desc;             /* Channel Connection Data     */
+    PLAYER *         next;           /* For actor_list              */
+    PLAYER *         next_in_scene;  /* For scene->people           */
+    CONNECTION *   desc;             /* Channel Connection Data     */
     COMMAND_QUEUE  *    commands;         /* For queue-based commands    */
 
-    PLAYER_DATA *         master;         /* For following               */
-    PLAYER_DATA *         leader;
-    PLAYER_DATA *         monitor;
-    PLAYER_DATA *         fighting;       /* For combat                  */
-    PLAYER_DATA *         riding;         /* For mount                   */
-    PLAYER_DATA *         rider;          /* For being mounted           */
-    PLAYER_DATA *         reply;
-    USER_DATA *           userdata;       /* Additional PC only info     */
-    PROP_DATA *           hitched_to;     /* For hitching/dragging       */
-    PROP_DATA *           furniture;      /* For sitting/sleeping/wagons */
+    PLAYER *         master;         /* For following               */
+    PLAYER *         leader;
+    PLAYER *         monitor;
+    PLAYER *         fighting;       /* For combat                  */
+    PLAYER *         riding;         /* For mount                   */
+    PLAYER *         rider;          /* For being mounted           */
+    PLAYER *         reply;
+    USER *           userdata;       /* Additional PC only info     */
+    PROP *           hitched_to;     /* For hitching/dragging       */
+    PROP *           furniture;      /* For sitting/sleeping/wagons */
     char *                tracking;       /* For track                   */
     char *                hunting;        /* For track                   */
     char *                owner;          /* For hireling                */
 
-    INSTANCE_DATA *      instances;       /* scripts                     */
-    INSTANCE_DATA *      current;         /* scripts                     */
-    VARIABLE_DATA *      globals;
+    INSTANCE *      instances;       /* scripts                     */
+    INSTANCE *      current;         /* scripts                     */
+    VARIABLE *      globals;
 
-    ACTOR_INDEX_DATA *  pIndexData;       /* For NPCs                    */
-    BONUS_DATA *        bonus;            /* Special affects.            */
-    NOTE_DATA *         pnote;            /* For bulletin boards.        */
-    PROP_DATA *         carrying;         /* For inventory/equipment     */
-    SCENE_INDEX_DATA *  in_scene;         /* To be in a location.        */
-    SPELL_BOOK_DATA *   spells;           /* Learned spells.             */
+    ACTOR_TEMPLATE *  pIndexData;       /* For NPCs                    */
+    BONUS *        bonus;            /* Special affects.            */
+    NOTE *         pnote;            /* For bulletin boards.        */
+    PROP *         carrying;         /* For inventory/equipment     */
+    SCENE *  in_scene;         /* To be in a location.        */
+    SPELL_BOOK *   spells;           /* Learned spells.             */
 
-    SKILL_DATA *        learned;          /* Skill List                  */
+    SKILL *        learned;          /* Skill List                  */
 
     char *              name;             /* name (matchable keywords)   */
     char *              keywords;         /* matchable keywords ()       */
@@ -1868,8 +1862,8 @@ struct player_data
     int              exp_level;             /* Exp Level          */
     int                 bounty;                /* Price on your head */
     int                 owed;                  /* Rewards owed       */
-    int                 act;
-    int                 act2;
+    int                 flag;
+    int                 flag2;
     int                 fbits;                 /* Fighting bits      */
     int              fmode;                 /* fmode              */
     int                 bonuses;
@@ -1893,8 +1887,8 @@ struct player_data
     int              mod_dex;
     int              mod_con;
 
-    PLAYER_DATA *       keeper;
-    PROP_DATA *         haggling;
+    PLAYER *       keeper;
+    PROP *         haggling;
     int                 haggled_cost;
     int              haggle_bits;
     int                 original_cost;
@@ -1920,9 +1914,9 @@ struct    liq_type
 /*
  * Extra description data for a scene or prop.
  */
-struct    extra_descr_data
+struct    extra_descr
 {
-    EXTRA_DESCR_DATA *next;    /* Next in list                     */
+    EXTRA_DESCR *next;    /* Next in list                     */
     char *keyword;              /* Keyword in look/examine          */
     char *description;          /* What to see                      */
 };
@@ -1931,13 +1925,13 @@ struct    extra_descr_data
 /*
  * Prototype for an prop.         OBJIND
  */
-struct    prop_index_data
+struct    prop_template
 {
-    PROP_INDEX_DATA *   next;
-    EXTRA_DESCR_DATA *  extra_descr;
-    BONUS_DATA *        bonus;
-    ZONE_DATA *         zone;
-    INSTANCE_DATA *     instances;
+    PROP_TEMPLATE *   next;
+    EXTRA_DESCR *  extra_descr;
+    BONUS *        bonus;
+    ZONE *         zone;
+    INSTANCE *     instances;
     char *              owner; // for build()
     char *              name;
     char *              short_descr;
@@ -1946,7 +1940,7 @@ struct    prop_index_data
     char *              description_plural;
     char *              action_descr;
     char *              real_description;
-    int                 vnum;
+    int                 dbkey;
     int              item_type;
     int              timer;
     int                 extra_flags;
@@ -1968,20 +1962,20 @@ struct    prop_index_data
 /*
  * One prop.                            OBDAT
  */
-struct    prop_data
+struct    prop
 {
-    PROP_DATA *         next;
-    PROP_DATA *         next_content;
-    PROP_DATA *         contains;
-    PROP_DATA *         in_prop;
-    PLAYER_DATA *       carried_by;
-    EXTRA_DESCR_DATA *  extra_descr;
-    BONUS_DATA *        bonus;
-    PROP_INDEX_DATA *   pIndexData;
-    SCENE_INDEX_DATA *  in_scene;
-    INSTANCE_DATA *     instances;           /* for scripts */
-    INSTANCE_DATA *     current;
-    VARIABLE_DATA *     globals;            /* for scripts */
+    PROP *         next;
+    PROP *         next_content;
+    PROP *         contains;
+    PROP *         in_prop;
+    PLAYER *       carried_by;
+    EXTRA_DESCR *  extra_descr;
+    BONUS *        bonus;
+    PROP_TEMPLATE *   pIndexData;
+    SCENE *  in_scene;
+    INSTANCE *     instances;           /* for scripts */
+    INSTANCE *     current;
+    VARIABLE *     globals;            /* for scripts */
     char *              name;
     char *              short_descr;
     char *              short_descr_plural;
@@ -2007,12 +2001,12 @@ struct    prop_data
 /*
  * Exit data.
  */
-struct    exit_data
+struct    exit
 {
-    SCENE_INDEX_DATA *    to_scene;
-    EXIT_DATA *         next;
-    int                 vnum;
-    int              exit_info;
+    SCENE *    to_scene;
+    EXIT *         next;
+    int                 dbkey;
+    int              exit_flags;
     int                 key;
     char *              keyword;
     char *              description;
@@ -2031,14 +2025,14 @@ struct    exit_data
 /*
  * zone-reset definition.
  */
-struct    spawn_data
+struct    spawn
 {
-    SPAWN_DATA *    next;
+    SPAWN *    next;
     char                command; /* M=Mob O=Obj                              */
-    int              rs_vnum; /* vnum of actor/prop to load                  */
+    int              rs_dbkey; /* dbkey of actor/prop to load                  */
     int                 loc;     /* If actor = max actors else wear_loc or below */
     int              percent; /* chance it will load                      */
-    int              vnum;
+    int              dbkey;
     int              num;     /* num = num to load                        */
 };
 
@@ -2051,50 +2045,50 @@ struct    spawn_data
 /*
  * zone definition.
  */
-struct    zone_data
+struct    zone
 {
-    ZONE_DATA *         next;
+    ZONE *         next;
     char *              name;
     char *              repop;
     int              zone_flags;
     int              security;
     char *              builders;
-    int                 lvnum;
-    int                 uvnum;
+    int                 ldbkey;
+    int                 udbkey;
     int              age;
     int              nplayer;
     char *              filename;
-    int                 vnum;
+    int                 dbkey;
 };
 
 /*
  * Scene type.                                       SCENEIND
  */
-struct    scene_index_data
+struct    scene
 {
-    SCENE_INDEX_DATA *   next;
-    SPAWN_DATA *         spawn_first;
-    SPAWN_DATA *         spawn_last;
-    SCENE_INDEX_DATA *   leave_to;
-    PLAYER_DATA *        people;
-    PROP_DATA *          contents;
-    EXTRA_DESCR_DATA *   extra_descr;
-    ZONE_DATA *          zone;
-    EXIT_DATA *          exit    [MAX_DIR];
-    INSTANCE_DATA *      instances;           /* for scripts */
-    INSTANCE_DATA *      current;
-    VARIABLE_DATA *      globals;            /* for scripts */
+    SCENE *   next;
+    SPAWN *         spawn_first;
+    SPAWN *         spawn_last;
+    SCENE *   leave_to;
+    PLAYER *        people;
+    PROP *          contents;
+    EXTRA_DESCR *   extra_descr;
+    ZONE *          zone;
+    EXIT *          exit    [MAX_DIR];
+    INSTANCE *      instances;           /* for scripts */
+    INSTANCE *      current;
+    VARIABLE *      globals;            /* for scripts */
     char *               owner; // for build()
     char *               name;
     char *               description;
     char *               client;             /* client code                 */
-    int                  vnum;
+    int                  dbkey;
     int                  position;       /* vrml */
     int                  template;
     int                  scene_flags;
     int               max_people;
     int               light;
-    int               sector_type;
+    int               move;
     int                  terrain;
     int                  wagon;
 };
@@ -2220,19 +2214,19 @@ struct    social_type
 /*
  * Character macros.
  */
-#define IS_NPC(ch)        (IS_SET((ch)->act,ACT_IS_NPC))
+#define NPC(ch)        (IS_SET((ch)->flag,ACTOR_NPC))
 #define IS_IMMORTAL(ch)         (get_trust(ch) >= LEVEL_IMMORTAL)
 #define IS_HERO(ch)        (get_trust(ch) >= LEVEL_HERO)
 #define IS_AFFECTED(ch, sn)    (IS_SET((ch)->bonuses, (sn)))
 
-#define IS_LYCANTHROPIC(ch)  (IS_SET((ch)->act, ACT_LYCANTHROPE))
+#define IS_LYCANTHROPIC(ch)  (IS_SET((ch)->flag, ACTOR_LYCANTHROPE))
 
-#define IS_VAMPIRE(ch)       (IS_SET((ch)->act, ACT_VAMPIRE))
+#define IS_VAMPIRE(ch)       (IS_SET((ch)->flag, ACTOR_VAMPIRE))
 
-#define SHOW_TIPS(ch)     (!IS_NPC(ch) && IS_SET(ch->act2, PLR_TIPS) )
-#define HAS_ANSI(ch)            (!IS_NPC(ch) && IS_SET(ch->act2, PLR_ANSI) && \
+#define SHOW_TIPS(ch)     (!NPC(ch) && IS_SET(ch->flag2, PLR_TIPS) )
+#define HAS_ANSI(ch)            (!NPC(ch) && IS_SET(ch->flag2, PLR_ANSI) && \
                              ch->desc && ch->desc->client != TRUE && ch->desc->lingua==0)
-#define HAS_CLIENT(ch)          (!IS_NPC(ch) && ch->desc && ch->desc->client)
+#define HAS_CLIENT(ch)          (!NPC(ch) && ch->desc && ch->desc->client)
 #define IS_AWAKE(ch)        (ch->position > POS_SLEEPING)
 #define PC(ch,field)            ((ch)->userdata->field)
 #define GET_PC(ch,field,nopc)   ((ch->userdata != NULL ? ch->userdata->field     \
@@ -2246,8 +2240,8 @@ struct    social_type
 #define MAXHIT(ch)              (get_curr_con(ch) * 10)
 #define MAXMOVE(ch)             (get_curr_con(ch) * 20 + 300)
 #define MAXMANA(ch)             (get_curr_int(ch) * 15 + 100)
-#define GET_AGE(ch)             (IS_NPC(ch) ? 17 :                           \
-                                       (weather_info.year - PC(ch,birth_year)))
+#define GET_AGE(ch)             (NPC(ch) ? 17 :                           \
+                                       (weather.year - PC(ch,birth_year)))
 
 #define IS_OUTSIDE(ch)          (!IS_SET(                                    \
                                     (ch)->in_scene->scene_flags,               \
@@ -2255,7 +2249,7 @@ struct    social_type
 
 #define WAIT_STATE(ch, npulse)  ((ch)->wait = UMAX((ch)->wait, (npulse)))
 
-#define MANA_COST(ch, sn)       (IS_NPC(ch) ? 0                              \
+#define MANA_COST(ch, sn)       (NPC(ch) ? 0                              \
                                  : number_fuzzy(skill_table[sn].min_mana) )
 
 #define STRING_HITS(ch)         (percent_hit[ URANGE(0,                      \
@@ -2276,7 +2270,7 @@ struct    social_type
 #define SAME_ALIGN(ch, victim)  ( (IS_GOOD( ch ) && IS_GOOD( victim ))       \
                                || (IS_EVIL( ch ) && IS_EVIL( victim ))       \
                                || (IS_NEUTRAL(ch) && IS_NEUTRAL( victim )) )
-#define TRACK_DEPTH(ch)         ( IS_NPC(ch) ? 50 : 10 )
+#define TRACK_DEPTH(ch)         ( NPC(ch) ? 50 : 10 )
 
 /*
  * Object macros.
@@ -2313,7 +2307,7 @@ struct    social_type
  * Description macros.
  */
 #define NAME( ch )          ( is_hooded( (ch) ) ? "the hooded figure" : \
-                             (IS_NPC(ch)                                 \
+                             (NPC(ch)                                 \
                             || ((ch)->short_descr != NULL                 \
                               && !MTD((ch)->short_descr)                 \
                               && !str_cmp((ch)->short_descr, "(null)")  \
@@ -2490,24 +2484,24 @@ void copyover_recover  args( ( void ) );
  * Main global declarations.
  */
  
-#define CD      PLAYER_DATA
-#define MID     ACTOR_INDEX_DATA
-#define OD      PROP_DATA
-#define OID     PROP_INDEX_DATA
-#define RID     SCENE_INDEX_DATA
+#define CD      PLAYER
+#define MID     ACTOR_TEMPLATE
+#define OD      PROP
+#define OID     PROP_TEMPLATE
+#define RID     SCENE
 #define SF      SPEC_FUN
-#define AD      ZONE_DATA
-#define VARD    VARIABLE_DATA
-#define RD      SPAWN_DATA
-#define ID      INSTANCE_DATA
-#define SD      SHOP_DATA
-#define EDD     EXTRA_DESCR_DATA
-#define AFD     BONUS_DATA
-#define ED      EXIT_DATA
-#define ATD     ATTACK_DATA
-#define PCD     USER_DATA
-#define SCD     SCRIPT_DATA
-#define DD      CONNECTION_DATA
+#define AD      ZONE
+#define VARD    VARIABLE
+#define RD      SPAWN
+#define ID      INSTANCE
+#define SD      SHOP
+#define EDD     EXTRA_DESCR
+#define AFD     BONUS
+#define ED      EXIT
+#define ATD     ATTACK
+#define PCD     USER
+#define SCD     SCRIPT
+#define DD      CONNECTION
 
 /*****************************************************************************
  * Variable and functional contents for file config.c                        *
@@ -2531,8 +2525,8 @@ COMMAND( cmd_notify    );
 COMMAND( cmd_client    );
 
 /* alias.c */
-void add_alias    args( ( PLAYER_DATA *ch, char *name, char *exp ) );
-ALIAS_DATA *find_alias  args( ( PLAYER_DATA *ch, char *exp ) );
+void add_alias    args( ( PLAYER *ch, char *name, char *exp ) );
+ALIAS *find_alias  args( ( PLAYER *ch, char *exp ) );
 COMMAND( cmd_alias     );
 
 COMMAND( cmd_flag      );
@@ -2545,8 +2539,8 @@ COMMAND( cmd_flag      );
 void error_handler  args( ( int s ) );
 
 void save_copyover  args( ( void ) );
-void gen_bar_graph  args( ( PLAYER_DATA *ch, int percent ) );
-void sendbuf        args( ( CONNECTION_DATA *d, const char *txt, int length ) );
+void gen_bar_graph  args( ( PLAYER *ch, int percent ) );
+void sendbuf        args( ( CONNECTION *d, const char *txt, int length ) );
  
 COMMAND( cmd_email     );
 COMMAND( cmd_immtalk   );
@@ -2557,7 +2551,7 @@ COMMAND( cmd_whisper   );
 COMMAND( cmd_wish      );
 void shout         args( ( CD *ch, CD *pScene, char *message, int dir ) );
 COMMAND( cmd_shout     );
-void say_to        args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, char *argument ));
+void say_to        args( ( PLAYER *ch, PLAYER *victim, char *argument ));
 COMMAND( cmd_say       );
 COMMAND( cmd_talk      );
 COMMAND( cmd_smote     );
@@ -2578,16 +2572,16 @@ COMMAND( cmd_gtell     );
 
 // social.c
 
-bool in_group      args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-void ungroup       args( ( PLAYER_DATA *ch ) );
-void add_follower  args( ( PLAYER_DATA *ch, PLAYER_DATA *master ) ); 
-void stop_follower args( ( PLAYER_DATA *ch ) );
-void die_follower  args( ( PLAYER_DATA *ch ) );
+bool in_group      args( ( PLAYER *ch, PLAYER *victim ) );
+void ungroup       args( ( PLAYER *ch ) );
+void add_follower  args( ( PLAYER *ch, PLAYER *master ) ); 
+void stop_follower args( ( PLAYER *ch ) );
+void die_follower  args( ( PLAYER *ch ) );
 COMMAND( cmd_order     );
-void    print_stat_menu    args( ( PLAYER_DATA *ch ) );
+void    print_stat_menu    args( ( PLAYER *ch ) );
 
 void 	wtf_logf 			args((char * fmt, ...));
-void 	var_to_actor 			args((char * fmt, PLAYER_DATA *ch, ...));
+void 	var_to_actor 			args((char * fmt, PLAYER *ch, ...));
 
 /*****************************************************************************
  * Variable and functional contents for file info.c                          *
@@ -2596,10 +2590,10 @@ void 	var_to_actor 			args((char * fmt, PLAYER_DATA *ch, ...));
 
 extern char *  const   where_name  [];
 
-char *time_color           args( ( PLAYER_DATA *ch ) ); 
-void scan_direction        args( ( PLAYER_DATA *ch, int dir ) );
+char *time_color           args( ( PLAYER *ch ) ); 
+void scan_direction        args( ( PLAYER *ch, int dir ) );
 char *format_prop_to_actor args( ( OD *prop, CD *ch, bool fShort ) );
-void show_scene_to_actor   args( ( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene,
+void show_scene_to_actor   args( ( PLAYER *ch, SCENE *pScene,
                                    int dist, int dir ) );
 void show_list_to_actor    args( ( OD *list, CD *ch, bool fShort,
                                   bool fShowNothing ) );
@@ -2607,17 +2601,17 @@ char *show_list_to_actor2  args( ( OD *list, CD *ch, char *prefix ) );
 void show_peek_to_actor    args( ( OD *list, CD *ch, bool fShort,
                                   bool fShowNothing, int percent ) );
   
-void show_equipment        args( ( PLAYER_DATA *ch, PLAYER_DATA *tch ) );
-void show_equipment_table  args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-void show_size             args( ( PLAYER_DATA *ch, PLAYER_DATA *tch ) );
+void show_equipment        args( ( PLAYER *ch, PLAYER *tch ) );
+void show_equipment_table  args( ( PLAYER *ch, PLAYER *victim ) );
+void show_size             args( ( PLAYER *ch, PLAYER *tch ) );
 
-void show_actor_to_actor    args( ( PLAYER_DATA *list, PLAYER_DATA *ch ) );
-void show_actor_to_actor_0  args( ( PLAYER_DATA *list, PLAYER_DATA *ch ) );
-void show_actor_to_actor_1  args( ( PLAYER_DATA *list, PLAYER_DATA *ch ) );
+void show_actor_to_actor    args( ( PLAYER *list, PLAYER *ch ) );
+void show_actor_to_actor_0  args( ( PLAYER *list, PLAYER *ch ) );
+void show_actor_to_actor_1  args( ( PLAYER *list, PLAYER *ch ) );
 
-bool check_blind          args( ( PLAYER_DATA *ch ) );
-bool actor_look_list      args( ( PLAYER_DATA *ch, PROP_DATA *list, char *arg ) );
-void help_to_actor        args( ( char *t, PLAYER_DATA *ch, bool fPage ) );
+bool check_blind          args( ( PLAYER *ch ) );
+bool actor_look_list      args( ( PLAYER *ch, PROP *list, char *arg ) );
+void help_to_actor        args( ( char *t, PLAYER *ch, bool fPage ) );
 char *get_name_level  args( ( int level ) );
 
 COMMAND( cmd_scan      );
@@ -2631,7 +2625,7 @@ COMMAND( cmd_help      );
 COMMAND( cmd_who       );
 void show_inventory       args( ( CD *ch, CD *tch, bool fPeek ) );
 COMMAND( cmd_inventory );
-void show_belt            args( ( PLAYER_DATA *victim, PLAYER_DATA *ch ) );
+void show_belt            args( ( PLAYER *victim, PLAYER *ch ) );
 COMMAND( cmd_peek      );
 COMMAND( cmd_equipment );
 COMMAND( cmd_compare   );
@@ -2642,7 +2636,7 @@ COMMAND( cmd_socials   );
 COMMAND( cmd_commands  );
 COMMAND( cmd_wizlist   );
 COMMAND( cmd_history   );
-void add_history         args( ( PLAYER_DATA *ch, char *_out ) );
+void add_history         args( ( PLAYER *ch, char *_out ) );
 
 /*****************************************************************************
  * Variable and functional contents for file move.c                          *
@@ -2653,16 +2647,16 @@ extern char *  const   dir_name        [];
 extern char *  const   dir_rev         [];
 extern char *  const   dir_letter      [];
 extern const   int  rev_dir         [];
-extern const   int  movement_loss   [SECT_MAX];
+extern const   int  movement_loss   [MOVE_MAX];
 
-void hide_check      args( ( PLAYER_DATA *ch, SCENE_INDEX_DATA *in_scene ) );
-/* void flee            args( ( PLAYER_DATA *ch, PLAYER_DATA *fighting, int d ) ); */
+void hide_check      args( ( PLAYER *ch, SCENE *in_scene ) );
+/* void flee            args( ( PLAYER *ch, PLAYER *fighting, int d ) ); */
 void leave_strings   args( ( CD *ch, OD *prop, int sect, int door, bool fWindow ) );
 void arrive_strings  args( ( CD *ch, OD *prop, int sect, int door, bool fWindow ) );
 bool lose_movement   args( ( CD *ch, RID *in_scene, RID *to_scene ) );
 bool check_move      args( ( CD *ch, int door, int depth, RID *in_scene,
                              RID *to_scene, OD **prop ) );
-void move_char       args( ( PLAYER_DATA *ch, int door ) );
+void move_char       args( ( PLAYER *ch, int door ) );
 COMMAND( cmd_north     );
 COMMAND( cmd_east      );
 COMMAND( cmd_south     );
@@ -2692,13 +2686,13 @@ COMMAND( cmd_home      );
  * Contains prop manipulation functions and commands.                        *
  *****************************************************************************/
 
-void inv_to_hand_check    args( ( PLAYER_DATA *ch ) );
-bool can_wield            args( ( PLAYER_DATA *ch, PROP_DATA *prop, bool fSilent ));
-bool draw_prop            args( ( PLAYER_DATA *ch, PROP_DATA *prop ) );
-bool sheath_prop          args( ( PLAYER_DATA *ch, PROP_DATA *prop, bool fSilent ) );
-bool remove_prop          args( ( PLAYER_DATA *ch, int iWear, bool fReplace, bool fMsg ) );
+void inv_to_hand_check    args( ( PLAYER *ch ) );
+bool can_wield            args( ( PLAYER *ch, PROP *prop, bool fSilent ));
+bool draw_prop            args( ( PLAYER *ch, PROP *prop ) );
+bool sheath_prop          args( ( PLAYER *ch, PROP *prop, bool fSilent ) );
+bool remove_prop          args( ( PLAYER *ch, int iWear, bool fReplace, bool fMsg ) );
 int  get_wear_location    args( ( int loc ) );
-void wear_prop            args( ( PLAYER_DATA *ch, PROP_DATA *prop, bool fReplace, int loc ) );
+void wear_prop            args( ( PLAYER *ch, PROP *prop, bool fReplace, int loc ) );
 
 COMMAND( cmd_wear     );
 COMMAND( cmd_sheath   );
@@ -2706,12 +2700,12 @@ COMMAND( cmd_draw     );
 COMMAND( cmd_remove   );
 COMMAND( cmd_wield    );
 COMMAND( cmd_hold     );
-int get_prop          args( ( PLAYER_DATA *ch, PROP_DATA *prop, PROP_DATA *container ) );
+int get_prop          args( ( PLAYER *ch, PROP *prop, PROP *container ) );
 COMMAND( cmd_get      );
 COMMAND( cmd_put      );
 COMMAND( cmd_use      );
-void wield_prop       args( ( PROP_DATA *prop, PLAYER_DATA *ch ) );
-PROP_DATA *find_pack  args( ( PLAYER_DATA *ch, PROP_DATA *prop ) );
+void wield_prop       args( ( PROP *prop, PLAYER *ch ) );
+PROP *find_pack  args( ( PLAYER *ch, PROP *prop ) );
 COMMAND( cmd_dump     );
 COMMAND( cmd_drop     );
 COMMAND( cmd_give     );
@@ -2751,15 +2745,15 @@ char * extra_bit_name   args( ( int extra_flags ) );
 int    extra_name_bit   args( ( char *buf       ) );
 char * scene_bit_name   args( ( int scene_flags  ) );
 int    scene_name_bit   args( ( char *buf       ) );
-char * act_bit_name     args( ( int actb        ) );
+char * actor_bit_name     args( ( int actb        ) );
 char * plr_bit_name     args( ( int actb        ) );
-int    act_name_bit     args( ( char *buf       ) );
+int    actor_name_bit     args( ( char *buf       ) );
 char * wear_bit_name    args( ( int wear        ) );
 int    wear_name_bit    args( ( char *buf       ) );
 char * wear_loc_name    args( ( int wearloc     ) );
 int    wear_name_loc    args( ( char *buf       ) );
-char * sector_name      args( ( int sect        ) );
-int    sector_number    args( ( char *argument  ) );
+char * move_name      args( ( int sect        ) );
+int    move_number    args( ( char *argument  ) );
 char * position_name    args( ( int pos         ) );
 int    name_position    args( ( char *pos       ) );
 int    size_number      args( ( char *argument  ) );
@@ -2785,10 +2779,10 @@ char * name_stat_range  args( ( int stat        ) );
 
 void fread_board   args( ( int b ) );
 void load_boards   args( ( void ) );
-void note_remove   args( ( PLAYER_DATA *ch, NOTE_DATA *pnote, int b ) );
+void note_remove   args( ( PLAYER *ch, NOTE *pnote, int b ) );
 void save_board    args( ( int b ) );
-bool is_note_to    args( ( PLAYER_DATA *ch, int board, NOTE_DATA *pnote ) );
-void note_attach   args( ( PLAYER_DATA *ch ) );
+bool is_note_to    args( ( PLAYER *ch, int board, NOTE *pnote ) );
+void note_attach   args( ( PLAYER *ch ) );
 COMMAND( cmd_note    );
 
 /*****************************************************************************
@@ -2796,7 +2790,7 @@ COMMAND( cmd_note    );
  * Contains all hard client send commands                                    *
  ****************************************************************************/
 
-bool sendcli       args( ( CONNECTION_DATA *c, char *buf ) );
+bool sendcli       args( ( CONNECTION *c, char *buf ) );
 
 /*****************************************************************************
  * Functional and variable contents for file comm.c                          *
@@ -2808,7 +2802,7 @@ bool sendcli       args( ( CONNECTION_DATA *c, char *buf ) );
  */
 #define STC(arg,ch)         ( send_to_actor(arg,ch) )                
 
-extern CONNECTION_DATA * connection_list;
+extern CONNECTION * connection_list;
 extern FILE *          fpReserve;
 extern bool            newlock;
 extern bool            wizlock;
@@ -2826,25 +2820,25 @@ void process_input       args( ( void ) );
 void clean_connections   args( ( void ) );
 void poll_connections    args( ( int c ) );
  /* Omitted: game_loop_unix       */
-void new_connection      args( ( int c ) );
+void attach_connection      args( ( int c ) );
 #endif
-void close_socket        args( ( CONNECTION_DATA *dclose ) );
+void close_socket        args( ( CONNECTION *dclose ) );
  /* Omitted: read_from_connection */
  /* Omitted: read_from_buffer     */
-void display_interp      args( ( PLAYER_DATA *ch, const char *str ) );
-void display_prompt      args( ( PLAYER_DATA *ch ) );
-bool process_output      args( ( CONNECTION_DATA *d, bool fPrompt ) );
-void write_to_buffer     args( ( CONNECTION_DATA *d, const char *txt, 
+void display_interp      args( ( PLAYER *ch, const char *str ) );
+void display_prompt      args( ( PLAYER *ch ) );
+bool process_output      args( ( CONNECTION *d, bool fPrompt ) );
+void write_to_buffer     args( ( CONNECTION *d, const char *txt, 
                                  int length ) );
 bool write_to_connection args( ( int desc, char *txt, int length ) );
-void parse_snoop         args( ( CONNECTION_DATA *d, const char *txt ) );
-bool write_to_descr_nice args( ( CONNECTION_DATA *d ) );
-void stop_idling         args( ( PLAYER_DATA *ch ) );
-void send_to_actor       args( ( const char *txt, PLAYER_DATA *ch ) );
-void page_to_actor       args( ( const char *txt, PLAYER_DATA *ch ) );
-void show_string         args( ( CONNECTION_DATA *d, char *input) );
-void ansi_color          args( ( const char *txt, PLAYER_DATA *ch ) );
-void clrscr              args( ( PLAYER_DATA *ch ) );
+void parse_snoop         args( ( CONNECTION *d, const char *txt ) );
+bool write_to_descr_nice args( ( CONNECTION *d ) );
+void stop_idling         args( ( PLAYER *ch ) );
+void send_to_actor       args( ( const char *txt, PLAYER *ch ) );
+void page_to_actor       args( ( const char *txt, PLAYER *ch ) );
+void page_string         args( ( CONNECTION *d, char *input) );
+void ansi_color          args( ( const char *txt, PLAYER *ch ) );
+void clrscr              args( ( PLAYER *ch ) );
 void global              args( ( char *buf, int level, int toggler,
                                  int toggler2 ) );
 void write_global        args( ( char *buf ) );
@@ -2873,52 +2867,52 @@ void go_mud_go  args( ( int p, int c ) );
 /* from help.c */
 
 extern  const  struct help_class  help_class_table  [MAX_HELP_CLASS];
-HELP_DATA *    new_help              args( ( void ) );
-void           free_help             args( ( HELP_DATA *pHelp ) );
-void    hedit                  args( ( PLAYER_DATA *ch, char *argument ) );
+HELP *    new_help              args( ( void ) );
+void           free_help             args( ( HELP *pHelp ) );
+void    hedit                  args( ( PLAYER *ch, char *argument ) );
 COMMAND( cmd_hedit  );
 
 extern int port,control; /* for hot booting */
 extern bool fHotBoot;
 
-extern HELP_DATA *        help_first;
-extern HELP_DATA *        help_last;
-extern SHOP_DATA *        shop_first;
-extern SHOP_DATA *        shop_last;
+extern HELP *        help_first;
+extern HELP *        help_last;
+extern SHOP *        shop_first;
+extern SHOP *        shop_last;
 extern char               bug_buf           [2*MAX_INPUT_LENGTH];
-extern PLAYER_DATA *        actor_list;
-extern SPELL_DATA *       spell_data;
-extern TERRAIN_DATA *     terrain_list;
+extern PLAYER *        actor_list;
+extern SPELL *       spell;
+extern TERRAIN *     terrain_list;
 extern char *             help_greeting;
 extern char               log_buf           [2*MAX_INPUT_LENGTH];
-extern PROP_DATA *         prop_list;
+extern PROP *         prop_list;
 #if defined(INTERGALACTIC_PLANETARY)
-extern TIME_INFO_DATA     weather_info;
-extern TROPOSPHERE_DATA       weather_info;
+extern TIME_INFO     weather;
+extern TROPOSPHERE       weather;
 #else
-extern WEATHER_DATA       weather_info;
+extern WEATHER       weather;
 #endif
 
 /*
  * Prop, Actor, Scene, Script, Skill and Spell Hashes.
  */
-extern ACTOR_INDEX_DATA * actor_index_hash  [MAX_KEY_HASH];
-extern PROP_INDEX_DATA *  prop_index_hash   [MAX_KEY_HASH];
-extern SCENE_INDEX_DATA * scene_index_hash  [MAX_KEY_HASH];
-extern SCRIPT_DATA *      script_index_hash [MAX_KEY_HASH];
-extern SKILL_DATA *       skill_index_hash  [MAX_KEY_HASH];
-extern SPELL_DATA *       spell_index_hash  [MAX_KEY_HASH];
-extern HELP_DATA *        help_index_hash   [MAX_KEY_HASH];
-extern STAR_DATA *        star_index_hash   [MAX_KEY_HASH];
+extern ACTOR_TEMPLATE * actor_template_hash  [MAX_KEY_HASH];
+extern PROP_TEMPLATE *  prop_template_hash   [MAX_KEY_HASH];
+extern SCENE * scene_hash  [MAX_KEY_HASH];
+extern SCRIPT *      script__hash [MAX_KEY_HASH];
+extern SKILL *       skill__hash  [MAX_KEY_HASH];
+extern SPELL *       spell__hash  [MAX_KEY_HASH];
+extern HELP *        help__hash   [MAX_KEY_HASH];
+extern STAR *        star__hash   [MAX_KEY_HASH];
 
 #define HASHSEARCH(hash, conditional, var)\
-{ int tvnum; for ( tvnum = 0; tvnum < MAX_KEY_HASH; tvnum++ ) {\
-for ( var = hash[tvnum]; var != NULL; var  = var->next ) \
+{ int tdbkey; for ( tdbkey = 0; tdbkey < MAX_KEY_HASH; tdbkey++ ) {\
+for ( var = hash[tdbkey]; var != NULL; var  = var->next ) \
 {if ( conditional ) break;} if ( var ) break; } }
 
 extern char *             string_hash       [MAX_KEY_HASH];
-extern ZONE_DATA *        zone_first;
-extern ZONE_DATA *        zone_last;
+extern ZONE *        zone_first;
+extern ZONE *        zone_last;
 extern int                LOG_LEVEL;
 extern bool               fBootDb;
 extern FILE *             fpZone;
@@ -2930,24 +2924,24 @@ void    boot_db          args( ( int c, bool fCopyOver ) );
 
 void load_starmap      args( ( FILE *fp) );
 
-void fread_shop        args( ( FILE *fp, ACTOR_INDEX_DATA *pActorIndex ) );
-void fread_actor2      args( ( FILE *fp, int vnum ) );
-void fread_prop_index  args( ( FILE *fp, int vnum ) );
-void fread_scene       args( ( FILE *fp, int vnum ) );
+void fread_shop        args( ( FILE *fp, ACTOR_TEMPLATE *pActorIndex ) );
+void fread_actor2      args( ( FILE *fp, int dbkey ) );
+void fread_prop_template  args( ( FILE *fp, int dbkey ) );
+void fread_scene       args( ( FILE *fp, int dbkey ) );
 
-void fread_script      args( ( FILE *fp, int vnum ) );
+void fread_script      args( ( FILE *fp, int dbkey ) );
 
 
 char *  fread_file       args( ( char *filename ) );
 void    fix_exits        args( ( void ) );
-CD *    create_actor    args( ( ACTOR_INDEX_DATA *pActorIndex ) );
-OD *    create_prop    args( ( PROP_INDEX_DATA *pPropIndex, int level ) );
-MID *   get_actor_index    args( ( int vnum ) );
-OID *   get_prop_index    args( ( int vnum ) );
-RID *   get_scene_index   args( ( int vnum ) );
-SCD *   get_script_index args( ( int vnum ) );
-void    prop_strings      args( ( PROP_DATA *prop ) );
-void    actor_strings      args( ( PLAYER_DATA *actor ) );
+CD *    create_actor    args( ( ACTOR_TEMPLATE *pActorIndex ) );
+OD *    create_prop    args( ( PROP_TEMPLATE *pPropIndex, int level ) );
+MID *   get_actor_template    args( ( int dbkey ) );
+OID *   get_prop_template    args( ( int dbkey ) );
+RID *   get_scene   args( ( int dbkey ) );
+SCD *   get_script_index args( ( int dbkey ) );
+void    prop_strings      args( ( PROP *prop ) );
+void    actor_strings      args( ( PLAYER *actor ) );
 void    bug              args( ( const char *str, int param ) );
 void    bugs             args( ( const char *str, char *param ) );
 void    log_string       args( ( const char *str ) );
@@ -2968,7 +2962,7 @@ extern          const   struct race_type      race_table       [MAX_RACE];
 /*extern          const   struct lingua_type    lingua_table     
 [MAX_LINGUA];*/
 extern          const   struct lang_type      lang_table       [MAX_LANGUAGE];
-extern          const   struct color_data     color_table      [];
+extern          const   struct color     color_table      [];
 extern          const   struct attack_type    attack_table     [];
 extern          const   struct str_app_type   str_app          [26];
 extern          const   struct int_app_type   int_app          [26];
@@ -2985,10 +2979,10 @@ extern          const   struct group_type     group_table      [];
  *****************************************************************************/
 
 char *  get_direction   args( ( char *arg ) );
-int     find_door       args( ( PLAYER_DATA *ch, char *arg ) );
+int     find_door       args( ( PLAYER *ch, char *arg ) );
 COMMAND( cmd_open     );
 COMMAND( cmd_close    );
-OD *    has_key         args( ( PLAYER_DATA *ch, int key ) );
+OD *    has_key         args( ( PLAYER *ch, int key ) );
 COMMAND( cmd_lock     );
 COMMAND( cmd_unlock   );
 COMMAND( cmd_pick     );
@@ -2999,38 +2993,38 @@ COMMAND( cmd_pick     );
  *****************************************************************************/
 
 int     fight_mode_lookup   args( ( const char *name ) );
-void MSG_weapon_hit         args ( ( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *vi, int dam ) );
-void MSG_weapon_partial_dodge   args( ( PLAYER_DATA *ch, PROP_DATA*prop, PLAYER_DATA *victim ) );
-void MSG_weapon_parry       args( ( PLAYER_DATA *ch, PROP_DATA *prop, PROP_DATA *vo, PLAYER_DATA *victim ) );
-void MSG_weapon_dodge       args( ( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim ) );
-void MSG_weapon_miss        args( ( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim ) );
-void MSG_actor_hit          args( ( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim, int dam ) );
-void MSG_partial_dodge      args( ( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim ) );
-void MSG_hand_hit           args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam ) );
-void MSG_hand_miss          args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-void MSG_dodge              args( ( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim ) );
-int armor_deflect           args( ( PLAYER_DATA *victim, int idx ) );
-int chance_to_hit           args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-int damage_adjust           args( ( PLAYER_DATA *ch, int dam, int deflected ) );
+void MSG_weapon_hit         args ( ( PLAYER *ch, PROP *prop, PLAYER *vi, int dam ) );
+void MSG_weapon_partial_dodge   args( ( PLAYER *ch, PROP*prop, PLAYER *victim ) );
+void MSG_weapon_parry       args( ( PLAYER *ch, PROP *prop, PROP *vo, PLAYER *victim ) );
+void MSG_weapon_dodge       args( ( PLAYER *ch, PROP *prop, PLAYER *victim ) );
+void MSG_weapon_miss        args( ( PLAYER *ch, PROP *prop, PLAYER *victim ) );
+void MSG_actor_hit          args( ( PLAYER *ch, int idx, PLAYER *victim, int dam ) );
+void MSG_partial_dodge      args( ( PLAYER *ch, int idx, PLAYER *victim ) );
+void MSG_hand_hit           args( ( PLAYER *ch, PLAYER *victim, int dam ) );
+void MSG_hand_miss          args( ( PLAYER *ch, PLAYER *victim ) );
+void MSG_dodge              args( ( PLAYER *ch, int idx, PLAYER *victim ) );
+int armor_deflect           args( ( PLAYER *victim, int idx ) );
+int chance_to_hit           args( ( PLAYER *ch, PLAYER *victim ) );
+int damage_adjust           args( ( PLAYER *ch, int dam, int deflected ) );
 
-bool flee_check             args( ( PLAYER_DATA *ch, int d ) );
+bool flee_check             args( ( PLAYER *ch, int d ) );
 
-void    exp_gain        args( ( PLAYER_DATA *ch, int gain, bool fMessage ) ); 
-void    death_cry       args( ( PLAYER_DATA *ch ) );
-bool    is_safe         args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-void    make_corpse     args( ( PLAYER_DATA *ch ) );
-void    oroc            args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-void    raw_kill        args( ( PLAYER_DATA *victim ) );
-void    set_fighting    args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-/* void    disarm          args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) ); */
+void    exp_gain        args( ( PLAYER *ch, int gain, bool fMessage ) ); 
+void    death_cry       args( ( PLAYER *ch ) );
+bool    is_safe         args( ( PLAYER *ch, PLAYER *victim ) );
+void    make_corpse     args( ( PLAYER *ch ) );
+void    oroc            args( ( PLAYER *ch, PLAYER *victim ) );
+void    raw_kill        args( ( PLAYER *victim ) );
+void    set_fighting    args( ( PLAYER *ch, PLAYER *victim ) );
+/* void    disarm          args( ( PLAYER *ch, PLAYER *victim ) ); */
 
-void    hand_attack     args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-void    actor_attack   args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-void    weapon_attack   args( ( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim ) );
-void    beat_armor      args( ( PLAYER_DATA *victim, int idx ) );
-void    damage          args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam ) );
-void    update_pos      args( ( PLAYER_DATA *victim ) );
-void    stop_fighting   args( ( PLAYER_DATA *ch, bool fBoth ) );
+void    hand_attack     args( ( PLAYER *ch, PLAYER *victim ) );
+void    actor_attack   args( ( PLAYER *ch, PLAYER *victim ) );
+void    weapon_attack   args( ( PLAYER *ch, PROP *prop, PLAYER *victim ) );
+void    beat_armor      args( ( PLAYER *victim, int idx ) );
+void    damage          args( ( PLAYER *ch, PLAYER *victim, int dam ) );
+void    update_pos      args( ( PLAYER *victim ) );
+void    stop_fighting   args( ( PLAYER *ch, bool fBoth ) );
 void    violence_update args( ( void ) );
 
 COMMAND( cmd_throw    );
@@ -3063,13 +3057,13 @@ DECLARE_HIT_FUN(   hit_poison        );
  * Contains all furniture routines.                                          *
  *****************************************************************************/
  
-void  show_occupants_to_actor args( ( PROP_DATA *prop, PLAYER_DATA *ch ) );
-int     count_occupants      args( ( PROP_DATA *prop ) );
-bool    has_occupant         args( ( PROP_DATA *prop ) );
-bool    occupant             args( ( PROP_DATA *prop ) );
-CD *    hitched              args( ( PROP_DATA *prop ) );
-OD *    get_furn_here        args( ( PLAYER_DATA *ch, char *argument ) );
-void    set_furn             args( ( PLAYER_DATA *ch, PROP_DATA *prop ) );
+void  show_occupants_to_actor args( ( PROP *prop, PLAYER *ch ) );
+int     count_occupants      args( ( PROP *prop ) );
+bool    has_occupant         args( ( PROP *prop ) );
+bool    occupant             args( ( PROP *prop ) );
+CD *    hitched              args( ( PROP *prop ) );
+OD *    get_furn_here        args( ( PLAYER *ch, char *argument ) );
+void    set_furn             args( ( PLAYER *ch, PROP *prop ) );
 
 /*****************************************************************************
  * Variable and functional declarations for file graphics.c                  *
@@ -3084,7 +3078,7 @@ void clear_page                      args( ( void ) );
 void text                            args( (int x, int y, char *arg ) );
 void textline                        args( (int x0, int y0, int x1, int y1, char *arg ) );
 
-void draw_to_buffer                  args( ( PLAYER_DATA *ch ) );
+void draw_to_buffer                  args( ( PLAYER *ch ) );
 
 void point                           args( ( int x, int y ) );
 void rect                            args( ( int x, int y, int dx, int dy ) );
@@ -3105,7 +3099,7 @@ void CirclePoint                     args( (int cx,int cy,int x,int y) );
 void circle                  args( ( int xcenter, int ycenter, int radius ) );
 
 void line                    args( ( int x0, int y0, int x1, int y1 ) );
-void goto_xy                 args(( PLAYER_DATA *ch, int x, int y ));
+void goto_xy                 args(( PLAYER *ch, int x, int y ));
 
 #define MAX_X 80
 #define MAX_Y 50
@@ -3133,58 +3127,58 @@ char *color                  args( ( int c ) );
  *****************************************************************************/
 
 
-int        race_lookup         args( ( int vnum ) );
-int        get_trust           args( ( PLAYER_DATA *ch ) );
-int        get_curr_str        args( ( PLAYER_DATA *ch ) );
-int        get_curr_int        args( ( PLAYER_DATA *ch ) );
-int        get_curr_wis        args( ( PLAYER_DATA *ch ) );
-int        get_curr_dex        args( ( PLAYER_DATA *ch ) );
-int        get_curr_con        args( ( PLAYER_DATA *ch ) );
-int        can_carry_w         args( ( PLAYER_DATA *ch ) );
-void bonus_modify  args( ( PLAYER_DATA *ch, BONUS_DATA *paf, bool fAdd ) );
-void       bonus_remove        args( ( PLAYER_DATA *ch, BONUS_DATA *paf ) );
-void       bonus_strip         args( ( PLAYER_DATA *ch, int sn ) );
-void       bonus_to_actor       args( ( PLAYER_DATA *ch, BONUS_DATA *paf ) );
-bool       is_bonused          args( ( PLAYER_DATA *ch, int sn ) );
-void       bonus_join          args( ( PLAYER_DATA *ch, BONUS_DATA *paf ) );
-void       actor_from_scene    args( ( PLAYER_DATA *ch ) );
-void       actor_to_scene      args( ( PLAYER_DATA *ch, SCENE_INDEX_DATA *pSceneIndex ) );
-void       prop_to_actor_money args( ( PROP_DATA *prop, PLAYER_DATA *ch ) );
-void       prop_to_actor        args( ( PROP_DATA *prop, PLAYER_DATA *ch ) );
-void       prop_from_actor      args( ( PROP_DATA *prop ) );
-int        apply_ac            args( ( PROP_DATA *prop, int iWear ) );
-OD *       get_item_tool       args( ( PLAYER_DATA *prop, int nbit ) );
-PROP_DATA *get_tool_char       args( ( PLAYER_DATA *ch, int nbit ) );
-OD *       get_item_char       args( ( PLAYER_DATA *prop, int itype ) );
-OD *       get_item_held       args( ( PLAYER_DATA *prop, int iWear ) );
-OD *       get_eq_char         args( ( PLAYER_DATA *ch, int iWear ) );
-int        hand_empty          args( ( PLAYER_DATA *ch ) );
-int        wield_free          args( ( PLAYER_DATA *ch, PROP_DATA *prop ) );
-int        belt_empty          args( ( PLAYER_DATA *ch ) );
-bool       unequip_char        args( ( PLAYER_DATA *ch, PROP_DATA *prop ) );
-void       equip_char          args( ( PLAYER_DATA *ch, PROP_DATA *prop, int iWear ) );
-int        count_prop_list     args( ( PROP_INDEX_DATA *prop, PROP_DATA *list ) );
-void       prop_from_scene     args( ( PROP_DATA *prop ) );
-void       prop_to_scene       args( ( PROP_DATA *prop, SCENE_INDEX_DATA *pSceneIndex ) );
-void        prop_to_prop       args( ( PROP_DATA *prop, PROP_DATA *prop_to ) );
-void    prop_from_prop         args( ( PROP_DATA *prop ) );
-void    extract_prop           args( ( PROP_DATA *prop ) );
-void    extract_char           args( ( PLAYER_DATA *ch, bool fPull ) );
-CD *    get_actor_scene        args( ( PLAYER_DATA *ch, char *argument ) );
-CD *    get_actor_world        args( ( PLAYER_DATA *ch, char *argument ) );
-OD *    get_prop_type          args( ( PROP_INDEX_DATA *pPropIndexData ) );
-int     get_prop_number        args( ( PROP_DATA *prop ) );
-int     get_prop_weight        args( ( PROP_DATA *prop ) );
-int     scene_is_dark          args( ( SCENE_INDEX_DATA *pSceneIndex ) );
-bool    scene_is_private       args( ( SCENE_INDEX_DATA *pSceneIndex ) );
-bool    can_see                args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-bool    can_see_prop           args( ( PLAYER_DATA *ch, PROP_DATA *prop ) );
-bool    can_drop_prop          args( ( PLAYER_DATA *ch, PROP_DATA *prop ) );
-char *  get_extra_descr        args( ( const char *name, EXTRA_DESCR_DATA *ed ) );
-bool    use_tool               args( ( PROP_DATA *prop, int bit ) );
+int        race_lookup         args( ( int dbkey ) );
+int        get_trust           args( ( PLAYER *ch ) );
+int        get_curr_str        args( ( PLAYER *ch ) );
+int        get_curr_int        args( ( PLAYER *ch ) );
+int        get_curr_wis        args( ( PLAYER *ch ) );
+int        get_curr_dex        args( ( PLAYER *ch ) );
+int        get_curr_con        args( ( PLAYER *ch ) );
+int        can_carry_w         args( ( PLAYER *ch ) );
+void bonus_modify  args( ( PLAYER *ch, BONUS *paf, bool fAdd ) );
+void       bonus_remove        args( ( PLAYER *ch, BONUS *paf ) );
+void       bonus_strip         args( ( PLAYER *ch, int sn ) );
+void       bonus_to_actor       args( ( PLAYER *ch, BONUS *paf ) );
+bool       is_bonused          args( ( PLAYER *ch, int sn ) );
+void       bonus_join          args( ( PLAYER *ch, BONUS *paf ) );
+void       actor_from_scene    args( ( PLAYER *ch ) );
+void       actor_to_scene      args( ( PLAYER *ch, SCENE *pSceneIndex ) );
+void       prop_to_actor_money args( ( PROP *prop, PLAYER *ch ) );
+void       prop_to_actor        args( ( PROP *prop, PLAYER *ch ) );
+void       prop_from_actor      args( ( PROP *prop ) );
+int        apply_ac            args( ( PROP *prop, int iWear ) );
+OD *       get_item_tool       args( ( PLAYER *prop, int nbit ) );
+PROP *get_tool_char       args( ( PLAYER *ch, int nbit ) );
+OD *       get_item_char       args( ( PLAYER *prop, int itype ) );
+OD *       get_item_held       args( ( PLAYER *prop, int iWear ) );
+OD *       get_eq_char         args( ( PLAYER *ch, int iWear ) );
+int        hand_empty          args( ( PLAYER *ch ) );
+int        wield_free          args( ( PLAYER *ch, PROP *prop ) );
+int        belt_empty          args( ( PLAYER *ch ) );
+bool       unequip_char        args( ( PLAYER *ch, PROP *prop ) );
+void       equip_char          args( ( PLAYER *ch, PROP *prop, int iWear ) );
+int        count_prop_list     args( ( PROP_TEMPLATE *prop, PROP *list ) );
+void       prop_from_scene     args( ( PROP *prop ) );
+void       prop_to_scene       args( ( PROP *prop, SCENE *pSceneIndex ) );
+void        prop_to_prop       args( ( PROP *prop, PROP *prop_to ) );
+void    prop_from_prop         args( ( PROP *prop ) );
+void    extractor_prop           args( ( PROP *prop ) );
+void    extractor_char           args( ( PLAYER *ch, bool fPull ) );
+CD *    get_actor_scene        args( ( PLAYER *ch, char *argument ) );
+CD *    get_actor_world        args( ( PLAYER *ch, char *argument ) );
+OD *    get_prop_type          args( ( PROP_TEMPLATE *pPropIndexData ) );
+int     get_prop_number        args( ( PROP *prop ) );
+int     get_prop_weight        args( ( PROP *prop ) );
+int     scene_is_dark          args( ( SCENE *pSceneIndex ) );
+bool    scene_is_private       args( ( SCENE *pSceneIndex ) );
+bool    can_see                args( ( PLAYER *ch, PLAYER *victim ) );
+bool    can_see_prop           args( ( PLAYER *ch, PROP *prop ) );
+bool    can_drop_prop          args( ( PLAYER *ch, PROP *prop ) );
+char *  get_extra_descr        args( ( const char *name, EXTRA_DESCR *ed ) );
+bool    use_tool               args( ( PROP *prop, int bit ) );
 int     PERCENTAGE             args( ( int amount, int max ) );
-int     wield_weight           args( ( PLAYER_DATA *ch ) );
-bool    is_hooded              args( ( PLAYER_DATA *ch ) );
+int     wield_weight           args( ( PLAYER *ch ) );
+bool    is_hooded              args( ( PLAYER *ch ) );
 
 /*****************************************************************************
  * Variable and function declarations for file html.c                        *
@@ -3209,13 +3203,13 @@ COMMAND( cmd_bite );
  * Added support for Inter-Mud Communication v4.24b (IMC2)                   *
  *****************************************************************************/
 
-bool    imc_command_hook args( ( PLAYER_DATA *ch, char *command, char *argument ) );
+bool    imc_command_hook args( ( PLAYER *ch, char *command, char *argument ) );
 void    imc_startup      args( ( bool forced ) );
 void    imc_shutdown     args( ( bool reconnect ) );
-void    imc_initchar     args( ( PLAYER_DATA *ch ) );
-bool    imc_loadchar     args( ( PLAYER_DATA *ch, FILE *fp, const char *word ) );
-void    imc_savechar     args( ( PLAYER_DATA *ch, FILE *fp ) );
-void    imc_freechardata args( ( PLAYER_DATA *ch ) );
+void    imc_initchar     args( ( PLAYER *ch ) );
+bool    imc_loadchar     args( ( PLAYER *ch, FILE *fp, const char *word ) );
+void    imc_savechar     args( ( PLAYER *ch, FILE *fp ) );
+void    imc_freechardata args( ( PLAYER *ch ) );
 void    imc_loop         args( ( void ) );
 #endif
 
@@ -3229,9 +3223,9 @@ extern  const   struct  cmd_type        command_table       [];
 COMMAND( cmd_comlist  );
 COMMAND( cmd_library  );
 
-void    interpret       args( ( PLAYER_DATA *ch, char *argument ) );
+void    interpret       args( ( PLAYER *ch, char *argument ) );
 
-void ansi_keyboard args( ( PLAYER_DATA *ch, char *argument ) );
+void ansi_keyboard args( ( PLAYER *ch, char *argument ) );
 
  /* Omitted: check_social       */
 
@@ -3241,7 +3235,7 @@ void ansi_keyboard args( ( PLAYER_DATA *ch, char *argument ) );
  *****************************************************************************/
 
 char *  garble_text     args( ( char *t, int prcnt_comp ) );
-int     check_speech    args( ( PLAYER_DATA *ch, PLAYER_DATA *speaker,
+int     check_speech    args( ( PLAYER *ch, PLAYER *speaker,
                                int gsn ) );
 
 /*****************************************************************************
@@ -3262,8 +3256,8 @@ extern int top_zone;
 extern int top_ed;
 extern int top_exit;
 extern int top_help;
-extern int top_actor_index;
-extern int top_prop_index;
+extern int top_actor_template;
+extern int top_prop_template;
 extern int top_spawn;
 extern int top_scene;
 extern int top_shop;
@@ -3271,22 +3265,22 @@ extern int top_variable;
 extern int top_instance;
 extern int top_event;
 extern int top_script;
-extern int top_player_data;
+extern int top_player;
 extern int top_userdata;
 extern int top_attack;
 extern int top_prop;
 extern int top_connection;
 extern int top_note;
 
-extern int top_vnum_help;
-extern int top_vnum_spell;
-extern int top_vnum_skill;
-extern int top_vnum_script;
-extern int top_vnum_actor;
-extern int top_vnum_prop;
-extern int top_vnum_scene;
-extern int top_vnum_terrain;
-extern int top_vnum_race;
+extern int top_dbkey_help;
+extern int top_dbkey_spell;
+extern int top_dbkey_skill;
+extern int top_dbkey_script;
+extern int top_dbkey_actor;
+extern int top_dbkey_prop;
+extern int top_dbkey_scene;
+extern int top_dbkey_terrain;
+extern int top_dbkey_race;
 
 NUMBER_LIST*    new_number_list       args( ( void ) );
 STRING_LIST*    new_string_list       args( ( void ) );
@@ -3294,83 +3288,80 @@ STRING_LIST*    new_string_list       args( ( void ) );
 void    free_string_list              args( ( STRING_LIST *pString ) );
 void    free_number_list              args( ( NUMBER_LIST *pNumber ) );
 
-DD *    new_connection_data   args( ( void ) );
-void    free_connection       args( ( CONNECTION_DATA *d ) );
+DD *    new_connection   args( ( void ) );
+void    free_connection       args( ( CONNECTION *d ) );
 
-CD *    new_player_data       args( ( void ) );
-void    free_char             args( ( PLAYER_DATA *ch ) );
+CD *    new_player       args( ( void ) );
+void    free_char             args( ( PLAYER *ch ) );
 
-SPELL_BOOK_DATA *   new_spell_book_data   args( ( void ) );
-void    free_spell_book_data  args( ( SPELL_BOOK_DATA *pSpell ) );
+SPELL_BOOK *   new_spell_book   args( ( void ) );
+void    free_spell_book  args( ( SPELL_BOOK *pSpell ) );
 
-HELP_DATA *   new_help_data args( ( void ) );
-void    free_help_data       args( ( HELP_DATA *pHelp ) );
+HELP *   new_help args( ( void ) );
+void    free_help       args( ( HELP *pHelp ) );
 
-SPELL_DATA *   new_spell_data args( ( void ) );
-void    free_spell_data       args( ( SPELL_DATA *pSpell ) );
+SPELL *   new_spell args( ( void ) );
+void    free_spell       args( ( SPELL *pSpell ) );
 
-SKILL_DATA *   new_skill_data args( ( void ) );
-void    free_skill_data       args( ( SKILL_DATA *pSpell ) );
+SKILL *   new_skill args( ( void ) );
+void    free_skill       args( ( SKILL *pSpell ) );
 
-USER_DATA *   new_user_data   args( ( void ) );
-void    free_user_data        args( ( USER_DATA *pc ) );
+USER *   new_user   args( ( void ) );
+void    free_user        args( ( USER *pc ) );
 
 OD *    new_prop              args( ( void ) );
-void    free_prop             args( ( PROP_DATA *pProp ) );
+void    free_prop             args( ( PROP *pProp ) );
 
-RD *    new_spawn_data        args( ( void ) );
-void    free_spawn_data       args( ( SPAWN_DATA *pSpawn ) );
+RD *    new_spawn        args( ( void ) );
+void    free_spawn       args( ( SPAWN *pSpawn ) );
 
-TERRAIN_DATA *  new_terrain   args( ( void ) );
+TERRAIN *  new_terrain   args( ( void ) );
 
 AD *    new_zone              args( ( void ) );
-void    free_zone             args( ( ZONE_DATA *pZone ) );
+void    free_zone             args( ( ZONE *pZone ) );
 
 EDD *   new_extra_descr       args( ( void ) );
-void    free_extra_descr      args( ( EXTRA_DESCR_DATA *pExtra ) );
+void    free_extra_descr      args( ( EXTRA_DESCR *pExtra ) );
 
 ED *    new_exit              args( ( void ) );
-void    free_exit             args( ( EXIT_DATA *pExit ) );
+void    free_exit             args( ( EXIT *pExit ) );
 
 ATD *   new_attack            args( ( void ) );
-void    free_attack           args( ( ATTACK_DATA *attack ) );
+void    free_attack           args( ( ATTACK *attack ) );
 
-ALIAS_DATA * new_alias_data    args( ( void ) ) ;
-void         free_alias_data   args( ( ALIAS_DATA *alias ) );
+ALIAS * new_alias    args( ( void ) ) ;
+void         free_alias   args( ( ALIAS *alias ) );
 
-ATD *   new_alias             args( ( void ) );
-void    free_alias            args( ( ALIAS_DATA *alias ) );
+RID *   new_scene       args( ( void ) );
+void    free_scene      args( ( SCENE *pScene ) );
 
-RID *   new_scene_index       args( ( void ) );
-void    free_scene_index      args( ( SCENE_INDEX_DATA *pScene ) );
+SPELL *   new_spell_index       args( ( void ) );
+void    free_spell_index      args( ( SPELL *pSpell ) );
 
-SPELL_DATA *   new_spell_index       args( ( void ) );
-void    free_spell_index      args( ( SPELL_DATA *pSpell ) );
-
-EVENT_DATA * new_event_data   args( ( void ) );
-void    free_event_data       args( ( EVENT_DATA* pEvent ) );
+EVENT * new_event   args( ( void ) );
+void    free_event       args( ( EVENT* pEvent ) );
 
 AFD *   new_bonus             args( ( void ) );
-void    free_bonus            args( ( BONUS_DATA* pAf ) );
+void    free_bonus            args( ( BONUS* pAf ) );
 
-OID *   new_prop_index        args( ( void ) );
-void    free_prop_index       args( ( PROP_INDEX_DATA *pProp ) );
+OID *   new_prop_template        args( ( void ) );
+void    free_prop_template       args( ( PROP_TEMPLATE *pProp ) );
 
 SD *    new_shop              args( ( void ) );
-void    free_shop             args( ( SHOP_DATA *pShop ) );
+void    free_shop             args( ( SHOP *pShop ) );
 
-MID *   new_actor_index       args( ( void ) );
-void    free_actor_index      args( ( ACTOR_INDEX_DATA *pActor ) );
+MID *   new_actor_template       args( ( void ) );
+void    free_actor_template      args( ( ACTOR_TEMPLATE *pActor ) );
 
-VARD *  new_variable_data     args( ( void ) );
+VARD *  new_var     args( ( void ) );
 VARD *  new_variable          args( ( int type, void * value ) );
-void    free_variable         args( ( VARIABLE_DATA *var ) );
+void    free_variable         args( ( VARIABLE *var ) );
 
 ID *    new_instance          args( ( void ) );
-void    free_instance         args( ( INSTANCE_DATA *instance ) );
+void    free_instance         args( ( INSTANCE *instance ) );
 
 SCD *   new_script            args( ( void ) );
-void    free_script           args( ( SCRIPT_DATA *scr ) );
+void    free_script           args( ( SCRIPT *scr ) );
 
 char    fread_letter          args( ( FILE *fp ) );
 int     fread_number          args( ( FILE *fp ) );
@@ -3394,26 +3385,26 @@ COMMAND( cmd_memory );
  * Contains all money/prop routines.                                       *
  *****************************************************************************/
  
-void    update_money       args( ( PROP_DATA *prop ) );
+void    update_money       args( ( PROP *prop ) );
 OD *    create_money       args( ( int amount, int type ) );
-void    merge_money        args( ( PLAYER_DATA *ch ) );
-void    merge_money_prop   args( ( PROP_DATA *prop ) );
-void    merge_money_scene  args( ( SCENE_INDEX_DATA *scene ) );
-void    create_amount      args( ( int amount, PLAYER_DATA *pActor,
-                                   SCENE_INDEX_DATA *pScene, PROP_DATA *pProp ) );
-int     tally_coins        args( ( PLAYER_DATA *actor ) );
-int     tally_one_coin     args( ( PROP_DATA *plist, int type, bool fContents ) );
+void    merge_money        args( ( PLAYER *ch ) );
+void    merge_money_prop   args( ( PROP *prop ) );
+void    merge_money_scene  args( ( SCENE *scene ) );
+void    create_amount      args( ( int amount, PLAYER *pActor,
+                                   SCENE *pScene, PROP *pProp ) );
+int     tally_coins        args( ( PLAYER *actor ) );
+int     tally_one_coin     args( ( PROP *plist, int type, bool fContents ) );
 char *  name_amount        args( ( int amount ) );
-void    strip_empty_money  args( ( PLAYER_DATA *ch ) );
-char *  sub_coins          args( ( int amount, PLAYER_DATA *ch ) );
+void    strip_empty_money  args( ( PLAYER *ch ) );
+char *  sub_coins          args( ( int amount, PLAYER *ch ) );
 
 /*****************************************************************************
  * Variable and functional declarations for file mount.c                     *
  * Contains all mount/dismount routines.                                     *
  *****************************************************************************/
 
-void dismount_char      args( ( PLAYER_DATA *ch ) );
-void mount_char         args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
+void dismount_char      args( ( PLAYER *ch ) );
+void mount_char         args( ( PLAYER *ch, PLAYER *victim ) );
 
 COMMAND( cmd_mount     );
 COMMAND( cmd_rush      );
@@ -3425,42 +3416,42 @@ COMMAND( cmd_dismount  );
  * Handles all new-connection and new-character code.                        *
  *****************************************************************************/
 
-void    setup_race      args( ( PLAYER_DATA *ch ) );
-void    new_char        args( ( PLAYER_DATA *ch ) );
-void    stat_menu       args( ( PLAYER_DATA *ch, char *argument ) );
-void    stat_menu_choice  args( ( PLAYER_DATA *ch, char *argument ) );
-void    actor_gen       args( ( PLAYER_DATA *ch, char *argument ) );
+void    setup_race      args( ( PLAYER *ch ) );
+void    new_char        args( ( PLAYER *ch ) );
+void    stat_menu       args( ( PLAYER *ch, char *argument ) );
+void    stat_menu_choice  args( ( PLAYER *ch, char *argument ) );
+void    actor_gen       args( ( PLAYER *ch, char *argument ) );
 
-void    newbie              args( ( CONNECTION_DATA *d, char *argument ) );
+void    newbie              args( ( CONNECTION *d, char *argument ) );
  /* Omitted: newbie_check          */
  /* Omitted: check_parse_name     */
  /* Omitted: check_playing        */
  /* Omitted: check_reconnect      */
  /* Omitted: stop_idling          */
-bool    apply_ok           args( ( PLAYER_DATA *ch ) );
+bool    apply_ok           args( ( PLAYER *ch ) );
  /* Omitted: print_gen_menu       */
  /* Omitted: print_doc_menu       */
-void    print_login_menu   args( ( PLAYER_DATA *ch ) );
+void    print_login_menu   args( ( PLAYER *ch ) );
 
 /*****************************************************************************
  * Variable and functional declarations for file magic.c                     *
  * This file is not really functioning at this time.                         *
  *****************************************************************************/
-extern SPELL_DATA *spell_list;
+extern SPELL *spell_list;
 
-SPELL_DATA *find_spell      args( ( char *argument ) );
-HELP_DATA  *get_help_index  args( ( int vnum ) );
-SPELL_DATA *get_spell_index args( ( int vnum ) );
-SKILL_DATA *get_skill_index args( ( int vnum ) );
+SPELL *find_spell      args( ( char *argument ) );
+HELP  *get_help_index  args( ( int dbkey ) );
+SPELL *get_spell_index args( ( int dbkey ) );
+SKILL *get_skill_index args( ( int dbkey ) );
 
-bool    saves_spell         args( ( int level, PLAYER_DATA *victim ) );
-int     prop_cast_spell     args( ( PROP_DATA *item, int vnum, PLAYER_DATA *ch,
-                                    PLAYER_DATA *victim, PROP_DATA *prop ) );
-void   clear_spell_book args( ( SPELL_BOOK_DATA *pSpellbook ) );
+bool    saves_spell         args( ( int level, PLAYER *victim ) );
+int     prop_cast_spell     args( ( PROP *item, int dbkey, PLAYER *ch,
+                                    PLAYER *victim, PROP *prop ) );
+void   clear_spell_book args( ( SPELL_BOOK *pSpellbook ) );
 
-bool has_spell     args( ( SPELL_BOOK_DATA *book, int vnum ) );
-int find_gem_mana  args( ( PLAYER_DATA *ch, int bit ) );
-void take_mana_gem args( ( PLAYER_DATA *ch, int mana, int bit ) );
+bool has_spell     args( ( SPELL_BOOK *book, int dbkey ) );
+int find_gem_mana  args( ( PLAYER *ch, int bit ) );
+void take_mana_gem args( ( PLAYER *ch, int mana, int bit ) );
 
 COMMAND( cmd_mana );
 COMMAND( cmd_cast );
@@ -3473,37 +3464,37 @@ COMMAND( cmd_reagents );
  * The online creation source code is contained herein.                      *
  *****************************************************************************/
 
-AD *    get_zone_data          args( ( int vnum ) );
-AD *    get_vnum_zone          args( ( int vnum ) );
+AD *    get_zone          args( ( int dbkey ) );
+AD *    get_dbkey_zone          args( ( int dbkey ) );
 char *  zone_bit_name          args( ( int zone_flags ) );
 int     get_zone_flags_number  args( ( char *argument ) );
 bool    redit_exit             args( ( CD *ch, RID *pScene, int door,
                                        char *arg1, char *arg2 ) );
 
-void    zedit                  args( ( PLAYER_DATA *ch, char *argument ) );
-void    redit                  args( ( PLAYER_DATA *ch, char *argument ) );
-void    oedit                  args( ( PLAYER_DATA *ch, char *argument ) );
-void    aedit                  args( ( PLAYER_DATA *ch, char *argument ) );
-void    sedit                  args( ( PLAYER_DATA *ch, char *argument ) );
-void    spedit                 args( ( PLAYER_DATA *ch, char *argument ) );
-void    skedit                 args( ( PLAYER_DATA *ch, char *argument ) );
+void    zedit                  args( ( PLAYER *ch, char *argument ) );
+void    redit                  args( ( PLAYER *ch, char *argument ) );
+void    oedit                  args( ( PLAYER *ch, char *argument ) );
+void    aedit                  args( ( PLAYER *ch, char *argument ) );
+void    sedit                  args( ( PLAYER *ch, char *argument ) );
+void    spedit                 args( ( PLAYER *ch, char *argument ) );
+void    skedit                 args( ( PLAYER *ch, char *argument ) );
 
 void value_breakdown           args( ( int type, int v1, int v2, int v3, int v4,
-                                       PLAYER_DATA *ch ) );
+                                       PLAYER *ch ) );
 
-void display_spawns           args( ( PLAYER_DATA *ch ) );
-void add_spawn                args( ( SCENE_INDEX_DATA *scene, SPAWN_DATA *pSpawn, int i ) );
+void display_spawns           args( ( PLAYER *ch ) );
+void add_spawn                args( ( SCENE *scene, SPAWN *pSpawn, int i ) );
 
 
 void save_zone_list            args( ( void ) );
 void save_config               args( ( void ) );
 void save_contents             args( ( void ) );
-void save_actors               args( ( FILE *fp, ZONE_DATA *pZone ) );
-void save_scripts              args( ( FILE *fp, ZONE_DATA *pZone ) );
-void save_props                args( ( FILE *fp, ZONE_DATA *pZone ) );
-void save_scenes               args( ( FILE *fp, ZONE_DATA *pZone ) );
+void save_actors               args( ( FILE *fp, ZONE *pZone ) );
+void save_scripts              args( ( FILE *fp, ZONE *pZone ) );
+void save_props                args( ( FILE *fp, ZONE *pZone ) );
+void save_scenes               args( ( FILE *fp, ZONE *pZone ) );
 
-void save_zone( ZONE_DATA *pZone );
+void save_zone( ZONE *pZone );
 void save_string_to_file( char *fname, char *content );
 void save_helps( void );
 
@@ -3530,16 +3521,16 @@ COMMAND( cmd_zsave  );
 
 bool filler_words  args( ( char *argument ) );
 
-OD *    find_prop_list   args( ( PROP_DATA *list, char *argument ) );
+OD *    find_prop_list   args( ( PROP *list, char *argument ) );
 
-OD *    get_prop_list    args( ( PLAYER_DATA *ch, char *argument,
-                                 PROP_DATA *list ) );
-OD *    get_prop_carry   args( ( PLAYER_DATA *ch, char *argument ) );
-OD *    get_prop_wear    args( ( PLAYER_DATA *ch, char *argument ) );
-OD *    get_prop_inv     args( ( PLAYER_DATA *ch, char *argument ) );
-OD *    get_prop_inv2    args( ( PLAYER_DATA *ch, char *argument ) );
-OD *    get_prop_here    args( ( PLAYER_DATA *ch, char *argument ) );
-OD *    get_prop_world   args( ( PLAYER_DATA *ch, char *argument ) );
+OD *    get_prop_list    args( ( PLAYER *ch, char *argument,
+                                 PROP *list ) );
+OD *    get_prop_carry   args( ( PLAYER *ch, char *argument ) );
+OD *    get_prop_wear    args( ( PLAYER *ch, char *argument ) );
+OD *    get_prop_inv     args( ( PLAYER *ch, char *argument ) );
+OD *    get_prop_inv2    args( ( PLAYER *ch, char *argument ) );
+OD *    get_prop_here    args( ( PLAYER *ch, char *argument ) );
+OD *    get_prop_world   args( ( PLAYER *ch, char *argument ) );
 
 /*****************************************************************************
  * Variable and functional declarations for file players.c                   *
@@ -3554,15 +3545,15 @@ void   generate_statistics    args( ( void ) );
 
 #define MAX_NEST        1000
 
-extern PROP_DATA *      rgObjNest       [MAX_NEST];
+extern PROP *      rgObjNest       [MAX_NEST];
 
  /* Omitted: fread/fwrite char */
  /* Omitted: fread/fwrite actor  */
 
-void    fwrite_prop      args( ( PROP_DATA *prop, FILE *fp, int iNest ) );
+void    fwrite_prop      args( ( PROP *prop, FILE *fp, int iNest ) );
 void    fread_prop       args( ( void *owner, int owner_type, FILE *fp ) );
-void    save_actor_prop    args( ( PLAYER_DATA *ch ) );
-bool    load_actor_prop    args( ( CONNECTION_DATA *d, char *name ) );
+void    save_actor_prop    args( ( PLAYER *ch ) );
+bool    load_actor_prop    args( ( CONNECTION *d, char *name ) );
 
 /*****************************************************************************
  * Variable and functional declarations for shop.c                           *
@@ -3575,12 +3566,12 @@ extern const     struct   goods_type    goods_table    [];
 
 OD *    create_good        args( ( int good ) );
 OD *    create_comp        args( ( int good ) );
-void    shop_list_to_actor args( ( PLAYER_DATA *keeper, PLAYER_DATA *ch ) );
-OD *    get_shop_list_prop args( ( PLAYER_DATA *keeper, PLAYER_DATA *ch, int number ) );
-CD *    find_keeper        args( ( PLAYER_DATA *ch, char *arg, bool Report ) );
-int     get_cost           args( ( PLAYER_DATA *keeper, PROP_DATA *prop, bool fBuy ) );
-bool    transact           args( ( PLAYER_DATA *keeper, PROP_DATA *prop, PLAYER_DATA *ch, int price ) );
-void    buy_ai             args( ( PLAYER_DATA *ch, PLAYER_DATA *keeper, int offer ) );
+void    shop_list_to_actor args( ( PLAYER *keeper, PLAYER *ch ) );
+OD *    get_shop_list_prop args( ( PLAYER *keeper, PLAYER *ch, int number ) );
+CD *    find_keeper        args( ( PLAYER *ch, char *arg, bool Report ) );
+int     get_cost           args( ( PLAYER *keeper, PROP *prop, bool fBuy ) );
+bool    transact           args( ( PLAYER *keeper, PROP *prop, PLAYER *ch, int price ) );
+void    buy_ai             args( ( PLAYER *ch, PLAYER *keeper, int offer ) );
 
 COMMAND( cmd_repair   );
 COMMAND( cmd_list     );
@@ -3601,32 +3592,32 @@ COMMAND( cmd_appraise );
 COMMAND( cmd_script   );
 COMMAND( cmd_gspeak   );
 
-void rem_variable   args( ( VARIABLE_DATA **vlist, char *name ) );
-char *translate_variables_noliterals_list  args( ( VARIABLE_DATA *list, char *exp ) );
+void rem_variable   args( ( VARIABLE **vlist, char *name ) );
+char *translate_variables_noliterals_list  args( ( VARIABLE *list, char *exp ) );
 char *translate_variables_noliterals  args( ( void * owner, int type, char *exp ) );
 void mini_parse_script  args( ( void * owner, int type, char *exp ) );
 
 int  script_update    args( ( void * owner, int type, int ttype,
-                             PLAYER_DATA *actor, PROP_DATA *catalyst, char *astr,
+                             PLAYER *actor, PROP *catalyst, char *astr,
                              char *bstr  ) );
-void parse_script    args( ( INSTANCE_DATA *instance, void * owner, int type ) );
-void trigger_list   args( ( PROP_DATA *list, int ttype, PLAYER_DATA  *actor,
-                            PROP_DATA *catalyst, char *astr, char *bstr ) );
+void parse_script    args( ( INSTANCE *instance, void * owner, int type ) );
+void trigger_list   args( ( PROP *list, int ttype, PLAYER  *actor,
+                            PROP *catalyst, char *astr, char *bstr ) );
 VARD *eval_function  args( ( void * owner, int type, char *exp ) );
 
-INSTANCE_DATA *find_instance  args( ( void * owner, int type, char *trigname ) );  // from function.c
+INSTANCE *find_instance  args( ( void * owner, int type, char *trigname ) );  // from function.c
 
 /*****************************************************************************
  * Variable and functional declarations for events.c                         *
  * The event queue functions.                                                *
  *****************************************************************************/
 
-void add_event         args (( void * owner, int type, int vnum, int delay,
-                char *special, PLAYER_DATA *actor, PLAYER_DATA *target,
-                PROP_DATA *catalyst, char *astr, char *bstr   ));
+void add_event         args (( void * owner, int type, int dbkey, int delay,
+                char *special, PLAYER *actor, PLAYER *target,
+                PROP *catalyst, char *astr, char *bstr   ));
 
 void update_event                  args( ( void ) );
-void rem_event                     args( ( EVENT_DATA *pEvent ) );
+void rem_event                     args( ( EVENT *pEvent ) );
 void clear_events                  args( ( void * owner, int type ) ); 
 
 COMMAND( cmd_events );
@@ -3636,40 +3627,40 @@ COMMAND( cmd_events );
  * Skill routines.                                                           *
  *****************************************************************************/
 
-SKILL_DATA *skill_lookup      args( ( const char *name ) );
-SKILL_DATA *skill_copy        args( ( SKILL_DATA *pSource ) );
+SKILL *skill_lookup      args( ( const char *name ) );
+SKILL *skill_copy        args( ( SKILL *pSource ) );
 
-void show_skills_list         args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill ) );
+void show_skills_list         args( ( PLAYER *ch, SKILL *pSkill ) );
 int  practice_cost            args( ( int amount, int level ) );
 
 
-bool has_skill                args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill ) );
+bool has_skill                args( ( PLAYER *ch, SKILL *pSkill ) );
 
-int learned   args( ( PLAYER_DATA *ch, int vnum ) );
-int LEARNED   args( ( PLAYER_DATA *ch, char *name ) );
+int learned   args( ( PLAYER *ch, int dbkey ) );
+int LEARNED   args( ( PLAYER *ch, char *name ) );
 
-bool skill_check args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill, int modifier ) );
+bool skill_check args( ( PLAYER *ch, SKILL *pSkill, int modifier ) );
 
 extern bool slot_spell;
 void *slot_lookup             args( ( int slot ) );
-char *skill_level             args( ( SKILL_DATA *pSkill ) );
-int skill_vnum                args( ( SKILL_DATA *pSkill ) );
-char *skill_name              args( ( int vnum ) );
+char *skill_level             args( ( SKILL *pSkill ) );
+int skill_dbkey                args( ( SKILL *pSkill ) );
+char *skill_name              args( ( int dbkey ) );
 
-SKILL_DATA *find_skill_pc     args( ( PLAYER_DATA *ch, int vnum ) );
-SKILL_DATA *find_group_pc     args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill ) );
+SKILL *find_skill_pc     args( ( PLAYER *ch, int dbkey ) );
+SKILL *find_group_pc     args( ( PLAYER *ch, SKILL *pSkill ) );
 
-bool advance_skill   args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill, \
+bool advance_skill   args( ( PLAYER *ch, SKILL *pSkill, \
                              int advance, int time_mod ) );
-bool has_prereq      args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill, bool fTell ) );
-char *disp_group     args( ( PLAYER_DATA *ch, SKILL_DATA *pGroup ) );
-char *disp_skill     args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill ) );
-void display_skills  args( ( PLAYER_DATA *ch, int group ) );
-void show_skills_teacher    args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill ) );
-void show_skills     args( ( PLAYER_DATA *ch, SKILL_DATA *pSkill ) );
+bool has_prereq      args( ( PLAYER *ch, SKILL *pSkill, bool fTell ) );
+char *disp_group     args( ( PLAYER *ch, SKILL *pGroup ) );
+char *disp_skill     args( ( PLAYER *ch, SKILL *pSkill ) );
+void display_skills  args( ( PLAYER *ch, int group ) );
+void show_skills_teacher    args( ( PLAYER *ch, SKILL *pSkill ) );
+void show_skills     args( ( PLAYER *ch, SKILL *pSkill ) );
 
-SKILL_DATA * update_skill    args( ( PLAYER_DATA *ch, int vnum, int value ) );
-void add_skill       args( ( PLAYER_DATA *ch, char *name, int value ) );
+SKILL * update_skill    args( ( PLAYER *ch, int dbkey, int value ) );
+void add_skill       args( ( PLAYER *ch, char *name, int value ) );
 
 COMMAND( cmd_skills    );
 COMMAND( cmd_learn     );
@@ -3706,7 +3697,7 @@ bool    str_prefix      args( ( const char *astr, const char *bstr ) );
 bool    str_infix       args( ( const char *astr, const char *bstr ) );
 bool    str_suffix      args( ( const char *astr, const char *bstr ) );
 char *  capitalize      args( ( const char *str ) );
-void    append_file     args( ( PLAYER_DATA *ch, char *file, char *str ) );
+void    append_file     args( ( PLAYER *ch, char *file, char *str ) );
 char *  fix_string      args( ( const char *str ) );
 char *  is_are          args( ( char *buf ) );
 char *  smash_arg       args( ( char *t, char *name ) );
@@ -3721,9 +3712,9 @@ char *  string_replace  args( ( char * orig, char * old, char * new ) );
 int     arg_count       args( ( char * argument ) );
 char *  string_unpad    args( ( char * argument ) );
 char *  string_proper   args( ( char * argument ) );
-void    string_edit     args( ( PLAYER_DATA *ch, char **pString ) );
-void    string_append   args( ( PLAYER_DATA *ch, char **pString ) );
-void    string_add      args( ( PLAYER_DATA *ch, char *argument ) );
+void    string_edit     args( ( PLAYER *ch, char **pString ) );
+void    string_append   args( ( PLAYER *ch, char **pString ) );
+void    string_add      args( ( PLAYER *ch, char *argument ) );
 bool    is_number       args( ( char *arg ) );
 int     number_argument args( ( char *argument, char *arg ) );
 char *  one_argument    args( ( char *argument, char *arg_first ) );
@@ -3753,21 +3744,21 @@ char *  grab_to_at      args( ( char *argument, char *arg_first ) );
  * Displays helpful tips, an extension of the help system by Locke.          *
  *****************************************************************************/
 
-void tip( PLAYER_DATA *ch );
+void tip( PLAYER *ch );
 
 /*****************************************************************************
  * Variable and functional declarations for track.c                          *
  * Handles the internal queue-based tracking routines submitted by jdinkel.  *
  *****************************************************************************/
 
-void list_enqueue  args( ( SCENE_INDEX_DATA *scene ) );
-void bfs_enqueue   args( ( SCENE_INDEX_DATA *scene, int dir, int depth ) );
+void list_enqueue  args( ( SCENE *scene ) );
+void bfs_enqueue   args( ( SCENE *scene, int dir, int depth ) );
 void bfs_dequeue   args( (void) );
 void list_dequeue  args( (void) );
 void bfs_clear_queue args( (void) );
 void list_clear_queue args((void));
 
-int find_first_step     args( ( SCENE_INDEX_DATA *src, SCENE_INDEX_DATA *target,
+int find_first_step     args( ( SCENE *src, SCENE *target,
                                 int depth ) );
 COMMAND( cmd_track    );
 COMMAND( cmd_hunt     );
@@ -3780,7 +3771,7 @@ COMMAND( cmd_hunt     );
  *****************************************************************************/
 COMMAND( cmd_translate );
 int find_language( char *argument );
-char *translate( CONNECTION_DATA *d, char *outbuf );
+char *translate( CONNECTION *d, char *outbuf );
 #endif
 
 /*****************************************************************************
@@ -3793,22 +3784,22 @@ void    prop_update_pulse  args( ( void ) );
 void    prop_update_tick   args( ( void ) );
 void    auto_reboot        args( ( void ) );
 
-void    advance_level    args( ( PLAYER_DATA *ch ) );
-int     hit_gain         args( ( PLAYER_DATA *ch ) );
-int     move_gain        args( ( PLAYER_DATA *ch ) );
-int     mana_gain        args( ( PLAYER_DATA *ch ) );
-void    gain_condition   args( ( PLAYER_DATA *ch, int iCond, int value ) );
+void    advance_level    args( ( PLAYER *ch ) );
+int     hit_gain         args( ( PLAYER *ch ) );
+int     move_gain        args( ( PLAYER *ch ) );
+int     mana_gain        args( ( PLAYER *ch ) );
+void    gain_condition   args( ( PLAYER *ch, int iCond, int value ) );
 void    actor_update     args( ( void ) );
 void    weather_update   args( ( void ) );
 void    everybody_update args( ( bool fEach ) );
 void    prop_update      args( ( bool fEach ) );
 void    aggr_update      args( ( void ) );
-bool    spawn_scene      args( ( SCENE_INDEX_DATA *pScene ) );
+bool    spawn_scene      args( ( SCENE *pScene ) );
 void    scene_update     args( ( void ) );
 void    script_update_script args( ( void ) );
 void    update_handler  args( ( void ) );
 
-void    show_player_statistics  args( ( PLAYER_DATA *ch ) ) ;
+void    show_player_statistics  args( ( PLAYER *ch ) ) ;
 void    update_player_statistics  args( ( void ) );
 COMMAND( cmd_stats );
 
@@ -3816,11 +3807,11 @@ COMMAND( cmd_stats );
  * Variable and functional declarations for file wiz.c                       *
  * Contains generic immortal privledged commands and functions.              *
  *****************************************************************************/
-extern BAN_DATA *ban_list;
+extern BAN *ban_list;
 
 void hotboot_recover args(( int c ));
 
-RID   * find_location   args( ( PLAYER_DATA *ch, char *arg ) );
+RID   * find_location   args( ( PLAYER *ch, char *arg ) );
 
 COMMAND( cmd_advance     );
 COMMAND( cmd_restore     );
@@ -3872,15 +3863,15 @@ COMMAND( cmd_purge       );
 
 extern int      FORCE_LEVEL;
 
-bool   pstat    args( ( PLAYER_DATA *ch, char *argument ) );
-bool   ostat    args( ( PLAYER_DATA *ch, char *argument ) );
-bool   mstat    args( ( PLAYER_DATA *ch, char *argument ) );
-bool   mwhere   args( ( PLAYER_DATA *ch, char *argument ) );
-bool   owhere   args( ( PLAYER_DATA *ch, char *argument ) );
-void   pwhere   args( ( PLAYER_DATA *ch ) );
+bool   pstat    args( ( PLAYER *ch, char *argument ) );
+bool   ostat    args( ( PLAYER *ch, char *argument ) );
+bool   mstat    args( ( PLAYER *ch, char *argument ) );
+bool   mwhere   args( ( PLAYER *ch, char *argument ) );
+bool   owhere   args( ( PLAYER *ch, char *argument ) );
+void   pwhere   args( ( PLAYER *ch ) );
 
 char *connect_string args( ( int c ) );
-void count_scenes( ZONE_DATA *pZone, int *scenes, int *unfinished );
+void count_scenes( ZONE *pZone, int *scenes, int *unfinished );
 
 
 COMMAND( cmd_wizhelp     );
@@ -3916,8 +3907,8 @@ COMMAND( cmd_pset        );
  * Experimental World Creation Functions                                     *
  *****************************************************************************/
 
-void    show_terrain    args( ( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene ) );
-void    generate        args( ( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite ) );
+void    show_terrain    args( ( PLAYER *ch, SCENE *pScene ) );
+void    generate        args( ( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite ) );
 
 COMMAND( cmd_terrain   );
 COMMAND( cmd_generate  );

@@ -33,20 +33,20 @@ Sz 24
 K 0 E 1
 O ~
 AP 18 18 18 18 18
-Sk 10 'elusion'
-Sk 20 'heroism'
-Sk 10 'parry'
-Sk 20 'dodge'
-Sk 30 'disarm'
-Sk 10 'tracking'
-Sk 10 'stealth'
-Sk 25 'bludgeons'
-Sk 25 'piercing'
-Sk 10 'thrown'
-Sk 10 'ranged'
-Sk 25 'exotic'
-Sk 25 'hafted'
 Sk 25 'dual wield'
+Sk 25 'hafted'
+Sk 25 'exotic'
+Sk 10 'ranged'
+Sk 10 'thrown'
+Sk 25 'piercing'
+Sk 25 'bludgeons'
+Sk 10 'stealth'
+Sk 10 'tracking'
+Sk 30 'disarm'
+Sk 20 'dodge'
+Sk 10 'parry'
+Sk 20 'heroism'
+Sk 10 'elusion'
 End
 
 #10201

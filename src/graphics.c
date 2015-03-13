@@ -48,7 +48,7 @@
 /*
  * Ansi color table with HSB code equivalents for MXP.
  */
-const   struct  color_data color_table [] =
+const   struct  color color_table [] =
 {
    { "\x1b[30m",     "$R$0",   "black",      "#000000", "^0" },
    { "\x1b[34m",     "$R$1",   "indigo",     "#000033", "^1" },
@@ -154,11 +154,11 @@ char *color( int c ) {
 /*
  * Drops current page to client.
  */
-void draw_to_buffer( PLAYER_DATA *ch ) {
+void draw_to_buffer( PLAYER *ch ) {
      int x, y;
      int lastStroke =0;
 
-     if ( !IS_SET(ch->act2,PLR_NAGE) ) return;
+     if ( !IS_SET(ch->flag2,PLR_NAGE) ) return;
 
      clrscr( ch );
 
@@ -736,7 +736,7 @@ void line(int x0, int y0, int x1, int y1)
 
 
 
-void goto_xy( PLAYER_DATA *ch, int x, int y )
+void goto_xy( PLAYER *ch, int x, int y )
 {
 
    char buf[MAX_STRING_LENGTH];
@@ -747,13 +747,13 @@ void goto_xy( PLAYER_DATA *ch, int x, int y )
 }
 
 /*
-int horizline( PLAYER_DATA *ch, int length, char c ) {
+int horizline( PLAYER *ch, int length, char c ) {
 
      for ( ; length > 0; length-- )
      send_to_actor( c, ch ); 
 }
 
-int vertline( PLAYER_DATA *ch, int length, char c ) {
+int vertline( PLAYER *ch, int length, char c ) {
      for ( ; length > 0; length++ ) {
      send_to_actor( c, ch )
      send_to_actor( "\x1b[1A", ch ); 

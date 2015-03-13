@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -33,16 +33,16 @@
 
 
 /*
- * Processes a Diku file; adding vnum_base to its vnums.
+ * Processes a Diku file; adding dbkey_base to its dbkeys.
  */
 
 
-int highestvnum( ) {
-    ZONE_DATA *pZone;
+int highestdbkey( ) {
+    ZONE *pZone;
     int hv = 0;
 
     for (pZone = zone_list;  pZone != NULL;  pZone = pZone->next ) {
-        if ( pZone->uvnum > hv ) hv = pZone->uvnum;
+        if ( pZone->udbkey > hv ) hv = pZone->udbkey;
     }
 
     return hv;

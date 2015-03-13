@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -88,13 +88,13 @@
 
 /*
  * Command line terrain editing.
- * Syntax: terrain <vnum> <command> <value>
+ * Syntax: terrain <dbkey> <command> <value>
  */
-void cmd_terrain( PLAYER_DATA *ch, char *argument )
+void cmd_terrain( PLAYER *ch, char *argument )
 {
-    TERRAIN_DATA *pTerrain;
+    TERRAIN *pTerrain;
     char arg[MAX_INPUT_LENGTH];
-    int vnum, value;
+    int dbkey, value;
 
     argument = one_argument( argument, arg );
 
@@ -103,7 +103,7 @@ void cmd_terrain( PLAYER_DATA *ch, char *argument )
         send_to_actor( "Terrain syntax:\n\r", ch );
         send_to_actor( "   terrain new\n\r", ch );
         send_to_actor( "   terrain list\n\r", ch );
-        send_to_actor( "   terrain <vnum> <command|field|sectortype> <value>\n\r\n\r", ch );
+        send_to_actor( "   terrain <dbkey> <command|field|movetype> <value>\n\r\n\r", ch );
         send_to_actor( "Commands:  show\n\r", ch );
         send_to_actor( "Fields:    winter summer fall spring name map\n\r", ch );
         return;
@@ -113,7 +113,7 @@ void cmd_terrain( PLAYER_DATA *ch, char *argument )
     {
         for ( pTerrain = terrain_list;  pTerrain != NULL;  pTerrain = pTerrain->next )
         {
-            sprintf( arg, "[%3d] %c %s\n\r", pTerrain->vnum, pTerrain->map_char, pTerrain->name );
+            sprintf( arg, "[%3d] %c %s\n\r", pTerrain->dbkey, pTerrain->map_char, pTerrain->name );
             send_to_actor( arg, ch );
         }
 
@@ -129,13 +129,13 @@ void cmd_terrain( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    vnum = atoi(arg);
+    dbkey = atoi(arg);
     argument = one_argument( argument, arg );
     value = atoi(arg);
 
     for ( pTerrain = terrain_list;  pTerrain != NULL;  pTerrain = pTerrain->next )
     {
-        if ( vnum == pTerrain->vnum )
+        if ( dbkey == pTerrain->dbkey )
         break;
     }
 
@@ -184,9 +184,9 @@ void cmd_terrain( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( sector_number( arg ) != SECT_MAX )
+    if ( move_number( arg ) != MOVE_MAX )
     {
-         pTerrain->sector  = sector_number( arg );
+         pTerrain->move  = move_number( arg );
          send_to_actor( "Sector type set.\n\r", ch );
          return;
     }
@@ -197,8 +197,8 @@ void cmd_terrain( PLAYER_DATA *ch, char *argument )
     send_to_actor( arg, ch );
 
     sprintf( arg, "Vnum:  [%3d]   Sector:  [%s]    Map char: [%c]\n\r",
-             pTerrain->vnum,
-             sector_name( pTerrain->sector ),
+             pTerrain->dbkey,
+             move_name( pTerrain->move ),
              pTerrain->map_char );
     send_to_actor( arg, ch );
 
@@ -215,17 +215,17 @@ void cmd_terrain( PLAYER_DATA *ch, char *argument )
 
 
 
-void show_terrain( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene )
+void show_terrain( PLAYER *ch, SCENE *pScene )
 {
     char *description;
-    TERRAIN_DATA *pTerrain;
+    TERRAIN *pTerrain;
 
     if ( pScene->terrain == 0 )
     return;
 
     for ( pTerrain = terrain_list;  pTerrain != NULL;  pTerrain = pTerrain->next )
     {
-        if ( pScene->terrain == pTerrain->vnum )
+        if ( pScene->terrain == pTerrain->dbkey )
         break;
     };
 
@@ -235,7 +235,7 @@ void show_terrain( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene )
 
     description = NULL;
 
-    switch ( weather_info.month )
+    switch ( weather.month )
     {
         case 0:  /* winter */
         case 1:
@@ -284,19 +284,19 @@ const     int    tdir[MAX_DIR][2] =
 };
 
 
-void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
+void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
 {
-    SCENE_INDEX_DATA *pScene;
-    TERRAIN_DATA    *pTerrain;
+    SCENE *pScene;
+    TERRAIN    *pTerrain;
     char buf[MAX_STRING_LENGTH];
     char *map;
     int iScene[MAX_X][MAX_Y];
     int x, y, door;
     int maxX = 0, maxY = 0;
-    int vnum;
+    int dbkey;
 
     /*
-     * Make all vnums -1
+     * Make all dbkeys -1
      */
     for ( y = 0;  y < MAX_Y;  y++ )
     {
@@ -309,7 +309,7 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
     /*
      * Find map scene.
      */
-    pScene = get_scene_index( lvnum );
+    pScene = get_scene( ldbkey );
 
     if ( pScene == NULL )
     {
@@ -321,8 +321,8 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
 
     y = 0;
     x = 0;
-    vnum = lvnum+1;
-    for ( map = pScene->description; *map && vnum <= hvnum;  map++ )
+    dbkey = ldbkey+1;
+    for ( map = pScene->description; *map && dbkey <= hdbkey;  map++ )
     {
         /*
          * New line.
@@ -396,9 +396,9 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
             continue;
         }
 
-        iScene[x][y] = vnum;
+        iScene[x][y] = dbkey;
 
-        pScene = get_scene_index( iScene[x][y] );
+        pScene = get_scene( iScene[x][y] );
 
         /*
          * Generate a new scene.
@@ -407,15 +407,15 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
         {
             int iHash;
 
-            pScene                   = new_scene_index();
-            pScene->zone             = get_vnum_zone( vnum );
-            pScene->vnum             = vnum;
+            pScene                   = new_scene();
+            pScene->zone             = get_dbkey_zone( dbkey );
+            pScene->dbkey             = dbkey;
 
-            if ( vnum > top_vnum_scene ) top_vnum_scene = vnum;
+            if ( dbkey > top_dbkey_scene ) top_dbkey_scene = dbkey;
 
-            iHash                   = vnum % MAX_KEY_HASH;
-            pScene->next             = scene_index_hash[iHash];
-            scene_index_hash[iHash]  = pScene;
+            iHash                   = dbkey % MAX_KEY_HASH;
+            pScene->next             = scene_hash[iHash];
+            scene_hash[iHash]  = pScene;
             pScene->name             = str_dup( pTerrain->name );
         }
 
@@ -429,10 +429,10 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
             pScene->name             = str_dup( pTerrain->name );
         }
 
-            pScene->terrain = pTerrain->vnum;
-            pScene->sector_type = pTerrain->sector;
+            pScene->terrain = pTerrain->dbkey;
+            pScene->move = pTerrain->move;
 
-        vnum++;
+        dbkey++;
         x++;                   /* <- Yo, MudMCs, this is important */
     }
 
@@ -451,7 +451,7 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
 
             for ( door = 0;  door < MAX_DIR;  door++ )
             {
-                int to_vnum;
+                int to_dbkey;
 
                 if ( door == DIR_UP
                   || door == DIR_DOWN )
@@ -466,12 +466,12 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
                   || y + tdir[door][1] >= MAX_Y )
                 continue;
 
-                to_vnum = iScene[(x + tdir[door][0])][(y + tdir[door][1])];
+                to_dbkey = iScene[(x + tdir[door][0])][(y + tdir[door][1])];
 
-                if ( to_vnum == -1 )
+                if ( to_dbkey == -1 )
                 continue;
 
-                pScene = get_scene_index( iScene[x][y] );
+                pScene = get_scene( iScene[x][y] );
 
                 if ( pScene->exit[door] != NULL )
                 {
@@ -485,8 +485,8 @@ void generate( PLAYER_DATA *ch, int lvnum, int hvnum, bool fOverwrite )
 
                pScene->exit[door] = new_exit();
 
-               pScene->exit[door]->to_scene = get_scene_index( to_vnum );
-               pScene->exit[door]->vnum = to_vnum;
+               pScene->exit[door]->to_scene = get_scene( to_dbkey );
+               pScene->exit[door]->dbkey = to_dbkey;
             }
             send_to_actor( "+", ch );
         }

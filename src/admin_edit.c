@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -42,25 +42,25 @@
 
 
 /*
- * Syntax:  mload [vnum]
+ * Syntax:  mload [dbkey]
  */
-void cmd_mload( PLAYER_DATA *ch, char *argument )
+void cmd_mload( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    ACTOR_INDEX_DATA *pActorIndex;
-    PLAYER_DATA *victim;
+    ACTOR_TEMPLATE *pActorIndex;
+    PLAYER *victim;
     
     one_argument( argument, arg );
 
     if ( arg[0] == '\0' || !is_number(arg) )
     {
-    send_to_actor( "Syntax: mload <vnum>.\n\r", ch );
+    send_to_actor( "Syntax: mload <dbkey>.\n\r", ch );
 	return;
     }
 
-    if ( ( pActorIndex = get_actor_index( atoi( arg ) ) ) == NULL )
+    if ( ( pActorIndex = get_actor_template( atoi( arg ) ) ) == NULL )
     {
-    send_to_actor( "No actor has that vnum.\n\r", ch );
+    send_to_actor( "No actor has that dbkey.\n\r", ch );
 	return;
     }
 
@@ -74,17 +74,17 @@ void cmd_mload( PLAYER_DATA *ch, char *argument )
 
 
 /*
- * Syntax:  oload [vnum]
- *          oload [vnum] [level]
+ * Syntax:  oload [dbkey]
+ *          oload [dbkey] [level]
  *          oload comp [num]
  *          oload good [num]
  */
-void cmd_oload( PLAYER_DATA *ch, char *argument )
+void cmd_oload( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PROP_INDEX_DATA *pPropIndex;
-    PROP_DATA *prop;
+    PROP_TEMPLATE *pPropIndex;
+    PROP *prop;
     int level;
  
     argument = one_argument( argument, arg1 );
@@ -92,7 +92,7 @@ void cmd_oload( PLAYER_DATA *ch, char *argument )
  
     if ( arg1[0] == '\0' )
     {
-        send_to_actor( "Syntax: pload <vnum> <level>.\n\r", ch );
+        send_to_actor( "Syntax: pload <dbkey> <level>.\n\r", ch );
         send_to_actor( "        pload good <number>.\n\r", ch );
         send_to_actor( "        pload comp <number>.\n\r", ch );
         return;
@@ -130,7 +130,7 @@ void cmd_oload( PLAYER_DATA *ch, char *argument )
                 return;
             }
 
-            send_to_actor( "Syntax: oload <vnum> <level>.\n\r", ch );
+            send_to_actor( "Syntax: oload <dbkey> <level>.\n\r", ch );
             send_to_actor( "        oload good <number>.\n\r", ch );
             send_to_actor( "        oload comp <number>.\n\r", ch );
 	    return;
@@ -145,9 +145,9 @@ void cmd_oload( PLAYER_DATA *ch, char *argument )
         }
     }
 
-    if ( ( pPropIndex = get_prop_index( atoi( arg1 ) ) ) == NULL )
+    if ( ( pPropIndex = get_prop_template( atoi( arg1 ) ) ) == NULL )
     {
-    send_to_actor( "No prop has that vnum.\n\r", ch );
+    send_to_actor( "No prop has that dbkey.\n\r", ch );
 	return;
     }
 
@@ -169,11 +169,11 @@ void cmd_oload( PLAYER_DATA *ch, char *argument )
 
 
 /*
- * Syntax:  load actor [vnum]
- *          load prop [vnum]
- *          load prop [vnum] [level]
+ * Syntax:  load actor [dbkey]
+ *          load prop [dbkey]
+ *          load prop [dbkey] [level]
  */
-void cmd_load( PLAYER_DATA *ch, char *argument )
+void cmd_load( PLAYER *ch, char *argument )
 {
     char arg[MAX_STRING_LENGTH];
 
@@ -181,7 +181,7 @@ void cmd_load( PLAYER_DATA *ch, char *argument )
     
      if ( !str_prefix( arg, "actor" ) ) cmd_mload( ch, argument );
 else if ( !str_prefix( arg, "prop" ) ) cmd_oload( ch, argument );
-else send_to_actor( "Syntax: Load <actor|prop> <vnum>\n\r", ch );
+else send_to_actor( "Syntax: Load <actor|prop> <dbkey>\n\r", ch );
 
      return;
 }
@@ -194,13 +194,13 @@ else send_to_actor( "Syntax: Load <actor|prop> <vnum>\n\r", ch );
  * Syntax:  sset [person] ['skill'] [value/max]
  *          sset [person] all
  */
-void cmd_sset( PLAYER_DATA *ch, char *argument )
+void cmd_sset( PLAYER *ch, char *argument )
 {
     char arg1 [MAX_INPUT_LENGTH];
     char arg2 [MAX_INPUT_LENGTH];
     char arg3 [MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
-    SKILL_DATA *pIndex=NULL;
+    PLAYER *victim;
+    SKILL *pIndex=NULL;
     int value;
     bool fAll;
 
@@ -222,7 +222,7 @@ void cmd_sset( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
         send_to_actor( "Not on NPC's.\n\r", ch );
         return;
@@ -246,9 +246,9 @@ void cmd_sset( PLAYER_DATA *ch, char *argument )
             {
                 int sn;
 
-                for ( sn = 0; sn <= top_vnum_skill; sn++ )
+                for ( sn = 0; sn <= top_dbkey_skill; sn++ )
                 {
-                    SKILL_DATA *pSkill;
+                    SKILL *pSkill;
 
                     if ( (pSkill=get_skill_index(sn)) != NULL )
                     update_skill(victim,sn,pSkill->max_learn);
@@ -257,7 +257,7 @@ void cmd_sset( PLAYER_DATA *ch, char *argument )
                 send_to_actor( " bestows you with great knowledge.\n\r", victim );
                 send_to_actor( "You bestow great knowledge.\n\r", ch );
             }
-            else update_skill(victim,pIndex->vnum,pIndex->max_learn);
+            else update_skill(victim,pIndex->dbkey,pIndex->max_learn);
 
             send_to_actor( "Skill(s) set to max_learn value.\n\r", ch );
             return;
@@ -278,15 +278,15 @@ void cmd_sset( PLAYER_DATA *ch, char *argument )
     {
         int sn;
 
-        for ( sn = 0; sn <= top_vnum_skill; sn++ )
+        for ( sn = 0; sn <= top_dbkey_skill; sn++ )
         {
-            SKILL_DATA *pSkill;
+            SKILL *pSkill;
 
             if ( (pSkill=get_skill_index(sn)) )
             update_skill(victim,sn,value);
         }
     }
-    else update_skill(victim,pIndex->vnum,value);
+    else update_skill(victim,pIndex->dbkey,value);
     if ( !fAll) send_to_actor( pIndex->name, ch );
     send_to_actor( " adjusted.\n\r", ch );
     return;
@@ -297,12 +297,12 @@ void cmd_sset( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  mset [person] [field] [value]
  */
-void cmd_mset( PLAYER_DATA *ch, char *argument )
+void cmd_mset( PLAYER *ch, char *argument )
 {
     char arg1 [MAX_INPUT_LENGTH];
     char arg2 [MAX_INPUT_LENGTH];
     char arg3 [MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     int value;
 
     smash_tilde( argument );
@@ -382,7 +382,7 @@ void cmd_mset( PLAYER_DATA *ch, char *argument )
             send_to_actor( "Application time range is from 0 to 30,000.\n\r", ch );
             return;
         }
-        else if ( IS_NPC(victim) )
+        else if ( NPC(victim) )
         {
             send_to_actor( "PCs only.\n\r", ch );
             return;
@@ -412,9 +412,9 @@ void cmd_mset( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg2, "act" ) && arg3[0] != '\0' )
     {
-        victim->act = value;
-        if ( !IS_SET( victim->act, ACT_IS_NPC ) )
-             SET_BIT( victim->act, ACT_IS_NPC );
+        victim->flag = value;
+        if ( !IS_SET( victim->flag, ACTOR_NPC ) )
+             SET_BIT( victim->flag, ACTOR_NPC );
         return;
     }
 
@@ -456,7 +456,7 @@ void cmd_mset( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
         cmd_mset( ch, "" );
         return;
@@ -548,7 +548,7 @@ void cmd_mset( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg2, "age" ) && arg3[0] != '\0' )
     {
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     if ( value < 0 )
     {
@@ -558,7 +558,7 @@ void cmd_mset( PLAYER_DATA *ch, char *argument )
         send_to_actor( buf, ch );
         return;
     }
-     PC(ch,birth_year)  = weather_info.year - value;
+     PC(ch,birth_year)  = weather.year - value;
     return;
     }
 
@@ -643,12 +643,12 @@ void cmd_mset( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  oset [prop] [field] [value]
  */
-void cmd_oset( PLAYER_DATA *ch, char *argument )
+void cmd_oset( PLAYER *ch, char *argument )
 {
     char arg1 [MAX_INPUT_LENGTH];
     char arg2 [MAX_INPUT_LENGTH];
     char arg3 [MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int value;
 
     smash_tilde( argument );

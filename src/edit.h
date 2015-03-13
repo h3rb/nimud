@@ -17,13 +17,13 @@ COMMAND( cmd_aedit         );
 COMMAND( cmd_sedit         );
 COMMAND( cmd_hedit         );
 
-extern  ACTOR_INDEX_DATA *        actor_index_hash  [MAX_KEY_HASH];
-extern  PROP_INDEX_DATA *        prop_index_hash  [MAX_KEY_HASH];
-extern  SCENE_INDEX_DATA *       scene_index_hash [MAX_KEY_HASH];
+extern  ACTOR_TEMPLATE *        actor_template_hash  [MAX_KEY_HASH];
+extern  PROP_TEMPLATE *        prop_template_hash  [MAX_KEY_HASH];
+extern  SCENE *       scene_hash [MAX_KEY_HASH];
 
 
-extern  SHOP_DATA *             shop_first;
-extern  SHOP_DATA *             shop_last;
+extern  SHOP *             shop_first;
+extern  SHOP *             shop_last;
 
 #define         ZONE_NONE       0
 #define         ZONE_CHANGED    1
@@ -34,7 +34,7 @@ extern  SHOP_DATA *             shop_last;
 
 #define         SCENE_NONE       0
 
-#define         EX_NONE         0
+#define         EXIT_NONE         0
 
 #define         ITEM_NONE      -1
 
@@ -42,7 +42,7 @@ extern  SHOP_DATA *             shop_last;
 
 #define         ITEM_WEAR_NONE  0
 
-#define         ACT_NONE        0
+#define         ACTOR_NONE        0
 
 #define         AFFECT_NONE     0
 
@@ -55,7 +55,7 @@ extern  SHOP_DATA *             shop_last;
 #define IS_BUILDER(ch, zone)  ( GET_PC(ch,security,9) <= zone->security     \
                              || strstr( zone->builders, ch->name ) != NULL  \
                              || strstr( zone->builders, "All" ) != NULL    \
-                             || (IS_NPC(ch) && ch->pIndexData->zone == zone) )
+                             || (NPC(ch) && ch->pIndexData->zone == zone) )
 */
 
 #define IS_BUILDER(ch, zone)  ( GET_PC(ch,security,9) <= zone->security     \

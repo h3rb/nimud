@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -121,7 +121,7 @@ const char    go_ahead_str    [] = { IAC, GA, '\0' };
 /*
  * Global variables.
  */
-CONNECTION_DATA *   connection_list;    /* All open connections      */
+CONNECTION *   connection_list;    /* All open connections      */
 
 FILE *          fpReserve;              /* Reserved file handle      */
 
@@ -143,10 +143,10 @@ int up_time;
  * OS-dependent local functions.
  */
 #if defined(macintosh) || defined(MSDOS)
-CONNECTION_DATA dcon;                           /* Local session */
+CONNECTION dcon;                           /* Local session */
 
 void    game_loop_mac_msdos   args( ( void ) );
-bool    read_from_connection  args( ( CONNECTION_DATA *d ) );
+bool    read_from_connection  args( ( CONNECTION *d ) );
 bool    write_to_connection   args( ( int desc, char *txt, int length ) );
 #endif
 
@@ -155,10 +155,10 @@ void    game_loop_unix        args( ( int c ) );
 int     init_socket           args( ( int p ) );
 void    poll_connections      args( ( int c ) );
 void    clean_connections     args( ( void ) );
-void    new_connection        args( ( int c ) );
-bool    read_from_connection  args( ( CONNECTION_DATA *d ) );
+void    attach_connection        args( ( int c ) );
+bool    read_from_connection  args( ( CONNECTION *d ) );
 bool    write_to_connection   args( ( int desc, char *txt, int length ) );
-bool    write_to_descr_nice   args( ( CONNECTION_DATA *d ) );
+bool    write_to_descr_nice   args( ( CONNECTION *d ) );
 #endif
 
 
@@ -172,21 +172,21 @@ bool    write_to_descr_nice   args( ( CONNECTION_DATA *d ) );
 /*
  * Other local functions (OS-independent).
  */
-void    newbie              args( ( CONNECTION_DATA *d, char *argument ) );
-void    newbie_check        args( ( CONNECTION_DATA *d ) );
+void    newbie              args( ( CONNECTION *d, char *argument ) );
+void    newbie_check        args( ( CONNECTION *d ) );
 bool    check_parse_name   args( ( char *name ) );
-bool    check_playing      args( ( CONNECTION_DATA *d, char *name ) );
-bool    check_reconnect    args( ( CONNECTION_DATA *d, char *name,
+bool    check_playing      args( ( CONNECTION *d, char *name ) );
+bool    check_reconnect    args( ( CONNECTION *d, char *name,
                                    bool fConn ) );
 int     main               args( ( int argc, char **argv ) );
-bool    process_output     args( ( CONNECTION_DATA *d, bool fPrompt ) );
-void    read_from_buffer   args( ( CONNECTION_DATA *d ) );
-void    stop_idling        args( ( PLAYER_DATA *ch ) );
-void    display_prompt     args( ( PLAYER_DATA *ch ) );
-bool    apply_ok           args( ( PLAYER_DATA *ch ) );
-void    print_gen_menu     args( ( PLAYER_DATA *ch ) );
-void    print_doc_menu     args( ( PLAYER_DATA *ch ) );
-void    print_login_menu   args( ( PLAYER_DATA *ch ) );
+bool    process_output     args( ( CONNECTION *d, bool fPrompt ) );
+void    read_from_buffer   args( ( CONNECTION *d ) );
+void    stop_idling        args( ( PLAYER *ch ) );
+void    display_prompt     args( ( PLAYER *ch ) );
+bool    apply_ok           args( ( PLAYER *ch ) );
+void    print_gen_menu     args( ( PLAYER *ch ) );
+void    print_doc_menu     args( ( PLAYER *ch ) );
+void    print_login_menu   args( ( PLAYER *ch ) );
 void    process_input      args( ( void ) );
 
 
@@ -194,7 +194,7 @@ void    process_input      args( ( void ) );
 int port = 5333;
 int control=0; 
 
-void send_cleartext_mssp( CONNECTION_DATA *d );
+void send_cleartext_mssp( CONNECTION *d );
 
 void handler_copyover( void );
 
@@ -228,7 +228,7 @@ void handler_copyover( void ) {
  */
 void save_copyover( void ) {
           
-     CONNECTION_DATA *d, *d_next;
+     CONNECTION *d, *d_next;
      FILE *fp;
 
      fp = fopen (COPYOVER_FILE, "w");
@@ -244,7 +244,7 @@ void save_copyover( void ) {
         for (d = connection_list; d ; d = d_next)
         {
                        
-                PLAYER_DATA * och = CH (d);
+                PLAYER * och = CH (d);
                 d_next = d->next; /* We delete from the list , so need to save this */
 
                 if (!d->character || d->connected > NET_PLAYING) /* drop those logging on */
@@ -263,7 +263,7 @@ void save_copyover( void ) {
 
 
 
-void send_cleartext_mssp( CONNECTION_DATA *d ) {
+void send_cleartext_mssp( CONNECTION *d ) {
    char buf[MSL];
    write_to_connection( d->connection, "\n\nMSSP-REPLY-START\n", 0 );
    snprintf( buf, MSL, "NAME\t%s\n", MUD_NAME ); write_to_connection( d->connection, buf, 0 );
@@ -287,14 +287,14 @@ void send_cleartext_mssp( CONNECTION_DATA *d ) {
    snprintf( buf, MSL, "SUBGENRE\tMultiverse\n" ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "AREAS\t%d\n", top_zone ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "HELPFILES\t%d\n", top_help ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MOBILES\t%d\n", top_actor_index ); write_to_connection( d->connection, buf, 0 );
+   snprintf( buf, MSL, "MOBILES\t%d\n", top_actor_template ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "OBJECTS\t%d\n", top_prop ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "ROOMS\t%d\n", top_scene ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "CLASSES\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "LEVELS\t%d\n", 666 ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "RACES\t%d\n", MAX_RACE ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "SKILLS\t%d\n", top_vnum_skill ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "SPELLS\t%d\n", top_vnum_spell ); write_to_connection( d->connection, buf, 0 );
+   snprintf( buf, MSL, "SKILLS\t%d\n", top_dbkey_skill ); write_to_connection( d->connection, buf, 0 );
+   snprintf( buf, MSL, "SPELLS\t%d\n", top_dbkey_spell ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "ANSI\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "MCCP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
    snprintf( buf, MSL, "MCP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
@@ -386,7 +386,7 @@ int main( int argc, char **argv )
 #if defined(macintosh) || defined(MSDOS)
     {
     /*
-     * New_connection analogue.
+     * Attach_connection analogue.
      */
     dcon.connection	= 0;
     dcon.connected  = NET_SHOW_TITLE;
@@ -572,8 +572,8 @@ int init_socket( int p )
  */
 void connection_output( void )
 {
-    CONNECTION_DATA *d;
-    CONNECTION_DATA *d_next;
+    CONNECTION *d;
+    CONNECTION *d_next;
     
 #if defined(unix)
         for ( d = connection_list; d != NULL; d = d_next )
@@ -619,7 +619,7 @@ void connection_output( void )
  */
 void process_input( void )
 {
-    CONNECTION_DATA *d, *d_next;
+    CONNECTION *d, *d_next;
 
     for ( d = connection_list; d != NULL; d = d_next )
     {
@@ -666,7 +666,7 @@ void process_input( void )
 
              if ( d->pString != NULL ) string_add( d->character,  d->incomm );
              else
-             if ( d->showstr_point )   show_string( d, d->incomm );
+             if ( d->pager_point )   page_string( d, d->incomm );
              else
              {
              switch ( d->connected )
@@ -715,7 +715,7 @@ void game_loop_mac_msdos( void )
     /* Main loop */
     while ( !shut_down )
     {
-	CONNECTION_DATA *d;
+	CONNECTION *d;
 
 
     process_input( );
@@ -783,7 +783,7 @@ void game_loop_mac_msdos( void )
  */
 void clean_connections( void )
 {
-    CONNECTION_DATA *d, *d_next;
+    CONNECTION *d, *d_next;
 
 	/*
 	 * Kick out the freaky folks.
@@ -810,7 +810,7 @@ void clean_connections( void )
  */
 void poll_connections( int c )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     int maxdesc;
 
 	FD_ZERO( &in_set  );
@@ -836,7 +836,7 @@ void poll_connections( int c )
 	 * New connection?
      */
     if ( FD_ISSET( c, &in_set ) )
-	    new_connection( c );
+	    attach_connection( c );
     return;
 }
 
@@ -929,11 +929,11 @@ void game_loop_unix( int c )
 /*
  * New connections must pass through here.
  */
-void new_connection( int c )
+void attach_connection( int c )
 {
     char buf[MAX_STRING_LENGTH];
-    CONNECTION_DATA *dnew;
-    BAN_DATA *pban;
+    CONNECTION *dnew;
+    BAN *pban;
     struct sockaddr_in sock;
     struct hostent *from;
     int desc;
@@ -944,7 +944,7 @@ void new_connection( int c )
     getsockname( c, (struct sockaddr *) &sock, &size );
     if ( ( desc = accept( c, (struct sockaddr *) &sock, &size) ) < 0 )
     {
-	perror( "New_connection: accept" );
+	perror( "Attach_connection: accept" );
 	return;
     }
 
@@ -954,20 +954,20 @@ void new_connection( int c )
 
     if ( fcntl( desc, F_SETFL, FNDELAY ) == -1 )
     {
-	perror( "New_connection: fcntl: FNDELAY" );
+	perror( "Attach_connection: fcntl: FNDELAY" );
 	return;
     }
 
     /*
      * Cons a new connection.
      */
-    dnew = new_connection_data( );
+    dnew = new_connection( );
     dnew->connection = desc;
 
     size = sizeof(sock);
     if ( getpeername( desc, (struct sockaddr *) &sock, &size ) < 0 )
     {
-	perror( "New_connection: getpeername" );
+	perror( "Attach_connection: getpeername" );
 	dnew->host = str_dup( "(unknown)" );
     }
     else
@@ -1055,9 +1055,9 @@ void new_connection( int c )
 
 
 
-void close_socket( CONNECTION_DATA *dclose )
+void close_socket( CONNECTION *dclose )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
 
     if ( dclose->outtop > 0 )
     process_output( dclose, FALSE );
@@ -1077,7 +1077,7 @@ void close_socket( CONNECTION_DATA *dclose )
      * Nail snooped.
      */
     {
-	CONNECTION_DATA *d;
+	CONNECTION *d;
 
 	for ( d = connection_list; d != NULL; d = d->next )
 	{
@@ -1093,16 +1093,16 @@ void close_socket( CONNECTION_DATA *dclose )
      * Purge followers.
      */
     {
-        PLAYER_DATA *pet;
-        PLAYER_DATA *pet_next;
+        PLAYER *pet;
+        PLAYER *pet_next;
 
         for ( pet = actor_list; pet != NULL; pet = pet_next )
         {
             pet_next = pet->next;
             if ( ch != pet
               && ( pet->master == ch )
-              && IS_SET(pet->act, ACT_PET) )
-            extract_char( pet, TRUE );
+              && IS_SET(pet->flag, ACTOR_PET) )
+            extractor_char( pet, TRUE );
         }
     }
 
@@ -1123,7 +1123,7 @@ void close_socket( CONNECTION_DATA *dclose )
     if ( dclose == connection_list ) connection_list = connection_list->next;
     else
     {
-	CONNECTION_DATA *d;
+	CONNECTION *d;
 
     for ( d = connection_list; d != NULL && d->next != dclose; d = d->next )
     ;
@@ -1147,7 +1147,7 @@ void close_socket( CONNECTION_DATA *dclose )
 /*
  * Read and place in buffer.
  */
-bool read_from_connection( CONNECTION_DATA *d )
+bool read_from_connection( CONNECTION *d )
 {
     int iStart;
 
@@ -1253,7 +1253,7 @@ bool read_from_connection( CONNECTION_DATA *d )
 /*
  * Transfer one line from input buffer to input line.
  */
-void read_from_buffer( CONNECTION_DATA *d )
+void read_from_buffer( CONNECTION *d )
 {
     int i, j, k;
 
@@ -1378,7 +1378,7 @@ void read_from_buffer( CONNECTION_DATA *d )
  * Generates a bar-graph for combat and other stats.
  * Move to graphics.c
  */
-void gen_bar_graph( PLAYER_DATA *ch, int percent ) {
+void gen_bar_graph( PLAYER *ch, int percent ) {
    int filler = percent-100;
 
    if ( HAS_ANSI(ch) ) send_to_actor( INVERSE, ch );
@@ -1416,14 +1416,14 @@ void gen_bar_graph( PLAYER_DATA *ch, int percent ) {
 /*
  * Prompt and string variables.
  */
-void display_interp(PLAYER_DATA *ch, const char * str )
+void display_interp(PLAYER *ch, const char * str )
 {
    char buf[MAX_STRING_LENGTH];
    char buf2[MAX_STRING_LENGTH];
    const char *i="";
    char *p;
 
-   if ( IS_NPC(ch) ) { /*send_to_actor( str, ch );*/ return; }
+   if ( NPC(ch) ) { /*send_to_actor( str, ch );*/ return; }
 
 //   ansi_color( NTEXT, ch );
 //   ansi_color( default_color_variable_di, ch );  /* NEEDS FIXED */
@@ -1440,28 +1440,28 @@ void display_interp(PLAYER_DATA *ch, const char * str )
       switch( *str )
       {
          default: i = " "; break;
-        case '+': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_BLACK;   break;
-        case ':': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_BLUE;    break;
-        case '#': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_GREEN;   break;
-        case '<': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_CYAN;    break;
-        case '?': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_RED;     break;
-        case '>': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_PURPLE;  break;
-        case '-': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_YELLOW;  break;
-        case '=': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  B_GREY;    break;
+        case '+': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_BLACK;   break;
+        case ':': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_BLUE;    break;
+        case '#': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_GREEN;   break;
+        case '<': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_CYAN;    break;
+        case '?': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_RED;     break;
+        case '>': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_PURPLE;  break;
+        case '-': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_YELLOW;  break;
+        case '=': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  B_GREY;    break;
 
-        case '0': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  BLACK;   break;
-        case '1': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  BLUE;    break;
-        case '2': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  GREEN;   break;
-        case '3': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  CYAN;    break;
-        case '4': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  RED;     break;
-        case '5': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  PURPLE;  break;
-        case '6': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  YELLOW;  break;
-        case '7': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  GREY;    break;
-        case 'B': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  BOLD;    break;
-        case 'I': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  INVERSE; break;
-        case 'F': i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  FLASH;   break;
+        case '0': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  BLACK;   break;
+        case '1': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  BLUE;    break;
+        case '2': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  GREEN;   break;
+        case '3': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  CYAN;    break;
+        case '4': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  RED;     break;
+        case '5': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  PURPLE;  break;
+        case '6': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  YELLOW;  break;
+        case '7': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  GREY;    break;
+        case 'B': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  BOLD;    break;
+        case 'I': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  INVERSE; break;
+        case 'F': i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  FLASH;   break;
         case 'N': sprintf( buf2, "%s", NTEXT );//, default_color_variable ); 
-                  i = !IS_SET( ch->act2, PLR_ANSI ) ? "" :  buf2;    break;
+                  i = !IS_SET( ch->flag2, PLR_ANSI ) ? "" :  buf2;    break;
 
         case 'f': if (ch->fighting) 
                   gen_bar_graph( ch, PERCENTAGE(ch->fighting->hit, 
@@ -1498,7 +1498,7 @@ void display_interp(PLAYER_DATA *ch, const char * str )
                   i = buf2;
                 break;
         case 'r': if( IS_IMMORTAL( ch ) && ch->in_scene != NULL )
-                  sprintf( buf2, "%d", ch->in_scene->vnum );
+                  sprintf( buf2, "%d", ch->in_scene->dbkey );
                   else
                   sprintf( buf2, " " );
                   i = buf2;
@@ -1510,7 +1510,7 @@ void display_interp(PLAYER_DATA *ch, const char * str )
                   i = buf2;
                 break;
         case 'Z': if( IS_IMMORTAL( ch ) && ch->in_scene != NULL )
-                  sprintf( buf2, "%d", ch->in_scene->zone->vnum );
+                  sprintf( buf2, "%d", ch->in_scene->zone->dbkey );
                   else
                   sprintf( buf2, " " );
                   i = buf2;
@@ -1518,7 +1518,7 @@ void display_interp(PLAYER_DATA *ch, const char * str )
         case 'v': if ( PC(ch,wizinvis) > 0 )
                   sprintf(buf2, "%d", PC(ch,wizinvis) );
                   else
-                  if (IS_AFFECTED(ch, AFF_INVISIBLE))
+                  if (IS_AFFECTED(ch, BONUS_INVISIBLE))
                   sprintf(buf2, "i");
                   else
                   sprintf(buf2, "V");
@@ -1544,42 +1544,42 @@ void display_interp(PLAYER_DATA *ch, const char * str )
                 break;
         case 'C': if ( IS_IMMORTAL( ch ) )
                   {
-                      ZONE_DATA *pZone;
-                      SCENE_INDEX_DATA *pScene;
-                      PROP_INDEX_DATA *pProp;
-                      ACTOR_INDEX_DATA *pActor;
-                      HELP_DATA *pHelp;
+                      ZONE *pZone;
+                      SCENE *pScene;
+                      PROP_TEMPLATE *pProp;
+                      ACTOR_TEMPLATE *pActor;
+                      HELP *pHelp;
 
                   switch (ch->desc->connected)
                   {
                     case NET_ZEDITOR:
                     {
-                        pZone = (ZONE_DATA *)ch->desc->pEdit;
-                        sprintf( buf2, "%d", pZone != NULL ? pZone->vnum : 0 );
+                        pZone = (ZONE *)ch->desc->pEdit;
+                        sprintf( buf2, "%d", pZone != NULL ? pZone->dbkey : 0 );
                         break;
                     }
                     case NET_REDITOR:
                     {
                         pScene = ch->in_scene;
-                        sprintf( buf2, "%d", pScene != NULL ? pScene->vnum : 0 );
+                        sprintf( buf2, "%d", pScene != NULL ? pScene->dbkey : 0 );
                         break;
                     }
                     case NET_AEDITOR:
                     {
-                        pActor = (ACTOR_INDEX_DATA *)ch->desc->pEdit;
-                        sprintf( buf2, "%d", pActor  != NULL ? pActor->vnum  : 0 );
+                        pActor = (ACTOR_TEMPLATE *)ch->desc->pEdit;
+                        sprintf( buf2, "%d", pActor  != NULL ? pActor->dbkey  : 0 );
                         break;
                     }
                     case NET_OEDITOR:
                     {
-                        pProp = (PROP_INDEX_DATA *)ch->desc->pEdit;
-                        sprintf( buf2, "%d", pProp  != NULL ? pProp->vnum  : 0 );
+                        pProp = (PROP_TEMPLATE *)ch->desc->pEdit;
+                        sprintf( buf2, "%d", pProp  != NULL ? pProp->dbkey  : 0 );
                         break;
                     }
                     case NET_HEDITOR:
                     {
-                        pHelp = (HELP_DATA *)ch->desc->pEdit;
-                        sprintf( buf2, "%s", pHelp != NULL ? pHelp->name : "No Help Entry Selected - use hedit <vnum|list> to select" );
+                        pHelp = (HELP *)ch->desc->pEdit;
+                        sprintf( buf2, "%s", pHelp != NULL ? pHelp->name : "No Help Entry Selected - use hedit <dbkey|list> to select" );
                         break;
                     }
                     default:
@@ -1606,7 +1606,7 @@ void display_interp(PLAYER_DATA *ch, const char * str )
 /*
  * Display prompt (player settable prompt).
  */
-void display_prompt( PLAYER_DATA *ch )
+void display_prompt( PLAYER *ch )
 {
    if( ch->prompt == NULL || ch->prompt[0] == '\0' )
    {
@@ -1623,7 +1623,7 @@ void display_prompt( PLAYER_DATA *ch )
 /*
  * Low level output function.
  */
-bool process_output( CONNECTION_DATA *d, bool fPrompt )
+bool process_output( CONNECTION *d, bool fPrompt )
 {
     fPrompt = (d->fpromptok ? fPrompt : 0);
     /*
@@ -1633,22 +1633,22 @@ bool process_output( CONNECTION_DATA *d, bool fPrompt )
     else
     if ( fPrompt  && !shut_down )
     {
-    if ( d->showstr_point ) write_to_buffer( d,  "<more> ",    0 );
+    if ( d->pager_point ) write_to_buffer( d,  "<more> ",    0 );
     else
     if ( CONNECTED(d) )
     {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
 
 	ch = d->original ? d->original : d->character;
     if ( ch != NULL )
     {
-    if ( IS_SET(ch->act2, PLR_BLANK) && !d->client )
+    if ( IS_SET(ch->flag2, PLR_BLANK) && !d->client )
 	    write_to_buffer( d, "\n\r", 2 );
 
-    if ( IS_SET(ch->act2, PLR_PROMPT) && !d->client )
+    if ( IS_SET(ch->flag2, PLR_PROMPT) && !d->client )
             display_prompt( d->character );
 
-//    if ( IS_SET(d->character->act2, PLR_TELNET_GA) && !d->client )
+//    if ( IS_SET(d->character->flag2, PLR_TELNET_GA) && !d->client )
 //	    write_to_buffer( d, go_ahead_str, 0 );
     }
 
@@ -1693,7 +1693,7 @@ bool process_output( CONNECTION_DATA *d, bool fPrompt )
 /*
  * Identical to Kalgen's write_to_buffer()
  */
-void sendbuf( CONNECTION_DATA *d, const char *txt, int length )
+void sendbuf( CONNECTION *d, const char *txt, int length )
 {
     extern bool fBootDb;
     /*
@@ -1743,7 +1743,7 @@ void sendbuf( CONNECTION_DATA *d, const char *txt, int length )
 /*
  * Write to the connection's output buffer.
  */
-void write_to_buffer( CONNECTION_DATA *d, const char *txt, int length )
+void write_to_buffer( CONNECTION *d, const char *txt, int length )
 {
 #if defined(TRANSLATE)
     char *translated;
@@ -1802,10 +1802,10 @@ bool write_to_connection( int desc, char *txt, int length )
  * Spill the blood let it run onto me.
  * Clipped from Kalgen.
  */
-void parse_snoop( CONNECTION_DATA *d, const char *txt )
+void parse_snoop( CONNECTION *d, const char *txt )
 {
     char str[MAX_STRING_LENGTH];
-    PLAYER_DATA *ch;
+    PLAYER *ch;
     int i, j;
     
     if ( d->character == NULL )
@@ -1886,7 +1886,7 @@ void parse_snoop( CONNECTION_DATA *d, const char *txt )
  * link by spamming the output buffer on the remote side.  This was
  * submitted for your approval by Kalgen of his mud, Zebesta.
  */
-bool write_to_descr_nice( CONNECTION_DATA *d )
+bool write_to_descr_nice( CONNECTION *d )
 {
     int iStart;
     int nWrite;
@@ -1939,12 +1939,12 @@ bool write_to_descr_nice( CONNECTION_DATA *d )
  * Spawn counter.
  * Do anything else.
  */
-void stop_idling( PLAYER_DATA *ch )
+void stop_idling( PLAYER *ch )
 {
     if ( ch == NULL
     ||   ch->desc == NULL
     ||   ch->desc->connected > NET_PLAYING
-    ||   ch->in_scene != get_scene_index( SCENE_VNUM_LIMBO ) )
+    ||   ch->in_scene != get_scene( SCENE_VNUM_LIMBO ) )
 	return;
 
     ch->timer = 0;
@@ -1957,7 +1957,7 @@ void stop_idling( PLAYER_DATA *ch )
 /*
  * Write to one char.
  */
-void send_to_actor( const char *txt, PLAYER_DATA *ch )
+void send_to_actor( const char *txt, PLAYER *ch )
 {
     if ( QUIET_STC != TRUE
       && txt != NULL
@@ -1972,7 +1972,7 @@ void send_to_actor( const char *txt, PLAYER_DATA *ch )
 /*
  * Send a page to one char.
  */
-void page_to_actor( const char *txt, PLAYER_DATA *ch )
+void page_to_actor( const char *txt, PLAYER *ch )
 {
     int fOldLen=ch->pagelen;
 
@@ -1989,26 +1989,26 @@ void page_to_actor( const char *txt, PLAYER_DATA *ch )
      * If there is already some data being "paged" for this connection,
      * append the new string.
      */
-    if ( !MTD(ch->desc->showstr_head) )
+    if ( !MTD(ch->desc->pager_head) )
     {
-        char fub[strlen(txt)+strlen(ch->desc->showstr_head)+2];
+        char fub[strlen(txt)+strlen(ch->desc->pager_head)+2];
         int i;
 
         fub[0] = '\0';
-        strcat( fub, ch->desc->showstr_head );
-        i = strlen(fub) - strlen(ch->desc->showstr_point);
+        strcat( fub, ch->desc->pager_head );
+        i = strlen(fub) - strlen(ch->desc->pager_point);
         strcat( fub, txt );
 
-        free_string( ch->desc->showstr_head );
-        ch->desc->showstr_head = str_dup( fub );
-        ch->desc->showstr_point = ch->desc->showstr_head + i;
+        free_string( ch->desc->pager_head );
+        ch->desc->pager_head = str_dup( fub );
+        ch->desc->pager_point = ch->desc->pager_head + i;
         return;
     }
 
-    free_string( ch->desc->showstr_head );
-    ch->desc->showstr_head = str_dup( txt );
-    ch->desc->showstr_point = ch->desc->showstr_head;
-    show_string( ch->desc, "" );
+    free_string( ch->desc->pager_head );
+    ch->desc->pager_head = str_dup( txt );
+    ch->desc->pager_point = ch->desc->pager_head;
+    page_string( ch->desc, "" );
     ch->pagelen = fOldLen;
     return;
 }
@@ -2018,7 +2018,7 @@ void page_to_actor( const char *txt, PLAYER_DATA *ch )
 /*
  * Simplified pager.
  */
-void show_string(struct connection_data *d, char *input)
+void page_string(struct connection *d, char *input)
 {
   char buffer[ MAX_STRING_LENGTH * 3 ];
   char buf[ MAX_INPUT_LENGTH ];
@@ -2052,12 +2052,12 @@ void show_string(struct connection_data *d, char *input)
     break;
 
   default: /*otherwise, stop the text viewing */
-    if ( d->showstr_head )
+    if ( d->pager_head )
     {
-        free_string( d->showstr_head );
-        d->showstr_head = str_dup( "" );
+        free_string( d->pager_head );
+        d->pager_head = str_dup( "" );
     }
-    d->showstr_point = NULL;
+    d->pager_point = NULL;
     return;
 
   }
@@ -2065,7 +2065,7 @@ void show_string(struct connection_data *d, char *input)
   /* do any backing up necessary */
   if (lines < 0)
   {
-    for ( scan = d->showstr_point; scan > d->showstr_head; scan-- )
+    for ( scan = d->pager_point; scan > d->pager_head; scan-- )
          if ( ( *scan == '\n' ) || ( *scan == '\r' ) )
          {
              toggle = -toggle;
@@ -2073,18 +2073,18 @@ void show_string(struct connection_data *d, char *input)
                  if ( !( ++lines ) )
                      break;
          }
-    d->showstr_point = scan;
+    d->pager_point = scan;
   }
 
   /* show a chunk */
   lines  = 0;
   toggle = 1;
-  for ( scan = buffer; ; scan++, d->showstr_point++ )
-       if ( ( ( *scan = *d->showstr_point ) == '\n' || *scan == '\r' )
+  for ( scan = buffer; ; scan++, d->pager_point++ )
+       if ( ( ( *scan = *d->pager_point ) == '\n' || *scan == '\r' )
            && ( toggle = -toggle ) < 0 )
            lines++;
        else
-           if ( !*scan || ( d->character && !IS_NPC( d->character )
+           if ( !*scan || ( d->character && !NPC( d->character )
                           && lines >= d->character->pagelen) )
            {
 
@@ -2092,15 +2092,15 @@ void show_string(struct connection_data *d, char *input)
                write_to_buffer( d, buffer, strlen( buffer ) );
 
              /* See if this is the end (or near the end) of the string */
-               for ( chk = d->showstr_point; isspace( *chk ); chk++ );
+               for ( chk = d->pager_point; isspace( *chk ); chk++ );
                if ( !*chk )
                {
-                   if ( d->showstr_head )
+                   if ( d->pager_head )
                    {
-                       free_string( d->showstr_head );
-                       d->showstr_head = str_dup( "" );
+                       free_string( d->pager_head );
+                       d->pager_head = str_dup( "" );
                    }
-                   d->showstr_point = 0;
+                   d->pager_point = 0;
                }
                return;
            }
@@ -2113,13 +2113,13 @@ void show_string(struct connection_data *d, char *input)
 /*
  * Kludgy display check for ansi color.
  */
-void ansi_color( const char *txt, PLAYER_DATA *ch )
+void ansi_color( const char *txt, PLAYER *ch )
 {
-    if ( !IS_NPC(ch) && txt != NULL )
+    if ( !NPC(ch) && txt != NULL )
     {
-     if ( !IS_SET(ch->act2,PLR_ANSI) && !IS_SET(ch->act2,PLR_VT100) ) return;
+     if ( !IS_SET(ch->flag2,PLR_ANSI) && !IS_SET(ch->flag2,PLR_VT100) ) return;
       else
-      if ( IS_SET(ch->act2, PLR_VT100) && !IS_SET( ch->act2, PLR_ANSI ) )
+      if ( IS_SET(ch->flag2, PLR_VT100) && !IS_SET( ch->flag2, PLR_ANSI ) )
       {
          if ( !str_cmp(txt, GREEN  )
            || !str_cmp(txt, RED    )
@@ -2139,13 +2139,13 @@ void ansi_color( const char *txt, PLAYER_DATA *ch )
 /*
  * Kludgy display check for ansi color.
  */
-void clrscr( PLAYER_DATA *ch )
+void clrscr( PLAYER *ch )
 {
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
-    if ( !IS_SET(ch->act2,PLR_ANSI) && !IS_SET(ch->act2,PLR_VT100) ) return;
+    if ( !IS_SET(ch->flag2,PLR_ANSI) && !IS_SET(ch->flag2,PLR_VT100) ) return;
 
-      if ( IS_SET(ch->act2,PLR_CLRSCR ) )
+      if ( IS_SET(ch->flag2,PLR_CLRSCR ) )
       {
      send_to_actor( CLRSCR, ch );
      return;
@@ -2159,14 +2159,14 @@ void clrscr( PLAYER_DATA *ch )
  */
 void global( char *buf, int level, int toggler, int toggler2 )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     
     for ( d = connection_list; d != NULL; d = d->next )
     {
       if ( CONNECTED(d)
         && get_trust( d->character ) >= level
-        && IS_SET(d->character->act, toggler)
-        && IS_SET(d->character->act, toggler2) )
+        && IS_SET(d->character->flag, toggler)
+        && IS_SET(d->character->flag, toggler2) )
       {
          send_to_actor( buf, d->character );
          send_to_actor( "\n\r", d->character );
@@ -2180,14 +2180,14 @@ void global( char *buf, int level, int toggler, int toggler2 )
  */
 void write_global( char *buf )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     
     for ( d = connection_list; d != NULL; d = d->next )
        write_to_buffer( d, buf, strlen(buf) );
 }
 
 
-void cmd_global( PLAYER_DATA *ch, char *argument )
+void cmd_global( PLAYER *ch, char *argument )
 {
     if ( argument[0] == '\0' )
     {
@@ -2203,14 +2203,14 @@ void cmd_global( PLAYER_DATA *ch, char *argument )
 /*
  * The primary output interface for formatted output.
  */
-void act( const char *format, PLAYER_DATA *ch, const void *arg1, const void *arg2, int type )
+void act( const char *format, PLAYER *ch, const void *arg1, const void *arg2, int type )
 {
     char buf[MAX_STRING_LENGTH];
     char fname[MAX_INPUT_LENGTH];
-    PLAYER_DATA *to;
-    PLAYER_DATA *vch = (PLAYER_DATA *) arg2;
-    PROP_DATA *prop1 = (PROP_DATA  *) arg1;
-    PROP_DATA *prop2 = (PROP_DATA  *) arg2;
+    PLAYER *to;
+    PLAYER *vch = (PLAYER *) arg2;
+    PROP *prop1 = (PROP  *) arg1;
+    PROP *prop2 = (PROP  *) arg2;
     const char *str;
     const char *i;
     char *p;
@@ -2283,22 +2283,22 @@ void act( const char *format, PLAYER_DATA *ch, const void *arg1, const void *arg
         default:  bug( "Act: bad code %d.", *str ); i = " <@@@> ";      break;
         case '$': i = "$"; break;
 
-        case '1': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = BLUE; break;
-        case '2': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = GREEN; break;
-        case '3': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = CYAN; break;
-        case '4': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = RED; break;
-        case '5': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = PURPLE; break;
-        case '6': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = YELLOW; break;
-        case '7': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = GREY; break;
-        case '0': i = ""; if ( IS_SET( to->act2, PLR_ANSI ) ) i = BLACK; break;
-        case 'B': i = ""; if ( IS_SET( to->act2, PLR_ANSI )
-                    || IS_SET( to->act2, PLR_VT100 ) ) i = BOLD;     break;
-        case 'I': i = ""; if ( IS_SET( to->act2, PLR_ANSI )
-                    || IS_SET( to->act2, PLR_VT100 ) ) i = INVERSE;  break;
-        case 'F': i = ""; if ( IS_SET( to->act2, PLR_ANSI )
-                    || IS_SET( to->act2, PLR_VT100 ) ) i = FLASH;    break;
-        case 'R': i = ""; if ( IS_SET( to->act2, PLR_ANSI )
-                    || IS_SET( to->act2, PLR_VT100 ) ) i = NTEXT;    break;
+        case '1': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = BLUE; break;
+        case '2': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = GREEN; break;
+        case '3': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = CYAN; break;
+        case '4': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = RED; break;
+        case '5': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = PURPLE; break;
+        case '6': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = YELLOW; break;
+        case '7': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = GREY; break;
+        case '0': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = BLACK; break;
+        case 'B': i = ""; if ( IS_SET( to->flag2, PLR_ANSI )
+                    || IS_SET( to->flag2, PLR_VT100 ) ) i = BOLD;     break;
+        case 'I': i = ""; if ( IS_SET( to->flag2, PLR_ANSI )
+                    || IS_SET( to->flag2, PLR_VT100 ) ) i = INVERSE;  break;
+        case 'F': i = ""; if ( IS_SET( to->flag2, PLR_ANSI )
+                    || IS_SET( to->flag2, PLR_VT100 ) ) i = FLASH;    break;
+        case 'R': i = ""; if ( IS_SET( to->flag2, PLR_ANSI )
+                    || IS_SET( to->flag2, PLR_VT100 ) ) i = NTEXT;    break;
 
         /* Thx alex for 't' idea */
         case 't': i = (arg1 != NULL) ? (char *) arg1 : "(null)"; break;
@@ -2397,7 +2397,7 @@ int gettimeofday( struct timeval *tp, void *tzp )
  * or: email <player>
  *  <- string editor
  */
-void cmd_email( PLAYER_DATA *ch, char *argument ) {
+void cmd_email( PLAYER *ch, char *argument ) {
 }
 
 
@@ -2416,11 +2416,11 @@ void wtf_logf (char * fmt, ...)
 
 
 
-void var_to_actor (char * fmt, PLAYER_DATA *ch, ...)
+void var_to_actor (char * fmt, PLAYER *ch, ...)
 {
         char buf [2*MSL];
         va_list args;
-        if ( IS_NPC(ch) ) return;
+        if ( NPC(ch) ) return;
         va_start (args, ch);
         vsprintf (buf, fmt, args);
         va_end (args);

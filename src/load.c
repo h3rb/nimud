@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -52,38 +52,38 @@ extern	int	_filbuf		args( (FILE *) );
 /*
  * Globals.
  */
-SHOP_DATA *     shop_first;
-SHOP_DATA *     shop_last;
+SHOP *     shop_first;
+SHOP *     shop_last;
 
 
 char            bug_buf         [2*MAX_INPUT_LENGTH];
-PLAYER_DATA *   actor_list;
+PLAYER *   actor_list;
 char *          help_greeting;
 char            log_buf         [2*MAX_INPUT_LENGTH];
-PROP_DATA *      prop_list;
+PROP *      prop_list;
 
 #if defined(INTERGALACTIC_PLANETARY)
-TROPOSPHERE_DATA    weather_info;
-TIME_INFO_DATA  weather_info;
+TROPOSPHERE    weather;
+TIME_INFO  weather;
 #else
-WEATHER_DATA weather_info;
+WEATHER weather;
 #endif
 
 
 /*
  * Locals.
  */
-ACTOR_INDEX_DATA *	actor_index_hash    [MAX_KEY_HASH];
-PROP_INDEX_DATA *	prop_index_hash	    [MAX_KEY_HASH];
-SCENE_INDEX_DATA *	scene_index_hash    [MAX_KEY_HASH];
-SCRIPT_DATA *           script_index_hash   [MAX_KEY_HASH];
-SPELL_DATA *            spell_index_hash    [MAX_KEY_HASH];
-SKILL_DATA *            skill_index_hash    [MAX_KEY_HASH];
-HELP_DATA *             help_index_hash    [MAX_KEY_HASH];
+ACTOR_TEMPLATE *	actor_template_hash    [MAX_KEY_HASH];
+PROP_TEMPLATE *	prop_template_hash	    [MAX_KEY_HASH];
+SCENE *	scene_hash    [MAX_KEY_HASH];
+SCRIPT *           script__hash   [MAX_KEY_HASH];
+SPELL *            spell__hash    [MAX_KEY_HASH];
+SKILL *            skill__hash    [MAX_KEY_HASH];
+HELP *             help__hash    [MAX_KEY_HASH];
 char *                  string_hash         [MAX_KEY_HASH];
 
-ZONE_DATA *		zone_first;
-ZONE_DATA *		zone_last;
+ZONE *		zone_first;
+ZONE *		zone_last;
 
 extern char *           string_space;
 extern char *           top_string;
@@ -93,13 +93,13 @@ int         LOG_LEVEL = LEVEL_IMMORTAL;
 
 extern int         top_help;
 
-extern int         top_vnum_script;
-extern int         top_vnum_actor;
-extern int         top_vnum_prop;
-extern int         top_vnum_scene;
-extern int         top_vnum_terrain;
+extern int         top_dbkey_script;
+extern int         top_dbkey_actor;
+extern int         top_dbkey_prop;
+extern int         top_dbkey_scene;
+extern int         top_dbkey_terrain;
 
-TERRAIN_DATA      *terrain_list = NULL;
+TERRAIN      *terrain_list = NULL;
 
 /*
  * Semi-locals.
@@ -146,7 +146,7 @@ void    dump_section_s         args( ( FILE *fp ) );
 void    fix_exits         args( ( void ) );
 void    fix_mobs          args( ( void ) );
 
-void    set_actor_hp        args( ( PLAYER_DATA *actor ) );
+void    set_actor_hp        args( ( PLAYER *actor ) );
 
 #define                 MAX_STRING      2097152
 #define			MAX_PERM_BLOCK	131072
@@ -470,7 +470,7 @@ char *fread_file( char *filename ) {
  */
 void load_zone( FILE *fp )
 {
-    ZONE_DATA *pZone;
+    ZONE *pZone;
     char      *word;
     bool      fMatch;
 
@@ -501,8 +501,8 @@ void load_zone( FILE *fp )
            case 'V':
             if ( !str_cmp( word, "V" ) )
             {
-                pZone->lvnum = fread_number( fp );
-                pZone->uvnum = fread_number( fp );
+                pZone->ldbkey = fread_number( fp );
+                pZone->udbkey = fread_number( fp );
                 fMatch = TRUE;
             }
             break;
@@ -544,42 +544,42 @@ void load_config( FILE *fp )
 {
     char      *word;
     bool      fMatch;
-    extern BAN_DATA *      ban_free;
-    extern BAN_DATA *      ban_list;
-    BAN_DATA *pban;
+    extern BAN *      ban_free;
+    extern BAN *      ban_list;
+    BAN *pban;
 
     /*
      * Preset time and weather.
      */
-    weather_info.hour  = 0;
-    weather_info.day   = 1;
-    weather_info.month = 0;
-    weather_info.year  = 453;
+    weather.hour  = 0;
+    weather.day   = 1;
+    weather.month = 0;
+    weather.year  = 453;
 
-	     if ( weather_info.hour <  5 ) weather_info.sunlight = SUN_DARK;
-	else if ( weather_info.hour <  6 ) weather_info.sunlight = SUN_RISE;
-	else if ( weather_info.hour < 19 ) weather_info.sunlight = SUN_LIGHT;
-	else if ( weather_info.hour < 20 ) weather_info.sunlight = SUN_SET;
-	else                            weather_info.sunlight = SUN_DARK;
+	     if ( weather.hour <  5 ) weather.sunlight = SUN_DARK;
+	else if ( weather.hour <  6 ) weather.sunlight = SUN_RISE;
+	else if ( weather.hour < 19 ) weather.sunlight = SUN_LIGHT;
+	else if ( weather.hour < 20 ) weather.sunlight = SUN_SET;
+	else                            weather.sunlight = SUN_DARK;
 
-    weather_info.change  = 0;
-    weather_info.winddir = 0;
+    weather.change  = 0;
+    weather.winddir = 0;
         
-    if ( weather_info.month <= 4 || weather_info.month >= 12 )
-         weather_info.temperature = number_fuzzy( 20 );
-    else weather_info.temperature = number_fuzzy( 50 );
+    if ( weather.month <= 4 || weather.month >= 12 )
+         weather.temperature = number_fuzzy( 20 );
+    else weather.temperature = number_fuzzy( 50 );
              
-    weather_info.windspeed = number_range( 1, 10 );
-    weather_info.mmhg       = 960;
+    weather.windspeed = number_range( 1, 10 );
+    weather.mmhg       = 960;
         
-	if ( weather_info.month >= 7 && weather_info.month <=12 )
-         weather_info.mmhg += number_range( 1, 50 );
-    else weather_info.mmhg += number_range( 1, 80 );
+	if ( weather.month >= 7 && weather.month <=12 )
+         weather.mmhg += number_range( 1, 50 );
+    else weather.mmhg += number_range( 1, 80 );
 
-	     if ( weather_info.mmhg <=  980 ) weather_info.sky = SKY_LIGHTNING;
-	else if ( weather_info.mmhg <= 1000 ) weather_info.sky = SKY_RAINING;
-	else if ( weather_info.mmhg <= 1020 ) weather_info.sky = SKY_CLOUDY;
-	else                                  weather_info.sky = SKY_CLOUDLESS;
+	     if ( weather.mmhg <=  980 ) weather.sky = SKY_LIGHTNING;
+	else if ( weather.mmhg <= 1000 ) weather.sky = SKY_RAINING;
+	else if ( weather.mmhg <= 1020 ) weather.sky = SKY_CLOUDY;
+	else                                  weather.sky = SKY_CLOUDLESS;
 
     for ( ; ; )
     {
@@ -591,10 +591,10 @@ void load_config( FILE *fp )
          case 'D':
             if ( !str_cmp( word, "Date" ) )
             {
-                weather_info.hour  = fread_number( fp );
-                weather_info.day   = fread_number( fp );
-                weather_info.month = fread_number( fp );
-                weather_info.year  = fread_number( fp );
+                weather.hour  = fread_number( fp );
+                weather.day   = fread_number( fp );
+                weather.month = fread_number( fp );
+                weather.year  = fread_number( fp );
                 fMatch = TRUE;
             }
             break;
@@ -625,8 +625,8 @@ void load_config( FILE *fp )
          case 'M':
             if ( !str_cmp( word, "Moon" ) )
             {
-                weather_info.moon_phase = fread_number( fp );
-                weather_info.next_phase = fread_number( fp );
+                weather.moon_phase = fread_number( fp );
+                weather.next_phase = fread_number( fp );
                 fMatch = TRUE;
             }
             break;
@@ -640,15 +640,15 @@ void load_config( FILE *fp )
          case 'E':
             if ( !str_cmp( word, "End" ) )
             {
-                  if ( weather_info.hour <  5 ) weather_info.sunlight = SUN_DARK;
-             else if ( weather_info.hour <  6 ) weather_info.sunlight = SUN_RISE;
-             else if ( weather_info.hour < 19 ) weather_info.sunlight = SUN_LIGHT;
-             else if ( weather_info.hour < 20 ) weather_info.sunlight = SUN_SET;
-             else                            weather_info.sunlight = SUN_DARK;
+                  if ( weather.hour <  5 ) weather.sunlight = SUN_DARK;
+             else if ( weather.hour <  6 ) weather.sunlight = SUN_RISE;
+             else if ( weather.hour < 19 ) weather.sunlight = SUN_LIGHT;
+             else if ( weather.hour < 20 ) weather.sunlight = SUN_SET;
+             else                            weather.sunlight = SUN_DARK;
 
-                  if ( weather_info.month <= 4 || weather_info.month >= 12 )
-                  weather_info.temperature = number_fuzzy( 20 );
-             else weather_info.temperature = number_fuzzy( 50 );
+                  if ( weather.month <= 4 || weather.month >= 12 )
+                  weather.temperature = number_fuzzy( 20 );
+             else weather.temperature = number_fuzzy( 50 );
                   return;
             }
             break;
@@ -671,20 +671,20 @@ void load_config( FILE *fp )
  */
 void load_terrain( FILE *fp )
 {
-    TERRAIN_DATA *pTerrain;
+    TERRAIN *pTerrain;
     char      *word;
     bool      fMatch;
 
     pTerrain                    = new_terrain( );
-    pTerrain->vnum              = fread_number( fp );
+    pTerrain->dbkey              = fread_number( fp );
 
     pTerrain->next              = terrain_list;
     terrain_list                = pTerrain;
 
-    if ( pTerrain->vnum > top_vnum_terrain )
-    top_vnum_terrain = pTerrain->vnum;
+    if ( pTerrain->dbkey > top_dbkey_terrain )
+    top_dbkey_terrain = pTerrain->dbkey;
 
-/*    bug ( "begin new terrain (%d)", pTerrain->vnum );      */
+/*    bug ( "begin new terrain (%d)", pTerrain->dbkey );      */
 
     for ( ; ; )
     {
@@ -723,14 +723,14 @@ void load_terrain( FILE *fp )
            SKEY( "Dfa",       pTerrain->fall   );
            SKEY( "Dsp",       pTerrain->spring );
           case 'S':
-            KEY( "S",        pTerrain->sector, fread_number( fp ) );
+            KEY( "S",        pTerrain->move, fread_number( fp ) );
        }
 
        if ( !fMatch )
        {
            char buf[80];
            snprintf( buf, MAX_STRING_LENGTH, "fread_terrain: %d incorrect: %s",
-                         pTerrain->vnum, word );
+                         pTerrain->dbkey, word );
            bug( buf, 0 );
            fread_to_eol( fp );
        }
@@ -757,16 +757,16 @@ End
  */
 void load_spells( FILE *fp )
 {
-    SPELL_DATA *pSpell;
+    SPELL *pSpell;
     char      *word;
     bool      fMatch;
-    int iHash, vnum;
+    int iHash, dbkey;
 
-    pSpell                      = new_spell_data( );
-    vnum=pSpell->vnum           = fread_number( fp );
+    pSpell                      = new_spell( );
+    dbkey=pSpell->dbkey           = fread_number( fp );
 
-    if ( pSpell->vnum > top_vnum_spell )
-    top_vnum_spell = pSpell->vnum;
+    if ( pSpell->dbkey > top_dbkey_spell )
+    top_dbkey_spell = pSpell->dbkey;
 
     for ( ; ; )
     {
@@ -779,9 +779,9 @@ void load_spells( FILE *fp )
           case 'E':
             if ( !str_cmp( word, "End" ) )
             {
-               iHash                   = vnum % MAX_KEY_HASH;
-               pSpell->next            = spell_index_hash[iHash];
-               spell_index_hash[iHash] = pSpell;
+               iHash                   = dbkey % MAX_KEY_HASH;
+               pSpell->next            = spell__hash[iHash];
+               spell__hash[iHash] = pSpell;
                return;
             }
            break;
@@ -794,10 +794,10 @@ void load_spells( FILE *fp )
            KEY( "Mana",  pSpell->mana_cost, fread_number(fp) ); break;
           case 'S':
            if ( !str_cmp( word, "Sc" ) ) {
-               SCRIPT_DATA *pScript;
+               SCRIPT *pScript;
                pScript = get_script_index( fread_number(fp) );
                if ( pScript ) {
-               INSTANCE_DATA *pInstance;
+               INSTANCE *pInstance;
                pInstance = new_instance();
                pInstance->script = pScript;
                pInstance->next = pSpell->instances;
@@ -818,7 +818,7 @@ void load_spells( FILE *fp )
        {
            char buf[80];
            snprintf( buf, MAX_STRING_LENGTH, "fread_spell: %d incorrect: %s",
-                         pSpell->vnum, word );
+                         pSpell->dbkey, word );
            bug( buf, 0 );
            fread_to_eol( fp );
        }
@@ -831,16 +831,16 @@ void load_spells( FILE *fp )
  */
 void load_skills( FILE *fp )
 {
-    SKILL_DATA *pSkill;
+    SKILL *pSkill;
     char      *word;
     bool      fMatch;
-    int iHash, vnum;
+    int iHash, dbkey;
 
-    pSkill                      = new_skill_data( );
-    vnum=pSkill->vnum           = fread_number( fp );
+    pSkill                      = new_skill( );
+    dbkey=pSkill->dbkey           = fread_number( fp );
 
-    if ( pSkill->vnum > top_vnum_skill )
-    top_vnum_skill = pSkill->vnum;
+    if ( pSkill->dbkey > top_dbkey_skill )
+    top_dbkey_skill = pSkill->dbkey;
 
     for ( ; ; )
     {
@@ -853,9 +853,9 @@ void load_skills( FILE *fp )
           case 'E':
             if ( !str_cmp( word, "End" ) )
             {
-               iHash                   = vnum % MAX_KEY_HASH;
-               pSkill->next            = skill_index_hash[iHash];
-               skill_index_hash[iHash] = pSkill;
+               iHash                   = dbkey % MAX_KEY_HASH;
+               pSkill->next            = skill__hash[iHash];
+               skill__hash[iHash] = pSkill;
                return;
             }
            break;
@@ -886,7 +886,7 @@ void load_skills( FILE *fp )
        {
            char buf[80];
            snprintf( buf, MAX_STRING_LENGTH, "fread_skill: %d incorrect: %s",
-                         pSkill->vnum, word );
+                         pSkill->dbkey, word );
            bug( buf, 0 );
            fread_to_eol( fp );
        }
@@ -914,16 +914,16 @@ void load_functions( ) {
  */
 void load_doc( FILE *fp )
 {
-    HELP_DATA *pHelp;
+    HELP *pHelp;
     char      *word;
     bool      fMatch;
-    int iHash, vnum;
+    int iHash, dbkey;
 
-    pHelp                       = new_help_data( );
-    vnum=pHelp->vnum            = fread_number( fp );
+    pHelp                       = new_help( );
+    dbkey=pHelp->dbkey            = fread_number( fp );
 
-    if ( pHelp->vnum > top_vnum_help )
-    top_vnum_help = pHelp->vnum;
+    if ( pHelp->dbkey > top_dbkey_help )
+    top_dbkey_help = pHelp->dbkey;
 
     for ( ; ; )
     {
@@ -936,9 +936,9 @@ void load_doc( FILE *fp )
           case 'E':SKEY( "EX", pHelp->example  );
             if ( !str_cmp( word, "End" ) )
             {
-               iHash                   = vnum % MAX_KEY_HASH;
-               pHelp->next             = help_index_hash[iHash];
-               help_index_hash[iHash]  = pHelp;
+               iHash                   = dbkey % MAX_KEY_HASH;
+               pHelp->next             = help__hash[iHash];
+               help__hash[iHash]  = pHelp;
                return;
             }
            break;
@@ -956,7 +956,7 @@ void load_doc( FILE *fp )
        {
            char buf[80];
            snprintf( buf, MAX_STRING_LENGTH, "fread_help: %d incorrect: %s",
-                         pHelp->vnum, word );
+                         pHelp->dbkey, word );
            bug( buf, 0 );
            fread_to_eol( fp );
        }
@@ -969,8 +969,8 @@ void load_contents( FILE *fp )
 {
     char      *word;
     bool      fMatch;
-    int vnum = SCENE_VNUM_TEMPLATE;
-    SCENE_INDEX_DATA *pScene = get_scene_index( vnum );
+    int dbkey = SCENE_VNUM_TEMPLATE;
+    SCENE *pScene = get_scene( dbkey );
 
     for ( ; ; )
     {
@@ -984,12 +984,12 @@ void load_contents( FILE *fp )
             {
                 int iNest;
 
-                vnum = fread_number( fp );
-                pScene = get_scene_index( vnum );
+                dbkey = fread_number( fp );
+                pScene = get_scene( dbkey );
                 if ( pScene == NULL )
                 {
-                bug( "Load_contents: Invalid scene %d.", vnum );
-                pScene = get_scene_index( SCENE_VNUM_TEMPLATE );
+                bug( "Load_contents: Invalid scene %d.", dbkey );
+                pScene = get_scene( SCENE_VNUM_TEMPLATE );
                 }
 
                 for ( iNest = 0; iNest < MAX_NEST; iNest++ )
@@ -1005,14 +1005,14 @@ void load_contents( FILE *fp )
          case 'W':
             if ( !str_cmp( word, "Wagon" ) )
             {
-                int wvnum;
-                PROP_INDEX_DATA *pPropIndex;
-                PROP_DATA *pProp;
+                int wdbkey;
+                PROP_TEMPLATE *pPropIndex;
+                PROP *pProp;
 
-                wvnum = fread_number( fp );
-                pPropIndex = get_prop_index( pScene->wagon );
+                wdbkey = fread_number( fp );
+                pPropIndex = get_prop_template( pScene->wagon );
                 if ( pPropIndex != NULL
-                  && get_scene_index( wvnum ) != NULL )
+                  && get_scene( wdbkey ) != NULL )
                 {
                     for ( pProp = prop_list; pProp != NULL; pProp = pProp->next )
                     {
@@ -1024,7 +1024,7 @@ void load_contents( FILE *fp )
                     if ( pProp == NULL )
                     {
                         pProp = create_prop( pPropIndex, 0 );
-                        prop_to_scene( pProp, get_scene_index( wvnum ) );
+                        prop_to_scene( pProp, get_scene( wdbkey ) );
                     }
                 }
 
@@ -1332,9 +1332,9 @@ void load_starmap( FILE *fp)
 
 
 
-void fread_shop( FILE *fp, ACTOR_INDEX_DATA *pActorIndex )
+void fread_shop( FILE *fp, ACTOR_TEMPLATE *pActorIndex )
 {
-    SHOP_DATA *pShop;
+    SHOP *pShop;
     char *word;
     bool fMatch;
 
@@ -1400,7 +1400,7 @@ void fread_shop( FILE *fp, ACTOR_INDEX_DATA *pActorIndex )
             if ( !str_cmp( word, "EndShop" ) )
             {
                 pActorIndex->pShop    = pShop;
-                pShop->keeper       = pActorIndex->vnum;
+                pShop->keeper       = pActorIndex->dbkey;
 
                 if ( shop_first == NULL )
                      shop_first = pShop;
@@ -1413,7 +1413,7 @@ void fread_shop( FILE *fp, ACTOR_INDEX_DATA *pActorIndex )
             }
             if ( !str_cmp( word, "End" ) )
             {
-                bug( "Fread_shop: incomplete shop %d", pActorIndex->vnum );
+                bug( "Fread_shop: incomplete shop %d", pActorIndex->dbkey );
                 free_shop( pShop );
                 pActorIndex->pShop = NULL;
                 return;
@@ -1425,7 +1425,7 @@ void fread_shop( FILE *fp, ACTOR_INDEX_DATA *pActorIndex )
         {
             char buf[80];
             snprintf( buf, MAX_STRING_LENGTH, "Fread_shop: incorrect word %s (%%d)", word );
-            bug( buf, pActorIndex->vnum );
+            bug( buf, pActorIndex->dbkey );
             fread_to_eol( fp );
         }
     }
@@ -1438,18 +1438,18 @@ void fread_shop( FILE *fp, ACTOR_INDEX_DATA *pActorIndex )
 /*
  * Load a single actor declaration.
  */
-void fread_actor2( FILE *fp, int vnum )
+void fread_actor2( FILE *fp, int dbkey )
 {
-    ACTOR_INDEX_DATA *pActorIndex;
+    ACTOR_TEMPLATE *pActorIndex;
     char      *word;
     bool      fMatch;
     int iHash;
 
-    pActorIndex                   = new_actor_index( );
-    pActorIndex->vnum             = vnum;
+    pActorIndex                   = new_actor_template( );
+    pActorIndex->dbkey             = dbkey;
     pActorIndex->zone             = zone_last;
 
-/*    bug ( "begin new actor (%d)", vnum );      */
+/*    bug ( "begin new actor (%d)", dbkey );      */
 
     for ( ; ; )
     {
@@ -1462,9 +1462,9 @@ void fread_actor2( FILE *fp, int vnum )
           case 'E':
             if ( !str_cmp( word, "End" ) )
             {
-                 iHash                                   = vnum % MAX_KEY_HASH;
-                 pActorIndex->next                 = actor_index_hash[iHash];
-                 actor_index_hash[iHash]   = pActorIndex;
+                 iHash                                   = dbkey % MAX_KEY_HASH;
+                 pActorIndex->next                 = actor_template_hash[iHash];
+                 actor_template_hash[iHash]   = pActorIndex;
                  return;
             }
             KEY( "E", pActorIndex->exp, fread_number( fp ) );
@@ -1473,7 +1473,7 @@ void fread_actor2( FILE *fp, int vnum )
             KEY( "K", pActorIndex->karma, fread_number( fp ) );
            break;
           case 'A':
-            KEY( "A",   pActorIndex->act,         fread_number( fp ) );
+            KEY( "A",   pActorIndex->flag,         fread_number( fp ) );
             KEY( "AB", pActorIndex->bonuses, fread_number( fp ) );
             if ( !str_cmp( word, "AP" ) )
             {
@@ -1487,11 +1487,11 @@ void fread_actor2( FILE *fp, int vnum )
             if ( !str_cmp( word, "At" ) )
             {
                 int num;
-                ATTACK_DATA *attack;
+                ATTACK *attack;
 
                 fMatch = TRUE;
                 num    = fread_number( fp );
-                if ( num >= MAX_ATTACK_DATA )
+                if ( num >= MAX_ATTACK )
                 {
                     bug( "Invalid attack index (%d)", num );
                 }
@@ -1525,10 +1525,10 @@ void fread_actor2( FILE *fp, int vnum )
           case 'S':
             if ( !str_cmp( word, "Spell" ) )
             {
-                 SPELL_BOOK_DATA *pSpell;
-                 pSpell = new_spell_book_data( );
+                 SPELL_BOOK *pSpell;
+                 pSpell = new_spell_book( );
                  pSpell->next = pActorIndex->pSpells;
-                 pSpell->vnum = fread_number( fp );
+                 pSpell->dbkey = fread_number( fp );
                  pActorIndex->pSpells = pSpell;
                  fMatch = TRUE;
             }  
@@ -1543,7 +1543,7 @@ void fread_actor2( FILE *fp, int vnum )
 
             if ( !str_cmp( word, "Sk" ) )
             {
-            SKILL_DATA *pSkill;
+            SKILL *pSkill;
             int value;
 
             value = fread_number( fp );
@@ -1562,8 +1562,8 @@ void fread_actor2( FILE *fp, int vnum )
 
             if ( !str_cmp( word, "Sc" ) )
             {
-                INSTANCE_DATA *pTrig;
-                SCRIPT_DATA *pScript = get_script_index( fread_number(fp) );
+                INSTANCE *pTrig;
+                SCRIPT *pScript = get_script_index( fread_number(fp) );
 
                 if ( pScript ) {
                 pTrig = new_instance( );
@@ -1589,7 +1589,7 @@ void fread_actor2( FILE *fp, int vnum )
        {
            char buf[80];
            snprintf( buf, MAX_STRING_LENGTH, "fread_actor2: %d incorrect: %s",
-                         vnum, word );
+                         dbkey, word );
            bug( buf, 0 );
            fread_to_eol( fp );
        }
@@ -1610,7 +1610,7 @@ void load_actors( FILE *fp )
 
     for ( ; ; )
     {
-    int vnum;
+    int dbkey;
 	char letter;
 
 	letter				= fread_letter( fp );
@@ -1620,20 +1620,20 @@ void load_actors( FILE *fp )
 	    exit( 1 );
 	}
 
-	vnum				= fread_number( fp );
-    if ( vnum == 0 )
+	dbkey				= fread_number( fp );
+    if ( dbkey == 0 )
             break;
 
 	fBootDb = FALSE;
-	if ( get_actor_index( vnum ) != NULL )
+	if ( get_actor_template( dbkey ) != NULL )
 	{
-	    bug( "Load_actors: vnum %d duplicated.", vnum );
+	    bug( "Load_actors: dbkey %d duplicated.", dbkey );
 	    exit( 1 );
 	}
 	fBootDb = TRUE;
 
-    fread_actor2( fp, vnum );
-    top_vnum_actor = top_vnum_actor < vnum ? vnum : top_vnum_actor;
+    fread_actor2( fp, dbkey );
+    top_dbkey_actor = top_dbkey_actor < dbkey ? dbkey : top_dbkey_actor;
     }
     return;
 }
@@ -1641,7 +1641,7 @@ void load_actors( FILE *fp )
 
 /*
  * Fixes the slot numbers on certain props.
-void fix_prop( PROP_INDEX_DATA *pPropIndex )
+void fix_prop( PROP_TEMPLATE *pPropIndex )
 {
     fBootDb = FALSE;
 	switch ( pPropIndex->item_type )
@@ -1668,15 +1668,15 @@ void fix_prop( PROP_INDEX_DATA *pPropIndex )
  */
 
 
-void fread_prop_index( FILE *fp, int vnum )
+void fread_prop_template( FILE *fp, int dbkey )
 {
-    PROP_INDEX_DATA *pPropIndex;
+    PROP_TEMPLATE *pPropIndex;
     int iHash;
     char      *word;
     bool      fMatch;
 
-    pPropIndex                   = new_prop_index( );
-    pPropIndex->vnum             = vnum;
+    pPropIndex                   = new_prop_template( );
+    pPropIndex->dbkey             = dbkey;
     pPropIndex->zone             = zone_last;
 
     for ( ; ; )
@@ -1691,7 +1691,7 @@ void fread_prop_index( FILE *fp, int vnum )
             KEY( "E", pPropIndex->extra_flags, fread_number( fp ) );
             if ( !str_cmp( word, "ED" ) )
             {
-                EXTRA_DESCR_DATA *ed;
+                EXTRA_DESCR *ed;
 
                 ed                      = new_extra_descr( );
                 ed->keyword             = fread_string( fp );
@@ -1702,9 +1702,9 @@ void fread_prop_index( FILE *fp, int vnum )
             }
             if ( !str_cmp( word, "End" ) )
             {
-                iHash                   = vnum % MAX_KEY_HASH;
-                pPropIndex->next         = prop_index_hash[iHash];
-                prop_index_hash[iHash]   = pPropIndex;
+                iHash                   = dbkey % MAX_KEY_HASH;
+                pPropIndex->next         = prop_template_hash[iHash];
+                prop_template_hash[iHash]   = pPropIndex;
                 return;
             }
            break;
@@ -1712,7 +1712,7 @@ void fread_prop_index( FILE *fp, int vnum )
            SKEY( "A", pPropIndex->action_descr );
             if ( !str_cmp( word, "Af" ) )
             {
-                BONUS_DATA *paf;
+                BONUS *paf;
 
                 paf                     = new_bonus( );
                 paf->location           = fread_number( fp );
@@ -1744,7 +1744,7 @@ void fread_prop_index( FILE *fp, int vnum )
            SKEY( "SD", pPropIndex->short_descr );
             if ( !str_cmp( word, "Sc" ) )
             {
-                INSTANCE_DATA *pTrig;
+                INSTANCE *pTrig;
 
                 pTrig = new_instance( );
                 pTrig->script = get_script_index( fread_number( fp ) );
@@ -1779,8 +1779,8 @@ void fread_prop_index( FILE *fp, int vnum )
        }
                if ( !fMatch )
                {
-                  sprintf( log_buf, "fread_prop_index: vnum %d incorrect:  '%s'",
-                                    vnum, word );
+                  sprintf( log_buf, "fread_prop_template: dbkey %d incorrect:  '%s'",
+                                    dbkey, word );
                   bug( log_buf, 0 );
                   fread_to_eol( fp );
                }
@@ -1806,7 +1806,7 @@ void load_props( FILE *fp )
 
     for ( ; ; )
     {
-    int vnum;
+    int dbkey;
 	char letter;
 
 	letter				= fread_letter( fp );
@@ -1816,20 +1816,20 @@ void load_props( FILE *fp )
 	    exit( 1 );
 	}
 
-	vnum				= fread_number( fp );
-	if ( vnum == 0 )
+	dbkey				= fread_number( fp );
+	if ( dbkey == 0 )
 	    break;
 
 	fBootDb = FALSE;
-	if ( get_prop_index( vnum ) != NULL )
+	if ( get_prop_template( dbkey ) != NULL )
 	{
-	    bug( "Load_props: vnum %d duplicated.", vnum );
+	    bug( "Load_props: dbkey %d duplicated.", dbkey );
 	    exit( 1 );
 	}
 	fBootDb = TRUE;
 
-    fread_prop_index( fp, vnum );
-    top_vnum_prop = top_vnum_prop < vnum ? vnum : top_vnum_prop;
+    fread_prop_template( fp, dbkey );
+    top_dbkey_prop = top_dbkey_prop < dbkey ? dbkey : top_dbkey_prop;
     }
 
     return;
@@ -1837,18 +1837,18 @@ void load_props( FILE *fp )
 
 
 
-void fread_scene( FILE *fp, int vnum )
+void fread_scene( FILE *fp, int dbkey )
 {
-    SCENE_INDEX_DATA *pSceneIndex;
+    SCENE *pSceneIndex;
     int iHash;
     int door;
     char *word;
     bool fMatch;
 
 
-    pSceneIndex              = new_scene_index( );
+    pSceneIndex              = new_scene( );
 	pSceneIndex->zone		= zone_last;
-	pSceneIndex->vnum		= vnum;
+	pSceneIndex->dbkey		= dbkey;
 
     for ( ; ; )
     {
@@ -1861,14 +1861,14 @@ void fread_scene( FILE *fp, int vnum )
           case 'E':
             if ( !str_cmp( word, "End" ) )
             {
-                 iHash           = vnum % MAX_KEY_HASH;
-                 pSceneIndex->next    = scene_index_hash[iHash];
-                 scene_index_hash[iHash]  = pSceneIndex;
+                 iHash           = dbkey % MAX_KEY_HASH;
+                 pSceneIndex->next    = scene_hash[iHash];
+                 scene_hash[iHash]  = pSceneIndex;
                  return;
             }
             if ( !str_cmp( word, "ED" ) )
             {
-                 EXTRA_DESCR_DATA *ed;
+                 EXTRA_DESCR *ed;
 
                  ed                       = new_extra_descr( );
                  ed->keyword              = fread_string( fp );
@@ -1889,11 +1889,11 @@ void fread_scene( FILE *fp, int vnum )
             }
             if ( !str_cmp( word, "R" ) )
             {
-                   SPAWN_DATA *pSpawn;
+                   SPAWN *pSpawn;
 
-                   pSpawn      = new_spawn_data( );
+                   pSpawn      = new_spawn( );
                    pSpawn->command = fread_letter( fp );
-                   pSpawn->rs_vnum = fread_number( fp );
+                   pSpawn->rs_dbkey = fread_number( fp );
                    pSpawn->loc     = fread_number( fp );
                    pSpawn->percent = fread_number( fp );
                    pSpawn->num     = fread_number( fp );
@@ -1913,13 +1913,13 @@ void fread_scene( FILE *fp, int vnum )
            SKEY( "D", pSceneIndex->description );
             if ( !str_cmp( word, "Dr" ) )
             {
-               EXIT_DATA *pexit;
+               EXIT *pexit;
 
                door                = fread_number( fp );
 
                if ( door < 0 || door >= MAX_DIR )
                {
-                   bug( "Fread_scenes: vnum %d has bad door number.", vnum );
+                   bug( "Fread_scenes: dbkey %d has bad door number.", dbkey );
                    exit( 1 );
                }
 
@@ -1927,7 +1927,7 @@ void fread_scene( FILE *fp, int vnum )
 
                pexit->rs_flags     = fread_number( fp );
                pexit->key          = fread_number( fp );
-               pexit->vnum         = fread_number( fp );
+               pexit->dbkey         = fread_number( fp );
 
                pexit->description  = fread_string( fp );
                pexit->keyword      = fread_string( fp );
@@ -1958,10 +1958,10 @@ void fread_scene( FILE *fp, int vnum )
            break;
           case 'O': SKEY( "O", pSceneIndex->owner ); break;
           case 'S':
-            KEY( "S", pSceneIndex->sector_type, fread_number( fp ) );
+            KEY( "S", pSceneIndex->move, fread_number( fp ) );
             if ( !str_cmp( word, "Sc" ) )
             {
-                INSTANCE_DATA *pTrig;
+                INSTANCE *pTrig;
 
                 pTrig = new_instance( );
                 pTrig->script = get_script_index( fread_number( fp ) );
@@ -1975,7 +1975,7 @@ void fread_scene( FILE *fp, int vnum )
                {
                   char buf[80];
                   snprintf( buf, MAX_STRING_LENGTH, "fread_scenes: incorrect titler %s on v%d",
-                                word, vnum );
+                                word, dbkey );
                   bug( buf, 0 );
                   fread_to_eol( fp );
                }
@@ -1997,7 +1997,7 @@ void load_scenes( FILE *fp )
 
     for ( ; ; )
     {
-    int vnum;
+    int dbkey;
     char letter;
 
         letter                          = fread_letter( fp );
@@ -2007,20 +2007,20 @@ void load_scenes( FILE *fp )
             exit( 1 );
         }
 
-        vnum                            = fread_number( fp );
-        if ( vnum == 0 )
+        dbkey                            = fread_number( fp );
+        if ( dbkey == 0 )
             break;
 
         fBootDb = FALSE;
-        if ( get_scene_index( vnum ) != NULL )
+        if ( get_scene( dbkey ) != NULL )
         {
-            bug( "Load_scenes: vnum %d duplicated.", vnum );
+            bug( "Load_scenes: dbkey %d duplicated.", dbkey );
             exit( 1 );
         }
         fBootDb = TRUE;
 
-    fread_scene( fp, vnum );
-    top_vnum_scene = top_vnum_scene < vnum ? vnum : top_vnum_scene;
+    fread_scene( fp, dbkey );
+    top_dbkey_scene = top_dbkey_scene < dbkey ? dbkey : top_dbkey_scene;
     }
 
     return;
@@ -2028,15 +2028,15 @@ void load_scenes( FILE *fp )
 
 
 
-void fread_script( FILE *fp, int vnum )
+void fread_script( FILE *fp, int dbkey )
 {
-    SCRIPT_DATA *script;
+    SCRIPT *script;
     char        *word;
     bool        fMatch;
     int         iHash;
 
     script                =  new_script( );
-    script->vnum          =  vnum;
+    script->dbkey          =  dbkey;
     script->zone          =  zone_last;
 
     for ( ; ; )
@@ -2053,10 +2053,10 @@ void fread_script( FILE *fp, int vnum )
           case 'E':
             if ( !str_cmp( word, "End" ) )
             {
-               iHash                    = vnum % MAX_KEY_HASH;
-               script->next             = script_index_hash[iHash];
-               script_index_hash[iHash] = script;
-               script->zone             = get_vnum_zone(vnum);
+               iHash                    = dbkey % MAX_KEY_HASH;
+               script->next             = script__hash[iHash];
+               script__hash[iHash] = script;
+               script->zone             = get_dbkey_zone(dbkey);
                return;
             }
            break;
@@ -2092,7 +2092,7 @@ void load_scripts( FILE *fp )
 
     for ( ; ; )
     {
-        int vnum;
+        int dbkey;
         char letter;
 
         letter                          = fread_letter( fp );
@@ -2102,20 +2102,20 @@ void load_scripts( FILE *fp )
             exit( 1 );
         }
 
-        vnum                            = fread_number( fp );
-        if ( vnum == 0 )
+        dbkey                            = fread_number( fp );
+        if ( dbkey == 0 )
             break;
 
         fBootDb = FALSE;
-        if ( get_script_index( vnum ) != NULL )
+        if ( get_script_index( dbkey ) != NULL )
         {
-            bug( "Load_scripts: vnum %d duplicated.", vnum );
+            bug( "Load_scripts: dbkey %d duplicated.", dbkey );
             exit( 1 );
         }
         fBootDb = TRUE;
 
-        fread_script( fp, vnum );
-        top_vnum_script = top_vnum_script < vnum ? vnum : top_vnum_script;
+        fread_script( fp, dbkey );
+        top_dbkey_script = top_dbkey_script < dbkey ? dbkey : top_dbkey_script;
     }
 
     return;
@@ -2128,9 +2128,9 @@ void load_scripts( FILE *fp )
 void fix_mobs( void ) {
    int v=0;  int fDidSomething=0;
    fBootDb=FALSE;
-   ATTACK_DATA *attack;
-   for ( v=0; v<top_vnum_actor; v++ ) {
-      ACTOR_INDEX_DATA *a=get_actor_index(v);
+   ATTACK *attack;
+   for ( v=0; v<top_dbkey_actor; v++ ) {
+      ACTOR_TEMPLATE *a=get_actor_template(v);
       if ( a ) { 
       a->name = strlwr(a->name);
          if ( a->exp < 30 && a->exp != 1 ) { a->exp = number_range(0,1000); 
@@ -2391,16 +2391,16 @@ void fix_exits( void )
 {
     extern const int rev_dir [];
     char buf[MAX_STRING_LENGTH];
-    SCENE_INDEX_DATA *pSceneIndex;
-    SCENE_INDEX_DATA *to_scene;
-    EXIT_DATA *pexit;
-    EXIT_DATA *pexit_rev;
+    SCENE *pSceneIndex;
+    SCENE *to_scene;
+    EXIT *pexit;
+    EXIT *pexit_rev;
     int iHash;
     int door;
 
     for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
     {
-	for ( pSceneIndex  = scene_index_hash[iHash];
+	for ( pSceneIndex  = scene_hash[iHash];
 	      pSceneIndex != NULL;
 	      pSceneIndex  = pSceneIndex->next )
 	{
@@ -2412,11 +2412,11 @@ void fix_exits( void )
 		if ( ( pexit = pSceneIndex->exit[door] ) != NULL )
 		{
 		    fexit = TRUE;
-		    if ( pexit->vnum <= 0 )
+		    if ( pexit->dbkey <= 0 )
 			pexit->to_scene = NULL;
 		    else
-			pexit->to_scene = get_scene_index( pexit->vnum );
-                    pexit->exit_info = pexit->rs_flags;
+			pexit->to_scene = get_scene( pexit->dbkey );
+                    pexit->exit_flags = pexit->rs_flags;
 		}
 	    }
 
@@ -2427,7 +2427,7 @@ void fix_exits( void )
 
     for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
     {
-	for ( pSceneIndex  = scene_index_hash[iHash];
+	for ( pSceneIndex  = scene_hash[iHash];
 	      pSceneIndex != NULL;
 	      pSceneIndex  = pSceneIndex->next )
 	{
@@ -2440,10 +2440,10 @@ void fix_exits( void )
 		{
 #if defined(FIX_EXITS_REPORTING)
 		    snprintf( buf, MAX_STRING_LENGTH, "Fix_exits: %d:%d -> %d:%d -> %d.",
-			pSceneIndex->vnum, door,
-			to_scene->vnum,    rev_dir[door],
+			pSceneIndex->dbkey, door,
+			to_scene->dbkey,    rev_dir[door],
 			(pexit_rev->to_scene == NULL)
-			    ? 0 : pexit_rev->to_scene->vnum );
+			    ? 0 : pexit_rev->to_scene->dbkey );
 		    bug( buf, 0 );
 #endif
 		}
@@ -2460,20 +2460,20 @@ void fix_exits( void )
 /*
  * Create an instance of a actor.
  */
-PLAYER_DATA *create_actor( ACTOR_INDEX_DATA *pActorIndex )
+PLAYER *create_actor( ACTOR_TEMPLATE *pActorIndex )
 {
-    PLAYER_DATA *actor;
+    PLAYER *actor;
 
     if ( pActorIndex == NULL )
     {
 	bug( "Create_actor: NULL pActorIndex.", 0 );
     if ( fBootDb ) exit( 1 );
 
-	pActorIndex = get_actor_index( ACTOR_VNUM_TEMPLATE );
+	pActorIndex = get_actor_template( ACTOR_VNUM_TEMPLATE );
     }
     
-    actor = new_player_data( );
-    free_user_data( actor->userdata );
+    actor = new_player( );
+    free_user( actor->userdata );
     actor->userdata = NULL;
 
     actor->pIndexData	= pActorIndex;
@@ -2506,7 +2506,7 @@ PLAYER_DATA *create_actor( ACTOR_INDEX_DATA *pActorIndex )
 
     if ( pActorIndex->instances != NULL )
     {
-    INSTANCE_DATA *trig, *pTrig;
+    INSTANCE *trig, *pTrig;
 
     for ( pTrig = pActorIndex->instances;  pTrig != NULL;  pTrig = pTrig->next )
     {
@@ -2521,7 +2521,7 @@ PLAYER_DATA *create_actor( ACTOR_INDEX_DATA *pActorIndex )
     }
 
     actor->timer          = pActorIndex->timer;
-    actor->act            = pActorIndex->act;
+    actor->flag            = pActorIndex->flag;
     actor->bonuses  	= pActorIndex->bonuses;
 
     actor->credits = pActorIndex->credits ? number_range(0,pActorIndex->credits/2) + pActorIndex->credits : 0;
@@ -2557,21 +2557,21 @@ PLAYER_DATA *create_actor( ACTOR_INDEX_DATA *pActorIndex )
 /*
  * Create an instance of a prop.
  */
-PROP_DATA *create_prop( PROP_INDEX_DATA *pPropIndex, int level )
+PROP *create_prop( PROP_TEMPLATE *pPropIndex, int level )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( pPropIndex == NULL )
     {
 	bug( "Create_prop: NULL pPropIndex.", 0 );
     if ( fBootDb ) exit( 1 );
 
-	pPropIndex = get_prop_index( PROP_VNUM_TEMPLATE );
+	pPropIndex = get_prop_template( PROP_VNUM_TEMPLATE );
     }
 
     if ( pPropIndex->item_type == ITEM_LIST && level != -1 )
     {
-        PROP_INDEX_DATA *pIndex;
+        PROP_TEMPLATE *pIndex;
         char *scanarg;
         char buf[20];
         int num;
@@ -2587,7 +2587,7 @@ PROP_DATA *create_prop( PROP_INDEX_DATA *pPropIndex, int level )
         }
 
         num       = atoi( buf );
-        pIndex = get_prop_index( num );
+        pIndex = get_prop_template( num );
         if ( pIndex != NULL ) pPropIndex = pIndex;
     }
     else level = 0;
@@ -2618,7 +2618,7 @@ PROP_DATA *create_prop( PROP_INDEX_DATA *pPropIndex, int level )
      */
     if ( pPropIndex->instances != NULL )
     {
-    INSTANCE_DATA *trig, *pTrig;
+    INSTANCE *trig, *pTrig;
 
     for ( pTrig = pPropIndex->instances;  pTrig != NULL;  pTrig = pTrig->next )
     {
@@ -2654,7 +2654,7 @@ PROP_DATA *create_prop( PROP_INDEX_DATA *pPropIndex, int level )
     {
     default:
     if ( prop->item_type >= ITEM_MAX )
-        bug( "Read_prop: vnum %d bad type.", pPropIndex->vnum );
+        bug( "Read_prop: dbkey %d bad type.", pPropIndex->dbkey );
 	break;
 
     case ITEM_SCROLL:
@@ -2724,23 +2724,23 @@ PROP_DATA *create_prop( PROP_INDEX_DATA *pPropIndex, int level )
  * Translates actor virtual number to its actor index struct.
  * Hash table lookup.
  */
-ACTOR_INDEX_DATA *get_actor_index( int vnum )
+ACTOR_TEMPLATE *get_actor_template( int dbkey )
 {
-    ACTOR_INDEX_DATA *pActorIndex;
+    ACTOR_TEMPLATE *pActorIndex;
 
-    if ( !fBootDb && vnum > top_vnum_actor ) return NULL;
+    if ( !fBootDb && dbkey > top_dbkey_actor ) return NULL;
 
-    for ( pActorIndex  = actor_index_hash[vnum % MAX_KEY_HASH];
+    for ( pActorIndex  = actor_template_hash[dbkey % MAX_KEY_HASH];
 	  pActorIndex != NULL;
 	  pActorIndex  = pActorIndex->next )
     {
-	if ( pActorIndex->vnum == vnum )
+	if ( pActorIndex->dbkey == dbkey )
 	    return pActorIndex;
     }
 
     if ( fBootDb )
     {
-	bug( "Get_actor_index: bad vnum %d.", vnum );
+	bug( "Get_actor_template: bad dbkey %d.", dbkey );
 	exit( 1 );
     }
 
@@ -2753,23 +2753,23 @@ ACTOR_INDEX_DATA *get_actor_index( int vnum )
  * Translates actor virtual number to its prop index struct.
  * Hash table lookup.
  */
-PROP_INDEX_DATA *get_prop_index( int vnum )
+PROP_TEMPLATE *get_prop_template( int dbkey )
 {
-    PROP_INDEX_DATA *pPropIndex;
+    PROP_TEMPLATE *pPropIndex;
 
-    if ( !fBootDb && vnum > top_vnum_prop ) return NULL;
+    if ( !fBootDb && dbkey > top_dbkey_prop ) return NULL;
 
-    for ( pPropIndex  = prop_index_hash[vnum % MAX_KEY_HASH];
+    for ( pPropIndex  = prop_template_hash[dbkey % MAX_KEY_HASH];
 	  pPropIndex != NULL;
 	  pPropIndex  = pPropIndex->next )
     {
-	if ( pPropIndex->vnum == vnum )
+	if ( pPropIndex->dbkey == dbkey )
 	    return pPropIndex;
     }
 
     if ( fBootDb )
     {
-	bug( "Get_prop_index: bad vnum %d.", vnum );
+	bug( "Get_prop_template: bad dbkey %d.", dbkey );
 	exit( 1 );
     }
 
@@ -2781,11 +2781,11 @@ PROP_INDEX_DATA *get_prop_index( int vnum )
  * Translates actor virtual number to its spell index struct.
  * Hash table lookup.
  */
-SPELL_DATA *find_spell( char *buf )
+SPELL *find_spell( char *buf )
 {
-    SPELL_DATA *pSpell=NULL;
+    SPELL *pSpell=NULL;
 
-    HASHSEARCH(spell_index_hash, 
+    HASHSEARCH(spell__hash, 
                !str_cmp(pSpell->name, buf), 
                pSpell );
 
@@ -2796,23 +2796,23 @@ SPELL_DATA *find_spell( char *buf )
  * Translates actor virtual number to its spell index struct.
  * Hash table lookup.
  */
-SPELL_DATA *get_spell_index( int vnum )
+SPELL *get_spell_index( int dbkey )
 {
-    SPELL_DATA *pSpell;
+    SPELL *pSpell;
 
-    if ( (!fBootDb && vnum > top_vnum_spell) || (vnum == 0) ) return NULL;
+    if ( (!fBootDb && dbkey > top_dbkey_spell) || (dbkey == 0) ) return NULL;
 
-    for ( pSpell  = spell_index_hash[vnum % MAX_KEY_HASH];
+    for ( pSpell  = spell__hash[dbkey % MAX_KEY_HASH];
           pSpell != NULL;
           pSpell  = pSpell->next )
     {
-        if ( pSpell->vnum == vnum )
+        if ( pSpell->dbkey == dbkey )
             return pSpell;
     }
 
 //    if ( fBootDb )
 //    {
-  //      bug( "Get_spell_index: bad vnum %d.", vnum );
+  //      bug( "Get_spell_index: bad dbkey %d.", dbkey );
  //       exit( 1 );
  //   }
 
@@ -2825,23 +2825,23 @@ SPELL_DATA *get_spell_index( int vnum )
  * Translates actor virtual number to its spell index struct.
  * Hash table lookup.
  */
-HELP_DATA *get_help_index( int vnum )
+HELP *get_help_index( int dbkey )
 {
-    HELP_DATA *pHelp;
+    HELP *pHelp;
 
-    if ( (!fBootDb && vnum > top_vnum_help) || (vnum == 0) ) return NULL;
+    if ( (!fBootDb && dbkey > top_dbkey_help) || (dbkey == 0) ) return NULL;
 
-    for ( pHelp  = help_index_hash[vnum % MAX_KEY_HASH];
+    for ( pHelp  = help__hash[dbkey % MAX_KEY_HASH];
           pHelp != NULL;
           pHelp  = pHelp->next )
     {
-        if ( pHelp->vnum == vnum )
+        if ( pHelp->dbkey == dbkey )
             return pHelp;
     }
 /*
     if ( fBootDb )
     {
-        bug( "Get_help_index: bad vnum %d.", vnum );
+        bug( "Get_help_index: bad dbkey %d.", dbkey );
         exit( 1 );
     }*/
 
@@ -2852,24 +2852,24 @@ HELP_DATA *get_help_index( int vnum )
  * Translates actor virtual number to its skill index struct.
  * Hash table lookup.
  */
-SKILL_DATA *get_skill_index( int vnum )
+SKILL *get_skill_index( int dbkey )
 {
-    SKILL_DATA *pSkill;
+    SKILL *pSkill;
 
-    if ( (!fBootDb && vnum > top_vnum_skill) || (vnum == 0) ) return NULL;
+    if ( (!fBootDb && dbkey > top_dbkey_skill) || (dbkey == 0) ) return NULL;
 
 
-    for ( pSkill  = skill_index_hash[vnum % MAX_KEY_HASH];
+    for ( pSkill  = skill__hash[dbkey % MAX_KEY_HASH];
           pSkill != NULL;
           pSkill  = pSkill->next )
     {
-        if ( pSkill->vnum == vnum )
+        if ( pSkill->dbkey == dbkey )
             return pSkill;
     }
 
     if ( fBootDb )
     {
-/*        bug( "Get_skill_index: bad vnum %d.", vnum );  exit(1); */
+/*        bug( "Get_skill_index: bad dbkey %d.", dbkey );  exit(1); */
     }
     return NULL;
 }
@@ -2878,27 +2878,27 @@ SKILL_DATA *get_skill_index( int vnum )
  * Translates actor virtual number to its scene index struct.
  * Hash table lookup.
  */
-SCENE_INDEX_DATA *get_scene_index( int vnum )
+SCENE *get_scene( int dbkey )
 {
-    SCENE_INDEX_DATA *pSceneIndex;
+    SCENE *pSceneIndex;
 
 /*
-    if ( !fBootDb && vnum > top_vnum_scene ) return NULL;
+    if ( !fBootDb && dbkey > top_dbkey_scene ) return NULL;
 */
-    if ( (!fBootDb && vnum > top_vnum_scene) || (vnum == 0) ) return NULL;
+    if ( (!fBootDb && dbkey > top_dbkey_scene) || (dbkey == 0) ) return NULL;
 
 
-    for ( pSceneIndex  = scene_index_hash[vnum % MAX_KEY_HASH];
+    for ( pSceneIndex  = scene_hash[dbkey % MAX_KEY_HASH];
           pSceneIndex != NULL;
           pSceneIndex  = pSceneIndex->next )
     {
-        if ( pSceneIndex->vnum == vnum )
+        if ( pSceneIndex->dbkey == dbkey )
             return pSceneIndex;
     }
 
     if ( fBootDb )
     {
-        bug( "Get_scene_index: bad vnum %d.", vnum );
+        bug( "Get_scene: bad dbkey %d.", dbkey );
         exit( 1 );
     }
 
@@ -2910,23 +2910,23 @@ SCENE_INDEX_DATA *get_scene_index( int vnum )
 /* Translates virtual number to its script index struct.
  * Hash table lookup.
  */
-SCRIPT_DATA *get_script_index( int vnum )
+SCRIPT *get_script_index( int dbkey )
 {
-    SCRIPT_DATA *script;
+    SCRIPT *script;
 
-    if ( !fBootDb && vnum > top_vnum_script ) return NULL;
+    if ( !fBootDb && dbkey > top_dbkey_script ) return NULL;
 
-    for ( script  = script_index_hash[vnum % MAX_KEY_HASH];
+    for ( script  = script__hash[dbkey % MAX_KEY_HASH];
           script != NULL;
           script  = script->next )
     {
-        if ( script->vnum == vnum )
+        if ( script->dbkey == dbkey )
             return script;
     }
 
     if ( fBootDb )
     {
-//        bug( "Get_script_index: bad vnum %d.", vnum );
+//        bug( "Get_script_index: bad dbkey %d.", dbkey );
 //        exit( 1 );
     }
 
@@ -3210,7 +3210,7 @@ const   struct  gem_list_type  gem_list[MAX_GEM_LIST]   =
   { "banded blue-john",               10, MA|MW,        50, NULL    },
 };
 
-void prop_strings( PROP_DATA *prop )
+void prop_strings( PROP *prop )
 {
    char buf[MAX_STRING_LENGTH];
    char old[MAX_STRING_LENGTH];
@@ -3387,7 +3387,7 @@ void prop_strings( PROP_DATA *prop )
 }
 
 
-void actor_strings( PLAYER_DATA *actor )
+void actor_strings( PLAYER *actor )
 {
    char buf[MAX_STRING_LENGTH];
    char old[MAX_STRING_LENGTH];
@@ -3775,7 +3775,7 @@ void tail_chain( void )
 /* Recover from a copyover - load players */
 void copyover_recover ( void )
 {
-        CONNECTION_DATA *d;
+        CONNECTION *d;
         FILE *fp;
         char name [100];
         char host[MSL];
@@ -3809,7 +3809,7 @@ void copyover_recover ( void )
                         continue;
                 }
 
-                d = new_connection_data();
+                d = new_connection();
                 d->connection = desc;
 
                 d->host = str_dup (host);
@@ -3832,7 +3832,7 @@ void copyover_recover ( void )
 
                         /* Just In Case */
                         if (!d->character->in_scene)
-                                d->character->in_scene = get_scene_index (1);
+                                d->character->in_scene = get_scene (1);
 
                         /* Insert in the char_list */
                         d->character->next = actor_list;

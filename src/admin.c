@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -48,7 +48,7 @@
  * Local functions.
  */
 
-SCENE_INDEX_DATA *	find_location	args( ( PLAYER_DATA *ch, char *arg ) );
+SCENE *	find_location	args( ( PLAYER *ch, char *arg ) );
 
 
 
@@ -56,13 +56,13 @@ SCENE_INDEX_DATA *	find_location	args( ( PLAYER_DATA *ch, char *arg ) );
  * Syntax:  advance [person] [level]
  *          advance [person] [level] [constellation]
  */
-void cmd_advance( PLAYER_DATA *ch, char *argument )
+void cmd_advance( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
     char embuf[MAX_STRING_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     int level;
 
     argument = one_argument( argument, arg1 );
@@ -80,7 +80,7 @@ void cmd_advance( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
         send_to_actor( "Not on NPC's.\n\r", ch );
         return;
@@ -106,7 +106,7 @@ void cmd_advance( PLAYER_DATA *ch, char *argument )
         {
             case LEVEL_NEW:
             case LEVEL_MORTAL:
-             if ( IS_SET(victim->act, PLR_APPLIED) ) {
+             if ( IS_SET(victim->flag, PLR_APPLIED) ) {
              snprintf( buf, MAX_STRING_LENGTH, "$n $k now an unvalidated player on this mud.\n\r" );
              }
              else {
@@ -135,7 +135,7 @@ void cmd_advance( PLAYER_DATA *ch, char *argument )
               embuf );
         }
 
-        if ( !IS_SET(ch->act2, CHANNEL_IMMTALK) && IS_IMMORTAL(ch) )
+        if ( !IS_SET(ch->flag2, CHANNEL_IMMTALK) && IS_IMMORTAL(ch) )
         cmd_immtalk( ch, "" );
     }
 
@@ -161,10 +161,10 @@ void cmd_advance( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  restore [person]
  */
-void cmd_restore( PLAYER_DATA *ch, char *argument )
+void cmd_restore( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -194,10 +194,10 @@ void cmd_restore( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  freeze [person]
  */
-void cmd_freeze( PLAYER_DATA *ch, char *argument )
+void cmd_freeze( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, arg );
 
@@ -213,7 +213,7 @@ void cmd_freeze( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
     send_to_actor( "Not on NPC's.\n\r", ch );
 	return;
@@ -225,15 +225,15 @@ void cmd_freeze( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_SET(victim->act, PLR_FREEZE) )
+    if ( IS_SET(victim->flag, PLR_FREEZE) )
     {
-	REMOVE_BIT(victim->act, PLR_FREEZE);
+	REMOVE_BIT(victim->flag, PLR_FREEZE);
     send_to_actor( "You can play again.\n\r", victim );
     send_to_actor( "FREEZE removed.\n\r", ch );
     }
     else
     {
-	SET_BIT(victim->act, PLR_FREEZE);
+	SET_BIT(victim->flag, PLR_FREEZE);
     send_to_actor( "The gods have revoked your freedoms, you are frozen!\n\r", victim );
     send_to_actor( "FREEZE set.\n\r", ch );
     }
@@ -252,10 +252,10 @@ void cmd_freeze( PLAYER_DATA *ch, char *argument )
  *          log #
  *          log all
  */
-void cmd_log( PLAYER_DATA *ch, char *argument )
+void cmd_log( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     extern bool fLogAll;
 
     one_argument( argument, arg );
@@ -301,7 +301,7 @@ void cmd_log( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
     send_to_actor( "Not on NPC's.\n\r", ch );
 	return;
@@ -310,14 +310,14 @@ void cmd_log( PLAYER_DATA *ch, char *argument )
     /*
      * No level check, gods can log anyone.
      */
-    if ( IS_SET(victim->act, PLR_LOG) )
+    if ( IS_SET(victim->flag, PLR_LOG) )
     {
-	REMOVE_BIT(victim->act, PLR_LOG);
+	REMOVE_BIT(victim->flag, PLR_LOG);
     send_to_actor( "LOG removed.\n\r", ch );
     }
     else
     {
-	SET_BIT(victim->act, PLR_LOG);
+	SET_BIT(victim->flag, PLR_LOG);
     send_to_actor( "LOG set.\n\r", ch );
     }
 
@@ -330,10 +330,10 @@ void cmd_log( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  noemote [person]
  */
-void cmd_noemote( PLAYER_DATA *ch, char *argument )
+void cmd_noemote( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, arg );
 
@@ -349,7 +349,7 @@ void cmd_noemote( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
     send_to_actor( "Not on NPC's.\n\r", ch );
 	return;
@@ -361,15 +361,15 @@ void cmd_noemote( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_SET(victim->act2, PLR_NO_EMOTE) )
+    if ( IS_SET(victim->flag2, PLR_NO_EMOTE) )
     {
-    REMOVE_BIT(victim->act2, PLR_NO_EMOTE);
+    REMOVE_BIT(victim->flag2, PLR_NO_EMOTE);
     send_to_actor( "You can emote again.\n\r", victim );
     send_to_actor( "NO_EMOTE removed.\n\r", ch );
     }
     else
     {
-    SET_BIT(victim->act2, PLR_NO_EMOTE);
+    SET_BIT(victim->flag2, PLR_NO_EMOTE);
     send_to_actor( "You are no longer allowed to emote!\n\r", victim );
     send_to_actor( "NO_EMOTE set.\n\r", ch );
     }
@@ -383,9 +383,9 @@ void cmd_noemote( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  peace
  */
-void cmd_peace( PLAYER_DATA *ch, char *argument )
+void cmd_peace( PLAYER *ch, char *argument )
 {
-    PLAYER_DATA *rch;
+    PLAYER *rch;
 
     for ( rch = ch->in_scene->people; rch != NULL; rch = rch->next_in_scene )
     {
@@ -410,20 +410,20 @@ void cmd_peace( PLAYER_DATA *ch, char *argument )
 
 
 
-BAN_DATA *		ban_free;
-BAN_DATA *		ban_list;
+BAN *		ban_free;
+BAN *		ban_list;
 
 
 /*
  * Syntax:  ban [site]
  */
-void cmd_ban( PLAYER_DATA *ch, char *argument )
+void cmd_ban( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    BAN_DATA *pban;
+    BAN *pban;
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
 	return;
 
     one_argument( argument, arg );
@@ -472,11 +472,11 @@ void cmd_ban( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  allow [site]
  */
-void cmd_allow( PLAYER_DATA *ch, char *argument )
+void cmd_allow( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    BAN_DATA *prev;
-    BAN_DATA *curr;
+    BAN *prev;
+    BAN *curr;
 
     one_argument( argument, arg );
 
@@ -514,7 +514,7 @@ void cmd_allow( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  wizlock
  */
-void cmd_wizlock( PLAYER_DATA *ch, char *argument )
+void cmd_wizlock( PLAYER *ch, char *argument )
 {
     extern bool wizlock;
     wizlock = !wizlock;
@@ -533,7 +533,7 @@ void cmd_wizlock( PLAYER_DATA *ch, char *argument )
  * Syntax:  force [person] [action]
  *          force all [action]
  */
-void cmd_force( PLAYER_DATA *ch, char *argument )
+void cmd_force( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
 
@@ -547,17 +547,17 @@ void cmd_force( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg, "all" ) )
     {
-	PLAYER_DATA *vch;
-	PLAYER_DATA *vch_next;
+	PLAYER *vch;
+	PLAYER *vch_next;
 
 	for ( vch = actor_list; vch != NULL; vch = vch_next )
 	{
 	    vch_next = vch->next;
 
-	    if ( !IS_NPC(vch) && get_trust( vch ) < get_trust( ch ) )
+	    if ( !NPC(vch) && get_trust( vch ) < get_trust( ch ) )
 	    {
         act( "$n forces everyone to '$t'.", ch, argument, vch, TO_VICT );
-        if (!IS_NPC(ch))
+        if (!NPC(ch))
           FORCE_LEVEL = get_trust( ch );
           else
           FORCE_LEVEL = MAX_LEVEL;
@@ -567,7 +567,7 @@ void cmd_force( PLAYER_DATA *ch, char *argument )
     }
     else
     {
-	PLAYER_DATA *victim;
+	PLAYER *victim;
 
 	if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
 	{
@@ -581,14 +581,14 @@ void cmd_force( PLAYER_DATA *ch, char *argument )
 	    return;
 	}
 
-	if ( !IS_NPC(ch) && get_trust( victim ) >= get_trust( ch ) )
+	if ( !NPC(ch) && get_trust( victim ) >= get_trust( ch ) )
 	{
         send_to_actor( "Do it yourself!\n\r", ch );
 	    return;
 	}
 
     act( "$n types '$t' for you.", ch, argument, victim, TO_VICT );
-    if (!IS_NPC(ch))
+    if (!NPC(ch))
       FORCE_LEVEL = get_trust( ch );
       else
       FORCE_LEVEL = MAX_LEVEL;
@@ -606,14 +606,14 @@ void cmd_force( PLAYER_DATA *ch, char *argument )
  * New routines by Locke.
  * Syntax:  invis [level]
  */
-void cmd_invis( PLAYER_DATA *ch, char *argument )
+void cmd_invis( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     int oldinvis;
 
     one_argument( argument, arg );
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
 	return;
 
     oldinvis = PC(ch,wizinvis);
@@ -655,11 +655,11 @@ void cmd_invis( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  bounty [person] [bounty]
  */
-void cmd_bounty( PLAYER_DATA *ch, char *argument )
+void cmd_bounty( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
@@ -676,7 +676,7 @@ void cmd_bounty( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
     send_to_actor( "Not on NPC's.\n\r", ch );
 	return;
@@ -694,10 +694,10 @@ void cmd_bounty( PLAYER_DATA *ch, char *argument )
  * Wizify and Wizbit sent in by M. B. King
  * Syntax:  wizify [person]
  */
-void cmd_wizify( PLAYER_DATA *ch, char *argument )
+void cmd_wizify( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
   
     argument = one_argument( argument, arg1  );
     if ( arg1[0] == '\0' )
@@ -710,14 +710,14 @@ void cmd_wizify( PLAYER_DATA *ch, char *argument )
 	send_to_actor( "They aren't here.\n\r" , ch );
 	return;
     }
-    if ( IS_NPC( victim ) )
+    if ( NPC( victim ) )
     {
 	send_to_actor( "Not on actors.\n\r", ch );
 	return;
     }
 
-    TOGGLE_BIT( victim->act2, PLR_WIZBIT );
-    if ( IS_SET(victim->act2, PLR_WIZBIT ) )
+    TOGGLE_BIT( victim->flag2, PLR_WIZBIT );
+    if ( IS_SET(victim->flag2, PLR_WIZBIT ) )
     {
 	act( "$N wizified.\n\r", ch, NULL, victim, TO_ACTOR );
 	act( "$n has wizified you!\n\r", ch, NULL, victim, TO_VICT );
@@ -737,9 +737,9 @@ void cmd_wizify( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  bamfin [emote]
  */
-void cmd_bamfin( PLAYER_DATA *ch, char *argument )
+void cmd_bamfin( PLAYER *ch, char *argument )
 {
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
     {
 	smash_tilde( argument );
     free_string( PC(ch,bamfin) );
@@ -754,9 +754,9 @@ void cmd_bamfin( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  bamfout [emote]
  */
-void cmd_bamfout( PLAYER_DATA *ch, char *argument )
+void cmd_bamfout( PLAYER *ch, char *argument )
 {
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
     {
 	smash_tilde( argument );
     free_string( PC(ch,bamfout) );
@@ -771,10 +771,10 @@ void cmd_bamfout( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  deny [person]
  */
-void cmd_deny( PLAYER_DATA *ch, char *argument )
+void cmd_deny( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -789,7 +789,7 @@ void cmd_deny( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
     send_to_actor( "Not on NPC's.\n\r", ch );
 	return;
@@ -801,7 +801,7 @@ void cmd_deny( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    SET_BIT(victim->act, PLR_DENY);
+    SET_BIT(victim->flag, PLR_DENY);
     send_to_actor( "You are denied access!\n\r", victim );
     send_to_actor( "OK.\n\r", ch );
     cmd_quit( victim, "" );
@@ -815,11 +815,11 @@ void cmd_deny( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  disconnect [person]
  */
-void cmd_disconnect( PLAYER_DATA *ch, char *argument )
+void cmd_disconnect( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    CONNECTION_DATA *d;
-    PLAYER_DATA *victim;
+    CONNECTION *d;
+    PLAYER *victim;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -859,9 +859,9 @@ void cmd_disconnect( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  system [message]
  */
-void cmd_system( PLAYER_DATA *ch, char *argument )
+void cmd_system( PLAYER *ch, char *argument )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     
     if ( argument[0] == '\0' )
     {
@@ -886,9 +886,9 @@ void cmd_system( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  echo [message]
  */
-void cmd_echo( PLAYER_DATA *ch, char *argument )
+void cmd_echo( PLAYER *ch, char *argument )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     
     if ( argument[0] == '\0' )
     {
@@ -913,13 +913,13 @@ void cmd_echo( PLAYER_DATA *ch, char *argument )
 
 /*
  * Syntax:  recho [message]
- *          recho [vnum] [message]
+ *          recho [dbkey] [message]
  */
-void cmd_recho( PLAYER_DATA *ch, char *argument )
+void cmd_recho( PLAYER *ch, char *argument )
 {
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     char arg[MAX_INPUT_LENGTH];
-    SCENE_INDEX_DATA *pOldScene;
+    SCENE *pOldScene;
         
     if ( argument[0] == '\0' )
     {
@@ -930,7 +930,7 @@ void cmd_recho( PLAYER_DATA *ch, char *argument )
     one_argument( argument, arg );
     if ( is_number( arg ) ){
        argument = one_argument( argument, arg );
-       pOldScene = get_scene_index(  atoi(arg) );
+       pOldScene = get_scene(  atoi(arg) );
        if ( pOldScene == NULL ) pOldScene = ch->in_scene;
     }
     else pOldScene = ch->in_scene;
@@ -950,15 +950,15 @@ void cmd_recho( PLAYER_DATA *ch, char *argument )
 
 
 
-SCENE_INDEX_DATA *find_location( PLAYER_DATA *ch, char *arg )
+SCENE *find_location( PLAYER *ch, char *arg )
 {
-    PLAYER_DATA *victim;
-    PROP_DATA *prop;
-    SCENE_INDEX_DATA *pScene;
+    PLAYER *victim;
+    PROP *prop;
+    SCENE *pScene;
     int iVnum;
 
     if ( is_number(arg) )
-	return get_scene_index( atoi( arg ) );
+	return get_scene( atoi( arg ) );
 
     if ( ( victim = get_actor_world( ch, arg ) ) != NULL )
 	return victim->in_scene;
@@ -966,9 +966,9 @@ SCENE_INDEX_DATA *find_location( PLAYER_DATA *ch, char *arg )
     if ( ( prop = get_prop_world( ch, arg ) ) != NULL )
         return prop->in_scene;
 
-    for ( iVnum = 0;  iVnum <= top_vnum_scene;  iVnum++ )
+    for ( iVnum = 0;  iVnum <= top_dbkey_scene;  iVnum++ )
     {
-    if ( (pScene = get_scene_index( iVnum )) == NULL ) continue;
+    if ( (pScene = get_scene( iVnum )) == NULL ) continue;
     if ( is_prename( arg, pScene->name ) ) return pScene;
     }
     
@@ -980,13 +980,13 @@ SCENE_INDEX_DATA *find_location( PLAYER_DATA *ch, char *arg )
 /*
  * Syntax:  transfer [person] [place]
  */
-void cmd_transfer( PLAYER_DATA *ch, char *argument )
+void cmd_transfer( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    SCENE_INDEX_DATA *location;
-    CONNECTION_DATA *d;
-    PLAYER_DATA *victim;
+    SCENE *location;
+    CONNECTION *d;
+    PLAYER *victim;
 
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
@@ -1069,12 +1069,12 @@ void cmd_transfer( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  at [location/person/thing] [action]
  */
-void cmd_at( PLAYER_DATA *ch, char *argument )
+void cmd_at( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    SCENE_INDEX_DATA *location;
-    SCENE_INDEX_DATA *original;
-    PLAYER_DATA *wch;
+    SCENE *location;
+    SCENE *original;
+    PLAYER *wch;
     
     argument = one_argument( argument, arg );
 
@@ -1124,11 +1124,11 @@ void cmd_at( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  as [person] [action]
  */
-void cmd_as( PLAYER_DATA *ch, char *argument )
+void cmd_as( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *wch;
-    CONNECTION_DATA *olddesc;
+    PLAYER *wch;
+    CONNECTION *olddesc;
     
     argument = one_argument( argument, arg );
 
@@ -1145,7 +1145,7 @@ void cmd_as( PLAYER_DATA *ch, char *argument )
     }
 
 
-    if ( IS_NPC(wch) || IS_IMMORTAL(wch) )
+    if ( NPC(wch) || IS_IMMORTAL(wch) )
     {
         send_to_actor( "Only mortal PCs.\n\r", ch );
         return;
@@ -1175,10 +1175,10 @@ void cmd_as( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  goto [person/place/thing]
  */
-void cmd_goto( PLAYER_DATA *ch, char *argument )
+void cmd_goto( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    SCENE_INDEX_DATA *location;
+    SCENE *location;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -1224,7 +1224,7 @@ void cmd_goto( PLAYER_DATA *ch, char *argument )
 }
 
 
-void cmd_reboo( PLAYER_DATA *ch, char *argument )
+void cmd_reboo( PLAYER *ch, char *argument )
 {
     send_to_actor( "If you want to REBOOT, spell it out.\n\r", ch );
     return;
@@ -1235,7 +1235,7 @@ void cmd_reboo( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  reboot
  */
-void cmd_reboot( PLAYER_DATA *ch, char *argument )
+void cmd_reboot( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     extern int num_hour;
@@ -1257,7 +1257,7 @@ void cmd_reboot( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_shutdow( PLAYER_DATA *ch, char *argument )
+void cmd_shutdow( PLAYER *ch, char *argument )
 {
     send_to_actor( "If you want to SHUTDOWN, spell it out.\n\r", ch );
     return;
@@ -1268,7 +1268,7 @@ void cmd_shutdow( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  shutdown
  */
-void cmd_shutdown( PLAYER_DATA *ch, char *argument )
+void cmd_shutdown( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     extern bool shut_down;
@@ -1290,15 +1290,15 @@ void cmd_shutdown( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  snoop [person]
  */
-void cmd_snoop( PLAYER_DATA *ch, char *argument )
+void cmd_snoop( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    CONNECTION_DATA *d;
-    PLAYER_DATA *victim;
+    CONNECTION *d;
+    PLAYER *victim;
 
     one_argument( argument, arg );
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
         send_to_actor( "Bad actor!  Don't ever do that again!\n\r", ch );
         return;
@@ -1371,10 +1371,10 @@ void cmd_snoop( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  switch [person]
  */
-void cmd_switch( PLAYER_DATA *ch, char *argument )
+void cmd_switch( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, arg );
     
@@ -1405,7 +1405,7 @@ void cmd_switch( PLAYER_DATA *ch, char *argument )
 	return;
     }
 
-    if ( victim->desc != NULL || !IS_NPC(victim) )
+    if ( victim->desc != NULL || !NPC(victim) )
     {
         send_to_actor( "Character in use.\n\r", ch );
 	return;
@@ -1424,7 +1424,7 @@ void cmd_switch( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  return
  */
-void cmd_return( PLAYER_DATA *ch, char *argument )
+void cmd_return( PLAYER *ch, char *argument )
 {
     if ( ch->desc == NULL )
 	return;
@@ -1456,12 +1456,12 @@ void cmd_return( PLAYER_DATA *ch, char *argument )
  *
  * Why does this not load the associated actors?
  */
-void cmd_charload( PLAYER_DATA *ch, char *argument )
+void cmd_charload( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    CONNECTION_DATA *d;
-    PLAYER_DATA *nch;
+    CONNECTION *d;
+    PLAYER *nch;
     bool fOld;
     
     argument = one_argument( argument, arg );
@@ -1493,7 +1493,7 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
         }
 
         if ( nch->in_scene == NULL )
-        actor_to_scene( nch, get_scene_index( SCENE_VNUM_APPLY ) );
+        actor_to_scene( nch, get_scene( SCENE_VNUM_APPLY ) );
         else
         actor_to_scene( nch, nch->in_scene );
         
@@ -1503,7 +1503,7 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
     }
     else
     {
-        if ( IS_NPC(nch) )
+        if ( NPC(nch) )
         return;
     }
 
@@ -1524,10 +1524,10 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
 /* OLD
     if ( !str_cmp( arg2, "approve" ) )
     {
-        RACE_DATA *pRace;
+        RACE *pRace;
 
         PC(nch,level) = LEVEL_MORTAL;
-        REMOVE_BIT( nch->act, PLR_DENY );
+        REMOVE_BIT( nch->flag, PLR_DENY );
 
         pRace = race_lookup( ch->race );
         if ( pRace == NULL )
@@ -1537,7 +1537,7 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
         }
 
         actor_from_scene( nch );
-        actor_to_scene( nch, get_scene_index( pRace->start_scene ) );
+        actor_to_scene( nch, get_scene( pRace->start_scene ) );
         send_to_actor( "Approved.\n\r", ch );
         free_string( PC(nch,denial) );
         PC(nch,denial) = str_dup( "" );
@@ -1546,8 +1546,8 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
 */
     if ( !str_cmp( arg2, "approve" ) ) {
 
-        REMOVE_BIT( nch->act, PLR_APPLIED );
-        REMOVE_BIT( nch->act, PLR_DENY );
+        REMOVE_BIT( nch->flag, PLR_APPLIED );
+        REMOVE_BIT( nch->flag, PLR_DENY );
         ch->userdata->app_time = 0;
         STC( "Approved.\n\r", ch );
 
@@ -1561,7 +1561,7 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
     {
         PC(nch,level) = LEVEL_APPLIED;
         actor_from_scene( nch );
-        actor_to_scene( nch, get_scene_index( SCENE_VNUM_APPLY ) );
+        actor_to_scene( nch, get_scene( SCENE_VNUM_APPLY ) );
         string_append( ch, &PC(nch,denial)  );
         PC(nch,denial) = str_dup( argument );
         send_to_actor( "Rejecting.\n\r", ch );
@@ -1569,9 +1569,9 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
     }
  */
     if ( !str_cmp( arg2, "reject" ) ) {
-        SET_BIT( nch->act, PLR_APPLIED );
+        SET_BIT( nch->flag, PLR_APPLIED );
         actor_from_scene( nch );
-        actor_to_scene( nch, get_scene_index( SCENE_VNUM_APPLY ) );
+        actor_to_scene( nch, get_scene( SCENE_VNUM_APPLY ) );
 
         string_append( ch, &PC(nch,denial)  );
         PC(nch,denial) = str_dup( argument );
@@ -1581,7 +1581,7 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg2, "deny" ) )
     {
-        SET_BIT( nch->act, PLR_DENY );
+        SET_BIT( nch->flag, PLR_DENY );
         send_to_actor( "Denied.\n\r", ch );
         save_actor_prop( nch );
         cmd_quit( nch, "" );
@@ -1590,7 +1590,7 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg2, "allow" ) )
     {
-        REMOVE_BIT( nch->act, PLR_DENY );
+        REMOVE_BIT( nch->flag, PLR_DENY );
         send_to_actor( "Allowed.\n\r", ch );
         return;
     }
@@ -1604,7 +1604,7 @@ void cmd_charload( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  shell [command]
  */
-void cmd_shell( PLAYER_DATA *ch, char *argument )
+void cmd_shell( PLAYER *ch, char *argument )
 {
 #if defined(unix)
     char buf[MAX_INPUT_LENGTH];
@@ -1648,24 +1648,24 @@ void cmd_shell( PLAYER_DATA *ch, char *argument )
  * Syntax:  purge
  *          purge [prop]
  *          purge [person]
- *          purge [scene vnum]
+ *          purge [scene dbkey]
  */
-void cmd_purge( PLAYER_DATA *ch, char *argument )
+void cmd_purge( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
-    PROP_DATA *prop = NULL;
+    PLAYER *victim;
+    PROP *prop = NULL;
 
     one_argument( argument, arg );
 
     if ( arg[0] == '\0' || is_number(arg) )
     {
 	/* 'purge' */
-	PLAYER_DATA *vnext;
-	PROP_DATA  *prop_next;
-        SCENE_INDEX_DATA *pScene;
+	PLAYER *vnext;
+	PROP  *prop_next;
+        SCENE *pScene;
 
-        pScene = get_scene_index( atoi(arg) );
+        pScene = get_scene( atoi(arg) );
 
         if ( !pScene ) victim = ch->in_scene->people;
         else
@@ -1674,9 +1674,9 @@ void cmd_purge( PLAYER_DATA *ch, char *argument )
 	for ( ; victim != NULL; victim = vnext )
 	{
 	    vnext = victim->next_in_scene;
-	        if ( IS_NPC(victim) && victim->desc == NULL 
+	        if ( NPC(victim) && victim->desc == NULL 
                      && victim != ch )
-			extract_char( victim, TRUE );
+			extractor_char( victim, TRUE );
 	}
 
         if ( !pScene ) prop = ch->in_scene->contents;
@@ -1686,10 +1686,10 @@ void cmd_purge( PLAYER_DATA *ch, char *argument )
 	for ( ; prop != NULL; prop = prop_next )
 	{
 	    prop_next = prop->next_content;
-	    extract_prop( prop );
+	    extractor_prop( prop );
 	}
 
-        if ( IS_NPC(ch) ) return;
+        if ( NPC(ch) ) return;
 
         act( "$n cleanses the scene with righteous fire!", ch, NULL, NULL, TO_SCENE);
         send_to_actor( "You cleanse the scene with righteous fire!\n\r", ch );
@@ -1705,7 +1705,7 @@ void cmd_purge( PLAYER_DATA *ch, char *argument )
 
     if ( victim )
     {
-    if ( !IS_NPC(victim) || victim->desc != NULL )
+    if ( !NPC(victim) || victim->desc != NULL )
     {
     send_to_actor( "Not on PC's or switched PC's.\n\r", ch );
 	return;
@@ -1713,14 +1713,14 @@ void cmd_purge( PLAYER_DATA *ch, char *argument )
 
     act( "You purge $N.", ch, NULL, victim, TO_ACTOR );
     act( "$n purges $N.", ch, NULL, victim, TO_NOTVICT );
-    extract_char( victim, TRUE );
+    extractor_char( victim, TRUE );
     }
 
     if ( prop )
     {
     act( "You purge $P.", ch, NULL, prop, TO_ACTOR );
     act( "$n purges $P.", ch, NULL, prop, TO_SCENE );
-    extract_prop( prop );
+    extractor_prop( prop );
     }
 
     return;
@@ -1738,10 +1738,10 @@ void cmd_purge( PLAYER_DATA *ch, char *argument )
  *  http://www.andreasen.org
  *  Changed into a ROM patch after seeing the 100th request for it :)
  */
-void cmd_hotboot (PLAYER_DATA *ch, char * argument)
+void cmd_hotboot (PLAYER *ch, char * argument)
 {
 	FILE *fp;
-	CONNECTION_DATA *d, *d_next;
+	CONNECTION *d, *d_next;
 	char buf [100], buf2[100];
 	extern int port,control; /* db.c */
 	
@@ -1765,7 +1765,7 @@ void cmd_hotboot (PLAYER_DATA *ch, char * argument)
 	/* For each playing connection, save its state */
 	for (d = connection_list; d ; d = d_next)
 	{
-		PLAYER_DATA * och = CH (d);
+		PLAYER * och = CH (d);
 		d_next = d->next; /* We delete from the list , so need to save this */
 		
 		if (!d->character || d->connected > NET_PLAYING) /* drop those logging on */
@@ -1816,7 +1816,7 @@ void cmd_hotboot (PLAYER_DATA *ch, char * argument)
 /* Recover from a hotboot - load players */
 void hotboot_recover ( int control )
 {
-	CONNECTION_DATA *d;
+	CONNECTION *d;
 	FILE *fp;
 	char name [100];
 	char host[MSL];
@@ -1849,7 +1849,7 @@ void hotboot_recover ( int control )
 			continue;
 		}
 		
-		d = new_connection_data(  );
+		d = new_connection(  );
 		d->connection = desc;
 		
 		d->host = str_dup (host);
@@ -1873,7 +1873,7 @@ void hotboot_recover ( int control )
 	
 			/* Just In Case */
 			if (!d->character->in_scene)
-				d->character->in_scene = get_scene_index (SCENE_VNUM_START);
+				d->character->in_scene = get_scene (SCENE_VNUM_START);
 
 			/* Insert in the actor_list */
 			d->character->next = actor_list;

@@ -8,7 +8,7 @@
  *   n a m e l e s s i n c a r n a t e          dedicated to chris cool       *
  ******************************************************************************/
 
-/* Change shop_data struct in in nimud.h */
+/* Change shop struct in in nimud.h */
 
 #define T_CORN         0
 #define T_FLOUR        1

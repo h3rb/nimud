@@ -137,9 +137,9 @@ Sz 24
 K 1 E 200
 O ~
 AP 7 7 7 7 7
-Sc 10015
-Sc 10016
 Sc 10018
+Sc 10016
+Sc 10015
 End
 
 #10020
@@ -165,16 +165,16 @@ AP 25 30 30 25 30
 Sc 10020
 At 1 3 5 13
 At 2 5 10 1
-Sk 100 'legerdemain'
-Sk 75 'backstab'
-Sk 50 'pickpocketing'
-Sk 100 'peek'
-Sk 100 'lock picking'
-Sk 100 'stealth'
-Sk 50 'camoflage'
-Sk 40 'tracking'
-Sk 10 'climbing'
 Sk 10 'swimming'
+Sk 10 'climbing'
+Sk 40 'tracking'
+Sk 50 'camoflage'
+Sk 100 'stealth'
+Sk 100 'lock picking'
+Sk 100 'peek'
+Sk 50 'pickpocketing'
+Sk 75 'backstab'
+Sk 100 'legerdemain'
 End
 
 #10025

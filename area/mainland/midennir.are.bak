@@ -1105,10 +1105,6 @@ M 0
 W 0
 T 0
 O ~
-ED sign~
-The sign reads:
-   The Woodsman
-~
 ED credits credit author~
 +-------------------------------------------------+
 | This zone originally written for Copper II DIKU |
@@ -1116,6 +1112,10 @@ ED credits credit author~
 | Modification and alterations for MERCmud DIKU   |
 |   by VampLestat                        1 JAN 93 |
 +-------------------------------------------------+
+~
+ED sign~
+The sign reads:
+   The Woodsman
 ~
 Dr 0 0 0 18571
 You can go north around the inn.

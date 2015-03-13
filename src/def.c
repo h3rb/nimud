@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -62,7 +62,7 @@ const struct race_type race_table [MAX_RACE] =
  {
    "human",   "the zengalli tribe", 
    13, 13, 13, 13, 13,  /* S I W D C */
-   0,                  /* vnum */          
+   0,                  /* dbkey */          
    0,  
    5000,               /* Scene */ 
     50,                /* Max Skill */ 
@@ -252,7 +252,7 @@ const struct race_type race_table [MAX_RACE] =
    0,
    5000,                /* Scene */
    50,                /* Max Skill */
-   AFF_INFRARED,                /* Bits */
+   BONUS_INFRARED,                /* Bits */
    SIZE_AVERAGE,         /* Size */
    75,                /* Base age */
    17                 /* Starting age */
@@ -279,7 +279,7 @@ const struct race_type race_table [MAX_RACE] =
    0,
    5000,                /* Scene */
    50,                /* Max Skill */
-   AFF_INFRARED,                /* Bits */
+   BONUS_INFRARED,                /* Bits */
    SIZE_MINUTE,         /* Size */
    12000,                /* Base age */
    17                 /* Starting age */
@@ -1135,7 +1135,7 @@ const struct   comp_type   comp_table  [] =
 #define NO_COMPONENTS       0
 
 const   struct  group_type  group_table [MAX_GROUP] =
-{                                                        /*vnum*/
+{                                                        /*dbkey*/
    { "craft",                         GRO_CRAFT,          700   },
    { "language",                      GRO_LANGUAGE,       100   },
    { "legerdemain",                   GRO_LEGERDEMAIN,    500   },

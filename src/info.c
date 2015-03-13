@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -98,26 +98,26 @@ char *  const   where_name  [] =
 #define MAX_ITERATION       (IS_IMMORTAL(ch) ? 16 : 4)      /* for old ver */
 
 
-#define DEFCOLOR(ch)  default_color_variable = !IS_NPC(ch) && \
-                      IS_SET(ch->act2,PLR_TIMECOLOR) ? time_color(ch) : "^N"; \
-                      default_color_variable_di = !IS_NPC(ch) && IS_SET(ch->act2,PLR_TIMECOLOR) ? time_color(ch) : NTEXT;
+#define DEFCOLOR(ch)  default_color_variable = !NPC(ch) && \
+                      IS_SET(ch->flag2,PLR_TIMECOLOR) ? time_color(ch) : "^N"; \
+                      default_color_variable_di = !NPC(ch) && IS_SET(ch->flag2,PLR_TIMECOLOR) ? time_color(ch) : NTEXT;
 
 bool isGrey = FALSE;
 /*
  * 
  */
-char *time_color( PLAYER_DATA *ch ) {
+char *time_color( PLAYER *ch ) {
     isGrey = FALSE;
     if ( !IS_OUTSIDE(ch) ) return "^N";
-    if ( IS_SET(ch->act2, PLR_TIMECOLOR) ) {
-        switch( weather_info.hour ) {
+    if ( IS_SET(ch->flag2, PLR_TIMECOLOR) ) {
+        switch( weather.hour ) {
 
              case 0: 
              case 1: 
              case 2: 
              case 3: 
              case 4: 
-             case 5: isGrey=TRUE; return weather_info.moon_phase==MOON_FULL 
+             case 5: isGrey=TRUE; return weather.moon_phase==MOON_FULL 
                                                   ? "^N" : "^N^=^B";  
              case 6: return "^N^1";
              case 7: return "^N^3";
@@ -136,7 +136,7 @@ char *time_color( PLAYER_DATA *ch ) {
              case 20:  return "^5";
              case 21: 
              case 22: 
-             case 23: return weather_info.moon_phase==MOON_FULL ? "^N^0^B^=" : "^1^B"; 
+             case 23: return weather.moon_phase==MOON_FULL ? "^N^0^B^=" : "^1^B"; 
              default:  return "^N";
              
         }
@@ -146,10 +146,10 @@ char *time_color( PLAYER_DATA *ch ) {
 
 
 
-void show_scene_to_actor( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene, 
+void show_scene_to_actor( PLAYER *ch, SCENE *pScene, 
                         int dist, int dir )
 {
-    PLAYER_DATA *rch;
+    PLAYER *rch;
     char buf[MAX_STRING_LENGTH];
     char *p;
     int count;
@@ -163,7 +163,7 @@ void show_scene_to_actor( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene,
        if ( rch != ch && can_see( ch, rch ) )
        {
            count++;
-           if ( IS_NPC(ch) && IS_SET(ch->act, ACT_NOSCAN) )  count--;
+           if ( NPC(ch) && IS_SET(ch->flag, ACTOR_NOSCAN) )  count--;
        }
     }
     
@@ -184,7 +184,7 @@ void show_scene_to_actor( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene,
     for( rch = pScene->people;  rch != NULL;  rch = rch->next_in_scene )
     {        
         if ( !can_see( ch, rch )
-          || (IS_NPC(ch) && IS_SET(ch->act, ACT_NOSCAN))
+          || (NPC(ch) && IS_SET(ch->flag, ACTOR_NOSCAN))
           || ch == rch )
         continue;
         
@@ -214,15 +214,15 @@ void show_scene_to_actor( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene,
 /*
  * Brand new version.
  */
-void scan_direction( PLAYER_DATA *ch, int dir )
+void scan_direction( PLAYER *ch, int dir )
 { 
-    SCENE_INDEX_DATA *pScene;
-    EXIT_DATA *pExit;
+    SCENE *pScene;
+    EXIT *pExit;
     char buf[MAX_STRING_LENGTH];
     int dist;
     
     if ( (pExit = ch->in_scene->exit[dir]) == NULL
-      || IS_SET(pExit->exit_info, EX_CLOSED) )
+      || IS_SET(pExit->exit_flags, EXIT_CLOSED) )
     return;    
 
     for( dist = 1; dist < 5; dist++ )
@@ -235,10 +235,10 @@ void scan_direction( PLAYER_DATA *ch, int dir )
         if ( (pExit = pScene->exit[dir]) == NULL )
         break;
 
-        if ( IS_SET(pExit->exit_info, EX_CLOSED)
-          || IS_SET(pExit->exit_info, EX_CONCEALED) )
+        if ( IS_SET(pExit->exit_flags, EXIT_CLOSED)
+          || IS_SET(pExit->exit_flags, EXIT_CONCEALED) )
         {
-            if ( !IS_SET(pExit->exit_info, EX_CONCEALED) )
+            if ( !IS_SET(pExit->exit_flags, EXIT_CONCEALED) )
             {
                 snprintf( buf, MAX_STRING_LENGTH, "A closed %s%s blocks your view.\n\r",
                          pExit->keyword,
@@ -251,8 +251,8 @@ void scan_direction( PLAYER_DATA *ch, int dir )
             break;
         }
         else
-        if ( IS_SET(pExit->exit_info, EX_ISDOOR)
-          && !IS_SET(pExit->exit_info, EX_CONCEALED) )
+        if ( IS_SET(pExit->exit_flags, EXIT_ISDOOR)
+          && !IS_SET(pExit->exit_flags, EXIT_CONCEALED) )
         {
             snprintf( buf, MAX_STRING_LENGTH, "You can see an opened %s%s.\n\r",
                      pExit->keyword,
@@ -262,8 +262,8 @@ void scan_direction( PLAYER_DATA *ch, int dir )
             page_to_actor( buf, ch );
         }
         else
-        if ( !IS_SET(pExit->exit_info, EX_ISDOOR)
-          && !IS_SET(pExit->exit_info, EX_CONCEALED)
+        if ( !IS_SET(pExit->exit_flags, EXIT_ISDOOR)
+          && !IS_SET(pExit->exit_flags, EXIT_CONCEALED)
           && !MTD(pExit->keyword) )
         {
             snprintf( buf, MAX_STRING_LENGTH, "You are able to peer through a%s %s.\n\r",
@@ -279,7 +279,7 @@ void scan_direction( PLAYER_DATA *ch, int dir )
 
 
 
-char *format_prop_to_actor( PROP_DATA *prop, PLAYER_DATA *ch, bool fShort )
+char *format_prop_to_actor( PROP *prop, PLAYER *ch, bool fShort )
 {
     static char buf[MAX_STRING_LENGTH];
     char pre[MAX_STRING_LENGTH];
@@ -290,7 +290,7 @@ char *format_prop_to_actor( PROP_DATA *prop, PLAYER_DATA *ch, bool fShort )
     {
         pre[0] = '\0';
         if ( IS_PROP_STAT(prop, ITEM_INVIS)     ) strcat( pre, "invisible "  );
-        if ( IS_AFFECTED(ch, AFF_DETECT_MAGIC)
+        if ( IS_AFFECTED(ch, BONUS_DETECT_MAGIC)
           && IS_PROP_STAT(prop, ITEM_MAGIC)     ) strcat( pre, "shimmering " );
         if ( IS_PROP_STAT(prop, ITEM_GLOW)      ) strcat( pre, "glowing "    );
         if ( IS_PROP_STAT(prop, ITEM_BURNT)   ) strcat( pre, "charred "    );
@@ -368,7 +368,7 @@ char *format_prop_to_actor( PROP_DATA *prop, PLAYER_DATA *ch, bool fShort )
             if ( prop->value[2] < 0 || prop->value[2] >= LIQ_MAX )
             {
                 prop->value[2] = 0;
-                bug( "Invalid liquid on prop %d.", prop->pIndexData->vnum );
+                bug( "Invalid liquid on prop %d.", prop->pIndexData->dbkey );
             }
 
             strcat( buf, " of " );
@@ -377,12 +377,12 @@ char *format_prop_to_actor( PROP_DATA *prop, PLAYER_DATA *ch, bool fShort )
     }
     else
     {
-        PLAYER_DATA *puller;
+        PLAYER *puller;
 
         if ( IS_PROP_STAT(prop, ITEM_INVIS)     )   strcat( buf, "(Invisible) ");
-        if ( IS_AFFECTED(ch, AFF_DETECT_EVIL)
+        if ( IS_AFFECTED(ch, BONUS_DETECT_EVIL)
           && IS_PROP_STAT(prop, ITEM_EVIL)   )   strcat( buf, "(Red Aura) "    );
-        if ( IS_AFFECTED(ch, AFF_DETECT_MAGIC)
+        if ( IS_AFFECTED(ch, BONUS_DETECT_MAGIC)
           && IS_PROP_STAT(prop, ITEM_MAGIC)  )   strcat( buf, "(Yellow Glow) " );
         if ( IS_PROP_STAT(prop, ITEM_GLOW)      )   strcat( buf, "(Glowing) "  );
         if ( IS_PROP_STAT(prop, ITEM_HUM)       )   strcat( buf, "(Humming) "  );
@@ -438,14 +438,14 @@ char *format_prop_to_actor( PROP_DATA *prop, PLAYER_DATA *ch, bool fShort )
  * Show a list to a character.
  * Can coalesce duplicated items.
  */
-void show_list_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort, bool fShowNothing )
+void show_list_to_actor( PROP *list, PLAYER *ch, bool fShort, bool fShowNothing )
 {
     char buf[MAX_STRING_LENGTH];
     char **prgpstrShow;
     int *prgnShow;
     char *pstrShow;
-    PROP_DATA **lastprop;
-    PROP_DATA *prop;
+    PROP **lastprop;
+    PROP *prop;
     int nShow;
     int iShow;
     int count;
@@ -461,7 +461,7 @@ void show_list_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort, bool fSh
     for ( prop = list; prop != NULL; prop = prop->next_content ) count++;
     prgpstrShow	= alloc_mem( count * sizeof(char *) );
     prgnShow    = alloc_mem( count * sizeof(int)    );
-    lastprop     = alloc_mem( count * sizeof(PROP_DATA *) );
+    lastprop     = alloc_mem( count * sizeof(PROP *) );
     nShow       = 0;
 
     /*
@@ -480,7 +480,7 @@ void show_list_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort, bool fSh
             pstrShow = str_dup( format_prop_to_actor( prop, ch, fShort ) );
             fCombine = FALSE;
 
-            if ( IS_NPC(ch) || IS_SET(ch->act2, PLR_COMBINE) )
+            if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
             {
                 /*
                  * Look for duplicates, case sensitive.
@@ -522,7 +522,7 @@ void show_list_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort, bool fSh
         if ( fShort )
         send_to_actor( " ", ch );
 
-        if ( IS_NPC(ch) || IS_SET(ch->act2, PLR_COMBINE) )
+        if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
         {
             if ( prgnShow[iShow] > 1 )
             {
@@ -571,7 +571,7 @@ void show_list_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort, bool fSh
 
     if ( fShowNothing && nShow == 0 )
     {
-        if ( IS_NPC(ch) || IS_SET(ch->act2, PLR_COMBINE) )
+        if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
             page_to_actor( "     ", ch );
         page_to_actor( "Nothing.\n\r", ch );
     }
@@ -581,7 +581,7 @@ void show_list_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort, bool fSh
      */
     free_mem( prgpstrShow, count * sizeof(char *)      );
     free_mem( prgnShow,    count * sizeof(int)         );
-    free_mem( lastprop,     count * sizeof(PROP_DATA *)  );
+    free_mem( lastprop,     count * sizeof(PROP *)  );
 
     return;
 }
@@ -592,14 +592,14 @@ void show_list_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort, bool fSh
  * Show a list to a character.
  * Can coalesce duplicated items.
  */
-char *show_list_to_actor2( PROP_DATA *list, PLAYER_DATA *ch, char *prefix )
+char *show_list_to_actor2( PROP *list, PLAYER *ch, char *prefix )
 {
     static char final[MAX_STRING_LENGTH*4];
     char **prgpstrShow;
     int *prgnShow;
     char *pstrShow;
-    PROP_DATA **lastprop;
-    PROP_DATA *prop;
+    PROP **lastprop;
+    PROP *prop;
     int nShow;
     int iShow;
     int count;
@@ -615,7 +615,7 @@ char *show_list_to_actor2( PROP_DATA *list, PLAYER_DATA *ch, char *prefix )
     for ( prop = list; prop != NULL; prop = prop->next_content ) count++;
     prgpstrShow = alloc_mem( count * sizeof(char *) );
     prgnShow    = alloc_mem( count * sizeof(int)    );
-    lastprop     = alloc_mem( count * sizeof(PROP_DATA *) );
+    lastprop     = alloc_mem( count * sizeof(PROP *) );
     nShow       = 0;
 
     /*
@@ -634,7 +634,7 @@ char *show_list_to_actor2( PROP_DATA *list, PLAYER_DATA *ch, char *prefix )
             pstrShow = str_dup( format_prop_to_actor( prop, ch, TRUE ) );
             fCombine = FALSE;
 
-            if ( IS_NPC(ch) || IS_SET(ch->act2, PLR_COMBINE) )
+            if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
             {
                 /*
                  * Look for duplicates, case sensitive.
@@ -713,22 +713,22 @@ char *show_list_to_actor2( PROP_DATA *list, PLAYER_DATA *ch, char *prefix )
      */
     free_mem( prgpstrShow, count * sizeof(char *)      );
     free_mem( prgnShow,    count * sizeof(int)         );
-    free_mem( lastprop,     count * sizeof(PROP_DATA *)  );
+    free_mem( lastprop,     count * sizeof(PROP *)  );
     
     return final;
 }
 
 
 
-void show_peek_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort,
+void show_peek_to_actor( PROP *list, PLAYER *ch, bool fShort,
                         bool fShowNothing, int percent )
 {
     char buf[MAX_STRING_LENGTH];
     char **prgpstrShow;
     int *prgnShow;
     char *pstrShow;
-    PROP_DATA **lastprop;
-    PROP_DATA *prop;
+    PROP **lastprop;
+    PROP *prop;
     int nShow;
     int iShow;
     int count;
@@ -745,7 +745,7 @@ void show_peek_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort,
 	count++;
     prgpstrShow	= alloc_mem( count * sizeof(char *) );
     prgnShow    = alloc_mem( count * sizeof(int)    );
-    lastprop     = alloc_mem( count * sizeof(PROP_DATA *) );
+    lastprop     = alloc_mem( count * sizeof(PROP *) );
     nShow	= 0;
 
     /*
@@ -765,7 +765,7 @@ void show_peek_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort,
                    format_prop_to_actor( prop, ch, fShort ) : "something";
 	    fCombine = FALSE;
 
-        if ( IS_NPC(ch) || IS_SET(ch->act2, PLR_COMBINE) )
+        if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
         {
 		/*
 		 * Look for duplicates, case sensitive.
@@ -803,7 +803,7 @@ void show_peek_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort,
      */
     for ( iShow = 0; iShow < nShow; iShow++ )
     {
-    if ( IS_NPC(ch) || IS_SET(ch->act2, PLR_COMBINE) )
+    if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
 	{
         if ( prgnShow[iShow] > 1 )
 	    {
@@ -851,7 +851,7 @@ void show_peek_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort,
 
     if ( fShowNothing && nShow == 0 )
     {
-    if ( IS_NPC(ch) || IS_SET(ch->act2, PLR_COMBINE) )
+    if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
         page_to_actor( "     ", ch );
     page_to_actor( "Nothing.\n\r", ch );
     }
@@ -861,7 +861,7 @@ void show_peek_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort,
      */
     free_mem( prgpstrShow, count * sizeof(char *)      );
     free_mem( prgnShow,    count * sizeof(int)         );
-    free_mem( lastprop,     count * sizeof(PROP_DATA *)  );
+    free_mem( lastprop,     count * sizeof(PROP *)  );
 
     return;
 }
@@ -871,7 +871,7 @@ void show_peek_to_actor( PROP_DATA *list, PLAYER_DATA *ch, bool fShort,
 /*
  *  Shows a actor/player to character (look in scene)
  */
-void show_actor_to_actor_0( PLAYER_DATA *victim, PLAYER_DATA *ch )
+void show_actor_to_actor_0( PLAYER *victim, PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
@@ -920,15 +920,15 @@ void show_actor_to_actor_0( PLAYER_DATA *victim, PLAYER_DATA *ch )
 
 /*    send_to_actor( "ACTOR/PLR ", ch );       */
 
-    if ( IS_AFFECTED(victim, AFF_INVISIBLE)   ) strcat( buf, "(Invisible) "   );
-    if ( IS_AFFECTED(victim, AFF_HIDE)        ) strcat( buf, "(Hiding) "      );
-    if ( IS_AFFECTED(victim, AFF_CHARM)       ) strcat( buf, "(Charmed) "     );
-    if ( IS_AFFECTED(victim, AFF_PASS_DOOR)   ) strcat( buf, "(Translucent) " );
-    if ( IS_AFFECTED(victim, AFF_FAERIE_FIRE) ) strcat( buf, "(Pink Aura) "   );
-    if ( IS_AFFECTED(victim, AFF_SANCTUARY)   ) strcat( buf, "(White Aura) "  );
-    if ( !IS_NPC(victim)
-      && IS_AFFECTED(victim, AFF_FLYING)      ) strcat( buf, "(Floating) "    );
-    if ( !IS_NPC(victim)
+    if ( IS_AFFECTED(victim, BONUS_INVISIBLE)   ) strcat( buf, "(Invisible) "   );
+    if ( IS_AFFECTED(victim, BONUS_HIDE)        ) strcat( buf, "(Hiding) "      );
+    if ( IS_AFFECTED(victim, BONUS_CHARM)       ) strcat( buf, "(Charmed) "     );
+    if ( IS_AFFECTED(victim, BONUS_PASS_DOOR)   ) strcat( buf, "(Translucent) " );
+    if ( IS_AFFECTED(victim, BONUS_FAERIE_FIRE) ) strcat( buf, "(Pink Aura) "   );
+    if ( IS_AFFECTED(victim, BONUS_SANCTUARY)   ) strcat( buf, "(White Aura) "  );
+    if ( !NPC(victim)
+      && IS_AFFECTED(victim, BONUS_FLYING)      ) strcat( buf, "(Floating) "    );
+    if ( !NPC(victim)
       && victim->desc == NULL                 ) strcat( buf, "(Linkless) "    );
 
     if ( victim->position == POS_STANDING
@@ -1022,10 +1022,10 @@ void show_actor_to_actor_0( PLAYER_DATA *victim, PLAYER_DATA *ch )
  * shirt (if body wear)
  * loins (if wearing pants/leggings)
  */
-void show_equipment( PLAYER_DATA *ch, PLAYER_DATA *tch )
+void show_equipment( PLAYER *ch, PLAYER *tch )
 {
-   PROP_DATA *prop;
-   PROP_DATA *prop2;
+   PROP *prop;
+   PROP *prop2;
    char buf[MAX_STRING_LENGTH];
    char descr[MAX_STRING_LENGTH];
    char *finalstr;
@@ -1595,9 +1595,9 @@ void show_equipment( PLAYER_DATA *ch, PLAYER_DATA *tch )
 
 
 
-void show_equipment_table( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void show_equipment_table( PLAYER *ch, PLAYER *victim )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     char buf[MAX_STRING_LENGTH];
     int iWear;
     bool found = FALSE;
@@ -1631,7 +1631,7 @@ void show_equipment_table( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Shows the actually character (look at someone)
  */
-void show_actor_to_actor_1( PLAYER_DATA *victim, PLAYER_DATA *ch )
+void show_actor_to_actor_1( PLAYER *victim, PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
     char final[MAX_STRING_LENGTH];
@@ -1738,7 +1738,7 @@ if ( victim->size )
     else
     strcat( final, ".\n\r" );
 }
-    if ( !IS_NPC(victim) )
+    if ( !NPC(victim) )
     {
         char *race_name;
         int age;
@@ -1797,8 +1797,8 @@ if ( victim->size )
 
     send_to_actor( "\n\r", ch );
 
-    if ( (IS_IMMORTAL(ch) && IS_SET(ch->act2, WIZ_EQUIPMENT)) || 
-         (victim->master == ch && IS_NPC(victim)) )
+    if ( (IS_IMMORTAL(ch) && IS_SET(ch->flag2, WIZ_EQUIPMENT)) || 
+         (victim->master == ch && NPC(victim)) )
     {
     display_interp( ch, color_table[PC(ch,colors[COLOR_PROP_LIST])].di );
        show_equipment_table( ch, victim );
@@ -1814,9 +1814,9 @@ if ( victim->size )
  /*
   *  Show whose in the scene (all actors/players)
   */
-void show_actor_to_actor( PLAYER_DATA *list, PLAYER_DATA *ch )
+void show_actor_to_actor( PLAYER *list, PLAYER *ch )
 {
-    PLAYER_DATA *rch;
+    PLAYER *rch;
     bool fDark = 0;
 
     for ( rch = list; rch != NULL; rch = rch->next_in_scene )
@@ -1824,7 +1824,7 @@ void show_actor_to_actor( PLAYER_DATA *list, PLAYER_DATA *ch )
         if ( rch == ch )
             continue;
 
-        if ( !IS_NPC(rch)
+        if ( !NPC(rch)
         &&   GET_PC(rch,wizinvis,0) >= GET_PC(ch,level,0)
         &&   get_trust( ch ) < get_trust( rch ) )
              continue;
@@ -1834,7 +1834,7 @@ void show_actor_to_actor( PLAYER_DATA *list, PLAYER_DATA *ch )
              show_actor_to_actor_0( rch, ch );
         }
         else
-        if ( scene_is_dark( ch->in_scene ) && IS_AFFECTED(rch, AFF_INFRARED) )
+        if ( scene_is_dark( ch->in_scene ) && IS_AFFECTED(rch, BONUS_INFRARED) )
         fDark++;
     }
 
@@ -1850,12 +1850,12 @@ void show_actor_to_actor( PLAYER_DATA *list, PLAYER_DATA *ch )
 }
 
  
-bool check_blind( PLAYER_DATA *ch )
+bool check_blind( PLAYER *ch )
 {
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, WIZ_HOLYLIGHT) )
+    if ( !NPC(ch) && IS_SET(ch->flag2, WIZ_HOLYLIGHT) )
     return TRUE;
 
-    if ( IS_AFFECTED(ch, AFF_BLIND) )
+    if ( IS_AFFECTED(ch, BONUS_BLIND) )
     {
     send_to_actor( "It is impossible to see a thing!\n\r", ch );
     return FALSE;
@@ -1864,9 +1864,9 @@ bool check_blind( PLAYER_DATA *ch )
     return TRUE;
 }
 
-bool actor_look_list( PLAYER_DATA *ch, PROP_DATA *list, char *arg )
+bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     char *pdesc;
     char buf[MAX_STRING_LENGTH];
     char argnew[MAX_STRING_LENGTH];
@@ -2021,9 +2021,9 @@ bool actor_look_list( PLAYER_DATA *ch, PROP_DATA *list, char *arg )
 /*
  * The scan command.
  */
-void cmd_scan( PLAYER_DATA *ch, char *argument )
+void cmd_scan( PLAYER *ch, char *argument )
 {
-       SCENE_INDEX_DATA *pScene;
+       SCENE *pScene;
        bool fMatch = FALSE; 
 
        display_interp( ch, "^:^B" );
@@ -2123,15 +2123,15 @@ void cmd_scan( PLAYER_DATA *ch, char *argument )
  *          look [person]
  *          look [description]
  */
-void cmd_look( PLAYER_DATA *ch, char *argument )
+void cmd_look( PLAYER *ch, char *argument )
 {
     char buf  [MAX_STRING_LENGTH];
     char arg1 [MAX_INPUT_LENGTH];
     char arg2 [MAX_INPUT_LENGTH];
-    EXIT_DATA *pexit;
-    SCENE_INDEX_DATA *in_scene;
-    PLAYER_DATA *victim;
-    PROP_DATA *prop;
+    EXIT *pexit;
+    SCENE *in_scene;
+    PLAYER *victim;
+    PROP *prop;
     int door;
 
     in_scene = ch->in_scene;
@@ -2156,14 +2156,14 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
     if ( !check_blind( ch ) )
 	return;
 
-    if ( !IS_NPC(ch)
-      && !IS_SET(ch->act, WIZ_HOLYLIGHT)
+    if ( !NPC(ch)
+      && !IS_SET(ch->flag, WIZ_HOLYLIGHT)
       && scene_is_dark( in_scene ) )
     {
         bool fLight = FALSE;
         int direction = 0;
         int count = 0;
-        EXIT_DATA *pExit;
+        EXIT *pExit;
         char b[MAX_INPUT_LENGTH];
 
         b[0] = '\0';
@@ -2171,7 +2171,7 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
         {
              pExit = in_scene->exit[direction];
              if ( pExit != NULL
-               && !IS_SET(pExit->exit_info, EX_CLOSED)
+               && !IS_SET(pExit->exit_flags, EXIT_CLOSED)
                && pExit->to_scene != NULL
                && !scene_is_dark( pExit->to_scene ) ) 
              count++;
@@ -2181,7 +2181,7 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
         {
              pExit = in_scene->exit[direction];
              if ( pExit != NULL 
-               && !IS_SET(pExit->exit_info, EX_CLOSED)
+               && !IS_SET(pExit->exit_flags, EXIT_CLOSED)
                && pExit->to_scene != NULL
                && !scene_is_dark( pExit->to_scene ) )
              {
@@ -2217,14 +2217,14 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
     if ( arg1[0] == '\0' || !str_cmp( arg1, "auto" ) )
     {
 	/* 'look' or 'look auto' */
-    if ( !IS_NPC(ch) &&  HAS_ANSI(ch) )
+    if ( !NPC(ch) &&  HAS_ANSI(ch) )
     {
       /*
        * Change room description color based on time.
        */
 
     } else {
-          if ( !IS_NPC(ch) ) {
+          if ( !NPC(ch) ) {
     display_interp( ch, "^N" );
     display_interp( ch, color_table[PC(ch,colors[COLOR_SCENE_TITLE])].di );
           }
@@ -2246,7 +2246,7 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
     }
     else {
 
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, PLR_AUTOMAP) && !ch->fighting ) {
+    if ( !NPC(ch) && IS_SET(ch->flag2, PLR_AUTOMAP) && !ch->fighting ) {
         char temp[MIL];
         sprintf( temp, "border world tight terrain %d", PC(ch,mapsize) != 0 
                                                 ? PC(ch,mapsize) : 4 );
@@ -2255,21 +2255,21 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
 
     //DEFCOLOR(ch); 
     //display_interp( ch, default_color_variable );
-    if ( isGrey && weather_info.sky == MOON_RISE && weather_info.moon_phase != MOON_NEW ) display_interp( ch, "^N" ); 
+    if ( isGrey && weather.sky == MOON_RISE && weather.moon_phase != MOON_NEW ) display_interp( ch, "^N" ); 
     display_interp( ch, "^B" );
     snprintf( buf, MSL, "%s", in_scene->name );
     send_to_actor( string_proper(buf), ch ); /* SEND the TITLE */
 
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, PLR_AUTOEXIT) )
+    if ( !NPC(ch) && IS_SET(ch->flag2, PLR_AUTOEXIT) )
         display_interp( ch, "^N" ); 
 
-    if ( !IS_NPC(ch) ) {
+    if ( !NPC(ch) ) {
         display_interp( ch, color_table[PC(ch,colors[COLOR_SCENE_TITLE])].di );
         cmd_exits( ch, "auto" );
        }
     }
 
-    if ( !IS_NPC(ch) && HAS_ANSI(ch) )
+    if ( !NPC(ch) && HAS_ANSI(ch) )
     {
     display_interp( ch, "^N" );
     }
@@ -2282,15 +2282,15 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
             DEFCOLOR(ch);
 
     if ( arg1[0] == '\0'
-    || ( !IS_NPC(ch) && !IS_SET(ch->act2, PLR_BRIEF) ) 
+    || ( !NPC(ch) && !IS_SET(ch->flag2, PLR_BRIEF) ) 
     || MTP((in_scene->description)) )
     {
-        SCENE_INDEX_DATA *template;
+        SCENE *template;
         
-        template = get_scene_index( in_scene->template );
+        template = get_scene( in_scene->template );
         if ( template != NULL && !MTP( template->description ) )
         {
-            /*if ( weather_info.hour > 5 )*/
+            /*if ( weather.hour > 5 )*/
             send_to_actor( "   ", ch );  /*indent*/
             display_interp( ch, template->description );
         }
@@ -2301,13 +2301,13 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
      */
     if ( in_scene->terrain != 0 ) show_terrain( ch, in_scene );
 
-    if ( !MTP((in_scene->description)) && !IS_SET(ch->act2,PLR_BRIEF) )
+    if ( !MTP((in_scene->description)) && !IS_SET(ch->flag2,PLR_BRIEF) )
         {
         send_to_actor( "   ", ch ); /* indent */
         DEFCOLOR(ch);
         display_interp( ch, in_scene->description );
         }
-            if ( !IS_NPC(ch) && IS_SET(ch->act2,PLR_VERBOSE) ) {
+            if ( !NPC(ch) && IS_SET(ch->flag2,PLR_VERBOSE) ) {
             display_interp( ch, default_color_variable );
             send_to_actor( "\n\r", ch );
             cmd_exits( ch, "" );
@@ -2318,7 +2318,7 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
 
     display_interp( ch, "^N" );
     send_to_actor( "\n\r", ch );
-    if ( !IS_NPC(ch) ) {
+    if ( !NPC(ch) ) {
     display_interp( ch, color_table[PC(ch,colors[COLOR_PROP_LIST])].di );
     show_list_to_actor( in_scene->contents, ch, FALSE, FALSE );
     show_actor_to_actor( in_scene->people,   ch );
@@ -2512,7 +2512,7 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
 
     if ( !MTD(pexit->description) )  send_to_actor( pexit->description, ch );
     else
-    if ( MTD(pexit->keyword) || !IS_SET( pexit->exit_info, EX_ISDOOR ) )
+    if ( MTD(pexit->keyword) || !IS_SET( pexit->exit_flags, EXIT_ISDOOR ) )
     {
         snprintf( buf, MAX_STRING_LENGTH, "There is nothing of note %sward from here.\n\r",
                       dir_name[door] );
@@ -2520,18 +2520,18 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
     }
 
     if ( !MTD(pexit->keyword)
-      && !IS_SET(pexit->exit_info, EX_SECRET)
-      && !IS_SET(pexit->exit_info, EX_CONCEALED) )
+      && !IS_SET(pexit->exit_flags, EXIT_SECRET)
+      && !IS_SET(pexit->exit_flags, EXIT_CONCEALED) )
     {
-        if ( IS_SET(pexit->exit_info, EX_CLOSED) )
+        if ( IS_SET(pexit->exit_flags, EXIT_CLOSED) )
         act( "The $T is closed.", ch, NULL, pexit->keyword, TO_ACTOR );
-        else if ( IS_SET(pexit->exit_info, EX_ISDOOR) )
+        else if ( IS_SET(pexit->exit_flags, EXIT_ISDOOR) )
         act( "The $T is open.",   ch, NULL, pexit->keyword, TO_ACTOR );
     }
 
-    if ( (( IS_SET(pexit->exit_info, EX_WINDOW)
-      && !IS_SET(pexit->exit_info, EX_CLOSED) )
-      || IS_SET(pexit->exit_info, EX_TRANSPARENT) )
+    if ( (( IS_SET(pexit->exit_flags, EXIT_WINDOW)
+      && !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
+      || IS_SET(pexit->exit_flags, EXIT_TRANSPARENT) )
       && pexit->to_scene != NULL )
     {
         act( "Through the $t you see $T:", ch, pexit->keyword, pexit->to_scene->name, TO_ACTOR );
@@ -2547,10 +2547,10 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
 /*        show_actor_to_actor( pexit->to_scene->people,   ch ); */
     }
 
-    if ( !IS_SET(pexit->exit_info, EX_CLOSED)
-      && !IS_SET(pexit->exit_info, EX_CONCEALED) )
+    if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED)
+      && !IS_SET(pexit->exit_flags, EXIT_CONCEALED) )
     {
-         if ( !IS_SET(pexit->exit_info, EX_WINDOW) )
+         if ( !IS_SET(pexit->exit_flags, EXIT_WINDOW) )
          act( "$n glances $t.", ch, dir_name[door], NULL, TO_SCENE );
          else
          act( "$n peers through the $t.", ch, pexit->keyword, NULL, TO_SCENE ); 
@@ -2569,13 +2569,13 @@ void cmd_look( PLAYER_DATA *ch, char *argument )
  * Syntax:  exits
  *          exits auto
  */
-void cmd_exits( PLAYER_DATA *ch, char *argument )
+void cmd_exits( PLAYER *ch, char *argument )
 {
     extern char * const dir_name[];
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
-    EXIT_DATA *pexit;
-    PROP_DATA *prop;
+    EXIT *pexit;
+    PROP *prop;
     bool found;
     bool fAuto;
     int door;
@@ -2583,7 +2583,7 @@ void cmd_exits( PLAYER_DATA *ch, char *argument )
     buf[0] = '\0';
     fAuto  = !str_cmp( argument, "auto" );
 
-    if ( !IS_SET(ch->act2,PLR_AUTOEXIT) && fAuto ) return;
+    if ( !IS_SET(ch->flag2,PLR_AUTOEXIT) && fAuto ) return;
 
     if ( !str_cmp( argument, "clientauto" ) ) {
 
@@ -2594,7 +2594,7 @@ void cmd_exits( PLAYER_DATA *ch, char *argument )
           {
 	      	if ( ( pexit = ch->in_scene->exit[door] ) != NULL
 		&&   pexit->to_scene != NULL
-	        &&   !IS_SET(pexit->exit_info, EX_CONCEALED) )
+	        &&   !IS_SET(pexit->exit_flags, EXIT_CONCEALED) )
                 {
                         send_to_actor( " ", ch );
                         send_to_actor( dir_letter[door], ch );
@@ -2605,7 +2605,7 @@ void cmd_exits( PLAYER_DATA *ch, char *argument )
           return;
     }
 
-    if ( scene_is_dark( ch->in_scene ) && !IS_SET(ch->act2, WIZ_HOLYLIGHT) )
+    if ( scene_is_dark( ch->in_scene ) && !IS_SET(ch->flag2, WIZ_HOLYLIGHT) )
       {
           if ( !fAuto ) 
           send_to_actor( "It's too dark to see anything!\n\r", ch );
@@ -2623,13 +2623,13 @@ void cmd_exits( PLAYER_DATA *ch, char *argument )
     {
 	if ( ( pexit = ch->in_scene->exit[door] ) != NULL
 	&&   pexit->to_scene != NULL
-        &&   !IS_SET(pexit->exit_info, EX_CONCEALED) )
+        &&   !IS_SET(pexit->exit_flags, EXIT_CONCEALED) )
 	{
             if ( fAuto )
             {
-                if ( (IS_SET(pexit->exit_info, EX_CLOSED)
-                   && IS_SET(pexit->exit_info, EX_SECRET))
-                  || IS_SET(pexit->exit_info, EX_CONCEALED) )
+                if ( (IS_SET(pexit->exit_flags, EXIT_CLOSED)
+                   && IS_SET(pexit->exit_flags, EXIT_SECRET))
+                  || IS_SET(pexit->exit_flags, EXIT_CONCEALED) )
                 continue;
                 
                 strcat( buf, dir_letter[door] );
@@ -2637,7 +2637,7 @@ void cmd_exits( PLAYER_DATA *ch, char *argument )
             }
 	    else
 	    {
-            if ( !IS_SET(pexit->exit_info, EX_CLOSED)
+            if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED)
               && !MTD(pexit->keyword) )
             {
                 sprintf( buf + strlen(buf), "A%s %s leads %s to %s.\n\r",
@@ -2648,15 +2648,15 @@ void cmd_exits( PLAYER_DATA *ch, char *argument )
                 found = TRUE;
             }
             else
-            if ( !IS_SET(pexit->exit_info, EX_SECRET) )
+            if ( !IS_SET(pexit->exit_flags, EXIT_SECRET) )
             {
                 sprintf( buf + strlen(buf), "%s%s%s is %s%s.\n\r",
                   door != DIR_UP && door != DIR_DOWN ? "To the " : "",
                   door != DIR_UP && door != DIR_DOWN ? dir_name[door]
                                                : capitalize(dir_name[door]),
                   door == DIR_UP || door == DIR_DOWN ? "ward from here" : "",
-                  IS_SET(pexit->exit_info, EX_CLOSED) ? "a closed " : "",
-                  IS_SET(pexit->exit_info, EX_CLOSED) ? pexit->keyword :
+                  IS_SET(pexit->exit_flags, EXIT_CLOSED) ? "a closed " : "",
+                  IS_SET(pexit->exit_flags, EXIT_CLOSED) ? pexit->keyword :
                   scene_is_dark( pexit->to_scene )  ?  "darkness"
                                             : pexit->to_scene->name );
                 found = TRUE;
@@ -2704,7 +2704,7 @@ void cmd_exits( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  score
  */
-void cmd_score( PLAYER_DATA *ch, char *argument )
+void cmd_score( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
@@ -2712,7 +2712,7 @@ void cmd_score( PLAYER_DATA *ch, char *argument )
 
     clrscr(ch);
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
         cmd_stat( ch, "self" );
         return;
@@ -2792,10 +2792,10 @@ void cmd_score( PLAYER_DATA *ch, char *argument )
     snprintf( buf, MAX_STRING_LENGTH, " you are %s years old,\n\r ", numberize( GET_AGE(ch) ) );
     strcat( buf2, buf );
 
-    if ( PC(ch,birth_month) == weather_info.month )
+    if ( PC(ch,birth_month) == weather.month )
     {
 
-        int daydist = PC(ch,birth_day) - weather_info.day;
+        int daydist = PC(ch,birth_day) - weather.day;
 
         if ( daydist == -1 )
         strcat( buf2, " yesterday was your birthday, " );
@@ -3009,13 +3009,13 @@ else send_to_actor( "Your mind is unfocused; your thoughts are a cacophony of vo
     snprintf( buf, MAX_STRING_LENGTH, "You are currently speaking %s.\n\r", lang_table[ch->speaking].name );
     send_to_actor( buf, ch );
 
-    if ( IS_AFFECTED(ch,AFF_HIDE) && IS_AFFECTED(ch,AFF_SNEAK) )
+    if ( IS_AFFECTED(ch,BONUS_HIDE) && IS_AFFECTED(ch,BONUS_SNEAK) )
     send_to_actor( "You are attempting camoflage and stealth.\n\r", ch );
     else
-    if ( IS_AFFECTED(ch,AFF_HIDE) )
+    if ( IS_AFFECTED(ch,BONUS_HIDE) )
     send_to_actor( "You are trying to camoflage yourself.\n\r", ch );
     else
-    if ( IS_AFFECTED(ch,AFF_SNEAK) )
+    if ( IS_AFFECTED(ch,BONUS_SNEAK) )
     send_to_actor( "You are trying to move with stealth.\n\r", ch );
 
     if ( IS_IMMORTAL(ch) )
@@ -3134,7 +3134,7 @@ static char * const sky_look[8] =
  * Syntax:  time
  *          time full
  */
-void cmd_time( PLAYER_DATA *ch, char *argument )
+void cmd_time( PLAYER *ch, char *argument )
 {
     extern char str_boot_time[];
     char buf[MAX_STRING_LENGTH];
@@ -3154,9 +3154,9 @@ void cmd_time( PLAYER_DATA *ch, char *argument )
     one_argument( argument, arg );
 
     if ( str_cmp( arg, "internal" ) ) {
-    day     = weather_info.day + 1;
+    day     = weather.day + 1;
 
-    switch ( weather_info.hour )
+    switch ( weather.hour )
     {
         case  1:
         case  2: sprintf( descr, "late night"       ); break;
@@ -3217,13 +3217,13 @@ void cmd_time( PLAYER_DATA *ch, char *argument )
              day == 28 ? "twenty-eighth"  :
              day == 29 ? "twenty-ninth"   :
                          "thirtieth",
-             month_name[weather_info.month],
-             numberize( weather_info.year ) );
+             month_name[weather.month],
+             numberize( weather.year ) );
      } else buf[0] = '\0';
 
     { int dir;
       for ( dir=0; dir<MAX_DIR; dir++ ) if ( ch->in_scene->exit[dir] && 
-         (!IS_SET(ch->in_scene->exit[dir]->exit_info,EX_CLOSED) || IS_SET(ch->in_scene->exit[dir]->exit_info,EX_TRANSPARENT) ) && 
+         (!IS_SET(ch->in_scene->exit[dir]->exit_flags,EXIT_CLOSED) || IS_SET(ch->in_scene->exit[dir]->exit_flags,EXIT_TRANSPARENT) ) && 
           !IS_SET(ch->in_scene->exit[dir]->to_scene->scene_flags,SCENE_INDOORS) ) outside=TRUE;
     }
 
@@ -3233,17 +3233,17 @@ void cmd_time( PLAYER_DATA *ch, char *argument )
     }
     else
     {
-    wind = weather_info.windspeed;
+    wind = weather.windspeed;
     descr[0] = '\0';
     sprintf( descr, "The sky is %s ",
-                  (weather_info.month < 2 || weather_info.month == 11) ?
-                  sky_look[weather_info.sky+4] : sky_look[weather_info.sky] );
+                  (weather.month < 2 || weather.month == 11) ?
+                  sky_look[weather.sky+4] : sky_look[weather.sky] );
     strcat( buf, descr );
     sprintf( descr, "and a %s %sward %s blows.\n\r",
-             (weather_info.temperature < 35) ? "cold" :
-             (weather_info.temperature < 60) ? "cool" :
-             (weather_info.temperature < 90) ? "warm" : "hot",
-             dir_name[abs(weather_info.winddir) % 4],
+             (weather.temperature < 35) ? "cold" :
+             (weather.temperature < 60) ? "cool" :
+             (weather.temperature < 90) ? "warm" : "hot",
+             dir_name[abs(weather.winddir) % 4],
              wind <= 20 ? "breeze"   :
              wind <= 50 ? "wind"     :
              wind <= 80 ? "gust"     :
@@ -3253,13 +3253,13 @@ void cmd_time( PLAYER_DATA *ch, char *argument )
 
     }
 
-    if ( outside && weather_info.hour < 4 )
+    if ( outside && weather.hour < 4 )
     {
-        if ( weather_info.sky != SKY_CLOUDLESS
-          && weather_info.moon_phase != MOON_NEW )
+        if ( weather.sky != SKY_CLOUDLESS
+          && weather.moon_phase != MOON_NEW )
         strcat( buf, "The moon is behind a cloud." );
         else
-        switch ( weather_info.moon_phase )
+        switch ( weather.moon_phase )
         {
         case MOON_NEW:
             strcat( buf, "No moon graces the heavens tonight." ); break;
@@ -3307,13 +3307,13 @@ void cmd_time( PLAYER_DATA *ch, char *argument )
  "Temp: %4d  Windspd: %4d  Dir:    %4d  Month: %4d  Hour: %4d  Phase: %4d\n\r"
  "Sky:  %4d  MMHG:    %4d  Change: %4d  Day:   %4d  Year: %4d  Next:  %4d\n\r"
  "Sun:  %4d  NumHour: %4d  zone:   %4d  Mob:   %4d  Fgt:  %4d  Auto:  %4d\n\r",
-               weather_info.temperature,   weather_info.windspeed,
-               weather_info.winddir %4,    weather_info.month,
-               weather_info.hour,             weather_info.moon_phase,
-               weather_info.sky,           weather_info.mmhg,
-               weather_info.change,        weather_info.day,
-               weather_info.year,             weather_info.next_phase,
-               weather_info.sunlight,      num_hour/60,
+               weather.temperature,   weather.windspeed,
+               weather.winddir %4,    weather.month,
+               weather.hour,             weather.moon_phase,
+               weather.sky,           weather.mmhg,
+               weather.change,        weather.day,
+               weather.year,             weather.next_phase,
+               weather.sunlight,      num_hour/60,
                pulse_zone,                 pulse_actor,
                pulse_violence,             autosave_counter );
         send_to_actor( buf, ch );
@@ -3324,7 +3324,7 @@ void cmd_time( PLAYER_DATA *ch, char *argument )
 
 
 
-void help_to_actor( char *t, PLAYER_DATA *ch, bool fPage )
+void help_to_actor( char *t, PLAYER *ch, bool fPage )
 {/*
    char buf[MAX_STRING_LENGTH*2];
    const char *str;
@@ -3348,14 +3348,14 @@ void help_to_actor( char *t, PLAYER_DATA *ch, bool fPage )
 /*
  * Syntax:  help [keyword]
  */
-void cmd_help( PLAYER_DATA *ch, char *argument )
+void cmd_help( PLAYER *ch, char *argument )
 {
    char argall[MAX_INPUT_LENGTH];
    char arg1[MAX_INPUT_LENGTH];
    char buf[MAX_STRING_LENGTH];
    char buf2[MAX_STRING_LENGTH];
-   HELP_DATA *pHelp;
-   int vnum;
+   HELP *pHelp;
+   int dbkey;
    bool fShowed=FALSE;
     
    if ( ch->desc == NULL ) return;
@@ -3386,7 +3386,7 @@ void cmd_help( PLAYER_DATA *ch, char *argument )
          snprintf( buf, MAX_STRING_LENGTH, "-     -----           -----------\n\r" );
          send_to_actor( buf, ch );
 
-         for ( v=0; v <= top_vnum_help; v++ ) {
+         for ( v=0; v <= top_dbkey_help; v++ ) {
                 pHelp = get_help_index(v); 
 
             if ( !pHelp || pHelp->level > get_trust( ch ) )
@@ -3406,9 +3406,9 @@ void cmd_help( PLAYER_DATA *ch, char *argument )
       } else {
          for ( i=0; i < MAX_HELP_CLASS; i++ ) {
             if ( !str_prefix( arg1, help_class_table[i].name )) {
-         for ( vnum=0; vnum <= top_vnum_help; vnum++ ) {
+         for ( dbkey=0; dbkey <= top_dbkey_help; dbkey++ ) {
 
-                pHelp = get_help_index(vnum); 
+                pHelp = get_help_index(dbkey); 
 
                   if ( !pHelp || pHelp->level > get_trust( ch ) )
                   continue;
@@ -3445,8 +3445,8 @@ send_to_actor( "or HELP #'phrase'\n\r", ch );
 return; }
 
       snprintf( b, strlen(b), "Related Topics:\n\r" );
-         for ( vnum=0; vnum <= top_vnum_help; vnum++ ) {
-            pHelp = get_help_index(vnum); 
+         for ( dbkey=0; dbkey <= top_dbkey_help; dbkey++ ) {
+            pHelp = get_help_index(dbkey); 
 
          if ( !pHelp || pHelp->level > get_trust( ch ) )
             continue;
@@ -3484,8 +3484,8 @@ return; }
       strcat( argall, arg1 );
    }
 
-     for( vnum=0; vnum <= top_vnum_help; vnum++ ) {
-        pHelp = get_help_index(vnum);
+     for( dbkey=0; dbkey <= top_dbkey_help; dbkey++ ) {
+        pHelp = get_help_index(dbkey);
 	if ( !pHelp || pHelp->level > get_trust( ch ) )
 	    continue;
 
@@ -3580,8 +3580,8 @@ return; }
     }
 
    if ( !fShowed )
-     for( vnum=0; vnum <= top_vnum_help; vnum++ ) {
-        pHelp = get_help_index(vnum);
+     for( dbkey=0; dbkey <= top_dbkey_help; dbkey++ ) {
+        pHelp = get_help_index(dbkey);
 	if ( !pHelp || pHelp->level > get_trust( ch ) )
 	    continue;
 
@@ -3756,11 +3756,11 @@ char *get_name_level( int level )
  *          who [number] [number]
  *          who immortal
  */
-void cmd_who( PLAYER_DATA *ch, char *argument )
+void cmd_who( PLAYER *ch, char *argument )
 {
     static int max = 0;
     char buf[MAX_STRING_LENGTH];
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     extern int num_hour;
 #if defined(IMC)
     extern int imc_active;  /* from imc */
@@ -3820,7 +3820,7 @@ void cmd_who( PLAYER_DATA *ch, char *argument )
     buf[0] = '\0';
     for ( d = connection_list; d != NULL; d = d->next )
     {
-	PLAYER_DATA *wch;
+	PLAYER *wch;
 
 	/*
 	 * Check for match against restrictions.
@@ -3835,7 +3835,7 @@ void cmd_who( PLAYER_DATA *ch, char *argument )
 
 	wch   = ( d->original != NULL ) ? d->original : d->character;
 
-    if ( IS_NPC(wch) ) continue;
+    if ( NPC(wch) ) continue;
 
 /* editing imms are invis to morts */
     if ( d->connected != NET_PLAYING && !IS_IMMORTAL(ch) ) continue;
@@ -3885,7 +3885,7 @@ void cmd_who( PLAYER_DATA *ch, char *argument )
         if ( IS_IMMORTAL(ch) )
         sprintf( buf + strlen(buf), "[ Mortal   %2d ] %s %s   %s^+^N\n\r", 
 wch->exp_level, NAME(wch), PC(wch,title),
-!IS_NPC(wch) && !MTD(PC(wch,flag)) ? PC(wch,flag) : ""
+!NPC(wch) && !MTD(PC(wch,flag)) ? PC(wch,flag) : ""
 );
         else
         {
@@ -3909,7 +3909,7 @@ get_name_level(wch->exp_level),
 HAS_ANSI(ch) ? NTEXT : "", 
 trunc_fit( buf2, 28 ),
 capitalize(numberize(wch->exp_level)), 
-!IS_NPC(wch) && !MTD(PC(wch,flag)) ? PC(wch,flag) : ""
+!NPC(wch) && !MTD(PC(wch,flag)) ? PC(wch,flag) : ""
 ); 
         } 
 
@@ -3972,9 +3972,9 @@ capitalize(numberize(wch->exp_level)),
 
 
 
-void show_inventory( PLAYER_DATA *ch, PLAYER_DATA *tch, bool fPeek )
+void show_inventory( PLAYER *ch, PLAYER *tch, bool fPeek )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     bool ShowPockets = FALSE;
     bool ShowNothing = TRUE;
     
@@ -4035,10 +4035,10 @@ void show_inventory( PLAYER_DATA *ch, PLAYER_DATA *tch, bool fPeek )
 
 
 
-void cmd_title( PLAYER_DATA *ch, char *argument )
+void cmd_title( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    if ( IS_NPC( ch ) ) return;
+    if ( NPC( ch ) ) return;
 
     free_string( PC(ch,title ));
     PC(ch,title) = str_dup( "" );
@@ -4060,12 +4060,12 @@ void cmd_title( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  inventory
  */
-void cmd_inventory( PLAYER_DATA *ch, char *argument )
+void cmd_inventory( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *h;
+    PROP *h;
 
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
     display_interp( ch, color_table[PC(ch,colors[COLOR_PROP_LIST])].di );
 
     show_inventory( ch, ch, FALSE );
@@ -4103,9 +4103,9 @@ void cmd_inventory( PLAYER_DATA *ch, char *argument )
     page_to_actor( "\n\r", ch );
 
     if ( FALSE )
-    { PLAYER_DATA *m;
+    { PLAYER *m;
       for ( m=ch->in_scene->people; m!=NULL; m=m->next_in_scene )
-       if ( IS_NPC(m) && m->master == ch && ch->riding!=m && m->carrying != NULL ) {
+       if ( NPC(m) && m->master == ch && ch->riding!=m && m->carrying != NULL ) {
         page_to_actor( "\n\r", ch );
         act( "$N is carrying:", ch, NULL, m, TO_ACTOR );
         show_inventory( m, ch, FALSE );
@@ -4117,10 +4117,10 @@ void cmd_inventory( PLAYER_DATA *ch, char *argument )
 }
 
 
-void show_belt( PLAYER_DATA *victim, PLAYER_DATA *ch )
+void show_belt( PLAYER *victim, PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int belt;
 
     buf[0] = '\0';
@@ -4148,10 +4148,10 @@ void show_belt( PLAYER_DATA *victim, PLAYER_DATA *ch )
 /*
  * Syntax:  peek [person]
  */
-void cmd_peek( PLAYER_DATA *ch, char *argument )
+void cmd_peek( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     
     one_argument( argument, arg );
     
@@ -4178,25 +4178,25 @@ void cmd_peek( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  equipment
  */
-void cmd_equipment( PLAYER_DATA *ch, char *argument )
+void cmd_equipment( PLAYER *ch, char *argument )
 { 
     clrscr(ch);
 
-      if ( !IS_NPC(ch) ) 
+      if ( !NPC(ch) ) 
     display_interp( ch, color_table[PC(ch,colors[COLOR_PROP_LIST])].di );
 
   show_equipment_table( ch, ch );
  
    if ( FALSE )
-    { PLAYER_DATA *pch;
+    { PLAYER *pch;
     for ( pch=ch->in_scene->people; pch!=NULL; pch=pch->next_in_scene ) 
-     if ( pch->master == ch && IS_NPC(pch) ) {
+     if ( pch->master == ch && NPC(pch) ) {
       page_to_actor( "\n\r", ch );
       show_equipment_table( ch, pch );
      } 
     }
 
-      if ( !IS_NPC(ch) ) 
+      if ( !NPC(ch) ) 
     display_interp( ch, "^N" );
     return;
 }
@@ -4207,12 +4207,12 @@ void cmd_equipment( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  compare [prop] [prop]
  */
-void cmd_compare( PLAYER_DATA *ch, char *argument )
+void cmd_compare( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PROP_DATA *prop1;
-    PROP_DATA *prop2;
+    PROP *prop1;
+    PROP *prop2;
     int value1;
     int value2;
     char *msg;
@@ -4324,7 +4324,7 @@ void cmd_compare( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  credits
  */
-void cmd_credits( PLAYER_DATA *ch, char *argument )
+void cmd_credits( PLAYER *ch, char *argument )
 {
     cmd_help( ch, "nimud" );
     return;
@@ -4336,10 +4336,10 @@ void cmd_credits( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  consider [person]
  */
-void cmd_consider( PLAYER_DATA *ch, char *argument )
+void cmd_consider( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     char *buf = '\0';
     int hp;
     int curr_wis, curr_con, curr_str, curr_dex, curr_int;
@@ -4391,8 +4391,8 @@ void cmd_consider( PLAYER_DATA *ch, char *argument )
      }
 
     sprintf( arg, "$E is " );
-    if ( ( IS_NPC(ch) && (IS_SET(victim->act, ACT_GOOD) || 
-IS_SET(victim->act, ACT_BOUNTY)) ) || !IS_NPC(ch) || victim->bounty > 0 ) {
+    if ( ( NPC(ch) && (IS_SET(victim->flag, ACTOR_GOOD) || 
+IS_SET(victim->flag, ACTOR_BOUNTY)) ) || !NPC(ch) || victim->bounty > 0 ) {
      if ( victim->bounty <    70 ) strcat( arg, "a noted troublemaker.\n\r" );
 else if ( victim->bounty <   500 ) strcat( arg, "an untrustworthy thief.\n\r" );
 else if ( victim->bounty <  1000 ) strcat( arg, "considered a criminal.\n\r" );
@@ -4424,7 +4424,7 @@ else                               strcat( arg, "a feared outlaw.\n\r" );
 /*
  * Syntax:  report
  */
-void cmd_report( PLAYER_DATA *ch, char *argument )
+void cmd_report( PLAYER *ch, char *argument )
 {
     char buf[MAX_INPUT_LENGTH];
 
@@ -4445,7 +4445,7 @@ void cmd_report( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  socials
  */
-void cmd_socials( PLAYER_DATA *ch, char *argument )
+void cmd_socials( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     int iSocial;
@@ -4473,7 +4473,7 @@ void cmd_socials( PLAYER_DATA *ch, char *argument )
  * Contributed by Alander.  Updates by Krayy.
  * Syntax:  commands
  */
-void cmd_commands( PLAYER_DATA *ch, char *argument )
+void cmd_commands( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char buf1[MAX_STRING_LENGTH];
@@ -4531,7 +4531,7 @@ void cmd_commands( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_wizlist ( PLAYER_DATA *ch, char *argument )
+void cmd_wizlist ( PLAYER *ch, char *argument )
 {
 
     cmd_help ( ch, "wizlist" );
@@ -4541,17 +4541,17 @@ void cmd_wizlist ( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_history( PLAYER_DATA *ch, char *argument ) {
+void cmd_history( PLAYER *ch, char *argument ) {
 
 /*
  * History
  */
     char arg[MAX_STRING_LENGTH];
-    PLAYER_DATA *pActor;
+    PLAYER *pActor;
 
     clrscr(ch);
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     one_argument( argument, arg );
 
@@ -4561,7 +4561,7 @@ void cmd_history( PLAYER_DATA *ch, char *argument ) {
         pActor = get_actor_world( ch, arg );  
 
         if ( !pActor ) pActor = ch; 
-        else if ( IS_NPC(pActor) ) {
+        else if ( NPC(pActor) ) {
               sprintf( arg, "%s will most likely die in obscurity.\n\r", 
                        NAME(pActor) );
               send_to_actor( arg, ch );
@@ -4569,7 +4569,7 @@ void cmd_history( PLAYER_DATA *ch, char *argument ) {
         }
     }
 
-    if ( IS_NPC(pActor) ) return;
+    if ( NPC(pActor) ) return;
 
     send_to_actor( "\n\r", ch ); 
     sprintf( arg, "The History of %s\n\r\n\rAs recorded by Edigzorr the Great\n\r\n\r", 
@@ -4586,11 +4586,11 @@ void cmd_history( PLAYER_DATA *ch, char *argument ) {
 }          
 
 
-void add_history( PLAYER_DATA *ch, char *_out )
+void add_history( PLAYER *ch, char *_out )
 {
     static char buf[MAX_STRING_LENGTH];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     if ( PC(ch,history) != NULL && strlen(PC(ch,history)) > MSL/2 ) 
     { free_string( PC(ch,history) );    

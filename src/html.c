@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -98,7 +98,7 @@ char *add_br( const char *str ) {
 
 void html_export_helps( ) {
 
-  HELP_DATA * pHelp;
+  HELP * pHelp;
 
   FILE * fp;
   FILE * ifp;
@@ -106,7 +106,7 @@ void html_export_helps( ) {
   char HFILE  [MAX_STRING_LENGTH];
   char IFILE  [MAX_STRING_LENGTH];
 
-  int cidx,vnum;
+  int cidx,dbkey;
 
   sprintf(IFILE, "%sindex.html", HTML_DIR );
  
@@ -153,8 +153,8 @@ void html_export_helps( ) {
      fprintf(fp, "<BODY bgcolor=\"#000000\" text=\"#6699FF\" link=\"#CCCCCC\" vlink=\"#FFFFFF\" alink=\"#FF9966\">" );
      fprintf(fp, "\n<B>NiM5: %s</B><BR><BR>", help_class_table[cidx].desc );
 
-     for ( vnum=0; vnum <= top_vnum_help; vnum++ ) {
-        pHelp =get_help_index(vnum); 
+     for ( dbkey=0; dbkey <= top_dbkey_help; dbkey++ ) {
+        pHelp =get_help_index(dbkey); 
         if ( !pHelp ) continue;
 
         if ( pHelp->class == cidx ) {

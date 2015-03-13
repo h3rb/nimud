@@ -139,15 +139,15 @@ MAP_PARAM *mp;
 
 
 // Function definitions
-void make_map			args ( (PLAYER_DATA *ch, int x, int y) );
-void add_to_map			args ( (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int depth) );
+void make_map			args ( (PLAYER *ch, int x, int y) );
+void add_to_map			args ( (PLAYER *ch, SCENE *scene, int x, int y, int depth) );
 void free_map_qd		args ( (MAP_QD *map_qd) );
 MAP_QD *new_map_qd		args ( (void) );
 void add_map_qd			args ( (MAP_QD *map_qd) );
 MAP_QD *next_map_qd		args ( (void) );
 void init_map			args ( (void) );
-void init_mp			args ( (PLAYER_DATA *ch) );
-void show_map			args ( (PLAYER_DATA *ch, int x, int y) );
+void init_mp			args ( (PLAYER *ch) );
+void show_map			args ( (PLAYER *ch, int x, int y) );
 MAP_VISIT *new_map_visit	args ( (void) );
 void free_map_visit		args ( (MAP_VISIT *mapv) );
 void add_visited		args ( (int scene) );
@@ -157,14 +157,14 @@ int get_y_to			args ( (void) );
 int get_x_to			args ( (void) );
 int get_y_start			args ( (void) );
 int get_x_start			args ( (void) );
-int put_link			args ( (SCENE_INDEX_DATA *scene, int other, int dir) );
+int put_link			args ( (SCENE *scene, int other, int dir) );
 char *get_link			args ( (int link_type) );
 char *get_linkc			args ( (int link_type) );
-char *get_mscene			args ( (PLAYER_DATA *ch, int scene) );
-char *get_mscenec		args ( (PLAYER_DATA *ch, int scene) );
+char *get_mscene			args ( (PLAYER *ch, int scene) );
+char *get_mscenec		args ( (PLAYER *ch, int scene) );
 char *get_map_text		args ( (void) );	
 char *finish_map_text	args ( (void) );
-void clean_map_string	args ( (PLAYER_DATA *ch) );
+void clean_map_string	args ( (PLAYER *ch) );
 char *mpcolour			args ( (char *arg) );
 
 MAP_VISIT *map_visit[MAX_MAP_HASH];
@@ -303,7 +303,7 @@ void init_map (void)
 	return;
 }
 
-void init_mp (PLAYER_DATA *ch)
+void init_mp (PLAYER *ch)
 {
 
 	if (mp == NULL)
@@ -340,7 +340,7 @@ void init_mp (PLAYER_DATA *ch)
 }
 
 // Hack of format_string in string.c
-void clean_map_string (PLAYER_DATA *ch)
+void clean_map_string (PLAYER *ch)
 {
 	char xbuf[MAX_STRING_LENGTH];
 	char xbuf2[MAX_STRING_LENGTH];
@@ -648,47 +648,47 @@ char *get_link (int lnk)
 }
 // Returns the character of the scene.
 // Change as you like
-char *get_mscene (PLAYER_DATA *ch, int scene)
+char *get_mscene (PLAYER *ch, int scene)
 {
-	SCENE_INDEX_DATA *rm;
-	PLAYER_DATA *keeper;
-	SHOP_DATA *shop;
+	SCENE *rm;
+	PLAYER *keeper;
+	SHOP *shop;
 
-	rm = get_scene_index(scene);
+	rm = get_scene(scene);
 	shop = NULL;
 	
 	// Check for a shop. 
 	for (keeper = rm->people; keeper; keeper = keeper->next_in_scene)
 	{
-		if (IS_NPC(keeper) && (shop = keeper->pIndexData->pShop) != NULL)
+		if (NPC(keeper) && (shop = keeper->pIndexData->pShop) != NULL)
 			break;
 	}
 
 	if (mp->ter) // Terrain mode
 	{
-		switch (rm->sector_type)
+		switch (rm->move)
 		{
-			case SECT_INSIDE:
+			case MOVE_INSIDE:
 				return "*";
-			case SECT_CITY:
+			case MOVE_CITY:
 				return "+";
-			case SECT_FIELD:
+			case MOVE_FIELD:
 				return "o";
-			case SECT_FOREST:
+			case MOVE_FOREST:
 				return "f";
-			case SECT_HILLS:
+			case MOVE_HILLS:
 				return "z";
-			case SECT_MOUNTAIN:
+			case MOVE_MOUNTAIN:
 				return "x";
-			case SECT_WATER_SWIM:
+			case MOVE_WATER_SWIM:
 				return "~";
-			case SECT_WATER_NOSWIM:
+			case MOVE_WATER_NOSWIM:
 				return "~";
-//			case SECT_UNUSED:
+//			case MOVE_UNUSED:
 //				return "*";
-			case SECT_AIR:
+			case MOVE_AIR:
 				return ".";
-			case SECT_DESERT:
+			case MOVE_DESERT:
 				return "!";
 			default:
 				return "*";
@@ -705,19 +705,19 @@ char *get_mscene (PLAYER_DATA *ch, int scene)
 	return "*";
 }
 /* Returns the colour code of the scene */
-char *get_mscenec (PLAYER_DATA *ch, int scene)
+char *get_mscenec (PLAYER *ch, int scene)
 {
-	SCENE_INDEX_DATA *rm;
-	PLAYER_DATA *mob;
+	SCENE *rm;
+	PLAYER *mob;
 	int mtype = 0;
 
-	rm = get_scene_index(scene);
+	rm = get_scene(scene);
 
 	for (mob = rm->people; mob; mob = mob->next_in_scene)
 	{
-		if (IS_NPC(mob))
+		if (NPC(mob))
 		{
-			if (IS_SET(mob->act, ACT_AGGRESSIVE))
+			if (IS_SET(mob->flag, ACTOR_AGGRESSIVE))
 			{
 				mtype = 2;
 				break;
@@ -731,40 +731,40 @@ char *get_mscenec (PLAYER_DATA *ch, int scene)
 	{
 //		mp->col = TRUE;
  		// Set as desired
- 		switch (rm->sector_type)
+ 		switch (rm->move)
 		{		
-			case SECT_INSIDE:
+			case MOVE_INSIDE:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^N^+^4";
                                 else return "";						
-			case SECT_CITY:
+			case MOVE_CITY:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^-^6^B";
                                 else return "";						
-			case SECT_FIELD:
+			case MOVE_FIELD:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^#^2^B";
                                 else return "";				
-			case SECT_FOREST:
+			case MOVE_FOREST:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^#^B^0";
                                 else return "";
-			case SECT_HILLS:
+			case MOVE_HILLS:
                                 if ( HAS_ANSI(ch) ) return "^4"; else return "";
-			case SECT_MOUNTAIN:
+			case MOVE_MOUNTAIN:
                                 if ( HAS_ANSI(ch) ) return "^=^5"; else return "";
-			case SECT_WATER_SWIM:
+			case MOVE_WATER_SWIM:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^B^1"; else return "";
-			case SECT_WATER_NOSWIM:
+			case MOVE_WATER_NOSWIM:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^:^0"; else return "";
-//			case SECT_UNUSED:
+//			case MOVE_UNUSED:
 //				return mpcolour("{g");
-			case SECT_AIR:
+			case MOVE_AIR:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^:^3"; else return "";
-			case SECT_DESERT:
+			case MOVE_DESERT:
                                 if ( HAS_ANSI(ch) ) 
                                  return "^-^6^B"; else return "";
 			default:
@@ -778,14 +778,14 @@ char *get_mscenec (PLAYER_DATA *ch, int scene)
 	// Does it have an up and a down? Can they get there?
 	if (	(rm->exit[DIR_UP] != NULL
               && rm->exit[DIR_UP]->to_scene
-              && !IS_SET(rm->exit[DIR_UP]->exit_info, EX_CONCEALED) 
-              && !IS_SET(rm->exit[DIR_UP]->exit_info, EX_SECRET) )
+              && !IS_SET(rm->exit[DIR_UP]->exit_flags, EXIT_CONCEALED) 
+              && !IS_SET(rm->exit[DIR_UP]->exit_flags, EXIT_SECRET) )
              && (rm->exit[DIR_DOWN] != NULL
               && rm->exit[DIR_DOWN]->to_scene 
-              && !IS_SET(rm->exit[DIR_DOWN]->exit_info, EX_CONCEALED)
-              && !IS_SET(rm->exit[DIR_DOWN]->exit_info, EX_SECRET) 
-	&& (mp->doors || (!IS_SET(rm->exit[DIR_UP]->exit_info, EX_CLOSED)
-|| !IS_SET(rm->exit[DIR_DOWN]->exit_info, EX_CLOSED)))) ) 
+              && !IS_SET(rm->exit[DIR_DOWN]->exit_flags, EXIT_CONCEALED)
+              && !IS_SET(rm->exit[DIR_DOWN]->exit_flags, EXIT_SECRET) 
+	&& (mp->doors || (!IS_SET(rm->exit[DIR_UP]->exit_flags, EXIT_CLOSED)
+|| !IS_SET(rm->exit[DIR_DOWN]->exit_flags, EXIT_CLOSED)))) ) 
 	{
 		if (mp->mobs && mtype == 1)
 		{
@@ -801,9 +801,9 @@ char *get_mscenec (PLAYER_DATA *ch, int scene)
                 if ( HAS_ANSI(ch) ) return RED; else return "";
 	}
 	else if (rm->exit[DIR_UP] != NULL &&
-!IS_SET(rm->exit[DIR_UP]->exit_info, EX_CONCEALED) &&
-!IS_SET(rm->exit[DIR_UP]->exit_info, EX_SECRET)
-	&& (mp->doors || !IS_SET(rm->exit[DIR_UP]->exit_info, EX_CLOSED) )
+!IS_SET(rm->exit[DIR_UP]->exit_flags, EXIT_CONCEALED) &&
+!IS_SET(rm->exit[DIR_UP]->exit_flags, EXIT_SECRET)
+	&& (mp->doors || !IS_SET(rm->exit[DIR_UP]->exit_flags, EXIT_CLOSED) )
                 ) // Going up?
 	{
 		if (mp->mobs && mtype == 1)
@@ -820,7 +820,7 @@ char *get_mscenec (PLAYER_DATA *ch, int scene)
 			return ""; //^N^-"; //mpcolour("{M");
 	}
 	else if (rm->exit[DIR_DOWN] != NULL
-				&& (mp->doors || !IS_SET(rm->exit[DIR_DOWN]->exit_info, EX_CLOSED))) // Going down..
+				&& (mp->doors || !IS_SET(rm->exit[DIR_DOWN]->exit_flags, EXIT_CLOSED))) // Going down..
 	{
 		if (mp->mobs && mtype == 1)
 		{
@@ -872,10 +872,10 @@ char *get_mscenec (PLAYER_DATA *ch, int scene)
 
 // Finds out what type of link to put between scenes
 // returns the link number
-int put_link (SCENE_INDEX_DATA *scene, int next, int dir)
+int put_link (SCENE *scene, int next, int dir)
 {
-	SCENE_INDEX_DATA *other;
-	EXIT_DATA  *pexit, *org;
+	SCENE *other;
+	EXIT  *pexit, *org;
 	int dir2;
 
 	// Get the reverse dir
@@ -883,7 +883,7 @@ int put_link (SCENE_INDEX_DATA *scene, int next, int dir)
 
 	if (next > 0) // Do we have a scene there already?
 	{
-		other = get_scene_index(next);
+		other = get_scene(next);
 		pexit = other->exit[dir2];
 	}
 	else
@@ -899,14 +899,14 @@ int put_link (SCENE_INDEX_DATA *scene, int next, int dir)
 		if (pexit == NULL) // 1 way?
 		{
 			if (other != NULL && org->to_scene == other) // Is the link to that scene?
-				return IS_SET(org->exit_info, EX_ISDOOR) ? NS_1WAYND : NS_1WAYN;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? NS_1WAYND : NS_1WAYN;
 			else // Goes that way but not to that scene
-				return IS_SET(org->exit_info, EX_ISDOOR) ? NS_UNND : NS_UNN;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? NS_UNND : NS_UNN;
 		}		
 		else if (pexit->to_scene == scene) // 2 way?		
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? NS_2WAYD : NS_2WAY;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? NS_2WAYD : NS_2WAY;
 		else if (pexit->to_scene != scene) // 2 way collide?
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? NS_HITD : NS_HIT;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? NS_HITD : NS_HIT;
 		else
 			return -1;
 	}
@@ -915,14 +915,14 @@ int put_link (SCENE_INDEX_DATA *scene, int next, int dir)
 		if (pexit == NULL) // 1 way?
 		{
 			if (org->to_scene == other) // Is the link to that scene?
-				return IS_SET(org->exit_info, EX_ISDOOR) ? NS_1WAYSD : NS_1WAYS;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? NS_1WAYSD : NS_1WAYS;
 			else // Goes that way but not to that scene
-				return IS_SET(org->exit_info, EX_ISDOOR) ? NS_UNSD : NS_UNS;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? NS_UNSD : NS_UNS;
 		}
 		else if (pexit->to_scene == scene) // 2 way?
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? NS_2WAYD : NS_2WAY;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? NS_2WAYD : NS_2WAY;
 		else if (pexit->to_scene != scene) // 2 way collide?
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? NS_HITD : NS_HIT;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? NS_HITD : NS_HIT;
 		else
 			return -1;
 	}
@@ -931,14 +931,14 @@ int put_link (SCENE_INDEX_DATA *scene, int next, int dir)
 		if (pexit == NULL) // 1 way?
 		{
 			if (org->to_scene == other) // Is the link to that scene?
-				return IS_SET(org->exit_info, EX_ISDOOR) ? EW_1WAYED : EW_1WAYE;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? EW_1WAYED : EW_1WAYE;
 			else // Goes that way but no to that scene
-				return IS_SET(org->exit_info, EX_ISDOOR) ? EW_UNED : EW_UNE;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? EW_UNED : EW_UNE;
 		}
 		else if (pexit->to_scene == scene) // 2 way?
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? EW_2WAYD : EW_2WAY;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? EW_2WAYD : EW_2WAY;
 		else if (pexit->to_scene != scene) // 2 way collide?
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? EW_HITD : EW_HIT;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? EW_HITD : EW_HIT;
 		else
 			return -1;
 	}
@@ -947,14 +947,14 @@ int put_link (SCENE_INDEX_DATA *scene, int next, int dir)
 		if (pexit == NULL) // 1 way?
 		{
 			if (org->to_scene == other) // Is the link to that scene?
-				return IS_SET(org->exit_info, EX_ISDOOR) ? EW_1WAYWD : EW_1WAYW;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? EW_1WAYWD : EW_1WAYW;
 			else
-				return IS_SET(org->exit_info, EX_ISDOOR) ? EW_UNWD : EW_UNW;
+				return IS_SET(org->exit_flags, EXIT_ISDOOR) ? EW_UNWD : EW_UNW;
 		}
 		else if (pexit->to_scene == scene)
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? EW_2WAYD : EW_2WAY;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? EW_2WAYD : EW_2WAY;
 		else if (pexit->to_scene != scene)
-			return (IS_SET(pexit->exit_info, EX_ISDOOR) || IS_SET(org->exit_info, EX_ISDOOR)) ? EW_HITD : EW_HIT;
+			return (IS_SET(pexit->exit_flags, EXIT_ISDOOR) || IS_SET(org->exit_flags, EXIT_ISDOOR)) ? EW_HITD : EW_HIT;
 		else
 			return -1;
 	}
@@ -1080,7 +1080,7 @@ MAP_QD *next_map_qd (void)
 }
 
 // Command to start it all.
-void cmd_map (PLAYER_DATA *ch, char *argument)
+void cmd_map (PLAYER *ch, char *argument)
 {
 	int x = MAP_MID, y = MAP_MID, size = -1;
 	char arg[MSL];
@@ -1128,15 +1128,15 @@ void cmd_map (PLAYER_DATA *ch, char *argument)
 }
 
 // make the map.  Meat of the whole thing
-void make_map (PLAYER_DATA *ch, int x, int y)
+void make_map (PLAYER *ch, int x, int y)
 {
 	// Lets start out with a fresh grid and hash table
 	init_map();
 
 	// Add your startin point
-	map[x][y] = ch->in_scene->vnum;
+	map[x][y] = ch->in_scene->dbkey;
 	// Say you've visited your startin point
-	add_visited(ch->in_scene->vnum);
+	add_visited(ch->in_scene->dbkey);
 	
 	// Use your starting point to begin the graphing process, with you in the middle
 	add_to_map (ch, ch->in_scene, x, y, 0);
@@ -1230,7 +1230,7 @@ int get_y_to (void)
 }
 
 // The map display function
-void show_map (PLAYER_DATA *ch, int xx, int yy)
+void show_map (PLAYER *ch, int xx, int yy)
 {
 	int x, x_to, x_from, y, y_to, y_from;
 	char buf[MSL];
@@ -1403,9 +1403,9 @@ void show_map (PLAYER_DATA *ch, int xx, int yy)
 
 // Uses a combination of a queue and recursion.  Takes you, does all the scenes around you
 // After that, it does all those scenes, then the scenes those generated..  until it stops
-void add_to_map (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int depth)
+void add_to_map (PLAYER *ch, SCENE *scene, int x, int y, int depth)
 {
-	EXIT_DATA *pexit;
+	EXIT *pexit;
 	MAP_QD *qd, *next_qd;
 	int dir, num;
 	bool fog, tight, azone;
@@ -1428,10 +1428,10 @@ void add_to_map (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int dep
 				|| (mp->depth >= 0 && depth == mp->depth)
 				|| ( 
                                      mp->doors == FALSE && (
-                                                          IS_SET(pexit->exit_info, EX_CLOSED) 
-                                                       || IS_SET(pexit->exit_info, EX_SECRET)
-                                                       || IS_SET(pexit->exit_info, EX_CONCEALED)
-                                                       || ( scene_is_dark(pexit->to_scene) && !IS_AFFECTED(ch, AFF_INFRARED) )
+                                                          IS_SET(pexit->exit_flags, EXIT_CLOSED) 
+                                                       || IS_SET(pexit->exit_flags, EXIT_SECRET)
+                                                       || IS_SET(pexit->exit_flags, EXIT_CONCEALED)
+                                                       || ( scene_is_dark(pexit->to_scene) && !IS_AFFECTED(ch, BONUS_INFRARED) )
                                                            ) 
                                    ) 
                            ) 
@@ -1456,14 +1456,14 @@ void add_to_map (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int dep
 					if (y - num < 0
 						|| map[x][y-num] != -1
 						|| (scene->zone != pexit->to_scene->zone && !azone)
-						|| has_visited(pexit->to_scene->vnum))
+						|| has_visited(pexit->to_scene->dbkey))
 						break;
 					// It's passed the test, lets add it
-					map[x][y-num] = pexit->to_scene->vnum;
+					map[x][y-num] = pexit->to_scene->dbkey;
 					qd = new_map_qd();
 					qd->x = x;
 					qd->y = y - num;
-					qd->scene = pexit->to_scene->vnum;
+					qd->scene = pexit->to_scene->dbkey;
 					qd->depth = depth + 1;
 					add_map_qd(qd);					
 					break;
@@ -1483,13 +1483,13 @@ void add_to_map (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int dep
 					if (x + num > MAX_MAP - 1
 						|| map[x+num][y] != -1
 						|| (scene->zone != pexit->to_scene->zone && !azone)
-						|| has_visited(pexit->to_scene->vnum))
+						|| has_visited(pexit->to_scene->dbkey))
 						break;
-					map[x+num][y] = pexit->to_scene->vnum;
+					map[x+num][y] = pexit->to_scene->dbkey;
 					qd = new_map_qd();
 					qd->x = x + num;
 					qd->y = y;
-					qd->scene = pexit->to_scene->vnum;
+					qd->scene = pexit->to_scene->dbkey;
 					qd->depth = depth + 1;
 					add_map_qd(qd);					
 					break;
@@ -1509,13 +1509,13 @@ void add_to_map (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int dep
 					if (y + num > MAX_MAP - 1
 						|| map[x][y+num] != -1
 						|| (scene->zone != pexit->to_scene->zone && !azone)
-						|| has_visited(pexit->to_scene->vnum))
+						|| has_visited(pexit->to_scene->dbkey))
 						break;
-					map[x][y+num] = pexit->to_scene->vnum;
+					map[x][y+num] = pexit->to_scene->dbkey;
 					qd = new_map_qd();
 					qd->x = x;
 					qd->y = y + num;
-					qd->scene = pexit->to_scene->vnum;
+					qd->scene = pexit->to_scene->dbkey;
 					qd->depth = depth + 1;
 					add_map_qd(qd);					
 					break;
@@ -1535,13 +1535,13 @@ void add_to_map (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int dep
 					if (x - num < 0
 						|| map[x-num][y] != -1
 						|| (scene->zone != pexit->to_scene->zone && !azone)
-						|| has_visited(pexit->to_scene->vnum))
+						|| has_visited(pexit->to_scene->dbkey))
 						break;
-					map[x-num][y] = pexit->to_scene->vnum;
+					map[x-num][y] = pexit->to_scene->dbkey;
 					qd = new_map_qd();
 					qd->x = x - num;
 					qd->y = y;
-					qd->scene = pexit->to_scene->vnum;
+					qd->scene = pexit->to_scene->dbkey;
 					qd->depth = depth + 1;
 					add_map_qd(qd);
 					break;
@@ -1563,8 +1563,8 @@ void add_to_map (PLAYER_DATA *ch, SCENE_INDEX_DATA *scene, int x, int y, int dep
 		
 		free_map_qd (next_qd);
 		// Is it a valid scene?  Lets double check
-		if (get_scene_index(qscene) != NULL)
-			add_to_map (ch, get_scene_index(qscene), qx, qy, qdepth);
+		if (get_scene(qscene) != NULL)
+			add_to_map (ch, get_scene(qscene), qx, qy, qdepth);
 	}
 	return;
 }

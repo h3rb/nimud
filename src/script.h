@@ -58,16 +58,16 @@
  * Internal stuff.
  */
 
-#define PARSING(o, t)   ( t==TYPE_PROP ? ((PROP_DATA *)o)->current :      \
-                          (t==TYPE_ACTOR ? ((PLAYER_DATA *)o)->current :    \
-                           (t==TYPE_SCENE ? ((SCENE_INDEX_DATA *)o)->current : NULL )) )
+#define PARSING(o, t)   ( t==TYPE_PROP ? ((PROP *)o)->current :      \
+                          (t==TYPE_ACTOR ? ((PLAYER *)o)->current :    \
+                           (t==TYPE_SCENE ? ((SCENE *)o)->current : NULL )) )
 
 
-VARIABLE_DATA **  globals   args( ( void * owner, int type ) );
+VARIABLE **  globals   args( ( void * owner, int type ) );
 
-void trigger_list      args( ( PROP_DATA *list, int ttype, PLAYER_DATA  *actor,
-                               PROP_DATA *catalyst, char *astr, char *bstr ) );
-void parse_script      args( ( INSTANCE_DATA *instance, void * owner, int type ) );
+void trigger_list      args( ( PROP *list, int ttype, PLAYER  *actor,
+                               PROP *catalyst, char *astr, char *bstr ) );
+void parse_script      args( ( INSTANCE *instance, void * owner, int type ) );
 void parse_assign      args( ( char *line, void * owner, int type ) );
 
 
@@ -104,20 +104,20 @@ void parse_assign      args( ( char *line, void * owner, int type ) );
 #define PARAMETER(var, vtype)         ( !var || (var->type != vtype) )
 
 #define RETURNS(t,val)   if ( !val ) { return NULL; } else {\
-                            VARIABLE_DATA *vard; vard = new_variable_data(); \
+                            VARIABLE *vard; vard = new_var(); \
                             vard->value = val;  vard->type=t; return vard;  } 
 
 char *translate_variables      	          args( ( void * owner, int type, char *exp ) );
-VARIABLE_DATA * get_variable              args( ( VARIABLE_DATA *vlist, char *name ) );
-VARIABLE_DATA * find_variable             args( ( void * owner, int type, char *name ) );
-VARIABLE_DATA ** varlist	          args( ( void * owner, int type ) );
+VARIABLE * get_variable              args( ( VARIABLE *vlist, char *name ) );
+VARIABLE * find_variable             args( ( void * owner, int type, char *name ) );
+VARIABLE ** varlist	          args( ( void * owner, int type ) );
 void assign_var                           args( ( void * owner, int type,
-                                                  VARIABLE_DATA *var, char *name ) );
-void assign_local                         args( ( INSTANCE_DATA *instance,
-                                                  VARIABLE_DATA *var, char *name ) );
+                                                  VARIABLE *var, char *name ) );
+void assign_local                         args( ( INSTANCE *instance,
+                                                  VARIABLE *var, char *name ) );
 int            trigger                    args( ( void * owner, int type,
-                                                  INSTANCE_DATA *instance ) );
-void instance_track                       args( ( INSTANCE_DATA *instance, 
+                                                  INSTANCE *instance ) );
+void instance_track                       args( ( INSTANCE *instance, 
                                                   void * owner ) );
 
 void * get_target args(( void * owner, int type, int * target_type, char *exp ));
@@ -125,7 +125,7 @@ void * get_target args(( void * owner, int type, int * target_type, char *exp ))
 /*
  * Convert a variable to its string equivalent.
  */
-void STR_PARAM_parse  args( ( VARIABLE_DATA *var, char *_val, void *owner, int type ) );
+void STR_PARAM_parse  args( ( VARIABLE *var, char *_val, void *owner, int type ) );
 #define STR_PARAM( var, _val )       STR_PARAM_parse(var,_val,owner,type)
 
 
@@ -134,8 +134,8 @@ void STR_PARAM_parse  args( ( VARIABLE_DATA *var, char *_val, void *owner, int t
 
 /* Kludgy work-around. */
 extern char param_buf[MSL];
-extern PROP_DATA *pPropFreeList;
-extern PLAYER_DATA *pActorFreeList;
+extern PROP *pPropFreeList;
+extern PLAYER *pActorFreeList;
 
 extern int gotoloops;  /* for stopping infinitely recursive scripts */
 
@@ -166,9 +166,9 @@ extern int gotoloops;  /* for stopping infinitely recursive scripts */
  * two parameters, you will need to make use of the function
  * writing macros.
  *
- * VARIABLE_DATA *func_yourfunctionname( void * owner,   <- req'd
+ * VARIABLE *func_yourfunctionname( void * owner,   <- req'd
  *                                       int type,       <- req'd
- *                               VARIABLE_DATA *var, ..  <- optional
+ *                               VARIABLE *var, ..  <- optional
  *                                    .. var6 )
  * {
  *         char _var[MSL];     <- one for each parameter
@@ -178,7 +178,7 @@ extern int gotoloops;  /* for stopping infinitely recursive scripts */
  *         (your locals)
  *
  *         STR_PARAM(var,_var);   <- one for each parameter
- *            .                      Converts VARIABLE_DATA into strings.
+ *            .                      Converts VARIABLE into strings.
  *            .
  *         STR_PARAM(var6,_var6);    
  *
@@ -239,17 +239,17 @@ TYPE_SCENE: c; break; default: d; break; }
 /*
  * Casts.  Used in the case statements present in every function.
  */
-#define ACTOR(var)         ( (PLAYER_DATA *)(var)      )
-#define PROP(var)          ( (PROP_DATA *)(var)        )
-#define SCENE(var)         ( (SCENE_INDEX_DATA *)(var) )
+#define ACTOR(var)         ( (PLAYER *)(var)      )
+#define PROP(var)          ( (PROP *)(var)        )
+#define SCENE(var)         ( (SCENE *)(var) )
 
 /*
  * Integer math function declarer.
  */
 #define dMATH_FUNCTIONI(fname,OPERAND)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *astr, \
-                                              VARIABLE_DATA *bstr, \
-                                              VARIABLE_DATA *cstr )\
+VARIABLE *fname( void * owner, int type, VARIABLE *astr, \
+                                              VARIABLE *bstr, \
+                                              VARIABLE *cstr )\
 {   static char buf[MAX_STRING_LENGTH]; int x, y, z;\
     char _astr[MSL];    char _bstr[MSL];   char _cstr[MSL];\
     STR_PARAM(astr,_astr);    STR_PARAM(bstr,_bstr);  STR_PARAM(cstr,_cstr);\
@@ -261,7 +261,7 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *astr, \
  * Set integer variable function declarer.
  */
 #define dGET_FUNCTIONI(fname,vname)  \
-VARIABLE_DATA *(fname)( void * owner, int type ){\
+VARIABLE *(fname)( void * owner, int type ){\
     char buf[MAX_STRING_LENGTH];\
     sprintf( buf, "%d", (vname) );\
     RETURNS(TYPE_STRING,str_dup(buf));    }
@@ -270,7 +270,7 @@ VARIABLE_DATA *(fname)( void * owner, int type ){\
  * Set integer variable function declarer.
  */
 #define dSET_FUNCTIONI(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *v ){\
+VARIABLE *fname( void * owner, int type, VARIABLE *v ){\
     char buf[MAX_STRING_LENGTH];\
     STR_PARAM(v,buf);\
     vname = atoi(buf); RETURNS(TYPE_STRING,str_dup(buf)); }
@@ -281,8 +281,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *v ){\
  * Get integer on an actor variable function declarer.
  */
 #define dGET_FUNCTIONAI(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    PLAYER_DATA *ch;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    PLAYER *ch;   \
     char buf[MSL];\
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     ch=t->type==TYPE_ACTOR ? ACTOR(t->value) : find_actor_here(owner,type,_t);\
@@ -293,8 +293,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Set integer on an actor variable function declarer.
  */
 #define dSET_FUNCTIONAI(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    PLAYER_DATA *ch;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    PLAYER *ch;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     FOREACH(t->type,ch=ACTOR(t->value),ch=NULL,ch=NULL,ch=find_actor_here(owner,type,_t));\
     ch=t->type==TYPE_ACTOR ? ACTOR(t->value) : find_actor_here(owner,type,_t);\
@@ -304,8 +304,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Get integer on a prop function declarer.
  */
 #define dGET_FUNCTIONPI(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];   char buf[MSL]; PROP_DATA *p;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];   char buf[MSL]; PROP *p;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     p=t->type==TYPE_PROP ? PROP(t->value) : find_prop_here(owner,type,_t);\
     if ( !p ) return NULL;  sprintf( buf, "%d", p->vname);\
@@ -315,8 +315,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Set integer on a prop function declarer.
  */
 #define dSET_FUNCTIONPI(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    PROP_DATA *p;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    PROP *p;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     p=t->type==TYPE_PROP ? PROP(t->value) : find_prop_here(owner,type,_t);\
     if ( !p ) return NULL;  p->vname = atoi(_v);    return NULL; }
@@ -326,8 +326,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Get integer on a scene function declarer.
  */
 #define dGET_FUNCTIONSI(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];  char buf[MSL]; SCENE_INDEX_DATA *s;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];  char buf[MSL]; SCENE *s;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     s=t->type==TYPE_SCENE ? SCENE(t->value) : find_scene_here(owner,type,_t);\
     if ( !s ) return NULL;  sprintf( buf, "%d", s->vname ); \
@@ -337,8 +337,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Set integer on a scene function declarer.
  */
 #define dSET_FUNCTIONSI(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    SCENE_INDEX_DATA *s;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    SCENE *s;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     s=t->type==TYPE_SCENE ? SCENE(t->value) : find_scene_here(owner,type,_t);\
     if ( !s ) return NULL;  s->vname = atoi(_v);    return NULL; }
@@ -350,8 +350,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Get string on an actor variable function declarer.
  */
 #define dGET_FUNCTIONAS(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    PLAYER_DATA *ch;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    PLAYER *ch;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     ch=t->type==TYPE_ACTOR ? ACTOR(t->value) : find_actor_here(owner,type,_t);\
     if ( !ch ) return NULL;  \
@@ -361,8 +361,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Set string on an actor variable function declarer.
  */
 #define dSET_FUNCTIONAS(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    PLAYER_DATA *ch;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    PLAYER *ch;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     ch=t->type==TYPE_ACTOR ? ACTOR(t->value) : find_actor_here(owner,type,_t);\
     if ( !ch ) return NULL;  free_string(ch->vname); ch->vname = str_dup(_v);  return NULL; }
@@ -372,8 +372,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Get string on a prop variable function declarer.
  */
 #define dGET_FUNCTIONPS(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    PROP_DATA *p;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    PROP *p;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     p=t->type==TYPE_PROP ? PROP(t->value) : find_prop_here(owner,type,_t);\
     if ( !p ) return NULL;  \
@@ -383,8 +383,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Set string on a prop variable function declarer.
  */
 #define dSET_FUNCTIONPS(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    PROP_DATA *p;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    PROP *p;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     p=t->type==TYPE_PROP ? PROP(t->value) : find_prop_here(owner,type,_t);\
     if ( !p ) return NULL;  free_string(p->vname); p->vname = str_dup(_v);  return NULL; }
@@ -394,8 +394,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Get string on a scene variable function declarer.
  */
 #define dGET_FUNCTIONSS(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    SCENE_INDEX_DATA *s;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    SCENE *s;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     s=t->type==TYPE_SCENE ? SCENE(t->value) : find_scene_here(owner,type,_t);\
     if ( !s ) return NULL;  \
@@ -405,8 +405,8 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Set string on a scene variable function declarer.
  */
 #define dSET_FUNCTIONSS(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v ){\
-    char _v[MSL];   char _t[MSL];    SCENE_INDEX_DATA *s;   \
+VARIABLE *fname( void * owner, int type, VARIABLE *t, VARIABLE *v ){\
+    char _v[MSL];   char _t[MSL];    SCENE *s;   \
     STR_PARAM(v,_v);  STR_PARAM(t,_t); if ( !t ) return NULL;\
     s=t->type==TYPE_SCENE ? SCENE(t->value) : find_scene_here(owner,type,_t);\
     if ( !s ) return NULL;  free_string(s->vname); s->vname = str_dup(_v);  return NULL; }
@@ -418,7 +418,7 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *t, VARIABLE_DATA *v
  * Set string variable function declarer.
  */
 #define dGET_FUNCTIONS(fname,vname)  \
-VARIABLE_DATA *fname( void * owner, int type ){\
+VARIABLE *fname( void * owner, int type ){\
     char buf[MAX_STRING_LENGTH];\
     sprintf( buf, "%s", (v) ); RETURNS(TYPE_STRING,str_dup(buf));    }
 
@@ -426,7 +426,7 @@ VARIABLE_DATA *fname( void * owner, int type ){\
  * Get string variable function declarer.
  */
 #define dSET_FUNCTIONS(fname,v)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *v ){\
+VARIABLE *fname( void * owner, int type, VARIABLE *v ){\
     char buf[MAX_STRING_LENGTH];\
     STR_PARAM(v,buf); vname = str_dup(buf);\
     RETURNS(TYPE_STRING,str_dup(buf));}
@@ -435,7 +435,7 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *v ){\
  * Set target variable function declarer.
  */
 #define dGET_FUNCTIONT(fname,ttype,vname)  \
-VARIABLE_DATA *fname( void * owner, int type ){\
+VARIABLE *fname( void * owner, int type ){\
     char buf[MAX_STRING_LENGTH];\
     sprintf( buf, "%s", (v) ); RETURNS(TYPE_STRING,str_dup(buf));    }
 /*nyi*/
@@ -444,7 +444,7 @@ VARIABLE_DATA *fname( void * owner, int type ){\
  * Get target variable function declarer.
  */
 #define dSET_FUNCTIONT(fname,ttype,vname)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *v ){\
+VARIABLE *fname( void * owner, int type, VARIABLE *v ){\
     char buf[MAX_STRING_LENGTH];\
     if( vname = str_dup(buf);\
     RETURNS(TYPE_STRING,str_dup(buf));}
@@ -453,12 +453,12 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *v ){\
  * Generic graphics converter macro.
  */
 #define dGRAPHICS_FUNCTION(fname,OPERAND)  \
-VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *va,\
-                                              VARIABLE_DATA *vb,\
-                                              VARIABLE_DATA *vc,\
-                                              VARIABLE_DATA *vd,\
-                                              VARIABLE_DATA *ve,\
-                                              VARIABLE_DATA *vf  ){\
+VARIABLE *fname( void * owner, int type, VARIABLE *va,\
+                                              VARIABLE *vb,\
+                                              VARIABLE *vc,\
+                                              VARIABLE *vd,\
+                                              VARIABLE *ve,\
+                                              VARIABLE *vf  ){\
     char _a[MAX_STRING_LENGTH]; int a;\
     char _b[MAX_STRING_LENGTH]; int b;\
     char _c[MAX_STRING_LENGTH]; int c;\
@@ -481,7 +481,7 @@ VARIABLE_DATA *fname( void * owner, int type, VARIABLE_DATA *va,\
  * database objects.  Used in functions.c
  */
 
-PLAYER_DATA      *find_actor_here args( ( void * owner, int type, char *exp ) );
-PROP_DATA        *find_prop_here  args( ( void * owner, int type, char *exp ) );
-SCENE_INDEX_DATA *find_scene_here args( ( void * owner, int type, char *exp ) );
+PLAYER      *find_actor_here args( ( void * owner, int type, char *exp ) );
+PROP        *find_prop_here  args( ( void * owner, int type, char *exp ) );
+SCENE *find_scene_here args( ( void * owner, int type, char *exp ) );
 

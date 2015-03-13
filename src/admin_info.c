@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -54,7 +54,7 @@ int         FORCE_LEVEL;
 /*
  *  Syntax:  wizhelp
  */
-void cmd_wizhelp( PLAYER_DATA *ch, char *argument )
+void cmd_wizhelp( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     int cmd;
@@ -97,18 +97,18 @@ void cmd_wizhelp( PLAYER_DATA *ch, char *argument )
 
 /*
  *  Syntax:  rstat
- *           rstat [name/vnum]
+ *           rstat [name/dbkey]
  */
-void cmd_rstat( PLAYER_DATA *ch, char *argument )
+void cmd_rstat( PLAYER *ch, char *argument )
 {
     extern char * const dir_name[];
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    INSTANCE_DATA *pTrig;
-    VARIABLE_DATA *pVar;
-    SCENE_INDEX_DATA *location;
-    PROP_DATA *prop;
-    PLAYER_DATA *rch;
+    INSTANCE *pTrig;
+    VARIABLE *pVar;
+    SCENE *location;
+    PROP *prop;
+    PLAYER *rch;
     int door;
 
     one_argument( argument, arg );
@@ -121,15 +121,15 @@ void cmd_rstat( PLAYER_DATA *ch, char *argument )
 
     snprintf( buf, MAX_STRING_LENGTH, "Name:  [%s]\n\rVnum: [%5d]   Zone:  [%5d] %s\n\r",
              location->name,
-             location->vnum,
-             location->zone->vnum,
+             location->dbkey,
+             location->zone->dbkey,
              location->zone->name );
     send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Reference:  [%5d]  Wagon: [%5d]   Sector[%s]\n\rLight: [%5d]  Max People: [%5d]\n\r",
              location->template,
              location->wagon,
-             sector_name( location->sector_type ),
+             move_name( location->move ),
              location->light,
              location->max_people );
     send_to_actor( buf, ch );
@@ -144,7 +144,7 @@ void cmd_rstat( PLAYER_DATA *ch, char *argument )
 
     if ( location->extra_descr != NULL )
     {
-	EXTRA_DESCR_DATA *ed;
+	EXTRA_DESCR *ed;
 
     send_to_actor( "ED keywords: ", ch );
 	for ( ed = location->extra_descr; ed; ed = ed->next )
@@ -175,15 +175,15 @@ void cmd_rstat( PLAYER_DATA *ch, char *argument )
 
     for ( door = 0; door < MAX_DIR; door++ )
     {
-	EXIT_DATA *pexit;
+	EXIT *pexit;
 
 	if ( ( pexit = location->exit[door] ) != NULL )
 	{
         snprintf( buf, MAX_STRING_LENGTH, "%5s to [%5d], key [%5d], fl %3d/%3d [%s] '%s'\n\r",
                  capitalize( dir_name[door] ),
-                 pexit->to_scene != NULL ? pexit->to_scene->vnum : 0,
+                 pexit->to_scene != NULL ? pexit->to_scene->dbkey : 0,
                  pexit->key,
-                 pexit->exit_info, pexit->rs_flags,
+                 pexit->exit_flags, pexit->rs_flags,
                  exit_bit_name( pexit->rs_flags ),
                  !MTD(pexit->keyword) ? pexit->keyword : "" );
 	    send_to_actor( buf, ch );
@@ -202,18 +202,18 @@ void cmd_rstat( PLAYER_DATA *ch, char *argument )
         switch ( pVar->type )
         {
             case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-            case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER_DATA *)pVar->value),name) ); break;
+            case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
             case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = prop %d (%s)\n\r", 
-                                        ((PROP_DATA *)(pVar->value))->pIndexData->vnum, 
-                                        STR(((PROP_DATA *)(pVar->value)), short_descr) ); break;
-            case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = scene %d\n\r", ((SCENE_INDEX_DATA *)pVar->value)->vnum ); break;
+                                        ((PROP *)(pVar->value))->pIndexData->dbkey, 
+                                        STR(((PROP *)(pVar->value)), short_descr) ); break;
+            case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = scene %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
             default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
         }
         send_to_actor( buf, ch );
     }
     for ( pTrig = location->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->vnum, pTrig->script->name, pTrig->wait, pTrig->autowait );
+        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
         send_to_actor( buf, ch );
 
         for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
@@ -224,9 +224,9 @@ void cmd_rstat( PLAYER_DATA *ch, char *argument )
             switch ( pVar->type )
             {
                 case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER_DATA *)pVar->value),name) ); break;
-                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = prop %d\n\r", ((PROP_DATA  *)pVar->value)->pIndexData->vnum ); break;
-                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = scene %d\n\r", ((SCENE_INDEX_DATA *)pVar->value)->vnum ); break;
+                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = prop %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
+                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = scene %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
                 default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
             }
             send_to_actor( buf, ch );
@@ -245,12 +245,12 @@ void cmd_rstat( PLAYER_DATA *ch, char *argument )
 
 
 /*
- * Syntax:  index actor [vnum]
- *          index prop [vnum]
- *          index scene   [vnum]
- *          index [vnum]
+ * Syntax:  index actor [dbkey]
+ *          index prop [dbkey]
+ *          index scene   [dbkey]
+ *          index [dbkey]
  */
-void cmd_index( PLAYER_DATA *ch, char *argument )
+void cmd_index( PLAYER *ch, char *argument )
 {
     char arg[MAX_STRING_LENGTH];
 
@@ -267,14 +267,14 @@ else cmd_rstat( ch, arg );
   
 
 
-bool ostat( PLAYER_DATA *ch, char *argument )
+bool ostat( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    BONUS_DATA *paf;
-    PROP_DATA *prop;
-    INSTANCE_DATA *pTrig;
-    VARIABLE_DATA *pVar;
+    BONUS *paf;
+    PROP *prop;
+    INSTANCE *pTrig;
+    VARIABLE *pVar;
 
     argument = one_argument( argument, arg );
 
@@ -291,13 +291,13 @@ bool ostat( PLAYER_DATA *ch, char *argument )
 
     snprintf( buf, MAX_STRING_LENGTH, "Name:   [%s]          zone: [%3d] %s\n\r",
     STR(prop, name),
-    prop->pIndexData->zone->vnum,
+    prop->pIndexData->zone->dbkey,
     prop->pIndexData->zone->name );
     send_to_actor( buf, ch );
 
 
     snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [%5d]   Size:  [%5d]  Type: [%s]\n\r",
-             prop->pIndexData->vnum,  prop->size,
+             prop->pIndexData->dbkey,  prop->size,
              item_type_name( prop->item_type ) );
     send_to_actor( buf, ch );
 
@@ -346,7 +346,7 @@ bool ostat( PLAYER_DATA *ch, char *argument )
     send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Scene:   [%5d]  Object: [%s] Contents[%s]  Carried: [%s]\n\rHitched: [%s]   Wear_loc: [%s]\n\r",
-             prop->in_scene    == NULL    ?        0 : prop->in_scene->vnum,
+             prop->in_scene    == NULL    ?        0 : prop->in_scene->dbkey,
              prop->in_prop     == NULL    ? "(none)" : STR(prop->in_prop, short_descr),
              prop->contains     == NULL    ? "(none)" : STR(prop->contains, short_descr),
              prop->carried_by == NULL    ? "(no one)" : NAME(prop->carried_by),
@@ -372,7 +372,7 @@ bool ostat( PLAYER_DATA *ch, char *argument )
 
     if ( prop->extra_descr != NULL || prop->pIndexData->extra_descr != NULL )
     {
-	EXTRA_DESCR_DATA *ed;
+	EXTRA_DESCR *ed;
 
     send_to_actor( "ED keywords: [", ch );
 
@@ -420,16 +420,16 @@ bool ostat( PLAYER_DATA *ch, char *argument )
          switch ( pVar->type )
          {
              case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-             case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER_DATA *)pVar->value),name) ); break;
-             case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((PROP_DATA  *)pVar->value)->pIndexData->vnum ); break;
-             case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((SCENE_INDEX_DATA *)pVar->value)->vnum ); break;
+             case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+             case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
+             case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
              default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
          }
          send_to_actor( buf, ch );
      }
     for ( pTrig = prop->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->vnum, pTrig->script->name, pTrig->wait, pTrig->autowait );
+        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
         send_to_actor( buf, ch );
 
         for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
@@ -440,9 +440,9 @@ bool ostat( PLAYER_DATA *ch, char *argument )
             switch ( pVar->type )
             {
                 case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER_DATA *)pVar->value),name) ); break;
-                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((PROP_DATA  *)pVar->value)->pIndexData->vnum ); break;
-                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((SCENE_INDEX_DATA *)pVar->value)->vnum ); break;
+                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
+                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
                 default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
             }
             send_to_actor( buf, ch );
@@ -453,14 +453,14 @@ bool ostat( PLAYER_DATA *ch, char *argument )
 }
 
 
-bool mstat( PLAYER_DATA *ch, char *argument )
+bool mstat( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    BONUS_DATA *paf;
-    PLAYER_DATA *victim;
-    INSTANCE_DATA *pTrig;
-    VARIABLE_DATA *pVar;
+    BONUS *paf;
+    PLAYER *victim;
+    INSTANCE *pTrig;
+    VARIABLE *pVar;
     int days, hours;
 
     argument = one_argument( argument, arg );
@@ -482,14 +482,14 @@ bool mstat( PLAYER_DATA *ch, char *argument )
 
     if ( victim->pIndexData != NULL )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:  [%5d]  ", victim->pIndexData->vnum );
+    snprintf( buf, MAX_STRING_LENGTH, "Vnum:  [%5d]  ", victim->pIndexData->dbkey );
     send_to_actor( buf, ch );
     }
 
     if ( victim->pIndexData != NULL && victim->pIndexData->zone != NULL )
     {
     snprintf( buf, MAX_STRING_LENGTH, "zone:  [%3d] %s\n\r",
-             victim->pIndexData->zone->vnum,
+             victim->pIndexData->zone->dbkey,
              victim->pIndexData->zone->name );
     send_to_actor( buf, ch );
     }
@@ -511,7 +511,7 @@ bool mstat( PLAYER_DATA *ch, char *argument )
              victim->sex == SEX_FEMALE  ? "female" : "neutral",
              victim->in_scene == NULL    ? "None"   :
                  trunc_fit( victim->in_scene->name, 15 ),
-             victim->in_scene == NULL    ?        0 : victim->in_scene->vnum );
+             victim->in_scene == NULL    ?        0 : victim->in_scene->dbkey );
     send_to_actor( buf, ch );
 
 
@@ -539,21 +539,21 @@ bool mstat( PLAYER_DATA *ch, char *argument )
     hours = ((int) GET_PC(victim,played,0)) % 24;
     snprintf( buf, MAX_STRING_LENGTH, "Age:   [%5d]   Timer: [%5d]  Trace: [%5d]   Played: [%d, %d]\n\r",
                   GET_AGE(victim), victim->timer,
-                  IS_NPC(ch) ? -1 :
-                    (ch->userdata->trace != NULL ? ch->userdata->trace->vnum : -1),
+                  NPC(ch) ? -1 :
+                    (ch->userdata->trace != NULL ? ch->userdata->trace->dbkey : -1),
                   days, hours );
     send_to_actor( buf, ch );
 
-    if ( !IS_NPC(victim) ) {
+    if ( !NPC(victim) ) {
         snprintf( buf, MAX_STRING_LENGTH, "%d Total Logins- Constellation:\n\r%s\n\r", 
              PC(victim,logins), PC(victim,constellation) );
         send_to_actor( buf, ch );
     }
  
     snprintf( buf, MAX_STRING_LENGTH, "Act:     [%s] %d\n\r",
-             IS_NPC(victim) ? act_bit_name( victim->act )
-                            : plr_bit_name( victim->act ),
-            !IS_NPC(victim) ? PC(victim,app_time) : 0 );
+             NPC(victim) ? actor_bit_name( victim->flag )
+                            : plr_bit_name( victim->flag ),
+            !NPC(victim) ? PC(victim,app_time) : 0 );
     send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Bonuses: [%s]\n\r", bonus_bit_name(victim->bonuses));
@@ -658,9 +658,9 @@ bool mstat( PLAYER_DATA *ch, char *argument )
        switch ( pVar->type )
        {
            case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, "[str] = \"%s\"\n\r", (char *)pVar->value ); break;
-           case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, "[actor] = %s\n\r", STR(((PLAYER_DATA *)pVar->value),name) ); break;
-           case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, "[prop] = %d\n\r", ((PROP_DATA  *)pVar->value)->pIndexData->vnum); break;
-           case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, "[rm ] = %d\n\r", ((SCENE_INDEX_DATA *)pVar->value)->vnum ); break;
+           case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, "[actor] = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+           case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, "[prop] = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey); break;
+           case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, "[rm ] = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
              default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
        }
        send_to_actor( buf, ch );
@@ -668,7 +668,7 @@ bool mstat( PLAYER_DATA *ch, char *argument )
 
     for ( pTrig = victim->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->vnum, pTrig->script->name, pTrig->wait, pTrig->autowait );
+        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
         send_to_actor( buf, ch );
 
         for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
@@ -679,9 +679,9 @@ bool mstat( PLAYER_DATA *ch, char *argument )
             switch ( pVar->type )
             {
                 case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, "[str] = \"%s\"\n\r", (char *)pVar->value ); break;
-                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, "[actor] = %s\n\r", STR(((PLAYER_DATA *)pVar->value),name) ); break;
-                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, "[prop] = %d\n\r", ((PROP_DATA  *)pVar->value)->pIndexData->vnum); break;
-                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, "[rm ] = %d\n\r", ((SCENE_INDEX_DATA *)pVar->value)->vnum ); break;
+                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, "[actor] = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, "[prop] = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey); break;
+                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, "[rm ] = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
                 default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
             }
             send_to_actor( buf, ch );
@@ -707,30 +707,30 @@ bool mstat( PLAYER_DATA *ch, char *argument )
 
 
 
-bool pstat( PLAYER_DATA *ch, char *argument )
+bool pstat( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    SCRIPT_DATA *pScript;
-    int vnum;
+    SCRIPT *pScript;
+    int dbkey;
     int search;
 
     argument = one_argument( argument, arg );
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Syntax: stat <script vnum>\n\r", ch );
+    send_to_actor( "Syntax: stat <script dbkey>\n\r", ch );
     return TRUE;
     }
 
     search = atoi( arg );
 
     pScript = NULL;
-    for ( vnum = 0; vnum <= top_vnum_script; vnum++ )
+    for ( dbkey = 0; dbkey <= top_dbkey_script; dbkey++ )
     {
-        if ( vnum == search )
+        if ( dbkey == search )
         {
-            pScript = get_script_index( vnum );
+            pScript = get_script_index( dbkey );
             break;
         }
     }
@@ -739,7 +739,7 @@ bool pstat( PLAYER_DATA *ch, char *argument )
     return FALSE;
 
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:  [%5d]  Name:  [%s]\n\r", pScript->vnum,
+    snprintf( buf, MAX_STRING_LENGTH, "Vnum:  [%5d]  Name:  [%s]\n\r", pScript->dbkey,
              pScript->name  );
     page_to_actor( buf, ch );
 
@@ -757,11 +757,11 @@ bool pstat( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  stat [person/thing/num]
  */
-void cmd_stat( PLAYER_DATA *ch, char *argument )
+void cmd_stat( PLAYER *ch, char *argument )
 {
     if ( *argument == '\0' )
     {
-        send_to_actor( "Usage:   stat [person|thing|vnum]\n\r", ch );
+        send_to_actor( "Usage:   stat [person|thing|dbkey]\n\r", ch );
         return;
     }
 
@@ -776,8 +776,8 @@ void cmd_stat( PLAYER_DATA *ch, char *argument )
 
 
     /*
-     * Yeah, so iterating over all vnum's takes 10,000 loops.
-     * Get_actor_index is fast, and I don't feel like threading another link.
+     * Yeah, so iterating over all dbkey's takes 10,000 loops.
+     * Get_actor_template is fast, and I don't feel like threading another link.
      * Do you?
      * -- Furey
      */
@@ -791,21 +791,21 @@ void cmd_stat( PLAYER_DATA *ch, char *argument )
  *          afind [lower] [upper]
  *          afind exp [lower [upper]]
  */
-void cmd_afind( PLAYER_DATA *ch, char *argument )
+void cmd_afind( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char arg3[MAX_INPUT_LENGTH];
-    ACTOR_INDEX_DATA *pActorIndex;
+    ACTOR_TEMPLATE *pActorIndex;
     bool fRange = FALSE;
     bool fzone = FALSE;
     bool fName = FALSE;
     int range1 = 0;
     int range2 = 0;
-    ZONE_DATA *pZone = ch->in_scene->zone;
+    ZONE *pZone = ch->in_scene->zone;
     char name[MAX_INPUT_LENGTH];
-    int vnum;
+    int dbkey;
     bool found = FALSE;
 
     argument = one_argument( argument, arg1 );
@@ -869,35 +869,35 @@ void cmd_afind( PLAYER_DATA *ch, char *argument )
 
     if ( range1 > range2 && fRange )
     {
-        vnum = range1;
+        dbkey = range1;
         range1 = range2;
-        range2 = vnum;
+        range2 = dbkey;
     }
 
 
     if ( !str_cmp( arg3, "exp" ) ) {
-    for ( vnum = 0; vnum <= top_vnum_actor; vnum++ )
+    for ( dbkey = 0; dbkey <= top_dbkey_actor; dbkey++ )
     {
-        if ( ( pActorIndex = get_actor_index( vnum ) ) != NULL
+        if ( ( pActorIndex = get_actor_template( dbkey ) ) != NULL
           && ( pActorIndex->exp > range1 && pActorIndex->exp < range2 ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s %d xp %d karma\n\r", vnum, pActorIndex->short_descr,
+            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s %d xp %d karma\n\r", dbkey, pActorIndex->short_descr,
                                              !fzone ? trunc_fit(pActorIndex->name,20) : "", pActorIndex->exp, pActorIndex->karma );
             send_to_actor( buf, ch );
         }
     } }
     else {
-    if ( range2 > top_vnum_actor || !fRange ) range2 = top_vnum_actor;
-    for ( vnum = range1; vnum <= range2; vnum++ )
+    if ( range2 > top_dbkey_actor || !fRange ) range2 = top_dbkey_actor;
+    for ( dbkey = range1; dbkey <= range2; dbkey++ )
     {
-        if ( ( pActorIndex = get_actor_index( vnum ) ) != NULL
+        if ( ( pActorIndex = get_actor_template( dbkey ) ) != NULL
           && ( is_prename( name, pActorIndex->name )
             || is_prename( name, pActorIndex->short_descr ) || !fName )
           && ( pActorIndex->zone == pZone || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s %d xp %d karma\n\r", vnum, pActorIndex->short_descr,
+            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s %d xp %d karma\n\r", dbkey, pActorIndex->short_descr,
                                              !fzone ? trunc_fit(pActorIndex->name,20) : "", pActorIndex->exp, pActorIndex->karma );
             send_to_actor( buf, ch );
         }
@@ -919,7 +919,7 @@ void cmd_afind( PLAYER_DATA *ch, char *argument )
  *          pfind zone [lower [upper]]
  *          pfind [lower] [upper]
  */
-void cmd_pfind( PLAYER_DATA *ch, char *argument )
+void cmd_pfind( PLAYER *ch, char *argument )
 {
     char buf2[MAX_STRING_LENGTH];
     char buf[MAX_STRING_LENGTH];
@@ -928,7 +928,7 @@ void cmd_pfind( PLAYER_DATA *ch, char *argument )
     char arg2[MAX_INPUT_LENGTH];
     char arg3[MAX_INPUT_LENGTH];
 
-    PROP_INDEX_DATA *pPropIndex;
+    PROP_TEMPLATE *pPropIndex;
 
     bool fRange = FALSE;
     bool fzone = FALSE;
@@ -937,10 +937,10 @@ void cmd_pfind( PLAYER_DATA *ch, char *argument )
     int range1 = 0;
     int range2 = 0;
 
-    ZONE_DATA *pZone = ch->in_scene->zone;
+    ZONE *pZone = ch->in_scene->zone;
     char name[MAX_INPUT_LENGTH];
 
-    int vnum;
+    int dbkey;
     bool found = FALSE;
 
     argument = one_argument( argument, arg1 );
@@ -1003,23 +1003,23 @@ void cmd_pfind( PLAYER_DATA *ch, char *argument )
 
     if ( range1 > range2 && fRange )
     {
-        vnum = range1;
+        dbkey = range1;
         range1 = range2;
-        range2 = vnum;
+        range2 = dbkey;
     }
 
-    if ( range2 > top_vnum_prop || !fRange ) range2 = top_vnum_prop;
+    if ( range2 > top_dbkey_prop || !fRange ) range2 = top_dbkey_prop;
 
     buf2[0] = '\0';
-    for ( vnum = range1; vnum <= range2; vnum++ )
+    for ( dbkey = range1; dbkey <= range2; dbkey++ )
     {
-        if ( ( pPropIndex = get_prop_index( vnum ) ) != NULL
+        if ( ( pPropIndex = get_prop_template( dbkey ) ) != NULL
           && ( is_prename( name, pPropIndex->name )
             || is_prename( name, pPropIndex->short_descr ) || !fName )
           && ( pPropIndex->zone == pZone || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d %10s] %-42s  %s\n\r", vnum,
+            snprintf( buf, MAX_STRING_LENGTH, "[%5d %10s] %-42s  %s\n\r", dbkey,
                                              item_type_name( pPropIndex->item_type ),
                                              pPropIndex->short_descr,
                                              !fzone ? trunc_fit(pPropIndex->zone->name,20) : "" );
@@ -1044,21 +1044,21 @@ void cmd_pfind( PLAYER_DATA *ch, char *argument )
  *          rfind zone [lower [upper]]
  *          rfind [lower] [upper]
  */
-void cmd_rfind( PLAYER_DATA *ch, char *argument )
+void cmd_rfind( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char arg3[MAX_INPUT_LENGTH];
-    SCENE_INDEX_DATA *pSceneIndex;
+    SCENE *pSceneIndex;
     bool fRange = FALSE;
     bool fzone = FALSE;
     bool fName = FALSE;
     int range1 = 0;
     int range2 = 0;
-    ZONE_DATA *pZone = ch->in_scene->zone;
+    ZONE *pZone = ch->in_scene->zone;
     char name[MAX_INPUT_LENGTH];
-    int vnum;
+    int dbkey;
     bool found = FALSE;
 
     argument = one_argument( argument, arg1 );
@@ -1123,21 +1123,21 @@ void cmd_rfind( PLAYER_DATA *ch, char *argument )
 
     if ( range1 > range2 && fRange )
     {
-        vnum = range1;
+        dbkey = range1;
         range1 = range2;
-        range2 = vnum;
+        range2 = dbkey;
     }
 
-    if ( range2 > top_vnum_scene || !fRange ) range2 = top_vnum_scene;
+    if ( range2 > top_dbkey_scene || !fRange ) range2 = top_dbkey_scene;
 
-    for ( vnum = range1; vnum <= range2; vnum++ )
+    for ( dbkey = range1; dbkey <= range2; dbkey++ )
     {
-        if ( ( pSceneIndex = get_scene_index( vnum ) ) != NULL
+        if ( ( pSceneIndex = get_scene( dbkey ) ) != NULL
           && ( is_prename( name, pSceneIndex->name ) || !fName )
           && ( pSceneIndex->zone == pZone         || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s\n\r", vnum,
+            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s\n\r", dbkey,
                                        trunc_fit( pSceneIndex->name, 42 ),
                                        !fzone ? pSceneIndex->zone->name : "" );
             send_to_actor( buf, ch );
@@ -1159,21 +1159,21 @@ void cmd_rfind( PLAYER_DATA *ch, char *argument )
  *          scfind zone [lower [upper]]
  *          scfind [lower] [upper]
  */
-void cmd_scfind( PLAYER_DATA *ch, char *argument )
+void cmd_scfind( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char arg3[MAX_INPUT_LENGTH];
-    SCRIPT_DATA *pScript;
+    SCRIPT *pScript;
     bool fRange = FALSE;
     bool fzone = FALSE;
     bool fName = FALSE;
     int range1 = 0;
     int range2 = 0;
-    ZONE_DATA *pZone = ch->in_scene->zone;
+    ZONE *pZone = ch->in_scene->zone;
     char name[MAX_INPUT_LENGTH];
-    int vnum;
+    int dbkey;
     bool found = FALSE;
 
     argument = one_argument( argument, arg1 );
@@ -1238,21 +1238,21 @@ void cmd_scfind( PLAYER_DATA *ch, char *argument )
 
     if ( range1 > range2 && fRange )
     {
-        vnum = range1;
+        dbkey = range1;
         range1 = range2;
-        range2 = vnum;
+        range2 = dbkey;
     }
 
-    if ( range2 > top_vnum_script || !fRange ) range2 = top_vnum_script;
+    if ( range2 > top_dbkey_script || !fRange ) range2 = top_dbkey_script;
 
-    for ( vnum = range1; vnum <= range2; vnum++ )
+    for ( dbkey = range1; dbkey <= range2; dbkey++ )
     {
-        if ( ( pScript = get_script_index( vnum ) ) != NULL
+        if ( ( pScript = get_script_index( dbkey ) ) != NULL
           && ( is_prename( name, pScript->name ) || !fName )
           && ( pScript->zone == pZone         || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d %2d] %-32s  %s\n\r", vnum, pScript->type,
+            snprintf( buf, MAX_STRING_LENGTH, "[%5d %2d] %-32s  %s\n\r", dbkey, pScript->type,
                                              pScript->name,
                                              !fzone ? pScript->zone->name : "" );
             send_to_actor( buf, ch );
@@ -1269,11 +1269,11 @@ void cmd_scfind( PLAYER_DATA *ch, char *argument )
 
 
  
-bool mwhere( PLAYER_DATA *ch, char *argument )
+bool mwhere( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     bool found, fAll = FALSE;
 
     one_argument( argument, arg );
@@ -1290,9 +1290,9 @@ bool mwhere( PLAYER_DATA *ch, char *argument )
 	{
 	    found = TRUE;
         snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-28s at [%5d] %s\n\r",
-                 IS_NPC(victim) ? victim->pIndexData->vnum : 0,
-                 IS_NPC(victim) ? STR(victim, short_descr) : STR(victim,name),
-                 victim->in_scene->vnum,
+                 NPC(victim) ? victim->pIndexData->dbkey : 0,
+                 NPC(victim) ? STR(victim, short_descr) : STR(victim,name),
+                 victim->in_scene->dbkey,
                  victim->in_scene->name );
         send_to_actor( buf, ch );
 	}
@@ -1304,13 +1304,13 @@ bool mwhere( PLAYER_DATA *ch, char *argument )
 
 /* Idea from Talen of Vego's cmd_where command */
 
-bool owhere( PLAYER_DATA *ch, char *argument )
+bool owhere( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
     bool found = FALSE;
-    PROP_DATA *prop;
-    PROP_DATA *in_prop;
+    PROP *prop;
+    PROP *in_prop;
     int prop_counter = 1;
 
     one_argument( argument, arg );
@@ -1339,7 +1339,7 @@ bool owhere( PLAYER_DATA *ch, char *argument )
         snprintf( buf, MAX_STRING_LENGTH, "[%2d] %s in %s [%d].\n\r", prop_counter,
             STR(prop, short_descr), ( in_prop->in_scene == NULL ) ?
             "somewhere" : in_prop->in_scene->name, (in_prop->in_scene == NULL) ?
-            0 : in_prop->in_scene->vnum );
+            0 : in_prop->in_scene->dbkey );
 	    }
 	    
 	    prop_counter++;
@@ -1350,24 +1350,24 @@ bool owhere( PLAYER_DATA *ch, char *argument )
     return found;
 }
 
-void pwhere( PLAYER_DATA *ch )
+void pwhere( PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     bool found;
 
 	send_to_actor( "Players near you:\n\r", ch );
 	found = FALSE;
     for ( victim = actor_list;  victim != NULL;  victim = victim->next )
 	{
-       if ( !IS_NPC(victim)
+       if ( !NPC(victim)
          && victim->in_scene != NULL
          && can_see( ch, victim ) )
        {
         found = TRUE;
         snprintf( buf, MAX_STRING_LENGTH, "%-18s %28s  [%5d]  %s\n\r", STR(victim,name),
                                                victim->in_scene->name,
-                                               victim->in_scene->vnum,
+                                               victim->in_scene->dbkey,
                                                trunc_fit(victim->in_scene->zone->name,20) );
         send_to_actor( buf, ch );
        }
@@ -1383,7 +1383,7 @@ void pwhere( PLAYER_DATA *ch )
 /*
  * Syntax:  where [person/thing]
  */
-void cmd_where( PLAYER_DATA *ch, char *argument )
+void cmd_where( PLAYER *ch, char *argument )
 {
     char arg[MAX_STRING_LENGTH];
     bool found1, found2;
@@ -1451,11 +1451,11 @@ char *connect_string( int c )
 /*
  *  Syntax:  users
  */
-void cmd_users( PLAYER_DATA *ch, char *argument )
+void cmd_users( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     int count;
 
     count	= 0;
@@ -1489,19 +1489,19 @@ void cmd_users( PLAYER_DATA *ch, char *argument )
 /*
  *  Syntax:  sockets
  */
-void cmd_sockets( PLAYER_DATA *ch, char *argument )
+void cmd_sockets( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char buf2[MAX_STRING_LENGTH];
-    PLAYER_DATA *tch;
-    CONNECTION_DATA *d;
+    PLAYER *tch;
+    CONNECTION *d;
     int count;
 
     count	= 0;
     buf[0]	= '\0';
     for ( tch = actor_list; tch != NULL; tch = tch->next )
     {
-    if ( !IS_NPC(tch) && can_see( ch, tch ) )
+    if ( !NPC(tch) && can_see( ch, tch ) )
 	{
         count++;
         if ( (d = tch->desc) != NULL )
@@ -1519,7 +1519,7 @@ void cmd_sockets( PLAYER_DATA *ch, char *argument )
         sprintf( buf + strlen(buf), "[      %2d] %16s %5d\n\r",
         tch->timer,
         STR(tch,name),
-        tch->in_scene != NULL ? tch->in_scene->vnum : 0 );
+        tch->in_scene != NULL ? tch->in_scene->dbkey : 0 );
         }
 	}
     }
@@ -1533,13 +1533,13 @@ void cmd_sockets( PLAYER_DATA *ch, char *argument )
 
 
 
-void count_scenes( ZONE_DATA *pZone, int *scenes, int *unfinished )
+void count_scenes( ZONE *pZone, int *scenes, int *unfinished )
 {
-     SCENE_INDEX_DATA *pSceneIndex;
+     SCENE *pSceneIndex;
      int iHash;
 
      for ( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
-	for ( pSceneIndex = scene_index_hash[iHash]; pSceneIndex; pSceneIndex = pSceneIndex->next )
+	for ( pSceneIndex = scene_hash[iHash]; pSceneIndex; pSceneIndex = pSceneIndex->next )
 	    if ( pSceneIndex->zone == pZone )
 	    {
 		if ( pSceneIndex->description[0] == '\0' 
@@ -1552,14 +1552,14 @@ void count_scenes( ZONE_DATA *pZone, int *scenes, int *unfinished )
 /*
  * Syntax:  zones
  */
-void cmd_zones( PLAYER_DATA *ch, char *argument )
+void cmd_zones( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    ZONE_DATA *pZone;
+    ZONE *pZone;
     int total_scenes = 0, total_unfinished = 0, s_scenes = 0, s_unfinished = 0;
 
     snprintf( buf, MAX_STRING_LENGTH, "[%2s] %-15s S %-6s-%6s %-12s %-3s/%-3s %-18.18s\n\r",
-    "#N", "zone Name", "lvnum", "uvnum", "Filename", "Rm", "NoD", "Builders" );
+    "#N", "zone Name", "ldbkey", "udbkey", "Filename", "Rm", "NoD", "Builders" );
     send_to_actor( buf, ch );
 
     for ( pZone = zone_first; pZone != NULL; pZone = pZone->next )
@@ -1567,11 +1567,11 @@ void cmd_zones( PLAYER_DATA *ch, char *argument )
 	
     count_scenes( pZone, &s_scenes, &s_unfinished );
     snprintf( buf, MAX_STRING_LENGTH, "[%2d] %-15s %1d %6d-%-6d %-12s %3d/%-3d %-15s\n\r",
-        pZone->vnum,
+        pZone->dbkey,
         trunc_fit(pZone->name,15),
         pZone->security,
-        pZone->lvnum,
-        pZone->uvnum,
+        pZone->ldbkey,
+        pZone->udbkey,
         pZone->filename,
 	s_scenes, s_unfinished,
         pZone->builders );
@@ -1590,13 +1590,13 @@ void cmd_zones( PLAYER_DATA *ch, char *argument )
 
 
 
-extern const struct board_data board_table [MAX_BOARD];
+extern const struct board board_table [MAX_BOARD];
 
 /*
  * Syntax:  table
  *          table [type]
  */
-void cmd_table( PLAYER_DATA *ch, char *argument )
+void cmd_table( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
@@ -1690,7 +1690,7 @@ void cmd_table( PLAYER_DATA *ch, char *argument )
 
     if ( !str_prefix( arg, "color" ) )
     {
-        if ( !IS_SET(ch->act2, PLR_ANSI) )
+        if ( !IS_SET(ch->flag2, PLR_ANSI) )
         {
             send_to_actor( "You don't have ansi support activated.\n\r", ch );
             return;
@@ -1703,7 +1703,7 @@ void cmd_table( PLAYER_DATA *ch, char *argument )
                           x,
                           color_table[x].code,
                           NTEXT,
-                          color_table[x].act_code,
+                          color_table[x].actor_code,
                           color_table[x].name );
             send_to_actor( buf, ch );
         }
@@ -1847,14 +1847,14 @@ void cmd_table( PLAYER_DATA *ch, char *argument )
 
     if ( !str_prefix( arg, "bits" ) )
     {
-        send_to_actor( "SEDIT/REDIT flags (not scene terrain or sector types):\n\r ", ch );
+        send_to_actor( "SEDIT/REDIT flags (not scene terrain or move types):\n\r ", ch );
         send_to_actor( scene_bit_name( -1 ), ch );
         send_to_actor( "\n\r", ch );
         send_to_actor( "'Affects' also known as bonuses or penalties, AEDIT and bonus():\n\r", ch );
         send_to_actor( bonus_bit_name( -1 ), ch );
         send_to_actor( "\n\r", ch );
         send_to_actor( "AEDIT/MEDIT bits:\n\r", ch );
-        send_to_actor( act_bit_name( -1 ), ch );
+        send_to_actor( actor_bit_name( -1 ), ch );
         send_to_actor( "\n\r", ch );
         send_to_actor( "Player bits settable using mset:\n\r", ch );
         send_to_actor( plr_bit_name( -1 ), ch );

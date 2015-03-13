@@ -63,9 +63,9 @@ At 1 25 100 7
 At 2 100 200 12
 At 3 30 50 19
 At 4 25 75 16
-Sk 100 'exotic'
-Sk 100 'heroism'
 Sk 100 'enhanced damage'
+Sk 100 'heroism'
+Sk 100 'exotic'
 End
 
 #24403

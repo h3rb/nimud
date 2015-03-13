@@ -803,12 +803,12 @@ Wt 30
 C 0
 O ~
 V 1 0 0 0
+ED writing text~
+You read the number '666'.
+~
 ED white skull~
 The skull has two small horns in the forehead. You notice some writing on
 the inside.
-~
-ED writing text~
-You read the number '666'.
 ~
 End
 
@@ -834,12 +834,12 @@ Wt 4
 C 200
 O ~
 V 0 0 120 0
+ED letters letter~
+It reads 'Hold me'.
+~
 ED small stick~
 The small stick does not look interesting at all.  But just as you are going
 to throw it away you notice some small letters.
-~
-ED letters letter~
-It reads 'Hold me'.
 ~
 End
 
@@ -1894,14 +1894,14 @@ M 0
 W 0
 T 0
 O ~
-ED mud~
-It's dark as tar and looks like something out of a toilet, on top of THAT
-the smell is absolutely OVERWHELMING.
-~
 ED sediment~
 It's NOT the kind of matter that would concern you too much, normally, but
 as you are in the middle of it, it just might become your main concern.
 REAL YUCKY!
+~
+ED mud~
+It's dark as tar and looks like something out of a toilet, on top of THAT
+the smell is absolutely OVERWHELMING.
 ~
 Dr 0 0 -1 22012
 North. Sludge and sediment fills this corridor of the sewer that leads
@@ -3686,18 +3686,18 @@ M 0
 W 0
 T 0
 O ~
-ED edge odd-looking~
-This is truly a weird piece of craftsmanship in your eyes. The edge seems to
-form a step leading down, but WHAT a STEP DOWN. The Abyss opens down there 
-leading to seemingly total destruction.
+ED rock~
+It looks as if it can be opened in a door-like fashion. Maybe this will lead
+the way down.
 ~
 ED step~
 A small rock sticks out right under it, otherwise the way is DOWN, DOWN, and
 SPLAT!!!
 ~
-ED rock~
-It looks as if it can be opened in a door-like fashion. Maybe this will lead
-the way down.
+ED edge odd-looking~
+This is truly a weird piece of craftsmanship in your eyes. The edge seems to
+form a step leading down, but WHAT a STEP DOWN. The Abyss opens down there 
+leading to seemingly total destruction.
 ~
 Dr 0 0 -1 22110
 North. The ledge leads further north.
@@ -3845,15 +3845,15 @@ M 0
 W 0
 T 0
 O ~
-ED ground ledge rock~
-The ground here seems a little different from all the other ledges along the
-Abyss. There's a kind of soft soil on this ledge, maybe you should look 
-carefully at this. It seems to be of some interest.
-~
 ED soil soft earth~
 You can just make out the outline of a trapdoor here in the soil. The earth
 is probably there to conceal a secret entrance. This looks as if it leads down
 into the seemingly solid rock face of the ledge.
+~
+ED ground ledge rock~
+The ground here seems a little different from all the other ledges along the
+Abyss. There's a kind of soft soil on this ledge, maybe you should look 
+carefully at this. It seems to be of some interest.
 ~
 Dr 2 0 -1 22117
 ~
@@ -4144,11 +4144,11 @@ M 0
 W 0
 T 0
 O ~
-ED door stone~
-This is a heavy black stone door it looks very solid.
-~
 ED writing~
 You read the number '666'.
+~
+ED door stone~
+This is a heavy black stone door it looks very solid.
 ~
 R O 22298 -5 100 1
 R O 22204 0 100 1
@@ -4200,15 +4200,15 @@ M 0
 W 0
 T 0
 O ~
-ED skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ED slime~
 The slime is slimy and uninteresting.
 ~
-ED torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 Dr 0 1 -1 22201
 You can see the inner lair.
@@ -4239,15 +4239,15 @@ M 0
 W 0
 T 0
 O ~
-ED skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ED slime~
 The slime is slimy and uninteresting.
 ~
-ED torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 R M 22201 1 100 1
 Dr 0 0 -1 22202
@@ -4279,15 +4279,15 @@ M 0
 W 0
 T 0
 O ~
-ED skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ED slime~
 The slime is slimy and uninteresting.
 ~
-ED torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 Dr 0 0 -1 22203
 You see another part of the lair.
@@ -4318,15 +4318,15 @@ M 0
 W 0
 T 0
 O ~
-ED skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ED slime~
 The slime is slimy and uninteresting.
 ~
-ED torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 R M 22202 2 100 1
 Dr 2 0 -1 22206
@@ -4354,14 +4354,14 @@ M 0
 W 0
 T 0
 O ~
-ED bones decay~
-All the bones are broken and old.
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ED slime~
 The slime is slimy and uninteresting.
 ~
-ED torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+ED bones decay~
+All the bones are broken and old.
 ~
 R O 22206 0 100 1
 Dr 0 0 -1 22205
@@ -4393,15 +4393,15 @@ M 0
 W 0
 T 0
 O ~
-ED skull skulls bones decay~
-On all the skulls you notice that there is a three inch hole in the 
-forehead. All the bones are broken and old.
+ED torch sconce~
+The torch is bolted to the sconce and the sconce to the wall.
 ~
 ED slime~
 The slime is slimy and uninteresting.
 ~
-ED torch sconce~
-The torch is bolted to the sconce and the sconce to the wall.
+ED skull skulls bones decay~
+On all the skulls you notice that there is a three inch hole in the 
+forehead. All the bones are broken and old.
 ~
 R M 22202 2 100 1
 Dr 0 0 -1 22206
@@ -4662,11 +4662,11 @@ M 0
 W 0
 T 0
 O ~
-ED water~
-The water is dirty but it looks like you would be able to swim in it.
-~
 ED hole~
 Through the hole you can just make out a very small room.
+~
+ED water~
+The water is dirty but it looks like you would be able to swim in it.
 ~
 R M 22203 10 100 1
 Dr 0 0 -1 22216
@@ -5084,13 +5084,13 @@ M 0
 W 0
 T 0
 O ~
-ED altar~
-This altar are very special. Faces are smiling from it. There
-is a triangle in top of it.
-~
 ED triangle~
 The triangle is filled with small symbols in a language you have
 never seen before.
+~
+ED altar~
+This altar are very special. Faces are smiling from it. There
+is a triangle in top of it.
 ~
 R M 22000 8 100 1
 Dr 0 0 -1 22281
@@ -5114,14 +5114,14 @@ M 0
 W 0
 T 0
 O ~
-ED small round door~
-The door is completely round without a keyhole.
+ED walls~
+The walls look alive.
 ~
 ED red light~
 The red light glows from the walls.
 ~
-ED walls~
-The walls look alive.
+ED small round door~
+The door is completely round without a keyhole.
 ~
 R M 22000 8 100 1
 Dr 1 0 -1 22282
@@ -5212,13 +5212,13 @@ M 0
 W 0
 T 0
 O ~
-ED skeletons~
-The skeletons looks like they had suffered the death of hunger.
-One of them looks like he has written something at the wall.
-~
 ED writing wall~
 The writing says 'A pray to the GODS will not be heard, though
 the only exit is death..... Mother, I love you'.
+~
+ED skeletons~
+The skeletons looks like they had suffered the death of hunger.
+One of them looks like he has written something at the wall.
 ~
 Dr 1 0 0 22283
 ~
@@ -5241,14 +5241,14 @@ M 0
 W 0
 T 0
 O ~
+ED big metal box~
+The metal box is covered with dust. You notice that is once has been
+filled with coal, as you see some of them.
+~
 ED skeletons~
 When you look at the skeletons, you can see that they once had been in great 
 pain. They are hanging in their arms, and some of them has been killed
 with a sharp instrument.
-~
-ED big metal box~
-The metal box is covered with dust. You notice that is once has been
-filled with coal, as you see some of them.
 ~
 R M 22002 5 100 1
 Dr 2 0 -1 22286
@@ -5304,17 +5304,17 @@ M 0
 W 0
 T 0
 O ~
-ED portcullis gate~
-This seems like an exceptionally heavy gate, made of thick iron.
+ED stairs staircase~
+This looks as if it has been standing here for at least 12 centuries. It's 
+Very worn and cracks in the surface mingle with the cores of mineral that
+penetrates the rock from which these steps are chiselled.
 ~
 ED torch light~
 This VERY old torch looks as if it has burned for ages, yet no traces of 
 the searing flame can be seen on it!
 ~
-ED stairs staircase~
-This looks as if it has been standing here for at least 12 centuries. It's 
-Very worn and cracks in the surface mingle with the cores of mineral that
-penetrates the rock from which these steps are chiselled.
+ED portcullis gate~
+This seems like an exceptionally heavy gate, made of thick iron.
 ~
 End
 
@@ -5442,12 +5442,12 @@ M 0
 W 0
 T 0
 O ~
+ED worms~
+The worms are purple. They do not look edible.
+~
 ED mud~
 When you examine the mud, you notice small worms crawling
 around.
-~
-ED worms~
-The worms are purple. They do not look edible.
 ~
 R M 22013 3 100 1
 Dr 1 0 -1 22404
@@ -5511,12 +5511,12 @@ M 0
 W 0
 T 0
 O ~
-ED socket~
-The socket looks like the work of a dwarf. It is VERY beautiful.
-~
 ED crystal globe~
 The crystal globe is glowing with a pulsing light. It
 looks like there is smoke inside it.
+~
+ED socket~
+The socket looks like the work of a dwarf. It is VERY beautiful.
 ~
 Dr 0 0 -1 22404
 You see a round stone door.
@@ -5939,19 +5939,19 @@ M 0
 W 0
 T 0
 O ~
-ED table~
-On the table there is dust, in the center there is a small statue of a
-Dragon sleeping.
-~
-ED skeleton skeletons~
-You can see that they have been killed in some sort of way. Not
-by sword or club.
-~
 ED dragon statue~
 it looks like a silver dragon. It is nailed onto the table.
 The dragon sits on a red dragon that looks dead. But the
 eyes of the red dragon is glowing pulsating red. You feel
 drained.
+~
+ED skeleton skeletons~
+You can see that they have been killed in some sort of way. Not
+by sword or club.
+~
+ED table~
+On the table there is dust, in the center there is a small statue of a
+Dragon sleeping.
 ~
 Dr 0 0 -1 22419
 the northern part of the lair.
@@ -6056,20 +6056,20 @@ M 0
 W 0
 T 0
 O ~
+ED blue~
+This looks like a good dragon
+~
+ED red~
+This looks like a neutral dragon
+~
+ED green~
+This looks like a evil dragon
+~
 ED head heads~
 When you study the faces of the heads you see that it
 is faces of dragons. The face to the north is red, the
 face to the east is green and the face to the south is
 blue.
-~
-ED green~
-This looks like a evil dragon
-~
-ED red~
-This looks like a neutral dragon
-~
-ED blue~
-This looks like a good dragon
 ~
 R M 22046 1 100 1
 Dr 1 0 -1 22425

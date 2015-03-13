@@ -646,9 +646,9 @@ Sz 3
 K 0 E 1
 O ~
 AP 8 3 3 10 3
-Sc 20
-Sc 17
 Sc 3
+Sc 17
+Sc 20
 At 1 2 7 18
 At 2 2 4 17
 End
@@ -673,8 +673,8 @@ Sz 3
 K 0 E 1
 O ~
 AP 13 3 3 10 8
-Sc 20
 Sc 17
+Sc 20
 At 1 3 5 7
 At 2 4 1 13
 End
@@ -701,8 +701,8 @@ Sz 0
 K 0 E 1
 O ~
 AP 13 3 3 10 10
-Sc 20
 Sc 17
+Sc 20
 At 1 5 10 7
 At 2 2 3 14
 End
@@ -728,8 +728,8 @@ Sz 0
 K 0 E 1
 O ~
 AP 15 3 3 12 12
-Sc 20
 Sc 17
+Sc 20
 At 1 1 10 17
 End
 
@@ -754,8 +754,8 @@ Sz 0
 K 0 E 1
 O ~
 AP 13 3 3 15 14
-Sc 20
 Sc 17
+Sc 20
 At 1 1 10 17
 End
 
@@ -778,8 +778,8 @@ Sz 0
 K 0 E 1
 O ~
 AP 17 14 13 12 15
-Sc 20
 Sc 17
+Sc 20
 At 1 1 10 14
 At 2 2 10 13
 End
@@ -804,8 +804,8 @@ Sz 0
 K 0 E 100
 O ~
 AP 18 15 15 10 17
-Sc 20
 Sc 17
+Sc 20
 At 1 10 20 14
 At 2 1 10 9
 End
@@ -829,8 +829,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 5 5 5 5 5
-Sc 20
 Sc 19
+Sc 20
 End
 
 #27
@@ -852,8 +852,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 15 15 15 15 15
-Sc 20
 Sc 19
+Sc 20
 At 0 10 16 9
 End
 
@@ -876,8 +876,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 3 3 3 3 3
-Sc 20
 Sc 18
+Sc 20
 At 1 3 7 19
 End
 

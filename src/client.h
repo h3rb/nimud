@@ -1,2 +1,2 @@
 
-bool sendcli    args( ( CONNECTION_DATA *d, char *buf ) );
+bool sendcli    args( ( CONNECTION *d, char *buf ) );

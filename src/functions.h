@@ -97,19 +97,19 @@ VARD * func_uninstall args( ( void * owner, int type, VARD *target, VARD *script
  */
 VARD * func_vcpy     args( ( void * owner, int type, VARD *old, VARD *new, VARD *trigname ) );
 VARD * func_self     args( ( void * owner, int type ) );
-VARIABLE_DATA *func_peace  args( ( void * owner, int type, VARIABLE_DATA *dest ) );
-VARIABLE_DATA * func_interpret  args( ( void * owner, int type,
-                         VARIABLE_DATA *who,
-                         VARIABLE_DATA *exp1,
-                         VARIABLE_DATA *exp2,
-                         VARIABLE_DATA *exp3,
-                         VARIABLE_DATA *exp4 ) );
-VARIABLE_DATA *func_bonus       args( ( void * owner, int type, VARIABLE_DATA *target,
-                          VARIABLE_DATA *location,
-                          VARIABLE_DATA *bitvector,
-                          VARIABLE_DATA *modifier,
-                          VARIABLE_DATA *duration,
-                          VARIABLE_DATA *aftype ) );
+VARIABLE *func_peace  args( ( void * owner, int type, VARIABLE *dest ) );
+VARIABLE * func_interpret  args( ( void * owner, int type,
+                         VARIABLE *who,
+                         VARIABLE *exp1,
+                         VARIABLE *exp2,
+                         VARIABLE *exp3,
+                         VARIABLE *exp4 ) );
+VARIABLE *func_bonus       args( ( void * owner, int type, VARIABLE *target,
+                          VARIABLE *location,
+                          VARIABLE *bitvector,
+                          VARIABLE *modifier,
+                          VARIABLE *duration,
+                          VARIABLE *aftype ) );
 
 /*
  * "Constants."
@@ -290,8 +290,8 @@ dSET_FUNCTION(func_setmaxpeople);
 dGET_FUNCTION(func_maxpeople);
 dSET_FUNCTION(func_setlight);
 dGET_FUNCTION(func_light);
-dSET_FUNCTION(func_setsector);
-dGET_FUNCTION(func_sector);  
+dSET_FUNCTION(func_setmove);
+dGET_FUNCTION(func_move);  
 dSET_FUNCTION(func_setterrain);
 dGET_FUNCTION(func_terrain);
 dGET_FUNCTION(func_setwagon);
@@ -326,8 +326,8 @@ VARD * func_jump       args( ( void * owner, int type, VARD *location ) );
 VARD * func_samescene  args( ( void * owner, int type, VARD *value ) );
 VARD * func_foe        args( ( void * owner, int type ) );
 VARD * func_following  args( ( void * owner, int type ) );
-VARD * func_has        args( ( void * owner, int type, VARD *target, VARD *propvnum ) );
-VARD * func_holds      args( ( void * owner, int type, VARD *target, VARD *propvnum ) );
+VARD * func_has        args( ( void * owner, int type, VARD *target, VARD *propdbkey ) );
+VARD * func_holds      args( ( void * owner, int type, VARD *target, VARD *propdbkey ) );
 
 /*
  * Game-related functions for props.
@@ -373,11 +373,11 @@ VARD *func_dispense  args( ( void * owner, int type, VARD *target, VARD *disp) )
 VARD *func_equip     args( ( void * owner, int type, VARD *target, VARD *disp, VARD *loc) );
 VARD *func_inside    args( ( void * owner, int type, VARD *target, VARD *disp) );
 
-VARD *func_create    args( ( void * owner, int type, VARD *vnum, VARD *loc) );
-VARD *func_breed     args( ( void * owner, int type, VARD *vnum, VARD *master) );
+VARD *func_create    args( ( void * owner, int type, VARD *dbkey, VARD *loc) );
+VARD *func_breed     args( ( void * owner, int type, VARD *dbkey, VARD *master) );
 VARD *func_eat       args( ( void * owner, int type, VARD *target )  );
 VARD *func_eval      args( ( void * owner, int type, VARD *value ) );
-VARD *func_vnum      args( ( void * owner, int type, VARD *target ) );
+VARD *func_dbkey      args( ( void * owner, int type, VARD *target ) );
 
 VARD *func_rndplr    args( ( void * owner, int type, VARD *from ) );
 VARD *func_rnddir    args( ( void * owner, int type ) );
@@ -448,7 +448,7 @@ VARD *func_each     args ( ( void * owner, int type, VARD *stack )  );
  * Build function for trigger builder scripts.
  */
 
-VARD *func_build       args ( ( void *owner, int type, VARD *svnum, VARD *location, VARD *target, VARD *p1, VARD *p2, VARD *p3 ) );
+VARD *func_build       args ( ( void *owner, int type, VARD *sdbkey, VARD *location, VARD *target, VARD *p1, VARD *p2, VARD *p3 ) );
 
 
 #undef dSET_FUNCTIONI

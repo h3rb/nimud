@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -55,9 +55,9 @@
 /*
  * Anyone (PC or NPC) may attempt to bite another.
  */
-void cmd_bite( PLAYER_DATA *ch, char *argument ) {
+void cmd_bite( PLAYER *ch, char *argument ) {
 
-    PLAYER_DATA *vict;
+    PLAYER *vict;
 
     if ( !IS_LYCANTHROPIC(ch) 
       && !IS_VAMPIRE(ch) ) {
@@ -77,7 +77,7 @@ void cmd_bite( PLAYER_DATA *ch, char *argument ) {
        return;
     }
 
-    if ( !IS_NPC(vict) && vict->position != POS_SLEEPING ) {
+    if ( !NPC(vict) && vict->position != POS_SLEEPING ) {
        send_to_actor( "You may only bite other players while they are sleeping.\n\r", ch );
        return;
     }
@@ -100,43 +100,43 @@ void cmd_bite( PLAYER_DATA *ch, char *argument ) {
 
             /* Transfer of the problem.. */
             if ( IS_VAMPIRE(ch) ) {
-               if ( IS_NPC(vict) ) SET_BIT(ch->act, ACT_VAMPIRE);
-               else SET_BIT(ch->act2, PLR_VAMPIRE);
+               if ( NPC(vict) ) SET_BIT(ch->flag, ACTOR_VAMPIRE);
+               else SET_BIT(ch->flag2, PLR_VAMPIRE);
                snprintf( buf, MAX_STRING_LENGTH, "%s was bitten and has joined the brood.", NAME(vict) );
                add_history( vict, buf );
             }
             else {
-               if ( IS_NPC(vict) ) SET_BIT(ch->act, ACT_LYCANTHROPE);
-               else SET_BIT(ch->act2, PLR_LYCANTHROPE);
+               if ( NPC(vict) ) SET_BIT(ch->flag, ACTOR_LYCANTHROPE);
+               else SET_BIT(ch->flag2, PLR_LYCANTHROPE);
                snprintf( buf, MAX_STRING_LENGTH, "%s contracts the disease of lycanthropy.", NAME(vict) );
                add_history( vict, buf );
             }
             
         }
         else {
-            BONUS_DATA af;
+            BONUS af;
 
             display_interp( ch, "^2" );
             act( "$n chokes and gags.", vict, NULL, NULL, TO_SCENE );
             send_to_actor( "You choke and gag.\n\r", vict );
-            af.type      = skill_vnum(skill_lookup("poison"));
+            af.type      = skill_dbkey(skill_lookup("poison"));
             af.duration  = 5;
             af.location  = APPLY_CON;
             af.modifier  = -1;
-            af.bitvector = AFF_POISON;
+            af.bitvector = BONUS_POISON;
             bonus_join( vict, &af );
         }
         send_to_actor( "Your teeth sink deep into tasty flesh.\n\r", ch );
 
         if ( IS_VAMPIRE(ch) && !IS_VAMPIRE(vict) ) {
 
-	BONUS_DATA af;
+	BONUS af;
 
-	af.type      = skill_vnum(skill_lookup("lycanthropy"));
+	af.type      = skill_dbkey(skill_lookup("lycanthropy"));
 	af.duration  = 5;
 	af.location  = APPLY_STR;
 	af.modifier  = 1;
-	af.bitvector = AFF_METAMORPH;
+	af.bitvector = BONUS_METAMORPH;
 	bonus_join( ch, &af );
 
         send_to_actor( "You draw your life's energy from the blood you taste.\n\r", ch );
@@ -165,7 +165,7 @@ void cmd_bite( PLAYER_DATA *ch, char *argument ) {
  */
 void change_lycanthropes( bool fWere ) {
 
-    PLAYER_DATA *ch;
+    PLAYER *ch;
 
     for ( ch = actor_list;  ch != NULL; ch = ch->next ) {
     
@@ -173,17 +173,17 @@ void change_lycanthropes( bool fWere ) {
          continue;
 
      if( fWere ) {
-		BONUS_DATA af;
+		BONUS af;
 
 		display_interp( ch, "^B" );
 		act( "$n grows claws and teeth because of $s disease.", ch, NULL, NULL, TO_SCENE );
 		send_to_actor( "You growl and snarl, growing long teeth and fur.\n\r", ch );
 
-		af.type      = skill_vnum(skill_lookup("lycanthropy"));
+		af.type      = skill_dbkey(skill_lookup("lycanthropy"));
 		af.duration  = 10;
 		af.location  = APPLY_STR;
 		af.modifier  = 10;
-		af.bitvector = AFF_METAMORPH;
+		af.bitvector = BONUS_METAMORPH;
 		bonus_join( ch, &af );
                 display_interp( ch, "^N" );
 

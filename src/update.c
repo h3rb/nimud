@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -89,7 +89,7 @@ void    save_config     args( ( void ) );
 
 void save_board( int b );
 
-extern struct note_data     *note_list[MAX_BOARD];
+extern struct note     *note_list[MAX_BOARD];
 
      
 
@@ -97,11 +97,11 @@ extern struct note_data     *note_list[MAX_BOARD];
 /*
  * Regeneration stuff.
  */
-int hit_gain( PLAYER_DATA *ch )
+int hit_gain( PLAYER *ch )
 {
     int gain;
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
     gain = get_curr_con(ch) * 3 / 2;
     }
@@ -123,7 +123,7 @@ int hit_gain( PLAYER_DATA *ch )
 
     }
 
-    if ( IS_AFFECTED(ch, AFF_POISON) )
+    if ( IS_AFFECTED(ch, BONUS_POISON) )
 	gain /= 4;
 
     /*
@@ -139,11 +139,11 @@ int hit_gain( PLAYER_DATA *ch )
 /*
  * Regeneration stuff.
  */
-int mana_gain( PLAYER_DATA *ch )
+int mana_gain( PLAYER *ch )
 {
     int gain;
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
     gain = get_curr_wis(ch) * 3 / 2;
     }
@@ -171,7 +171,7 @@ int mana_gain( PLAYER_DATA *ch )
     if ( ch->furniture ) 
     gain += gain / 4;  
 
-    if ( IS_AFFECTED(ch, AFF_POISON) )
+    if ( IS_AFFECTED(ch, BONUS_POISON) )
 	gain /= 4;
 
     return UMIN(gain, MAXMANA(ch) - ch->mana);
@@ -180,11 +180,11 @@ int mana_gain( PLAYER_DATA *ch )
 
 
 
-int move_gain( PLAYER_DATA *ch )
+int move_gain( PLAYER *ch )
 {
     int gain;
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
     gain = get_curr_con(ch);
     }
@@ -211,7 +211,7 @@ int move_gain( PLAYER_DATA *ch )
     if ( ch->furniture ) 
     gain += gain / 4;  
 
-    if ( IS_AFFECTED(ch, AFF_POISON) )
+    if ( IS_AFFECTED(ch, BONUS_POISON) )
 	gain /= 4;
 
     return UMIN(gain, MAXMOVE(ch) - ch->move);
@@ -219,11 +219,11 @@ int move_gain( PLAYER_DATA *ch )
 
 
 
-void gain_condition( PLAYER_DATA *ch, int iCond, int value )
+void gain_condition( PLAYER *ch, int iCond, int value )
 {
     int condition;
 
-    if ( IS_NPC(ch) || IS_HERO(ch) )
+    if ( NPC(ch) || IS_HERO(ch) )
         return;
 
     /*
@@ -233,7 +233,7 @@ void gain_condition( PLAYER_DATA *ch, int iCond, int value )
     if ( iCond == COND_THIRST 
       && value < 0
       && ch->in_scene 
-      && ch->in_scene->sector_type == SECT_DESERT )   value *= 2;
+      && ch->in_scene->move == MOVE_DESERT )   value *= 2;
 
     condition               = PC(ch,condition[iCond]);
     PC(ch,condition[iCond]) = URANGE( -100, condition + value, 100 );
@@ -313,9 +313,9 @@ void gain_condition( PLAYER_DATA *ch, int iCond, int value )
  */
 void actor_update( void )
 {
-    PLAYER_DATA *ch;
-    PLAYER_DATA *ch_next;
-    EXIT_DATA *pexit;
+    PLAYER *ch;
+    PLAYER *ch_next;
+    EXIT *pexit;
     int door;
 
     /* Examine all actors. */
@@ -328,7 +328,7 @@ void actor_update( void )
 
     /* Add drowning here... */
 
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
         continue;
 
     if ( ch->timer > 0 )
@@ -342,7 +342,7 @@ void actor_update( void )
         }
     }
 
-    if ( IS_AFFECTED(ch, AFF_CHARM) )
+    if ( IS_AFFECTED(ch, BONUS_CHARM) )
 	    continue;
 
 	/* Examine call for special proc */
@@ -351,13 +351,13 @@ void actor_update( void )
 	    continue;
 
 	/* Wander */
-	if ( !IS_SET(ch->act, ACT_SENTINEL)
+	if ( !IS_SET(ch->flag, ACTOR_SENTINEL)
     && ( door = number_bits( MAX_DIR ) ) < MAX_DIR
 	&& ( pexit = ch->in_scene->exit[door] ) != NULL
 	&&   pexit->to_scene != NULL
-	&&   !IS_SET(pexit->exit_info, EX_CLOSED)
+	&&   !IS_SET(pexit->exit_flags, EXIT_CLOSED)
 	&&   !IS_SET(pexit->to_scene->scene_flags, SCENE_NO_ACTOR)
-	&& ( !IS_SET(ch->act, ACT_STAY_ZONE)
+	&& ( !IS_SET(ch->flag, ACTOR_STAY_ZONE)
 	||   pexit->to_scene->zone == ch->in_scene->zone ) )
 	{
 	    move_char( ch, door );
@@ -370,10 +370,10 @@ void actor_update( void )
     && ( door = number_bits( MAX_DIR ) ) < MAX_DIR
 	&& ( pexit = ch->in_scene->exit[door] ) != NULL
 	&&   pexit->to_scene != NULL
-	&&   !IS_SET(pexit->exit_info, EX_CLOSED)
+	&&   !IS_SET(pexit->exit_flags, EXIT_CLOSED)
 	&&   !IS_SET(pexit->to_scene->scene_flags, SCENE_NO_ACTOR) )
 	{
-	    PLAYER_DATA *rch;
+	    PLAYER *rch;
 	    bool found;
 
 	    found = FALSE;
@@ -381,7 +381,7 @@ void actor_update( void )
 		  rch != NULL;
 		  rch  = rch->next_in_scene )
 	    {
-		if ( !IS_NPC(rch) )
+		if ( !NPC(rch) )
 		{
 		    found = TRUE;
 		    break;
@@ -406,14 +406,14 @@ void time_update( void )
     char buf[MAX_STRING_LENGTH];
     int rstr = number_range( 1, 3 );
 
-    switch ( ++weather_info.hour )
+    switch ( ++weather.hour )
     {
     case  4:
-        if ( weather_info.sunlight != MOON_RISE )
+        if ( weather.sunlight != MOON_RISE )
         break;
 
-        weather_info.sunlight = MOON_SET;
-        weather_info.temperature -= number_fuzzy( 5 );
+        weather.sunlight = MOON_SET;
+        weather.temperature -= number_fuzzy( 5 );
 
         if ( rstr == 1 )
         strcat( buf, "The moon sets.\n\r" );
@@ -425,7 +425,7 @@ void time_update( void )
        break;
 
     case  5:
-        weather_info.sunlight = SUN_LIGHT;
+        weather.sunlight = SUN_LIGHT;
 
         if ( rstr == 1 )
         strcat( buf, "Dawn blushes the sky with hues of orange and magenta.\n\r" );
@@ -435,27 +435,27 @@ void time_update( void )
         else
         strcat( buf, "It is dawn.\n\r" );
 
-        if ( weather_info.month == 0
-          || weather_info.month == 1
-          || weather_info.month == 11 )
-        weather_info.temperature = number_fuzzy( 20 );   /* Winter */
+        if ( weather.month == 0
+          || weather.month == 1
+          || weather.month == 11 )
+        weather.temperature = number_fuzzy( 20 );   /* Winter */
         else
-        if ( weather_info.month == 2
-          || weather_info.month == 3
-          || weather_info.month == 4 )
-        weather_info.temperature = number_fuzzy( 50 );   /* Spring */
+        if ( weather.month == 2
+          || weather.month == 3
+          || weather.month == 4 )
+        weather.temperature = number_fuzzy( 50 );   /* Spring */
         else
-        if ( weather_info.month == 5
-          || weather_info.month == 6
-          || weather_info.month == 7 )
-        weather_info.temperature = number_fuzzy( 80 );   /* Summer */
+        if ( weather.month == 5
+          || weather.month == 6
+          || weather.month == 7 )
+        weather.temperature = number_fuzzy( 80 );   /* Summer */
         else
-        weather_info.temperature = number_fuzzy( 45 );   /* Autumn */
+        weather.temperature = number_fuzzy( 45 );   /* Autumn */
        break;
 
     case  6:
-        weather_info.sunlight = SUN_RISE;
-        weather_info.temperature += number_fuzzy( 15 );
+        weather.sunlight = SUN_RISE;
+        weather.temperature += number_fuzzy( 15 );
 
         if ( rstr == 1 )
         strcat( buf, "The first shafts of sunlight streak along their western path.\n\r" );
@@ -467,7 +467,7 @@ void time_update( void )
        break;
 
     case  12:
-        weather_info.temperature += number_fuzzy( 20 );
+        weather.temperature += number_fuzzy( 20 );
 
         if ( rstr == 1 )
         strcat( buf, "It is noon.\n\r" );
@@ -479,8 +479,8 @@ void time_update( void )
        break;
 
     case 19:
-        weather_info.sunlight = SUN_SET;
-        weather_info.temperature -= number_fuzzy( 20 );
+        weather.sunlight = SUN_SET;
+        weather.temperature -= number_fuzzy( 20 );
 
         if ( rstr == 1 )
         strcat( buf, "The sun slowly disappears in the west.\n\r" );
@@ -492,8 +492,8 @@ void time_update( void )
        break;
 
     case 20:
-        weather_info.sunlight = SUN_DARK;
-        weather_info.temperature -= number_fuzzy( 10 );
+        weather.sunlight = SUN_DARK;
+        weather.temperature -= number_fuzzy( 10 );
 
         if ( rstr == 1 )
         strcat( buf, "The night has begun.\n\r" );
@@ -505,57 +505,57 @@ void time_update( void )
        break;
 
     case 24:
-        if ( weather_info.moon_phase != MOON_NEW )
-        weather_info.sunlight = MOON_RISE;
-        weather_info.temperature -= number_fuzzy( 10 );
-        weather_info.hour = 0;
-        weather_info.day++;              /* New Day */
+        if ( weather.moon_phase != MOON_NEW )
+        weather.sunlight = MOON_RISE;
+        weather.temperature -= number_fuzzy( 10 );
+        weather.hour = 0;
+        weather.day++;              /* New Day */
         save_config( );
 
 
-        if ( ++weather_info.next_phase % 3 == 0 )
+        if ( ++weather.next_phase % 3 == 0 )
         {
-            weather_info.moon_phase++;
-            if ( weather_info.moon_phase >= MOON_MAX )
+            weather.moon_phase++;
+            if ( weather.moon_phase >= MOON_MAX )
             {
-                weather_info.moon_phase = MOON_NEW;
-                weather_info.next_phase = 0;
+                weather.moon_phase = MOON_NEW;
+                weather.next_phase = 0;
             }
         }
 
-        if ( weather_info.moon_phase == MOON_NEW )
+        if ( weather.moon_phase == MOON_NEW )
         strcat( buf, "A black disc, devoid of stars, is the only moon on this night.\n\r" );
-   else if ( weather_info.moon_phase == MOON_WAXING_CRESCENT )
+   else if ( weather.moon_phase == MOON_WAXING_CRESCENT )
         strcat( buf, "The short sliver of moon offers its jagged edge to the night sky.\n\r" );
-   else if ( weather_info.moon_phase == MOON_WAXING_HALF )
+   else if ( weather.moon_phase == MOON_WAXING_HALF )
         strcat( buf, "The waxing half moon rises for its night journey across the heavens.\n\r" );
-   else if ( weather_info.moon_phase == MOON_WAXING_THREE_QUARTERS )
+   else if ( weather.moon_phase == MOON_WAXING_THREE_QUARTERS )
         strcat( buf, "The waxing three quarter moon rises.\n\r" );
-   else if ( weather_info.moon_phase == MOON_FULL ) {
+   else if ( weather.moon_phase == MOON_FULL ) {
         strcat( buf, "The full moon rises, casting a silver glow over the night.\n\r" );
         change_lycanthropes( TRUE );
         }
-   else if ( weather_info.moon_phase == MOON_WANING_THREE_QUARTERS ) {
+   else if ( weather.moon_phase == MOON_WANING_THREE_QUARTERS ) {
         change_lycanthropes( FALSE );
         strcat( buf, "The grey-silver waning three-quarter moon begins its nocturnal trek.\n\r" );
         }
-   else if ( weather_info.moon_phase == MOON_WANING_HALF )
+   else if ( weather.moon_phase == MOON_WANING_HALF )
         strcat( buf, "Amidst an oceanic starry night sky, the waning half moon floats,\n\rits silvery ship adrift on celestial currents.\n\r" );
-   else if ( weather_info.moon_phase == MOON_WANING_CRESCENT )
+   else if ( weather.moon_phase == MOON_WANING_CRESCENT )
         strcat( buf, "A curved waning crescent moon graces the night with a few rays of moonlight.\n\r" );
        break;
     }
 
-    if ( weather_info.day   >= 30 )     /* New Month */
+    if ( weather.day   >= 30 )     /* New Month */
     {
-        weather_info.day = 0;
-        weather_info.month++;
+        weather.day = 0;
+        weather.month++;
     }
 
-    if ( weather_info.month >= 12 )     /* New Year  */
+    if ( weather.month >= 12 )     /* New Year  */
     {
-        weather_info.month = 0;
-        weather_info.year++;
+        weather.month = 0;
+        weather.year++;
     }
 }
 
@@ -568,7 +568,7 @@ void time_update( void )
 void weather_update( void )
 {
     char buf[MAX_STRING_LENGTH];
-    CONNECTION_DATA *d;
+    CONNECTION *d;
     int diff;
 
     buf[0] = '\0';
@@ -578,141 +578,141 @@ void weather_update( void )
      */
     if ( number_bits( 4 ) == 0 )
     {
-        int olddir = weather_info.winddir;
+        int olddir = weather.winddir;
 
-        weather_info.winddir += number_range( 0, 2 )-1;
-        if ( weather_info.winddir % 3 != olddir )
+        weather.winddir += number_range( 0, 2 )-1;
+        if ( weather.winddir % 3 != olddir )
         strcat( buf, "The wind changes direction.\n\r" );
     }
 
-    if ( weather_info.month >= 9 && weather_info.month <= 16 )
-	diff = weather_info.mmhg >  985 ? -2 : 2;
+    if ( weather.month >= 9 && weather.month <= 16 )
+	diff = weather.mmhg >  985 ? -2 : 2;
     else
-	diff = weather_info.mmhg > 1015 ? -2 : 2;
+	diff = weather.mmhg > 1015 ? -2 : 2;
 
-    weather_info.change   += diff * dice(1, 4) + dice(2, 6) - dice(2, 6);
-    weather_info.change    = UMAX(weather_info.change, -12);
-    weather_info.change    = UMIN(weather_info.change,  12);
+    weather.change   += diff * dice(1, 4) + dice(2, 6) - dice(2, 6);
+    weather.change    = UMAX(weather.change, -12);
+    weather.change    = UMIN(weather.change,  12);
 
-    weather_info.mmhg += weather_info.change;
-    weather_info.mmhg  = UMAX(weather_info.mmhg,  960);
-    weather_info.mmhg  = UMIN(weather_info.mmhg, 1040);
+    weather.mmhg += weather.change;
+    weather.mmhg  = UMAX(weather.mmhg,  960);
+    weather.mmhg  = UMIN(weather.mmhg, 1040);
 
-    switch ( weather_info.sky )
+    switch ( weather.sky )
     {
     default: 
-        bug( "Weather_update: bad sky %d.", weather_info.sky );
-        weather_info.sky = SKY_CLOUDLESS;
+        bug( "Weather_update: bad sky %d.", weather.sky );
+        weather.sky = SKY_CLOUDLESS;
        break;
 
     case SKY_CLOUDLESS:
-        if ( weather_info.mmhg <  990
-        || ( weather_info.mmhg < 1010 && number_bits( 2 ) == 0 ) )
+        if ( weather.mmhg <  990
+        || ( weather.mmhg < 1010 && number_bits( 2 ) == 0 ) )
         {
-            if ( weather_info.month < 2 || weather_info.month == 11 )
+            if ( weather.month < 2 || weather.month == 11 )
             {
                 strcat( buf, "A few flakes of snow are falling.\n\r" );
-                weather_info.temperature -= 15;
+                weather.temperature -= 15;
             }
             else
             {
-                if ( weather_info.sunlight == MOON_RISE )
+                if ( weather.sunlight == MOON_RISE )
                 strcat( buf, "The moon passes behind a cloud.\n\r" );
                 else
                 strcat( buf, "The sky is getting cloudy.\n\r" );
-                weather_info.temperature -= 5;
+                weather.temperature -= 5;
             }
 
-            weather_info.sky = SKY_CLOUDY;
-            weather_info.windspeed += 10;
+            weather.sky = SKY_CLOUDY;
+            weather.windspeed += 10;
         }
        break;
 
     case SKY_CLOUDY:
-        if ( weather_info.mmhg <  970
-        || ( weather_info.mmhg <  990 && number_bits( 2 ) == 0 ) )
+        if ( weather.mmhg <  970
+        || ( weather.mmhg <  990 && number_bits( 2 ) == 0 ) )
         {
-            if ( weather_info.month < 2 || weather_info.month == 11 )
+            if ( weather.month < 2 || weather.month == 11 )
             {
                 strcat( buf, "It starts to snow.\n\r" );
-                weather_info.temperature -= 15;
+                weather.temperature -= 15;
             }
             else
             {
                 strcat( buf, "It starts to rain.\n\r" );
-                weather_info.temperature -= 5;
+                weather.temperature -= 5;
             }
 
-            weather_info.sky = SKY_RAINING;
-            weather_info.windspeed += 10;
+            weather.sky = SKY_RAINING;
+            weather.windspeed += 10;
         }
 
-        if ( weather_info.mmhg > 1030 && number_bits( 2 ) == 0 )
+        if ( weather.mmhg > 1030 && number_bits( 2 ) == 0 )
         {
-            if ( weather_info.month < 2 || weather_info.month == 11 )
+            if ( weather.month < 2 || weather.month == 11 )
             {
                 strcat( buf, "The snow lets up.\n\r" );
-                weather_info.temperature += 15;
+                weather.temperature += 15;
             }
             else
             {
-                if ( weather_info.sunlight == MOON_RISE )
+                if ( weather.sunlight == MOON_RISE )
                 strcat( buf, "The clouds disappear and the moon again shines into the night.\n\r" );
                 else
                 strcat( buf, "The clouds disappear.\n\r" );
-                weather_info.temperature += 5;
+                weather.temperature += 5;
             }
 
-            weather_info.sky = SKY_CLOUDLESS;
-            weather_info.windspeed -= 10;
+            weather.sky = SKY_CLOUDLESS;
+            weather.windspeed -= 10;
         }
        break;
 
     case SKY_RAINING:
-        if ( weather_info.mmhg <  970 && number_bits( 2 ) == 0 )
+        if ( weather.mmhg <  970 && number_bits( 2 ) == 0 )
         {
-            if ( weather_info.month < 2 || weather_info.month == 11 )
+            if ( weather.month < 2 || weather.month == 11 )
             {
                 strcat( buf, "You are caught in a blizzard.\n\r" );
-                weather_info.temperature -= 30;
+                weather.temperature -= 30;
             }
             else
             strcat( buf, "Lightning flashes in the sky.\n\r" );
 
-            weather_info.sky = SKY_LIGHTNING;
-            weather_info.windspeed += 10;
+            weather.sky = SKY_LIGHTNING;
+            weather.windspeed += 10;
         }
 
-        if ( weather_info.mmhg > 1030
-        || ( weather_info.mmhg > 1010 && number_bits( 2 ) == 0 ) )
+        if ( weather.mmhg > 1030
+        || ( weather.mmhg > 1010 && number_bits( 2 ) == 0 ) )
         {
-            if ( weather_info.month < 2 || weather_info.month == 11 )
+            if ( weather.month < 2 || weather.month == 11 )
             {
                 strcat( buf, "The snow is letting up.\n\r" );
-                weather_info.temperature += 30;
+                weather.temperature += 30;
             }
             else
             strcat( buf, "The rain stopped.\n\r" );
 
-            weather_info.sky = SKY_CLOUDY;
-            weather_info.windspeed -= 10;
+            weather.sky = SKY_CLOUDY;
+            weather.windspeed -= 10;
         }
        break;
 
     case SKY_LIGHTNING:
-        if ( weather_info.mmhg > 1010
-        || ( weather_info.mmhg >  990 && number_bits( 2 ) == 0 ) )
+        if ( weather.mmhg > 1010
+        || ( weather.mmhg >  990 && number_bits( 2 ) == 0 ) )
         {
-            if ( weather_info.month < 2 || weather_info.month == 11 )
+            if ( weather.month < 2 || weather.month == 11 )
             {
                 strcat( buf, "The blizzard subsides.\n\r" );
-                weather_info.temperature += 10;
+                weather.temperature += 10;
             }
             else
             strcat( buf, "The lightning has stopped.\n\r" );
 
-            weather_info.sky = SKY_RAINING;
-            weather_info.windspeed -= 10;
+            weather.sky = SKY_RAINING;
+            weather.windspeed -= 10;
             break;
         }
        break;
@@ -740,10 +740,10 @@ void weather_update( void )
  */
 void everybody_update( bool fEach )
 {
-    PLAYER_DATA *ch;
-    PLAYER_DATA *ch_next;
-    PLAYER_DATA *ch_save;
-    PLAYER_DATA *ch_quit;
+    PLAYER *ch;
+    PLAYER *ch_next;
+    PLAYER *ch_save;
+    PLAYER *ch_quit;
     time_t save_time;
 
     save_time	= current_time;
@@ -751,8 +751,8 @@ void everybody_update( bool fEach )
     ch_quit	= NULL;
     for ( ch = actor_list; ch != NULL; ch = ch_next )
     {
-	BONUS_DATA *paf;
-	BONUS_DATA *paf_next;
+	BONUS *paf;
+	BONUS *paf_next;
 
 	ch_next = ch->next;
 
@@ -761,9 +761,9 @@ void everybody_update( bool fEach )
 
     if ( !fEach )
     {
-        if ( !IS_NPC(ch) )
+        if ( !NPC(ch) )
         {
-            SKILL_DATA *pSkill;
+            SKILL *pSkill;
 
             for ( pSkill=ch->learned; pSkill != NULL; pSkill=pSkill->next )
             {
@@ -813,7 +813,7 @@ void everybody_update( bool fEach )
          * Approval system.
          */
 
-	    if ( !IS_NPC( ch ) ) {
+	    if ( !NPC( ch ) ) {
 	    char buf[MAX_STRING_LENGTH];
 	    if ( ch->userdata->app_time == 1 ) {
 	        ch->userdata->app_time = 0;
@@ -822,7 +822,7 @@ void everybody_update( bool fEach )
 	        * Right here you might want to set this PLR_APPLIED
 	        * to ch->userdata->level == LEVEL_APPLY; or whatever it was.
 	        */
-	        SET_BIT( ch->act, PLR_APPLIED );
+	        SET_BIT( ch->flag, PLR_APPLIED );
 	        STC( "An immortal has yet to review your character.  It will get reviewed "
 	             "within the next few\n\rhours up to 24 hours.\n\r",ch);
 	        free_string( PC(ch,denial) );
@@ -877,7 +877,7 @@ void everybody_update( bool fEach )
 	/*
 	 * Find dude with oldest save time.
 	 */
-	if ( !IS_NPC(ch)
+	if ( !NPC(ch)
     && ( ch->desc == NULL || !CONNECTED(ch->desc) )
     &&   PC(ch,level) >= 2
     &&   PC(ch,save_time) < save_time )
@@ -897,7 +897,7 @@ void everybody_update( bool fEach )
 	if ( ch->position == POS_STUNNED )
 	    update_pos( ch );
 
-    if ( !IS_NPC(ch) ) ch->timer++;
+    if ( !NPC(ch) ) ch->timer++;
     if ( !IS_IMMORTAL(ch) )
 	{
         if ( ch->timer > 15 )
@@ -933,7 +933,7 @@ void everybody_update( bool fEach )
 	 *   MUST NOT refer to ch after damage taken,
 	 *   as it may be lethal damage (on NPC).
 	 */
-	if ( IS_AFFECTED(ch, AFF_POISON) )
+	if ( IS_AFFECTED(ch, BONUS_POISON) )
 	{
 	    act( "$n shivers and suffers.", ch, NULL, NULL, TO_SCENE );
 	    send_to_actor( "You shiver and suffer.\n\r", ch );
@@ -960,7 +960,7 @@ void everybody_update( bool fEach )
 	{
 	    ch_next = ch->next;
         if ( ch == ch_save )        save_actor_prop( ch );
-        if ( ch == ch_quit && !IS_SET(ch->act2,PLR_IDLE) )        cmd_quit( ch, "" ); 
+        if ( ch == ch_quit && !IS_SET(ch->flag2,PLR_IDLE) )        cmd_quit( ch, "" ); 
         tip( ch ); /* see tips.c */
 	}
     }
@@ -976,13 +976,13 @@ void everybody_update( bool fEach )
  */
 void prop_update_pulse( void )
 {   
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
-    SCENE_INDEX_DATA *pScene;
+    PROP *prop;
+    PROP *prop_next;
+    SCENE *pScene;
 
     for ( prop = prop_list; prop != NULL; prop = prop_next )
     {
-        PLAYER_DATA *rch;
+        PLAYER *rch;
         bool Vehicle = FALSE;
 
         prop_next = prop->next;
@@ -996,7 +996,7 @@ void prop_update_pulse( void )
       else if ( prop->carried_by != NULL ) prop_from_actor( prop );
       else if ( prop->in_prop    != NULL ) prop_from_prop( prop );
 
-           extract_prop( prop );
+           extractor_prop( prop );
            continue;
         }
 
@@ -1012,7 +1012,7 @@ void prop_update_pulse( void )
 
             for ( i = 0; i < 4; i++ )
             {
-                if ( prop->in_scene->sector_type == prop->value[i] )
+                if ( prop->in_scene->move == prop->value[i] )
                 {
                     Vehicle = TRUE;
                     break;
@@ -1022,24 +1022,24 @@ void prop_update_pulse( void )
 
 
 		if ( (pScene = prop->in_scene) != NULL
-		  && (pScene->sector_type == SECT_WATER_NOSWIM
-		   || pScene->sector_type == SECT_WATER_SWIM
-		   || pScene->sector_type == SECT_AIR
-		   || (pScene->sector_type == SECT_UNDERWATER
+		  && (pScene->move == MOVE_WATER_NOSWIM
+		   || pScene->move == MOVE_WATER_SWIM
+		   || pScene->move == MOVE_AIR
+		   || (pScene->move == MOVE_UNDERWATER
 			&& pScene->exit[DIR_DOWN] != NULL
 			&& pScene->exit[DIR_DOWN]->to_scene != NULL)
-		   || pScene->sector_type == SECT_CLIMB)
+		   || pScene->move == MOVE_CLIMB)
 		  && !Vehicle )
 		{
-			EXIT_DATA *pExit;
+			EXIT *pExit;
 			char buf[MAX_STRING_LENGTH];
 
 			snprintf( buf, MAX_STRING_LENGTH, "$p %s",
-						  pScene->sector_type == SECT_WATER_NOSWIM ||
-						  pScene->sector_type == SECT_WATER_SWIM ?
+						  pScene->move == MOVE_WATER_NOSWIM ||
+						  pScene->move == MOVE_WATER_SWIM ?
 							  "splashes into the water and disappears." :
-						  pScene->sector_type == SECT_AIR ||
-						  pScene->sector_type == SECT_CLIMB ?
+						  pScene->move == MOVE_AIR ||
+						  pScene->move == MOVE_CLIMB ?
 							  "plummets down to the earth below." :
 							  "floats down into the murky waters below." );
 
@@ -1056,10 +1056,10 @@ void prop_update_pulse( void )
 				prop_from_scene( prop );
 				pScene = pExit->to_scene;
 				snprintf( buf, MAX_STRING_LENGTH, "$p %s",
-						  pScene->sector_type == SECT_WATER_NOSWIM ||
-						  pScene->sector_type == SECT_WATER_SWIM ?
+						  pScene->move == MOVE_WATER_NOSWIM ||
+						  pScene->move == MOVE_WATER_SWIM ?
 							  "washes in from above." :
-						  pScene->sector_type == SECT_CLIMB ?
+						  pScene->move == MOVE_CLIMB ?
 							  "plummets down from above." :
 							  "floats down from above." );
 				prop_to_scene( prop, pExit->to_scene );
@@ -1072,7 +1072,7 @@ void prop_update_pulse( void )
 			}
 			else
 			{
-				extract_prop( prop );
+				extractor_prop( prop );
 				continue;
 			}
 
@@ -1086,14 +1086,14 @@ void prop_update_pulse( void )
 
 void prop_update_tick( void )
 {   
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
-    SCENE_INDEX_DATA *pScene;
+    PROP *prop;
+    PROP *prop_next;
+    SCENE *pScene;
 
     for ( prop = prop_list; prop != NULL; prop = prop_next )
     {
-		PLAYER_DATA *rch;
-        PLAYER_DATA *ch;
+		PLAYER *rch;
+        PLAYER *ch;
 		char *msg;
 
         prop_next = prop->next;
@@ -1122,7 +1122,7 @@ void prop_update_tick( void )
             act( "$p goes out.", rch, prop, NULL, TO_SCENE );
             }
             REMOVE_BIT(prop->value[3], LIGHT_LIT);
-            if (!IS_SET(prop->value[3], LIGHT_FILLABLE))    extract_prop( prop );
+            if (!IS_SET(prop->value[3], LIGHT_FILLABLE))    extractor_prop( prop );
 		}
         else
         if ( ch != NULL )
@@ -1157,7 +1157,7 @@ void prop_update_tick( void )
 	{ REMOVE_BIT(prop->extra_flags,ITEM_BURNING);
 	  SET_BIT(prop->extra_flags,ITEM_BURNT);
 	if ( number_range(3,5) == 4 ) { act( "$P is destroyed by fire.", 
-ch, NULL, prop, TO_ACTOR );  extract_prop(prop );  continue;} 
+ch, NULL, prop, TO_ACTOR );  extractor_prop(prop );  continue;} 
   	  act( "$p smolders and is left charred by the flames that once engulfed it.", ch, prop, NULL, TO_ACTOR );
 	  prop->timer = -1;
 	  continue;
@@ -1190,7 +1190,7 @@ ch, NULL, prop, TO_ACTOR );  extract_prop(prop );  continue;}
             act( msg, rch, prop, NULL, TO_ACTOR );
 		}
 
-		extract_prop( prop );
+		extractor_prop( prop );
     }
 
     return;
@@ -1216,13 +1216,13 @@ ch, NULL, prop, TO_ACTOR );  extract_prop(prop );  continue;}
  */
 void aggr_update( void )
 {
-    PLAYER_DATA *wch;
-    PLAYER_DATA *wch_next;
-    PLAYER_DATA *ch;
-    PLAYER_DATA *ch_next;
-    PLAYER_DATA *vch;
-    PLAYER_DATA *vch_next;
-    PLAYER_DATA *victim;
+    PLAYER *wch;
+    PLAYER *wch_next;
+    PLAYER *ch;
+    PLAYER *ch_next;
+    PLAYER *vch;
+    PLAYER *vch_next;
+    PLAYER *victim;
 
     for ( wch = actor_list; wch != NULL; wch = wch_next )
     {
@@ -1230,7 +1230,7 @@ void aggr_update( void )
 
     script_update( wch, TYPE_ACTOR, TRIG_EACH_PULSE, NULL, NULL, NULL, NULL );
 
-    if ( IS_NPC(wch)
+    if ( NPC(wch)
     ||   IS_IMMORTAL(wch)
     ||   wch->in_scene == NULL )
         continue;
@@ -1241,12 +1241,12 @@ void aggr_update( void )
 
 	    ch_next	= ch->next_in_scene;
 
-	    if ( !IS_NPC(ch)
-            ||  ( !IS_SET(ch->act, ACT_AGGRESSIVE) )
+	    if ( !NPC(ch)
+            ||  ( !IS_SET(ch->flag, ACTOR_AGGRESSIVE) )
 	    ||   ch->fighting != NULL
-	    ||   IS_AFFECTED(ch, AFF_CHARM)
+	    ||   IS_AFFECTED(ch, BONUS_CHARM)
 	    ||   !IS_AWAKE(ch)
-	    ||   ( IS_SET(ch->act, ACT_WIMPY) && IS_AWAKE(wch) )
+	    ||   ( IS_SET(ch->flag, ACTOR_WIMPY) && IS_AWAKE(wch) )
 	    ||   !can_see( ch, wch ) 
 /* watch this */  || number_range(0, 5) < 5 )
 		continue;
@@ -1262,9 +1262,9 @@ void aggr_update( void )
 	    {
 		vch_next = vch->next_in_scene;
 
-		if ( !IS_NPC(vch)
+		if ( !NPC(vch)
                 &&   !IS_IMMORTAL(vch)
-		&&   ( !IS_SET(ch->act, ACT_WIMPY) || !IS_AWAKE(vch) )
+		&&   ( !IS_SET(ch->flag, ACTOR_WIMPY) || !IS_AWAKE(vch) )
 		&&   can_see( ch, vch ) )
 		{
 		    if ( number_range( 0, count ) == 0 )
@@ -1293,22 +1293,22 @@ void aggr_update( void )
 /*
  * Spawn one scene.
  */
-bool spawn_scene( SCENE_INDEX_DATA *pScene )
+bool spawn_scene( SCENE *pScene )
 {
-    SPAWN_DATA *pSpawn;                /* Current Spawn                   */
-    PLAYER_DATA *pActor;               /* Current Working Actor           */
-    PROP_DATA *pProp;                  /* Current Working Object          */
-    PLAYER_DATA    *LastMob;           /* Last Mob Created                */
-    PROP_DATA     *LastObj;            /* Last Object Created             */
+    SPAWN *pSpawn;                /* Current Spawn                   */
+    PLAYER *pActor;               /* Current Working Actor           */
+    PROP *pProp;                  /* Current Working Object          */
+    PLAYER    *LastMob;           /* Last Mob Created                */
+    PROP     *LastObj;            /* Last Object Created             */
     int iExit;                         /* For exit resets                 */
     bool fOldBootDb = fBootDb;
 
     fBootDb = FALSE;                   /* Skirt get_xxx_index() exit()s   */
 
     if ( pScene == NULL ) return FALSE;
-    if ( get_scene_index( pScene->vnum ) == NULL )
+    if ( get_scene( pScene->dbkey ) == NULL )
     {
-          bug( "Spawn_scene: invalid scene %d", pScene->vnum);
+          bug( "Spawn_scene: invalid scene %d", pScene->dbkey);
           if ( fOldBootDb ) exit( 1 );
           return FALSE;
     }
@@ -1319,8 +1319,8 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
     
     for ( iExit = 0;  iExit < MAX_DIR;  iExit++ )
     {
-       EXIT_DATA *pExit;
-       EXIT_DATA *tExit;
+       EXIT *pExit;
+       EXIT *tExit;
        
        pExit = pScene->exit[iExit];
        if ( pExit == NULL ) continue;
@@ -1328,12 +1328,12 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
                                       : NULL;
 
        if ( pScene->people != NULL
-         && !IS_SET(pExit->exit_info, EX_CONCEALED) )
+         && !IS_SET(pExit->exit_flags, EXIT_CONCEALED) )
        {
-         if ( IS_SET(pExit->exit_info, EX_WINDOW) )
+         if ( IS_SET(pExit->exit_flags, EXIT_WINDOW) )
          {
-         if ( !IS_SET(pExit->exit_info, EX_CLOSED)
-            && IS_SET(pExit->rs_flags, EX_CLOSED) )
+         if ( !IS_SET(pExit->exit_flags, EXIT_CLOSED)
+            && IS_SET(pExit->rs_flags, EXIT_CLOSED) )
          {
          act( "The $t shuts.", pScene->people, pExit->keyword, NULL, TO_ACTOR );
          act( "The $t shuts.", pScene->people, pExit->keyword, NULL, TO_SCENE );
@@ -1341,31 +1341,31 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
          }
          else
          {
-         if ( !IS_SET(pExit->exit_info, EX_CLOSED)
-            && IS_SET(pExit->rs_flags, EX_CLOSED) )
+         if ( !IS_SET(pExit->exit_flags, EXIT_CLOSED)
+            && IS_SET(pExit->rs_flags, EXIT_CLOSED) )
          {
          act( "The $t closes.", pScene->people, pExit->keyword, NULL, TO_ACTOR );
          act( "The $t closes.", pScene->people, pExit->keyword, NULL, TO_SCENE );
          }
          }
 
-         if ( !IS_SET(pExit->exit_info, EX_LOCKED)
-            && IS_SET(pExit->rs_flags, EX_LOCKED) )
+         if ( !IS_SET(pExit->exit_flags, EXIT_LOCKED)
+            && IS_SET(pExit->rs_flags, EXIT_LOCKED) )
          {
          act( "The $t clicks.", pScene->people, pExit->keyword, NULL, TO_ACTOR );
          act( "The $t clicks.", pScene->people, pExit->keyword, NULL, TO_SCENE );
          }
        }
 
-       pExit->exit_info = pExit->rs_flags;      /* set the reset flags   */
+       pExit->exit_flags = pExit->rs_flags;      /* set the reset flags   */
        if ( tExit != NULL )
-        tExit->exit_info = tExit->rs_flags;     /* nail the other side */
+        tExit->exit_flags = tExit->rs_flags;     /* nail the other side */
     }
 
     for ( pSpawn = pScene->spawn_first; pSpawn != NULL; pSpawn = pSpawn->next )
     {
-	ACTOR_INDEX_DATA *pActorIndex;
-    PROP_INDEX_DATA *pPropIndex;
+	ACTOR_TEMPLATE *pActorIndex;
+    PROP_TEMPLATE *pPropIndex;
     int count;
 
     if ( pSpawn->num == -1 ) pSpawn->num=1;
@@ -1382,9 +1382,9 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
 
     case 'M':
 
-        if ( ( pActorIndex = get_actor_index( pSpawn->rs_vnum ) ) == NULL )
+        if ( ( pActorIndex = get_actor_template( pSpawn->rs_dbkey ) ) == NULL )
         {
-            bug( "Spawn_scene: 'M': bad vnum %d.", pSpawn->rs_vnum );
+            bug( "Spawn_scene: 'M': bad dbkey %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             break;
         }
@@ -1402,9 +1402,9 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
      break;
 
      case 'O':
-        if ( ( pPropIndex = get_prop_index( pSpawn->rs_vnum ) ) == NULL )
+        if ( ( pPropIndex = get_prop_template( pSpawn->rs_dbkey ) ) == NULL )
         {
-            bug( "Spawn_scene: 'O': bad vnum %d.", pSpawn->rs_vnum );
+            bug( "Spawn_scene: 'O': bad dbkey %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             continue;
         }
@@ -1451,7 +1451,7 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
           && pProp->in_scene    == NULL
           && pProp->in_prop     == NULL )
         {
-            extract_prop( pProp );
+            extractor_prop( pProp );
             pProp = NULL;
             continue;             
         }
@@ -1460,15 +1460,15 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
                 LastObj = pProp;
         break;
 
-	case 'G':  pPropIndex = get_prop_index( PROP_VNUM_TEMPLATE );
-        if ( pSpawn->rs_vnum > MAX_GOODS-1 || pSpawn->rs_vnum < 0 )
+	case 'G':  pPropIndex = get_prop_template( PROP_VNUM_TEMPLATE );
+        if ( pSpawn->rs_dbkey > MAX_GOODS-1 || pSpawn->rs_dbkey < 0 )
         {
-            bug( "Spawn_scene: 'G': bad good %d.", pSpawn->rs_vnum );
+            bug( "Spawn_scene: 'G': bad good %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             continue;
         }
 
-        pProp = create_good( pSpawn->rs_vnum );
+        pProp = create_good( pSpawn->rs_dbkey );
 
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
@@ -1510,22 +1510,22 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
           && pProp->in_scene    == NULL
           && pProp->in_prop     == NULL )
         {
-            extract_prop( pProp );
+            extractor_prop( pProp );
             pProp = NULL;
             continue;             
         }
 
         break;
 
-	case 'C': pPropIndex = get_prop_index( PROP_VNUM_TEMPLATE );
-        if ( pSpawn->rs_vnum > MAX_COMPONENTS-1 || pSpawn->rs_vnum < 0 )
+	case 'C': pPropIndex = get_prop_template( PROP_VNUM_TEMPLATE );
+        if ( pSpawn->rs_dbkey > MAX_COMPONENTS-1 || pSpawn->rs_dbkey < 0 )
         {
-            bug( "Spawn_scene: 'C': bad component %d.", pSpawn->rs_vnum );
+            bug( "Spawn_scene: 'C': bad component %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             continue;
         }
 
-        pProp = create_comp( pSpawn->rs_vnum );
+        pProp = create_comp( pSpawn->rs_dbkey );
 
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
@@ -1567,7 +1567,7 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
           && pProp->in_scene    == NULL
           && pProp->in_prop     == NULL )
         {
-            extract_prop( pProp );
+            extractor_prop( pProp );
             pProp = NULL;
             continue;             
         }
@@ -1592,15 +1592,15 @@ bool spawn_scene( SCENE_INDEX_DATA *pScene )
 void scene_update( void )
 {
     static int iHash;
-    SCENE_INDEX_DATA *pScene;
+    SCENE *pScene;
 
     if (iHash < 0) iHash = -1;
     if (++iHash >= MAX_KEY_HASH )
         iHash = 0;
 
-    for (pScene = scene_index_hash[iHash]; pScene != NULL; pScene = pScene->next )
+    for (pScene = scene_hash[iHash]; pScene != NULL; pScene = pScene->next )
     {
-        PLAYER_DATA *pch;
+        PLAYER *pch;
 
         if ( spawn_scene( pScene )
           && pScene->zone->repop != NULL
@@ -1620,9 +1620,9 @@ void scene_update( void )
  */
 void script_update_script( void )
 {
-    SCENE_INDEX_DATA *scene;
-    PROP_DATA *prop;
-    PLAYER_DATA *ch, *ch_next;
+    SCENE *scene;
+    PROP *prop;
+    PLAYER *ch, *ch_next;
     int iHash;
 
     /* 
@@ -1636,9 +1636,9 @@ void script_update_script( void )
         * Scan scene hash updating all scene instances.
         */
     for ( iHash = 0;  iHash < MAX_KEY_HASH;  iHash++ )    {
-    for ( scene = scene_index_hash[iHash]; scene != NULL;  scene = scene->next )
+    for ( scene = scene_hash[iHash]; scene != NULL;  scene = scene->next )
     {
-        INSTANCE_DATA *trig;
+        INSTANCE *trig;
         for ( trig = scene->instances;  trig != NULL;  trig = trig->next )
             parse_script( trig, scene, TYPE_SCENE );
     }
@@ -1648,7 +1648,7 @@ void script_update_script( void )
         * Scan existing props.
         */
     for ( prop = prop_list;  prop != NULL;  prop = prop->next )    {
-        INSTANCE_DATA *trig;
+        INSTANCE *trig;
         for ( trig = prop->instances;  trig != NULL;  trig = trig->next )
             parse_script( trig, prop, TYPE_PROP );
     }
@@ -1658,7 +1658,7 @@ void script_update_script( void )
         * updating parses of instances.
         */
     for ( ch = actor_list;  ch != NULL;  ch = ch_next )    {
-        INSTANCE_DATA *trig;
+        INSTANCE *trig;
 
         ch_next = ch->next;
 
@@ -1712,12 +1712,12 @@ void auto_reboot( void )
 	else
 	if ( num_hour <= 0 )
 	{
-		PLAYER_DATA *actor;
+		PLAYER *actor;
          
 //		write_global( "Auto-rebooting; game will be back up shortly.\n\r" );
 
 		for ( actor = actor_list; actor != NULL; actor = actor->next )
-                if ( !IS_NPC(actor) ) cmd_save( actor, "internal" );
+                if ( !NPC(actor) ) cmd_save( actor, "internal" );
 
 		cmd_zsave( NULL, "" );
                 save_copyover();
@@ -1872,7 +1872,7 @@ int ps_lkarma=-1;
 
 int num_players=0;
 
-void show_player_statistics( PLAYER_DATA *ch ) {
+void show_player_statistics( PLAYER *ch ) {
     char buf[MSL];
 
     display_interp( ch, "^B" );
@@ -2126,8 +2126,8 @@ void update_player_statistics( void ) {
       {
           int j; bool fOldBootDb=fBootDb;
           owns=0;  fBootDb=FALSE;
-          for ( j =0; j <= top_vnum_scene; j++ ) {
-             SCENE_INDEX_DATA *s = get_scene_index( j ); 
+          for ( j =0; j <= top_dbkey_scene; j++ ) {
+             SCENE *s = get_scene( j ); 
              if ( s && !str_cmp( s->owner, name ) ) owns++;
           } fBootDb=fOldBootDb;
           if ( owns > ps_scene_count ) {
@@ -2144,7 +2144,7 @@ void update_player_statistics( void ) {
 }
 
 
-void cmd_stats( PLAYER_DATA *ch, char *argument ) {
+void cmd_stats( PLAYER *ch, char *argument ) {
    update_player_statistics();
    show_player_statistics( ch );
    return;

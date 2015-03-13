@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -250,11 +250,11 @@ char *capitalize( const char *str )
 /*
  * Append a string to a file.
  */
-void append_file( PLAYER_DATA *ch, char *file, char *str )
+void append_file( PLAYER *ch, char *file, char *str )
 {
     FILE *fp;
 
-    if ( IS_NPC(ch) || str[0] == '\0' )
+    if ( NPC(ch) || str[0] == '\0' )
 	return;
 
     fclose( fpReserve );
@@ -266,7 +266,7 @@ void append_file( PLAYER_DATA *ch, char *file, char *str )
     else
     {
 	fprintf( fp, "[%5d] %s: %s\n",
-	    ch->in_scene ? ch->in_scene->vnum : 0, ch->name, str );
+	    ch->in_scene ? ch->in_scene->dbkey : 0, ch->name, str );
 	fclose( fp );
     }
 
@@ -997,7 +997,7 @@ char * string_proper( char * argument )
 
 
 
-void string_edit( PLAYER_DATA *ch, char **pString )
+void string_edit( PLAYER *ch, char **pString )
 {
     send_to_actor( " Entering line editing mode, terminate with a ~ or @ on a blank line.\n\r", ch );
     send_to_actor( "_________________________________________________________________________\n\r", ch );
@@ -1019,7 +1019,7 @@ void string_edit( PLAYER_DATA *ch, char **pString )
 
 
 
-void string_append( PLAYER_DATA *ch, char **pString )
+void string_append( PLAYER *ch, char **pString )
 {
     if ( ch->desc->connected <= NET_PLAYING )
     send_to_actor( "_________________________[Entering APPEND Mode]__________________________\n\r", ch );
@@ -1032,7 +1032,7 @@ void string_append( PLAYER_DATA *ch, char **pString )
 }
                                         
 
-void string_add( PLAYER_DATA *ch, char *argument )
+void string_add( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
 
@@ -1258,7 +1258,7 @@ void string_add( PLAYER_DATA *ch, char *argument )
     free_string( *ch->desc->pString );
     *ch->desc->pString = str_dup( buf );
 
-    if ( IS_SET(ch->act2,PLR_CLRSCR) ) {
+    if ( IS_SET(ch->flag2,PLR_CLRSCR) ) {
         send_to_actor( CLRSCR, ch );
     send_to_actor( "_________________________________________________________________________\n\r", ch );
     send_to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );        

@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -45,23 +45,23 @@
 /*
  * From mem.c
  */
-extern VARIABLE_DATA * mud_var_list;
+extern VARIABLE * mud_var_list;
 
 
 /*
  * Find a race.
  */
-int race_lookup( int vnum )
+int race_lookup( int dbkey )
 {
-    if ( vnum >= MAX_RACE || vnum <= 0 ) return 0; 
-    return vnum;
+    if ( dbkey >= MAX_RACE || dbkey <= 0 ) return 0; 
+    return dbkey;
 }
 
 
 /*
  * Retrieve a character's trusted level for permission checking.
  */
-int get_trust( PLAYER_DATA *ch )
+int get_trust( PLAYER *ch )
 {
     if ( ch == NULL ) return -1;
 
@@ -78,7 +78,7 @@ int get_trust( PLAYER_DATA *ch )
        ch = ch->desc->original;
     }
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     return LEVEL_MORTAL;
 
     return -1;
@@ -92,7 +92,7 @@ int get_trust( PLAYER_DATA *ch )
 /*
  * Retrieve character's current strength.
  */
-int get_curr_str( PLAYER_DATA *ch )
+int get_curr_str( PLAYER *ch )
 {
     int max;
 
@@ -107,7 +107,7 @@ int get_curr_str( PLAYER_DATA *ch )
 /*
  * Retrieve character's current intelligence.
  */
-int get_curr_int( PLAYER_DATA *ch )
+int get_curr_int( PLAYER *ch )
 {
     int max;
 
@@ -121,7 +121,7 @@ int get_curr_int( PLAYER_DATA *ch )
 /*
  * Retrieve character's current wisdom.
  */
-int get_curr_wis( PLAYER_DATA *ch )
+int get_curr_wis( PLAYER *ch )
 {
     int max;
 
@@ -134,7 +134,7 @@ int get_curr_wis( PLAYER_DATA *ch )
 /*
  * Retrieve character's current dexterity.
  */
-int get_curr_dex( PLAYER_DATA *ch )
+int get_curr_dex( PLAYER *ch )
 {
     int max;
 
@@ -148,7 +148,7 @@ int get_curr_dex( PLAYER_DATA *ch )
 /*
  * Retrieve character's current constitution.
  */
-int get_curr_con( PLAYER_DATA *ch )
+int get_curr_con( PLAYER *ch )
 {
     int max;
 
@@ -163,9 +163,9 @@ int get_curr_con( PLAYER_DATA *ch )
 /*
  * Retrieve a character's carry capacity.
  */
-int can_carry_w( PLAYER_DATA *ch )
+int can_carry_w( PLAYER *ch )
 {
-    if ( IS_IMMORTAL(ch) || (IS_NPC(ch) && ch->pIndexData->pShop) )
+    if ( IS_IMMORTAL(ch) || (NPC(ch) && ch->pIndexData->pShop) )
 	return 1000000;
 
     return str_app[get_curr_str(ch)].carry;
@@ -175,9 +175,9 @@ int can_carry_w( PLAYER_DATA *ch )
 /*
  * Apply or remove an affect to a character.
  */
-void bonus_modify( PLAYER_DATA *ch, BONUS_DATA *paf, bool fAdd )
+void bonus_modify( PLAYER *ch, BONUS *paf, bool fAdd )
 {
-    PROP_DATA *prop, *prop_next;
+    PROP *prop, *prop_next;
     int mod;
     static int depth;
 
@@ -190,7 +190,7 @@ void bonus_modify( PLAYER_DATA *ch, BONUS_DATA *paf, bool fAdd )
     else
     {
         int race = race_lookup( ch->race );
-        PROP_DATA *pr;
+        PROP *pr;
 
         REMOVE_BIT( ch->bonuses, paf->bitvector );
 
@@ -201,7 +201,7 @@ void bonus_modify( PLAYER_DATA *ch, BONUS_DATA *paf, bool fAdd )
          */
         for ( pr = ch->carrying;   pr != NULL;  pr = pr->next_content )
         {
-            BONUS_DATA *af;
+            BONUS *af;
 
             if ( NOT_WORN(pr) )
              continue;
@@ -216,14 +216,14 @@ void bonus_modify( PLAYER_DATA *ch, BONUS_DATA *paf, bool fAdd )
         mod = 0 - mod;
     }
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
 	return;
 
     switch ( paf->location )
     {
     default:
         {
-            SKILL_DATA *pSkill;
+            SKILL *pSkill;
 
             pSkill = find_skill_pc(ch, paf->location);
             if ( !pSkill ) {
@@ -276,9 +276,9 @@ void bonus_modify( PLAYER_DATA *ch, BONUS_DATA *paf, bool fAdd )
 /*
  * Give an affect to a char.
  */
-void bonus_to_actor( PLAYER_DATA *ch, BONUS_DATA *paf )
+void bonus_to_actor( PLAYER *ch, BONUS *paf )
 {
-    BONUS_DATA *paf_new;
+    BONUS *paf_new;
 
 
     paf_new = new_bonus( );
@@ -296,7 +296,7 @@ void bonus_to_actor( PLAYER_DATA *ch, BONUS_DATA *paf )
 /*
  * Remove an affect from a char.
  */
-void bonus_remove( PLAYER_DATA *ch, BONUS_DATA *paf )
+void bonus_remove( PLAYER *ch, BONUS *paf )
 {
     if ( ch->bonus == NULL )
     {
@@ -312,7 +312,7 @@ void bonus_remove( PLAYER_DATA *ch, BONUS_DATA *paf )
     }
     else
     {
-	BONUS_DATA *prev;
+	BONUS *prev;
 
 	for ( prev = ch->bonus; prev != NULL; prev = prev->next )
 	{
@@ -339,10 +339,10 @@ void bonus_remove( PLAYER_DATA *ch, BONUS_DATA *paf )
 /*
  * Strip all affects of a given sn.
  */
-void bonus_strip( PLAYER_DATA *ch, int sn )
+void bonus_strip( PLAYER *ch, int sn )
 {
-    BONUS_DATA *paf;
-    BONUS_DATA *paf_next;
+    BONUS *paf;
+    BONUS *paf_next;
 
     for ( paf = ch->bonus; paf != NULL; paf = paf_next )
     {
@@ -359,9 +359,9 @@ void bonus_strip( PLAYER_DATA *ch, int sn )
 /*
  * Return true if a char is bonus by a spell.
  */
-bool is_bonused( PLAYER_DATA *ch, int sn )
+bool is_bonused( PLAYER *ch, int sn )
 {
-    BONUS_DATA *paf;
+    BONUS *paf;
 
     for ( paf = ch->bonus; paf != NULL; paf = paf->next )
     {
@@ -377,9 +377,9 @@ bool is_bonused( PLAYER_DATA *ch, int sn )
 /*
  * Add or enhance an affect.
  */
-void bonus_join( PLAYER_DATA *ch, BONUS_DATA *paf )
+void bonus_join( PLAYER *ch, BONUS *paf )
 {
-    BONUS_DATA *paf_old;
+    BONUS *paf_old;
     bool found;
 
     found = FALSE;
@@ -402,9 +402,9 @@ void bonus_join( PLAYER_DATA *ch, BONUS_DATA *paf )
 /*
  * Move a char out of a scene.
  */
-void actor_from_scene( PLAYER_DATA *ch )
+void actor_from_scene( PLAYER *ch )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     set_furn( ch, NULL );
 
@@ -414,7 +414,7 @@ void actor_from_scene( PLAYER_DATA *ch )
 	return;
     }
 
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
 	--ch->in_scene->zone->nplayer;
 
     for ( prop = ch->carrying; prop != NULL;  prop = prop->next_content )
@@ -431,7 +431,7 @@ void actor_from_scene( PLAYER_DATA *ch )
     }
     else
     {
-	PLAYER_DATA *prev;
+	PLAYER *prev;
 
 	for ( prev = ch->in_scene->people; prev; prev = prev->next_in_scene )
 	{
@@ -456,21 +456,21 @@ void actor_from_scene( PLAYER_DATA *ch )
 /*
  * Move a char into a scene.
  */
-void actor_to_scene( PLAYER_DATA *ch, SCENE_INDEX_DATA *pSceneIndex )
+void actor_to_scene( PLAYER *ch, SCENE *pSceneIndex )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( pSceneIndex == NULL )
     {
 	bug( "Char_to_scene: NULL.", 0 );
-        pSceneIndex = get_scene_index( SCENE_VNUM_DEATH );
+        pSceneIndex = get_scene( SCENE_VNUM_DEATH );
     }
 
     ch->in_scene         = pSceneIndex;
     ch->next_in_scene	= pSceneIndex->people;
     pSceneIndex->people	= ch;
 
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
 	++ch->in_scene->zone->nplayer;
 
     for ( prop = ch->carrying; prop != NULL;  prop = prop->next_content )
@@ -487,9 +487,9 @@ void actor_to_scene( PLAYER_DATA *ch, SCENE_INDEX_DATA *pSceneIndex )
 /*
  * Move (intelligently) a prop to a char.
  */
-void prop_to_actor_money( PROP_DATA *prop, PLAYER_DATA *ch )
+void prop_to_actor_money( PROP *prop, PLAYER *ch )
 {
-    PROP_DATA *fprop;
+    PROP *fprop;
 
     if ( prop->item_type == ITEM_MONEY  )
     {
@@ -497,7 +497,7 @@ void prop_to_actor_money( PROP_DATA *prop, PLAYER_DATA *ch )
     {
         if ( fprop->item_type == ITEM_CONTAINER )
         {
-            PROP_DATA *iprop;
+            PROP *iprop;
 
             for ( iprop = fprop->contains; iprop != NULL; iprop = iprop->next_content )
             {
@@ -548,7 +548,7 @@ void prop_to_actor_money( PROP_DATA *prop, PLAYER_DATA *ch )
 /*
  * Give a prop to a char.
  */
-void prop_to_actor( PROP_DATA *prop, PLAYER_DATA *ch )
+void prop_to_actor( PROP *prop, PLAYER *ch )
 {
     if ( prop->item_type == ITEM_LIGHT
     &&   IS_LIT(prop)
@@ -571,9 +571,9 @@ void prop_to_actor( PROP_DATA *prop, PLAYER_DATA *ch )
 /*
  * Take a prop from its character.
  */
-void prop_from_actor( PROP_DATA *prop )
+void prop_from_actor( PROP *prop )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
 
     if ( ( ch = prop->carried_by ) == NULL )
     {
@@ -597,7 +597,7 @@ void prop_from_actor( PROP_DATA *prop )
     }
     else
     {
-	PROP_DATA *prev;
+	PROP *prev;
 
 	for ( prev = ch->carrying; prev != NULL; prev = prev->next_content )
 	{
@@ -632,7 +632,7 @@ void prop_from_actor( PROP_DATA *prop )
 /*
  * Find the ac value of a prop, including position effect.
  */
-int apply_ac( PROP_DATA *prop, int iWear )
+int apply_ac( PROP *prop, int iWear )
 {
     if ( prop->item_type != ITEM_ARMOR )
 	return 0;
@@ -645,9 +645,9 @@ int apply_ac( PROP_DATA *prop, int iWear )
  * Get a prop from a char using a type reference.
  * Goes 1 deep.  Returns 1st instance.
  */
-PROP_DATA *get_item_char( PLAYER_DATA *ch, int itype )
+PROP *get_item_char( PLAYER *ch, int itype )
 {  
-    PROP_DATA *prop, *prop2;
+    PROP *prop, *prop2;
 
     for ( prop = ch->carrying;  prop != NULL; prop = prop->next_content )
     {
@@ -664,9 +664,9 @@ PROP_DATA *get_item_char( PLAYER_DATA *ch, int itype )
  * Get a prop from a char using a type reference.
  * Goes 1 deep.  Returns 1st instance.
  */
-PROP_DATA *get_tool_char( PLAYER_DATA *ch, int nbit )
+PROP *get_tool_char( PLAYER *ch, int nbit )
 {  
-    PROP_DATA *prop, *prop2;
+    PROP *prop, *prop2;
 
     for ( prop = ch->carrying;  prop != NULL; prop = prop->next_content )
     {
@@ -685,9 +685,9 @@ PROP_DATA *get_tool_char( PLAYER_DATA *ch, int nbit )
 /*
  * Get a prop from a char using type referencing.
  */
-PROP_DATA *get_item_held( PLAYER_DATA *ch, int itype )
+PROP *get_item_held( PLAYER *ch, int itype )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( ( prop = get_eq_char( ch, WEAR_HOLD_1 ) ) != NULL
         && prop->item_type == itype )
@@ -712,9 +712,9 @@ PROP_DATA *get_item_held( PLAYER_DATA *ch, int itype )
 /*
  * Find a piece of eq on a character.
  */
-PROP_DATA *get_eq_char( PLAYER_DATA *ch, int iWear )
+PROP *get_eq_char( PLAYER *ch, int iWear )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     for ( prop = ch->carrying; prop != NULL; prop = prop->next_content )
     {
@@ -731,9 +731,9 @@ PROP_DATA *get_eq_char( PLAYER_DATA *ch, int iWear )
 /*
  *  Return if a prop can be put in their hands (hands empty?)
  */
-int hand_empty( PLAYER_DATA *ch )
+int hand_empty( PLAYER *ch )
 {
-    PROP_DATA *h1, *h2;
+    PROP *h1, *h2;
 
     h1 = get_eq_char( ch, WEAR_HOLD_1 );
     if ( !h1 ) h1 = get_eq_char( ch, WEAR_WIELD_1 );
@@ -756,9 +756,9 @@ int hand_empty( PLAYER_DATA *ch )
 /*
  * Return the denominator to the empty wield slot on a character.
  */
-int wield_free( PLAYER_DATA *ch, PROP_DATA *prop )
+int wield_free( PLAYER *ch, PROP *prop )
 {
-    PROP_DATA *h1, *h2, *sh;
+    PROP *h1, *h2, *sh;
 
     if ( !prop ) return WEAR_NONE;
 
@@ -790,7 +790,7 @@ int wield_free( PLAYER_DATA *ch, PROP_DATA *prop )
 /*
  *  Return if a prop can be put in their belt (hands empty?)
  */
-int belt_empty( PLAYER_DATA *ch )
+int belt_empty( PLAYER *ch )
 {
     if ( get_eq_char( ch, WEAR_WAIST )  == NULL )        return WEAR_NONE;
 
@@ -807,9 +807,9 @@ int belt_empty( PLAYER_DATA *ch )
 /*
  * Unequip a char with a prop.
  */
-bool unequip_char( PLAYER_DATA *ch, PROP_DATA *prop )
+bool unequip_char( PLAYER *ch, PROP *prop )
 {
-    BONUS_DATA *paf;
+    BONUS *paf;
 
     if ( (prop->wear_loc == WEAR_NONE) )
     {
@@ -845,9 +845,9 @@ bool unequip_char( PLAYER_DATA *ch, PROP_DATA *prop )
 /*
  * Equip a char with a prop.
  */
-void equip_char( PLAYER_DATA *ch, PROP_DATA *prop, int iWear )
+void equip_char( PLAYER *ch, PROP *prop, int iWear )
 {
-    BONUS_DATA *paf;
+    BONUS *paf;
 
     if ( (prop->wear_loc != WEAR_NONE
        && prop->wear_loc != WEAR_HOLD_1
@@ -893,9 +893,9 @@ void equip_char( PLAYER_DATA *ch, PROP_DATA *prop, int iWear )
 /*
  * Count occurrences of a prop in a list.
  */
-int count_prop_list( PROP_INDEX_DATA *pPropIndex, PROP_DATA *list )
+int count_prop_list( PROP_TEMPLATE *pPropIndex, PROP *list )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     int nMatch;
 
     nMatch = 0;
@@ -913,9 +913,9 @@ int count_prop_list( PROP_INDEX_DATA *pPropIndex, PROP_DATA *list )
 /*
  * Move a prop out of a scene.
  */
-void prop_from_scene( PROP_DATA *prop )
+void prop_from_scene( PROP *prop )
 {
-    SCENE_INDEX_DATA *in_scene;
+    SCENE *in_scene;
 
     if ( ( in_scene = prop->in_scene ) == NULL )
     {
@@ -929,7 +929,7 @@ void prop_from_scene( PROP_DATA *prop )
     }
     else
     {
-	PROP_DATA *prev;
+	PROP *prev;
 
 	for ( prev = in_scene->contents; prev; prev = prev->next_content )
 	{
@@ -959,7 +959,7 @@ void prop_from_scene( PROP_DATA *prop )
 /*
  * Move a prop into a scene.
  */
-void prop_to_scene( PROP_DATA *prop, SCENE_INDEX_DATA *pSceneIndex )
+void prop_to_scene( PROP *prop, SCENE *pSceneIndex )
 {
     if ( prop->item_type == ITEM_LIGHT && IS_LIT(prop) )  ++pSceneIndex->light;
 
@@ -978,7 +978,7 @@ void prop_to_scene( PROP_DATA *prop, SCENE_INDEX_DATA *pSceneIndex )
 /*
  * Move a prop into a prop.
  */
-void prop_to_prop( PROP_DATA *prop, PROP_DATA *prop_to )
+void prop_to_prop( PROP *prop, PROP *prop_to )
 {
     prop->next_content   = prop_to->contains;
     prop_to->contains    = prop;
@@ -1004,9 +1004,9 @@ void prop_to_prop( PROP_DATA *prop, PROP_DATA *prop_to )
 /*
  * Move a prop out of a prop.
  */
-void prop_from_prop( PROP_DATA *prop )
+void prop_from_prop( PROP *prop )
 {
-    PROP_DATA *prop_from;
+    PROP *prop_from;
 
     if ( ( prop_from = prop->in_prop ) == NULL )
     {
@@ -1020,7 +1020,7 @@ void prop_from_prop( PROP_DATA *prop )
     }
     else
     {
-	PROP_DATA *prev;
+	PROP *prev;
 
 	for ( prev = prop_from->contains; prev; prev = prev->next_content )
 	{
@@ -1058,18 +1058,18 @@ void prop_from_prop( PROP_DATA *prop )
 /*
  * Extract a prop from the world.
  */
-void extract_prop( PROP_DATA *prop )
+void extractor_prop( PROP *prop )
 {
-    PROP_DATA *prop_content;
-    PROP_DATA *prop_next;
-    extern PROP_DATA *prop_free;
-    VARIABLE_DATA *pVar;
-    VARIABLE_DATA *pVar_next;
+    PROP *prop_content;
+    PROP *prop_next;
+    extern PROP *prop_free;
+    VARIABLE *pVar;
+    VARIABLE *pVar_next;
 
     if ( !prop ) return;
 
     {
-        PLAYER_DATA *actor;
+        PLAYER *actor;
 
         for ( actor = actor_list;  actor != NULL; actor = actor->next )
         {
@@ -1084,7 +1084,7 @@ void extract_prop( PROP_DATA *prop )
     for ( pVar = mud_var_list;  pVar != NULL;  pVar = pVar_next )
     {
         pVar_next = pVar->next;
-        if ( pVar->type == TYPE_PROP && (PROP_DATA *)pVar->value == prop )
+        if ( pVar->type == TYPE_PROP && (PROP *)pVar->value == prop )
         {
             pVar->type  = TYPE_STRING;
             pVar->value = str_dup( "" );
@@ -1099,7 +1099,7 @@ void extract_prop( PROP_DATA *prop )
     for ( prop_content = prop->contains; prop_content; prop_content = prop_next )
     {
 	prop_next = prop_content->next_content;
-	extract_prop( prop->contains );
+	extractor_prop( prop->contains );
     }
 
     if ( prop_list == prop )
@@ -1108,7 +1108,7 @@ void extract_prop( PROP_DATA *prop )
     }
     else
     {
-	PROP_DATA *prev;
+	PROP *prev;
 
 	for ( prev = prop_list; prev != NULL; prev = prev->next )
 	{
@@ -1121,14 +1121,14 @@ void extract_prop( PROP_DATA *prop )
 
 	if ( prev == NULL )
 	{
-	    bug( "Extract_prop: prop %d not found.", prop->pIndexData->vnum );
+	    bug( "Extractor_prop: prop %d not found.", prop->pIndexData->dbkey );
 	    return;
 	}
     }
 
     {
-	BONUS_DATA *paf;
-	BONUS_DATA *paf_next;
+	BONUS *paf;
+	BONUS *paf_next;
 
 	for ( paf = prop->bonus; paf != NULL; paf = paf_next )
 	{
@@ -1139,8 +1139,8 @@ void extract_prop( PROP_DATA *prop )
     }
 
     {
-	EXTRA_DESCR_DATA *ed;
-	EXTRA_DESCR_DATA *ed_next;
+	EXTRA_DESCR *ed;
+	EXTRA_DESCR *ed_next;
 
 	for ( ed = prop->extra_descr; ed != NULL; ed = ed_next )
 	{
@@ -1168,39 +1168,39 @@ void extract_prop( PROP_DATA *prop )
 /*
  * Extract a char from the world.
  */
-void extract_char( PLAYER_DATA *ch, bool fPull )
+void extractor_char( PLAYER *ch, bool fPull )
 {
-    PLAYER_DATA *wch, *wch_next;
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
-    VARIABLE_DATA *pVar;
-    VARIABLE_DATA *pVar_next;
+    PLAYER *wch, *wch_next;
+    PROP *prop;
+    PROP *prop_next;
+    VARIABLE *pVar;
+    VARIABLE *pVar_next;
 
     if ( ch->in_scene == NULL )
     {
-	bug( "Extract_char: NULL in_scene.", 0 );
+	bug( "Extractor_char: NULL in_scene.", 0 );
 	return;
     }
 
     if ( fPull )
     {
-        PLAYER_DATA *pet;
-        PLAYER_DATA *pet_next;
+        PLAYER *pet;
+        PLAYER *pet_next;
 
         for ( pet = actor_list; pet != NULL; pet = pet_next )
         {
             pet_next = pet->next;
             if ( ch != pet
               && ( pet->master == ch )
-              && IS_SET(pet->act, ACT_PET) )
-            extract_char( pet, TRUE );
+              && IS_SET(pet->flag, ACTOR_PET) )
+            extractor_char( pet, TRUE );
         }
     }
 
     for ( pVar = mud_var_list;  pVar != NULL;  pVar = pVar_next )
     {
         pVar_next = pVar->next_master_var;
-        if ( pVar->type == TYPE_ACTOR && (PLAYER_DATA *)pVar->value == ch )
+        if ( pVar->type == TYPE_ACTOR && (PLAYER *)pVar->value == ch )
         {
             pVar->type  = TYPE_STRING;
             pVar->value = str_dup( "" );
@@ -1208,7 +1208,7 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
     }
 
     {
-        PLAYER_DATA *clist;
+        PLAYER *clist;
 
         for ( clist = actor_list;  clist != NULL;  clist = clist->next )
         {
@@ -1223,7 +1223,7 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
     if ( ch->haggling != NULL )
     {
         if ( ch->haggling->carried_by == NULL )
-        extract_prop( ch->haggling );
+        extractor_prop( ch->haggling );
         ch->haggling = NULL;
     }
 
@@ -1235,7 +1235,7 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
     for ( prop = ch->carrying; prop != NULL; prop = prop_next )
     {
 	prop_next = prop->next_content;
-	extract_prop( prop );
+	extractor_prop( prop );
     }
     
     actor_from_scene( ch );
@@ -1252,18 +1252,18 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
        ch->rider         = NULL;
     }
     
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
         PC(ch,condition)[COND_THIRST] = 100;
 
     
     if ( !fPull )
     {
-    actor_to_scene( ch, get_scene_index( SCENE_VNUM_DEATH ) );
+    actor_to_scene( ch, get_scene( SCENE_VNUM_DEATH ) );
     cmd_look( ch, "auto" );
 	return;
     }
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
 	--ch->pIndexData->count;
 
     if ( ch->desc != NULL && ch->desc->original != NULL )
@@ -1278,7 +1278,7 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
     }
     else
     {
-	PLAYER_DATA *prev;
+	PLAYER *prev;
 
 	for ( prev = actor_list; prev != NULL; prev = prev->next )
 	{
@@ -1291,13 +1291,13 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
 
 	if ( prev == NULL )
 	{
-	    bug( "Extract_char: char not found.", 0 );
+	    bug( "Extractor_char: char not found.", 0 );
 	    return;
 	}
     }
 
     for ( wch = actor_list; wch != NULL; wch = wch_next ) { wch_next = wch->next;
-     if ( wch->master == ch && IS_SET(wch->act,ACT_PET)  ) {
+     if ( wch->master == ch && IS_SET(wch->flag,ACTOR_PET)  ) {
 
         /*
          * Clip from mount list (on first).
@@ -1308,7 +1308,7 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
         }
         else
         {
-            PLAYER_DATA *prev;
+            PLAYER *prev;
 
             for ( prev = actor_list; prev != NULL; prev = prev->next )
             {
@@ -1324,14 +1324,14 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
 
             if ( prev == NULL && wch_next != NULL )
             {
-                bug( "Extract_char: mount not found.", 0 );
+                bug( "Extractor_char: mount not found.", 0 );
                 return;
             }
         }
         /*
          * Watch for recursion.
          */
-        extract_char( wch, TRUE );
+        extractor_char( wch, TRUE );
       }
     }
 
@@ -1346,10 +1346,10 @@ void extract_char( PLAYER_DATA *ch, bool fPull )
 /*
  * Find a char in the scene.
  */
-PLAYER_DATA *get_actor_scene( PLAYER_DATA *ch, char *argument )
+PLAYER *get_actor_scene( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *rch;
+    PLAYER *rch;
     int number;
     int count;
 
@@ -1372,7 +1372,7 @@ PLAYER_DATA *get_actor_scene( PLAYER_DATA *ch, char *argument )
 
         if ( !is_name( arg, STR(rch, name) ) )
         {
-            if ( !IS_NPC(rch) && is_name( arg, rch->keywords ) )
+            if ( !NPC(rch) && is_name( arg, rch->keywords ) )
             ;
             else continue;
         }
@@ -1383,7 +1383,7 @@ PLAYER_DATA *get_actor_scene( PLAYER_DATA *ch, char *argument )
     
     if ( !is_name( arg, STR(ch, name) ) )
     {
-        if ( !IS_NPC(ch) && is_name( arg, ch->keywords ) )
+        if ( !NPC(ch) && is_name( arg, ch->keywords ) )
         return ch;
     }   
 
@@ -1396,10 +1396,10 @@ PLAYER_DATA *get_actor_scene( PLAYER_DATA *ch, char *argument )
 /*
  * Find a char in the world.
  */
-PLAYER_DATA *get_actor_world( PLAYER_DATA *ch, char *argument )
+PLAYER *get_actor_world( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *wch;
+    PLAYER *wch;
     int number;
     int count;
 
@@ -1415,7 +1415,7 @@ PLAYER_DATA *get_actor_world( PLAYER_DATA *ch, char *argument )
 
         if ( !is_name( arg, STR(wch, name) ) )
         {
-            if ( !IS_NPC(wch) && is_name( arg, wch->keywords ) )
+            if ( !NPC(wch) && is_name( arg, wch->keywords ) )
             ;
             else continue;
         }
@@ -1433,9 +1433,9 @@ PLAYER_DATA *get_actor_world( PLAYER_DATA *ch, char *argument )
  * Find some prop with a given index data.
  * Used by zone-reset 'P' command.
  */
-PROP_DATA *get_prop_type( PROP_INDEX_DATA *pPropIndex )
+PROP *get_prop_type( PROP_TEMPLATE *pPropIndex )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     for ( prop = prop_list; prop != NULL; prop = prop->next )
     {
@@ -1453,7 +1453,7 @@ PROP_DATA *get_prop_type( PROP_INDEX_DATA *pPropIndex )
  * Return # of props which a prop counts as.
  * Thanks to Tony Chamberlain for the correct recursive code here.
  */
-int get_prop_number( PROP_DATA *prop )
+int get_prop_number( PROP *prop )
 {
     int number;
 
@@ -1474,7 +1474,7 @@ int get_prop_number( PROP_DATA *prop )
  * Return weight of a prop, including weight of contents.
  * Danger: Recursion ahead.
  */
-int get_prop_weight( PROP_DATA *prop )
+int get_prop_weight( PROP *prop )
 {
     int weight;
 
@@ -1493,7 +1493,7 @@ int get_prop_weight( PROP_DATA *prop )
 /*
  * True if scene is dark.
  */
-int scene_is_dark( SCENE_INDEX_DATA *pSceneIndex )
+int scene_is_dark( SCENE *pSceneIndex )
 {
     if ( pSceneIndex == NULL ) return FALSE;
 
@@ -1512,30 +1512,30 @@ int scene_is_dark( SCENE_INDEX_DATA *pSceneIndex )
     /*
      * Are we inside?
      */
-    if ( pSceneIndex->sector_type == SECT_INSIDE )
+    if ( pSceneIndex->move == MOVE_INSIDE )
     return FALSE;
 
     /*
      * If it is daylight.
      */
-    if ( weather_info.sunlight == SUN_RISE
-      || weather_info.sunlight == SUN_LIGHT )
+    if ( weather.sunlight == SUN_RISE
+      || weather.sunlight == SUN_LIGHT )
     return FALSE;
 
     /*
      * If the moon is out and you're in the city or a field.
      */
-    if ( weather_info.sunlight == MOON_RISE
-      && weather_info.sky == SKY_CLOUDLESS
-      && (pSceneIndex->sector_type == SECT_FIELD
-       || pSceneIndex->sector_type == SECT_CITY) )
+    if ( weather.sunlight == MOON_RISE
+      && weather.sky == SKY_CLOUDLESS
+      && (pSceneIndex->move == MOVE_FIELD
+       || pSceneIndex->move == MOVE_CITY) )
     return FALSE;
 
     /* 
      * If the sky is cloudy and you're in the forest..
      */
-    if ( weather_info.sky != SKY_CLOUDLESS
-      && pSceneIndex->sector_type == SECT_FOREST )
+    if ( weather.sky != SKY_CLOUDLESS
+      && pSceneIndex->move == MOVE_FOREST )
     return TRUE;
  
 
@@ -1547,9 +1547,9 @@ int scene_is_dark( SCENE_INDEX_DATA *pSceneIndex )
 /*
  * True if scene is private.
  */
-bool scene_is_private( SCENE_INDEX_DATA *pSceneIndex )
+bool scene_is_private( SCENE *pSceneIndex )
 {
-    PLAYER_DATA *rch;
+    PLAYER *rch;
     int count;
 
     if ( pSceneIndex->max_people == 0 )
@@ -1570,33 +1570,33 @@ bool scene_is_private( SCENE_INDEX_DATA *pSceneIndex )
 /*
  * True if char can see victim.
  */
-bool can_see( PLAYER_DATA *ch, PLAYER_DATA *victim )
+bool can_see( PLAYER *ch, PLAYER *victim )
 {
     if ( ch == victim )
 	return TRUE;
     
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, WIZ_HOLYLIGHT) )
+    if ( !NPC(ch) && IS_SET(ch->flag2, WIZ_HOLYLIGHT) )
 	return TRUE;
 
-    if ( IS_AFFECTED(ch, AFF_BLIND) )
+    if ( IS_AFFECTED(ch, BONUS_BLIND) )
 	return FALSE;
 
-    if ( scene_is_dark( ch->in_scene ) && !IS_AFFECTED(ch, AFF_INFRARED) )
+    if ( scene_is_dark( ch->in_scene ) && !IS_AFFECTED(ch, BONUS_INFRARED) )
 	return FALSE;
 
 /*
-    if ( IS_NPC(ch) && HAS_SCRIPT(ch) && !IS_SET(ch->act, ACT_AGGRESSIVE ) )
+    if ( NPC(ch) && HAS_SCRIPT(ch) && !IS_SET(ch->flag, ACTOR_AGGRESSIVE ) )
     return TRUE;
  */
 
-    if ( IS_AFFECTED(victim, AFF_INVISIBLE)
-    &&   !IS_AFFECTED(ch, AFF_DETECT_INVIS) )
+    if ( IS_AFFECTED(victim, BONUS_INVISIBLE)
+    &&   !IS_AFFECTED(ch, BONUS_DETECT_INVIS) )
 	return FALSE;
 
-    if ( IS_AFFECTED(victim, AFF_HIDE)
-    &&   !IS_AFFECTED(ch, AFF_DETECT_HIDDEN)
+    if ( IS_AFFECTED(victim, BONUS_HIDE)
+    &&   !IS_AFFECTED(ch, BONUS_DETECT_HIDDEN)
     &&   victim->fighting == NULL
-    &&   ( IS_NPC(ch) ? !IS_NPC(victim) : IS_NPC(victim) ) )
+    &&   ( NPC(ch) ? !NPC(victim) : NPC(victim) ) )
 	return FALSE;
 
     if (  get_trust( ch ) < GET_PC(victim,wizinvis,0)
@@ -1611,12 +1611,12 @@ bool can_see( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * True if char can see prop.
  */
-bool can_see_prop( PLAYER_DATA *ch, PROP_DATA *prop )
+bool can_see_prop( PLAYER *ch, PROP *prop )
 {
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, WIZ_HOLYLIGHT) )
+    if ( !NPC(ch) && IS_SET(ch->flag2, WIZ_HOLYLIGHT) )
 	return TRUE;
 
-    if ( IS_AFFECTED( ch, AFF_BLIND ) )
+    if ( IS_AFFECTED( ch, BONUS_BLIND ) )
     return FALSE;
 
     if ( IS_SET( prop->extra_flags, ITEM_BURNING ) )
@@ -1625,11 +1625,11 @@ bool can_see_prop( PLAYER_DATA *ch, PROP_DATA *prop )
     if ( prop->item_type == ITEM_LIGHT && IS_LIT( prop ) )
 	return TRUE;
 
-    if ( scene_is_dark( ch->in_scene ) && !IS_AFFECTED(ch, AFF_INFRARED) )
+    if ( scene_is_dark( ch->in_scene ) && !IS_AFFECTED(ch, BONUS_INFRARED) )
 	return FALSE;
 
     if ( IS_SET(prop->extra_flags, ITEM_INVIS)
-    &&   !IS_AFFECTED(ch, AFF_DETECT_INVIS) )
+    &&   !IS_AFFECTED(ch, BONUS_DETECT_INVIS) )
 	return FALSE;
 
     return TRUE;
@@ -1640,7 +1640,7 @@ bool can_see_prop( PLAYER_DATA *ch, PROP_DATA *prop )
 /*
  * True if char can drop prop.
  */
-bool can_drop_prop( PLAYER_DATA *ch, PROP_DATA *prop )
+bool can_drop_prop( PLAYER *ch, PROP *prop )
 {
     if ( !IS_SET(prop->extra_flags, ITEM_NODROP) )
 	return TRUE;
@@ -1658,7 +1658,7 @@ bool can_drop_prop( PLAYER_DATA *ch, PROP_DATA *prop )
 /*
  * Get an extra description from a list.
  */
-char *get_extra_descr( const char *name, EXTRA_DESCR_DATA *ed )
+char *get_extra_descr( const char *name, EXTRA_DESCR *ed )
 {
     for ( ; ed != NULL; ed = ed->next )
     {
@@ -1673,7 +1673,7 @@ char *get_extra_descr( const char *name, EXTRA_DESCR_DATA *ed )
 /*
  * Use up some of a tool.
  */
-bool use_tool( PROP_DATA *prop, int bit )
+bool use_tool( PROP *prop, int bit )
 {
     if ( prop == NULL
       || prop->item_type != ITEM_TOOL
@@ -1704,10 +1704,10 @@ int PERCENTAGE( int amount, int max )
 /*
  * Check the wield weight of a actor, for quick equations.
  */
-int wield_weight( PLAYER_DATA *ch )
+int wield_weight( PLAYER *ch )
 {
     int weight;
-    PROP_DATA *w1, *w2, *sh;
+    PROP *w1, *w2, *sh;
 
     w1 = get_eq_char(ch, WEAR_WIELD_1);
     w2 = get_eq_char(ch, WEAR_WIELD_2);
@@ -1724,10 +1724,10 @@ int wield_weight( PLAYER_DATA *ch )
 
 
 
-bool is_hooded( PLAYER_DATA *ch )
+bool is_hooded( PLAYER *ch )
 {
-    PLAYER_DATA *looker;
-    PROP_DATA *hood;
+    PLAYER *looker;
+    PROP *hood;
     
     
     return FALSE;

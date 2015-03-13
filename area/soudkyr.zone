@@ -142,25 +142,25 @@ S 1
 Sz 24
 K 100 E 853
 O ~
+Spell 23
+Spell 11
+Spell 26
+Spell 24
+Spell 25
+Spell 27
+Spell 28
+Spell 30
+Spell 29
+Spell 29
+Spell 30
+Spell 28
+Spell 27
+Spell 25
+Spell 24
+Spell 26
+Spell 11
+Spell 23
 Spell 31
-Spell 23
-Spell 11
-Spell 26
-Spell 24
-Spell 25
-Spell 27
-Spell 28
-Spell 30
-Spell 29
-Spell 29
-Spell 30
-Spell 28
-Spell 27
-Spell 25
-Spell 24
-Spell 26
-Spell 11
-Spell 23
 AP 25 25 25 25 40
 Shop
  T 0 0
@@ -268,8 +268,8 @@ Sz 24
 K 100 E 679
 O ~
 AP 25 25 25 25 35
-Sc 5222
 Sc 5221
+Sc 5222
 At 0 10 15 12
 At 1 5 21 8
 At 2 1 30 5

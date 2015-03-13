@@ -15,7 +15,7 @@
 /* To install:: 							*/
 /*	remove all occurances of "" (unless your exits are unioned)	*/
 /*	add do_map prototypes to interp.c and merc.h (or interp.h)	*/
-/*	customize the first switch with your own sectors (add road :)	*/
+/*	customize the first switch with your own moves (add road :)	*/
 /*	remove the color codes or change to suit your own color coding	*/
 /* Other stuff::							*/
 /*	make a skill, call from do_move (only if ch is not in city etc) */
@@ -26,9 +26,9 @@
 /*	Kermit's page also has this snippet, mail me for any q's though */
 /************************************************************************/ 	
 /* mlk update: map is now a 2 dimensional array of integers		*/
-/*	uses SECT_MAX for null					*/
-/*	uses SECT_MAX+1 for mazes or one ways to SECT_ENTER		*/
-/*	use the SECTOR numbers to represent sector types :)		*/
+/*	uses MOVE_MAX for null					*/
+/*	uses MOVE_MAX+1 for mazes or one ways to MOVE_ENTER		*/
+/*	use the SECTOR numbers to represent move types :)		*/
 /************************************************************************/ 	
 #include <ctype.h>  /* for isalpha */
 #include <string.h>
@@ -45,14 +45,14 @@ int map[MAX_MAP][MAX_MAP];
 int offsets[4][2] ={ {-1, 0},{ 0, 1},{ 1, 0},{ 0,-1} };
 
 void MapArea 
-(ROOM_INDEX_DATA *room, CHAR_DATA *ch, int x, int y, int min, int max)
+(ROOM_INDEX *room, CHAR *ch, int x, int y, int min, int max)
 {
-ROOM_INDEX_DATA *prospect_room;
-EXIT_DATA *pexit;
+ROOM_INDEX *prospect_room;
+EXIT *pexit;
 int door;
 
 /* marks the room as visited */
-map[x][y]=room->sector_type;
+map[x][y]=room->move;
 
     for ( door = 0; door < MAX_MAP_DIR; door++ ) 
     { /* cycles through for each exit */
@@ -60,7 +60,7 @@ map[x][y]=room->sector_type;
              (pexit = room->exit[door]) != NULL
 	     &&   pexit->to_room != NULL 
 	     &&   can_see_room(ch,pexit->to_room)  /* optional */
-	     &&   !IS_SET(pexit->exit_info, EX_CLOSED)
+	     &&   !IS_SET(pexit->exit_flags, EXIT_CLOSED)
            )
         { /* if exit there */
 
@@ -71,29 +71,29 @@ map[x][y]=room->sector_type;
         if ( prospect_room->exit[rev_dir[door]] &&
 	 prospect_room->exit[rev_dir[door]]->to_room!=room)
 		{ /* if not two way */
-			map[x][y]=SECT_MAX+1; /* one way into area OR maze */	
+			map[x][y]=MOVE_MAX+1; /* one way into area OR maze */	
 		return;
 		} /* end two way */
 
-/*    if ( IS_NPC(ch)
-	||(!IS_SET(ch->act,PLR_HOLYLIGHT))
+/*    if ( NPC(ch)
+	||(!IS_SET(ch->flag,PLR_HOLYLIGHT))
 	||(!IS_IMMORTAL(ch))
 	) */
-      if( (prospect_room->sector_type==SECT_ROCK_MOUNTAIN) 
-	||(prospect_room->sector_type==SECT_SNOW_MOUNTAIN) 
-	||(prospect_room->sector_type==SECT_HILLS) 
-	||(prospect_room->sector_type==SECT_CITY) 
-	||(prospect_room->sector_type==SECT_INSIDE) 
-	||(prospect_room->sector_type==SECT_ENTER) 
+      if( (prospect_room->move==MOVE_ROCK_MOUNTAIN) 
+	||(prospect_room->move==MOVE_SNOW_MOUNTAIN) 
+	||(prospect_room->move==MOVE_HILLS) 
+	||(prospect_room->move==MOVE_CITY) 
+	||(prospect_room->move==MOVE_INSIDE) 
+	||(prospect_room->move==MOVE_ENTER) 
         )
 	{ /* players cant see past these */
-		map[x+offsets[door][0]][y+offsets[door][1]]=prospect_room->sector_type;
+		map[x+offsets[door][0]][y+offsets[door][1]]=prospect_room->move;
 		/* ^--two way into area */		
 	/*if (door!=0) return;*//*not needed for my mud	becuz of euclid world map*/
-	/* ^--takes care of stopping when north is one of sectors you cant see past */
+	/* ^--takes care of stopping when north is one of moves you cant see past */
 	}
 
-    if (map[x+offsets[door][0]][y+offsets[door][1]]==SECT_MAX) {
+    if (map[x+offsets[door][0]][y+offsets[door][1]]==MOVE_MAX) {
                 MapArea (pexit->to_room,ch,
                     x+offsets[door][0], y+offsets[door][1],min,max);
     }
@@ -104,7 +104,7 @@ return;
 }
 
 /* mlk :: shows a map, specified by size */
-void ShowMap( CHAR_DATA *ch, int min, int max)
+void ShowMap( CHAR *ch, int min, int max)
 {
 int x,y;
 
@@ -115,51 +115,51 @@ int x,y;
 if ( (y==min) || (map[x][y-1]!=map[x][y]) )
 switch(map[x][y])
 {
-case SECT_MAX:		send_to_char(" ",ch);		break;
-case SECT_FOREST:	send_to_char("{g@",ch);		break;
-case SECT_FIELD:	send_to_char("{G\"",ch);	break;
-case SECT_HILLS:	send_to_char("{G^",ch);		break;
-case SECT_ROAD:		send_to_char("{m+",ch);		break;
-case SECT_MOUNTAIN:	send_to_char("{y^",ch);		break;
-case SECT_WATER_SWIM:	send_to_char("{B:",ch);		break;
-case SECT_WATER_NOSWIM:	send_to_char("{b:",ch);		break;
-case SECT_UNUSED:	send_to_char("{DX",ch);		break;
-case SECT_AIR:		send_to_char("{C%",ch);		break;
-case SECT_DESERT:	send_to_char("{Y=",ch);		break;
-case SECT_ENTER:	send_to_char("{W@",ch);		break;
-case SECT_INSIDE:	send_to_char("{W%",ch);		break;
-case SECT_CITY:		send_to_char("{W#",ch);		break;
-case SECT_ROCK_MOUNTAIN:send_to_char("{D^",ch);		break;
-case SECT_SNOW_MOUNTAIN:send_to_char("{W^",ch);		break;
-case SECT_SWAMP:	send_to_char("{D&",ch);		break;
-case SECT_JUNGLE:	send_to_char("{g&",ch);		break;
-case SECT_RUINS:	send_to_char("{D#",ch);		break;
-case (SECT_MAX+1):	send_to_char("{D?",ch);		break;
+case MOVE_MAX:		send_to_char(" ",ch);		break;
+case MOVE_FOREST:	send_to_char("{g@",ch);		break;
+case MOVE_FIELD:	send_to_char("{G\"",ch);	break;
+case MOVE_HILLS:	send_to_char("{G^",ch);		break;
+case MOVE_ROAD:		send_to_char("{m+",ch);		break;
+case MOVE_MOUNTAIN:	send_to_char("{y^",ch);		break;
+case MOVE_WATER_SWIM:	send_to_char("{B:",ch);		break;
+case MOVE_WATER_NOSWIM:	send_to_char("{b:",ch);		break;
+case MOVE_UNUSED:	send_to_char("{DX",ch);		break;
+case MOVE_AIR:		send_to_char("{C%",ch);		break;
+case MOVE_DESERT:	send_to_char("{Y=",ch);		break;
+case MOVE_ENTER:	send_to_char("{W@",ch);		break;
+case MOVE_INSIDE:	send_to_char("{W%",ch);		break;
+case MOVE_CITY:		send_to_char("{W#",ch);		break;
+case MOVE_ROCK_MOUNTAIN:send_to_char("{D^",ch);		break;
+case MOVE_SNOW_MOUNTAIN:send_to_char("{W^",ch);		break;
+case MOVE_SWAMP:	send_to_char("{D&",ch);		break;
+case MOVE_JUNGLE:	send_to_char("{g&",ch);		break;
+case MOVE_RUINS:	send_to_char("{D#",ch);		break;
+case (MOVE_MAX+1):	send_to_char("{D?",ch);		break;
 default: 		send_to_char("{R*",ch);
 } /* end switch1 */
 else 
 switch(map[x][y])
 {
-case SECT_MAX:		send_to_char(" ",ch);		break;
-case SECT_FOREST:	send_to_char("@",ch);		break;
-case SECT_FIELD:	send_to_char("\"",ch);		break;
-case SECT_HILLS:	send_to_char("^",ch);		break;
-case SECT_ROAD:		send_to_char("+",ch);		break;
-case SECT_MOUNTAIN:	send_to_char("^",ch);		break;
-case SECT_WATER_SWIM:	send_to_char(":",ch);		break;
-case SECT_WATER_NOSWIM:	send_to_char(":",ch);		break;
-case SECT_UNUSED:	send_to_char("X",ch);		break;
-case SECT_AIR:		send_to_char("%",ch);		break;
-case SECT_DESERT:	send_to_char("=",ch);		break;
-case SECT_ENTER:	send_to_char("@",ch);		break;
-case SECT_INSIDE:	send_to_char("%",ch);		break;
-case SECT_CITY:		send_to_char("#",ch);		break;
-case SECT_ROCK_MOUNTAIN:send_to_char("^",ch);		break;
-case SECT_SNOW_MOUNTAIN:send_to_char("^",ch);		break;
-case SECT_SWAMP:	send_to_char("&",ch);		break;
-case SECT_JUNGLE:	send_to_char("&",ch);		break;
-case SECT_RUINS:	send_to_char("#",ch);		break;
-case (SECT_MAX+1):	send_to_char("?",ch);		break;
+case MOVE_MAX:		send_to_char(" ",ch);		break;
+case MOVE_FOREST:	send_to_char("@",ch);		break;
+case MOVE_FIELD:	send_to_char("\"",ch);		break;
+case MOVE_HILLS:	send_to_char("^",ch);		break;
+case MOVE_ROAD:		send_to_char("+",ch);		break;
+case MOVE_MOUNTAIN:	send_to_char("^",ch);		break;
+case MOVE_WATER_SWIM:	send_to_char(":",ch);		break;
+case MOVE_WATER_NOSWIM:	send_to_char(":",ch);		break;
+case MOVE_UNUSED:	send_to_char("X",ch);		break;
+case MOVE_AIR:		send_to_char("%",ch);		break;
+case MOVE_DESERT:	send_to_char("=",ch);		break;
+case MOVE_ENTER:	send_to_char("@",ch);		break;
+case MOVE_INSIDE:	send_to_char("%",ch);		break;
+case MOVE_CITY:		send_to_char("#",ch);		break;
+case MOVE_ROCK_MOUNTAIN:send_to_char("^",ch);		break;
+case MOVE_SNOW_MOUNTAIN:send_to_char("^",ch);		break;
+case MOVE_SWAMP:	send_to_char("&",ch);		break;
+case MOVE_JUNGLE:	send_to_char("&",ch);		break;
+case MOVE_RUINS:	send_to_char("#",ch);		break;
+case (MOVE_MAX+1):	send_to_char("?",ch);		break;
 default: 		send_to_char("*",ch);
 } /* end switch2 */
          } /* every column */
@@ -171,7 +171,7 @@ return;
 }
 
 /* mlk :: shows map compacted, specified by size */
-void ShowHalfMap( CHAR_DATA *ch, int min, int max)
+void ShowHalfMap( CHAR *ch, int min, int max)
 {
 int x,y;
 
@@ -181,57 +181,57 @@ int x,y;
          { /* every column */
 
 /* mlk prioritizes*/
-if (map[x][y-1]==SECT_ROAD) map[x][y]=SECT_ROAD;
-if (map[x][y-1]==SECT_ENTER) map[x][y]=SECT_ENTER;
+if (map[x][y-1]==MOVE_ROAD) map[x][y]=MOVE_ROAD;
+if (map[x][y-1]==MOVE_ENTER) map[x][y]=MOVE_ENTER;
 
 if ( (y==min) || (map[x][y-2]!=map[x][y]) )
 switch(map[x][y])
 {
-case SECT_MAX:		send_to_char(" ",ch);		break;
-case SECT_FOREST:	send_to_char("{g@",ch);		break;
-case SECT_FIELD:	send_to_char("{G\"",ch);	break;
-case SECT_HILLS:	send_to_char("{G^",ch);		break;
-case SECT_ROAD:		send_to_char("{m+",ch);		break;
-case SECT_MOUNTAIN:	send_to_char("{y^",ch);		break;
-case SECT_WATER_SWIM:	send_to_char("{B:",ch);		break;
-case SECT_WATER_NOSWIM:	send_to_char("{b:",ch);		break;
-case SECT_UNUSED:	send_to_char("{DX",ch);		break;
-case SECT_AIR:		send_to_char("{C%",ch);		break;
-case SECT_DESERT:	send_to_char("{Y=",ch);		break;
-case SECT_ENTER:	send_to_char("{W@",ch);		break;
-case SECT_INSIDE:	send_to_char("{W%",ch);		break;
-case SECT_CITY:		send_to_char("{W#",ch);		break;
-case SECT_ROCK_MOUNTAIN:send_to_char("{D^",ch);		break;
-case SECT_SNOW_MOUNTAIN:send_to_char("{W^",ch);		break;
-case SECT_SWAMP:	send_to_char("{D&",ch);		break;
-case SECT_JUNGLE:	send_to_char("{g&",ch);		break;
-case SECT_RUINS:	send_to_char("{D#",ch);		break;
-case (SECT_MAX+1):	send_to_char("{D?",ch);		break;
+case MOVE_MAX:		send_to_char(" ",ch);		break;
+case MOVE_FOREST:	send_to_char("{g@",ch);		break;
+case MOVE_FIELD:	send_to_char("{G\"",ch);	break;
+case MOVE_HILLS:	send_to_char("{G^",ch);		break;
+case MOVE_ROAD:		send_to_char("{m+",ch);		break;
+case MOVE_MOUNTAIN:	send_to_char("{y^",ch);		break;
+case MOVE_WATER_SWIM:	send_to_char("{B:",ch);		break;
+case MOVE_WATER_NOSWIM:	send_to_char("{b:",ch);		break;
+case MOVE_UNUSED:	send_to_char("{DX",ch);		break;
+case MOVE_AIR:		send_to_char("{C%",ch);		break;
+case MOVE_DESERT:	send_to_char("{Y=",ch);		break;
+case MOVE_ENTER:	send_to_char("{W@",ch);		break;
+case MOVE_INSIDE:	send_to_char("{W%",ch);		break;
+case MOVE_CITY:		send_to_char("{W#",ch);		break;
+case MOVE_ROCK_MOUNTAIN:send_to_char("{D^",ch);		break;
+case MOVE_SNOW_MOUNTAIN:send_to_char("{W^",ch);		break;
+case MOVE_SWAMP:	send_to_char("{D&",ch);		break;
+case MOVE_JUNGLE:	send_to_char("{g&",ch);		break;
+case MOVE_RUINS:	send_to_char("{D#",ch);		break;
+case (MOVE_MAX+1):	send_to_char("{D?",ch);		break;
 default: 		send_to_char("{R*",ch);
 } /* end switch1 */
 else 
 switch(map[x][y])
 {
-case SECT_MAX:		send_to_char(" ",ch);		break;
-case SECT_FOREST:	send_to_char("@",ch);		break;
-case SECT_FIELD:	send_to_char("\"",ch);		break;
-case SECT_HILLS:	send_to_char("^",ch);		break;
-case SECT_ROAD:		send_to_char("+",ch);		break;
-case SECT_MOUNTAIN:	send_to_char("^",ch);		break;
-case SECT_WATER_SWIM:	send_to_char(":",ch);		break;
-case SECT_WATER_NOSWIM:	send_to_char(":",ch);		break;
-case SECT_UNUSED:	send_to_char("X",ch);		break;
-case SECT_AIR:		send_to_char("%",ch);		break;
-case SECT_DESERT:	send_to_char("=",ch);		break;
-case SECT_ENTER:	send_to_char("@",ch);		break;
-case SECT_INSIDE:	send_to_char("%",ch);		break;
-case SECT_CITY:		send_to_char("#",ch);		break;
-case SECT_ROCK_MOUNTAIN:send_to_char("^",ch);		break;
-case SECT_SNOW_MOUNTAIN:send_to_char("^",ch);		break;
-case SECT_SWAMP:	send_to_char("&",ch);		break;
-case SECT_JUNGLE:	send_to_char("&",ch);		break;
-case SECT_RUINS:	send_to_char("#",ch);		break;
-case (SECT_MAX+1):	send_to_char("?",ch);		break;
+case MOVE_MAX:		send_to_char(" ",ch);		break;
+case MOVE_FOREST:	send_to_char("@",ch);		break;
+case MOVE_FIELD:	send_to_char("\"",ch);		break;
+case MOVE_HILLS:	send_to_char("^",ch);		break;
+case MOVE_ROAD:		send_to_char("+",ch);		break;
+case MOVE_MOUNTAIN:	send_to_char("^",ch);		break;
+case MOVE_WATER_SWIM:	send_to_char(":",ch);		break;
+case MOVE_WATER_NOSWIM:	send_to_char(":",ch);		break;
+case MOVE_UNUSED:	send_to_char("X",ch);		break;
+case MOVE_AIR:		send_to_char("%",ch);		break;
+case MOVE_DESERT:	send_to_char("=",ch);		break;
+case MOVE_ENTER:	send_to_char("@",ch);		break;
+case MOVE_INSIDE:	send_to_char("%",ch);		break;
+case MOVE_CITY:		send_to_char("#",ch);		break;
+case MOVE_ROCK_MOUNTAIN:send_to_char("^",ch);		break;
+case MOVE_SNOW_MOUNTAIN:send_to_char("^",ch);		break;
+case MOVE_SWAMP:	send_to_char("&",ch);		break;
+case MOVE_JUNGLE:	send_to_char("&",ch);		break;
+case MOVE_RUINS:	send_to_char("#",ch);		break;
+case (MOVE_MAX+1):	send_to_char("?",ch);		break;
 default: 		send_to_char("*",ch);
 } /* end switch2 */
          } /* every column */
@@ -243,7 +243,7 @@ return;
 }
 
 /*printing function*/
-void do_printmap(CHAR_DATA *ch, char *argument)
+void do_printmap(CHAR *ch, char *argument)
 {
 int x,y,min=-1,max=MAX_MAP-1;
 FILE *fp;
@@ -256,7 +256,7 @@ return;
 
 for (x = 0; x < MAX_MAP; ++x)
         for (y = 0; y < MAX_MAP; ++y)
-                  map[x][y]=SECT_MAX;
+                  map[x][y]=MOVE_MAX;
 
 MapArea(ch->in_room, ch, 80, 80, min, max); 
 
@@ -269,26 +269,26 @@ fp = fopen("WILDERNESS_MAP","w");
          { /* every column */
 switch(map[x][y])
 {
-case SECT_MAX:		fprintf(fp," ");		break;
-case SECT_FOREST:	fprintf(fp,"@");		break;
-case SECT_FIELD:	fprintf(fp,"\"");		break;
-case SECT_HILLS:	fprintf(fp,"^");		break;
-case SECT_ROAD:		fprintf(fp,"+");		break;
-case SECT_MOUNTAIN:	fprintf(fp,"^");		break;
-case SECT_WATER_SWIM:	fprintf(fp,":");		break;
-case SECT_WATER_NOSWIM:	fprintf(fp,":");		break;
-case SECT_UNUSED:	fprintf(fp,"X");		break;
-case SECT_AIR:		fprintf(fp,"~");		break;
-case SECT_DESERT:	fprintf(fp,"=");		break;
-case SECT_ENTER:	fprintf(fp,"$");		break;
-case SECT_INSIDE:	fprintf(fp,"I");		break;
-case SECT_CITY:		fprintf(fp,"#");		break;
-case SECT_ROCK_MOUNTAIN:fprintf(fp,"^");		break;
-case SECT_SNOW_MOUNTAIN:fprintf(fp,"^");		break;
-case SECT_SWAMP:	fprintf(fp,"&");		break;
-case SECT_JUNGLE:	fprintf(fp,"&");		break;
-case SECT_RUINS:	fprintf(fp,"#");		break;
-case (SECT_MAX+1):	fprintf(fp,"?");		break;
+case MOVE_MAX:		fprintf(fp," ");		break;
+case MOVE_FOREST:	fprintf(fp,"@");		break;
+case MOVE_FIELD:	fprintf(fp,"\"");		break;
+case MOVE_HILLS:	fprintf(fp,"^");		break;
+case MOVE_ROAD:		fprintf(fp,"+");		break;
+case MOVE_MOUNTAIN:	fprintf(fp,"^");		break;
+case MOVE_WATER_SWIM:	fprintf(fp,":");		break;
+case MOVE_WATER_NOSWIM:	fprintf(fp,":");		break;
+case MOVE_UNUSED:	fprintf(fp,"X");		break;
+case MOVE_AIR:		fprintf(fp,"~");		break;
+case MOVE_DESERT:	fprintf(fp,"=");		break;
+case MOVE_ENTER:	fprintf(fp,"$");		break;
+case MOVE_INSIDE:	fprintf(fp,"I");		break;
+case MOVE_CITY:		fprintf(fp,"#");		break;
+case MOVE_ROCK_MOUNTAIN:fprintf(fp,"^");		break;
+case MOVE_SNOW_MOUNTAIN:fprintf(fp,"^");		break;
+case MOVE_SWAMP:	fprintf(fp,"&");		break;
+case MOVE_JUNGLE:	fprintf(fp,"&");		break;
+case MOVE_RUINS:	fprintf(fp,"#");		break;
+case (MOVE_MAX+1):	fprintf(fp,"?");		break;
 default: 		fprintf(fp,"*");
 } /* end switch2 */
          } /* every column */
@@ -303,7 +303,7 @@ return;
 }
 
 /* will put a small map with current room desc and title */
-void ShowRoom( CHAR_DATA *ch, int min, int max)
+void ShowRoom( CHAR *ch, int min, int max)
 {
 int x,y,str_pos=0,desc_pos=0,start;
 char buf[500];
@@ -312,8 +312,8 @@ char line[100];
 
 strcpy(desc,ch->in_room->description);
 
-map[min][min]=SECT_MAX;map[max-1][max-1]=SECT_MAX; /* mlk :: rounds edges */
-map[min][max-1]=SECT_MAX;map[max-1][min]=SECT_MAX;
+map[min][min]=MOVE_MAX;map[max-1][max-1]=MOVE_MAX; /* mlk :: rounds edges */
+map[min][max-1]=MOVE_MAX;map[max-1][min]=MOVE_MAX;
 
     for (x = min; x < max; ++x) 
     { /* every row */
@@ -322,51 +322,51 @@ map[min][max-1]=SECT_MAX;map[max-1][min]=SECT_MAX;
 if ( (y==min) || (map[x][y-1]!=map[x][y]) )
 switch(map[x][y])
 {
-case SECT_MAX:		send_to_char(" ",ch);		break;
-case SECT_FOREST:	send_to_char("{g@",ch);		break;
-case SECT_FIELD:	send_to_char("{G\"",ch);	break;
-case SECT_HILLS:	send_to_char("{G^",ch);		break;
-case SECT_ROAD:		send_to_char("{m+",ch);		break;
-case SECT_MOUNTAIN:	send_to_char("{y^",ch);		break;
-case SECT_WATER_SWIM:	send_to_char("{B:",ch);		break;
-case SECT_WATER_NOSWIM:	send_to_char("{b:",ch);		break;
-case SECT_UNUSED:	send_to_char("{DX",ch);		break;
-case SECT_AIR:		send_to_char("{C%",ch);		break;
-case SECT_DESERT:	send_to_char("{Y=",ch);		break;
-case SECT_ENTER:	send_to_char("{W@",ch);		break;
-case SECT_INSIDE:	send_to_char("{W%",ch);		break;
-case SECT_CITY:		send_to_char("{W#",ch);		break;
-case SECT_ROCK_MOUNTAIN:send_to_char("{D^",ch);		break;
-case SECT_SNOW_MOUNTAIN:send_to_char("{W^",ch);		break;
-case SECT_SWAMP:	send_to_char("{D&",ch);		break;
-case SECT_JUNGLE:	send_to_char("{g&",ch);		break;
-case SECT_RUINS:	send_to_char("{D#",ch);		break;
-case (SECT_MAX+1):	send_to_char("{D?",ch);		break;
+case MOVE_MAX:		send_to_char(" ",ch);		break;
+case MOVE_FOREST:	send_to_char("{g@",ch);		break;
+case MOVE_FIELD:	send_to_char("{G\"",ch);	break;
+case MOVE_HILLS:	send_to_char("{G^",ch);		break;
+case MOVE_ROAD:		send_to_char("{m+",ch);		break;
+case MOVE_MOUNTAIN:	send_to_char("{y^",ch);		break;
+case MOVE_WATER_SWIM:	send_to_char("{B:",ch);		break;
+case MOVE_WATER_NOSWIM:	send_to_char("{b:",ch);		break;
+case MOVE_UNUSED:	send_to_char("{DX",ch);		break;
+case MOVE_AIR:		send_to_char("{C%",ch);		break;
+case MOVE_DESERT:	send_to_char("{Y=",ch);		break;
+case MOVE_ENTER:	send_to_char("{W@",ch);		break;
+case MOVE_INSIDE:	send_to_char("{W%",ch);		break;
+case MOVE_CITY:		send_to_char("{W#",ch);		break;
+case MOVE_ROCK_MOUNTAIN:send_to_char("{D^",ch);		break;
+case MOVE_SNOW_MOUNTAIN:send_to_char("{W^",ch);		break;
+case MOVE_SWAMP:	send_to_char("{D&",ch);		break;
+case MOVE_JUNGLE:	send_to_char("{g&",ch);		break;
+case MOVE_RUINS:	send_to_char("{D#",ch);		break;
+case (MOVE_MAX+1):	send_to_char("{D?",ch);		break;
 default: 		send_to_char("{R*",ch);
 } /* end switch1 */
 else 
 switch(map[x][y])
 {
-case SECT_MAX:		send_to_char(" ",ch);		break;
-case SECT_FOREST:	send_to_char("@",ch);		break;
-case SECT_FIELD:	send_to_char("\"",ch);		break;
-case SECT_HILLS:	send_to_char("^",ch);		break;
-case SECT_ROAD:		send_to_char("+",ch);		break;
-case SECT_MOUNTAIN:	send_to_char("^",ch);		break;
-case SECT_WATER_SWIM:	send_to_char(":",ch);		break;
-case SECT_WATER_NOSWIM:	send_to_char(":",ch);		break;
-case SECT_UNUSED:	send_to_char("X",ch);		break;
-case SECT_AIR:		send_to_char("%",ch);		break;
-case SECT_DESERT:	send_to_char("=",ch);		break;
-case SECT_ENTER:	send_to_char("@",ch);		break;
-case SECT_INSIDE:	send_to_char("%",ch);		break;
-case SECT_CITY:		send_to_char("#",ch);		break;
-case SECT_ROCK_MOUNTAIN:send_to_char("^",ch);		break;
-case SECT_SNOW_MOUNTAIN:send_to_char("^",ch);		break;
-case SECT_SWAMP:	send_to_char("&",ch);		break;
-case SECT_JUNGLE:	send_to_char("&",ch);		break;
-case SECT_RUINS:	send_to_char("#",ch);		break;
-case (SECT_MAX+1):	send_to_char("?",ch);		break;
+case MOVE_MAX:		send_to_char(" ",ch);		break;
+case MOVE_FOREST:	send_to_char("@",ch);		break;
+case MOVE_FIELD:	send_to_char("\"",ch);		break;
+case MOVE_HILLS:	send_to_char("^",ch);		break;
+case MOVE_ROAD:		send_to_char("+",ch);		break;
+case MOVE_MOUNTAIN:	send_to_char("^",ch);		break;
+case MOVE_WATER_SWIM:	send_to_char(":",ch);		break;
+case MOVE_WATER_NOSWIM:	send_to_char(":",ch);		break;
+case MOVE_UNUSED:	send_to_char("X",ch);		break;
+case MOVE_AIR:		send_to_char("%",ch);		break;
+case MOVE_DESERT:	send_to_char("=",ch);		break;
+case MOVE_ENTER:	send_to_char("@",ch);		break;
+case MOVE_INSIDE:	send_to_char("%",ch);		break;
+case MOVE_CITY:		send_to_char("#",ch);		break;
+case MOVE_ROCK_MOUNTAIN:send_to_char("^",ch);		break;
+case MOVE_SNOW_MOUNTAIN:send_to_char("^",ch);		break;
+case MOVE_SWAMP:	send_to_char("&",ch);		break;
+case MOVE_JUNGLE:	send_to_char("&",ch);		break;
+case MOVE_RUINS:	send_to_char("#",ch);		break;
+case (MOVE_MAX+1):	send_to_char("?",ch);		break;
 default: 		send_to_char("*",ch);
 } /* end switch2 */
          } /* every column */
@@ -376,13 +376,13 @@ if (x==min) {
 	send_to_char(buf,ch);
 
 /* mlk :: no brief in wilderness, ascii map is automatic, autoexits off too
-        if (  !IS_NPC(ch) && IS_SET(ch->act, PLR_AUTOEXIT)  ) { 
+        if (  !NPC(ch) && IS_SET(ch->flag, PLR_AUTOEXIT)  ) { 
         send_to_char( " {b",ch);do_exits( ch, "auto" );send_to_char( "{x",ch);
         } */
 
-       		if (IS_IMMORTAL(ch) && (IS_NPC(ch) || IS_SET(ch->act,PLR_HOLYLIGHT)))
-       		{ /* for showing certain people room vnum */
-           	sprintf(buf," {c[Room %d]{x",ch->in_room->vnum);
+       		if (IS_IMMORTAL(ch) && (NPC(ch) || IS_SET(ch->flag,PLR_HOLYLIGHT)))
+       		{ /* for showing certain people room dbkey */
+           	sprintf(buf," {c[Room %d]{x",ch->in_room->dbkey);
            	send_to_char(buf,ch);
        		}
 }
@@ -423,12 +423,12 @@ send_to_char("\n\r",ch);  /* puts a line between contents/people */
 return;
 }
 
-void cmd_map( CHAR_DATA *ch, char *argument )
+void cmd_map( CHAR *ch, char *argument )
 {
 int size,center,x,y,min,max;
 char arg1[10];
 
-   if ( !IS_SET(ch->act2,PLR_NAGE) ) 
+   if ( !IS_SET(ch->flag2,PLR_NAGE) ) 
   { return; send_to_char( "Ascii renderings are disabled.\n\r", ch ); }
 
    one_argument( argument, arg1 );
@@ -442,16 +442,16 @@ max = MAX_MAP/2+size/2;
 
 for (x = 0; x < MAX_MAP; ++x)
         for (y = 0; y < MAX_MAP; ++y)
-                  map[x][y]=SECT_MAX;
+                  map[x][y]=MOVE_MAX;
 
 /* starts the mapping with the center room */
 MapArea(ch->in_room, ch, center, center, min-1, max-1); 
 
 /* marks the center, where ch is */
-map[center][center]=SECT_MAX+2; /* can be any number above SECT_MAX+1 	*/
+map[center][center]=MOVE_MAX+2; /* can be any number above MOVE_MAX+1 	*/
 				/* switch default will print out the *	*/
 
-if (   (!IS_IMMORTAL(ch))||(IS_NPC(ch))   )
+if (   (!IS_IMMORTAL(ch))||(NPC(ch))   )
 {
   if (  !IS_SET(ch->in_room->room_flags, ROOM_WILDERNESS)   )
      {send_to_char("{CYou can not do that here{x.\n\r",ch);return;}
@@ -471,7 +471,7 @@ send_to_char("{CHuh?{x\n\r",ch);
 return;
 }
 
-void cmd_smallmap( CHAR_DATA *ch, char *argument )
+void cmd_smallmap( CHAR *ch, char *argument )
 {
 int size,center,x,y,min,max;
 char arg1[10];
@@ -487,13 +487,13 @@ max = MAX_MAP/2+size/2;
 
 for (x = 0; x < MAX_MAP; ++x)
         for (y = 0; y < MAX_MAP; ++y)
-                  map[x][y]=SECT_MAX;
+                  map[x][y]=MOVE_MAX;
 
 /* starts the mapping with the center room */
 MapArea(ch->in_room, ch, center, center, min-1, max-1); 
 
 /* marks the center, where ch is */
-map[center][center]=SECT_MAX+2; /* can be any number above SECT_MAX+1 	*/
+map[center][center]=MOVE_MAX+2; /* can be any number above MOVE_MAX+1 	*/
 				/* switch default will print out the *	*/
 
 if (IS_IMMORTAL(ch)) {
@@ -505,54 +505,54 @@ send_to_char("{CHuh?{x\n\r",ch);
 return;
 }
 
-/* mlk :: pass it (SECTOR_XXX,"") and get back the sector ascii 
+/* mlk :: pass it (SECTOR_XXX,"") and get back the move ascii 
  	  in a roleplaying format of course, not mountain_snow etc */
-char *get_sector_name(int sector)
+char *get_move_name(int move)
 {
-char *sector_name;
+char *move_name;
 
-sector_name="movement";
+move_name="movement";
 
-switch (sector)
+switch (move)
 {
-case SECT_FOREST:	sector_name="some trees";break; 
-case SECT_FIELD:	sector_name="a field";break;
-case SECT_HILLS:	sector_name="some rolling hills";break;
-case SECT_ROAD:		sector_name="a road";break;
-case SECT_WATER_SWIM:	sector_name="shallow water";break;
-case SECT_WATER_NOSWIM:	sector_name="deep water";break;
-case SECT_AIR:		sector_name="the sky";break;
-case SECT_DESERT:	sector_name="a lot of sand";break;
-case SECT_MOUNTAIN:	sector_name="some mountainous terrain";break;
-case SECT_ROCK_MOUNTAIN:sector_name="a rocky mountain";break;
-case SECT_SNOW_MOUNTAIN:sector_name="snow covered mountains";break;
-case SECT_SWAMP:	sector_name="bleak swampland";break;
-case SECT_JUNGLE:	sector_name="thick jungle";break;
-case SECT_RUINS:	sector_name="ruins of some sort";break;
-case SECT_INSIDE:	sector_name="movement";break; 
-case SECT_CITY:		sector_name="movement";break; 
-case SECT_ENTER:	sector_name="movement";break; 
+case MOVE_FOREST:	move_name="some trees";break; 
+case MOVE_FIELD:	move_name="a field";break;
+case MOVE_HILLS:	move_name="some rolling hills";break;
+case MOVE_ROAD:		move_name="a road";break;
+case MOVE_WATER_SWIM:	move_name="shallow water";break;
+case MOVE_WATER_NOSWIM:	move_name="deep water";break;
+case MOVE_AIR:		move_name="the sky";break;
+case MOVE_DESERT:	move_name="a lot of sand";break;
+case MOVE_MOUNTAIN:	move_name="some mountainous terrain";break;
+case MOVE_ROCK_MOUNTAIN:move_name="a rocky mountain";break;
+case MOVE_SNOW_MOUNTAIN:move_name="snow covered mountains";break;
+case MOVE_SWAMP:	move_name="bleak swampland";break;
+case MOVE_JUNGLE:	move_name="thick jungle";break;
+case MOVE_RUINS:	move_name="ruins of some sort";break;
+case MOVE_INSIDE:	move_name="movement";break; 
+case MOVE_CITY:		move_name="movement";break; 
+case MOVE_ENTER:	move_name="movement";break; 
 } /*switch1*/
 
-return(strdup(sector_name));
+return(strdup(move_name));
 }
 
 /* mlk ::
-	when given (int array[5]) with vnum in [0], it will return
-1	north sector_type, 
-2	east sector_type, 
-3	south sector_type,
-4	east_sector_type &
-5	number of exits leading to rooms of the same sector
+	when given (int array[5]) with dbkey in [0], it will return
+1	north move, 
+2	east move, 
+3	south move,
+4	east_move &
+5	number of exits leading to rooms of the same move
  */
-int *get_exit_sectors(int *exit_sectors)
+int *get_exit_moves(int *exit_moves)
 {
-ROOM_INDEX_DATA *room;
-EXIT_DATA *pexit;
+ROOM_INDEX *room;
+EXIT *pexit;
 int door;
 
-room=get_room_index(exit_sectors[0]);
-exit_sectors[4]=0;
+room=get_room_index(exit_moves[0]);
+exit_moves[4]=0;
 
     for ( door = 0; door < MAX_MAP_DIR; door++ ) 
     { /* cycles through for each exit */
@@ -561,23 +561,23 @@ exit_sectors[4]=0;
 	     &&   pexit->to_room != NULL
 	   )
 	{   
-	   exit_sectors[door]=pexit->to_room->sector_type;	
-	   if ((pexit->to_room->sector_type)==(room->sector_type))
-		exit_sectors[4]+=1;
+	   exit_moves[door]=pexit->to_room->move;	
+	   if ((pexit->to_room->move)==(room->move))
+		exit_moves[4]+=1;
 	} 
 	else
-	   exit_sectors[door]=-1;	
+	   exit_moves[door]=-1;	
     }	   
 
-return(exit_sectors);
+return(exit_moves);
 }
 
 /* will assign default values for NAME and DESC of wilderness */
-void set_wilderness(CHAR_DATA *ch, char *argument)
+void set_wilderness(CHAR *ch, char *argument)
 {
 char arg1[10],name[50],desc[300],buf[MAX_STRING_LENGTH];
-ROOM_INDEX_DATA *room;
-int vnum,exit[5],exitsum;
+ROOM_INDEX *room;
+int dbkey,exit[5],exitsum;
 int CHANCE=10;
 
 
@@ -586,13 +586,13 @@ int CHANCE=10;
 }*/
 
    one_argument( argument, arg1 );
-   vnum = atoi (arg1);
+   dbkey = atoi (arg1);
 
 if ( argument[0] == '\0' ) { /* for immortal command */
-vnum=(ch->in_room->vnum);
+dbkey=(ch->in_room->dbkey);
 }    
 
-room=get_room_index(vnum); 
+room=get_room_index(dbkey); 
 
 if (!IS_BUILDER(ch,room->area))
 {
@@ -603,12 +603,12 @@ return;
     if (  !IS_SET(room->room_flags, ROOM_WILDERNESS)   )
     	return; /* for NON wilderness */
 
-exit[0]=vnum;
-get_exit_sectors(exit);
+exit[0]=dbkey;
+get_exit_moves(exit);
 exitsum=exit[4];
-switch (room->sector_type)
+switch (room->move)
 {
-case SECT_FOREST:	
+case MOVE_FOREST:	
 
 strcpy(name,"In a Forest");
 strcpy(desc,"You are in a forest teeming with life.  All around are the sure signs of nature.");
@@ -617,26 +617,26 @@ strcpy(desc,"You are in a forest teeming with life.  All around are the sure sig
     strcpy(desc,"You are deep within in a forest, surrounded on all sides by trees. Dead leaves blanket the ground and the lush canopy prevents much light from getting though.");
   } 
   if
-(((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+(((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
   if
-(((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+(((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_FIELD:
+case MOVE_FIELD:
 	
 strcpy(name,"In a Field");
 strcpy(desc,"You are in a field of grass. Prairie flora and shrubs are \
@@ -647,25 +647,25 @@ scattered throughout adding to the inviting aroma.");
 any grass. Out here it comes in many shapes, sizes, and even colors. \
 Insects fly through the air in occasional swarms.");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_HILLS:	
+case MOVE_HILLS:	
 strcpy(name,"On a Hill");
 strcpy(desc,"You are on a large and rather high hill. You can see \
 much of the surrounding area in full now more clearly.");
@@ -677,28 +677,28 @@ across the land. Definitely not the best route of travel. \
 ");
   }
   if
-(((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE+20))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+(((exit[0]!=(room->move))&&(number_percent()<CHANCE+20))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 
-if(((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE+20))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+if(((exit[1]!=(room->move))&&(number_percent()<CHANCE+20))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 
-if(((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE+20))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+if(((exit[2]!=(room->move))&&(number_percent()<CHANCE+20))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 
-if(((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE+20))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+if(((exit[3]!=(room->move))&&(number_percent()<CHANCE+20))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_ROAD:		
+case MOVE_ROAD:		
 strcpy(name,"A Road");
 strcpy(desc,"You are on a dirt road. Being an easier and much safer \
 way to travel, many would not think of leaving the safety of the road. \
@@ -723,96 +723,96 @@ strcpy(name,"A Road");
 strcpy(desc,"You are on a dirt road. Being an easier and much safer \
 way to travel, many would not think of leaving the safety of the road. \
 ");
-if (exit[0]==SECT_ROAD) {
+if (exit[0]==MOVE_ROAD) {
     sprintf(buf,"The road continues north and ");
     strcat(desc,buf);strcpy(buf,"  "); 
-	if (exit[1]==SECT_ROAD) {
+	if (exit[1]==MOVE_ROAD) {
 	    sprintf(buf,"east.");
 	    strcat(desc,buf);strcpy(buf,"  ");break; 	
 	}
-	if (exit[2]==SECT_ROAD) {
+	if (exit[2]==MOVE_ROAD) {
 	    sprintf(buf,"south.");
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
-	if (exit[3]==SECT_ROAD) {
+	if (exit[3]==MOVE_ROAD) {
 	    sprintf(buf,"west.");
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
 }
-if (exit[1]==SECT_ROAD) {
+if (exit[1]==MOVE_ROAD) {
     sprintf(buf,"The road continues east and ");
     strcat(desc,buf);strcpy(buf,"  "); 
-	if (exit[0]==SECT_ROAD) {
+	if (exit[0]==MOVE_ROAD) {
 	    sprintf(buf,"north.");
 	    strcat(desc,buf);strcpy(buf,"  ");break; 	
 	}
-	if (exit[2]==SECT_ROAD) {
+	if (exit[2]==MOVE_ROAD) {
 	    sprintf(buf,"south.");
 
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
-	if (exit[3]==SECT_ROAD) {
+	if (exit[3]==MOVE_ROAD) {
 	    sprintf(buf,"west.");
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
 }
-if (exit[2]==SECT_ROAD) {
+if (exit[2]==MOVE_ROAD) {
     sprintf(buf,"The road continues south and ");
     strcat(desc,buf);strcpy(buf,"  "); 
-	if (exit[0]==SECT_ROAD) {
+	if (exit[0]==MOVE_ROAD) {
 	    sprintf(buf,"north.");
 	    strcat(desc,buf);strcpy(buf,"  ");break; 	
 	}
-	if (exit[1]==SECT_ROAD) {
+	if (exit[1]==MOVE_ROAD) {
 	    sprintf(buf,"east.");
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
-	if (exit[3]==SECT_ROAD) {
+	if (exit[3]==MOVE_ROAD) {
 	    sprintf(buf,"west.");
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
 }
-if (exit[3]==SECT_ROAD) {
+if (exit[3]==MOVE_ROAD) {
     sprintf(buf,"The road continues west and ");
     strcat(desc,buf);strcpy(buf,"  "); 
-	if (exit[1]==SECT_ROAD) {
+	if (exit[1]==MOVE_ROAD) {
 	    sprintf(buf,"east.");
 	    strcat(desc,buf);strcpy(buf,"  ");break; 	
 	}
-	if (exit[2]==SECT_ROAD) {
+	if (exit[2]==MOVE_ROAD) {
 	    sprintf(buf,"south.");
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
-	if (exit[0]==SECT_ROAD) {
+	if (exit[0]==MOVE_ROAD) {
 	    sprintf(buf,"north.");
 	    strcat(desc,buf);strcpy(buf,"  ");break;
 	}
-} /* if exit[3]=SECT_ROAD */
+} /* if exit[3]=MOVE_ROAD */
 } /* if exitsum==2 */
 
   if
-(((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE-20))||(exit[0]==SECT_RUINS)||(exit[0]!=SECT_ROAD)) {
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+(((exit[0]!=(room->move))&&(number_percent()<CHANCE-20))||(exit[0]==MOVE_RUINS)||(exit[0]!=MOVE_ROAD)) {
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
   if
-(((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE-20))||(exit[1]==SECT_RUINS)||(exit[1]!=SECT_ROAD)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+(((exit[1]!=(room->move))&&(number_percent()<CHANCE-20))||(exit[1]==MOVE_RUINS)||(exit[1]!=MOVE_ROAD)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
   if
-(((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE-20))||(exit[2]==SECT_RUINS)||(exit[2]!=SECT_ROAD)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+(((exit[2]!=(room->move))&&(number_percent()<CHANCE-20))||(exit[2]==MOVE_RUINS)||(exit[2]!=MOVE_ROAD)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
   if
-(((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE-20))||(exit[3]==SECT_RUINS)||(exit[3]!=SECT_ROAD)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+(((exit[3]!=(room->move))&&(number_percent()<CHANCE-20))||(exit[3]==MOVE_RUINS)||(exit[3]!=MOVE_ROAD)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_WATER_SWIM:	
+case MOVE_WATER_SWIM:	
 strcpy(name,"Shallow Water");
 strcpy(desc,"The water here is rather shallow. You can see many little fish in the water, speeding to and fro in schools.");
   if (exitsum==4) { 
@@ -823,26 +823,26 @@ strcpy(desc,"The water here is rather shallow. You can see many little fish in t
     strcpy(name,"Shallow Water");
     strcpy(desc,"You are on shallow water. All around in the water affluent marine life comes through, giving quite a show with the occasional leap above the waters surface. ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 
 break;
 
-case SECT_WATER_NOSWIM:	
+case MOVE_WATER_NOSWIM:	
 strcpy(name,"Deep Water");
 strcpy(desc,"The water here is of unknown depth and fairly dark.\
 The currents here are strong and the waves equally striking.\
@@ -860,26 +860,26 @@ out of curiousity, or perhaps necessity. \
 not terribly temperate. However, it seems very clean.  \
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 
 break;
 
-case SECT_AIR:		
+case MOVE_AIR:		
 strcpy(name,"In the Air");
 strcpy(desc,"You are in the air.");
   if (exitsum==4) { 
@@ -890,25 +890,25 @@ moisture blows by and droplets of water condense in fatal collision with \
 one another.\
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_DESERT:	
+case MOVE_DESERT:	
 strcpy(name,"Desert Wasteland");
 strcpy(desc,"You are surrounded by sand dunes. The occasional blooming \
 cactus and sandstone formation give the land a simple beauty.\
@@ -921,25 +921,25 @@ sand dunes that stretch on seemingly forever. The shadow of overhead \
 vultures indirectly warn of the danger in this place.\
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_MOUNTAIN:	
+case MOVE_MOUNTAIN:	
 strcpy(name,"On a Mountain");
 strcpy(desc,"You are on a tranquil mountain. Though not even remotely \
 dangerous, this land has its share of cliffs and gorges. \
@@ -952,25 +952,25 @@ makes every use of the land here. Trees, shrubs and hardy animal all \
 make their lives here. \
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_ROCK_MOUNTAIN:
+case MOVE_ROCK_MOUNTAIN:
 strcpy(name,"On a Mountain of Rock");
 strcpy(desc,"You are on a dangerous mountain. \
 The rock juts from the ground like a broken bone from skin, \
@@ -983,25 +983,25 @@ is no way to see a way out from here. Travel in any direction would either \
 have you climbing a rocky cliff or falling down one. \
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_SNOW_MOUNTAIN:
+case MOVE_SNOW_MOUNTAIN:
 strcpy(name,"On a Snowy Peak");
 strcpy(desc,"You are on a desolate snowy mountain.  It is freezing cold \
 here and devoid of all life, except your own. However, even that could \
@@ -1016,25 +1016,25 @@ be changed. If not by the cold then by a icy \
 crevasse or avalanche. \
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_SWAMP:	
+case MOVE_SWAMP:	
 strcpy(name,"Swamps Edge");
 strcpy(desc,"You are in a dank swamps edge. The smell and humidity make
 this a repelling place to say the least. 
@@ -1046,25 +1046,25 @@ and decadent mud. Occasional trees and grass mar this sickeningly beautiful \
 work of nature. \
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_JUNGLE:	
+case MOVE_JUNGLE:	
 strcpy(name,"At a Jungle");
 strcpy(desc,"You are at the edge of a jungle. An assortment of rare and
 unique plant life grow in abundance here, making it nearly impassable. \
@@ -1076,25 +1076,25 @@ surrounded by extravagant tropical fauna. It seems there is no way out \
 and no end to the wall of plant life in every direction. \
 ");
   }
-  if (((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)||(exit[0]==SECT_RUINS)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+  if (((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)||(exit[0]==MOVE_RUINS)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)||(exit[1]==SECT_RUINS)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)||(exit[1]==MOVE_RUINS)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)||(exit[2]==SECT_RUINS)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)||(exit[2]==MOVE_RUINS)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)||(exit[3]==SECT_RUINS)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)||(exit[3]==MOVE_RUINS)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
 
-case SECT_RUINS:	
+case MOVE_RUINS:	
 strcpy(name,"A Ruin");
 strcpy(desc,"You have stumbled upon something of yore.");
   if (exitsum==4) { 
@@ -1102,20 +1102,20 @@ strcpy(desc,"You have stumbled upon something of yore.");
     strcpy(desc,"You have managed to find some ruins.");
   }
   if
-(((exit[0]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[0]==SECT_ROAD)){
-    sprintf(buf,"You see %s to the north.",get_sector_name(exit[0]));
+(((exit[0]!=(room->move))&&(number_percent()<CHANCE))||(exit[0]==MOVE_ROAD)){
+    sprintf(buf,"You see %s to the north.",get_move_name(exit[0]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[1]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[1]==SECT_ROAD)){
-    sprintf(buf,"To the east you can see %s.",get_sector_name(exit[1]));
+  if (((exit[1]!=(room->move))&&(number_percent()<CHANCE))||(exit[1]==MOVE_ROAD)){
+    sprintf(buf,"To the east you can see %s.",get_move_name(exit[1]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[2]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[2]==SECT_ROAD)){
-    sprintf(buf,"South of you, you can see %s.",get_sector_name(exit[2]));
+  if (((exit[2]!=(room->move))&&(number_percent()<CHANCE))||(exit[2]==MOVE_ROAD)){
+    sprintf(buf,"South of you, you can see %s.",get_move_name(exit[2]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
-  if (((exit[3]!=(room->sector_type))&&(number_percent()<CHANCE))||(exit[3]==SECT_ROAD)){
-    sprintf(buf,"%s can be seen to the west.",get_sector_name(exit[3]));
+  if (((exit[3]!=(room->move))&&(number_percent()<CHANCE))||(exit[3]==MOVE_ROAD)){
+    sprintf(buf,"%s can be seen to the west.",get_move_name(exit[3]));
     strcat(desc,buf);strcpy(buf,"  ");
   }
 break;
@@ -1135,9 +1135,9 @@ return;
 }
 
 /* mlk this sets the whole wilderness default descs and names*/
-void do_set_wilderness_all(CHAR_DATA *ch, char *argument)
+void do_set_wilderness_all(CHAR *ch, char *argument)
 {
-ROOM_INDEX_DATA *room;
+ROOM_INDEX *room;
 int start,end,current;
 start=20001;
 end  =29600;

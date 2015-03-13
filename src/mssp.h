@@ -51,7 +51,7 @@
 	Typedefs
 */
 
-typedef struct mud_data           MUD_DATA;
+typedef struct mud           MUD;
 
 #define COMPRESS_BUF_SIZE                  8000
 
@@ -82,7 +82,7 @@ typedef struct mud_data           MUD_DATA;
 	Mud data, structure containing global variables.
 */
 
-struct mud_data
+struct mud
 {
 	int                   boot_time;
 	int                   port;
@@ -110,7 +110,7 @@ struct mud_data
 	Descriptor (channel) partial structure.
 */
 
-struct descriptor_data
+struct descriptor
 {
 	char              * host;
 	char              * terminal_type;
@@ -125,7 +125,7 @@ struct descriptor_data
 	z_stream          * mccp;
 };
 
-MUD_DATA *mud;
+MUD *mud;
 
 /*
 	mud.c
@@ -133,7 +133,7 @@ MUD_DATA *mud;
 
 void log_printf         args( (char *fmt, ...) );
 
-int write_to_descriptor args( (CONNECTION_DATA *d, char *txt, int length) );
+int write_to_descriptor args( (CONNECTION *d, char *txt, int length) );
 
 char *capitalize_all    args( (char *str) );
 
@@ -141,38 +141,38 @@ char *capitalize_all    args( (char *str) );
 	telopt.c
 */
 
-int         translate_telopts        args( ( CONNECTION_DATA *d, char *src, int srclen, char *out ));
-void        debug_telopts            args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
+int         translate_telopts        args( ( CONNECTION *d, char *src, int srclen, char *out ));
+void        debug_telopts            args( ( CONNECTION *d, unsigned char *src, int srclen ));
 
-int         process_will_ttype       args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-int         process_sb_ttype_is      args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-int         process_sb_naws          args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-int         process_will_new_environ args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-int         process_sb_new_environ   args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-int         process_do_mssp          args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-int         process_do_mccp          args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-int         process_dont_mccp        args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
+int         process_will_ttype       args( ( CONNECTION *d, unsigned char *src, int srclen ));
+int         process_sb_ttype_is      args( ( CONNECTION *d, unsigned char *src, int srclen ));
+int         process_sb_naws          args( ( CONNECTION *d, unsigned char *src, int srclen ));
+int         process_will_new_environ args( ( CONNECTION *d, unsigned char *src, int srclen ));
+int         process_sb_new_environ   args( ( CONNECTION *d, unsigned char *src, int srclen ));
+int         process_do_mssp          args( ( CONNECTION *d, unsigned char *src, int srclen ));
+int         process_do_mccp          args( ( CONNECTION *d, unsigned char *src, int srclen ));
+int         process_dont_mccp        args( ( CONNECTION *d, unsigned char *src, int srclen ));
 
-int         skip_sb                  args( ( CONNECTION_DATA *d, unsigned char *src, int srclen ));
-void        announce_support         args( ( CONNECTION_DATA *d ));
+int         skip_sb                  args( ( CONNECTION *d, unsigned char *src, int srclen ));
+void        announce_support         args( ( CONNECTION *d ));
 
-void        connection_printf        args( ( CONNECTION_DATA *d, char *fmt, ...));
+void        connection_printf        args( ( CONNECTION *d, char *fmt, ...));
 char      * cat_sprintf              args( ( char *dest, char *fmt, ...));
 
-int         start_compress           args( ( CONNECTION_DATA *d ));
-void        end_compress             args( ( CONNECTION_DATA *d ));
-void        process_compressed       args( ( CONNECTION_DATA *d ));
-void        write_compressed         args( ( CONNECTION_DATA *d ));
-void        send_will_mccp           args( ( CONNECTION_DATA *d ));
-void        send_do_naws             args( ( CONNECTION_DATA *d ));
-void        send_do_ttype            args( ( CONNECTION_DATA *d ));
-void        send_char_mode           args( ( CONNECTION_DATA *d ));
-void        send_do_new_environ      args( ( CONNECTION_DATA *d ));
-void        send_will_eor            args( ( CONNECTION_DATA *d ));
-void        send_echo_on             args( ( CONNECTION_DATA *d ));
-void        send_echo_off            args( ( CONNECTION_DATA *d ));
-void        send_ga                  args( ( CONNECTION_DATA *d ));
-void        send_eor                 args( ( CONNECTION_DATA *d ));
+int         start_compress           args( ( CONNECTION *d ));
+void        end_compress             args( ( CONNECTION *d ));
+void        process_compressed       args( ( CONNECTION *d ));
+void        write_compressed         args( ( CONNECTION *d ));
+void        send_will_mccp           args( ( CONNECTION *d ));
+void        send_do_naws             args( ( CONNECTION *d ));
+void        send_do_ttype            args( ( CONNECTION *d ));
+void        send_char_mode           args( ( CONNECTION *d ));
+void        send_do_new_environ      args( ( CONNECTION *d ));
+void        send_will_eor            args( ( CONNECTION *d ));
+void        send_echo_on             args( ( CONNECTION *d ));
+void        send_echo_off            args( ( CONNECTION *d ));
+void        send_ga                  args( ( CONNECTION *d ));
+void        send_eor                 args( ( CONNECTION *d ));
 
 /*
 	client.c

@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -70,7 +70,7 @@
 
 struct bfs_queue_struct 
 {
-   SCENE_INDEX_DATA *scene;
+   SCENE *scene;
    int   dir;
    int   depth;
    struct bfs_queue_struct *next;
@@ -78,7 +78,7 @@ struct bfs_queue_struct
 
 struct scene_list_struct 
 {
-   SCENE_INDEX_DATA *scene;
+   SCENE *scene;
    struct scene_list_struct *next;
 };
 
@@ -91,8 +91,8 @@ static struct scene_list_struct *list_head = NULL, *list_tail = NULL;
 #define UNMARK( scene )        ( REMOVE_BIT( ( scene )->scene_flags, SCENE_MARK))
 #define IS_MARKED( scene )     ( IS_SET( ( scene )->scene_flags, SCENE_MARK))
 #define TOSCENE( scene, y )     ( ( scene )->exit[ ( y ) ]->to_scene )
-#define IS_CLOSED( scene, y )  ( IS_SET( ( scene )->exit[( y )]->exit_info, \
-                                EX_CLOSED))
+#define IS_CLOSED( scene, y )  ( IS_SET( ( scene )->exit[( y )]->exit_flags, \
+                                EXIT_CLOSED))
 
 #ifdef TRACK_THROUGH_DOORS
 #define VALID_EDGE( scene, y )                                              \
@@ -107,7 +107,7 @@ static struct scene_list_struct *list_head = NULL, *list_tail = NULL;
                               ( !IS_MARKED( TOSCENE( ( scene ), ( y ) ) ) ) )
 #endif
 
-void list_enqueue( SCENE_INDEX_DATA *scene )
+void list_enqueue( SCENE *scene )
 {
    static struct scene_list_struct *curr;
 
@@ -126,7 +126,7 @@ void list_enqueue( SCENE_INDEX_DATA *scene )
    return;
 }
 
-void bfs_enqueue( SCENE_INDEX_DATA *scene, int dir, int depth )
+void bfs_enqueue( SCENE *scene, int dir, int depth )
 {
    struct bfs_queue_struct *curr;
 
@@ -197,7 +197,7 @@ void list_clear_queue( void )
 */
 
 
-int find_first_step( SCENE_INDEX_DATA *src, SCENE_INDEX_DATA *target, int depth )
+int find_first_step( SCENE *src, SCENE *target, int depth )
 {
    int curr_dir;
 
@@ -267,7 +267,7 @@ int find_first_step( SCENE_INDEX_DATA *src, SCENE_INDEX_DATA *target, int depth 
  * Caution: called each combat pulse.
  */
 
-void cmd_hunt( PLAYER_DATA *ch, char *argument )
+void cmd_hunt( PLAYER *ch, char *argument )
 {
  
 /*     char buf[MAX_STRING_LENGTH];*/
@@ -316,11 +316,11 @@ void cmd_hunt( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  track [person]
  */
-void cmd_track ( PLAYER_DATA *ch, char *argument ) 
+void cmd_track ( PLAYER *ch, char *argument ) 
 {
    char buf[MAX_STRING_LENGTH];
    char arg[MAX_INPUT_LENGTH];
-   PLAYER_DATA *vict;
+   PLAYER *vict;
    int dir;
    one_argument(argument, arg);
 

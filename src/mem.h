@@ -13,8 +13,8 @@ extern int         top_zone;
 extern int         top_ed;
 extern int         top_exit;
 extern int         top_help;
-extern int         top_actor_index;
-extern int         top_prop_index;
+extern int         top_actor_template;
+extern int         top_prop_template;
 extern int         top_spawn;
 extern int         top_scene;
 extern int         top_shop;
@@ -22,8 +22,8 @@ extern int         top_variable;
 extern int         top_trigger;
 extern int         top_script;
 
-extern int         top_vnum_script;
-extern int         top_vnum_actor;
-extern int         top_vnum_prop;
-extern int         top_vnum_scene;
+extern int         top_dbkey_script;
+extern int         top_dbkey_actor;
+extern int         top_dbkey_prop;
+extern int         top_dbkey_scene;
 

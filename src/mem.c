@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -54,69 +54,69 @@ int num_str_dup = 0;           /* str_dup counter for cmd_mem */
 
 /* Memory recycling */
 
-BONUS_DATA              *   bonus_free;
-ATTACK_DATA             *   attack_free;
-CONNECTION_DATA         *   connection_free;
-SPAWN_DATA              *   spawn_free;
-INSTANCE_DATA           *   instance_free;
-SCRIPT_DATA             *   script_free;
-VARIABLE_DATA           *   variable_free;
-ZONE_DATA               *   zone_free;
-EXTRA_DESCR_DATA        *   extra_descr_free;
-EXIT_DATA               *   exit_free;
-SHOP_DATA               *   shop_free;
-ACTOR_INDEX_DATA        *   actor_index_free;
-PROP_INDEX_DATA         *   prop_index_free;
-SCENE_INDEX_DATA        *   scene_index_free;
-SPELL_DATA              *   spell_index_free;
-SKILL_DATA              *   skill_index_free;
-SPAWN_DATA              *   spawn_free;
-ATTACK_DATA             *   attack_free;
-PLAYER_DATA             *   actor_free;
-USER_DATA               *   pc_free;
-SPELL_BOOK_DATA         *   spell_book_free;
-PROP_DATA               *   prop_free;
-NOTE_DATA               *   note_free;
-ALIAS_DATA              *   alias_free;
-EVENT_DATA              *   event_free;   
-SPELL_DATA              *   spell_free;
-SKILL_DATA              *   skill_free;
-HELP_DATA               *   help_free;
+BONUS              *   bonus_free;
+ATTACK             *   attack_free;
+CONNECTION         *   connection_free;
+SPAWN              *   spawn_free;
+INSTANCE           *   instance_free;
+SCRIPT             *   script_free;
+VARIABLE           *   variable_free;
+ZONE               *   zone_free;
+EXTRA_DESCR        *   extra_descr_free;
+EXIT               *   exit_free;
+SHOP               *   shop_free;
+ACTOR_TEMPLATE        *   actor_template_free;
+PROP_TEMPLATE         *   prop_template_free;
+SCENE        *   scene_free;
+SPELL              *   spell_free;
+SKILL              *   skill_free;
+SPAWN              *   spawn_free;
+ATTACK             *   attack_free;
+PLAYER             *   actor_free;
+USER               *   pc_free;
+SPELL_BOOK         *   spell_book_free;
+PROP               *   prop_free;
+NOTE               *   note_free;
+ALIAS              *   alias_free;
+EVENT              *   event_free;   
+SPELL              *   spell_free;
+SKILL              *   skill_free;
+HELP               *   help_free;
 
 NUMBER_LIST             *   number_list_free; 
 STRING_LIST             *   string_list_free;         
 
-BONUS_DATA               bonus_zero;
-ATTACK_DATA              attack_zero;
-CONNECTION_DATA          connection_zero;
-SPAWN_DATA               spawn_zero;
-INSTANCE_DATA            instance_zero;
-SCRIPT_DATA              script_zero;
-VARIABLE_DATA            variable_zero;
-ZONE_DATA                zone_zero;
-EXTRA_DESCR_DATA         extra_descr_zero;
-EXIT_DATA                exit_zero;
-SCENE_INDEX_DATA         scene_index_zero;
-PROP_INDEX_DATA          prop_index_zero;
-SHOP_DATA                shop_zero;
-ACTOR_INDEX_DATA         actor_index_zero;
-SPAWN_DATA               spawn_zero;
-ATTACK_DATA              attack_zero;
-PLAYER_DATA              ch_zero;
-USER_DATA                pc_zero;
-PROP_DATA                prop_zero;
-TERRAIN_DATA             terrain_zero;
-SPELL_DATA               spell_zero;
-SKILL_DATA               skill_zero;
-SPELL_BOOK_DATA          spell_book_zero;
-ALIAS_DATA               alias_zero;
-EVENT_DATA               event_zero;  
-HELP_DATA                help_zero;
+BONUS               bonus_zero;
+ATTACK              attack_zero;
+CONNECTION          connection_zero;
+SPAWN               spawn_zero;
+INSTANCE            instance_zero;
+SCRIPT              script_zero;
+VARIABLE            variable_zero;
+ZONE                zone_zero;
+EXTRA_DESCR         extra_descr_zero;
+EXIT                exit_zero;
+SCENE         scene_zero;
+PROP_TEMPLATE          prop_template_zero;
+SHOP                shop_zero;
+ACTOR_TEMPLATE         actor_template_zero;
+SPAWN               spawn_zero;
+ATTACK              attack_zero;
+PLAYER              ch_zero;
+USER                pc_zero;
+PROP                prop_zero;
+TERRAIN             terrain_zero;
+SPELL               spell_zero;
+SKILL               skill_zero;
+SPELL_BOOK          spell_book_zero;
+ALIAS               alias_zero;
+EVENT               event_zero;  
+HELP                help_zero;
 
-#if defined(PLANETARY_DATA)
-PLANETARY_DATA           planet_zero;
-STELLAR_DATA             stellar_zero;
-LUNAR_DATA               lunar_zero;
+#if defined(PLANETARY)
+PLANETARY           planet_zero;
+STELLAR             stellar_zero;
+LUNAR               lunar_zero;
 #endif
 
 NUMBER_LIST              number_zero;
@@ -153,8 +153,8 @@ int         top_zone           = 0;
 int         top_ed             = 0;
 int         top_exit           = 0;
 int         top_help           = 0;
-int         top_actor_index    = 0;
-int         top_prop_index     = 0;
+int         top_actor_template    = 0;
+int         top_prop_template     = 0;
 int         top_spawn          = 0;
 int         top_scene          = 0;
 int         top_spell          = 0;
@@ -164,22 +164,22 @@ int         top_variable       = 0;
 int         top_event          = 0;
 int         top_instance       = 0;
 int         top_script         = 0;
-int         top_player_data    = 0;
+int         top_player    = 0;
 int         top_userdata       = 0;
-int         top_alias_data     = 0;
+int         top_alias     = 0;
 int         top_attack         = 0;
 int         top_prop           = 0;
 int         top_connection     = 0;
 int         top_note           = 0;
 
-int         top_vnum_help      = 0;
-int         top_vnum_spell     = 0;
-int         top_vnum_skill     = 0;
-int         top_vnum_script    = 0;
-int         top_vnum_actor     = 0;
-int         top_vnum_prop      = 0;
-int         top_vnum_scene     = 0;
-int         top_vnum_terrain   = 0;
+int         top_dbkey_help      = 0;
+int         top_dbkey_spell     = 0;
+int         top_dbkey_skill     = 0;
+int         top_dbkey_script    = 0;
+int         top_dbkey_actor     = 0;
+int         top_dbkey_prop      = 0;
+int         top_dbkey_scene     = 0;
+int         top_dbkey_terrain   = 0;
 
 
 extern bool            fBootDb;
@@ -187,7 +187,7 @@ extern FILE *          fpZone;
 extern char            strzone[MAX_INPUT_LENGTH];
 extern int             social_count;
 
-VARIABLE_DATA           * mud_var_list;
+VARIABLE           * mud_var_list;
 
 
 #define         ZONE_NONE       0
@@ -196,18 +196,18 @@ VARIABLE_DATA           * mud_var_list;
 
 #define         SEX_NONE        4
 #define         SCENE_NONE       0
-#define         EX_NONE         0
+#define         EXIT_NONE         0
 #define         ITEM_NONE       0
 #define         EXTRA_NONE      0
 #define         ITEM_WEAR_NONE  0
-#define         ACT_NONE        0
+#define         ACTOR_NONE        0
 #define         AFFECT_NONE     0
 
 
 
 
-HELP_DATA               *   help_free;
-HELP_DATA                help_zero;
+HELP               *   help_free;
+HELP                help_zero;
 
 
 
@@ -271,7 +271,7 @@ void free_string_list( STRING_LIST *pString )
 
 
 
-void free_help_data( HELP_DATA *pHelp )
+void free_help( HELP *pHelp )
 {
     free_string( pHelp->keyword );
     free_string( pHelp->text );
@@ -292,9 +292,9 @@ void free_help_data( HELP_DATA *pHelp )
 }
 
 
-CONNECTION_DATA *new_connection_data( void )
+CONNECTION *new_connection( void )
 {
-    CONNECTION_DATA *dnew;
+    CONNECTION *dnew;
 
     if ( connection_free == NULL )
     {
@@ -312,8 +312,8 @@ CONNECTION_DATA *new_connection_data( void )
     dnew->connection    = -1;
     dnew->connected     = NET_SHOW_TITLE;
     dnew->lingua        = 0;
-    dnew->showstr_head  = NULL;
-    dnew->showstr_point = NULL;
+    dnew->pager_head  = NULL;
+    dnew->pager_point = NULL;
     dnew->outsize       = 2000;
     dnew->pEdit         = NULL;
     dnew->pString       = NULL;
@@ -332,7 +332,7 @@ CONNECTION_DATA *new_connection_data( void )
 
 
 
-void free_connection( CONNECTION_DATA *d )
+void free_connection( CONNECTION *d )
 {
     free_string( d->host );
     free_mem( d->outbuf, d->outsize );      /* RT socket leak fix */
@@ -344,14 +344,14 @@ void free_connection( CONNECTION_DATA *d )
 
 
 
-PLAYER_DATA *new_player_data( void )
+PLAYER *new_player( void )
 {
-    PLAYER_DATA *ch;
+    PLAYER *ch;
 
     if ( actor_free == NULL )
     {
         ch          =   alloc_perm( sizeof(*ch) );
-        top_player_data++;
+        top_player++;
     }
     else
     {
@@ -391,8 +391,8 @@ PLAYER_DATA *new_player_data( void )
     ch->bonuses         = 0;
     ch->position        = POS_RESTING;
     ch->hitroll         = 0;
-    ch->act             = PLR_BLANK | PLR_COMBINE | PLR_PROMPT;
-    ch->act2            = 0;
+    ch->flag             = PLR_BLANK | PLR_COMBINE | PLR_PROMPT;
+    ch->flag2            = 0;
     ch->bounty          = 0;
     ch->owed            = 0;
     ch->damroll         = 0;
@@ -414,19 +414,19 @@ PLAYER_DATA *new_player_data( void )
     ch->pagelen         = 20;
     ch->size            = SIZE_AVERAGE;
 
-    ch->userdata          = new_user_data( );
+    ch->userdata          = new_user( );
                               
     return ch;
 }
 
 
-void free_char( PLAYER_DATA *ch )
+void free_char( PLAYER *ch )
 {
-    PROP_DATA *prop, *prop_next;
-    BONUS_DATA *paf, *paf_next;
-    INSTANCE_DATA *t, *trigger_next;
-    VARIABLE_DATA *va, *va_next;
-    PLAYER_DATA *pet;
+    PROP *prop, *prop_next;
+    BONUS *paf, *paf_next;
+    INSTANCE *t, *trigger_next;
+    VARIABLE *va, *va_next;
+    PLAYER *pet;
 
     if ( ch == NULL ) return;    
 
@@ -434,15 +434,15 @@ void free_char( PLAYER_DATA *ch )
 
     for ( pet = actor_list; pet != NULL; pet = pet->next )
     {
-        if ( ( pet->master == ch  ) && IS_SET(pet->act, ACT_PET) )
+        if ( ( pet->master == ch  ) && IS_SET(pet->flag, ACTOR_PET) )
         break;
     }
-    if ( pet != NULL ) extract_char( pet, TRUE );
+    if ( pet != NULL ) extractor_char( pet, TRUE );
 
     for ( prop = ch->carrying; prop != NULL; prop = prop_next )
     {
         prop_next = prop->next_content;
-        extract_prop( prop );
+        extractor_prop( prop );
     }
 
     for ( t = ch->instances; t != NULL; t = trigger_next )
@@ -478,7 +478,7 @@ void free_char( PLAYER_DATA *ch )
     if ( ch->userdata ) imc_freechardata( ch );
 #endif
     
-    free_user_data( ch->userdata );
+    free_user( ch->userdata );
     ch->userdata = NULL;
 
     ch->next         = actor_free;
@@ -488,14 +488,14 @@ void free_char( PLAYER_DATA *ch )
 
 
 #if defined(INTERGALACTIC_PLANETARY)
-STELLAR_DATA *new_stellar_data( void ) 
+STELLAR *new_stellar( void ) 
 {
-    STELLAR_DATA *stellar;
+    STELLAR *stellar;
 
     if ( stellar_free == NULL )
     {
         stellar = alloc_perm( sizeof(*stellar) );
-        top_stellar_data++;
+        top_stellar++;
     }
     else
     {
@@ -508,14 +508,14 @@ STELLAR_DATA *new_stellar_data( void )
      return stellar;
 }
 
-LUNAR_DATA *new_lunar_data( void ) 
+LUNAR *new_lunar( void ) 
 {
-    LUNAR_DATA *lunar;
+    LUNAR *lunar;
 
     if ( lunar_free == NULL )
     {
         lunar = alloc_perm( sizeof(*lunar) );
-        top_lunar_data++;
+        top_lunar++;
     }
     else
     {
@@ -529,14 +529,14 @@ LUNAR_DATA *new_lunar_data( void )
      return lunar;
 }
 
-PLANETARY_DATA *new_planet_data( void ) 
+PLANETARY *new_planet( void ) 
 {
-    PLANETARY_DATA *planetary;
+    PLANETARY *planetary;
 
     if ( planet_free == NULL )
     {
         planetary = alloc_perm( sizeof(*planetary) );
-        top_planet_data++;
+        top_planet++;
     }
     else
     {
@@ -551,14 +551,14 @@ PLANETARY_DATA *new_planet_data( void )
 }
 #endif
 
-ALIAS_DATA *new_alias_data( void )
+ALIAS *new_alias( void )
 {
-    ALIAS_DATA *alias;
+    ALIAS *alias;
 
     if ( alias_free == NULL )
     {
         alias         =   alloc_perm( sizeof(*alias) );
-        top_alias_data++;
+        top_alias++;
     }
     else
     {
@@ -574,7 +574,7 @@ ALIAS_DATA *new_alias_data( void )
 }
 
 
-void free_alias_data( ALIAS_DATA *alias )
+void free_alias( ALIAS *alias )
 {
     if ( alias == NULL ) return;
 
@@ -587,9 +587,9 @@ void free_alias_data( ALIAS_DATA *alias )
 }
 
 
-void free_user_data( USER_DATA *pc )
+void free_user( USER *pc )
 {
-    ALIAS_DATA         *alias, *alias_next;
+    ALIAS         *alias, *alias_next;
 
     if ( pc == NULL ) return;
 
@@ -598,7 +598,7 @@ void free_user_data( USER_DATA *pc )
 
     for ( alias = pc->aliases;  alias != NULL;  alias = alias_next ) {
        alias_next = alias->next;
-       free_alias_data( alias );
+       free_alias( alias );
     }
 
     free_string( pc->email         );
@@ -613,9 +613,9 @@ void free_user_data( USER_DATA *pc )
     
 
 
-USER_DATA *new_user_data( void )
+USER *new_user( void )
 {
-    USER_DATA *pc;
+    USER *pc;
 
     if ( pc_free == NULL )
     {
@@ -686,9 +686,9 @@ USER_DATA *new_user_data( void )
 
 
 
-PROP_DATA *new_prop( void )
+PROP *new_prop( void )
 {
-    PROP_DATA *pProp;
+    PROP *pProp;
 
     if ( prop_free == NULL )
     {
@@ -741,12 +741,12 @@ PROP_DATA *new_prop( void )
 
 
 
-void free_prop( PROP_DATA *pProp )
+void free_prop( PROP *pProp )
 {
-    EXTRA_DESCR_DATA *ed, *ed_next;
-    BONUS_DATA *af, *af_next;
-    INSTANCE_DATA *tr, *tr_next;
-    VARIABLE_DATA *va, *va_next;
+    EXTRA_DESCR *ed, *ed_next;
+    BONUS *af, *af_next;
+    INSTANCE *tr, *tr_next;
+    VARIABLE *va, *va_next;
 
 
     pProp->next = prop_free;
@@ -791,9 +791,9 @@ void free_prop( PROP_DATA *pProp )
 
 
 
-SPAWN_DATA *new_spawn_data( void )
+SPAWN *new_spawn( void )
 {
-    SPAWN_DATA *pSpawn;
+    SPAWN *pSpawn;
 
     if ( spawn_free == NULL )
     {
@@ -811,8 +811,8 @@ SPAWN_DATA *new_spawn_data( void )
     pSpawn->command     = 'X';
     pSpawn->loc         =  -1;
     pSpawn->percent     =   0;
-    pSpawn->rs_vnum     =   0;
-    pSpawn->vnum        =   0;
+    pSpawn->rs_dbkey     =   0;
+    pSpawn->dbkey        =   0;
     pSpawn->num         =   1;
 
     return pSpawn;
@@ -820,7 +820,7 @@ SPAWN_DATA *new_spawn_data( void )
 
 
 
-void free_spawn_data( SPAWN_DATA *pSpawn )
+void free_spawn( SPAWN *pSpawn )
 {
     pSpawn->next            = spawn_free;
     spawn_free              = pSpawn;
@@ -828,12 +828,12 @@ void free_spawn_data( SPAWN_DATA *pSpawn )
 }
 
 
-TERRAIN_DATA *new_terrain( void )
+TERRAIN *new_terrain( void )
 {
-    TERRAIN_DATA *pTerrain;
+    TERRAIN *pTerrain;
 
     pTerrain        =   alloc_perm( sizeof(*pTerrain) );
-    top_vnum_terrain++;
+    top_dbkey_terrain++;
 
     *pTerrain           =   terrain_zero;
     pTerrain->next        =   NULL;
@@ -843,24 +843,24 @@ TERRAIN_DATA *new_terrain( void )
     pTerrain->summer      = str_dup( "It is summer.\n\r" );
     pTerrain->fall        = str_dup( "It is fall.\n\r" );
     pTerrain->map_char    = '.';
-    pTerrain->vnum         =  top_vnum_terrain;
+    pTerrain->dbkey         =  top_dbkey_terrain;
 
     return pTerrain;
 }
 
 
 
-SKILL_DATA *new_skill_data( void )
+SKILL *new_skill( void )
 {
-    SKILL_DATA *pSkill;
+    SKILL *pSkill;
 
     pSkill        =   alloc_perm( sizeof(*pSkill) );
-    top_vnum_skill++;  top_skill++;
+    top_dbkey_skill++;  top_skill++;
 
     *pSkill             =   skill_zero;
     pSkill->name        =   str_dup( "" );
     pSkill->next        =   NULL;
-    pSkill->vnum        =   top_vnum_skill;  
+    pSkill->dbkey        =   top_dbkey_skill;  
 
     return pSkill;
 }
@@ -868,7 +868,7 @@ SKILL_DATA *new_skill_data( void )
 /*
  * Does not free the strings.  Skill index is static.
  */
-void free_skill_data( SKILL_DATA *pSkill )
+void free_skill( SKILL *pSkill )
 {
     if ( pSkill == NULL ) return;
 
@@ -878,16 +878,16 @@ void free_skill_data( SKILL_DATA *pSkill )
     return;
 };
 
-HELP_DATA *new_help_data( void )
+HELP *new_help( void )
 {
-    HELP_DATA *pHelp;
+    HELP *pHelp;
 
     pHelp        =   alloc_perm( sizeof(*pHelp) );
-    top_vnum_help++;  top_help++;
+    top_dbkey_help++;  top_help++;
 
     *pHelp             =   help_zero;
     pHelp->next        =   NULL;
-    pHelp->vnum        =   top_vnum_help;  
+    pHelp->dbkey        =   top_dbkey_help;  
 
     pHelp->name=
     pHelp->immtext=
@@ -901,23 +901,23 @@ HELP_DATA *new_help_data( void )
 }
 
 
-SPELL_DATA *new_spell_data( void )
+SPELL *new_spell( void )
 {
-    SPELL_DATA *pSpell;
+    SPELL *pSpell;
 
     pSpell        =   alloc_perm( sizeof(*pSpell) );
-    top_vnum_spell++;  top_spell++;
+    top_dbkey_spell++;  top_spell++;
 
     *pSpell             =   spell_zero;
     pSpell->name        =   str_dup( "" );
     pSpell->minimum_position    =   POS_STANDING;
     pSpell->next        =   NULL;
-    pSpell->vnum        =   top_vnum_spell;  
+    pSpell->dbkey        =   top_dbkey_spell;  
 
     return pSpell;
 }
 
-void free_spell_data( SPELL_DATA *pSpell )
+void free_spell( SPELL *pSpell )
 {
     if ( pSpell == NULL ) return;
 
@@ -929,9 +929,9 @@ void free_spell_data( SPELL_DATA *pSpell )
 };
 
 
-SPELL_BOOK_DATA *new_spell_book_data( void )
+SPELL_BOOK *new_spell_book( void )
 {
-    SPELL_BOOK_DATA *pSpell;
+    SPELL_BOOK *pSpell;
 
     pSpell        =   alloc_perm( sizeof(*pSpell) );
 
@@ -942,7 +942,7 @@ SPELL_BOOK_DATA *new_spell_book_data( void )
     return pSpell;
 }
 
-void free_spell_book_data( SPELL_BOOK_DATA *pSpell )
+void free_spell_book( SPELL_BOOK *pSpell )
 {
     if ( pSpell == NULL ) return;
 
@@ -956,9 +956,9 @@ void free_spell_book_data( SPELL_BOOK_DATA *pSpell )
 
 
 
-ZONE_DATA *new_zone( void )
+ZONE *new_zone( void )
 {
-    ZONE_DATA *pZone;
+    ZONE *pZone;
     char buf[MAX_INPUT_LENGTH];
 
     if ( zone_free == NULL )
@@ -980,14 +980,14 @@ ZONE_DATA *new_zone( void )
     pZone->zone_flags       =   ZONE_ADDED;
     pZone->security         =   1;
     pZone->builders         =   str_dup( "None" );
-    pZone->lvnum            =   0;
-    pZone->uvnum            =   0;
+    pZone->ldbkey            =   0;
+    pZone->udbkey            =   0;
     pZone->age              =   0;
     pZone->nplayer          =   0;
-    pZone->vnum             =   top_zone-1;
-    snprintf( buf, MAX_STRING_LENGTH, "zone-%s%d.zone", pZone->vnum-1 < 10 ? "00" :
-                                   pZone->vnum-1 < 100 ? "0" : "",
-                                   pZone->vnum-1 );
+    pZone->dbkey             =   top_zone-1;
+    snprintf( buf, MAX_STRING_LENGTH, "zone-%s%d.zone", pZone->dbkey-1 < 10 ? "00" :
+                                   pZone->dbkey-1 < 100 ? "0" : "",
+                                   pZone->dbkey-1 );
     pZone->filename         =   str_dup( buf );
 
     return pZone;
@@ -995,7 +995,7 @@ ZONE_DATA *new_zone( void )
 
 
 
-void free_zone( ZONE_DATA *pZone )
+void free_zone( ZONE *pZone )
 {
     free_string( pZone->name );
     free_string( pZone->filename );
@@ -1009,9 +1009,9 @@ void free_zone( ZONE_DATA *pZone )
 
 
 
-EXTRA_DESCR_DATA *new_extra_descr( void )
+EXTRA_DESCR *new_extra_descr( void )
 {
-    EXTRA_DESCR_DATA *pExtra;
+    EXTRA_DESCR *pExtra;
 
     if ( extra_descr_free == NULL )
     {
@@ -1034,7 +1034,7 @@ EXTRA_DESCR_DATA *new_extra_descr( void )
 
 
 
-void free_extra_descr( EXTRA_DESCR_DATA *pExtra )
+void free_extra_descr( EXTRA_DESCR *pExtra )
 {
     free_string( pExtra->keyword );
     free_string( pExtra->description );
@@ -1046,9 +1046,9 @@ void free_extra_descr( EXTRA_DESCR_DATA *pExtra )
 
 
 
-EXIT_DATA *new_exit( void )
+EXIT *new_exit( void )
 {
-    EXIT_DATA *pExit;
+    EXIT *pExit;
 
     if ( exit_free == NULL )
     {
@@ -1064,8 +1064,8 @@ EXIT_DATA *new_exit( void )
     *pExit              =   exit_zero;
     pExit->to_scene      =   NULL;
     pExit->next         =   NULL;
-    pExit->vnum         =   0;
-    pExit->exit_info    =   0;
+    pExit->dbkey         =   0;
+    pExit->exit_flags    =   0;
     pExit->key          =   0;
     pExit->keyword      =   NULL;
     pExit->description  =   str_dup("");
@@ -1076,7 +1076,7 @@ EXIT_DATA *new_exit( void )
 
 
 
-void free_exit( EXIT_DATA *pExit )
+void free_exit( EXIT *pExit )
 {
     free_string( pExit->keyword );
     free_string( pExit->description );
@@ -1087,9 +1087,9 @@ void free_exit( EXIT_DATA *pExit )
 }
 
 
-ATTACK_DATA *new_attack ( void )
+ATTACK *new_attack ( void )
 {
-    ATTACK_DATA *attack;
+    ATTACK *attack;
 
     if ( attack_free == NULL )
     {
@@ -1111,7 +1111,7 @@ ATTACK_DATA *new_attack ( void )
 }
 
 
-void free_attack ( ATTACK_DATA *attack )
+void free_attack ( ATTACK *attack )
 {
     attack->next     = attack_free;
     attack_free      = attack;
@@ -1119,19 +1119,19 @@ void free_attack ( ATTACK_DATA *attack )
 }
  
 
-SPELL_DATA *new_spell_index( void )
+SPELL *new_spell_index( void )
 {
-    SPELL_DATA *pSpell;
+    SPELL *pSpell;
 
-    if ( spell_index_free == NULL )
+    if ( spell_free == NULL )
     {
         pSpell           =   alloc_perm( sizeof(*pSpell) );
         top_spell++;
     }
     else
     {
-        pSpell           =   spell_index_free;
-        spell_index_free =   spell_index_free->next;
+        pSpell           =   spell_free;
+        spell_free =   spell_free->next;
     }
 
     *pSpell                  = spell_zero;
@@ -1143,23 +1143,23 @@ SPELL_DATA *new_spell_index( void )
 }
 
 
-SCENE_INDEX_DATA *new_scene_index( void )
+SCENE *new_scene( void )
 {
-    SCENE_INDEX_DATA *pScene;
+    SCENE *pScene;
     int door;
 
-    if ( scene_index_free == NULL )
+    if ( scene_free == NULL )
     {
         pScene           =   alloc_perm( sizeof(*pScene) );
         top_scene++;
     }
     else
     {
-        pScene           =   scene_index_free;
-        scene_index_free =   scene_index_free->next;
+        pScene           =   scene_free;
+        scene_free =   scene_free->next;
     }
 
-    *pScene                  =   scene_index_zero;
+    *pScene                  =   scene_zero;
     pScene->next             =   NULL;
     pScene->spawn_first      =   NULL;
     pScene->spawn_last       =   NULL;
@@ -1175,18 +1175,18 @@ SCENE_INDEX_DATA *new_scene_index( void )
     pScene->name             =   &str_empty[0];
     pScene->description      =   &str_empty[0];
     pScene->client           =   &str_empty[0];
-    pScene->vnum             =   0;
+    pScene->dbkey             =   0;
     pScene->scene_flags       =   0;
     pScene->light            =   0;
-    pScene->sector_type      =   0;
+    pScene->move      =   0;
     pScene->terrain          =   0;
 
     return pScene;
 }
 
-void free_spell_index( SPELL_DATA *pSpell )
+void free_spell_index( SPELL *pSpell )
 {
-    INSTANCE_DATA *t, *trigger_next;
+    INSTANCE *t, *trigger_next;
 
     free_string( pSpell->name );
 
@@ -1196,21 +1196,21 @@ void free_spell_index( SPELL_DATA *pSpell )
     free_instance( t );
     }
 
-    pSpell->next     =   spell_index_free;
-    spell_index_free =   pSpell;
+    pSpell->next     =   spell_free;
+    spell_free =   pSpell;
     return;
 }
 
 
 
 
-void free_scene_index( SCENE_INDEX_DATA *pScene )
+void free_scene( SCENE *pScene )
 {
     int door;
-    EXTRA_DESCR_DATA *pExtra, *pExtra_next;
-    SPAWN_DATA *pSpawn, *pSpawn_next;
-    VARIABLE_DATA *va, *va_next;
-    INSTANCE_DATA *t, *trigger_next;
+    EXTRA_DESCR *pExtra, *pExtra_next;
+    SPAWN *pSpawn, *pSpawn_next;
+    VARIABLE *va, *va_next;
+    INSTANCE *t, *trigger_next;
 
     free_string( pScene->name );
     free_string( pScene->description );
@@ -1231,7 +1231,7 @@ void free_scene_index( SCENE_INDEX_DATA *pScene )
     for ( pSpawn = pScene->spawn_first; pSpawn != NULL; pSpawn = pSpawn_next )
     {
         pSpawn_next = pSpawn->next;
-        free_spawn_data( pSpawn );
+        free_spawn( pSpawn );
     }
 
     for ( t = pScene->instances; t != NULL; t = trigger_next )
@@ -1248,25 +1248,25 @@ void free_scene_index( SCENE_INDEX_DATA *pScene )
 
     for ( door = 0;  door < MAX_KEY_HASH;  door++ )
     {
-        SCENE_INDEX_DATA *scene;
+        SCENE *scene;
 
-        for ( scene = scene_index_hash[door];  scene != NULL;  scene = scene->next )
+        for ( scene = scene_hash[door];  scene != NULL;  scene = scene->next )
         {
             if ( scene->next == pScene )
             scene->next = scene->next->next;
         }
     }
 
-    pScene->next     =   scene_index_free;
-    scene_index_free =   pScene;
+    pScene->next     =   scene_free;
+    scene_free =   pScene;
     return;
 }
 
 
 
-BONUS_DATA *new_bonus( void )
+BONUS *new_bonus( void )
 {
-    BONUS_DATA *pAf;
+    BONUS *pAf;
 
     if ( bonus_free == NULL )
     {
@@ -1293,7 +1293,7 @@ BONUS_DATA *new_bonus( void )
 
 
 
-void free_bonus( BONUS_DATA* pAf )
+void free_bonus( BONUS* pAf )
 {
     pAf->next           = bonus_free;
     if ( pAf->msg_off ) {
@@ -1306,23 +1306,23 @@ void free_bonus( BONUS_DATA* pAf )
 
 
 
-PROP_INDEX_DATA *new_prop_index( void )
+PROP_TEMPLATE *new_prop_template( void )
 {
-    PROP_INDEX_DATA *pProp;
+    PROP_TEMPLATE *pProp;
     int value;
 
-    if ( prop_index_free == NULL )
+    if ( prop_template_free == NULL )
     {
         pProp           =   alloc_perm( sizeof(*pProp) );
-        top_prop_index++;
+        top_prop_template++;
     }
     else
     {
-        pProp            =   prop_index_free;
-        prop_index_free  =   prop_index_free->next;
+        pProp            =   prop_template_free;
+        prop_template_free  =   prop_template_free->next;
     }
 
-    *pProp               =   prop_index_zero;
+    *pProp               =   prop_template_zero;
     pProp->next          =   NULL;
     pProp->extra_descr   =   NULL;
     pProp->bonus      =   NULL;
@@ -1335,7 +1335,7 @@ PROP_INDEX_DATA *new_prop_index( void )
     pProp->short_descr_plural = &str_empty[0];
     pProp->description_plural = &str_empty[0];
     pProp->real_description   = &str_empty[0];
-    pProp->vnum          =   0;
+    pProp->dbkey          =   0;
     pProp->size          =   SIZE_ANY;
     pProp->item_type     =   ITEM_TRASH;
     pProp->timer         =   0;
@@ -1353,10 +1353,10 @@ PROP_INDEX_DATA *new_prop_index( void )
 
 
 
-void free_prop_index( PROP_INDEX_DATA *pProp )
+void free_prop_template( PROP_TEMPLATE *pProp )
 {
-    EXTRA_DESCR_DATA *pExtra;
-    BONUS_DATA *pAf;
+    EXTRA_DESCR *pExtra;
+    BONUS *pAf;
 
     free_string( pProp->name );
     free_string( pProp->short_descr );
@@ -1375,16 +1375,16 @@ void free_prop_index( PROP_INDEX_DATA *pProp )
         free_extra_descr( pExtra );
     }
     
-    pProp->next              = prop_index_free;
-    prop_index_free          = pProp;
+    pProp->next              = prop_template_free;
+    prop_template_free          = pProp;
     return;
 }
 
 
 
-SHOP_DATA *new_shop( void )
+SHOP *new_shop( void )
 {
-    SHOP_DATA *pShop;
+    SHOP *pShop;
     int buy;
 
     if ( shop_free == NULL )
@@ -1422,7 +1422,7 @@ SHOP_DATA *new_shop( void )
 
 
 
-void free_shop( SHOP_DATA *pShop )
+void free_shop( SHOP *pShop )
 {
     free_string( pShop->no_such_item );
     free_string( pShop->cmd_not_buy );
@@ -1434,23 +1434,23 @@ void free_shop( SHOP_DATA *pShop )
 
 
 
-ACTOR_INDEX_DATA *new_actor_index( void )
+ACTOR_TEMPLATE *new_actor_template( void )
 {
-    ACTOR_INDEX_DATA *pActor;
+    ACTOR_TEMPLATE *pActor;
     int iAttack;
 
-    if ( actor_index_free == NULL )
+    if ( actor_template_free == NULL )
     {
         pActor           =   alloc_perm( sizeof(*pActor) );
-        top_actor_index++;
+        top_actor_template++;
     }
     else
     {
-        pActor            =   actor_index_free;
-        actor_index_free  =   actor_index_free->next;
+        pActor            =   actor_template_free;
+        actor_template_free  =   actor_template_free->next;
     }
 
-    *pActor               =   actor_index_zero;
+    *pActor               =   actor_template_zero;
     pActor->next          =   NULL;
     pActor->pShop         =   NULL;
     pActor->zone          =   NULL;
@@ -1459,17 +1459,17 @@ ACTOR_INDEX_DATA *new_actor_index( void )
     pActor->short_descr   =   str_dup( "unset" );
     pActor->long_descr    =   str_dup( "unset\n\r" );
     pActor->description   =   &str_empty[0];
-    pActor->vnum          =   0;
+    pActor->dbkey          =   0;
     pActor->exp           =   1;
     pActor->pSpells       =   NULL;
     pActor->count         =   0;
     pActor->sex           =   0;
-    pActor->act           =   ACT_NPC;
+    pActor->flag           =   ACTOR_NPC;
     pActor->timer         =   0;
     pActor->bonuses   =   0;
     pActor->money         =   0;
     pActor->size          =   SIZE_AVERAGE;
-    for ( iAttack = 0;  iAttack < MAX_ATTACK_DATA;  iAttack++ )
+    for ( iAttack = 0;  iAttack < MAX_ATTACK;  iAttack++ )
     pActor->attacks[iAttack] = NULL;
 
 /*
@@ -1486,7 +1486,7 @@ ACTOR_INDEX_DATA *new_actor_index( void )
 
 
 
-void free_actor_index( ACTOR_INDEX_DATA *pActor )
+void free_actor_template( ACTOR_TEMPLATE *pActor )
 {
     free_string( pActor->name );
     free_string( pActor->short_descr );
@@ -1496,8 +1496,8 @@ void free_actor_index( ACTOR_INDEX_DATA *pActor )
  
     free_shop( pActor->pShop );
 
-    pActor->next              = actor_index_free;
-    actor_index_free          = pActor;
+    pActor->next              = actor_template_free;
+    actor_template_free          = pActor;
     return;
 }
 
@@ -1507,9 +1507,9 @@ void free_actor_index( ACTOR_INDEX_DATA *pActor )
  * Frees a variable for scripts.
  * This is used most often.
  */
-void free_variable( VARIABLE_DATA *var )
+void free_variable( VARIABLE *var )
 {
-    VARIABLE_DATA *pVar, *pVarNext;
+    VARIABLE *pVar, *pVarNext;
     
     if ( var == NULL ) return; 
 
@@ -1536,9 +1536,9 @@ void free_variable( VARIABLE_DATA *var )
     return;
 }
 
-VARIABLE_DATA *new_variable_data( void )
+VARIABLE *new_var( void )
 {
-    VARIABLE_DATA *var;
+    VARIABLE *var;
 
     if ( variable_free == NULL )
     {
@@ -1562,9 +1562,9 @@ VARIABLE_DATA *new_variable_data( void )
 /*
  * This one might cause a leak.  Not sure why.
  */
-VARIABLE_DATA *new_variable( int type, void * value )
+VARIABLE *new_variable( int type, void * value )
 {
-    VARIABLE_DATA *var;
+    VARIABLE *var;
 
     if ( variable_free == NULL )
     {
@@ -1586,9 +1586,9 @@ VARIABLE_DATA *new_variable( int type, void * value )
 }
 
 
-EVENT_DATA *new_event_data( void )
+EVENT *new_event( void )
 {
-    EVENT_DATA *pEvent;
+    EVENT *pEvent;
 
     if ( event_free == NULL )
     {
@@ -1608,9 +1608,9 @@ EVENT_DATA *new_event_data( void )
 }
 
 
-INSTANCE_DATA *new_instance( void )
+INSTANCE *new_instance( void )
 {
-    INSTANCE_DATA *t;
+    INSTANCE *t;
 
 
     if ( instance_free == NULL )
@@ -1634,10 +1634,10 @@ INSTANCE_DATA *new_instance( void )
 /*
  * Frees a trigger, used when a actor dies.
  */
-void free_instance( INSTANCE_DATA *instance )
+void free_instance( INSTANCE *instance )
 {
-    VARIABLE_DATA *va;
-    VARIABLE_DATA *va_next;
+    VARIABLE *va;
+    VARIABLE *va_next;
 
     if ( instance == NULL ) return;
 
@@ -1657,7 +1657,7 @@ void free_instance( INSTANCE_DATA *instance )
 /*
  * Frees an event. 
  */
-void free_event_data( EVENT_DATA *pEvent )
+void free_event( EVENT *pEvent )
 {
     if ( pEvent == NULL ) return;
 
@@ -1672,7 +1672,7 @@ void free_event_data( EVENT_DATA *pEvent )
 /*
  * Hardly ever used ( will be when you can use OLC to delete indexes )
  */
-void free_script( SCRIPT_DATA *scr )
+void free_script( SCRIPT *scr )
 {
     if ( scr == NULL ) return;
 
@@ -1684,9 +1684,9 @@ void free_script( SCRIPT_DATA *scr )
     return;
 }
 
-SCRIPT_DATA *new_script( void )
+SCRIPT *new_script( void )
 {
-    SCRIPT_DATA *script;
+    SCRIPT *script;
 
 script_free = NULL;
 
@@ -2214,11 +2214,11 @@ void free_string( char *pstr )
  * -- Locke
  * Syntax:  memory
  */
-void cmd_memory( PLAYER_DATA *ch, char *argument )
+void cmd_memory( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
-    PLAYER_DATA *actor;
+    PROP *prop;
+    PLAYER *actor;
     int count_actor = 0, count_prop = 0, count_plr = 0;
     int total = 0;
 
@@ -2240,60 +2240,60 @@ void cmd_memory( PLAYER_DATA *ch, char *argument )
 
     for ( actor = actor_list; actor != NULL; actor = actor->next )
     {
-        if ( IS_NPC(actor) ) count_actor++;
+        if ( NPC(actor) ) count_actor++;
                       else count_plr++;
     }
 
-    total += sizeof( BONUS_DATA       ) * top_bonus;
-    total += sizeof( ZONE_DATA        ) * top_zone;
-    total += sizeof( EXTRA_DESCR_DATA ) * top_ed;
-    total += sizeof( EXIT_DATA        ) * top_exit;
-    total += sizeof( HELP_DATA        ) * top_help;
-    total += sizeof( SPAWN_DATA       ) * top_spawn;
-    total += sizeof( SPELL_DATA       ) * top_spell;
-    total += sizeof( SKILL_DATA       ) * top_skill;
-    total += sizeof( SHOP_DATA        ) * top_shop;
-    total += sizeof( ACTOR_INDEX_DATA ) * top_actor_index;
-    total += sizeof( PROP_INDEX_DATA  ) * top_prop_index;
-    total += sizeof( SCENE_INDEX_DATA ) * top_scene;
-    total += sizeof( SCRIPT_DATA      ) * top_script;
-    total += sizeof( VARIABLE_DATA    ) * top_variable;
-    total += sizeof( INSTANCE_DATA    ) * top_instance;
-    total += sizeof( PLAYER_DATA      ) * top_player_data;
-    total += sizeof( PROP_DATA        ) * top_prop;
-    total += sizeof( PLAYER_DATA      ) * top_userdata;
-    total += sizeof( ATTACK_DATA      ) * top_attack;
-    total += sizeof( CONNECTION_DATA  ) * top_connection;
-    total += sizeof( NOTE_DATA        ) * top_note;
-    total += sizeof( TERRAIN_DATA     ) * top_vnum_terrain;
+    total += sizeof( BONUS       ) * top_bonus;
+    total += sizeof( ZONE        ) * top_zone;
+    total += sizeof( EXTRA_DESCR ) * top_ed;
+    total += sizeof( EXIT        ) * top_exit;
+    total += sizeof( HELP        ) * top_help;
+    total += sizeof( SPAWN       ) * top_spawn;
+    total += sizeof( SPELL       ) * top_spell;
+    total += sizeof( SKILL       ) * top_skill;
+    total += sizeof( SHOP        ) * top_shop;
+    total += sizeof( ACTOR_TEMPLATE ) * top_actor_template;
+    total += sizeof( PROP_TEMPLATE  ) * top_prop_template;
+    total += sizeof( SCENE ) * top_scene;
+    total += sizeof( SCRIPT      ) * top_script;
+    total += sizeof( VARIABLE    ) * top_variable;
+    total += sizeof( INSTANCE    ) * top_instance;
+    total += sizeof( PLAYER      ) * top_player;
+    total += sizeof( PROP        ) * top_prop;
+    total += sizeof( PLAYER      ) * top_userdata;
+    total += sizeof( ATTACK      ) * top_attack;
+    total += sizeof( CONNECTION  ) * top_connection;
+    total += sizeof( NOTE        ) * top_note;
+    total += sizeof( TERRAIN     ) * top_dbkey_terrain;
 
     snprintf( buf, MAX_STRING_LENGTH, "Type    %5s  %7s  [%5s] Top Vnums\n\r", "Num", "Bytes", "Each" );  send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Bonuses %5d  %7d  [%5d]\n\r",    (int) top_bonus,        sizeof( BONUS_DATA      ) * top_bonus,     sizeof( BONUS_DATA      ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Attacks %5d  %7d  [%5d]\n\r",    (int) top_attack,       sizeof( ATTACK_DATA      ) * top_attack,     sizeof( ATTACK_DATA      ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Descs   %5d  %7d  [%5d]\n\r",    (int) top_connection,   sizeof( CONNECTION_DATA  ) * top_connection, sizeof( CONNECTION_DATA  ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "ExDes   %5d  %7d  [%5d]\n\r",    (int) top_ed,           sizeof( EXTRA_DESCR_DATA ) * top_ed,         sizeof( EXTRA_DESCR_DATA ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Exits   %5d  %7d  [%5d]\n\r",    (int) top_exit,         sizeof( EXIT_DATA        ) * top_exit,       sizeof( EXIT_DATA        ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Helps   %5d  %7d  [%5d]\n\r",    (int) top_help,         sizeof( HELP_DATA        ) * top_help,       sizeof( HELP_DATA        ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Notes   %5d  %7d  [%5d]\n\r",    (int) top_note,         sizeof( NOTE_DATA        ) * top_note,       sizeof( NOTE_DATA        ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Zones   %5d  %7d  [%5d]\n\r",    (int) top_zone,         sizeof( ZONE_DATA        ) * top_zone,       sizeof( ZONE_DATA        ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "MobIndx %5d  %7d  [%5d] %d\n\r", (int) top_actor_index,  sizeof( ACTOR_INDEX_DATA   ) * top_actor_index,  sizeof( ACTOR_INDEX_DATA   ), top_vnum_actor    ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "ObjIndx %5d  %7d  [%5d] %d\n\r", (int) top_prop_index,   sizeof( PROP_INDEX_DATA   ) * top_prop_index,  sizeof( PROP_INDEX_DATA   ), top_vnum_prop    ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Scenes  %5d  %7d  [%5d] %d\n\r", (int) top_scene,        sizeof( SCENE_INDEX_DATA  ) * top_scene,       sizeof( SCENE_INDEX_DATA  ), top_vnum_scene   ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Scripts %5d  %7d  [%5d] %d\n\r", (int) top_script,       sizeof( SCRIPT_DATA      ) * top_script,     sizeof( SCRIPT_DATA      ), top_vnum_script ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Cues    %5d  %7d  [%5d]\n\r",    (int) top_spawn,        sizeof( SPAWN_DATA       ) * top_spawn,      sizeof( SPAWN_DATA       ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Terrain %5d  %7d  [%5d]\n\r",    (int) top_vnum_terrain, sizeof(TERRAIN_DATA   ) * top_vnum_terrain, sizeof(TERRAIN_DATA    ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Spells  %5d  %7d  [%5d] %d\n\r", (int) top_spell,        sizeof( SCENE_INDEX_DATA  ) * top_spell,       sizeof( SPELL_DATA  ), top_vnum_spell   ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Skills  %5d  %7d  [%5d] %d\n\r", (int) top_skill,        sizeof( SKILL_DATA  ) * top_skill,       sizeof( SKILL_DATA  ), top_vnum_skill   ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Shops   %5d  %7d  [%5d]\n\r",    (int) top_shop,         sizeof( SHOP_DATA        ) * top_shop,       sizeof( SHOP_DATA        ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Trigs   %5d  %7d  [%5d]\n\r",    (int) top_instance,     sizeof( INSTANCE_DATA     ) * top_instance,    sizeof( INSTANCE_DATA     ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Vars    %5d  %7d  [%5d]\n\r",    (int) top_variable,     sizeof( VARIABLE_DATA    ) * top_variable,   sizeof( VARIABLE_DATA    ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "CharD   %5d  %7d  [%5d]\n\r",    (int) top_player_data,  sizeof( PLAYER_DATA        ) * top_player_data,  sizeof( PLAYER_DATA        ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "ObjD    %5d  %7d  [%5d]\n\r",    (int) top_prop,         sizeof( PROP_DATA         ) * top_prop,        sizeof( PROP_DATA         ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "PcD     %5d  %7d  [%5d]\n\r",    (int) top_userdata,     sizeof( PLAYER_DATA          ) * top_userdata,     sizeof( PLAYER_DATA          ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Bonuses %5d  %7d  [%5d]\n\r",    (int) top_bonus,        sizeof( BONUS      ) * top_bonus,     sizeof( BONUS      ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Attacks %5d  %7d  [%5d]\n\r",    (int) top_attack,       sizeof( ATTACK      ) * top_attack,     sizeof( ATTACK      ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Descs   %5d  %7d  [%5d]\n\r",    (int) top_connection,   sizeof( CONNECTION  ) * top_connection, sizeof( CONNECTION  ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "ExDes   %5d  %7d  [%5d]\n\r",    (int) top_ed,           sizeof( EXTRA_DESCR ) * top_ed,         sizeof( EXTRA_DESCR ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Exits   %5d  %7d  [%5d]\n\r",    (int) top_exit,         sizeof( EXIT        ) * top_exit,       sizeof( EXIT        ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Helps   %5d  %7d  [%5d]\n\r",    (int) top_help,         sizeof( HELP        ) * top_help,       sizeof( HELP        ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Notes   %5d  %7d  [%5d]\n\r",    (int) top_note,         sizeof( NOTE        ) * top_note,       sizeof( NOTE        ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Zones   %5d  %7d  [%5d]\n\r",    (int) top_zone,         sizeof( ZONE        ) * top_zone,       sizeof( ZONE        ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "MobIndx %5d  %7d  [%5d] %d\n\r", (int) top_actor_template,  sizeof( ACTOR_TEMPLATE   ) * top_actor_template,  sizeof( ACTOR_TEMPLATE   ), top_dbkey_actor    ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "ObjIndx %5d  %7d  [%5d] %d\n\r", (int) top_prop_template,   sizeof( PROP_TEMPLATE   ) * top_prop_template,  sizeof( PROP_TEMPLATE   ), top_dbkey_prop    ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Scenes  %5d  %7d  [%5d] %d\n\r", (int) top_scene,        sizeof( SCENE  ) * top_scene,       sizeof( SCENE  ), top_dbkey_scene   ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Scripts %5d  %7d  [%5d] %d\n\r", (int) top_script,       sizeof( SCRIPT      ) * top_script,     sizeof( SCRIPT      ), top_dbkey_script ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Cues    %5d  %7d  [%5d]\n\r",    (int) top_spawn,        sizeof( SPAWN       ) * top_spawn,      sizeof( SPAWN       ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Terrain %5d  %7d  [%5d]\n\r",    (int) top_dbkey_terrain, sizeof(TERRAIN   ) * top_dbkey_terrain, sizeof(TERRAIN    ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Spells  %5d  %7d  [%5d] %d\n\r", (int) top_spell,        sizeof( SCENE  ) * top_spell,       sizeof( SPELL  ), top_dbkey_spell   ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Skills  %5d  %7d  [%5d] %d\n\r", (int) top_skill,        sizeof( SKILL  ) * top_skill,       sizeof( SKILL  ), top_dbkey_skill   ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Shops   %5d  %7d  [%5d]\n\r",    (int) top_shop,         sizeof( SHOP        ) * top_shop,       sizeof( SHOP        ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Trigs   %5d  %7d  [%5d]\n\r",    (int) top_instance,     sizeof( INSTANCE     ) * top_instance,    sizeof( INSTANCE     ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Vars    %5d  %7d  [%5d]\n\r",    (int) top_variable,     sizeof( VARIABLE    ) * top_variable,   sizeof( VARIABLE    ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "CharD   %5d  %7d  [%5d]\n\r",    (int) top_player,  sizeof( PLAYER        ) * top_player,  sizeof( PLAYER        ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "ObjD    %5d  %7d  [%5d]\n\r",    (int) top_prop,         sizeof( PROP         ) * top_prop,        sizeof( PROP         ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "PcD     %5d  %7d  [%5d]\n\r",    (int) top_userdata,     sizeof( PLAYER          ) * top_userdata,     sizeof( PLAYER          ) ); send_to_actor( buf, ch );
     snprintf( buf, MAX_STRING_LENGTH, "Socials %5d  %7d  [%5d]\n\r",    (int) social_count,     sizeof( struct social_type ) * social_count, sizeof( struct social_type ) ); send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Actors  %5d  %7d  [%5d]*\n\r",   (int) count_actor,      count_actor * sizeof( PLAYER_DATA ),             sizeof( PLAYER_DATA ) );        send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Objects %5d  %7d  [%5d]*\n\r",   (int) count_prop,       count_prop * sizeof( PROP_DATA  ),             sizeof( PROP_DATA  ) );        send_to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Players %5d  %7d  [%5d]*\n\r",   (int) count_plr,        count_plr * (sizeof( PLAYER_DATA ) + sizeof( PLAYER_DATA )), sizeof( PLAYER_DATA ) + sizeof( PLAYER_DATA ) ); send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Actors  %5d  %7d  [%5d]*\n\r",   (int) count_actor,      count_actor * sizeof( PLAYER ),             sizeof( PLAYER ) );        send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Objects %5d  %7d  [%5d]*\n\r",   (int) count_prop,       count_prop * sizeof( PROP  ),             sizeof( PROP  ) );        send_to_actor( buf, ch );
+    snprintf( buf, MAX_STRING_LENGTH, "Players %5d  %7d  [%5d]*\n\r",   (int) count_plr,        count_plr * (sizeof( PLAYER ) + sizeof( PLAYER )), sizeof( PLAYER ) + sizeof( PLAYER ) ); send_to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Total type allocation is %d bytes.\n\r", total );
     send_to_actor( buf, ch );

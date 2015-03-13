@@ -26,7 +26,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -57,7 +57,7 @@
 #include "nimud.h"
 #include "board.h"
  
-const struct board_data board_table [MAX_BOARD] =
+const struct board board_table [MAX_BOARD] =
 {
  /* Name of Board           Filename        Write Level     Read Level      */
   { "(OOC) Immortal",       "board1.txt",   LEVEL_IMMORTAL, LEVEL_IMMORTAL   },
@@ -129,7 +129,7 @@ const struct board_data board_table [MAX_BOARD] =
 
 extern char                    strzone[MAX_INPUT_LENGTH]; 
 extern FILE *                  fpZone;
-extern NOTE_DATA *             note_free;
+extern NOTE *             note_free;
 
 /*
  * Careful when creating a verbose bulletin list, as each one will end
@@ -141,14 +141,14 @@ extern NOTE_DATA *             note_free;
  * ones, so keep it to a minimum.
  */
  
-struct note_data     *note_list[MAX_BOARD];
-struct note_data     note_zero;
+struct note     *note_list[MAX_BOARD];
+struct note     note_zero;
  
 /*
  * this structure is as good as any, might as well use it...
-struct  note_data
+struct  note
 {
-    NOTE_DATA * next;
+    NOTE * next;
     char *      sender;
     char *      date;
     char *      to_list;
@@ -159,7 +159,7 @@ struct  note_data
  */
  
  
-bool is_note_to  args( ( PLAYER_DATA *ch, int board, NOTE_DATA *pnote ) );
+bool is_note_to  args( ( PLAYER *ch, int board, NOTE *pnote ) );
 
 #define CAN_WRITE(ch, boardnum)  ( get_trust( ch ) >=                    \
                                    board_table[boardnum].writelevel )
@@ -170,8 +170,8 @@ bool is_note_to  args( ( PLAYER_DATA *ch, int board, NOTE_DATA *pnote ) );
 void fread_board( int b )
 {
     FILE *fp;
-    NOTE_DATA *pnote;
-    NOTE_DATA *pnotelast;
+    NOTE *pnote;
+    NOTE *pnotelast;
     char *word;
     bool fMatch;
     int count = 0;
@@ -269,11 +269,11 @@ void load_boards( void )
 }
  
 
-void note_remove( PLAYER_DATA *ch, NOTE_DATA *pnote, int b )
+void note_remove( PLAYER *ch, NOTE *pnote, int b )
 {
     char to_new[MAX_INPUT_LENGTH];
     char to_one[MAX_INPUT_LENGTH];
-    NOTE_DATA *prev;
+    NOTE *prev;
     char *to_list;
  
     /*
@@ -343,7 +343,7 @@ void note_remove( PLAYER_DATA *ch, NOTE_DATA *pnote, int b )
 void save_board( int b )
 {
     char buf[MAX_STRING_LENGTH];
-    NOTE_DATA *pnote;
+    NOTE *pnote;
     FILE *fp;
     
     fclose( fpReserve );
@@ -374,7 +374,7 @@ void save_board( int b )
  
  
  
-bool is_note_to( PLAYER_DATA *ch, int board, NOTE_DATA *pnote )
+bool is_note_to( PLAYER *ch, int board, NOTE *pnote )
 {
     if ( !str_cmp( STR(ch,name), pnote->sender ) )
         return TRUE;
@@ -398,9 +398,9 @@ bool is_note_to( PLAYER_DATA *ch, int board, NOTE_DATA *pnote )
 }
  
  
-void note_attach( PLAYER_DATA *ch )
+void note_attach( PLAYER *ch )
 {
-    NOTE_DATA *pnote;
+    NOTE *pnote;
  
     if ( ch->pnote != NULL )
         return;
@@ -445,18 +445,18 @@ void note_attach( PLAYER_DATA *ch )
  *          note show
  *          note anonymous
  */
-void cmd_note( PLAYER_DATA *ch, char *argument )
+void cmd_note( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char buf1[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
-    NOTE_DATA *pnote;
-    int vnum;
+    NOTE *pnote;
+    int dbkey;
     int anum;
-    PROP_DATA *prop;
+    PROP *prop;
     int bnum;
     
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
         return;
  
     buf1[0] = '\0';
@@ -506,10 +506,10 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
         }
  
         anum = atoi( argument );
-        vnum = 1;
+        dbkey = 1;
         for ( pnote = note_list[bnum]; pnote != NULL; pnote = pnote->next )
         {
-        if ( is_note_to( ch, bnum, pnote ) && vnum++ == anum )
+        if ( is_note_to( ch, bnum, pnote ) && dbkey++ == anum )
         {
                 note_remove( ch, pnote, bnum ); 
                 save_board( bnum );
@@ -525,7 +525,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg, "list" ) )
     {
-        vnum = 1;
+        dbkey = 1;
         snprintf( buf, MAX_STRING_LENGTH, "The following notes are on the %s board:\n\r", 
                       board_table[bnum].name );
         send_to_actor( buf, ch );
@@ -534,13 +534,13 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
             if ( is_note_to( ch, bnum, pnote ) )
               {
         snprintf( buf, MAX_STRING_LENGTH, "[%-3d %18s] %s to %s: %s\n\r",
-            vnum,
+            dbkey,
             pnote->date,
              IS_SET(pnote->note_flags, NOTE_ANONYMOUS)
                  ? "Anonymous" : pnote->sender,
             pnote->to_list, pnote->subject );
                 strcat( buf1, buf );
-                vnum++;
+                dbkey++;
     }
     }
         if ( buf1[0] == '\0' ) sprintf( buf1, "None.\n\r" );
@@ -571,7 +571,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
         else if ( argument[0] == '\0' || !str_prefix( argument, "next" ) )
           /* read next unread note */
         {
-            vnum = 1;
+            dbkey = 1;
             for ( pnote = note_list[bnum]; pnote != NULL; pnote = pnote->next )
             {
                 if ( is_note_to( ch, bnum, pnote )
@@ -579,7 +579,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
                     && PC(ch,last_note) < pnote->date_stamp )
                   {
                     snprintf( buf, MAX_STRING_LENGTH, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
-                            vnum,
+                            dbkey,
                             IS_SET(pnote->note_flags, NOTE_ANONYMOUS)
                              && !IS_IMMORTAL(ch)
                                  ? "Anonymous" : pnote->sender,
@@ -594,7 +594,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
                     act( "$n studies a note on $p for a while.", ch, prop, NULL, TO_SCENE );
                     return;
                 }
-                else vnum++;
+                else dbkey++;
             }
             send_to_actor( "You have no unread notes.\n\r", ch );
             return;
@@ -605,13 +605,13 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
             return;
         }
  
-        vnum = 1;
+        dbkey = 1;
         for ( pnote = note_list[bnum]; pnote != NULL; pnote = pnote->next )
         {
-            if ( is_note_to( ch, bnum, pnote ) && ( vnum++ == anum || fAll ) )
+            if ( is_note_to( ch, bnum, pnote ) && ( dbkey++ == anum || fAll ) )
             {
                 snprintf( buf, MAX_STRING_LENGTH, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
-                      vnum - 1,
+                      dbkey - 1,
                       IS_SET(pnote->note_flags, NOTE_ANONYMOUS)
                          && !IS_IMMORTAL(ch)  ? "Anonymous"
                                               : pnote->sender,
@@ -673,7 +673,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
 
         for ( pnote = note_list[bnum]; pnote != NULL; )
           {
-            NOTE_DATA *pnote_next;
+            NOTE *pnote_next;
             pnote_next = pnote->next;
 
             if ( is_name( "all", pnote->to_list ) && str_cmp( pnote->subject, "[Digest]" ) )

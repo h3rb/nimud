@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -57,12 +57,12 @@
 #include "script.h"
 #include "defaults.h"
 
-EVENT_DATA *event_queue;
+EVENT *event_queue;
 
-void assign_var_trig( void * owner, int type, INSTANCE_DATA *instance, 
-                      VARIABLE_DATA *var, char *name )
+void assign_var_trig( void * owner, int type, INSTANCE *instance, 
+                      VARIABLE *var, char *name )
 {
-    VARIABLE_DATA *v;
+    VARIABLE *v;
 
     if (instance == NULL ) return;
     if (var == NULL) return;
@@ -82,21 +82,21 @@ void assign_var_trig( void * owner, int type, INSTANCE_DATA *instance,
 /*
  * Adds a scripted event to the queue.
  */ 
-void add_event( void * owner, int type, int vnum, int delay, 
-                char *special, PLAYER_DATA *actor, PLAYER_DATA *target,
-                PROP_DATA *catalyst, char *astr, char *bstr   ) 
+void add_event( void * owner, int type, int dbkey, int delay, 
+                char *special, PLAYER *actor, PLAYER *target,
+                PROP *catalyst, char *astr, char *bstr   ) 
 {
-    EVENT_DATA *pEvent;
-    SCRIPT_DATA *script;
-    INSTANCE_DATA *pTrig;
-    VARIABLE_DATA *var;
+    EVENT *pEvent;
+    SCRIPT *script;
+    INSTANCE *pTrig;
+    VARIABLE *var;
 
-    script = get_script_index( vnum );
+    script = get_script_index( dbkey );
     if ( script == NULL ) return;
     if ( owner == NULL ) return; 
 
     pTrig = new_instance( );    
-    pEvent = new_event_data( ); 
+    pEvent = new_event( ); 
 
     pEvent->time = delay;
     pEvent->instance = pTrig;
@@ -108,11 +108,11 @@ void add_event( void * owner, int type, int vnum, int delay,
     if ( actor )
             {
                 var->type  = TYPE_ACTOR;
-                var->value = (PLAYER_DATA *)actor;
+                var->value = (PLAYER *)actor;
                 assign_var_trig( owner, type, pTrig, var, "%actor%" );
 
                 var->type = TYPE_STRING;
-                var->value = (char *)str_dup( STR((PLAYER_DATA *)actor,name));
+                var->value = (char *)str_dup( STR((PLAYER *)actor,name));
                 assign_var_trig( owner, type, pTrig, var, "%aname%" );
                 free_string((char *)var->value);
             }
@@ -120,11 +120,11 @@ void add_event( void * owner, int type, int vnum, int delay,
     if ( target )
             {
                 var->type  = TYPE_ACTOR;
-                var->value = (PLAYER_DATA *)target;
+                var->value = (PLAYER *)target;
                 assign_var_trig( owner, type, pTrig, var, "%target%" );
 
                 var->type = TYPE_STRING;
-                var->value = (char *)str_dup( STR((PLAYER_DATA *)target,name));
+                var->value = (char *)str_dup( STR((PLAYER *)target,name));
                 assign_var_trig( owner, type, pTrig, var, "%tname%" );
                 free_string((char *)var->value);
             }
@@ -134,7 +134,7 @@ void add_event( void * owner, int type, int vnum, int delay,
      if ( catalyst )
             {
                 var->type = TYPE_PROP;
-                var->value = (PROP_DATA *)catalyst;
+                var->value = (PROP *)catalyst;
                 assign_var_trig( owner, type, pTrig, var, "%catalyst%" );
             }
 
@@ -165,11 +165,11 @@ void add_event( void * owner, int type, int vnum, int delay,
 }
 
 
-void rem_event( EVENT_DATA *event ) 
+void rem_event( EVENT *event ) 
 {
-    EVENT_DATA *pEvent;
-    EVENT_DATA *event_next;
-    EVENT_DATA *event_prev;    
+    EVENT *pEvent;
+    EVENT *event_next;
+    EVENT *event_prev;    
 
     if ( event == NULL || event_queue == NULL ) return;
 
@@ -178,7 +178,7 @@ void rem_event( EVENT_DATA *event )
      */
     if ( event == event_queue ) {
          event_queue = event->next; 
-         free_event_data( event );  
+         free_event( event );  
          return; 
     }
 
@@ -194,7 +194,7 @@ void rem_event( EVENT_DATA *event )
     if ( pEvent == NULL ) return;
 
     pEvent->next = NULL;
-    free_event_data( event );
+    free_event( event );
     return;
     }
 
@@ -210,7 +210,7 @@ void rem_event( EVENT_DATA *event )
                    event_prev = event_prev->next ) {
                  if ( event_prev->next == event ) {
                       event_prev->next = event_prev->next->next;
-                      free_event_data( event );
+                      free_event( event );
                     }
                }
         }
@@ -224,8 +224,8 @@ void rem_event( EVENT_DATA *event )
  * Updates future events, removes past events, runs all current events 
  */
 void update_event( void ) {
-    EVENT_DATA *pEvent;
-    EVENT_DATA *pEvent_next;
+    EVENT *pEvent;
+    EVENT *pEvent_next;
 
     for ( pEvent = event_queue;  pEvent != NULL;  pEvent = pEvent_next ) {
          pEvent_next = pEvent->next;
@@ -239,7 +239,7 @@ void update_event( void ) {
 }  
 
 void clear_events( void * owner, int type ) {
-    EVENT_DATA *pEvent, *pEvent_next;
+    EVENT *pEvent, *pEvent_next;
 
     for ( pEvent = event_queue; pEvent != NULL; pEvent = pEvent_next )  {
           pEvent_next = pEvent->next; 
@@ -249,12 +249,12 @@ void clear_events( void * owner, int type ) {
 } 
 
 
-void cmd_events( PLAYER_DATA *ch, char *argument ) {
-    PROP_DATA *pProp = NULL;
-    PLAYER_DATA *pActor = NULL;
-    SCENE_INDEX_DATA *pScene = NULL;
+void cmd_events( PLAYER *ch, char *argument ) {
+    PROP *pProp = NULL;
+    PLAYER *pActor = NULL;
+    SCENE *pScene = NULL;
     char buf[MAX_STRING_LENGTH];
-    EVENT_DATA *pEvent;
+    EVENT *pEvent;
 
     send_to_actor( "Current events:\n\r", ch );
     for ( pEvent = event_queue;   pEvent != NULL;   pEvent = pEvent->next ) {
@@ -264,11 +264,11 @@ void cmd_events( PLAYER_DATA *ch, char *argument ) {
           pScene = NULL;
 
           if ( pEvent->type == TYPE_ACTOR ) 
-          pActor = (PLAYER_DATA *)(pEvent->owner); 
+          pActor = (PLAYER *)(pEvent->owner); 
           if ( pEvent->type == TYPE_PROP ) 
-          pProp = (PROP_DATA *)(pEvent->owner); 
+          pProp = (PROP *)(pEvent->owner); 
           if ( pEvent->type == TYPE_SCENE ) 
-          pScene = (SCENE_INDEX_DATA *)(pEvent->owner);
+          pScene = (SCENE *)(pEvent->owner);
           if ( pEvent->type == TYPE_STRING ) continue;  
 
           snprintf( buf, MAX_STRING_LENGTH, "Delay: [%5d]   Caller: [%11s]   Name: [%11s]\n\r",

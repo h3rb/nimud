@@ -25,14 +25,14 @@ void wtf_logf(char *fmt, ...)
 
 int main(int argc, char **argv)
 {
-	CONNECTION_DATA *d;
+	CONNECTION *d;
 	char input[MAX_INPUT_LENGTH], output[MAX_INPUT_LENGTH];
 
-	ALLOCMEM(mud, MUD_DATA, 1);
+	ALLOCMEM(mud, MUD, 1);
 
 	ALLOCMEM(mud->mccp_buf, unsigned char, COMPRESS_BUF_SIZE);
 
-	ALLOCMEM(d, CONNECTION_DATA, 1);
+	ALLOCMEM(d, CONNECTION, 1);
 
 	d->host = strdup("internal");
 
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 	Send response generated above to recv_sb_mssp() in client.c for interpretation
 */
 
-int write_to_descriptor(CONNECTION_DATA *d, char *txt, int length)
+int write_to_descriptor(CONNECTION *d, char *txt, int length)
 {
 	debug_telopts(d, txt, length);
 

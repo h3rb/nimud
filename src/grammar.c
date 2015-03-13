@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -47,10 +47,10 @@
 /*
  * Find a prop in a list.
  */
-PROP_DATA *get_prop_list( PLAYER_DATA *ch, char *argument, PROP_DATA *list )
+PROP *get_prop_list( PLAYER *ch, char *argument, PROP *list )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int number;
     int count;
 
@@ -72,10 +72,10 @@ PROP_DATA *get_prop_list( PLAYER_DATA *ch, char *argument, PROP_DATA *list )
 /*
  * Find a prop in a list.
  */
-PROP_DATA *find_prop_list( PROP_DATA *list, char *argument )
+PROP *find_prop_list( PROP *list, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int number;
     int count;
 
@@ -98,10 +98,10 @@ PROP_DATA *find_prop_list( PROP_DATA *list, char *argument )
 /*
  * Find a prop in player's hands.
  */
-PROP_DATA *get_prop_carry( PLAYER_DATA *ch, char *argument )
+PROP *get_prop_carry( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int number;
     int count;
 
@@ -132,10 +132,10 @@ PROP_DATA *get_prop_carry( PLAYER_DATA *ch, char *argument )
 /*
  * Find a prop in player's equipment.
  */
-PROP_DATA *get_prop_wear( PLAYER_DATA *ch, char *argument )
+PROP *get_prop_wear( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int number;
     int count;
     int iWear;
@@ -165,9 +165,9 @@ PROP_DATA *get_prop_wear( PLAYER_DATA *ch, char *argument )
 /*
  * Find a prop in the character's inventory top level.
  */
-PROP_DATA *get_prop_inv( PLAYER_DATA *ch, char *argument )
+PROP *get_prop_inv( PLAYER *ch, char *argument )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     char arg[MAX_INPUT_LENGTH];
     int number;
     int count;
@@ -190,9 +190,9 @@ PROP_DATA *get_prop_inv( PLAYER_DATA *ch, char *argument )
 /*
  * Find a prop in the character's inventory top level, second level.
  */
-PROP_DATA *get_prop_inv2( PLAYER_DATA *ch, char *argument )
+PROP *get_prop_inv2( PLAYER *ch, char *argument )
 {
-    PROP_DATA *prop, *prop2;
+    PROP *prop, *prop2;
     char arg[MAX_INPUT_LENGTH];
     int number;
     int count;
@@ -227,9 +227,9 @@ PROP_DATA *get_prop_inv2( PLAYER_DATA *ch, char *argument )
 /*
  * Find a prop in the scene or in inventory.
  */
-PROP_DATA *get_prop_here( PLAYER_DATA *ch, char *argument )
+PROP *get_prop_here( PLAYER *ch, char *argument )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( ( prop = get_prop_inv( ch, argument ) ) != NULL )
     return prop;
@@ -247,10 +247,10 @@ PROP_DATA *get_prop_here( PLAYER_DATA *ch, char *argument )
 /*
  * Find a prop in the world.
  */
-PROP_DATA *get_prop_world( PLAYER_DATA *ch, char *argument )
+PROP *get_prop_world( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int number;
     int count;
 
@@ -402,7 +402,7 @@ int argument_interpreter( char *argument, char *first_arg, char *second_arg,
  *	  "look 'short sword'"
  *	  "look 'at a short sword'"
 
-PROP_DATA *get_prop_nearby( PLAYER_DATA *ch, char *argument )
+PROP *get_prop_nearby( PLAYER *ch, char *argument )
 {
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];

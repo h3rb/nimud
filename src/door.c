@@ -26,7 +26,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Merc Diku Mud improvments copyright (C) 1992, 1993 by Michael             *
@@ -84,9 +84,9 @@ char * get_direction( char *arg )
 }
 
 
-int find_door( PLAYER_DATA *ch, char *arg )
+int find_door( PLAYER *ch, char *arg )
 {
-    EXIT_DATA *pexit;
+    EXIT *pexit;
     int door;
 
     if ( ( door = get_dir( arg ) ) == MAX_DIR )
@@ -94,7 +94,7 @@ int find_door( PLAYER_DATA *ch, char *arg )
        for ( door = 0; door < MAX_DIR; door++ )
        {
            if ( ( pexit = ch->in_scene->exit[door] ) != NULL
-             && IS_SET(pexit->exit_info, EX_ISDOOR)
+             && IS_SET(pexit->exit_flags, EXIT_ISDOOR)
              && !MTD(pexit->keyword)
              && is_name( arg, pexit->keyword ) )
            return door;
@@ -107,15 +107,15 @@ int find_door( PLAYER_DATA *ch, char *arg )
     pexit = ch->in_scene->exit[door];
 
     if ( pexit != NULL 
-      && IS_SET( pexit->exit_info, EX_SECRET )
-      && IS_SET( pexit->exit_info, EX_CLOSED ) )
+      && IS_SET( pexit->exit_flags, EXIT_SECRET )
+      && IS_SET( pexit->exit_flags, EXIT_CLOSED ) )
     {
         act( "I see no door $T here.", ch, NULL, get_direction(arg), TO_ACTOR );
         return MAX_DIR;
     }
 
     if ( pexit != NULL 
-      && IS_SET( pexit->exit_info, EX_CONCEALED ) )
+      && IS_SET( pexit->exit_flags, EXIT_CONCEALED ) )
     {
         act( "I see no door $T here.", ch, NULL, get_direction(arg), TO_ACTOR );
         return MAX_DIR;
@@ -127,7 +127,7 @@ int find_door( PLAYER_DATA *ch, char *arg )
        return MAX_DIR;
     }
 
-    if ( !IS_SET(pexit->exit_info, EX_ISDOOR) )
+    if ( !IS_SET(pexit->exit_flags, EXIT_ISDOOR) )
     {
        send_to_actor( "You cannot do that.\n\r", ch );
        return MAX_DIR;
@@ -143,10 +143,10 @@ int find_door( PLAYER_DATA *ch, char *arg )
  *          open [direction]
  *          open [prop]
  */
-void cmd_open( PLAYER_DATA *ch, char *argument )
+void cmd_open( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int door;
 
     one_argument( argument, arg );
@@ -193,40 +193,40 @@ void cmd_open( PLAYER_DATA *ch, char *argument )
 
     if ( ( door = find_door( ch, arg ) ) != MAX_DIR )
     {
-        SCENE_INDEX_DATA *to_scene;
-        EXIT_DATA *pexit;
-        EXIT_DATA *pexit_rev;
+        SCENE *to_scene;
+        EXIT *pexit;
+        EXIT *pexit_rev;
 
         pexit = ch->in_scene->exit[door];
 
-        if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
+        if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
         {
             send_to_actor( "It is already open.\n\r",  ch );
             return;
         }
 
-        if ( IS_SET(pexit->exit_info, EX_LOCKED) )
+        if ( IS_SET(pexit->exit_flags, EXIT_LOCKED) )
         {
             send_to_actor( "It is locked.\n\r", ch );
             return;
         }
 
-        if ( IS_SET(pexit->exit_info, EX_JAMMED) )
+        if ( IS_SET(pexit->exit_flags, EXIT_JAMMED) )
         {
             send_to_actor( "It is jammed shut.\n\r", ch );
             return;
         }
 
-        REMOVE_BIT(pexit->exit_info, EX_CLOSED);
+        REMOVE_BIT(pexit->exit_flags, EXIT_CLOSED);
         act( "$n open$v the $t.", ch, pexit->keyword, NULL, TO_ALL );
 
         if ( ( to_scene   = pexit->to_scene               ) != NULL
           && ( pexit_rev = to_scene->exit[rev_dir[door]] ) != NULL
           && pexit_rev->to_scene == ch->in_scene )
         {
-            PLAYER_DATA *rch;
+            PLAYER *rch;
 
-            REMOVE_BIT( pexit_rev->exit_info, EX_CLOSED );
+            REMOVE_BIT( pexit_rev->exit_flags, EXIT_CLOSED );
             for ( rch = to_scene->people; rch != NULL; rch = rch->next_in_scene )
             act( "The $T opens.", rch, NULL, pexit_rev->keyword, TO_ACTOR );
         }
@@ -242,10 +242,10 @@ void cmd_open( PLAYER_DATA *ch, char *argument )
  *          close [direction]
  *          close [prop]
  */
-void cmd_close( PLAYER_DATA *ch, char *argument )
+void cmd_close( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int door;
 
     one_argument( argument, arg );
@@ -286,34 +286,34 @@ void cmd_close( PLAYER_DATA *ch, char *argument )
 
     if ( ( door = find_door( ch, arg ) ) != MAX_DIR )
     {
-	SCENE_INDEX_DATA *to_scene;
-	EXIT_DATA *pexit;
-	EXIT_DATA *pexit_rev;
+	SCENE *to_scene;
+	EXIT *pexit;
+	EXIT *pexit_rev;
 
 	pexit	= ch->in_scene->exit[door];
 
-	if ( IS_SET(pexit->exit_info, EX_CLOSED) )
+	if ( IS_SET(pexit->exit_flags, EXIT_CLOSED) )
     {
         send_to_actor( "It is already closed.\n\r", ch );
         return;
     }
 
-    if ( IS_SET(pexit->exit_info, EX_JAMMED) )
+    if ( IS_SET(pexit->exit_flags, EXIT_JAMMED) )
     {
         send_to_actor( "It is jammed open.\n\r", ch );
         return;
     }
 
-	SET_BIT(pexit->exit_info, EX_CLOSED);
+	SET_BIT(pexit->exit_flags, EXIT_CLOSED);
     act( "$n close$v the $t.", ch, pexit->keyword, NULL, TO_ALL );
 
 	if ( ( to_scene   = pexit->to_scene               ) != NULL
 	&&   ( pexit_rev = to_scene->exit[rev_dir[door]] ) != 0
 	&&   pexit_rev->to_scene == ch->in_scene )
 	{
-	    PLAYER_DATA *rch;
+	    PLAYER *rch;
 
-	    SET_BIT( pexit_rev->exit_info, EX_CLOSED );
+	    SET_BIT( pexit_rev->exit_flags, EXIT_CLOSED );
 	    for ( rch = to_scene->people; rch != NULL; rch = rch->next_in_scene )
         act( "The $T closes.", rch, NULL, pexit_rev->keyword, TO_ACTOR );
 	}
@@ -324,12 +324,12 @@ void cmd_close( PLAYER_DATA *ch, char *argument )
 
 
 
-PROP_DATA *has_key( PLAYER_DATA *ch, int key )
+PROP *has_key( PLAYER *ch, int key )
 {
-   PROP_DATA *prop;
+   PROP *prop;
 
    for ( prop = ch->carrying; prop != NULL; prop = prop->next_content )
-   if ( prop->pIndexData->vnum == key ) return prop;
+   if ( prop->pIndexData->dbkey == key ) return prop;
 
    return NULL;
 }
@@ -341,12 +341,12 @@ PROP_DATA *has_key( PLAYER_DATA *ch, int key )
  *          lock [direction]
  *          lock [prop]
  */
-void cmd_lock( PLAYER_DATA *ch, char *argument )
+void cmd_lock( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int door;
-    PROP_DATA *key;
+    PROP *key;
 
     one_argument( argument, arg );
 
@@ -401,9 +401,9 @@ void cmd_lock( PLAYER_DATA *ch, char *argument )
 
     if ( ( door = find_door( ch, arg ) ) >= 0 )
     {
-       SCENE_INDEX_DATA *to_scene;
-       EXIT_DATA *pexit;
-       EXIT_DATA *pexit_rev;
+       SCENE *to_scene;
+       EXIT *pexit;
+       EXIT *pexit_rev;
 
 
        pexit   = ch->in_scene->exit[door];
@@ -414,7 +414,7 @@ void cmd_lock( PLAYER_DATA *ch, char *argument )
            return;
        }
 
-       if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
+       if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
        {
            send_to_actor( "It is not closed.\n\r", ch );
            return;
@@ -432,13 +432,13 @@ void cmd_lock( PLAYER_DATA *ch, char *argument )
            return;
        }
 
-       if ( IS_SET(pexit->exit_info, EX_LOCKED) )
+       if ( IS_SET(pexit->exit_flags, EXIT_LOCKED) )
        {
            send_to_actor( "It is already locked.\n\r", ch );
            return;
        }
 
-       SET_BIT(pexit->exit_info, EX_LOCKED);
+       SET_BIT(pexit->exit_flags, EXIT_LOCKED);
        if ( key != NULL )
        act( "You lock it with $P.", ch, prop, key, TO_ACTOR );
        else
@@ -449,9 +449,9 @@ void cmd_lock( PLAYER_DATA *ch, char *argument )
        &&   ( pexit_rev = to_scene->exit[rev_dir[door]] ) != 0
        &&   pexit_rev->to_scene == ch->in_scene )
        {
-           PLAYER_DATA *rch;
+           PLAYER *rch;
 
-           SET_BIT( pexit_rev->exit_info, EX_LOCKED );
+           SET_BIT( pexit_rev->exit_flags, EXIT_LOCKED );
            for ( rch = to_scene->people; rch != NULL; rch = rch->next_in_scene )
            act( "The $T clicks.", rch, NULL, pexit_rev->keyword, TO_ACTOR );
        }
@@ -467,12 +467,12 @@ void cmd_lock( PLAYER_DATA *ch, char *argument )
  *          unlock [direction]
  *          unlock [prop]
  */
-void cmd_unlock( PLAYER_DATA *ch, char *argument )
+void cmd_unlock( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int door;
-    PROP_DATA *key;
+    PROP *key;
 
     one_argument( argument, arg );
 
@@ -528,9 +528,9 @@ void cmd_unlock( PLAYER_DATA *ch, char *argument )
     if ( ( door = find_door( ch, arg ) ) >= 0 )
     {
        /* 'unlock door' */
-       SCENE_INDEX_DATA *to_scene;
-       EXIT_DATA *pexit;
-       EXIT_DATA *pexit_rev;
+       SCENE *to_scene;
+       EXIT *pexit;
+       EXIT *pexit_rev;
 
        pexit = ch->in_scene->exit[door];
        if (pexit == NULL)
@@ -539,7 +539,7 @@ void cmd_unlock( PLAYER_DATA *ch, char *argument )
              return;
        }
 
-       if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
+       if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
        {
            send_to_actor( "It is not closed.\n\r", ch );
            return;
@@ -557,23 +557,23 @@ void cmd_unlock( PLAYER_DATA *ch, char *argument )
            return;
        }
 
-       if ( !IS_SET(pexit->exit_info, EX_LOCKED) )
+       if ( !IS_SET(pexit->exit_flags, EXIT_LOCKED) )
        {
            send_to_actor( "It is already unlocked.\n\r", ch );
            return;
        }
 
-       REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+       REMOVE_BIT(pexit->exit_flags, EXIT_LOCKED);
        if ( key != NULL )
        act( "You unlock the $t with $P.", ch, pexit->keyword, key, TO_ACTOR );
        else
        act( "You unlock $p.", ch, prop, NULL, TO_ACTOR );
        act( "$n unlocks the $T.", ch, NULL, pexit->keyword, TO_SCENE );
 
-       if ( IS_SET(pexit->exit_info, EX_EAT_KEY) )
+       if ( IS_SET(pexit->exit_flags, EXIT_EAT_KEY) )
        {
        act( "The lock of the $t eats $P.", ch, pexit->keyword, key, TO_ACTOR );
-       extract_prop( key );
+       extractor_prop( key );
        }
 
        /* unlock the other side */
@@ -581,9 +581,9 @@ void cmd_unlock( PLAYER_DATA *ch, char *argument )
        &&   ( pexit_rev = to_scene->exit[rev_dir[door]] ) != NULL
        &&   pexit_rev->to_scene == ch->in_scene )
        {
-           PLAYER_DATA *rch;
+           PLAYER *rch;
 
-           REMOVE_BIT( pexit_rev->exit_info, EX_LOCKED );
+           REMOVE_BIT( pexit_rev->exit_flags, EXIT_LOCKED );
            for ( rch = to_scene->people; rch != NULL; rch = rch->next_in_scene )
            act( "The $T clicks.", rch, NULL, pexit_rev->keyword, TO_ACTOR );
        }
@@ -600,11 +600,11 @@ void cmd_unlock( PLAYER_DATA *ch, char *argument )
  *          pick [door]
  *          pick [prop]
  */
-void cmd_pick( PLAYER_DATA *ch, char *argument )
+void cmd_pick( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *gch;
-    PROP_DATA *prop;
+    PLAYER *gch;
+    PROP *prop;
     int door;
 
     one_argument( argument, arg );
@@ -615,13 +615,13 @@ void cmd_pick( PLAYER_DATA *ch, char *argument )
 	return;
     }
  
-    { SKILL_DATA *pSkill = skill_lookup( "pick" );
+    { SKILL *pSkill = skill_lookup( "pick" );
       if ( pSkill ) WAIT_STATE( ch, pSkill->delay );
     }
 
     for ( gch = ch->in_scene->people; gch; gch = gch->next_in_scene )
     {
-    if ( IS_NPC(gch) && IS_AWAKE(gch) && get_curr_int(gch) > 9 )
+    if ( NPC(gch) && IS_AWAKE(gch) && get_curr_int(gch) > 9 )
 	{
         act( "$N notices you are trying to pick a lock.", ch, NULL, gch, TO_ACTOR );
         ch->bounty += 10;
@@ -674,9 +674,9 @@ void cmd_pick( PLAYER_DATA *ch, char *argument )
 
     if ( ( door = find_door( ch, arg ) ) >= 0 )
     {
-       SCENE_INDEX_DATA *to_scene;
-       EXIT_DATA *pexit;
-       EXIT_DATA *pexit_rev;
+       SCENE *to_scene;
+       EXIT *pexit;
+       EXIT *pexit_rev;
 
        pexit = ch->in_scene->exit[door];
    
@@ -685,7 +685,7 @@ void cmd_pick( PLAYER_DATA *ch, char *argument )
            return;
        }
 
-       if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
+       if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
        {
            send_to_actor( "It is not closed.\n\r", ch );
            return;
@@ -697,19 +697,19 @@ void cmd_pick( PLAYER_DATA *ch, char *argument )
            return;
        }
 
-       if ( !IS_SET(pexit->exit_info, EX_LOCKED) )
+       if ( !IS_SET(pexit->exit_flags, EXIT_LOCKED) )
        {
            send_to_actor( "It's already unlocked.\n\r", ch );
            return;
        }
 
-       if ( IS_SET(pexit->exit_info, EX_PICKPROOF) )
+       if ( IS_SET(pexit->exit_flags, EXIT_PICKPROOF) )
        {
            send_to_actor( "You failed.\n\r", ch );
            return;
        }
 
-       REMOVE_BIT(pexit->exit_info, EX_LOCKED);
+       REMOVE_BIT(pexit->exit_flags, EXIT_LOCKED);
        act( "You pick the lock of the $T.", ch, NULL, pexit->keyword, TO_ACTOR );
        act( "$n picks the lock of the $T.", ch, NULL, pexit->keyword, TO_SCENE );
 
@@ -717,9 +717,9 @@ void cmd_pick( PLAYER_DATA *ch, char *argument )
        &&   ( pexit_rev = to_scene->exit[rev_dir[door]] ) != NULL
        &&   pexit_rev->to_scene == ch->in_scene )
        {
-           PLAYER_DATA *rch;
+           PLAYER *rch;
 
-           REMOVE_BIT( pexit_rev->exit_info, EX_LOCKED );
+           REMOVE_BIT( pexit_rev->exit_flags, EXIT_LOCKED );
            for ( rch = to_scene->people; rch != NULL; rch = rch->next_in_scene )
            act( "The $T clicks.", rch, NULL, pexit_rev->keyword, TO_ACTOR );
        }

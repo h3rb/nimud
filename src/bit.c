@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -230,7 +230,7 @@ int item_name_type( char *name )
  */
 char *bonus_loc_name( int location )
 {
-    SKILL_DATA *pIndex;
+    SKILL *pIndex;
 
     switch ( location )
     {
@@ -261,7 +261,7 @@ char *bonus_loc_name( int location )
 
 int bonus_name_loc( char* name )
 {
-    SKILL_DATA *pSkill;
+    SKILL *pSkill;
 
     if ( is_number(name) ) return atoi(name);
     if ( !str_cmp( name, "none"          ) ) return APPLY_NONE;
@@ -277,7 +277,7 @@ int bonus_name_loc( char* name )
     if ( !str_cmp( name, "hit"           ) ) return APPLY_HITROLL;
     if ( !str_cmp( name, "dam"           ) ) return APPLY_DAMROLL;
     if ( !str_cmp( name, "saving_throw"  ) ) return APPLY_SAVING_THROW;
-    if ( (pSkill=skill_lookup( name )    ) ) return pSkill->vnum;
+    if ( (pSkill=skill_lookup( name )    ) ) return pSkill->dbkey;
     return APPLY_NONE;
 }
 
@@ -291,30 +291,30 @@ char *bonus_bit_name( int vector )
     static char buf[512];
 
     buf[0] = '\0';
-    strcat( buf, ( vector & AFF_BLIND         ) ? " blind"         : "" );
-    strcat( buf, ( vector & AFF_METAMORPH     ) ? " metamorph"     : "" );
-    strcat( buf, ( vector & AFF_INVISIBLE     ) ? " invisible"     : "" );
-    strcat( buf, ( vector & AFF_DETECT_EVIL   ) ? " detect-evil"   : "" );
-    strcat( buf, ( vector & AFF_DETECT_INVIS  ) ? " detect-invis"  : "" );
-    strcat( buf, ( vector & AFF_DETECT_MAGIC  ) ? " detect-magic"  : "" );
-    strcat( buf, ( vector & AFF_DETECT_HIDDEN ) ? " detect-hidden" : "" );
-    strcat( buf, ( vector & AFF_HOLD          ) ? " hold"          : "" );
-    strcat( buf, ( vector & AFF_SANCTUARY     ) ? " sanctuary"     : "" );
-    strcat( buf, ( vector & AFF_FAERIE_FIRE   ) ? " faerie-fire"   : "" );
-    strcat( buf, ( vector & AFF_INFRARED      ) ? " infrared"      : "" );
-    strcat( buf, ( vector & AFF_CURSE         ) ? " curse"         : "" );
-    strcat( buf, ( vector & AFF_FLAMING       ) ? " flaming"       : "" );
-    strcat( buf, ( vector & AFF_POISON        ) ? " poison"        : "" );
-    strcat( buf, ( vector & AFF_PROTECT       ) ? " protect"       : "" );
-    strcat( buf, ( vector & AFF_PARALYSIS     ) ? " paralysis"     : "" );
-    strcat( buf, ( vector & AFF_SLEEP         ) ? " sleep"         : "" );
-    strcat( buf, ( vector & AFF_SNEAK         ) ? " sneak"         : "" );
-    strcat( buf, ( vector & AFF_HIDE          ) ? " hide"          : "" );
-    strcat( buf, ( vector & AFF_CHARM         ) ? " charm"         : "" );
-    strcat( buf, ( vector & AFF_FLYING        ) ? " flying"        : "" );
-    strcat( buf, ( vector & AFF_PASS_DOOR     ) ? " pass-door"     : "" );
-    strcat( buf, ( vector & AFF_FREEACTION    ) ? " free-action"   : "" );
-    strcat( buf, ( vector & AFF_BREATHING     ) ? " water-breath"  : "" );
+    strcat( buf, ( vector & BONUS_BLIND         ) ? " blind"         : "" );
+    strcat( buf, ( vector & BONUS_METAMORPH     ) ? " metamorph"     : "" );
+    strcat( buf, ( vector & BONUS_INVISIBLE     ) ? " invisible"     : "" );
+    strcat( buf, ( vector & BONUS_DETECT_EVIL   ) ? " detect-evil"   : "" );
+    strcat( buf, ( vector & BONUS_DETECT_INVIS  ) ? " detect-invis"  : "" );
+    strcat( buf, ( vector & BONUS_DETECT_MAGIC  ) ? " detect-magic"  : "" );
+    strcat( buf, ( vector & BONUS_DETECT_HIDDEN ) ? " detect-hidden" : "" );
+    strcat( buf, ( vector & BONUS_HOLD          ) ? " hold"          : "" );
+    strcat( buf, ( vector & BONUS_SANCTUARY     ) ? " sanctuary"     : "" );
+    strcat( buf, ( vector & BONUS_FAERIE_FIRE   ) ? " faerie-fire"   : "" );
+    strcat( buf, ( vector & BONUS_INFRARED      ) ? " infrared"      : "" );
+    strcat( buf, ( vector & BONUS_CURSE         ) ? " curse"         : "" );
+    strcat( buf, ( vector & BONUS_FLAMING       ) ? " flaming"       : "" );
+    strcat( buf, ( vector & BONUS_POISON        ) ? " poison"        : "" );
+    strcat( buf, ( vector & BONUS_PROTECT       ) ? " protect"       : "" );
+    strcat( buf, ( vector & BONUS_PARALYSIS     ) ? " paralysis"     : "" );
+    strcat( buf, ( vector & BONUS_SLEEP         ) ? " sleep"         : "" );
+    strcat( buf, ( vector & BONUS_SNEAK         ) ? " sneak"         : "" );
+    strcat( buf, ( vector & BONUS_HIDE          ) ? " hide"          : "" );
+    strcat( buf, ( vector & BONUS_CHARM         ) ? " charm"         : "" );
+    strcat( buf, ( vector & BONUS_FLYING        ) ? " flying"        : "" );
+    strcat( buf, ( vector & BONUS_PASS_DOOR     ) ? " pass-door"     : "" );
+    strcat( buf, ( vector & BONUS_FREEACTION    ) ? " free-action"   : "" );
+    strcat( buf, ( vector & BONUS_BREATHING     ) ? " water-breath"  : "" );
     return (buf[0] == '\0') ? buf : buf+1;;
 }
 
@@ -328,29 +328,29 @@ int bonus_name_bit( char* buf )
     int v=0;
     if ( strlen(buf) <= 3 ) return 0;
     if ( is_number(buf) ) return atoi(buf);
-    if (!str_infix( buf, "blind"         )) v|= AFF_BLIND;
-    if (!str_infix( buf, "invisible"     )) v|= AFF_INVISIBLE;
-    if (!str_infix( buf, "detect-evil"   )) v|= AFF_DETECT_EVIL;
-    if (!str_infix( buf, "detect-invis"  )) v|= AFF_DETECT_INVIS;
-    if (!str_infix( buf, "detect-magic"  )) v|= AFF_DETECT_MAGIC;
-    if (!str_infix( buf, "detect-hidden" )) v|= AFF_DETECT_HIDDEN;
-    if (!str_infix( buf, "hold"          )) v|= AFF_HOLD;
-    if (!str_infix( buf, "sanctuary"     )) v|= AFF_SANCTUARY;
-    if (!str_infix( buf, "faerie-fire"   )) v|= AFF_FAERIE_FIRE;
-    if (!str_infix( buf, "infrared"      )) v|= AFF_INFRARED;
-    if (!str_infix( buf, "curse"         )) v|= AFF_CURSE;
-    if (!str_infix( buf, "flaming"       )) v|= AFF_FLAMING;
-    if (!str_infix( buf, "poisoned"      )) v|= AFF_POISON;
-    if (!str_infix( buf, "protect"       )) v|= AFF_PROTECT;
-    if (!str_infix( buf, "paralysis"     )) v|= AFF_PARALYSIS;
-    if (!str_infix( buf, "sleep"         )) v|= AFF_SLEEP;
-    if (!str_infix( buf, "sneak"         )) v|= AFF_SNEAK;
-    if (!str_infix( buf, "hide"          )) v|= AFF_HIDE;
-    if (!str_infix( buf, "charm"         )) v|= AFF_CHARM;
-    if (!str_infix( buf, "flying"        )) v|= AFF_FLYING;
-    if (!str_infix( buf, "pass-door"     )) v|= AFF_PASS_DOOR;
-    if (!str_infix( buf, "free-action"   )) v|= AFF_FREEACTION;
-    if (!str_infix( buf, "water-breath"  )) v|= AFF_BREATHING;
+    if (!str_infix( buf, "blind"         )) v|= BONUS_BLIND;
+    if (!str_infix( buf, "invisible"     )) v|= BONUS_INVISIBLE;
+    if (!str_infix( buf, "detect-evil"   )) v|= BONUS_DETECT_EVIL;
+    if (!str_infix( buf, "detect-invis"  )) v|= BONUS_DETECT_INVIS;
+    if (!str_infix( buf, "detect-magic"  )) v|= BONUS_DETECT_MAGIC;
+    if (!str_infix( buf, "detect-hidden" )) v|= BONUS_DETECT_HIDDEN;
+    if (!str_infix( buf, "hold"          )) v|= BONUS_HOLD;
+    if (!str_infix( buf, "sanctuary"     )) v|= BONUS_SANCTUARY;
+    if (!str_infix( buf, "faerie-fire"   )) v|= BONUS_FAERIE_FIRE;
+    if (!str_infix( buf, "infrared"      )) v|= BONUS_INFRARED;
+    if (!str_infix( buf, "curse"         )) v|= BONUS_CURSE;
+    if (!str_infix( buf, "flaming"       )) v|= BONUS_FLAMING;
+    if (!str_infix( buf, "poisoned"      )) v|= BONUS_POISON;
+    if (!str_infix( buf, "protect"       )) v|= BONUS_PROTECT;
+    if (!str_infix( buf, "paralysis"     )) v|= BONUS_PARALYSIS;
+    if (!str_infix( buf, "sleep"         )) v|= BONUS_SLEEP;
+    if (!str_infix( buf, "sneak"         )) v|= BONUS_SNEAK;
+    if (!str_infix( buf, "hide"          )) v|= BONUS_HIDE;
+    if (!str_infix( buf, "charm"         )) v|= BONUS_CHARM;
+    if (!str_infix( buf, "flying"        )) v|= BONUS_FLYING;
+    if (!str_infix( buf, "pass-door"     )) v|= BONUS_PASS_DOOR;
+    if (!str_infix( buf, "free-action"   )) v|= BONUS_FREEACTION;
+    if (!str_infix( buf, "water-breath"  )) v|= BONUS_BREATHING;
     return v;
 }
 
@@ -457,7 +457,7 @@ char *plr_bit_name( int actb )
     static char buf[512];
 
     buf[0] = '\0';
-    if ( actb & PLR_IS_NPC     ) strcat( buf, " npc"           );
+    if ( actb & PLR_NPC     ) strcat( buf, " npc"           );
     if ( actb & PLR_SILENCE    ) strcat( buf, " silence"       );
     if ( actb & PLR_NO_EMOTE   ) strcat( buf, " no_emote"      );
     if ( actb & PLR_NO_TELL    ) strcat( buf, " no_tell"       );
@@ -472,49 +472,49 @@ char *plr_bit_name( int actb )
     return ( buf[0] != '\0' ) ? buf+1 : "none";
 }
 
-char *act_bit_name( int actb )
+char *actor_bit_name( int actb )
 {
     static char buf[512];
 
     buf[0] = '\0';
-    strcat( buf, ( actb & ACT_IS_NPC     ) ? " npc"          : ""  );
-    strcat( buf, ( actb & ACT_SENTINEL   ) ? " sentinel"     : ""  );
-    strcat( buf, ( actb & ACT_GOOD       ) ? " good"         : ""  );
-    strcat( buf, ( actb & ACT_AGGRESSIVE ) ? " aggressive"   : ""  );
-    strcat( buf, ( actb & ACT_MERCY )      ? " mercy"        : ""  );
-    strcat( buf, ( actb & ACT_STAY_ZONE  ) ? " stay_zone"    : ""  );
-    strcat( buf, ( actb & ACT_WIMPY      ) ? " wimpy"        : ""  );
-    strcat( buf, ( actb & ACT_PET        ) ? " pet"          : ""  );
-    strcat( buf, ( actb & ACT_PRACTICE   ) ? " practitioner" : ""  );
-    strcat( buf, ( actb & ACT_HALT       ) ? " halted"       : ""  );
-    strcat( buf, ( actb & ACT_BOUNTY     ) ? " bounty"       : ""  );
-    strcat( buf, ( actb & ACT_MOUNT      ) ? " mountable"    : ""  );
-    strcat( buf, ( actb & ACT_LYCANTHROPE) ? " lycanthrope"  : ""  );
-    strcat( buf, ( actb & ACT_VAMPIRE)     ? " vampire"      : ""  );
-    strcat( buf, ( actb & ACT_NOSCAN     ) ? " noscan"       : ""  );
-    strcat( buf, ( actb & ACT_NOCORPSE   ) ? " nocorpse"     : ""  );
+    strcat( buf, ( actb & ACTOR_NPC     ) ? " npc"          : ""  );
+    strcat( buf, ( actb & ACTOR_SENTINEL   ) ? " sentinel"     : ""  );
+    strcat( buf, ( actb & ACTOR_GOOD       ) ? " good"         : ""  );
+    strcat( buf, ( actb & ACTOR_AGGRESSIVE ) ? " aggressive"   : ""  );
+    strcat( buf, ( actb & ACTOR_MERCY )      ? " mercy"        : ""  );
+    strcat( buf, ( actb & ACTOR_STAY_ZONE  ) ? " stay_zone"    : ""  );
+    strcat( buf, ( actb & ACTOR_WIMPY      ) ? " wimpy"        : ""  );
+    strcat( buf, ( actb & ACTOR_PET        ) ? " pet"          : ""  );
+    strcat( buf, ( actb & ACTOR_PRACTICE   ) ? " practitioner" : ""  );
+    strcat( buf, ( actb & ACTOR_HALT       ) ? " halted"       : ""  );
+    strcat( buf, ( actb & ACTOR_BOUNTY     ) ? " bounty"       : ""  );
+    strcat( buf, ( actb & ACTOR_MOUNT      ) ? " mountable"    : ""  );
+    strcat( buf, ( actb & ACTOR_LYCANTHROPE) ? " lycanthrope"  : ""  );
+    strcat( buf, ( actb & ACTOR_VAMPIRE)     ? " vampire"      : ""  );
+    strcat( buf, ( actb & ACTOR_NOSCAN     ) ? " noscan"       : ""  );
+    strcat( buf, ( actb & ACTOR_NOCORPSE   ) ? " nocorpse"     : ""  );
     return (buf[0] == '\0') ? buf : buf+1;;
 }
 
-int act_name_bit( char* buf )
+int actor_name_bit( char* buf )
 {
     int v=0;
     if ( strlen(buf) < 3 ) return 0;
     if ( is_number(buf) ) return atoi(buf);
-    if ( !str_infix( buf, "npc"          ) ) v |= ACT_IS_NPC;
-    if ( !str_infix( buf, "sentinel"     ) ) v |= ACT_SENTINEL;
-    if ( !str_infix( buf, "good"         ) ) v |= ACT_GOOD;
-    if ( !str_infix( buf, "aggressive"   ) ) v |= ACT_AGGRESSIVE;
-    if ( !str_infix( buf, "stay_zone"    ) ) v |= ACT_STAY_ZONE;
-    if ( !str_infix( buf, "wimpy"        ) ) v |= ACT_WIMPY;
-    if ( !str_infix( buf, "pet"          ) ) v |= ACT_PET;
-    if ( !str_infix( buf, "practitioner" ) ) v |= ACT_PRACTICE;
-    if ( !str_infix( buf, "halted"       ) ) v |= ACT_HALT;
-    if ( !str_infix( buf, "bounty"       ) ) v |= ACT_BOUNTY;
-    if ( !str_infix( buf, "mount"        ) ) v |= ACT_MOUNT;
-    if ( !str_infix( buf, "lycanthrope"  ) ) v |= ACT_LYCANTHROPE;
-    if ( !str_infix( buf, "vampire"      ) ) v |= ACT_VAMPIRE;
-    if ( !str_infix( buf, "nocorpse"     ) ) v |= ACT_NOCORPSE;
+    if ( !str_infix( buf, "npc"          ) ) v |= ACTOR_NPC;
+    if ( !str_infix( buf, "sentinel"     ) ) v |= ACTOR_SENTINEL;
+    if ( !str_infix( buf, "good"         ) ) v |= ACTOR_GOOD;
+    if ( !str_infix( buf, "aggressive"   ) ) v |= ACTOR_AGGRESSIVE;
+    if ( !str_infix( buf, "stay_zone"    ) ) v |= ACTOR_STAY_ZONE;
+    if ( !str_infix( buf, "wimpy"        ) ) v |= ACTOR_WIMPY;
+    if ( !str_infix( buf, "pet"          ) ) v |= ACTOR_PET;
+    if ( !str_infix( buf, "practitioner" ) ) v |= ACTOR_PRACTICE;
+    if ( !str_infix( buf, "halted"       ) ) v |= ACTOR_HALT;
+    if ( !str_infix( buf, "bounty"       ) ) v |= ACTOR_BOUNTY;
+    if ( !str_infix( buf, "mount"        ) ) v |= ACTOR_MOUNT;
+    if ( !str_infix( buf, "lycanthrope"  ) ) v |= ACTOR_LYCANTHROPE;
+    if ( !str_infix( buf, "vampire"      ) ) v |= ACTOR_VAMPIRE;
+    if ( !str_infix( buf, "nocorpse"     ) ) v |= ACTOR_NOCORPSE;
     return v;
 }
 
@@ -712,40 +712,40 @@ int wear_name_loc( char *buf )
  */
 
 
-int sector_number( char *argument )
+int move_number( char *argument )
 {
     if ( is_number(argument) ) return atoi(argument);
-    if ( !str_cmp( argument, "inside" ) )       return SECT_INSIDE;
-    if ( !str_cmp( argument, "city" ) )         return SECT_CITY;
-    if ( !str_cmp( argument, "field" ) )        return SECT_FIELD;
-    if ( !str_cmp( argument, "forest" ) )       return SECT_FOREST;
-    if ( !str_cmp( argument, "hills" ) )        return SECT_HILLS;
-    if ( !str_cmp( argument, "mountain" ) )     return SECT_MOUNTAIN;
-    if ( !str_cmp( argument, "swim" ) )         return SECT_WATER_SWIM;
-    if ( !str_cmp( argument, "noswim" ) )       return SECT_WATER_NOSWIM;
-    if ( !str_cmp( argument, "underwater" ) )   return SECT_UNDERWATER;
-    if ( !str_cmp( argument, "air" ) )          return SECT_AIR;
-    if ( !str_cmp( argument, "desert" ) )       return SECT_DESERT;
-    if ( !str_cmp( argument, "iceland" ) )      return SECT_ICELAND;
-    if ( !str_cmp( argument, "climb" ) )        return SECT_CLIMB;
-    return SECT_MAX;
+    if ( !str_cmp( argument, "inside" ) )       return MOVE_INSIDE;
+    if ( !str_cmp( argument, "city" ) )         return MOVE_CITY;
+    if ( !str_cmp( argument, "field" ) )        return MOVE_FIELD;
+    if ( !str_cmp( argument, "forest" ) )       return MOVE_FOREST;
+    if ( !str_cmp( argument, "hills" ) )        return MOVE_HILLS;
+    if ( !str_cmp( argument, "mountain" ) )     return MOVE_MOUNTAIN;
+    if ( !str_cmp( argument, "swim" ) )         return MOVE_WATER_SWIM;
+    if ( !str_cmp( argument, "noswim" ) )       return MOVE_WATER_NOSWIM;
+    if ( !str_cmp( argument, "underwater" ) )   return MOVE_UNDERWATER;
+    if ( !str_cmp( argument, "air" ) )          return MOVE_AIR;
+    if ( !str_cmp( argument, "desert" ) )       return MOVE_DESERT;
+    if ( !str_cmp( argument, "iceland" ) )      return MOVE_ICELAND;
+    if ( !str_cmp( argument, "climb" ) )        return MOVE_CLIMB;
+    return MOVE_MAX;
 }
 
-char *sector_name( int sect )
+char *move_name( int sect )
 {
-    if ( sect == SECT_INSIDE )       return "inside";
-    if ( sect == SECT_CITY )         return "city";
-    if ( sect == SECT_FIELD )        return "field";
-    if ( sect == SECT_FOREST )       return "forest";
-    if ( sect == SECT_HILLS )        return "hills";
-    if ( sect == SECT_MOUNTAIN )     return "mountain";
-    if ( sect == SECT_WATER_SWIM )   return "swim";
-    if ( sect == SECT_WATER_NOSWIM ) return "noswim";
-    if ( sect == SECT_UNDERWATER )   return "underwater";
-    if ( sect == SECT_AIR )          return "air";
-    if ( sect == SECT_DESERT )       return "desert";
-    if ( sect == SECT_ICELAND  )     return "iceland";
-    if ( sect == SECT_CLIMB    )     return "climb";
+    if ( sect == MOVE_INSIDE )       return "inside";
+    if ( sect == MOVE_CITY )         return "city";
+    if ( sect == MOVE_FIELD )        return "field";
+    if ( sect == MOVE_FOREST )       return "forest";
+    if ( sect == MOVE_HILLS )        return "hills";
+    if ( sect == MOVE_MOUNTAIN )     return "mountain";
+    if ( sect == MOVE_WATER_SWIM )   return "swim";
+    if ( sect == MOVE_WATER_NOSWIM ) return "noswim";
+    if ( sect == MOVE_UNDERWATER )   return "underwater";
+    if ( sect == MOVE_AIR )          return "air";
+    if ( sect == MOVE_DESERT )       return "desert";
+    if ( sect == MOVE_ICELAND  )     return "iceland";
+    if ( sect == MOVE_CLIMB    )     return "climb";
     return "unknown";
 }
 
@@ -846,18 +846,18 @@ int exit_name_bit( char *arg )
     int v=0;
     if ( strlen(arg) <= 3 ) return 0;
     if ( is_number(arg) ) return atoi(arg);
-    if ( !str_infix( arg, "door" ) )              v|= EX_ISDOOR;
-    if ( !str_infix( arg, "closed" ) )            v|= EX_CLOSED;
-    if ( !str_infix( arg, "locked" ) )            v|= EX_LOCKED;
-    if ( !str_infix( arg, "eat_key" ) )           v|= EX_EAT_KEY;
-    if ( !str_infix( arg, "pickproof" ) )         v|= EX_PICKPROOF;
-    if ( !str_infix( arg, "secret" ) )            v|= EX_SECRET;
-    if ( !str_infix( arg, "jammed" ) )            v|= EX_JAMMED;
-    if ( !str_infix( arg, "bashproof" ) )         v|= EX_BASHPROOF;
-    if ( !str_infix( arg, "transparent" ) )       v|= EX_TRANSPARENT;
-    if ( !str_infix( arg, "window"      ) )       v|= EX_WINDOW;
-    if ( !str_infix( arg, "concealed"   ) )       v|= EX_CONCEALED;
-    if ( !str_infix( arg, "nomove"      ) )       v|= EX_NOMOVE;
+    if ( !str_infix( arg, "door" ) )              v|= EXIT_ISDOOR;
+    if ( !str_infix( arg, "closed" ) )            v|= EXIT_CLOSED;
+    if ( !str_infix( arg, "locked" ) )            v|= EXIT_LOCKED;
+    if ( !str_infix( arg, "eat_key" ) )           v|= EXIT_EAT_KEY;
+    if ( !str_infix( arg, "pickproof" ) )         v|= EXIT_PICKPROOF;
+    if ( !str_infix( arg, "secret" ) )            v|= EXIT_SECRET;
+    if ( !str_infix( arg, "jammed" ) )            v|= EXIT_JAMMED;
+    if ( !str_infix( arg, "bashproof" ) )         v|= EXIT_BASHPROOF;
+    if ( !str_infix( arg, "transparent" ) )       v|= EXIT_TRANSPARENT;
+    if ( !str_infix( arg, "window"      ) )       v|= EXIT_WINDOW;
+    if ( !str_infix( arg, "concealed"   ) )       v|= EXIT_CONCEALED;
+    if ( !str_infix( arg, "nomove"      ) )       v|= EXIT_NOMOVE;
     return v;
 }
 
@@ -867,18 +867,18 @@ char *exit_bit_name( int flag )
     static char buf[512];
 
     buf[0] = '\0';
-    strcat( buf, ( flag & EX_ISDOOR      ) ? " door"        : "" );
-    strcat( buf, ( flag & EX_CLOSED      ) ? " closed"      : "" );
-    strcat( buf, ( flag & EX_LOCKED      ) ? " locked"      : "" );
-    strcat( buf, ( flag & EX_EAT_KEY     ) ? " eat_key"     : "" );
-    strcat( buf, ( flag & EX_PICKPROOF   ) ? " pickproof"   : "" );
-    strcat( buf, ( flag & EX_SECRET      ) ? " secret"      : "" );
-    strcat( buf, ( flag & EX_JAMMED      ) ? " jammed"      : "" );
-    strcat( buf, ( flag & EX_BASHPROOF   ) ? " bashproof"   : "" );
-    strcat( buf, ( flag & EX_TRANSPARENT ) ? " transparent" : "" );
-    strcat( buf, ( flag & EX_WINDOW      ) ? " window"      : "" );
-    strcat( buf, ( flag & EX_CONCEALED   ) ? " concealed"   : "" );
-    strcat( buf, ( flag & EX_NOMOVE      ) ? " nomove"      : "" );
+    strcat( buf, ( flag & EXIT_ISDOOR      ) ? " door"        : "" );
+    strcat( buf, ( flag & EXIT_CLOSED      ) ? " closed"      : "" );
+    strcat( buf, ( flag & EXIT_LOCKED      ) ? " locked"      : "" );
+    strcat( buf, ( flag & EXIT_EAT_KEY     ) ? " eat_key"     : "" );
+    strcat( buf, ( flag & EXIT_PICKPROOF   ) ? " pickproof"   : "" );
+    strcat( buf, ( flag & EXIT_SECRET      ) ? " secret"      : "" );
+    strcat( buf, ( flag & EXIT_JAMMED      ) ? " jammed"      : "" );
+    strcat( buf, ( flag & EXIT_BASHPROOF   ) ? " bashproof"   : "" );
+    strcat( buf, ( flag & EXIT_TRANSPARENT ) ? " transparent" : "" );
+    strcat( buf, ( flag & EXIT_WINDOW      ) ? " window"      : "" );
+    strcat( buf, ( flag & EXIT_CONCEALED   ) ? " concealed"   : "" );
+    strcat( buf, ( flag & EXIT_NOMOVE      ) ? " nomove"      : "" );
     return (buf[0] == '\0') ? buf : buf+1;;
 }
 

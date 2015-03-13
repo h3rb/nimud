@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -143,19 +143,19 @@ const int combat_int[26] =
  * Local functions.
  */
 
-bool flee               args( ( PLAYER_DATA *ch ) );
-void retreat            args( ( PLAYER_DATA *ch ) );
-bool disarm             args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-bool bash               args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed ) );
-bool grapple            args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-bool kick               args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed ) );
-bool sweep              args( ( PLAYER_DATA *ch ) );
-bool trip               args( ( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed ) );
-int  number_fighting    args( ( PLAYER_DATA *ch ) );
-void auto_fight		args( ( PLAYER_DATA *ch, PLAYER_DATA *victim) );
-void auto_flee		args( ( PLAYER_DATA *ch, PLAYER_DATA *victim ) );
-bool armed_attack	args( ( PLAYER_DATA *ch, PLAYER_DATA *victim) );
-bool unarmed_attack	args( ( PLAYER_DATA *ch, PLAYER_DATA *victim) );
+bool flee               args( ( PLAYER *ch ) );
+void retreat            args( ( PLAYER *ch ) );
+bool disarm             args( ( PLAYER *ch, PLAYER *victim ) );
+bool bash               args( ( PLAYER *ch, PLAYER *victim, bool fArmed ) );
+bool grapple            args( ( PLAYER *ch, PLAYER *victim ) );
+bool kick               args( ( PLAYER *ch, PLAYER *victim, bool fArmed ) );
+bool sweep              args( ( PLAYER *ch ) );
+bool trip               args( ( PLAYER *ch, PLAYER *victim, bool fArmed ) );
+int  number_fighting    args( ( PLAYER *ch ) );
+void auto_fight		args( ( PLAYER *ch, PLAYER *victim) );
+void auto_flee		args( ( PLAYER *ch, PLAYER *victim ) );
+bool armed_attack	args( ( PLAYER *ch, PLAYER *victim) );
+bool unarmed_attack	args( ( PLAYER *ch, PLAYER *victim) );
 
 
 int fight_mode_lookup( const char *name )
@@ -174,7 +174,7 @@ int fight_mode_lookup( const char *name )
     return -1;
 }
 
-void MSG_weapon_hit( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *vi, int dam )
+void MSG_weapon_hit( PLAYER *ch, PROP *prop, PLAYER *vi, int dam )
 {
     char buf[MAX_STRING_LENGTH];
     char w[MAX_STRING_LENGTH];
@@ -211,7 +211,7 @@ void MSG_weapon_hit( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *vi, int dam 
     {
     default:
     if ( prop->value[3] > MAX_ATTACK )
-    bug("MSG_weapon_hit: Invalid attack (vnum %d).", prop->pIndexData->vnum);
+    bug("MSG_weapon_hit: Invalid attack (dbkey %d).", prop->pIndexData->dbkey);
     if ( dam >= 100 ) i = "$4$B$n massacre$v $N with $s powerful attack!$R";
     else
     if ( dam < 5 )
@@ -458,7 +458,7 @@ void MSG_weapon_hit( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *vi, int dam 
 
 
 
-void MSG_weapon_partial_dodge( PLAYER_DATA *ch, PROP_DATA*prop, PLAYER_DATA *victim )
+void MSG_weapon_partial_dodge( PLAYER *ch, PROP*prop, PLAYER *victim )
 {
 /*    bug( "MSG_weapon_partial_dodge: msg",0 );    */
     return;
@@ -466,8 +466,8 @@ void MSG_weapon_partial_dodge( PLAYER_DATA *ch, PROP_DATA*prop, PLAYER_DATA *vic
 
 
 
-void MSG_weapon_parry( PLAYER_DATA *ch, PROP_DATA *prop, PROP_DATA *vo,
-                       PLAYER_DATA *victim )
+void MSG_weapon_parry( PLAYER *ch, PROP *prop, PROP *vo,
+                       PLAYER *victim )
 {
     char w[MAX_STRING_LENGTH];
     char *i = NULL;
@@ -490,7 +490,7 @@ void MSG_weapon_parry( PLAYER_DATA *ch, PROP_DATA *prop, PROP_DATA *vo,
 
 
 
-void MSG_weapon_dodge( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
+void MSG_weapon_dodge( PLAYER *ch, PROP *prop, PLAYER *victim )
 {
     char w[MAX_STRING_LENGTH];
     char *i = NULL;
@@ -511,7 +511,7 @@ void MSG_weapon_dodge( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
     return;
 }
 
-void MSG_weapon_miss( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
+void MSG_weapon_miss( PLAYER *ch, PROP *prop, PLAYER *victim )
 {
     char w[MAX_STRING_LENGTH];
     char *i = NULL;
@@ -538,7 +538,7 @@ void MSG_weapon_miss( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
 }
 
 
-void MSG_actor_hit( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim, int dam )
+void MSG_actor_hit( PLAYER *ch, int idx, PLAYER *victim, int dam )
 {
     char w[MAX_STRING_LENGTH];
     char *i = NULL;
@@ -572,12 +572,12 @@ void MSG_actor_hit( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim, int dam )
 
 
 
-void MSG_partial_dodge( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim )
+void MSG_partial_dodge( PLAYER *ch, int idx, PLAYER *victim )
 {
     return;
 }
 
-void MSG_hand_hit( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
+void MSG_hand_hit( PLAYER *ch, PLAYER *victim, int dam )
 {
     char *i = NULL;
 
@@ -636,7 +636,7 @@ void MSG_hand_hit( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
     return;
 }
 
-void MSG_hand_miss( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void MSG_hand_miss( PLAYER *ch, PLAYER *victim )
 {
     char *i = NULL;
     switch(number_range(0,9))
@@ -658,7 +658,7 @@ void MSG_hand_miss( PLAYER_DATA *ch, PLAYER_DATA *victim )
     return;
 }
 
-void MSG_dodge( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim )
+void MSG_dodge( PLAYER *ch, int idx, PLAYER *victim )
 {
     const char *i;
     i = "$N dodge$V $n$y attack.";
@@ -674,9 +674,9 @@ void MSG_dodge( PLAYER_DATA *ch, int idx, PLAYER_DATA *victim )
  */
 void violence_update( void )
 {
-    PLAYER_DATA *ch;
-    PLAYER_DATA *ch_next;
-    PLAYER_DATA *victim;
+    PLAYER *ch;
+    PLAYER *ch_next;
+    PLAYER *victim;
 
     for ( ch = actor_list; ch != NULL; ch = ch->next )
     {
@@ -696,14 +696,14 @@ void violence_update( void )
 
 	else if ( ch->position < POS_FIGHTING )
 	{
-	    if ( ch->position == POS_SLEEPING && !IS_AFFECTED(ch, AFF_SLEEP) )
+	    if ( ch->position == POS_SLEEPING && !IS_AFFECTED(ch, BONUS_SLEEP) )
 	    	send_to_actor( "You jolt awake and rejoin the fray.\n\r", ch );
 	    cmd_stand( ch, "" );
 	}
 
-        if ( IS_NPC(ch) )
+        if ( NPC(ch) )
         {
-            if ( IS_SET(ch->act, ACT_GOOD) ) cmd_peace(ch,""); 
+            if ( IS_SET(ch->flag, ACTOR_GOOD) ) cmd_peace(ch,""); 
             if( get_eq_char( ch, WEAR_WIELD_1 ) == NULL
              || get_eq_char( ch, WEAR_WIELD_2 ) == NULL ) {
             cmd_draw( ch, "" );
@@ -751,7 +751,7 @@ void violence_update( void )
 	  && ch != victim )
 	{
             /* Maybe give status report */
-            if ( !IS_NPC(ch) ) {
+            if ( !NPC(ch) ) {
                 if ( number_range( 0, 100 ) < 25 ) {
                     act( "$N looks $t.", ch, STRING_HITS(victim), victim, TO_ACTOR);
                 }
@@ -761,14 +761,14 @@ void violence_update( void )
 	    oroc( ch, victim );
 
 	    /* Maybe change combat tactic? */
-	    if ( IS_NPC(ch) )
+	    if ( NPC(ch) )
 		auto_fight( ch, victim );
 
 	    /* Maybe flee? -- This has been moved here from damage(),
 	     * because fleeing may cause damage to the victim and we 
 	     * don't want to be caught in an infinite loop
 	     */
-	    if ( IS_NPC(victim) && victim->hit <= 50 )
+	    if ( NPC(victim) && victim->hit <= 50 )
 		auto_flee( ch, victim );
 	}
         else
@@ -784,9 +784,9 @@ void violence_update( void )
  * Do one group of attacks.
  * (One Round One Char)
  */
-void oroc( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void oroc( PLAYER *ch, PLAYER *victim )
 {
-    PROP_DATA *primary_wpn, *secondary_wpn;
+    PROP *primary_wpn, *secondary_wpn;
 
     /*
      * Add combat script trigger here, or add to cmd_fight().
@@ -829,7 +829,7 @@ void oroc( PLAYER_DATA *ch, PLAYER_DATA *victim )
       && !IS_SET(ch->fbits, FGT_PARRY) )
     	weapon_attack( ch, primary_wpn, victim );
 
-    if ( IS_NPC(ch) && ch->fighting != NULL )
+    if ( NPC(ch) && ch->fighting != NULL )
 	actor_attack( ch, victim );
 
     return;
@@ -845,10 +845,10 @@ void oroc( PLAYER_DATA *ch, PLAYER_DATA *victim )
  * more logical that the wearing out occurs simultaneously to
  * the blow...
  */
-int armor_deflect( PLAYER_DATA *victim, int idx )
+int armor_deflect( PLAYER *victim, int idx )
 {
 
-    PROP_DATA *armor;
+    PROP *armor;
     int deflect;
 
     /* Add Check for Material Later */
@@ -878,7 +878,7 @@ int armor_deflect( PLAYER_DATA *victim, int idx )
 /*
  * Calculates whether a hit really connects the victim
  */
-int chance_to_hit( PLAYER_DATA *ch, PLAYER_DATA *victim )
+int chance_to_hit( PLAYER *ch, PLAYER *victim )
 {
     int chance;
     chance = 25;
@@ -909,9 +909,9 @@ int chance_to_hit( PLAYER_DATA *ch, PLAYER_DATA *victim )
     /*
      * Drunkeness adjustment
      */
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
 	chance -= PC(ch, condition)[COND_DRUNK];
-    if ( !IS_NPC(victim) && PC(victim, condition)[COND_DRUNK] > 0 )
+    if ( !NPC(victim) && PC(victim, condition)[COND_DRUNK] > 0 )
 	chance += PC(victim, condition)[COND_DRUNK];
     /*
      * Blindness/invis adjustment
@@ -932,7 +932,7 @@ int chance_to_hit( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Calculates modifiers to the damage
  */
-int damage_adjust( PLAYER_DATA *ch, int dam, int deflected )
+int damage_adjust( PLAYER *ch, int dam, int deflected )
 {
     /*
      * Deflected is again the percentage of damage deflected,
@@ -945,17 +945,17 @@ int damage_adjust( PLAYER_DATA *ch, int dam, int deflected )
     return UMAX(0,dam);
 }
 
-void actor_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void actor_attack( PLAYER *ch, PLAYER *victim )
 {
     int count;
     int dam;
     int oldhit;
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
-    for ( count = 0;  count < MAX_ATTACK_DATA;  count++ )
+    for ( count = 0;  count < MAX_ATTACK;  count++ )
     {
-        ATTACK_DATA *attack;
+        ATTACK *attack;
 
         if ( (attack = ch->pIndexData->attacks[count]) != NULL )
         {
@@ -1010,7 +1010,7 @@ void actor_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Hand-to-Hand Routines
  */
-void hand_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void hand_attack( PLAYER *ch, PLAYER *victim )
 {
     int dam = 0, oldhit;
     /*
@@ -1037,7 +1037,7 @@ void hand_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
     else
     {
 	MSG_hand_miss( ch, victim );
-	if ( !IS_NPC(ch) && IS_NPC( victim ) )
+	if ( !NPC(ch) && NPC( victim ) )
 	    damage( ch, victim, 0 );
         return;
     }
@@ -1061,7 +1061,7 @@ void hand_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Hit one guy once.
  */
-void weapon_attack( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
+void weapon_attack( PLAYER *ch, PROP *prop, PLAYER *victim )
 {
     int dam = -1;   /* miss */
     int oldhit;
@@ -1075,8 +1075,8 @@ void weapon_attack( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
     {
         bool ATTACKS = FALSE;
 
-        if ( IS_NPC(ch) ) {
-        for ( wp=0;  wp < MAX_ATTACK_DATA;  wp++ ) {
+        if ( NPC(ch) ) {
+        for ( wp=0;  wp < MAX_ATTACK;  wp++ ) {
             ATTACKS = ATTACKS || ch->pIndexData->attacks[wp] != NULL;
         }
         }
@@ -1126,7 +1126,7 @@ void weapon_attack( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
     else
     {
         MSG_weapon_miss( ch, prop, victim );
-	if ( !IS_NPC(ch) && IS_NPC( victim ) )
+	if ( !NPC(ch) && NPC( victim ) )
 	    damage( ch, victim, 0 );
         return;
     }
@@ -1144,7 +1144,7 @@ void weapon_attack( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
     if ( skill_check( victim, skill_lookup( "parry" ), 50 )
       && !IS_SET(victim->fbits, FGT_PRIMARY) )
     {
-        PROP_DATA *vo;
+        PROP *vo;
 
 	vo = get_eq_char( victim, WEAR_SHIELD );
         if ( vo == NULL )
@@ -1166,7 +1166,7 @@ void weapon_attack( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
     if ( skill_check( victim, skill_lookup( "parry" ), 30 )
       && !IS_SET(victim->fbits, FGT_PRIMARY) )
     {
-        PROP_DATA *vo;
+        PROP *vo;
 
         vo = get_eq_char( victim, WEAR_WIELD_1 );
         if ( vo == NULL )
@@ -1214,7 +1214,7 @@ void weapon_attack( PLAYER_DATA *ch, PROP_DATA *prop, PLAYER_DATA *victim )
 
 
 
-void exp_gain( PLAYER_DATA *ch, int gain, bool fMessage )
+void exp_gain( PLAYER *ch, int gain, bool fMessage )
 {
     char buf[MAX_STRING_LENGTH];
     int gained_levels=0;
@@ -1270,13 +1270,13 @@ void exp_gain( PLAYER_DATA *ch, int gain, bool fMessage )
         send_to_actor( capitalize(numberize(ch->exp_level)), ch );
         send_to_actor( ".\n\r", ch );
       
-        if ( !IS_NPC(ch) && !IS_HERO(ch) && ch->exp_level >= MAX_MORTAL_LEVEL ) {
+        if ( !NPC(ch) && !IS_HERO(ch) && ch->exp_level >= MAX_MORTAL_LEVEL ) {
           snprintf( buf, MAX_STRING_LENGTH, "A new star shines in the heavens!\n\r%s has become immortal.", NAME(ch) );
           add_history( ch, buf );
           write_global( buf );
           send_to_actor( "You are now a hero and may commission a castle.\n\r", ch );
           PC(ch,level) = LEVEL_HERO;         
-        } else if ( fgain > 0 && !IS_NPC(ch) ) {
+        } else if ( fgain > 0 && !NPC(ch) ) {
             if (fgain == 1)
             send_to_actor( "You gain a hero point.\n\r", ch ); 
             else { send_to_actor( "You gain ", ch ); 
@@ -1304,16 +1304,16 @@ void exp_gain( PLAYER_DATA *ch, int gain, bool fMessage )
 /*
  * Inflict damage from a hit.
  */
-void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
+void damage( PLAYER *ch, PLAYER *victim, int dam )
 {
     if ( dam != 0 )
     {
-        PLAYER_DATA *rch;
+        PLAYER *rch;
         char buf[12];
 
         for( rch = ch->in_scene->people; rch != NULL; rch = rch->next_in_scene )
         {
-            if ( IS_IMMORTAL(rch) && IS_SET(rch->act,WIZ_NOTIFY_DAMAGE))
+            if ( IS_IMMORTAL(rch) && IS_SET(rch->flag,WIZ_NOTIFY_DAMAGE))
             {
                 snprintf( buf, MAX_STRING_LENGTH, "[%c%c%3d->%c%c] ",
                          rch != ch ? STR(ch,name)[0] : '*',
@@ -1369,23 +1369,23 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
         /*
          * Inviso attacks ... not.
          */
-        if ( IS_AFFECTED(ch, AFF_INVISIBLE) )
+        if ( IS_AFFECTED(ch, BONUS_INVISIBLE) )
         {
-            SKILL_DATA *pSkill = skill_lookup( "invisibility" );
-            SKILL_DATA *pMass = skill_lookup( "mass invisibility" );
-            bonus_strip( ch, pSkill->vnum );
-            bonus_strip( ch, pMass->vnum );
-            REMOVE_BIT( ch->bonuses, AFF_INVISIBLE );
+            SKILL *pSkill = skill_lookup( "invisibility" );
+            SKILL *pMass = skill_lookup( "mass invisibility" );
+            bonus_strip( ch, pSkill->dbkey );
+            bonus_strip( ch, pMass->dbkey );
+            REMOVE_BIT( ch->bonuses, BONUS_INVISIBLE );
             act( "$n fades into existence.", ch, NULL, NULL, TO_SCENE );
         }
 
         /*
          * Damage modifiers.
          */
-        if ( IS_AFFECTED(victim, AFF_SANCTUARY) )
+        if ( IS_AFFECTED(victim, BONUS_SANCTUARY) )
             dam /= 2;
 
-        if ( IS_AFFECTED(victim, AFF_PROTECT) )
+        if ( IS_AFFECTED(victim, BONUS_PROTECT) )
             dam -= dam / 4;
 
 /*
@@ -1434,21 +1434,21 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
      * If both ch and victim are PCs, stop the combat.
      */
     if ( !IS_AWAKE(victim) )
-	stop_fighting( victim, !IS_NPC(ch) && !IS_NPC(victim) ? TRUE : FALSE );
+	stop_fighting( victim, !NPC(ch) && !NPC(victim) ? TRUE : FALSE );
 
     /*
      * Payoff for killing things.
      */
     if ( victim->position == POS_DEAD )
     {
-        if ( !IS_NPC(victim) )
+        if ( !NPC(victim) )
         {
         char  buf[MAX_STRING_LENGTH];
 
         sprintf( log_buf, "%s killed by %s at %d",
                 NAME(victim),
                 NAME(ch),
-                victim->in_scene->vnum );
+                victim->in_scene->dbkey );
             log_string( log_buf );
 
         snprintf( buf, MAX_STRING_LENGTH, "Notify> %s", log_buf );
@@ -1457,7 +1457,7 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
 
    /*     if ( IS_SET(victim->bounty == 0 )   ch->bounty += 500;    Crime */
 
-        if ( (IS_NPC(ch) && IS_SET(victim->act, ACT_BOUNTY))
+        if ( (NPC(ch) && IS_SET(victim->flag, ACTOR_BOUNTY))
         || victim->bounty > 0 )
         {
             ch->owed   += victim->bounty;
@@ -1468,11 +1468,11 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
          * Karma, credits+bucks, and experience.
          */  
 {
-        PLAYER_DATA *pGroup;
+        PLAYER *pGroup;
 
         ch->karma += victim->karma;
 
-        if ( !IS_NPC(ch) && IS_NPC(victim) ) {
+        if ( !NPC(ch) && NPC(victim) ) {
          ch->credits += victim->credits;
          ch->bucks += victim->bucks;
          if ( victim->credits > 0 ) 
@@ -1493,7 +1493,7 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
                  && pGroup->in_scene == ch->in_scene  ) 
                { //
 
-        if ( !IS_NPC(pGroup) && IS_NPC(victim) ) {
+        if ( !NPC(pGroup) && NPC(victim) ) {
          pGroup->credits += victim->credits/2;
          pGroup->bucks += victim->bucks/2;
          if ( victim->credits > 0 ) 
@@ -1502,13 +1502,13 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
           var_to_actor( "You got ^2%d bucks^N.\n\r", pGroup, victim->bucks/2 );
         }
 
-               exp_gain( pGroup, ((IS_NPC(victim) ? victim->exp : 
+               exp_gain( pGroup, ((NPC(victim) ? victim->exp : 
                                                    victim->exp/4) / 2)
-                               + ((IS_NPC(victim) ? victim->exp 
+                               + ((NPC(victim) ? victim->exp 
                                                  : victim->exp/4) / 4), 
                              TRUE );
 
-         if ( !IS_NPC(pGroup) && pGroup->leader && number_range(0,100) <= 2 ) {
+         if ( !NPC(pGroup) && pGroup->leader && number_range(0,100) <= 2 ) {
                    int amt; amt = number_range(0,10+(MAX_MORTAL_LEVEL-pGroup->exp_level)/7);
                    if ( amt > 0 ) {
                     var_to_actor( "^3Group leader bonus: ^N^B%d experience!^N\n\r", pGroup->leader, amt );
@@ -1534,7 +1534,7 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
     /*
      * Take care of link dead people.
      */
-    if ( !IS_NPC(victim) && victim->desc == NULL )
+    if ( !NPC(victim) && victim->desc == NULL )
 	retreat( victim );
     tail_chain( );
     return;
@@ -1542,9 +1542,9 @@ void damage( PLAYER_DATA *ch, PLAYER_DATA *victim, int dam )
 
 
 
-bool is_safe( PLAYER_DATA *ch, PLAYER_DATA *victim )
+bool is_safe( PLAYER *ch, PLAYER *victim )
 {
-    if ( IS_NPC(ch) || IS_NPC(victim) )
+    if ( NPC(ch) || NPC(victim) )
         return FALSE;
 
     /* Thx Josh! */
@@ -1565,7 +1565,7 @@ bool is_safe( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Set position of a victim.
  */
-void update_pos( PLAYER_DATA *victim )
+void update_pos( PLAYER *victim )
 {
     if ( victim->hit > 0 )
     {
@@ -1583,9 +1583,9 @@ void update_pos( PLAYER_DATA *victim )
 /*
  * Start fights.
  */
-void set_fighting( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void set_fighting( PLAYER *ch, PLAYER *victim )
 {
-    INSTANCE_DATA *pTrig;
+    INSTANCE *pTrig;
 
     if ( ch->fighting != NULL )
     {
@@ -1604,7 +1604,7 @@ void set_fighting( PLAYER_DATA *ch, PLAYER_DATA *victim )
         if ( pTrig->script->type != TRIG_COMBAT
           && pTrig->script->type != TRIG_SPELL )
         {
-            VARIABLE_DATA *pVar, *pVar_next;
+            VARIABLE *pVar, *pVar_next;
 
             for ( pVar = pTrig->locals;  pVar != NULL; pVar = pVar_next )
             {
@@ -1617,8 +1617,8 @@ void set_fighting( PLAYER_DATA *ch, PLAYER_DATA *victim )
         }
     }
 
-    if ( IS_AFFECTED(ch, AFF_SLEEP) )
-        bonus_strip( ch, skill_vnum(skill_lookup("sleep")) );
+    if ( IS_AFFECTED(ch, BONUS_SLEEP) )
+        bonus_strip( ch, skill_dbkey(skill_lookup("sleep")) );
 
     if ( ch->furniture ) set_furn( ch, NULL );
     ch->fighting = victim;
@@ -1632,15 +1632,15 @@ void set_fighting( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Stop fights.
  */
-void stop_fighting( PLAYER_DATA *ch, bool fBoth )
+void stop_fighting( PLAYER *ch, bool fBoth )
 {
-    PLAYER_DATA *fch;
+    PLAYER *fch;
 
     for ( fch = actor_list; fch != NULL; fch = fch->next )
     {
         if ( fch == ch || ( fBoth && fch->fighting == ch ) )
         {
-            if ( IS_NPC(fch) )
+            if ( NPC(fch) )
             {
                 /* restart born scripts
                 script_update( fch, TYPE_ACTOR, TRIG_BORN, NULL, NULL, NULL, NULL );
@@ -1667,18 +1667,18 @@ void stop_fighting( PLAYER_DATA *ch, bool fBoth )
 /*
  * Make a corpse out of character.
  */
-void make_corpse( PLAYER_DATA *ch )
+void make_corpse( PLAYER *ch )
 {
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *corpse;
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
+    PROP *corpse;
+    PROP *prop;
+    PROP *prop_next;
     char *name;
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     {
         name          = NAME(ch);
-        corpse        = create_prop(get_prop_index(PROP_VNUM_CORPSE_NPC), 0);
+        corpse        = create_prop(get_prop_template(PROP_VNUM_CORPSE_NPC), 0);
         corpse->timer = number_range( 20, 30 ) * 5;
 
     snprintf( buf, MAX_STRING_LENGTH, "corpse of %s", name );
@@ -1701,7 +1701,7 @@ void make_corpse( PLAYER_DATA *ch )
     else
     {
         name            = NAME(ch);
-        corpse          = create_prop(get_prop_index(PROP_VNUM_CORPSE_PC), 0);
+        corpse          = create_prop(get_prop_template(PROP_VNUM_CORPSE_PC), 0);
 
     snprintf( buf, MAX_STRING_LENGTH, "%s's corpse", name );
     free_string( corpse->short_descr );
@@ -1727,7 +1727,7 @@ void make_corpse( PLAYER_DATA *ch )
         if ( IS_SET( prop->extra_flags, ITEM_INVENTORY ) )
         prop->item_type = ITEM_DELETE;
         else
-        if ( IS_SET( prop->extra_flags, ITEM_BLESS ) && !IS_NPC(ch) )
+        if ( IS_SET( prop->extra_flags, ITEM_BLESS ) && !NPC(ch) )
          prop_to_actor( prop, ch );
          else prop_to_prop( prop, corpse );
     }
@@ -1741,9 +1741,9 @@ void make_corpse( PLAYER_DATA *ch )
 /*
  * Improved Death_cry contributed by Diavolo.
  */
-void death_cry( PLAYER_DATA *ch )
+void death_cry( PLAYER *ch )
 {
-    SCENE_INDEX_DATA *was_in_scene;
+    SCENE *was_in_scene;
     char *msg;
     int door;
 
@@ -1758,7 +1758,7 @@ void death_cry( PLAYER_DATA *ch )
     case  4: msg  = "You fancy hearing the gods coming to claim $n's soul."; break;
     case  5:
         {
-            PROP_DATA *prop = ch->carrying;
+            PROP *prop = ch->carrying;
             char buf[MAX_STRING_LENGTH];
 
             msg  = "As $n dies, you notice the blood everywhere.";
@@ -1775,7 +1775,7 @@ void death_cry( PLAYER_DATA *ch )
 
     act( msg, ch, NULL, NULL, TO_SCENE );
 
-    if ( IS_NPC(ch) )
+    if ( NPC(ch) )
     msg = "You hear the wail of something dying.";
     else
     msg = "You hear a shriek as someone dies.";
@@ -1783,7 +1783,7 @@ void death_cry( PLAYER_DATA *ch )
     was_in_scene = ch->in_scene;
     for ( door = 0; door < MAX_DIR; door++ )
     {
-        EXIT_DATA *pexit;
+        EXIT *pexit;
 
         if ( ( pexit = was_in_scene->exit[door] ) != NULL
         &&   pexit->to_scene != NULL
@@ -1801,10 +1801,10 @@ void death_cry( PLAYER_DATA *ch )
 
 
 
-void raw_kill( PLAYER_DATA *victim )
+void raw_kill( PLAYER *victim )
 {
     int i;
-    PROP_DATA *pProp;
+    PROP *pProp;
 
     stop_fighting( victim, TRUE );
     death_cry( victim );
@@ -1850,15 +1850,15 @@ void raw_kill( PLAYER_DATA *victim )
      
     dismount_char( victim );
 
-    if ( IS_NPC(victim) )
+    if ( NPC(victim) )
     {
-        if ( !IS_SET(victim->act,ACT_NOCORPSE) ) make_corpse( victim );
-        extract_char( victim, TRUE );
+        if ( !IS_SET(victim->flag,ACTOR_NOCORPSE) ) make_corpse( victim );
+        extractor_char( victim, TRUE );
         return;
     }
 
     make_corpse( victim );
-    extract_char( victim, FALSE );
+    extractor_char( victim, FALSE );
     actor_from_scene( victim );
 
   /* If rather new.. */
@@ -1869,7 +1869,7 @@ void raw_kill( PLAYER_DATA *victim )
     i = (p + ct)/7200;
     }
 
-    if ( get_scene_index( PC(victim,death) ) == NULL ) PC(victim,death) = 
+    if ( get_scene( PC(victim,death) ) == NULL ) PC(victim,death) = 
 SCENE_VNUM_DEATH;
 
     if ( ( i < 10 ) )
@@ -1881,7 +1881,7 @@ SCENE_VNUM_DEATH;
 
         race = race_lookup( victim->race );
         victim->bonuses = RACE(race,bonus_bits);            
-        actor_to_scene( victim, get_scene_index( RACE(race,start_scene) ) );
+        actor_to_scene( victim, get_scene( RACE(race,start_scene) ) );
 
         victim->armor       = 100;
         victim->position    = POS_RESTING;
@@ -1895,7 +1895,7 @@ SCENE_VNUM_DEATH;
 chance.\n\r", victim ); */
     }
     else {
-    actor_to_scene( victim, get_scene_index( PC(victim,death) ) );
+    actor_to_scene( victim, get_scene( PC(victim,death) ) );
     victim->position = POS_RESTING;
         victim->hit=1; victim->move=1; victim->armor=100; 
         PC(victim,condition)[COND_DRUNK]   = 0;
@@ -1911,13 +1911,13 @@ chance.\n\r", victim ); */
 /*
  * Syntax: kill [person]
  */
-void cmd_kill( PLAYER_DATA *ch, char *argument )
+void cmd_kill( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
-    if ( IS_NPC(ch)
-      && IS_SET(ch->act, ACT_PET) )  /* NOT */
+    if ( NPC(ch)
+      && IS_SET(ch->flag, ACTOR_PET) )  /* NOT */
        return;
 
     one_argument( argument, arg );
@@ -1944,13 +1944,13 @@ void cmd_kill( PLAYER_DATA *ch, char *argument )
     if ( is_safe( ch, victim ) )
     return;
 
-    if ( IS_NPC(victim) && IS_SET(victim->act, ACT_GOOD) )
+    if ( NPC(victim) && IS_SET(victim->flag, ACTOR_GOOD) )
     {
         act( "You don't want to fight $N.", ch, NULL, victim, TO_ACTOR );
         return;
     }
 
-    if ( IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim )
+    if ( IS_AFFECTED(ch, BONUS_CHARM) && ch->master == victim )
     {
         act( "$N is your beloved master.", ch, NULL, victim, TO_ACTOR );
         return;
@@ -1968,9 +1968,9 @@ void cmd_kill( PLAYER_DATA *ch, char *argument )
     oroc( ch, victim  );
 
     if ( ch->fighting != NULL ) {
-      PLAYER_DATA *pGroup;
+      PLAYER *pGroup;
       for ( pGroup=ch->in_scene->people; pGroup!=NULL; pGroup=pGroup->next_in_scene ) 
-       if ( !IS_NPC(pGroup) && !IS_IMMORTAL(pGroup) && in_group( ch, pGroup ) ) cmd_assist( pGroup, "" );
+       if ( !NPC(pGroup) && !IS_IMMORTAL(pGroup) && in_group( ch, pGroup ) ) cmd_assist( pGroup, "" );
     }
     return;
 }
@@ -1978,7 +1978,7 @@ void cmd_kill( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax: fight [fightmode]
  */
-void cmd_fight( PLAYER_DATA *ch, char *argument )
+void cmd_fight( PLAYER *ch, char *argument )
 {
     char arg[ MAX_INPUT_LENGTH ];
     int fmode;
@@ -1994,7 +1994,7 @@ void cmd_fight( PLAYER_DATA *ch, char *argument )
 	ch->fmode = fmode;
     }
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     sprintf( arg, "Your combat tactic is %s.\n\r",
 	fight_mode_table[ch->fmode].name );
@@ -2008,7 +2008,7 @@ void cmd_fight( PLAYER_DATA *ch, char *argument )
  *         throw [direction|target]
  *         throw [direction] <target>
  */
-void cmd_throw( PLAYER_DATA *ch, char *argument )
+void cmd_throw( PLAYER *ch, char *argument )
 {
 	send_to_actor( "Not yet implemented.\n\r", ch );
 	return;
@@ -2020,14 +2020,14 @@ void cmd_throw( PLAYER_DATA *ch, char *argument )
  *         shoot [direction]
  *         shoot [direction] <target>
  */
-void cmd_shoot( PLAYER_DATA *ch, char *argument )
+void cmd_shoot( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     char w[ MAX_STRING_LENGTH ];
-    PLAYER_DATA *victim;
-    PROP_INDEX_DATA *pPropIndex;
-    PROP_DATA *prop, *prop2;
+    PLAYER *victim;
+    PROP_TEMPLATE *pPropIndex;
+    PROP *prop, *prop2;
 
 /*
  * Needs to have dual wield support
@@ -2043,7 +2043,7 @@ void cmd_shoot( PLAYER_DATA *ch, char *argument )
     if ( prop->value[3] == 0 )
        return;
 
-    pPropIndex = get_prop_index( prop->value[0] );
+    pPropIndex = get_prop_template( prop->value[0] );
 
     argument = one_argument( argument, arg );
     argument = one_argument( argument, arg2 );
@@ -2057,8 +2057,8 @@ void cmd_shoot( PLAYER_DATA *ch, char *argument )
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
         int dir = get_dir( arg );
-        SCENE_INDEX_DATA *pScene;
-        SCENE_INDEX_DATA *rch = ch->in_scene;
+        SCENE *pScene;
+        SCENE *rch = ch->in_scene;
 
         /*
          * Shooting in a direction.
@@ -2106,7 +2106,7 @@ void cmd_shoot( PLAYER_DATA *ch, char *argument )
             }
 
             if ( ( victim = get_actor_scene( ch, arg2 ) ) == NULL 
-		&& pScene && !IS_NPC(ch) && !skill_check( ch, skill_lookup( "ranged" ), 0 ) )
+		&& pScene && !NPC(ch) && !skill_check( ch, skill_lookup( "ranged" ), 0 ) )
             {
 
                 /*
@@ -2155,7 +2155,7 @@ void cmd_shoot( PLAYER_DATA *ch, char *argument )
     send_to_actor( "It is impossible to shoot someone in melee with you!\n\r", ch );
     return;
     }
-    if ( IS_NPC(ch) && victim == NULL ) {
+    if ( NPC(ch) && victim == NULL ) {
     if ( ch->in_scene != rch ) {
     actor_from_scene( ch );
     actor_to_scene( ch, rch );
@@ -2168,9 +2168,9 @@ void cmd_shoot( PLAYER_DATA *ch, char *argument )
      * The weapon fires..
      */
 
-if (!IS_NPC(ch))    prop->value[3]--;                  /* ammo decrease */
+if (!NPC(ch))    prop->value[3]--;                  /* ammo decrease */
     {
-    SKILL_DATA *pSkill = skill_lookup( "ranged" );
+    SKILL *pSkill = skill_lookup( "ranged" );
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
     }
 
@@ -2189,13 +2189,13 @@ if (!IS_NPC(ch))    prop->value[3]--;                  /* ammo decrease */
     send_to_actor( STR(prop,action_descr), ch );
 
 
-    pPropIndex = get_prop_index( prop->value[0] );
+    pPropIndex = get_prop_template( prop->value[0] );
     if (pPropIndex == NULL) pPropIndex = prop->pIndexData;
 
     sprintf( w, "%s", pPropIndex->action_descr );
 
     if ( !IS_AWAKE(victim)
-      || (IS_NPC(ch) && IS_NPC(victim))
+      || (NPC(ch) && NPC(victim))
       || skill_check( ch, skill_lookup( "ranged" ), 0 ) )
     {
 	int deflected, dam;
@@ -2237,7 +2237,7 @@ else {
         /*
          * Mobs hit may approach there attacker.
          */
-        if ( ch->fighting && IS_NPC(ch->fighting) && number_range( 0, 2 ) == 1)
+        if ( ch->fighting && NPC(ch->fighting) && number_range( 0, 2 ) == 1)
            ch->fighting->tracking = str_dup( STR(ch,name) );
 
         stop_fighting( ch, TRUE );
@@ -2266,19 +2266,19 @@ else {
     return;
     }
 
-    pPropIndex = get_prop_index( prop->value[0] );
+    pPropIndex = get_prop_template( prop->value[0] );
     if (pPropIndex == NULL) pPropIndex = prop->pIndexData;
 
     /*
      * The weapon fires..
      */
-    if ( IS_NPC(ch) && victim == NULL ) {
+    if ( NPC(ch) && victim == NULL ) {
      return; }
 
     prop->value[3]--;                            /* ammo decrease */
     send_to_actor( STR(prop,action_descr), ch );
 
-    { SKILL_DATA *pSkill=skill_lookup( "ranged" );
+    { SKILL *pSkill=skill_lookup( "ranged" );
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
     }
 
@@ -2291,7 +2291,7 @@ else {
     sprintf( w, "%s", pPropIndex->action_descr );
 
     if ( !IS_AWAKE(victim)
-      || (IS_NPC(ch) && IS_NPC(victim))
+      || (NPC(ch) && NPC(victim))
       || skill_check( ch, skill_lookup( "ranged" ), 0 ) )
     {
 	int deflected, dam;
@@ -2333,10 +2333,10 @@ else {
 }
 
 
-void cmd_reload( PLAYER_DATA *ch, char *argument )
+void cmd_reload( PLAYER *ch, char *argument )
 {
-    PROP_DATA *prop;
-    PROP_DATA *ammo, *cont;
+    PROP *prop;
+    PROP *ammo, *cont;
     char buf[MAX_STRING_LENGTH];
 
     if ( ( prop = get_item_held( ch, ITEM_RANGED_WEAPON ) ) == NULL )
@@ -2352,7 +2352,7 @@ void cmd_reload( PLAYER_DATA *ch, char *argument )
     }
 
     for ( ammo = ch->carrying;  ammo != NULL;  ammo = ammo->next_content )
-        if ( ammo->pIndexData->vnum == prop->value[0] ) break;
+        if ( ammo->pIndexData->dbkey == prop->value[0] ) break;
 
     if ( ammo == NULL )
     {
@@ -2362,7 +2362,7 @@ void cmd_reload( PLAYER_DATA *ch, char *argument )
         if ( cont->item_type == ITEM_CONTAINER )
         {
            for ( ammo = cont->contains;  ammo != NULL; ammo = ammo->next_content )
-               if ( ammo->pIndexData->vnum == prop->value[0] ) break;
+               if ( ammo->pIndexData->dbkey == prop->value[0] ) break;
            if ( ammo != NULL ) break;
         }
     }
@@ -2381,19 +2381,19 @@ void cmd_reload( PLAYER_DATA *ch, char *argument )
     snprintf( buf, MAX_STRING_LENGTH, "You ready your %s.\n\r", smash_article(STR(prop,short_descr)) );
     send_to_actor( buf, ch );
     prop->value[3] = ammo->value[0];
-    extract_prop( ammo );
+    extractor_prop( ammo );
     return;
 }
 
 /*
  * Syntax:  backstab [person]
  */
-void cmd_backstab( PLAYER_DATA *ch, char *argument )
+void cmd_backstab( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char w[ MAX_STRING_LENGTH ];
-    PLAYER_DATA *victim;
-    PROP_DATA *prop;
+    PLAYER *victim;
+    PROP *prop;
     int dt;
 
     one_argument( argument, arg );
@@ -2456,13 +2456,13 @@ void cmd_backstab( PLAYER_DATA *ch, char *argument )
     return;
     }
 
-    { SKILL_DATA *pSkill=skill_lookup( "backstab" );
+    { SKILL *pSkill=skill_lookup( "backstab" );
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
     }
     sprintf( w, "%s", smash_article(STR(prop,short_descr)) );
 
     if ( !IS_AWAKE(victim)
-      || (IS_NPC(ch) && IS_NPC(victim))
+      || (NPC(ch) && NPC(victim))
       || skill_check( ch, skill_lookup( "backstab" ), 0 ) )
     {
 	int deflected, dam;
@@ -2488,7 +2488,7 @@ void cmd_backstab( PLAYER_DATA *ch, char *argument )
 }
 
 
-void cmd_sla( PLAYER_DATA *ch, char *argument )
+void cmd_sla( PLAYER *ch, char *argument )
 {
     send_to_actor( "If you want to SLAY, spell it out.\n\r", ch );
     return;
@@ -2499,9 +2499,9 @@ void cmd_sla( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax: slay [person]
  */
-void cmd_slay( PLAYER_DATA *ch, char *argument )
+void cmd_slay( PLAYER *ch, char *argument )
 {
-    PLAYER_DATA *victim;
+    PLAYER *victim;
     char arg[MAX_INPUT_LENGTH];
 
     one_argument( argument, arg );
@@ -2542,10 +2542,10 @@ void cmd_slay( PLAYER_DATA *ch, char *argument )
 
 
 
-void retreat( PLAYER_DATA *ch )
+void retreat( PLAYER *ch )
 {
-    SKILL_DATA *pSkill = skill_lookup( "flee" );
-    PLAYER_DATA *vch;
+    SKILL *pSkill = skill_lookup( "flee" );
+    PLAYER *vch;
     int chance = 0;
 
     if ( ch->fighting == NULL )
@@ -2576,7 +2576,7 @@ void retreat( PLAYER_DATA *ch )
 /*
  * Syntax: retreat
  */
-void cmd_retreat( PLAYER_DATA *ch, char *argument )
+void cmd_retreat( PLAYER *ch, char *argument )
 {
     if ( ch->fighting == NULL )
     {
@@ -2594,9 +2594,9 @@ void cmd_retreat( PLAYER_DATA *ch, char *argument )
 /*
  * Do flee checks.
  */
-bool flee_check( PLAYER_DATA *ch, int d )
+bool flee_check( PLAYER *ch, int d )
 {
-    PLAYER_DATA *fch, *fch_next;
+    PLAYER *fch, *fch_next;
     int penalty = 0, fdex, chdex, chstr, fstr;
 
 
@@ -2643,9 +2643,9 @@ TO_NOTVICT );
 /*
  * Flee from combat
  */
-bool flee( PLAYER_DATA *ch )
+bool flee( PLAYER *ch )
 {
-    SCENE_INDEX_DATA *was_in;
+    SCENE *was_in;
     int tried[ MAX_DIR ];
     int attempt;
 
@@ -2655,7 +2655,7 @@ bool flee( PLAYER_DATA *ch )
     was_in = ch->in_scene;
     for ( attempt = 0; attempt < MAX_DIR; attempt++ )
     {
-        EXIT_DATA *pexit;
+        EXIT *pexit;
         int door;
 
         door = number_door();
@@ -2663,9 +2663,9 @@ bool flee( PLAYER_DATA *ch )
 	if ( tried[door]
         ||   ( pexit = was_in->exit[door] ) == NULL
 	||   pexit->to_scene == NULL
-	||   IS_SET(pexit->exit_info, EX_CLOSED)
-	||   IS_SET(pexit->exit_info, EX_WINDOW)
-	|| ( IS_NPC(ch)
+	||   IS_SET(pexit->exit_flags, EXIT_CLOSED)
+	||   IS_SET(pexit->exit_flags, EXIT_WINDOW)
+	|| ( NPC(ch)
 	  && IS_SET(pexit->to_scene->scene_flags, SCENE_NO_ACTOR) ) )
 		continue;
 
@@ -2691,7 +2691,7 @@ bool flee( PLAYER_DATA *ch )
 /*
  * Syntax:  flee
  */
-void cmd_flee( PLAYER_DATA *ch, char *argument )
+void cmd_flee( PLAYER *ch, char *argument )
 {
 
 /*
@@ -2716,11 +2716,11 @@ void cmd_flee( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  rescue [person]
  */
-void cmd_rescue( PLAYER_DATA *ch, char *argument )
+void cmd_rescue( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
-    PLAYER_DATA *fch;
+    PLAYER *victim;
+    PLAYER *fch;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -2741,7 +2741,7 @@ void cmd_rescue( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( !IS_NPC(ch) && IS_NPC(victim) )
+    if ( !NPC(ch) && NPC(victim) )
     {
         send_to_actor( "Doesn't need your help!\n\r", ch );
         return;
@@ -2760,7 +2760,7 @@ void cmd_rescue( PLAYER_DATA *ch, char *argument )
     }
 
     {
-      SKILL_DATA *pSkill = skill_lookup( "rescue" );
+      SKILL *pSkill = skill_lookup( "rescue" );
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
     if ( skill_check( ch, pSkill, 0 ) )
     {
@@ -2783,9 +2783,9 @@ void cmd_rescue( PLAYER_DATA *ch, char *argument )
 }
 
 
-bool hit_suck_disarm( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_suck_disarm( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( skill_check( ch, skill_lookup( "disarm" ), 0 )
     && ( prop = get_item_held( victim, ITEM_WEAPON ) ) != NULL
@@ -2806,10 +2806,10 @@ bool hit_suck_disarm( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
 
 
 
-bool hit_vorpal( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_vorpal( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     char *name;
 
     if ( hit >= 17 )
@@ -2821,7 +2821,7 @@ bool hit_vorpal( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
         stop_fighting( victim, TRUE );
 
         name        = NAME(ch);
-        prop         = create_prop( get_prop_index( PROP_VNUM_SEVERED_HEAD ), 0 );
+        prop         = create_prop( get_prop_template( PROP_VNUM_SEVERED_HEAD ), 0 );
         prop->timer  = number_range( 4, 7 );
 
         snprintf( buf, MAX_STRING_LENGTH, STR(prop, short_descr), NAME(victim) );
@@ -2841,9 +2841,9 @@ bool hit_vorpal( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
     return FALSE;
 }
 
-bool hit_fire( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_fire( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
-        PROP_DATA *pItem;
+        PROP *pItem;
 
         act( "$B$4You breath fire at $N!$R",  ch, 0, victim, TO_ACTOR );
         act( "$B$4$n breathes fire at you!$R",  ch, 0, victim, TO_VICT );
@@ -2866,7 +2866,7 @@ bool hit_fire( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
         return TRUE;
 }
 
-bool hit_kick( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_kick( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
         act( "$B$4You kick $N!$R",  ch, 0, victim, TO_ACTOR );
         act( "$B$4$n kick you!$R",  ch, 0, victim, TO_VICT );
@@ -2875,7 +2875,7 @@ bool hit_kick( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
         return TRUE;
 }
 
-bool hit_cold( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_cold( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
         act( "$B$1You chill $N!$R",  ch, 0, victim, TO_ACTOR );
         act( "$B$1$n chills you!$R",  ch, 0, victim, TO_VICT );
@@ -2884,7 +2884,7 @@ bool hit_cold( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
         return TRUE;
 }
 
-bool hit_lightning( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_lightning( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
         act( "$I$1$BYou electrify $N!$R",  ch, 0, victim, TO_ACTOR );
         act( "$I$1$B$n electrifies you!$R",  ch, 0, victim, TO_VICT );
@@ -2893,7 +2893,7 @@ bool hit_lightning( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
         return TRUE;
 }
 
-bool hit_rot( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_rot( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
         act( "$I$6You rot $N!$R",  ch, 0, victim, TO_ACTOR );
         act( "$I$6$n rots your flesh!$R",  ch, 0, victim, TO_VICT );
@@ -2902,7 +2902,7 @@ bool hit_rot( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
         return TRUE;
 }
 
-bool hit_acid( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_acid( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
         act( "$B$6You burn $N!$R",  ch, 0, victim, TO_ACTOR );
         act( "$B$6$n burns you!$R",  ch, 0, victim, TO_VICT );
@@ -2911,9 +2911,9 @@ bool hit_acid( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
         return TRUE;
 }
 
-bool hit_poison( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
+bool hit_poison( PLAYER *ch, PLAYER *victim, int hit, int dam )
 {
-        BONUS_DATA af;
+        BONUS af;
 
         act( "$B$2You bite $N!$R",  ch, 0, victim, TO_ACTOR );
         act( "$B$2$n bites you, releasing venom!$R",  ch, 0, victim, TO_VICT );
@@ -2926,11 +2926,11 @@ bool hit_poison( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
             display_interp( ch, "^N" );
             display_interp( victim, "^N" );
 
-            af.type      = skill_vnum(skill_lookup("poison"));
+            af.type      = skill_dbkey(skill_lookup("poison"));
             af.duration  = 5;
             af.location  = APPLY_CON;
             af.modifier  = -1;
-            af.bitvector = AFF_POISON;
+            af.bitvector = BONUS_POISON;
             bonus_join( victim, &af );
 
         damage( ch, victim, dam ); 
@@ -2940,14 +2940,14 @@ bool hit_poison( PLAYER_DATA *ch, PLAYER_DATA *victim, int hit, int dam )
 /*
  * Kick someone
  */
-bool kick( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed )
+bool kick( PLAYER *ch, PLAYER *victim, bool fArmed )
 {
     int chance = 0;
 
     if ( ch->fighting == NULL )
 	return( FALSE );
 
-    if (IS_AFFECTED(victim,AFF_FLYING) || IS_AFFECTED(ch,AFF_FLYING))
+    if (IS_AFFECTED(victim,BONUS_FLYING) || IS_AFFECTED(ch,BONUS_FLYING))
 	return ( FALSE );
 
     chance  = fArmed ? 0 : 20;
@@ -2993,9 +2993,9 @@ bool kick( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed )
 /*
  * Disarm a creature.
  */
-bool disarm( PLAYER_DATA *ch, PLAYER_DATA *victim )
+bool disarm( PLAYER *ch, PLAYER *victim )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
 
     if (victim->position < POS_FIGHTING)
@@ -3017,7 +3017,7 @@ bool disarm( PLAYER_DATA *ch, PLAYER_DATA *victim )
     }
 
     {
-    SKILL_DATA *pSkill=skill_lookup( "melee" );
+    SKILL *pSkill=skill_lookup( "melee" );
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
     if ( skill_check( ch, pSkill, 70 - (get_curr_dex(victim) * 3) ) )
     {
@@ -3050,7 +3050,7 @@ bool disarm( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Bash a creature.
  */
-bool bash( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed )
+bool bash( PLAYER *ch, PLAYER *victim, bool fArmed )
 {
     int chance = 0;
 
@@ -3104,7 +3104,7 @@ bool bash( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed )
 /*
  * Grapple
  */
-bool grapple( PLAYER_DATA *ch, PLAYER_DATA *victim )
+bool grapple( PLAYER *ch, PLAYER *victim )
 {
     int chance = 0;
 
@@ -3112,7 +3112,7 @@ bool grapple( PLAYER_DATA *ch, PLAYER_DATA *victim )
     ||   get_eq_char( ch, WEAR_HOLD_2 ) )
 	return( FALSE );
 
-    if (IS_AFFECTED(victim,AFF_FLYING) || IS_AFFECTED(ch,AFF_FLYING))
+    if (IS_AFFECTED(victim,BONUS_FLYING) || IS_AFFECTED(ch,BONUS_FLYING))
 	return ( FALSE );
 
     chance -= victim->size - ch->size;
@@ -3155,11 +3155,11 @@ bool grapple( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Trip
  */
-bool trip( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed )
+bool trip( PLAYER *ch, PLAYER *victim, bool fArmed )
 {
     int chance=0;
 
-    if (IS_AFFECTED(victim,AFF_FLYING) || IS_AFFECTED(ch,AFF_FLYING))
+    if (IS_AFFECTED(victim,BONUS_FLYING) || IS_AFFECTED(ch,BONUS_FLYING))
 	return ( FALSE );
 
     chance  = fArmed ? 0 : 20;
@@ -3199,10 +3199,10 @@ bool trip( PLAYER_DATA *ch, PLAYER_DATA *victim, bool fArmed )
 /*
  * Sweep
  */
-bool sweep( PLAYER_DATA *ch )
+bool sweep( PLAYER *ch )
 {
-    PLAYER_DATA *vch, *vch_next;
-    PROP_DATA *prop;
+    PLAYER *vch, *vch_next;
+    PROP *prop;
     char w[MAX_STRING_LENGTH];
     int count = 0;
 
@@ -3238,9 +3238,9 @@ bool sweep( PLAYER_DATA *ch )
     return ( TRUE );
 }
 
-int number_fighting( PLAYER_DATA *ch )
+int number_fighting( PLAYER *ch )
 {
-    PLAYER_DATA *vch;
+    PLAYER *vch;
     int count = 0;
 
     if ( ch->in_scene == NULL )
@@ -3252,7 +3252,7 @@ int number_fighting( PLAYER_DATA *ch )
 
  
 /* This func tries to determine when a fighting party attempts to flee */
-void auto_flee( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void auto_flee( PLAYER *ch, PLAYER *victim )
 {
     int cond=0, wits = 0;
 
@@ -3273,7 +3273,7 @@ void auto_flee( PLAYER_DATA *ch, PLAYER_DATA *victim )
 
 
     /* Charmed folks won't go nowhere */
-    if ( IS_AFFECTED(victim, AFF_CHARM)
+    if ( IS_AFFECTED(victim, BONUS_CHARM)
     &&   victim->master != NULL
     &&   victim->master->in_scene == victim->in_scene )
     {
@@ -3301,7 +3301,7 @@ void auto_flee( PLAYER_DATA *ch, PLAYER_DATA *victim )
     return;
 }
 
-void auto_fight( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void auto_fight( PLAYER *ch, PLAYER *victim )
 {
     int cond=0;
     int us=0, them=0;
@@ -3314,7 +3314,7 @@ void auto_fight( PLAYER_DATA *ch, PLAYER_DATA *victim )
     }
 
     /* Charmed folks are none too smart */
-    if ( IS_AFFECTED(ch, AFF_CHARM)
+    if ( IS_AFFECTED(ch, BONUS_CHARM)
     &&   ch->master != NULL
     &&   ch->master->in_scene == ch->in_scene )
     {
@@ -3358,7 +3358,7 @@ void auto_fight( PLAYER_DATA *ch, PLAYER_DATA *victim )
 
 }
 
-bool armed_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
+bool armed_attack( PLAYER *ch, PLAYER *victim )
 {
     /* Self or victim not fighting, so bail out */
     if ( ch->position != POS_FIGHTING
@@ -3393,7 +3393,7 @@ bool armed_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
     return( FALSE );
 }
 
-bool unarmed_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
+bool unarmed_attack( PLAYER *ch, PLAYER *victim )
 {
     /* Self or victim not fighting, so bail out */
     if ( ch->position != POS_FIGHTING
@@ -3427,11 +3427,11 @@ bool unarmed_attack( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Syntax:  assist [person]
  */
-void cmd_assist( PLAYER_DATA *ch, char *argument )
+void cmd_assist( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
-    PLAYER_DATA *fch;
+    PLAYER *victim;
+    PLAYER *fch;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -3494,10 +3494,10 @@ void cmd_assist( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  mercy
  */
-void cmd_mercy( PLAYER_DATA *ch, char *argument )
+void cmd_mercy( PLAYER *ch, char *argument )
 {
 /*    char arg[MAX_INPUT_LENGTH];*/
-    PLAYER_DATA *fch;
+    PLAYER *fch;
 
     if ( ch->fighting == NULL ) {
         send_to_actor( "You are not fighting right now.\n\r", ch );
@@ -3516,7 +3516,7 @@ void cmd_mercy( PLAYER_DATA *ch, char *argument )
     act( "You beg for mercy $N!",  ch, NULL, fch, TO_ACTOR );
     act( "$n begs you for mercy!", ch, NULL, fch, TO_VICT );
 
-    if ( IS_NPC(ch->fighting) && IS_SET(ch->fighting->act, ACT_MERCY) )
+    if ( NPC(ch->fighting) && IS_SET(ch->fighting->flag, ACTOR_MERCY) )
     {
         stop_fighting( ch, TRUE );
         stop_fighting( fch, TRUE );
@@ -3532,16 +3532,16 @@ void cmd_mercy( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  stop
  */
-void cmd_stop( PLAYER_DATA *ch, char *argument )
+void cmd_stop( PLAYER *ch, char *argument )
 {
-    PLAYER_DATA *fch;
+    PLAYER *fch;
 
     if ( ch->fighting == NULL ) {
         send_to_actor( "You are not fighting right now.\n\r", ch );
         return;
     }
 
-    if ( !IS_NPC(ch) && !IS_NPC(ch->fighting))
+    if ( !NPC(ch) && !NPC(ch->fighting))
     {
         fch = ch->fighting;
         stop_fighting( ch, TRUE );

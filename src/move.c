@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -72,33 +72,33 @@ const   int  rev_dir     []      =
     DIR_NW   
 };
 
-const	int	movement_loss	[SECT_MAX]	=
+const	int	movement_loss	[MOVE_MAX]	=
 {
-    1,   /* SECT_INSIDE       */
-    1,   /* SECT_CITY         */
-    2,   /* SECT_FIELD        */
-    4,   /* SECT_FOREST       */
-    5,   /* SECT_HILLS        */
-    8,   /* SECT_MOUNTAIN     */
-    4,   /* SECT_WATER_SWIM   */
-    1,   /* SECT_WATER_NOSWIM */
-    6,   /* SECT_UNDERWATER   */
-   10,   /* SECT_AIR          */
-    6,   /* SECT_DESERT       */
-   10,   /* SECT_ICELAND      */
-    5    /* SECT_CLIMB        */
+    1,   /* MOVE_INSIDE       */
+    1,   /* MOVE_CITY         */
+    2,   /* MOVE_FIELD        */
+    4,   /* MOVE_FOREST       */
+    5,   /* MOVE_HILLS        */
+    8,   /* MOVE_MOUNTAIN     */
+    4,   /* MOVE_WATER_SWIM   */
+    1,   /* MOVE_WATER_NOSWIM */
+    6,   /* MOVE_UNDERWATER   */
+   10,   /* MOVE_AIR          */
+    6,   /* MOVE_DESERT       */
+   10,   /* MOVE_ICELAND      */
+    5    /* MOVE_CLIMB        */
 };
 
 
-void flee( PLAYER_DATA *ch, PLAYER_DATA *fighting, int d );
+void flee( PLAYER *ch, PLAYER *fighting, int d );
 
 
 
-void hide_check( PLAYER_DATA *ch, SCENE_INDEX_DATA *in_scene )
+void hide_check( PLAYER *ch, SCENE *in_scene )
 {
-    PLAYER_DATA *rch;
+    PLAYER *rch;
 
-    if ( !IS_AFFECTED(ch,AFF_HIDE) )
+    if ( !IS_AFFECTED(ch,BONUS_HIDE) )
     return;
 
     for ( rch = in_scene->people;  rch != NULL;  rch = rch->next_in_scene )
@@ -122,9 +122,9 @@ void hide_check( PLAYER_DATA *ch, SCENE_INDEX_DATA *in_scene )
 
 /*
  * Do flee checks.
-void flee( PLAYER_DATA *ch, PLAYER_DATA *fighting, int d )
+void flee( PLAYER *ch, PLAYER *fighting, int d )
 {
-    PLAYER_DATA *fch;
+    PLAYER *fch;
     int penalty = 0, fdex, chdex, chstr, fstr;
 
 
@@ -166,11 +166,11 @@ TO_NOTVICT );
  */
 
 
-void leave_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool fWindow )
+void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *fch;
-    PLAYER_DATA *fch_next;
+    PLAYER *fch;
+    PLAYER *fch_next;
 
     if ( ch->position == POS_FIGHTING )
     snprintf( buf, MAX_STRING_LENGTH, "You turn tail and flee %s", dir_name[door] );
@@ -178,11 +178,11 @@ void leave_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool f
     if ( prop != NULL )
         snprintf( buf, MAX_STRING_LENGTH, "You use %s to %s %s",
                       can_see_prop( ch, prop ) ? STR(prop, short_descr) : "something",
-                      sect == SECT_MOUNTAIN       ? "climb" :
-                      sect == SECT_CLIMB         ? "climb" :
-                      sect == SECT_WATER_NOSWIM   ? "sail" :
-                      sect == SECT_AIR            ? "fly" :
-                      sect == SECT_UNDERWATER     ? "dive" : "move",
+                      sect == MOVE_MOUNTAIN       ? "climb" :
+                      sect == MOVE_CLIMB         ? "climb" :
+                      sect == MOVE_WATER_NOSWIM   ? "sail" :
+                      sect == MOVE_AIR            ? "fly" :
+                      sect == MOVE_UNDERWATER     ? "dive" : "move",
                       dir_name[door] );
     else
     if ( ch->rider != NULL )
@@ -195,18 +195,18 @@ void leave_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool f
                          dir_name[door] );
         }
     else
-    if ( IS_AFFECTED(ch, AFF_FLYING) )
+    if ( IS_AFFECTED(ch, BONUS_FLYING) )
         snprintf( buf, MAX_STRING_LENGTH, "You fly %s", dir_name[door] );
     else
-    if ( IS_AFFECTED(ch, AFF_SNEAK) )
+    if ( IS_AFFECTED(ch, BONUS_SNEAK) )
         snprintf( buf, MAX_STRING_LENGTH, "You try to sneak %s", dir_name[door] );
     else
-    if ( sect == SECT_WATER_SWIM || sect == SECT_UNDERWATER ) {
+    if ( sect == MOVE_WATER_SWIM || sect == MOVE_UNDERWATER ) {
         if ( ch->desc ) sendcli( ch->desc, "PLAYSOUND swim.wav" );
         snprintf( buf, MAX_STRING_LENGTH, "You swim %s", dir_name[door] );
       }
     else
-    if ( sect == SECT_CLIMB || fWindow == TRUE ) {
+    if ( sect == MOVE_CLIMB || fWindow == TRUE ) {
         if ( ch->desc ) sendcli( ch->desc, "PLAYSOUND pick.wav" );
         snprintf( buf, MAX_STRING_LENGTH, "You climb %s", dir_name[door] );
     }
@@ -238,7 +238,7 @@ void leave_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool f
          else
          send_to_actor( " through a", ch );
 
-         if ( IS_SET(ch->in_scene->exit[door]->exit_info, EX_ISDOOR) ) 
+         if ( IS_SET(ch->in_scene->exit[door]->exit_flags, EXIT_ISDOOR) ) 
          send_to_actor( "n open ", ch );
          else {if ( IS_VOWEL(ch->in_scene->exit[door]->keyword[0]) )
                 send_to_actor( "n ", ch ); 
@@ -272,10 +272,10 @@ void leave_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool f
         snprintf( buf, MAX_STRING_LENGTH, "%s uses %s to %s %s",
                       PERS(ch, fch),
                       can_see_prop(fch, prop) ? STR(prop, short_descr) : "something",
-                      sect == SECT_MOUNTAIN ? "climb" :
-                      sect == SECT_WATER_NOSWIM ? "sail" :
-                      sect == SECT_AIR ? "fly" :
-                      sect == SECT_UNDERWATER ? "dive" : "move",
+                      sect == MOVE_MOUNTAIN ? "climb" :
+                      sect == MOVE_WATER_NOSWIM ? "sail" :
+                      sect == MOVE_AIR ? "fly" :
+                      sect == MOVE_UNDERWATER ? "dive" : "move",
                       dir_name[door] );
    else if ( ch->riding != NULL &&
         (can_see(fch, ch) || can_see(fch, ch->riding)) )
@@ -293,18 +293,18 @@ void leave_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool f
                             PERS(ch->riding, fch), dir_name[door] );
         }
         }
-   else if ( IS_AFFECTED(ch, AFF_FLYING) && can_see(fch, ch) )
+   else if ( IS_AFFECTED(ch, BONUS_FLYING) && can_see(fch, ch) )
            snprintf( buf, MAX_STRING_LENGTH, "%s flies %s", PERS(ch, fch), dir_name[door] );
-   else if ( IS_AFFECTED(ch, AFF_SNEAK) )
+   else if ( IS_AFFECTED(ch, BONUS_SNEAK) )
         {
-            if ( IS_SET(fch->act2, WIZ_HOLYLIGHT)
+            if ( IS_SET(fch->flag2, WIZ_HOLYLIGHT)
               || skill_check(fch, skill_lookup("stealth"), 25) )
            snprintf( buf, MAX_STRING_LENGTH, "%s tries to sneak %s", PERS(ch, fch), dir_name[door] );
            else buf[0] = '\0';
         }
-   else if ( sect == SECT_WATER_SWIM || sect == SECT_UNDERWATER )
+   else if ( sect == MOVE_WATER_SWIM || sect == MOVE_UNDERWATER )
          snprintf( buf, MAX_STRING_LENGTH, "%s swims %s",  PERS(ch, fch), dir_name[door] );
-   else if ( sect == SECT_CLIMB )
+   else if ( sect == MOVE_CLIMB )
             snprintf( buf, MAX_STRING_LENGTH, "%s climbs %s",  PERS(ch, fch), dir_name[door] );
    else if ( ch->position == POS_STANDING )
         {
@@ -335,11 +335,11 @@ void leave_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool f
 }
 
 
-void arrive_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool fWindow )
+void arrive_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *fch;
-    PLAYER_DATA *fch_next;
+    PLAYER *fch;
+    PLAYER *fch_next;
 
     for ( fch = ch->in_scene->people; fch != NULL; fch = fch_next )
     {
@@ -363,26 +363,26 @@ void arrive_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool 
         snprintf( buf, MAX_STRING_LENGTH, "%s uses %s to %s %s",
                  PERS(ch, fch),
                  PERSO(prop, fch),
-                 sect == SECT_MOUNTAIN     ? "climb" :
-                 sect == SECT_WATER_NOSWIM ? "sail" :
-                 sect == SECT_AIR          ? "fly" :
-                 sect == SECT_UNDERWATER   ? "dive" : "move",
+                 sect == MOVE_MOUNTAIN     ? "climb" :
+                 sect == MOVE_WATER_NOSWIM ? "sail" :
+                 sect == MOVE_AIR          ? "fly" :
+                 sect == MOVE_UNDERWATER   ? "dive" : "move",
                  dir_name[door] );
    else if ( ch->riding != NULL )
         snprintf( buf, MAX_STRING_LENGTH, "%s rides %s in from %s", PERS(ch, fch),
                  PERS(ch->riding, fch), dir_rev[door] );
-   else if ( IS_AFFECTED(ch, AFF_FLYING) )
+   else if ( IS_AFFECTED(ch, BONUS_FLYING) )
         snprintf( buf, MAX_STRING_LENGTH, "%s flies in from %s", PERS(ch, fch), dir_rev[door] );
-   else if ( IS_AFFECTED(ch, AFF_SNEAK) && skill_check( fch, skill_lookup("stealth"), 75 ) )
+   else if ( IS_AFFECTED(ch, BONUS_SNEAK) && skill_check( fch, skill_lookup("stealth"), 75 ) )
         {
-        if ( IS_SET(fch->act2, WIZ_HOLYLIGHT)
+        if ( IS_SET(fch->flag2, WIZ_HOLYLIGHT)
           || skill_check( fch, skill_lookup("stealth"), 25 ) )
         snprintf( buf, MAX_STRING_LENGTH, "%s tries to sneak in from %s", PERS(ch, fch), dir_rev[door] );
         else buf[0] = '\0';
         }
-   else if ( sect == SECT_WATER_SWIM || sect == SECT_UNDERWATER )
+   else if ( sect == MOVE_WATER_SWIM || sect == MOVE_UNDERWATER )
         snprintf( buf, MAX_STRING_LENGTH, "%s swims in from %s",  PERS(ch, fch), dir_rev[door] );
-   else if ( sect == SECT_CLIMB )
+   else if ( sect == MOVE_CLIMB )
         snprintf( buf, MAX_STRING_LENGTH, "%s climbs in from %s",  PERS(ch, fch), dir_rev[door] );
    else if ( ch->position == POS_STANDING )
     {
@@ -405,8 +405,8 @@ void arrive_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool 
               && !MTD(ch->in_scene->exit[rev_dir[door]]->keyword) )
             {
                 send_to_actor( " through the ", fch );
-                if ( IS_SET(ch->in_scene->exit[rev_dir[door]]->exit_info,EX_ISDOOR)
-                 && !IS_SET(ch->in_scene->exit[rev_dir[door]]->exit_info,EX_CLOSED) )
+                if ( IS_SET(ch->in_scene->exit[rev_dir[door]]->exit_flags,EXIT_ISDOOR)
+                 && !IS_SET(ch->in_scene->exit[rev_dir[door]]->exit_flags,EXIT_CLOSED) )
                 send_to_actor( "open ", ch );               
                 send_to_actor( cut_to( ch->in_scene->exit[rev_dir[door]]->keyword ), fch );
             }
@@ -420,16 +420,16 @@ void arrive_strings( PLAYER_DATA *ch, PROP_DATA *prop, int sect, int door, bool 
 
 
 
-bool lose_movement( PLAYER_DATA *ch, SCENE_INDEX_DATA *in_scene,
-                    SCENE_INDEX_DATA *to_scene )
+bool lose_movement( PLAYER *ch, SCENE *in_scene,
+                    SCENE *to_scene )
 {
     int move;
 
-	move = movement_loss[UMIN(SECT_MAX-1, in_scene->sector_type)]
-         + movement_loss[UMIN(SECT_MAX-1, to_scene->sector_type)]
+	move = movement_loss[UMIN(MOVE_MAX-1, in_scene->move)]
+         + movement_loss[UMIN(MOVE_MAX-1, to_scene->move)]
          ;
 
-    if ( IS_NPC(ch) && IS_SET(ch->act, ACT_MOUNT) ) move/=3;
+    if ( NPC(ch) && IS_SET(ch->flag, ACTOR_MOUNT) ) move/=3;
 
     if ( move <= 0 ) move = 1;
 
@@ -463,13 +463,13 @@ bool lose_movement( PLAYER_DATA *ch, SCENE_INDEX_DATA *in_scene,
 
 
 
-bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scene,
-                 SCENE_INDEX_DATA *to_scene, PROP_DATA **prop )
+bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
+                 SCENE *to_scene, PROP **prop )
 {
     bool found, fRiding = ch->riding != NULL;
     int sect;
-    EXIT_DATA *pexit;
-    PROP_DATA *fprop = NULL;
+    EXIT *pexit;
+    PROP *fprop = NULL;
 
     // Dying players sometimes are dying before their script is done being, prior to dispose
     if ( in_scene == NULL || to_scene == NULL ) return FALSE;
@@ -477,8 +477,8 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
    /*
     * NO_ACTORS and STAY_ZONE
     */
-    if ( !ch->instances && IS_NPC(ch) && ( IS_SET(to_scene->scene_flags,SCENE_NO_ACTOR)
-                                     || (to_scene->zone != in_scene->zone && IS_SET(ch->act,ACT_STAY_ZONE) )))
+    if ( !ch->instances && NPC(ch) && ( IS_SET(to_scene->scene_flags,SCENE_NO_ACTOR)
+                                     || (to_scene->zone != in_scene->zone && IS_SET(ch->flag,ACTOR_STAY_ZONE) )))
     {
         send_to_actor( "You are an NPC, and restricted from going in this direction due to flag NO_ACTOR or flag STAY_ZONE", ch );
         if ( !ch->master )
@@ -507,13 +507,13 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
     /*
      * Holding.
      */
-    if ( IS_AFFECTED(ch, AFF_HOLD) && depth == 0 )
+    if ( IS_AFFECTED(ch, BONUS_HOLD) && depth == 0 )
     {
         send_to_actor( "It is impossible to move.\n\r", ch );
         return FALSE;
     }
 
-    if ( (fRiding && IS_AFFECTED(ch->riding, AFF_HOLD)) && depth == 0  )
+    if ( (fRiding && IS_AFFECTED(ch->riding, BONUS_HOLD)) && depth == 0  )
     {
         send_to_actor( "Your ride aren't able move.\n\r", ch );
         return FALSE;
@@ -527,10 +527,10 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
     return FALSE;
     }
 
-    if ( IS_SET(pexit->exit_info, EX_CLOSED)
-      && !IS_AFFECTED(ch, AFF_PASS_DOOR) )
+    if ( IS_SET(pexit->exit_flags, EXIT_CLOSED)
+      && !IS_AFFECTED(ch, BONUS_PASS_DOOR) )
     {
-        if ( !IS_SET(pexit->exit_info, EX_SECRET) || IS_IMMORTAL(ch) )
+        if ( !IS_SET(pexit->exit_flags, EXIT_SECRET) || IS_IMMORTAL(ch) )
         {
             if ( scene_is_dark( in_scene ) )
             {
@@ -546,14 +546,14 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
         return FALSE;
     }
 
-    if ( IS_SET(pexit->exit_info, EX_WINDOW)
+    if ( IS_SET(pexit->exit_flags, EXIT_WINDOW)
       && pexit->key == -1 )
     {
         send_to_actor( "You cannot go that way.\n\r", ch );
         return FALSE;
     }
 
-    if ( IS_AFFECTED(ch, AFF_CHARM)
+    if ( IS_AFFECTED(ch, BONUS_CHARM)
       && ch->master != NULL
       && in_scene == ch->master->in_scene )
     {
@@ -573,7 +573,7 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
     return FALSE;
     }
 
-    sect = to_scene->sector_type;
+    sect = to_scene->move;
 
     /*
      * Look for a movement device (not really a vehicle).
@@ -597,13 +597,13 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
     }
     }
     
-    if ( IS_NPC(ch) && IS_SET(ch->act, ACT_PET) ) found = FALSE;
+    if ( NPC(ch) && IS_SET(ch->flag, ACTOR_PET) ) found = FALSE;
 
-    if ( sect == SECT_INSIDE
-      || sect == SECT_CITY
-      || sect == SECT_FIELD
-      || sect == SECT_FOREST
-      || sect == SECT_HILLS )
+    if ( sect == MOVE_INSIDE
+      || sect == MOVE_CITY
+      || sect == MOVE_FIELD
+      || sect == MOVE_FOREST
+      || sect == MOVE_HILLS )
     {
     fprop = NULL;
     found = TRUE;
@@ -611,7 +611,7 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
     else
     if ( fprop == NULL )
     {
-    if ( sect == SECT_WATER_SWIM && !IS_AFFECTED( ch, AFF_FLYING ) )
+    if ( sect == MOVE_WATER_SWIM && !IS_AFFECTED( ch, BONUS_FLYING ) )
     {
         fprop = NULL;
         found = TRUE;
@@ -622,7 +622,7 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
         }
 
         if ( !skill_check( ch, skill_lookup("swimming"), 2 )
-          && !IS_AFFECTED( ch, AFF_BREATHING ) )
+          && !IS_AFFECTED( ch, BONUS_BREATHING ) )
         {
             damage( ch, ch, number_fuzzy( 5 ) );
             send_to_actor( "You gurgle as water laps into your face.\n\r", ch );
@@ -631,7 +631,7 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
         }
     }
     else
-    if ( sect == SECT_CLIMB && !IS_AFFECTED( ch, AFF_FLYING ) )
+    if ( sect == MOVE_CLIMB && !IS_AFFECTED( ch, BONUS_FLYING ) )
     {
         int multiplier;
 
@@ -659,7 +659,7 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
         {
             if ( !skill_check( ch, skill_lookup("climbing"), multiplier ) )
             {
-            SET_BIT( ch->bonuses, AFF_FALLING );
+            SET_BIT( ch->bonuses, BONUS_FALLING );
             send_to_actor( "You lose your grip.\n\r", ch );
             }
             else
@@ -673,22 +673,22 @@ bool check_move( PLAYER_DATA *ch, int door, int depth, SCENE_INDEX_DATA *in_scen
     }
             
     if ( !found        /* no vehicle */
-    && ((sect == SECT_MOUNTAIN && !IS_AFFECTED(ch, AFF_FLYING) )
-     || (sect == SECT_AIR       && !IS_AFFECTED(ch, AFF_FLYING) )
-     || (sect == SECT_AIR       && fRiding
-                                && !IS_AFFECTED(ch->riding, AFF_FLYING) )
-     || (sect == SECT_UNDERWATER   && !IS_AFFECTED(ch, AFF_BREATHING) )
-     || (sect == SECT_WATER_NOSWIM && !IS_AFFECTED(ch, AFF_FLYING) ))     )
+    && ((sect == MOVE_MOUNTAIN && !IS_AFFECTED(ch, BONUS_FLYING) )
+     || (sect == MOVE_AIR       && !IS_AFFECTED(ch, BONUS_FLYING) )
+     || (sect == MOVE_AIR       && fRiding
+                                && !IS_AFFECTED(ch->riding, BONUS_FLYING) )
+     || (sect == MOVE_UNDERWATER   && !IS_AFFECTED(ch, BONUS_BREATHING) )
+     || (sect == MOVE_WATER_NOSWIM && !IS_AFFECTED(ch, BONUS_FLYING) ))     )
     {
         char buf[MAX_STRING_LENGTH];
             
         switch( sect )
         {
                default: snprintf( buf, MAX_STRING_LENGTH, "You need another form of transportation to go there\n\r" ); break;
-  case SECT_UNDERWATER: snprintf( buf, MAX_STRING_LENGTH, "It is impossible to hold your breath for long enough.\n\r" ); break;
-    case SECT_MOUNTAIN: snprintf( buf, MAX_STRING_LENGTH, "Its too steep for you to climb unaided.\n\r" ); break;
-case SECT_WATER_NOSWIM: snprintf( buf, MAX_STRING_LENGTH, "You need a boat to go there.\n\r" ); break;
-         case SECT_AIR: snprintf( buf, MAX_STRING_LENGTH, "It is impossible to fly!\n\r" ); break;
+  case MOVE_UNDERWATER: snprintf( buf, MAX_STRING_LENGTH, "It is impossible to hold your breath for long enough.\n\r" ); break;
+    case MOVE_MOUNTAIN: snprintf( buf, MAX_STRING_LENGTH, "Its too steep for you to climb unaided.\n\r" ); break;
+case MOVE_WATER_NOSWIM: snprintf( buf, MAX_STRING_LENGTH, "You need a boat to go there.\n\r" ); break;
+         case MOVE_AIR: snprintf( buf, MAX_STRING_LENGTH, "It is impossible to fly!\n\r" ); break;
         }
             
         send_to_actor( buf, ch );
@@ -702,12 +702,12 @@ case SECT_WATER_NOSWIM: snprintf( buf, MAX_STRING_LENGTH, "You need a boat to go
 
 
 
-void move_char( PLAYER_DATA *ch, int door )
+void move_char( PLAYER *ch, int door )
 {
     static int depth = 0;
-    SCENE_INDEX_DATA *in_scene;
-    SCENE_INDEX_DATA *to_scene;
-    PROP_DATA *prop;
+    SCENE *in_scene;
+    SCENE *to_scene;
+    PROP *prop;
     char buf[MAX_STRING_LENGTH];
     int sect;
     bool fWindow;
@@ -733,10 +733,10 @@ void move_char( PLAYER_DATA *ch, int door )
      * Blind staggering -- rider or mount.
      * Also, drunkeness.
      */
-    if ( IS_AFFECTED(ch, AFF_BLIND)
-      || ( !IS_NPC(ch) && PC(ch,condition)[COND_DRUNK] > 30 )
+    if ( IS_AFFECTED(ch, BONUS_BLIND)
+      || ( !NPC(ch) && PC(ch,condition)[COND_DRUNK] > 30 )
       || (ch->riding
-       && IS_AFFECTED(ch->riding, AFF_BLIND)
+       && IS_AFFECTED(ch->riding, BONUS_BLIND)
        && skill_check(ch, skill_lookup("riding"), 50)) )
     {
         if ( door != DIR_UP && door != DIR_DOWN )
@@ -749,15 +749,15 @@ void move_char( PLAYER_DATA *ch, int door )
     in_scene = ch->in_scene;
     to_scene = in_scene && in_scene->exit[door] ? in_scene->exit[door]->to_scene : NULL;
 
-    if ( !IS_NPC(ch) && in_scene->exit[door] == NULL ) { send_to_actor( "There is no way to travel in that direction from here.\n\r", ch );
+    if ( !NPC(ch) && in_scene->exit[door] == NULL ) { send_to_actor( "There is no way to travel in that direction from here.\n\r", ch );
        return; }
 
     if ( !check_move(ch, door, depth, in_scene, to_scene, &prop) )
     return;
 
-    sect = to_scene->sector_type;
+    sect = to_scene->move;
 
-    fWindow = in_scene->exit[door] && IS_SET(in_scene->exit[door]->exit_info, EX_WINDOW) ? 1 : 0;
+    fWindow = in_scene->exit[door] && IS_SET(in_scene->exit[door]->exit_flags, EXIT_WINDOW) ? 1 : 0;
 
     /*
      * Exhaustion.
@@ -766,7 +766,7 @@ void move_char( PLAYER_DATA *ch, int door )
     return;
 
     if ( in_scene->exit[door] 
-      && IS_SET(in_scene->exit[door]->exit_info, EX_NOMOVE) ) {
+      && IS_SET(in_scene->exit[door]->exit_flags, EXIT_NOMOVE) ) {
       send_to_actor( "You cannot go that way.\n\r", ch );
       return;
     }
@@ -830,7 +830,7 @@ void move_char( PLAYER_DATA *ch, int door )
         depth--;
     }
 
-    if ( !IS_NPC(ch) && IS_SET(ch->act2, PLR_CLRSCR) ) {
+    if ( !NPC(ch) && IS_SET(ch->flag2, PLR_CLRSCR) ) {
       send_to_actor( "+--------------------------------------------------------------------+\n\r", ch );
       send_to_actor( PC(ch,say_last), ch );
       send_to_actor( PC(ch,tell_last), ch );
@@ -844,8 +844,8 @@ void move_char( PLAYER_DATA *ch, int door )
     cmd_track( ch, "continue" );
 
     {
-        PLAYER_DATA *fch;
-        PLAYER_DATA *fch_next;
+        PLAYER *fch;
+        PLAYER *fch_next;
 
         for ( fch = in_scene->people; fch != NULL; fch = fch_next )
         {
@@ -876,27 +876,27 @@ void move_char( PLAYER_DATA *ch, int door )
 
 
 
-void cmd_north ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_NORTH ); return; }
-void cmd_east  ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_EAST );  return; }
-void cmd_south ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_SOUTH ); return; }
-void cmd_west  ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_WEST );  return; }
-void cmd_up    ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_UP );    return; }
-void cmd_down  ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_DOWN );  return; }
-void cmd_nw    ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_NW );    return; }
-void cmd_ne    ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_NE );    return; }
-void cmd_sw    ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_SW );    return; }
-void cmd_se    ( PLAYER_DATA *ch, char *argument ) { move_char( ch, DIR_SE );    return; }
+void cmd_north ( PLAYER *ch, char *argument ) { move_char( ch, DIR_NORTH ); return; }
+void cmd_east  ( PLAYER *ch, char *argument ) { move_char( ch, DIR_EAST );  return; }
+void cmd_south ( PLAYER *ch, char *argument ) { move_char( ch, DIR_SOUTH ); return; }
+void cmd_west  ( PLAYER *ch, char *argument ) { move_char( ch, DIR_WEST );  return; }
+void cmd_up    ( PLAYER *ch, char *argument ) { move_char( ch, DIR_UP );    return; }
+void cmd_down  ( PLAYER *ch, char *argument ) { move_char( ch, DIR_DOWN );  return; }
+void cmd_nw    ( PLAYER *ch, char *argument ) { move_char( ch, DIR_NW );    return; }
+void cmd_ne    ( PLAYER *ch, char *argument ) { move_char( ch, DIR_NE );    return; }
+void cmd_sw    ( PLAYER *ch, char *argument ) { move_char( ch, DIR_SW );    return; }
+void cmd_se    ( PLAYER *ch, char *argument ) { move_char( ch, DIR_SE );    return; }
 
 
 /*
  * Syntax:  drag [prop] [direction]
  */
-void cmd_drag( PLAYER_DATA *ch, char *argument )
+void cmd_drag( PLAYER *ch, char *argument )
 {
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
-    PLAYER_DATA *actor;
-    PROP_DATA *prop;
+    PLAYER *actor;
+    PROP *prop;
     int door;
     
     argument = one_argument( argument, arg1 );
@@ -935,13 +935,13 @@ void cmd_drag( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  hitch [person] [prop]
  */
-void cmd_hitch( PLAYER_DATA *ch, char *argument )
+void cmd_hitch( PLAYER *ch, char *argument )
 {
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
-    PLAYER_DATA *actor;
-    PLAYER_DATA *vict;
+    PROP *prop;
+    PLAYER *actor;
+    PLAYER *vict;
     
     argument = one_argument( argument, arg1 );
     one_argument( argument, arg2 );
@@ -988,12 +988,12 @@ void cmd_hitch( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  unhitch [person]
  */
-void cmd_unhitch( PLAYER_DATA *ch, char *argument )
+void cmd_unhitch( PLAYER *ch, char *argument )
 {
     char arg1[MAX_STRING_LENGTH];
     char arg2[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
-    PLAYER_DATA *vict;
+    PROP *prop;
+    PLAYER *vict;
     
     argument = one_argument( argument, arg1 );
     one_argument( argument, arg2 );
@@ -1023,13 +1023,13 @@ void cmd_unhitch( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  enter [prop]
  */
-void cmd_enter( PLAYER_DATA *ch, char *argument )
+void cmd_enter( PLAYER *ch, char *argument )
 {
     char arg[MAX_STRING_LENGTH];
-    PLAYER_DATA *actor;
-    PROP_DATA *prop;
-    SCENE_INDEX_DATA *dest;
-    int dvnum;
+    PLAYER *actor;
+    PROP *prop;
+    SCENE *dest;
+    int ddbkey;
     
     one_argument( argument, arg );
     
@@ -1046,10 +1046,10 @@ void cmd_enter( PLAYER_DATA *ch, char *argument )
         return;
     }
     
-    dvnum = IS_SET(prop->value[1],FURN_HOME) ? 
-                (IS_NPC(ch) ? prop->value[3] : PC(ch,home)) : prop->value[3];
+    ddbkey = IS_SET(prop->value[1],FURN_HOME) ? 
+                (NPC(ch) ? prop->value[3] : PC(ch,home)) : prop->value[3];
 
-    if ( ( dest = get_scene_index( dvnum ) ) == NULL )
+    if ( ( dest = get_scene( ddbkey ) ) == NULL )
     {
         send_to_actor( "It is impossible to go that way.\n\r", ch );
         return;
@@ -1061,7 +1061,7 @@ void cmd_enter( PLAYER_DATA *ch, char *argument )
         return;
     }
       
-    if ( IS_SET(prop->value[1], EX_CLOSED) )
+    if ( IS_SET(prop->value[1], EXIT_CLOSED) )
     {
         send_to_actor( "It's closed.\n\r", ch );
         return;
@@ -1121,11 +1121,11 @@ void cmd_enter( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_leave( PLAYER_DATA *ch, char *argument )
+void cmd_leave( PLAYER *ch, char *argument )
 {
-    SCENE_INDEX_DATA *pScene;
-    PROP_INDEX_DATA *pPropIndex;
-    PROP_DATA *pProp;
+    SCENE *pScene;
+    PROP_TEMPLATE *pPropIndex;
+    PROP *pProp;
 
     if ( (pScene = ch->in_scene) == NULL )
     {
@@ -1134,7 +1134,7 @@ void cmd_leave( PLAYER_DATA *ch, char *argument )
     }
 
     if ( IS_SET(pScene->scene_flags, SCENE_WAGON)
-      && (pPropIndex = get_prop_index( pScene->wagon )) != NULL )
+      && (pPropIndex = get_prop_template( pScene->wagon )) != NULL )
     {
         for ( pProp = prop_list; pProp != NULL; pProp = pProp->next )
         {
@@ -1167,14 +1167,14 @@ void cmd_leave( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  stand
  */
-void cmd_stand( PLAYER_DATA *ch, char *argument )
+void cmd_stand( PLAYER *ch, char *argument )
 {
     if ( ch->riding != NULL )    { cmd_dismount( ch, "" ); return; }
 
     switch ( ch->position )
     {
     case POS_SLEEPING:
-	if ( IS_AFFECTED(ch, AFF_SLEEP) )
+	if ( IS_AFFECTED(ch, BONUS_SLEEP) )
 	    { send_to_actor( "It is impossible to wake up!\n\r", ch ); return; }
 
 	send_to_actor( "You wake and stand up.\n\r", ch );
@@ -1209,7 +1209,7 @@ void cmd_stand( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  rest
  */
-void cmd_rest( PLAYER_DATA *ch, char *argument )
+void cmd_rest( PLAYER *ch, char *argument )
 {
 
     if ( ch->riding != NULL )
@@ -1236,7 +1236,7 @@ void cmd_rest( PLAYER_DATA *ch, char *argument )
 
     case POS_STANDING:
     send_to_actor( "You sit down and rest.\n\r", ch );
-    if ( IS_NPC(ch) && IS_SET(ch->act, ACT_MOUNT) )
+    if ( NPC(ch) && IS_SET(ch->flag, ACTOR_MOUNT) )
     act( "$n curls up on the ground.", ch, NULL, NULL, TO_SCENE );
     else
     act( "$n sits down and rests.", ch, NULL, NULL, TO_SCENE );
@@ -1257,10 +1257,10 @@ void cmd_rest( PLAYER_DATA *ch, char *argument )
  * Syntax:  sit
  *          sit [prop]
  */
-void cmd_sit( PLAYER_DATA *ch, char *argument )
+void cmd_sit( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop = NULL;
+    PROP *prop = NULL;
 
     if ( ch->riding != NULL )
     cmd_dismount( ch, "" );
@@ -1346,10 +1346,10 @@ void cmd_sit( PLAYER_DATA *ch, char *argument )
  * Syntax:  sleep
  *          sleep [prop]
  */
-void cmd_sleep( PLAYER_DATA *ch, char *argument )
+void cmd_sleep( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( ch->riding != NULL )
     {
@@ -1449,10 +1449,10 @@ void cmd_sleep( PLAYER_DATA *ch, char *argument )
  * Syntax:  wake
  *          wake [person]
  */
-void cmd_wake( PLAYER_DATA *ch, char *argument )
+void cmd_wake( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -1467,7 +1467,7 @@ void cmd_wake( PLAYER_DATA *ch, char *argument )
     if ( IS_AWAKE(victim) )
 	{ act( "$N is already awake.", ch, NULL, victim, TO_ACTOR ); return; }
 
-    if ( IS_AFFECTED(victim, AFF_SLEEP) )
+    if ( IS_AFFECTED(victim, BONUS_SLEEP) )
 	{ act( "It is impossible to wake $M!",   ch, NULL, victim, TO_ACTOR );  return; }
 
     act( "You wake $M.", ch, NULL, victim, TO_ACTOR );
@@ -1481,11 +1481,11 @@ void cmd_wake( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  sneak
  */
-void cmd_sneak( PLAYER_DATA *ch, char *argument )
+void cmd_sneak( PLAYER *ch, char *argument )
 {
-    if ( IS_AFFECTED(ch, AFF_SNEAK) )
+    if ( IS_AFFECTED(ch, BONUS_SNEAK) )
     {
-    REMOVE_BIT(ch->bonuses, AFF_SNEAK);
+    REMOVE_BIT(ch->bonuses, BONUS_SNEAK);
     send_to_actor( "You stop trying to move silently.\n\r", ch );
     return;
     }
@@ -1496,7 +1496,7 @@ void cmd_sneak( PLAYER_DATA *ch, char *argument )
         return;
     }
     send_to_actor( "You try to move silently.\n\r", ch );
-    SET_BIT(ch->bonuses, AFF_SNEAK);
+    SET_BIT(ch->bonuses, BONUS_SNEAK);
     return;
 }
 
@@ -1505,11 +1505,11 @@ void cmd_sneak( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  hide
  */
-void cmd_hide( PLAYER_DATA *ch, char *argument )
+void cmd_hide( PLAYER *ch, char *argument )
 {
-    if ( IS_AFFECTED(ch, AFF_HIDE) )
+    if ( IS_AFFECTED(ch, BONUS_HIDE) )
     {
-    REMOVE_BIT(ch->bonuses, AFF_HIDE);
+    REMOVE_BIT(ch->bonuses, BONUS_HIDE);
     send_to_actor( "You stop trying to hide your presence.\n\r", ch );
     act( "$n stops trying to hide $s presence.", ch, NULL, NULL, TO_SCENE );
     return;
@@ -1522,7 +1522,7 @@ void cmd_hide( PLAYER_DATA *ch, char *argument )
     }
 
     send_to_actor( "You attempt to hide your presence.\n\r", ch );
-    SET_BIT(ch->bonuses, AFF_HIDE);
+    SET_BIT(ch->bonuses, BONUS_HIDE);
     hide_check( ch, ch->in_scene );
     return;
 }
@@ -1530,16 +1530,16 @@ void cmd_hide( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_home( PLAYER_DATA *ch, char *argument ) {
-    SCENE_INDEX_DATA *pScene;
+void cmd_home( PLAYER *ch, char *argument ) {
+    SCENE *pScene;
     char buf[MAX_INPUT_LENGTH];
 
-    if ( IS_NPC(ch) ) return;
+    if ( NPC(ch) ) return;
 
     argument = one_argument ( argument, buf );
     if (     !str_cmp( buf, "set" ) ) {
 /*            if ( IS_SET( ch->in_scene, SCENE_SAVING ) ) { */
-                 PC(ch,home) = ch->in_scene->vnum;
+                 PC(ch,home) = ch->in_scene->dbkey;
                  send_to_actor( "Home set.\n\r", ch );
           }
 
@@ -1554,11 +1554,11 @@ void cmd_home( PLAYER_DATA *ch, char *argument ) {
            return; 
          }
 
-    pScene = get_scene_index( PC(ch,home) );
+    pScene = get_scene( PC(ch,home) );
 
     if ( pScene == NULL ) {
           PC(ch,home) = SCENE_VNUM_DEFAULT_HOME;
-          pScene = get_scene_index( PC(ch,home) );
+          pScene = get_scene( PC(ch,home) );
           send_to_actor( "Home recall location set.\n\r", ch );
           return;
     }
@@ -1568,9 +1568,9 @@ void cmd_home( PLAYER_DATA *ch, char *argument ) {
      * Move all of your hirelings, mounts and conjured followers.
      */
 
-    { PLAYER_DATA *pch;
+    { PLAYER *pch;
       for ( pch = actor_list; pch!=NULL; pch=pch->next )
-      if ( IS_NPC(pch) && pch->master == ch ) {
+      if ( NPC(pch) && pch->master == ch ) {
        actor_from_scene( pch );
        actor_to_scene( pch, pScene );
        if ( pch->riding ) {

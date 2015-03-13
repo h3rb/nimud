@@ -290,8 +290,8 @@ Shop
  Str4
  Sorry, we're open from %s to %s.~
 EndShop
-Sc 5005
 Sc 7370
+Sc 5005
 At 0 10 24 11
 End
 
@@ -335,13 +335,13 @@ Sz 24
 K -100 E 100
 O ~
 AP 15 15 15 15 15
-Sc 7371
-Sc 5005
 Sc 7173
+Sc 5005
+Sc 7371
 At 0 10 12 1
-Sk 25 'riding'
-Sk 25 'swimming'
 Sk 10 'climbing'
+Sk 25 'swimming'
+Sk 25 'riding'
 End
 
 #7373
@@ -404,8 +404,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 18 18 18 18 18
-Sc 7381
 Sc 7380
+Sc 7381
 End
 
 #7381

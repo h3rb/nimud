@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -42,9 +42,9 @@
 
 
 
-void dismount_char( PLAYER_DATA *ch )
+void dismount_char( PLAYER *ch )
 {
-    PLAYER_DATA *vict;
+    PLAYER *vict;
 
     vict = ch->riding;
     if  ( vict == NULL )
@@ -63,18 +63,18 @@ void dismount_char( PLAYER_DATA *ch )
     return;
 }
 
-void mount_char( PLAYER_DATA *ch, PLAYER_DATA *victim )
+void mount_char( PLAYER *ch, PLAYER *victim )
 {
    if ( ch == NULL ) return;
-   if ( victim == NULL || !IS_NPC(victim) ) return;
+   if ( victim == NULL || !NPC(victim) ) return;
 
-   if ( IS_AFFECTED(ch, AFF_SNEAK) )
+   if ( IS_AFFECTED(ch, BONUS_SNEAK) )
    cmd_sneak( ch, "" );
 
-   if ( !IS_SET( victim->act, ACT_MOUNT ) )
+   if ( !IS_SET( victim->flag, ACTOR_MOUNT ) )
    return;
 
-   if ( IS_AFFECTED(victim, AFF_SNEAK) )
+   if ( IS_AFFECTED(victim, BONUS_SNEAK) )
    cmd_sneak( victim, "" );
    
    if ( ch->in_scene != victim->in_scene )
@@ -105,10 +105,10 @@ void mount_char( PLAYER_DATA *ch, PLAYER_DATA *victim )
 /*
  * Syntax:  ride [mount]
  */
-void cmd_mount( PLAYER_DATA *ch, char *argument )
+void cmd_mount( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
-    PLAYER_DATA *victim;
+    PLAYER *victim;
 
     one_argument( argument, buf );
 
@@ -127,7 +127,7 @@ void cmd_mount( PLAYER_DATA *ch, char *argument )
             continue;
 
             snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s, master: %s, rider: %s\n\r",
-                     IS_NPC(victim) ? victim->pIndexData->vnum : -1,
+                     NPC(victim) ? victim->pIndexData->dbkey : -1,
                      STR(victim,short_descr),
                      victim->master ? NAME(victim->master) : "none",
                      victim->rider  ? NAME(victim->rider) : "none" );
@@ -156,7 +156,7 @@ void cmd_mount( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    if ( (IS_NPC(victim) && !IS_SET( victim->act, ACT_MOUNT ))
+    if ( (NPC(victim) && !IS_SET( victim->flag, ACTOR_MOUNT ))
       && !IS_IMMORTAL(ch) )
     {
         send_to_actor( "You cannot ride that.\n\r", ch );
@@ -194,14 +194,14 @@ void cmd_mount( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax: Trample [target]
  */ 
-void cmd_trample( PLAYER_DATA *ch, char *argument )
+void cmd_trample( PLAYER *ch, char *argument )
 {
 }
 
 /*
  * Syntax: Rush [target]
  */ 
-void cmd_rush( PLAYER_DATA *ch, char *argument )
+void cmd_rush( PLAYER *ch, char *argument )
 {
 }
 
@@ -210,7 +210,7 @@ void cmd_rush( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  dismount
  */
-void cmd_dismount( PLAYER_DATA *ch, char *argument )
+void cmd_dismount( PLAYER *ch, char *argument )
 {
     if ( ch->riding == NULL )
     {
@@ -236,17 +236,17 @@ void cmd_dismount( PLAYER_DATA *ch, char *argument )
 /*
  * Stables a pet.
  */
-void cmd_stable( PLAYER_DATA *ch, char *argument ) {
+void cmd_stable( PLAYER *ch, char *argument ) {
 }
  
 /*
  * Releases a pet.
  */
-void cmd_release( PLAYER_DATA *ch, char *argument ) {
+void cmd_release( PLAYER *ch, char *argument ) {
 }
 
 /*
  * Gifts a pet to another player.  (merge with give)
  */
-void cmd_gift( PLAYER_DATA *ch, char *argument ) {
+void cmd_gift( PLAYER *ch, char *argument ) {
 }

@@ -1580,11 +1580,11 @@ M 0
 W 0
 T 0
 O ~
-ED sign~
-The sign says "NURSERY" in bold letters.     
-~
 ED inscription~
 It says "STORAGE"
+~
+ED sign~
+The sign says "NURSERY" in bold letters.     
 ~
 R M 17201 7 100 1
 Dr 0 0 -1 17207
@@ -2497,16 +2497,16 @@ M 0
 W 0
 T 0
 O ~
-ED well~
-You peer over the side of the well.  It looks VERY, VERY deep.  It appears
-to be ENDLESS.
-~
 ED sign~
 The sign reads:
          This is a bottomless pit cleverly disguised as a well.  People have
 fallen in and never been heard from again.  Trust me, you don't want to go 
 down there.
                         The All Powerful Well Keeper
+~
+ED well~
+You peer over the side of the well.  It looks VERY, VERY deep.  It appears
+to be ENDLESS.
 ~
 R M 17200 5 100 1
 Dr 0 0 0 17238

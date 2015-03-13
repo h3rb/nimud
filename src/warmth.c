@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -30,14 +30,14 @@
  * Returns the temperature of the
  * scene the character is in.
  */
-int scene_temp( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene ) {
-    EXIT_DATA *pExit;
+int scene_temp( PLAYER *ch, SCENE *pScene ) {
+    EXIT *pExit;
         int direction = 0;
         int scene_temp = 0;
         int temp_adjust = 0;
-        int temp = weather_info.temperature;
+        int temp = weather.temperature;
 
-        if ( IS_NPC( ch ) || !ch->in_scene )
+        if ( NPC( ch ) || !ch->in_scene )
                 return 0;
 
         /*
@@ -59,7 +59,7 @@ int scene_temp( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene ) {
 
                 if ( IS_SET( ch->in_scene->scene_flags, SCENE_INDOORS )
                 && ch->in_scene->scene_temp != 0 ) {
-                        if ( pExit != NULL && !IS_SET( pExit->exit_info, EX_CLOSED )
+                        if ( pExit != NULL && !IS_SET( pExit->exit_flags, EXIT_CLOSED )
                         && !IS_SET( pExit->to_scene->scene_flags, SCENE_INDOORS ) )
                                 scene_temp = temp / 2 - ch->in_scene->scene_temp;
                         else
@@ -67,31 +67,31 @@ int scene_temp( PLAYER_DATA *ch, SCENE_INDEX_DATA *pScene ) {
                 }
         }
 
-        switch (ch->in_scene->sector_type) {
+        switch (ch->in_scene->move) {
         default:
                 temp_adjust = 0;
                 break;
-        case SECT_INSIDE:
-                case SECT_CITY:
+        case MOVE_INSIDE:
+                case MOVE_CITY:
                 temp_adjust = 0;
                 break;
-        case SECT_DESERT:
+        case MOVE_DESERT:
                 temp_adjust = 10;
                 break;
-        case SECT_ICELAND:
+        case MOVE_ICELAND:
                 temp_adjust = -30;
                 break;
-        case SECT_MOUNTAIN:
+        case MOVE_MOUNTAIN:
                 temp_adjust = -15;
                 break;
-        case SECT_HILLS:
-                case SECT_FIELD:
+        case MOVE_HILLS:
+                case MOVE_FIELD:
                 temp_adjust = -5;
                 break;
-                case SECT_FOREST:
+                case MOVE_FOREST:
                         temp_adjust = -10;
                         break;
-        case SECT_AIR:
+        case MOVE_AIR:
                 temp_adjust = -3;
                 break;
     }

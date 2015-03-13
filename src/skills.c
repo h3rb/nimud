@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -65,13 +65,13 @@
 /*
  * Kludgy workaround.
  */
-int skill_vnum( SKILL_DATA *pSkill ) {
+int skill_dbkey( SKILL *pSkill ) {
     if ( !pSkill ) return 0;
-    return pSkill->vnum;
+    return pSkill->dbkey;
 }
 
-char *skill_name( int vnum ) {
-    SKILL_DATA *pSkill = get_skill_index( vnum );
+char *skill_name( int dbkey ) {
+    SKILL *pSkill = get_skill_index( dbkey );
 
     if ( !pSkill ) return "unknown";
     return pSkill->name;
@@ -80,25 +80,25 @@ char *skill_name( int vnum ) {
 /*
  * Locates a skill in the Skill Index by skill name.
  */
-SKILL_DATA *skill_lookup( const char *name )
+SKILL *skill_lookup( const char *name )
 {
-    SKILL_DATA *pSkill=NULL;
+    SKILL *pSkill=NULL;
 
     if ( MTD(name) ) return NULL;
 
-    HASHSEARCH(skill_index_hash, !str_prefix( name, pSkill->name ), pSkill );
+    HASHSEARCH(skill__hash, !str_prefix( name, pSkill->name ), pSkill );
 
     return pSkill;
 }
 
 
-bool  has_skill( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
-      SKILL_DATA *pSk;
+bool  has_skill( PLAYER *ch, SKILL *pSkill ) {
+      SKILL *pSk;
 
       if ( !pSkill ) return FALSE;
 
       for ( pSk = ch->learned; pSk != NULL; pSk = pSk->next ) 
-         if ( pSk->vnum == pSkill->vnum ) return TRUE;
+         if ( pSk->dbkey == pSkill->dbkey ) return TRUE;
 
       return FALSE;
 }
@@ -107,15 +107,15 @@ bool  has_skill( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
 /* Copy to player's Skill List.
  */
 
-SKILL_DATA *skill_copy( SKILL_DATA *pSource ) 
+SKILL *skill_copy( SKILL *pSource ) 
 {
-    SKILL_DATA *pTarget;
+    SKILL *pTarget;
 
     if ( !pSource ) return NULL;
 
- pTarget = new_skill_data( );
+ pTarget = new_skill( );
 
- pTarget->vnum             = pSource->vnum;
+ pTarget->dbkey             = pSource->dbkey;
  pTarget->name             = pSource->name;
  pTarget->level            = pSource->level;
  pTarget->slot             = pSource->slot;
@@ -147,12 +147,12 @@ SKILL_DATA *skill_copy( SKILL_DATA *pSource )
 /* Player Skill List functions
  */
 
-int learned( PLAYER_DATA *ch, int vnum ) {
-    SKILL_DATA *pSkill; 
+int learned( PLAYER *ch, int dbkey ) {
+    SKILL *pSkill; 
     int percent=0;
 
     for ( pSkill = ch->learned;  pSkill != NULL;  pSkill = pSkill->next )
-    percent = pSkill->vnum == vnum ? pSkill->skill_level : percent;
+    percent = pSkill->dbkey == dbkey ? pSkill->skill_level : percent;
 
     return percent;
 }
@@ -160,8 +160,8 @@ int learned( PLAYER_DATA *ch, int vnum ) {
 /*
  * Nim's only capitalized function.
  */
-int LEARNED( PLAYER_DATA *ch, char *name ) {
-    SKILL_DATA *pSkill; 
+int LEARNED( PLAYER *ch, char *name ) {
+    SKILL *pSkill; 
     int percent=0;
 
     for ( pSkill = ch->learned;  pSkill != NULL;  pSkill = pSkill->next )
@@ -174,17 +174,17 @@ int LEARNED( PLAYER_DATA *ch, char *name ) {
  * Updates the value of a skill, creating a new Skill List entry
  * if needed.
  */
-SKILL_DATA *update_skill( PLAYER_DATA *ch, int vnum, int value ) {
-   SKILL_DATA *pSkill;
+SKILL *update_skill( PLAYER *ch, int dbkey, int value ) {
+   SKILL *pSkill;
 
    for ( pSkill = ch->learned; pSkill != NULL; pSkill = pSkill->next ) {
-       if ( pSkill->vnum == vnum ) {
+       if ( pSkill->dbkey == dbkey ) {
           pSkill->skill_level = value;
           return pSkill;
        }
    }    
 
-   pSkill = get_skill_index( vnum );
+   pSkill = get_skill_index( dbkey );
    if ( !pSkill ) return NULL;
 
    pSkill = skill_copy( pSkill );
@@ -199,18 +199,18 @@ SKILL_DATA *update_skill( PLAYER_DATA *ch, int vnum, int value ) {
 /*
  * Adds a skill by name, creating a new Skill List entry if needed.
  */
-void add_skill( PLAYER_DATA *ch, char *name, int value ) {
-   SKILL_DATA *pSkill;
+void add_skill( PLAYER *ch, char *name, int value ) {
+   SKILL *pSkill;
 
    pSkill = skill_lookup( name );
-   if ( pSkill ) update_skill( ch, pSkill->vnum, value );
+   if ( pSkill ) update_skill( ch, pSkill->dbkey, value );
    return;
 }
 
 /*
  * Return a percentage based on skill value.
  */
-char *skill_level( SKILL_DATA *pSkill )
+char *skill_level( SKILL *pSkill )
 {
     int percent = PERCENTAGE(pSkill->skill_level, pSkill->max_learn);
 
@@ -230,25 +230,25 @@ char *skill_level( SKILL_DATA *pSkill )
 };
 
 
-SKILL_DATA *find_skill_pc( PLAYER_DATA *ch, int vnum ) {
-   SKILL_DATA *pSkill;
+SKILL *find_skill_pc( PLAYER *ch, int dbkey ) {
+   SKILL *pSkill;
 
    for ( pSkill = ch->learned; pSkill != NULL; pSkill = pSkill->next ) {
-      if ( pSkill->vnum == vnum ) return pSkill;
+      if ( pSkill->dbkey == dbkey ) return pSkill;
    }
 
    return NULL;
 }
 
-SKILL_DATA *find_group_pc( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
-   SKILL_DATA *pGroup;
+SKILL *find_group_pc( PLAYER *ch, SKILL *pSkill ) {
+   SKILL *pGroup;
 
    if ( !ch || !pSkill ) return NULL;
 
    for ( pGroup = ch->learned; 
          pGroup != NULL;
          pGroup = pGroup->next ) {
-        if ( pGroup->vnum == pSkill->group_code )
+        if ( pGroup->dbkey == pSkill->group_code )
         return pGroup;
    }
 
@@ -266,12 +266,12 @@ SKILL_DATA *find_group_pc( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
  * Returns: TRUE if (ch)'s skill was advanced
  *          FALSE if not
  */
-bool advance_skill( PLAYER_DATA *ch, SKILL_DATA *pSkill, 
+bool advance_skill( PLAYER *ch, SKILL *pSkill, 
                     int advance, int time_mod )
 {
-    SKILL_DATA *pGroup;
+    SKILL *pGroup;
 
-    if ( !IS_NPC(ch)			/* PCs only		*/
+    if ( !NPC(ch)			/* PCs only		*/
 /*      && pSkill->skill_time == 0 */
       && has_prereq( ch, pSkill, FALSE )/* Has the prerequisite */
       && !IS_ADEPT(ch, pSkill) 		/* Not yet an adept	*/
@@ -301,7 +301,7 @@ bool advance_skill( PLAYER_DATA *ch, SKILL_DATA *pSkill,
         if ( pGroup ) {
         pGroup->skill_level = 1; 
         } else {
-           SKILL_DATA *pNewGroup = skill_copy( get_skill_index( pSkill->group_code)  );
+           SKILL *pNewGroup = skill_copy( get_skill_index( pSkill->group_code)  );
            if ( pNewGroup ) {
            pNewGroup->next = ch->learned;
            ch->learned = pNewGroup;
@@ -316,17 +316,17 @@ bool advance_skill( PLAYER_DATA *ch, SKILL_DATA *pSkill,
 /*---------------------------------------
  * Skill tree / prerequisite tree.
  */
-bool has_prereq( PLAYER_DATA *ch, SKILL_DATA *pSkill, bool fTell )
+bool has_prereq( PLAYER *ch, SKILL *pSkill, bool fTell )
 {
     bool ok = TRUE;
-    SKILL_DATA *pGroup;
+    SKILL *pGroup;
 
-    if ( IS_NPC(ch) ) return TRUE;
+    if ( NPC(ch) ) return TRUE;
 
     if ( (pGroup = find_group_pc(ch,pSkill)) )
     {
         if ( pGroup->skill_level < pSkill->required_percent )
-        update_skill(ch,pGroup->vnum,pGroup->required_percent);
+        update_skill(ch,pGroup->dbkey,pGroup->required_percent);
 /*
         {
             if(fTell)
@@ -386,7 +386,7 @@ bool has_prereq( PLAYER_DATA *ch, SKILL_DATA *pSkill, bool fTell )
 /*---------------------------------
  * Display group.
  */
-char *disp_group( PLAYER_DATA *ch, SKILL_DATA *pGroup )
+char *disp_group( PLAYER *ch, SKILL *pGroup )
 {
     static char buf[MAX_STRING_LENGTH];
     char fub[MAX_STRING_LENGTH];
@@ -395,7 +395,7 @@ char *disp_group( PLAYER_DATA *ch, SKILL_DATA *pGroup )
      * Filter 
      */ 
 
-    if ( IS_FILTERED(pGroup->vnum) )
+    if ( IS_FILTERED(pGroup->dbkey) )
     return ""; 
 
     if ( pGroup->group_code == 0 
@@ -423,7 +423,7 @@ char *disp_group( PLAYER_DATA *ch, SKILL_DATA *pGroup )
 /*
  * Display info for a single skill.
  */
-char *disp_skill( PLAYER_DATA *ch, SKILL_DATA *pSkill )
+char *disp_skill( PLAYER *ch, SKILL *pSkill )
 {
     static char buf[MAX_STRING_LENGTH];
 
@@ -437,11 +437,11 @@ char *disp_skill( PLAYER_DATA *ch, SKILL_DATA *pSkill )
 /*
  * Display a skill group.
  */
-void display_skills( PLAYER_DATA *ch, int group )
+void display_skills( PLAYER *ch, int group )
 {
     char final[4*MAX_STRING_LENGTH];
-    SKILL_DATA *pGroup;
-    SKILL_DATA *pSkill;
+    SKILL *pGroup;
+    SKILL *pSkill;
     int col;
 
     if ( group > 0 )
@@ -460,7 +460,7 @@ void display_skills( PLAYER_DATA *ch, int group )
                 break;
 
                 if ( pSkill->skill_level > 0
-                  && pSkill->group_code==pGroup->vnum
+                  && pSkill->group_code==pGroup->dbkey
                   && !IS_FILTERED(pSkill->group_code) )
                 {
                     page_to_actor( disp_skill(ch,pSkill), ch );
@@ -500,7 +500,7 @@ void display_skills( PLAYER_DATA *ch, int group )
                 break;
 
                 if ( pSkill->skill_level > 0
-                  && pSkill->group_code == pGroup->vnum )
+                  && pSkill->group_code == pGroup->dbkey )
                 {
                     char buf[MAX_STRING_LENGTH];
 
@@ -530,7 +530,7 @@ void display_skills( PLAYER_DATA *ch, int group )
 }
 
 
-void show_skills_list( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
+void show_skills_list( PLAYER *ch, SKILL *pSkill ) {
     char  buf[MSL];
 
         buf[0] = '\0';
@@ -548,14 +548,14 @@ void show_skills_list( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
     send_to_actor( buf, ch );
 }
 
-void show_skills( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
+void show_skills( PLAYER *ch, SKILL *pSkill ) {
    int col=0;
    char arg[MSL];
 
         for( ;
              pSkill != NULL;  pSkill = pSkill->next )
         {
-            SKILL_DATA *pIndex = get_skill_index( pSkill->vnum );
+            SKILL *pIndex = get_skill_index( pSkill->dbkey );
             
             if ( !pIndex ) continue;
 
@@ -581,12 +581,12 @@ void show_skills( PLAYER_DATA *ch, SKILL_DATA *pSkill ) {
  *          skills [skill]
  *          skills [group]
  */
-void cmd_skills( PLAYER_DATA *ch, char * argument )
+void cmd_skills( PLAYER *ch, char * argument )
 {
-    SKILL_DATA *pSkill;
+    SKILL *pSkill;
     bool fShow = FALSE;
 
-    if (IS_NPC(ch))
+    if (NPC(ch))
     {
         show_skills( ch, ch->learned );
         return;
@@ -599,20 +599,20 @@ void cmd_skills( PLAYER_DATA *ch, char * argument )
 
     if ( (pSkill = skill_lookup( argument )) )
     {
-        display_skills( ch, pSkill->vnum );
+        display_skills( ch, pSkill->dbkey );
         fShow = TRUE;
     }
 
-    if ( (pSkill = find_skill_pc( ch, skill_vnum(skill_lookup( argument )))) )
+    if ( (pSkill = find_skill_pc( ch, skill_dbkey(skill_lookup( argument )))) )
     {
         char buf[MAX_STRING_LENGTH];
-        PLAYER_DATA *rch;
+        PLAYER *rch;
 
         for ( rch = ch->in_scene->people;  rch != NULL; rch=rch->next_in_scene )
         {
-            if ( IS_NPC(rch) 
-              && IS_SET(rch->act, ACT_PRACTICE)
-              && find_skill_pc( rch, skill_vnum(pSkill) ) )
+            if ( NPC(rch) 
+              && IS_SET(rch->flag, ACTOR_PRACTICE)
+              && find_skill_pc( rch, skill_dbkey(pSkill) ) )
             break;
         }
 
@@ -675,7 +675,7 @@ void cmd_skills( PLAYER_DATA *ch, char * argument )
 #if defined(NEVER)
     {
         int race = race_lookup( ch->race );
-        SKILL_DATA *x; int total=0;
+        SKILL *x; int total=0;
 
         for ( x = ch->learned; x!=NULL; x=x->next ) total++;
 
@@ -691,12 +691,12 @@ void cmd_skills( PLAYER_DATA *ch, char * argument )
  * Syntax:  learn
  *          learn [skill/group]
  */
-void cmd_learn( PLAYER_DATA *ch,  char *argument )
+void cmd_learn( PLAYER *ch,  char *argument )
 {
-    SKILL_DATA *pSkill=NULL;
-    SKILL_DATA *pSSkill=NULL;
-    SKILL_DATA *pTSkill=NULL;
-    PLAYER_DATA *rch;
+    SKILL *pSkill=NULL;
+    SKILL *pSSkill=NULL;
+    SKILL *pTSkill=NULL;
+    PLAYER *rch;
     char buf[MAX_STRING_LENGTH];
     int amount;
     bool fFound = FALSE;
@@ -711,7 +711,7 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
               rch != NULL;
               rch = rch->next_in_scene )
         {
-            if ( IS_NPC(rch) && IS_SET(rch->act, ACT_PRACTICE) )
+            if ( NPC(rch) && IS_SET(rch->flag, ACTOR_PRACTICE) )
                 break;
         }
 
@@ -733,8 +733,8 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
 
         fFound = FALSE;
         for ( pSSkill = ch->learned; pSSkill != NULL; pSSkill=pSSkill->next ) 
-        if ( pSSkill->teacher == rch->pIndexData->vnum
-          && pSSkill->vnum == pSkill->vnum ) fFound = TRUE;
+        if ( pSSkill->teacher == rch->pIndexData->dbkey
+          && pSSkill->dbkey == pSkill->dbkey ) fFound = TRUE;
         
         if ( !fFound && pSkill->cost != 0 ) {
         snprintf( buf, MAX_STRING_LENGTH, "     %s at %s per lesson.\n\r", 
@@ -756,7 +756,7 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
 
         fFound = FALSE;
         for ( pSkill = ch->learned; pSkill != NULL; pSkill=pSkill->next ) {
-        if ( pSkill->teacher != rch->pIndexData->vnum 
+        if ( pSkill->teacher != rch->pIndexData->dbkey 
           || pSkill->group_code == 100 /* language */ ) continue;
         if ( pSkill->skill_level >= pSkill->max_learn ) continue;
         snprintf( buf, MAX_STRING_LENGTH, "     %s at %s per lesson.\n\r", 
@@ -789,10 +789,10 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
 
     for ( rch = ch->in_scene->people;  rch != NULL; rch = rch->next_in_scene )
     {
-        if ( IS_NPC(rch)
-          && IS_SET(rch->act, ACT_PRACTICE)
+        if ( NPC(rch)
+          && IS_SET(rch->flag, ACTOR_PRACTICE)
           && has_skill( rch, pSkill ) ) {
-            pTSkill = find_skill_pc( rch, skill_vnum(pSkill) );
+            pTSkill = find_skill_pc( rch, skill_dbkey(pSkill) );
             break;
           }
     }
@@ -818,7 +818,7 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
 #if defined(NEVER)
     {
         int race = race_lookup( ch->race );
-        int total = 0;  SKILL_DATA *x;
+        int total = 0;  SKILL *x;
 
         for ( x = ch->learned;  x != NULL;  x = x->next ) total++;
 
@@ -837,10 +837,10 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
     /*
      * Locate the skill on the Student.
      */
-    pSSkill = find_skill_pc( ch, skill_vnum(pSkill) );
+    pSSkill = find_skill_pc( ch, skill_dbkey(pSkill) );
 
     if ( !pSSkill ) {
-     pSSkill = update_skill( ch, pSkill->vnum, 1 ); /* create new */
+     pSSkill = update_skill( ch, pSkill->dbkey, 1 ); /* create new */
      update_skill( ch, pSSkill->group_code, 100 );    /* add the group */
     }
 
@@ -883,8 +883,8 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
 	/* If a new skill... */
     if ( pSSkill->skill_level <= 1 )
     { 
-        pSSkill = update_skill(ch, pSkill->vnum, 3);
-        pSSkill->teacher = rch->pIndexData->vnum;
+        pSSkill = update_skill(ch, pSkill->dbkey, 3);
+        pSSkill->teacher = rch->pIndexData->dbkey;
         display_interp( ch, "^B" );
         send_to_actor( "New skill bonus.\n\r", ch );
         display_interp( ch, "^N" );
@@ -893,18 +893,18 @@ void cmd_learn( PLAYER_DATA *ch,  char *argument )
     send_to_actor( buf, ch );
     }
     else       /* If changing tutor... */
-    if ( pSSkill->teacher != rch->pIndexData->vnum )
+    if ( pSSkill->teacher != rch->pIndexData->dbkey )
     {
         snprintf( buf, MAX_STRING_LENGTH, "You have left the apprenticeship of your old mentor.\n\r" );
         send_to_actor( buf, ch );
-        pSSkill->teacher = rch->pIndexData->vnum;
+        pSSkill->teacher = rch->pIndexData->dbkey;
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "You learn %s from %s.\n\r",
              pSSkill->name, NAME(rch) );
     send_to_actor( buf, ch );
     /* improve the skill */
-    update_skill( ch, pSkill->vnum, 
+    update_skill( ch, pSkill->dbkey, 
        pSSkill->skill_level + number_range( 2, get_curr_wis(ch)/2 ) );
     pSSkill->skill_time = pSSkill->level > 35 ? pSkill->learn_rate : 1;
     return;
@@ -931,10 +931,10 @@ int practice_cost( int amount, int level )
  * Syntax: train [pc name] [skill]
  */
 
-void cmd_train( PLAYER_DATA *ch, char *argument )
+void cmd_train( PLAYER *ch, char *argument )
 {
-    PLAYER_DATA *who;
-    SKILL_DATA *pSkill;
+    PLAYER *who;
+    SKILL *pSkill;
 
     char arg[ MAX_INPUT_LENGTH ];
 
@@ -972,7 +972,7 @@ void cmd_train( PLAYER_DATA *ch, char *argument )
 
      /* Can teach? Insert "teaching" skill check here... */
 
-    if ( (pSkill=find_skill_pc(ch,pSkill->vnum)) 
+    if ( (pSkill=find_skill_pc(ch,pSkill->dbkey)) 
        && pSkill->skill_level < PC_TEACH_LIMIT )
     {
 	sprintf( arg, "You are not skilled enough in %s!\n\r",
@@ -982,7 +982,7 @@ void cmd_train( PLAYER_DATA *ch, char *argument )
     }
 
     /* Above 1/3 limit & and trainee ready to advance? */
-    if ( pSkill->skill_level/3 > learned(who,pSkill->vnum)
+    if ( pSkill->skill_level/3 > learned(who,pSkill->dbkey)
       && advance_skill( who, pSkill, 1, 0 ) )
     {
     	sprintf( arg, "You train $N in %s.", pSkill->name );
@@ -1005,7 +1005,7 @@ void cmd_train( PLAYER_DATA *ch, char *argument )
  * Send player skill list entry as pSkill; or use the Teacher's or
  * call with find_skill()
  */
-bool skill_check( PLAYER_DATA *ch, SKILL_DATA *pSkill, int modifier )
+bool skill_check( PLAYER *ch, SKILL *pSkill, int modifier )
 {
     int level,l,roll=number_percent( );
     float ratio=0;
@@ -1014,14 +1014,14 @@ bool skill_check( PLAYER_DATA *ch, SKILL_DATA *pSkill, int modifier )
     if ( !pSkill ) return TRUE;
 
     /* Spawn last used time */
-    if ( !IS_NPC(ch) )
+    if ( !NPC(ch) )
         pSkill->last_used = 0;
 
-    if ( IS_NPC(ch) && learned(ch,pSkill->vnum) == 0 ) return number_percent() > 40;
+    if ( NPC(ch) && learned(ch,pSkill->dbkey) == 0 ) return number_percent() > 40;
 
     ratio = 1.0 + ( (float) modifier ) / 100.0;
 
-    level = (l=learned(ch,pSkill->vnum)) * ratio;
+    level = (l=learned(ch,pSkill->dbkey)) * ratio;
 
     roll = roll + (roll/2);
 

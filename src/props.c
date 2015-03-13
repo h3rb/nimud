@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -50,8 +50,8 @@
                          loc == WEAR_HOLD_2 || loc == WEAR_WIELD_1 ||   \
                          loc == WEAR_WIELD_2 ) )
 
-#define NOTPET(wb)        ( (IS_NPC(ch) \
-                          && IS_SET(ch->act, ACT_PET)           \
+#define NOTPET(wb)        ( (NPC(ch) \
+                          && IS_SET(ch->flag, ACTOR_PET)           \
                           && wb == WEAR_BELT_1                  \
                           && wb == WEAR_BELT_2                  \
                           && wb == WEAR_BELT_3                  \
@@ -68,8 +68,8 @@
  *
  * Called at the cmd_ level
  */
-void inv_to_hand_check( PLAYER_DATA *ch ) {
-   PROP_DATA *prop;
+void inv_to_hand_check( PLAYER *ch ) {
+   PROP *prop;
    int empty = hand_empty( ch );;
 
    if ( empty == WEAR_NONE )
@@ -88,10 +88,10 @@ void inv_to_hand_check( PLAYER_DATA *ch ) {
 
 
 
-bool can_wield( PLAYER_DATA *ch, PROP_DATA *prop, bool fSilent )
+bool can_wield( PLAYER *ch, PROP *prop, bool fSilent )
 {
     int weight;
-    PROP_DATA *w1, *w2, *sh;
+    PROP *w1, *w2, *sh;
 
     if ( prop->item_type == ITEM_WEAPON )
     {
@@ -167,7 +167,7 @@ bool can_wield( PLAYER_DATA *ch, PROP_DATA *prop, bool fSilent )
 }
 
 
-bool draw_prop( PLAYER_DATA *ch, PROP_DATA *prop )
+bool draw_prop( PLAYER *ch, PROP *prop )
 {
    if ( prop->wear_loc != WEAR_BELT_1
      && prop->wear_loc != WEAR_BELT_2
@@ -190,7 +190,7 @@ bool draw_prop( PLAYER_DATA *ch, PROP_DATA *prop )
 }
 
 
-bool sheath_prop( PLAYER_DATA *ch, PROP_DATA *prop, bool fSilent )
+bool sheath_prop( PLAYER *ch, PROP *prop, bool fSilent )
 {
    if ( prop == NULL )
    return FALSE;
@@ -235,9 +235,9 @@ bool sheath_prop( PLAYER_DATA *ch, PROP_DATA *prop, bool fSilent )
 /*
  * Remove a prop.
  */
-bool remove_prop( PLAYER_DATA *ch, int iWear, bool fReplace, bool fMsg )
+bool remove_prop( PLAYER *ch, int iWear, bool fReplace, bool fMsg )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     
     if ( ( prop = get_eq_char( ch, iWear ) ) == NULL )
 	return TRUE;
@@ -265,7 +265,7 @@ bool remove_prop( PLAYER_DATA *ch, int iWear, bool fReplace, bool fMsg )
 
     if ( prop->wear_loc == WEAR_WAIST && iWear != WEAR_WAIST )
     {
-        PROP_DATA *prop2;
+        PROP *prop2;
         bool fFound = FALSE;
         int curwear;
 
@@ -392,9 +392,9 @@ int get_wear_location( int loc )
  * Optional replacement of existing props.
  * Big repetitive code, ick.
  */
-void wear_prop( PLAYER_DATA *ch, PROP_DATA *prop, bool fReplace, int loc )
+void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 {
-    PROP_DATA *prop2;
+    PROP *prop2;
 
     if ( NOTPET(loc) ) return;
 
@@ -869,11 +869,11 @@ void wear_prop( PLAYER_DATA *ch, PROP_DATA *prop, bool fReplace, int loc )
  *          wear [prop] [location]
  *          wear all
  */
-void cmd_wear( PLAYER_DATA *ch, char *argument )
+void cmd_wear( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int oldwear;
 
     argument = one_argument( argument, arg1 );
@@ -887,7 +887,7 @@ void cmd_wear( PLAYER_DATA *ch, char *argument )
 
     if ( !str_cmp( arg1, "all" ) )
     {
-	PROP_DATA *prop_next;
+	PROP *prop_next;
 
 	for ( prop = ch->carrying; prop != NULL; prop = prop_next )
 	{
@@ -938,11 +938,11 @@ void cmd_wear( PLAYER_DATA *ch, char *argument )
  * Syntax:  sheath
  *          sheath [prop]
  */
-void cmd_sheath( PLAYER_DATA *ch, char *argument )
+void cmd_sheath( PLAYER *ch, char *argument )
 {
     char arg1[MAX_STRING_LENGTH];
-    PROP_DATA *prop1;
-    PROP_DATA *prop2;
+    PROP *prop1;
+    PROP *prop2;
 
     argument = one_argument( argument, arg1 );
 
@@ -968,10 +968,10 @@ void cmd_sheath( PLAYER_DATA *ch, char *argument )
  * Syntax:  draw
  *          draw [prop]
  */
-void cmd_draw( PLAYER_DATA *ch, char *argument )
+void cmd_draw( PLAYER *ch, char *argument )
 {
     char arg1[MAX_STRING_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
  
     argument = one_argument( argument, arg1 );
  
@@ -1000,10 +1000,10 @@ void cmd_draw( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  remove [prop]
  */
-void cmd_remove( PLAYER_DATA *ch, char *argument )
+void cmd_remove( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
 
     one_argument( argument, arg );
 
@@ -1029,10 +1029,10 @@ void cmd_remove( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  wield [prop]
  */
-void cmd_wield( PLAYER_DATA *ch, char *argument )
+void cmd_wield( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
 
     one_argument( argument, arg );
 
@@ -1069,10 +1069,10 @@ void cmd_wield( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  hold [prop]
  */
-void cmd_hold( PLAYER_DATA *ch, char *argument )
+void cmd_hold( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
 
     one_argument( argument, arg );
 
@@ -1106,13 +1106,13 @@ void cmd_hold( PLAYER_DATA *ch, char *argument )
  * Tools for fools.
  * Syntax:  use [tool] <target>
  */
-void cmd_use( PLAYER_DATA *ch, char *argument )
+void cmd_use( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
 /*    char buf[MAX_STRING_LENGTH]; */
-    PLAYER_DATA *victim;
-    PROP_DATA *prop;
-/*    PROP_DATA *target; */
+    PLAYER *victim;
+    PROP *prop;
+/*    PROP *target; */
 
     if ( ch->position == POS_FIGHTING ) { send_to_actor("Not while fighting!\n\r", ch ); return; }
 
@@ -1160,7 +1160,7 @@ void cmd_use( PLAYER_DATA *ch, char *argument )
     }
     send_to_actor( STR(prop,action_descr), ch );
     send_to_actor( "You feel better.\n\r", victim );
-    if ( prop->value[1] == 0 ) extract_prop(prop);
+    if ( prop->value[1] == 0 ) extractor_prop(prop);
 
     }
 
@@ -1170,10 +1170,10 @@ void cmd_use( PLAYER_DATA *ch, char *argument )
 /*
  * Similar to wield [prop] command
  */
-void wield_prop( PROP_DATA *prop, PLAYER_DATA *ch )
+void wield_prop( PROP *prop, PLAYER *ch )
 {
-    PROP_DATA *prop1;
-    PROP_DATA *prop2;
+    PROP *prop1;
+    PROP *prop2;
 
     prop1 = get_eq_char( ch, WEAR_HOLD_1 );
     prop2 = get_eq_char( ch, WEAR_HOLD_2 );
@@ -1195,9 +1195,9 @@ void wield_prop( PROP_DATA *prop, PLAYER_DATA *ch )
  */
 bool fFound;
 
-PROP_DATA *find_pack( PLAYER_DATA *ch, PROP_DATA *prop ) {
+PROP *find_pack( PLAYER *ch, PROP *prop ) {
 
-    PROP_DATA *pack;
+    PROP *pack;
 
         /*
          * Locate open packs that still have space available in them.
@@ -1223,12 +1223,12 @@ PROP_DATA *find_pack( PLAYER_DATA *ch, PROP_DATA *prop ) {
 /*
  * Used by cmd_get.
  */
-int get_prop( PLAYER_DATA *ch, PROP_DATA *prop, 
-              PROP_DATA *container )
+int get_prop( PLAYER *ch, PROP *prop, 
+              PROP *container )
 {
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *pack;
-    PROP_DATA *pProp;
+    PROP *pack;
+    PROP *pProp;
     bool fMoney;
 
     if ( !prop ) return FALSE;
@@ -1257,7 +1257,7 @@ int get_prop( PLAYER_DATA *ch, PROP_DATA *prop,
      */
     if ( hand_empty( ch ) == WEAR_NONE )
     {
-    PROP_DATA *prop1, *prop2;
+    PROP *prop1, *prop2;
 
     prop1 = get_eq_char( ch, WEAR_HOLD_1 );
     prop1 = prop1 ? prop1 : get_eq_char( ch, WEAR_WIELD_1 );
@@ -1453,13 +1453,13 @@ int get_prop( PLAYER_DATA *ch, PROP_DATA *prop,
  *         get all.[prop]
  *         get all.[prop] [prop]
  */
-void cmd_get( PLAYER_DATA *ch, char *argument )
+void cmd_get( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
-    PROP_DATA *container;
+    PROP *prop;
+    PROP *prop_next;
+    PROP *container;
     bool found;              /* NEEDS TO SEARCH 1 LEVEL DEEP + SACK FIX */
 
     argument = one_argument( argument, arg1 );
@@ -1494,7 +1494,7 @@ void cmd_get( PLAYER_DATA *ch, char *argument )
             found = FALSE;
             for ( prop = ch->in_scene->contents; prop != NULL; prop = prop_next )
             {
-                PROP_DATA *prop2, *prop2_next;
+                PROP *prop2, *prop2_next;
 
                 prop_next = prop->next_content;
 
@@ -1541,13 +1541,13 @@ void cmd_get( PLAYER_DATA *ch, char *argument )
         if ( ( container = get_prop_here( ch, arg2 ) ) == NULL ) 
         {
             /* check in packs of mount */
-            PLAYER_DATA *mount =  get_actor_scene( ch, arg2 );
+            PLAYER *mount =  get_actor_scene( ch, arg2 );
             if ( !mount ) {
             act( "I see no $T here.", ch, NULL, arg2, TO_ACTOR );
             return;
             } else {
  
-            if ( !IS_NPC(mount) ||  mount->master != ch ) { 
+            if ( !NPC(mount) ||  mount->master != ch ) { 
                act( "$N is not yours to command.", ch, NULL, mount, TO_ACTOR );
                return;
             }
@@ -1659,13 +1659,13 @@ void cmd_get( PLAYER_DATA *ch, char *argument )
  * Syntax:  put [prop] [prop]
  *          put all.[prop] [prop]
  */
-void cmd_put( PLAYER_DATA *ch, char *argument )
+void cmd_put( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PROP_DATA *container;
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
+    PROP *container;
+    PROP *prop;
+    PROP *prop_next;
 
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
@@ -1793,13 +1793,13 @@ void cmd_put( PLAYER_DATA *ch, char *argument )
  * Syntax:  dump [prop]
  *          dump [prop] [prop]
  */
-void cmd_dump( PLAYER_DATA *ch, char *argument )
+void cmd_dump( PLAYER *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PROP_DATA *container1, *container2 = NULL;
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
+    PROP *container1, *container2 = NULL;
+    PROP *prop;
+    PROP *prop_next;
 
     argument = one_argument( argument, arg1 );
     argument = one_argument( argument, arg2 );
@@ -1892,11 +1892,11 @@ void cmd_dump( PLAYER_DATA *ch, char *argument )
  *          drop all.[prop]
  *          drop [number] [money prop]
  */
-void cmd_drop( PLAYER_DATA *ch, char *argument )
+void cmd_drop( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
+    PROP *prop;
+    PROP *prop_next;
     int amount = 0;
     bool found;
 
@@ -1940,7 +1940,7 @@ void cmd_drop( PLAYER_DATA *ch, char *argument )
 
     if ( prop->item_type == ITEM_MONEY )
     {
-        PROP_DATA *pnewprop;
+        PROP *pnewprop;
 
         if ( amount > prop->value[0] || amount == 0 )
         amount = prop->value[0];
@@ -2005,12 +2005,12 @@ void cmd_drop( PLAYER_DATA *ch, char *argument )
  * Syntax:  give [prop] [person]
  *          give [number] [money prop] [person]
  */
-void cmd_give( PLAYER_DATA *ch, char *argument )
+void cmd_give( PLAYER *ch, char *argument )
 {
     char arg1 [MAX_INPUT_LENGTH];
     char arg2 [MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
-    PROP_DATA  *prop;
+    PLAYER *victim;
+    PROP  *prop;
     int amount = 0;
 
     argument = one_argument( argument, arg1 );
@@ -2172,11 +2172,11 @@ void cmd_give( PLAYER_DATA *ch, char *argument )
  * Syntax:  fill [prop]
  *          fill [lantern] [prop]
  */
-void cmd_fill( PLAYER_DATA *ch, char *argument )
+void cmd_fill( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
-    PROP_DATA *fountain;
+    PROP *prop;
+    PROP *fountain;
     bool found;
 
     argument = one_argument( argument, arg );
@@ -2229,7 +2229,7 @@ void cmd_fill( PLAYER_DATA *ch, char *argument )
     else
     if ( prop->item_type == ITEM_LIGHT )
     {
-        PROP_DATA *prop2;
+        PROP *prop2;
 
         if ( ( prop2 = get_item_held( ch, ITEM_DRINK_CON ) ) == NULL )
         {
@@ -2284,13 +2284,13 @@ void cmd_fill( PLAYER_DATA *ch, char *argument )
  * Syntax:  pour [prop]
  *          pour [prop] [prop]
  */
-void cmd_pour( PLAYER_DATA *ch, char *argument )
+void cmd_pour( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
-    PROP_DATA *prop1;
-    PROP_DATA *prop2 = NULL;
+    PROP *prop1;
+    PROP *prop2 = NULL;
 
     argument = one_argument( argument, arg1 );
     one_argument( argument, arg2 );
@@ -2386,10 +2386,10 @@ void cmd_pour( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  drink [prop]
  */
-void cmd_drink( PLAYER_DATA *ch, char *argument )
+void cmd_drink( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
     int amount;
     int liquid;
 
@@ -2418,7 +2418,7 @@ void cmd_drink( PLAYER_DATA *ch, char *argument )
 	}
     }
 
-    if ( !IS_NPC(ch) && PC(ch,condition[COND_DRUNK]) > IS_DRUNK )
+    if ( !NPC(ch) && PC(ch,condition[COND_DRUNK]) > IS_DRUNK )
     {
         send_to_actor( "You fail to reach your mouth.\n\r", ch );
         act( "$n hiccups loudly.", ch, NULL, NULL, TO_SCENE );
@@ -2432,13 +2432,13 @@ void cmd_drink( PLAYER_DATA *ch, char *argument )
         break;
 
         case ITEM_FOUNTAIN:
-        if ( !IS_NPC(ch) && PC(ch,condition)[COND_THIRST] >= IS_FULL/2 )
+        if ( !NPC(ch) && PC(ch,condition)[COND_THIRST] >= IS_FULL/2 )
         {
             send_to_actor( "You are not thirsty enough.\n\r", ch );
             return;
         }
 
-        if ( !IS_NPC(ch) )
+        if ( !NPC(ch) )
             PC(ch,condition)[COND_THIRST] = IS_FULL/2;
             
         act( "$n drinks from $p.", ch, prop, NULL, TO_SCENE );
@@ -2456,14 +2456,14 @@ void cmd_drink( PLAYER_DATA *ch, char *argument )
             if ( IS_SET(prop->value[3], DRINK_TAVERN) )
             {
                 send_to_actor( "You discard it.\n\r", ch );
-                extract_prop(prop);
+                extractor_prop(prop);
             }
             return;
         }
 
         if ( ( liquid = prop->value[2]) >= LIQ_MAX || liquid < 0 )
         {
-            bug( "Cmd_drink: bad liquid number %d.", prop->pIndexData->vnum );
+            bug( "Cmd_drink: bad liquid number %d.", prop->pIndexData->dbkey );
             liquid = prop->value[2] = 0;
         }
 
@@ -2494,25 +2494,25 @@ void cmd_drink( PLAYER_DATA *ch, char *argument )
         gain_condition( ch, COND_THIRST,
             amount * liq_table[liquid].liq_bonus[COND_THIRST ] );
 
-        if ( !IS_NPC(ch) && PC(ch,condition)[COND_DRUNK]  > IS_DRUNK )
+        if ( !NPC(ch) && PC(ch,condition)[COND_DRUNK]  > IS_DRUNK )
             send_to_actor( "You feel drunk.\n\r", ch );
-        if ( !IS_NPC(ch) && PC(ch,condition)[COND_FULL]   > IS_FULL )
+        if ( !NPC(ch) && PC(ch,condition)[COND_FULL]   > IS_FULL )
             send_to_actor( "You are full.\n\r", ch );
-        if ( !IS_NPC(ch) && PC(ch,condition)[COND_THIRST] > IS_FULL )
+        if ( !NPC(ch) && PC(ch,condition)[COND_THIRST] > IS_FULL )
             send_to_actor( "You are no longer thirsty.\n\r", ch );
 
         if ( IS_SET(prop->value[3], DRINK_POISON) )
         {
             /* Poisoned! */
-            BONUS_DATA af;
+            BONUS af;
 
             act( "$n chokes and gags.", ch, NULL, NULL, TO_SCENE );
             send_to_actor( "You choke and gag.\n\r", ch );
-            af.type      = skill_vnum(skill_lookup("poison"));
+            af.type      = skill_dbkey(skill_lookup("poison"));
             af.duration  = 3 * amount;
             af.location  = APPLY_NONE;
             af.modifier  = 0;
-            af.bitvector = AFF_POISON;
+            af.bitvector = BONUS_POISON;
             bonus_join( ch, &af );
         }
     }
@@ -2525,7 +2525,7 @@ void cmd_drink( PLAYER_DATA *ch, char *argument )
             if ( IS_SET(prop->value[3], DRINK_TAVERN) )
             {
                 send_to_actor( "You discard it.\n\r", ch );
-                extract_prop(prop);
+                extractor_prop(prop);
                 return;
             }
         }
@@ -2533,7 +2533,7 @@ void cmd_drink( PLAYER_DATA *ch, char *argument )
         if ( prop->value[1] <= 0 )
         {
             act( "You discard $p.", ch, NULL, NULL, TO_ACTOR );
-            extract_prop( prop );
+            extractor_prop( prop );
             return;
         }
     break;
@@ -2550,11 +2550,11 @@ void cmd_drink( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  eat [prop]
  */
-void cmd_eat( PLAYER_DATA *ch, char *argument )
+void cmd_eat( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
-    PROP_DATA *prop2;
+    PROP *prop;
+    PROP *prop2;
 
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
@@ -2577,7 +2577,7 @@ void cmd_eat( PLAYER_DATA *ch, char *argument )
 	    return;
 	}
 
-        if ( !IS_NPC(ch) && PC(ch,condition)[COND_FULL] > IS_FULL )
+        if ( !NPC(ch) && PC(ch,condition)[COND_FULL] > IS_FULL )
 	{   
 	    send_to_actor( "You are too full to eat more.\n\r", ch );
 	    return;
@@ -2599,7 +2599,7 @@ void cmd_eat( PLAYER_DATA *ch, char *argument )
     {
 
     case ITEM_FOOD:
-	if ( !IS_NPC(ch) )
+	if ( !NPC(ch) )
 	{
 	    int condition;
 
@@ -2615,25 +2615,25 @@ void cmd_eat( PLAYER_DATA *ch, char *argument )
         if ( prop->value[3] != 0 )
         {
         /* Poisoned! */
-	    BONUS_DATA af;
+	    BONUS af;
 
 	    act( "$n chokes and gags.", ch, 0, 0, TO_SCENE );
 	    send_to_actor( "You choke and gag.\n\r", ch );
 
-	    af.type      = skill_vnum(skill_lookup("poison"));
+	    af.type      = skill_dbkey(skill_lookup("poison"));
 	    af.duration  = 2 * prop->value[0];
 	    af.location  = APPLY_NONE;
 	    af.modifier  = 0;
-	    af.bitvector = AFF_POISON;
+	    af.bitvector = BONUS_POISON;
 	    bonus_join( ch, &af );
 	}
 
         /*
          * Slap the reference prop on 'em.
          */
-        if ( get_prop_index( prop->value[2] ) != NULL )
+        if ( get_prop_template( prop->value[2] ) != NULL )
         {
-        prop2 = create_prop( get_prop_index( prop->value[2] ), 0 );
+        prop2 = create_prop( get_prop_template( prop->value[2] ), 0 );
         prop_to_actor( prop2, ch );
         if ( IS_SET(prop->extra_flags, ITEM_USED) )
         SET_BIT(prop2->extra_flags, ITEM_USED);
@@ -2648,7 +2648,7 @@ void cmd_eat( PLAYER_DATA *ch, char *argument )
 	break;
     }
 
-    extract_prop( prop );
+    extractor_prop( prop );
     return;
 }
 
@@ -2656,10 +2656,10 @@ void cmd_eat( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  quaff [potion]
  */
-void cmd_quaff( PLAYER_DATA *ch, char *argument )
+void cmd_quaff( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
 
     one_argument( argument, arg );
 
@@ -2690,7 +2690,7 @@ void cmd_quaff( PLAYER_DATA *ch, char *argument )
     prop_cast_spell( prop, prop->value[2], ch, ch, NULL );
     prop_cast_spell( prop, prop->value[3], ch, ch, NULL );
 
-    extract_prop( prop );
+    extractor_prop( prop );
     return;
 }
 
@@ -2698,13 +2698,13 @@ void cmd_quaff( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  steal [prop] [person]
  */
-void cmd_steal( PLAYER_DATA *ch, char *argument )
+void cmd_steal( PLAYER *ch, char *argument )
 {
     char buf  [MAX_STRING_LENGTH];
     char arg1 [MAX_INPUT_LENGTH];
     char arg2 [MAX_INPUT_LENGTH];
-    PLAYER_DATA *victim;
-    PROP_DATA *prop;
+    PLAYER *victim;
+    PROP *prop;
     int percent;
 
     argument = one_argument( argument, arg1 );
@@ -2734,7 +2734,7 @@ void cmd_steal( PLAYER_DATA *ch, char *argument )
         return;
     }
 
-    { SKILL_DATA *pSkill = skill_lookup( "pickpocket" );
+    { SKILL *pSkill = skill_lookup( "pickpocket" );
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
     percent  = number_percent( ) + ( IS_AWAKE(victim) ? 10 : -50 );
     }
@@ -2752,9 +2752,9 @@ void cmd_steal( PLAYER_DATA *ch, char *argument )
     snprintf( buf, MAX_STRING_LENGTH, "%s is a bloody thief!", NAME(ch) );
     send_to_actor( buf, victim );
 
-        if ( !IS_NPC(ch) )
+        if ( !NPC(ch) )
         {
-            if ( IS_NPC(victim) )
+            if ( NPC(victim) )
             {
         oroc( victim, ch );
             }
@@ -2804,11 +2804,11 @@ void cmd_steal( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  light [prop]
  */
-void cmd_light( PLAYER_DATA *ch, char *argument )
+void cmd_light( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
-    PROP_DATA *prop2;
+    PROP *prop;
+    PROP *prop2;
 
     argument = one_argument( argument, arg );
 
@@ -2870,10 +2870,10 @@ void cmd_light( PLAYER_DATA *ch, char *argument )
 /*
  * Syntax:  extinguish [prop]
  */
-void cmd_extinguish( PLAYER_DATA *ch, char *argument )
+void cmd_extinguish( PLAYER *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
-    PROP_DATA *prop;
+    PROP *prop;
 
     argument = one_argument( argument, arg );
 
@@ -2909,12 +2909,12 @@ void cmd_extinguish( PLAYER_DATA *ch, char *argument )
 
 
 
-void cmd_swap( PLAYER_DATA *ch, char *argument )
+void cmd_swap( PLAYER *ch, char *argument )
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
-    PROP_DATA *prop1, *prop2;
+    PROP *prop1, *prop2;
     
     argument = one_argument( argument, arg1 );
     one_argument( argument, arg2 );
@@ -2964,8 +2964,8 @@ void cmd_swap( PLAYER_DATA *ch, char *argument )
 	}
 	else
 	{
-		PROP_DATA *con1 = NULL;
-		PROP_DATA *con2 = NULL;
+		PROP *con1 = NULL;
+		PROP *con2 = NULL;
 		
 		prop1 = get_prop_carry( ch, arg1 );
 		prop2 = get_prop_carry( ch, arg2 );
@@ -3060,9 +3060,9 @@ void cmd_swap( PLAYER_DATA *ch, char *argument )
  * Slightly modified by Daurven.  :)
  * raise [prop]
  */
-void cmd_raise( PLAYER_DATA *ch, char *argument ) {
-    PROP_DATA *hood;
-    PROP_DATA *tmp;
+void cmd_raise( PLAYER *ch, char *argument ) {
+    PROP *hood;
+    PROP *tmp;
     char buf[MAX_STRING_LENGTH];
     char arg[MAX_INPUT_LENGTH];
 
@@ -3107,9 +3107,9 @@ HOODED ) ) {
 /*
  * lower [prop]
  */
-void cmd_lower( PLAYER_DATA *ch, char *argument ) {
-    PROP_DATA *hood;
-    PROP_DATA *tmp;
+void cmd_lower( PLAYER *ch, char *argument ) {
+    PROP *hood;
+    PROP *tmp;
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
 
@@ -3155,11 +3155,11 @@ HOODED ) ) {
  * Player-written books and notes.
  * Write [target]
  */
-void cmd_write( PLAYER_DATA *ch, char *argument ) {
-   PROP_DATA *quill;
-   PROP_DATA *note;
+void cmd_write( PLAYER *ch, char *argument ) {
+   PROP *quill;
+   PROP *note;
 
-   if ( IS_NPC(ch) ) return;
+   if ( NPC(ch) ) return;
 
    note = get_prop_carry( ch, argument );
   

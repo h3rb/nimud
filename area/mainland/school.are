@@ -253,8 +253,8 @@ Shop
 EndShop
 Sc 7173
 At 0 10 12 5
-Sk 90 'foraging'
 Sk 50 'tracking'
+Sk 90 'foraging'
 End
 
 #18709
@@ -491,12 +491,12 @@ K 1000 E 32
 O ~
 AP 10 10 10 10 10
 Sc 7173
-Sk 20 'tracking'
-Sk 45 'ranged'
-Sk 60 'foraging'
-Sk 10 'fishing'
-Sk 25 'swimming'
 Sk 10 'climbing'
+Sk 25 'swimming'
+Sk 10 'fishing'
+Sk 60 'foraging'
+Sk 45 'ranged'
+Sk 20 'tracking'
 End
 
 #18719
@@ -522,8 +522,8 @@ Sc 7173
 At 0 10 11 8
 At 1 5 22 5
 At 2 1 13 10
-Sk 45 'hafted'
 Sk 40 'carpentry'
+Sk 45 'hafted'
 End
 
 #18720
@@ -1089,10 +1089,6 @@ M 0
 W 0
 T 0
 O ~
-ED plaque~
-This zone (Mud School) is created by Hatchet for any Merc Mud.
-Copyright 1992, 1993.
-~
 ED sign~
 Equipment check time!  Type 'EQUIPMENT' to see your current equipment.  Right
 now, you have just a vest, a shield, and a weapon.  As you go through Mud
@@ -1107,6 +1103,10 @@ To stop using a piece of equipment, type 'REMOVE item'.
 Finally, to see the items in your inventory, type 'INVENTORY'.
 
 When you are ready to continue, go west.
+~
+ED plaque~
+This zone (Mud School) is created by Hatchet for any Merc Mud.
+Copyright 1992, 1993.
 ~
 R M 18700 1 100 1
 Dr 2 0 -1 18757

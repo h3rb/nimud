@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -42,7 +42,7 @@
 
 
 
-void update_money( PROP_DATA *prop )
+void update_money( PROP *prop )
 {
     char buf[MAX_STRING_LENGTH];
     char buf1[MAX_STRING_LENGTH];
@@ -60,7 +60,7 @@ void update_money( PROP_DATA *prop )
 
     if ( prop->value[0] > 1  )
     {
-    prop->pIndexData = get_prop_index( PROP_VNUM_MONEY_SOME );
+    prop->pIndexData = get_prop_template( PROP_VNUM_MONEY_SOME );
     if ( prop->value[0] <= 10 )       strcpy( buf, "few"               ); else
     if ( prop->value[0] <= 100 )      strcpy( buf, "small pile of"     ); else
     if ( prop->value[0] <= 1000 )     strcpy( buf, "pile of"           ); else
@@ -88,7 +88,7 @@ void update_money( PROP_DATA *prop )
     else
     if ( prop->value[0] == 1 )
     {
-    prop->pIndexData = get_prop_index( PROP_VNUM_MONEY_ONE );
+    prop->pIndexData = get_prop_template( PROP_VNUM_MONEY_ONE );
     sprintf( buf1, prop->pIndexData->short_descr,
                    coin_table[prop->value[1]].long_name );
     sprintf( buf2, prop->pIndexData->description,
@@ -104,9 +104,9 @@ void update_money( PROP_DATA *prop )
     return;
 }
 
-PROP_DATA *create_money( int amount, int type )
+PROP *create_money( int amount, int type )
 {
-    PROP_DATA *prop;
+    PROP *prop;
 
     if ( amount <= 0 )
     {
@@ -116,7 +116,7 @@ PROP_DATA *create_money( int amount, int type )
 
     if ( amount == 1 )
     {
-    prop = create_prop( get_prop_index( PROP_VNUM_MONEY_ONE ), 0 );
+    prop = create_prop( get_prop_template( PROP_VNUM_MONEY_ONE ), 0 );
     prop->item_type      = ITEM_MONEY;
     prop->value[0]       = 1;
     prop->value[1]       = URANGE(0,type,MAX_COIN-1);
@@ -127,7 +127,7 @@ PROP_DATA *create_money( int amount, int type )
     }
     else
     {
-	prop = create_prop( get_prop_index( PROP_VNUM_MONEY_SOME ), 0 );
+	prop = create_prop( get_prop_template( PROP_VNUM_MONEY_SOME ), 0 );
     prop->value[0]       = amount;
     prop->value[1]       = type;
     prop->item_type      = ITEM_MONEY;
@@ -143,10 +143,10 @@ PROP_DATA *create_money( int amount, int type )
 /*
  * Conglomerate several money items.
  */
-void merge_money( PLAYER_DATA *ch )
+void merge_money( PLAYER *ch )
 {
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
+    PROP *prop;
+    PROP *prop_next;
     int sub_totals[MAX_COIN];
     int type;
 
@@ -161,7 +161,7 @@ void merge_money( PLAYER_DATA *ch )
         if ( prop->item_type == ITEM_MONEY )
         {
             prop_from_actor( prop );
-            extract_prop( prop );
+            extractor_prop( prop );
         }
     }
 
@@ -176,10 +176,10 @@ void merge_money( PLAYER_DATA *ch )
     return;
 }
 
-void merge_money_prop( PROP_DATA *prop )
+void merge_money_prop( PROP *prop )
 {
-    PROP_DATA *iprop;
-    PROP_DATA *prop_next;
+    PROP *iprop;
+    PROP *prop_next;
     int sub_totals[MAX_COIN];
     int type;
 
@@ -195,7 +195,7 @@ void merge_money_prop( PROP_DATA *prop )
         {
 //            bug( "merge_money_prop: here", 0 );
             prop_from_prop( iprop );
-            extract_prop( iprop );
+            extractor_prop( iprop );
         }
     }
 
@@ -208,10 +208,10 @@ void merge_money_prop( PROP_DATA *prop )
 }
 
 
-void merge_money_scene( SCENE_INDEX_DATA *scene )
+void merge_money_scene( SCENE *scene )
 {
-    PROP_DATA  *iprop;
-    PROP_DATA *prop_next;
+    PROP  *iprop;
+    PROP *prop_next;
     int sub_totals[MAX_COIN];
     int type;
 
@@ -226,7 +226,7 @@ void merge_money_scene( SCENE_INDEX_DATA *scene )
         if ( iprop->item_type == ITEM_MONEY )
         {
             prop_from_scene( iprop );
-            extract_prop( iprop );
+            extractor_prop( iprop );
         }
     }
 
@@ -241,10 +241,10 @@ void merge_money_scene( SCENE_INDEX_DATA *scene )
 /*
  * Create a set of 'money' props.
  */
-void create_amount( int amount, PLAYER_DATA *pActor, SCENE_INDEX_DATA *pScene,
-                    PROP_DATA *pProp )
+void create_amount( int amount, PLAYER *pActor, SCENE *pScene,
+                    PROP *pProp )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     int type;
 
     if ( amount <= 0 )
@@ -291,9 +291,9 @@ void create_amount( int amount, PLAYER_DATA *pActor, SCENE_INDEX_DATA *pScene,
 /*
  * Tally the number of coins a character has.
  */
-int tally_coins( PLAYER_DATA *actor )
+int tally_coins( PLAYER *actor )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     int total = 0;
 
     for ( prop = actor->carrying;  prop != NULL; prop = prop->next_content )
@@ -306,14 +306,14 @@ int tally_coins( PLAYER_DATA *actor )
         if ( ( prop->value[1] < 0 || prop->value[1] >= MAX_COIN ) 
           && prop->item_type == ITEM_MONEY )
         {
-        bug( "Tally_coins: prop (vnum %d) bad coinage",
-             prop->pIndexData->vnum );
+        bug( "Tally_coins: prop (dbkey %d) bad coinage",
+             prop->pIndexData->dbkey );
         prop->value[1] = URANGE( 0, prop->value[1], MAX_COIN-1 );
         }
 
         if ( prop->item_type == ITEM_CONTAINER )
         {
-            PROP_DATA *iprop;
+            PROP *iprop;
 
             for ( iprop = prop->contains; iprop != NULL; iprop = iprop->next_content )
             {
@@ -325,8 +325,8 @@ int tally_coins( PLAYER_DATA *actor )
                 if ( ( iprop->value[1] < 0 || iprop->value[1] >= MAX_COIN )
                   && iprop->item_type == ITEM_MONEY )
                 {
-                bug( "Tally_coins: iprop (vnum %d) bad coinage",
-                     iprop->pIndexData->vnum );
+                bug( "Tally_coins: iprop (dbkey %d) bad coinage",
+                     iprop->pIndexData->dbkey );
                 iprop->value[1] = URANGE( 0, iprop->value[1], MAX_COIN-1 );
                 }
             }
@@ -339,9 +339,9 @@ int tally_coins( PLAYER_DATA *actor )
 /*
  * Tally the number of A SINGLE TYPE OF coin a character has.
  */
-int tally_one_coin( PROP_DATA *plist, int type, bool fContents )
+int tally_one_coin( PROP *plist, int type, bool fContents )
 {
-    PROP_DATA *prop;
+    PROP *prop;
     int total = 0;
 
     for ( prop = plist;  prop != NULL; prop = prop->next_content )
@@ -355,15 +355,15 @@ int tally_one_coin( PROP_DATA *plist, int type, bool fContents )
         if ( ( prop->value[1] < 0 || prop->value[1] >= MAX_COIN ) 
            && prop->item_type == ITEM_MONEY )
         {
-        bug( "Tally_one_coin: prop (vnum %d) bad coinage",
-             prop->pIndexData->vnum );
+        bug( "Tally_one_coin: prop (dbkey %d) bad coinage",
+             prop->pIndexData->dbkey );
         prop->value[1] = URANGE( 0, prop->value[1], MAX_COIN-1 );
         }
 
         if ( prop->item_type == ITEM_CONTAINER
            && fContents )
         {
-            PROP_DATA *iprop;
+            PROP *iprop;
 
             for ( iprop = prop->contains; iprop != NULL;
                   iprop = iprop->next_content )
@@ -377,8 +377,8 @@ int tally_one_coin( PROP_DATA *plist, int type, bool fContents )
                 if ( ( iprop->value[1] < 0 || iprop->value[1] >= MAX_COIN )
                   && iprop->item_type == ITEM_MONEY )
                 {
-                bug( "Tally_one_coin: iprop (vnum %d) bad coinage",
-                     iprop->pIndexData->vnum );
+                bug( "Tally_one_coin: iprop (dbkey %d) bad coinage",
+                     iprop->pIndexData->dbkey );
                 iprop->value[1] = URANGE( 0, iprop->value[1], MAX_COIN-1 );
                 }
             }
@@ -428,12 +428,12 @@ char *name_amount( int amount )
 /*
  * Nail unused money items.
  */
-void strip_empty_money( PLAYER_DATA *ch )
+void strip_empty_money( PLAYER *ch )
 {
-    PROP_DATA *prop;
-    PROP_DATA *prop_next;
-    PROP_DATA *iprop;
-    PROP_DATA *iprop_next;
+    PROP *prop;
+    PROP *prop_next;
+    PROP *iprop;
+    PROP *iprop_next;
 
     for ( prop = ch->carrying;  prop != NULL;  prop = prop_next )
     {
@@ -441,7 +441,7 @@ void strip_empty_money( PLAYER_DATA *ch )
         if ( prop->item_type == ITEM_MONEY  && prop->value[0] <= 0 )
         {
             prop_from_actor( prop );
-            extract_prop( prop );
+            extractor_prop( prop );
         }
 
         for ( iprop = prop->contains;  iprop != NULL; iprop = iprop_next )
@@ -450,7 +450,7 @@ void strip_empty_money( PLAYER_DATA *ch )
         if ( iprop->item_type == ITEM_MONEY  && iprop->value[0] <= 0 )
         {
             prop_from_prop( iprop );
-            extract_prop( iprop );
+            extractor_prop( iprop );
         }
         }
     }
@@ -463,10 +463,10 @@ void strip_empty_money( PLAYER_DATA *ch )
  * this is the routine that makes the change if you give the dude
  * too much.  This is for shops mainly, but can be used elsewhere.
  */
-char *sub_coins( int amount, PLAYER_DATA *ch )
+char *sub_coins( int amount, PLAYER *ch )
 {
-    PROP_DATA *prop;
-    PROP_DATA *iprop;
+    PROP *prop;
+    PROP *iprop;
     int money = 0;
 
     if ( tally_coins( ch ) < amount )
@@ -510,9 +510,9 @@ char *sub_coins( int amount, PLAYER_DATA *ch )
 
 
 
-void cmd_money( PLAYER_DATA *ch, char *argument )
+void cmd_money( PLAYER *ch, char *argument )
 {
-     PLAYER_DATA *och;
+     PLAYER *och;
      int worth=tally_coins(ch);
 
      if ( worth > 0 ) {
@@ -526,7 +526,7 @@ void cmd_money( PLAYER_DATA *ch, char *argument )
      var_to_actor( "You've got ^2$^B%d^N.\n\r", ch, ch->bucks );
 
   if ( argument != NULL )
- for( och=actor_list; och!=NULL; och=och->next ) if ( och->master == ch && IS_NPC(och) ) {
+ for( och=actor_list; och!=NULL; och=och->next ) if ( och->master == ch && NPC(och) ) {
      worth=tally_coins(och);
      if ( worth > 0 ) 
      var_to_actor( "%s has %s.\n\r", ch, NAME(och), name_amount( worth ) );

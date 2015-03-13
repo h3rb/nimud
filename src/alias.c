@@ -11,7 +11,7 @@
  * Includes improvements by Chris Woodward (c) 1993-1994                      *
  * Based on Merc 2.1c / 2.2                                                   *
  ******************************************************************************
- * To use any part of NiMUD, you must comply with the Merc, Diku and NiMUD    *
+ * To use this software you must comply with its license.                     *
  * licenses.  See the file 'docs/COPYING' for more information about this.    *
  ******************************************************************************
  *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,           *
@@ -42,20 +42,20 @@
 #include "nimud.h"
 
 
-ALIAS_DATA *aliases;
+ALIAS *aliases;
 
 /*
  * Adds an alias to a char.
  */
-void add_alias( PLAYER_DATA *ch, char *name, char *exp )
+void add_alias( PLAYER *ch, char *name, char *exp )
 {
-     ALIAS_DATA *alias;
-     ALIAS_DATA *alias_next;
+     ALIAS *alias;
+     ALIAS *alias_next;
 
-     if ( IS_NPC(ch) ) return;
+     if ( NPC(ch) ) return;
 
      alias_next = PC(ch,aliases);
-     alias = new_alias_data( );
+     alias = new_alias( );
      alias->name = str_dup( name );
      alias->exp = str_dup( exp );
      alias->next = alias_next;
@@ -66,11 +66,11 @@ void add_alias( PLAYER_DATA *ch, char *name, char *exp )
 /*
  * Finds an alias from the command.
  */
-ALIAS_DATA *find_alias( PLAYER_DATA *ch, char *exp )
+ALIAS *find_alias( PLAYER *ch, char *exp )
 {
-     ALIAS_DATA *alias;
+     ALIAS *alias;
 
-     if ( IS_NPC(ch) ) return NULL;
+     if ( NPC(ch) ) return NULL;
 
      alias = PC(ch,aliases);
      if ( alias == NULL ) return NULL;
@@ -94,18 +94,18 @@ ALIAS_DATA *find_alias( PLAYER_DATA *ch, char *exp )
  * Related feature: 
  *         set alias
  */
-void cmd_alias( PLAYER_DATA *ch, char *argument )
+void cmd_alias( PLAYER *ch, char *argument )
 {
      char arg[MAX_STRING_LENGTH];
-     ALIAS_DATA *alias;
+     ALIAS *alias;
 
-     if ( IS_NPC(ch) ) return;
+     if ( NPC(ch) ) return;
 
      argument = one_argument( argument, arg );
      
-     if ( !IS_SET(ch->act2, PLR_ALIASES) )
+     if ( !IS_SET(ch->flag2, PLR_ALIASES) )
      {
-     SET_BIT(ch->act2,PLR_ALIASES);
+     SET_BIT(ch->flag2,PLR_ALIASES);
      send_to_actor( "Aliases enabled.\n\r", ch );
      }
 
@@ -125,8 +125,8 @@ void cmd_alias( PLAYER_DATA *ch, char *argument )
      }
   
      if ( !str_cmp( arg, "clear" ) ) {
-       ALIAS_DATA *alias_next;
-       for ( alias=PC(ch,aliases); alias!=NULL; alias=alias_next ) { alias_next = alias->next; free_alias_data(alias); }
+       ALIAS *alias_next;
+       for ( alias=PC(ch,aliases); alias!=NULL; alias=alias_next ) { alias_next = alias->next; free_alias(alias); }
        PC(ch,aliases)=NULL;
        send_to_actor( "Cleared.\n\r", ch );
        return;
@@ -134,7 +134,7 @@ void cmd_alias( PLAYER_DATA *ch, char *argument )
 
      if ( !str_cmp( arg, "off" ) ) {
      send_to_actor( "Aliases disabled.\n\r", ch );
-     REMOVE_BIT(ch->act2,PLR_ALIASES);
+     REMOVE_BIT(ch->flag2,PLR_ALIASES);
      return;
      }
 
@@ -147,32 +147,32 @@ void cmd_alias( PLAYER_DATA *ch, char *argument )
      if ( !str_prefix( argument, "delete" )
        || !str_prefix( argument, "remove" ) )
      {
-        ALIAS_DATA *prev;
+        ALIAS *prev;
         alias = find_alias(ch,arg);
         if ( !alias ) send_to_actor( "Couldn't find that alias.\n\r", ch );
         else {
-            ALIAS_DATA *a;
-            if ( alias == PC(ch,aliases) ) { PC(ch,aliases)=PC(ch,aliases)->next;  free_alias_data(alias); return; }
+            ALIAS *a;
+            if ( alias == PC(ch,aliases) ) { PC(ch,aliases)=PC(ch,aliases)->next;  free_alias(alias); return; }
             prev = PC(ch,aliases);
             a=prev->next;
             while ( alias != a ) { a=a->next; prev=prev->next; }
-            prev->next=prev->next->next; free_alias_data(a);
+            prev->next=prev->next->next; free_alias(a);
             send_to_actor("Removed.\n\r", ch);
         }
         return;
      }
 
      if ( (alias = find_alias( ch, arg ) ) != NULL ) {
-        ALIAS_DATA *prev;
+        ALIAS *prev;
         alias = find_alias(ch,arg);
         if ( !alias ) send_to_actor( "No such alias, creating new.\n\r", ch );
         else {
-            ALIAS_DATA *a;
-            if ( alias == PC(ch,aliases) ) { PC(ch,aliases)=PC(ch,aliases)->next;  free_alias_data(alias); return; }
+            ALIAS *a;
+            if ( alias == PC(ch,aliases) ) { PC(ch,aliases)=PC(ch,aliases)->next;  free_alias(alias); return; }
             prev = PC(ch,aliases);
             a=prev->next;
             while ( alias != a ) { a=a->next; prev=prev->next; }
-            prev->next=prev->next->next; free_alias_data(a);
+            prev->next=prev->next->next; free_alias(a);
            send_to_actor( "Alias revised.\n\r", ch );
         }
      add_alias( ch, arg, argument );     
