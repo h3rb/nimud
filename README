@@ -1,91 +1,9 @@
+NiMUD: Shared Adventure Game
+----------------------------
 IMPORTANT: To use this software, you must comply with its license.  
 See docs/COPYING for more information about this.  In a nutshell: 
 don't steal our work, it's mean-spirited and disappointing, not to
 mention illegal.
-
-Muddywood's Finest: SPECIAL EDITION NIMUD
-Home of the Mudcademy Award, the Muddy!
-
-NiM5 edition by Locke (herb.gilliland_gmail.com)
-
-This is a superior edition of NiMUD.
-
-Persistent connectivity:
-** The game will attempt to recover connections during crashes and reboots. **
-
-It has a fully featured spell system and scripting language.
-
-Mobs=Actors
-Objs=Props
-Rooms=Scenes
-
-AEDIT now equals ZEDIT ("zone edit")
-MEDIT=AEDIT ("actor editor")
-OEDIT=PEDIT ("prop editor")
-REDIT=SEDIT ("scene editor")
-
-MSSP Support
-------------
-
-Running a new mud?  JOIN THE MSSP NETWORK! http://www.mudbytes.net/index.php?a=forum&f=39
-Contact scandum at the TopMudSites.com forums or at the tintin++ project on Sourceforge to add your MUD 
-to the network.  See settings in the telopt.c file with respect to your mud's contact information, web
-URL etc.  Supposedly MudBytes.net, MudConnect.com and others are now using the MSSP protocol to crawl 
-MUDs for up to date information about their usage and statistics.  NiMUD comes with this functionality 
-installed and will use it to broadcast player, zone and general mud information including contact, web 
-address, your mud's greeting, the server address and many other features.  
-
-See The Isles on the MSSP page.
-
-MSSP Protocol defintion http://tintin.sourceforge.net/mssp
-
-Client for debugging: http://tintin.sourceforge.net/
-TinTin++ (Requires using '#config {debug telnet} on' to display MSSP output from a MUD server.)
-
-MUD Crawlers supporing MSSP:
-MudByte's MUD crawler  http://www.kiasyn.com/mssp
-TinTin++ MUD crawler   http://tintin.sourceforge.net/mssp/mudlist.html
-
-MSSP Discussion Forum 
-http://www.mudbytes.net/index.php?a=forum&f=39
-
-NiMUD servers supporting MSSP:
-nimud.divineright.org 5333
-
-New editors:
-
-SPEDIT (spell editor, requires specialized scripts see existing spells)
-SKEDIT (skill editor, for creating and binding new skills)
-
-Scripting language: 
-
-Function list is extensive; not fully documented.  Upcoming releases will
-have added smart documentation features that read comments from the source
-code.  Some parts may be buggy, proceed with caution and use the examples
-provided.  The MUD will export scripts to the /export/ directory
-
-TRACE script recorder (use "trace" within the script editor to
-toggle the feature)
-
-Live debugger: login as a secondary immortal character and use the 'debug'
-command for a full screen live view of script execution on a particular entity
-
-Newest functions:
-
-breed()     - script generated player followers and mounts
-charge()    - payment function for scripted vendors
-mana()      - gem magick spell function
-
-Other fixes:
-
-Revisions to object system, world mapping system widget
-Minor cosmetic improvements ("Two of two's bug")
-Minor fixes to hireling followers and mounts, including save/load
- - revisions to do_assist, do_mount, do_order
-
-
-NiMUD: Shared Adventure Game
-----------------------------
 
 Brought to you by Locke;
 
@@ -324,6 +242,88 @@ startup        <- startup script
 export         <- directory into which exported html and scripts go
 lingua         <- Perl translation algorithm...works to translate area files
 nasa           <- HEASARC data of stellar masses within 25 parsecs
+
+
+Muddywood's Finest: SPECIAL EDITION NIMUD
+Home of the Mudcademy Award, the Muddy!
+
+NiM5 edition by Locke (herb.gilliland_gmail.com)
+
+This is a superior edition of NiMUD.
+
+Persistent connectivity:
+** The game will attempt to recover connections during crashes and reboots. **
+
+It has a fully featured spell system and scripting language.
+
+Mobs=Actors
+Objs=Props
+Rooms=Scenes
+
+AEDIT now equals ZEDIT ("zone edit")
+MEDIT=AEDIT ("actor editor")
+OEDIT=PEDIT ("prop editor")
+REDIT=SEDIT ("scene editor")
+
+MSSP Support
+------------
+
+Running a new mud?  JOIN THE MSSP NETWORK! http://www.mudbytes.net/index.php?a=forum&f=39
+Contact scandum at the TopMudSites.com forums or at the tintin++ project on Sourceforge to add your MUD 
+to the network.  See settings in the telopt.c file with respect to your mud's contact information, web
+URL etc.  Supposedly MudBytes.net, MudConnect.com and others are now using the MSSP protocol to crawl 
+MUDs for up to date information about their usage and statistics.  NiMUD comes with this functionality 
+installed and will use it to broadcast player, zone and general mud information including contact, web 
+address, your mud's greeting, the server address and many other features.  
+
+See The Isles on the MSSP page.
+
+MSSP Protocol defintion http://tintin.sourceforge.net/mssp
+
+Client for debugging: http://tintin.sourceforge.net/
+TinTin++ (Requires using '#config {debug telnet} on' to display MSSP output from a MUD server.)
+
+MUD Crawlers supporing MSSP:
+MudByte's MUD crawler  http://www.kiasyn.com/mssp
+TinTin++ MUD crawler   http://tintin.sourceforge.net/mssp/mudlist.html
+
+MSSP Discussion Forum 
+http://www.mudbytes.net/index.php?a=forum&f=39
+
+NiMUD servers supporting MSSP:
+nimud.divineright.org 5333
+
+New editors:
+
+SPEDIT (spell editor, requires specialized scripts see existing spells)
+SKEDIT (skill editor, for creating and binding new skills)
+
+Scripting language: 
+
+Function list is extensive; not fully documented.  Upcoming releases will
+have added smart documentation features that read comments from the source
+code.  Some parts may be buggy, proceed with caution and use the examples
+provided.  The MUD will export scripts to the /export/ directory
+
+TRACE script recorder (use "trace" within the script editor to
+toggle the feature)
+
+Live debugger: login as a secondary immortal character and use the 'debug'
+command for a full screen live view of script execution on a particular entity
+
+Newest functions:
+
+breed()     - script generated player followers and mounts
+charge()    - payment function for scripted vendors
+mana()      - gem magick spell function
+
+Other fixes:
+
+Revisions to object system, world mapping system widget
+Minor cosmetic improvements ("Two of two's bug")
+Minor fixes to hireling followers and mounts, including save/load
+ - revisions to do_assist, do_mount, do_order
+
 
 
 
