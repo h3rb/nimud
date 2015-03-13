@@ -209,7 +209,7 @@ void cmd_spellbook( PLAYER *ch, char *argument )
    int count;
 
    if ( !get_item_char( ch, ITEM_SPELLBOOK ) ) {
-       send_to_actor( "You cannot find your spellbook.\n\r", ch );
+       to_actor( "You cannot find your spellbook.\n\r", ch );
        return;
    }
 
@@ -235,13 +235,13 @@ void cmd_spellbook( PLAYER *ch, char *argument )
    
 
    if ( !fMatch ) {
-      send_to_actor( "Your spellbook is empty.\n\r", ch );
+      to_actor( "Your spellbook is empty.\n\r", ch );
       return;
    }
 
    display_interp( ch, "^3" );
-   send_to_actor( "You thumb through the vellum pages of your spellbook:\n\r", ch );
-   send_to_actor( buf, ch );
+   to_actor( "You thumb through the vellum pages of your spellbook:\n\r", ch );
+   to_actor( buf, ch );
    display_interp( ch, "^N" );
    return;
 }
@@ -279,7 +279,7 @@ int prop_cast_spell( PROP *item, int dbkey, PLAYER *ch,
 	if ( victim == NULL ) victim = ch->fighting;
         if ( victim == NULL )
 	{
-            send_to_actor( "The spell fizzles without a valid target.\n\r", ch );
+            to_actor( "The spell fizzles without a valid target.\n\r", ch );
 	    return FALSE;
 	}
 	vo = (void *) victim;
@@ -300,7 +300,7 @@ int prop_cast_spell( PROP *item, int dbkey, PLAYER *ch,
         target_type = TYPE_PROP;
 	if ( prop == NULL )
 	{
-            send_to_actor( "The spell fizzles without a valid target.\n\r", ch );
+            to_actor( "The spell fizzles without a valid target.\n\r", ch );
 	    return FALSE;
 	}
 	vo = (void *) prop;
@@ -386,7 +386,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
     * Check for the presence of a spellbook.
     */
    if ( !get_item_char(ch, ITEM_SPELLBOOK) ) {
-       send_to_actor( "You cannot find your spellbook.\n\r", ch );
+       to_actor( "You cannot find your spellbook.\n\r", ch );
        return;
    }
 
@@ -415,7 +415,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
       }
 
       if ( !pActorIndex || !rch ) {
-        send_to_actor( "There is no one here to teach you.\n\r", ch ); 
+        to_actor( "There is no one here to teach you.\n\r", ch ); 
         return;
       }
 
@@ -442,8 +442,8 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
    }
 
       if ( fMatch ) {
-         send_to_actor( "Available spells:\n\r", ch ); 
-         send_to_actor( buf, ch ); 
+         to_actor( "Available spells:\n\r", ch ); 
+         to_actor( buf, ch ); 
       }
       else act( "$N knows nothing of magick.", 
                 ch, NULL, rch, TO_ACTOR ); 
@@ -455,7 +455,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
     */
    pSpell = find_spell( argument );
    if ( !pSpell ) {
-      send_to_actor( "There is no such spell.\n\r", ch );
+      to_actor( "There is no such spell.\n\r", ch );
       return;
    }
 
@@ -463,7 +463,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
     * Check to see if they already know it.
     */
    if ( has_spell(ch->spells, pSpell->dbkey) ) {
-       send_to_actor( "You have already scribed that spell.\n\r", ch );
+       to_actor( "You have already scribed that spell.\n\r", ch );
        return;
    }
 
@@ -485,7 +485,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
     * Scribe the spell.
     */
    if ( !pActorIndex ) {
-        send_to_actor( "There is no one here to teach you.\n\r", ch ); 
+        to_actor( "There is no one here to teach you.\n\r", ch ); 
         return;
    }
    
@@ -496,7 +496,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
         SKILL *pGroup = find_skill_pc( ch, pSpell->group_code );
 
         if ( pSpell->level > ch->exp_level ) {
-             send_to_actor( "You are not yet ready for that spell.\n\r", ch );
+             to_actor( "You are not yet ready for that spell.\n\r", ch );
              return;
         } 
 
@@ -516,7 +516,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
 
          snprintf( buf, MAX_STRING_LENGTH, "You scribed %s from the spellbook of %s.\n\r", 
                   pSpell->name, pActorIndex->short_descr );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
 
          if ( pGroup ) update_skill(ch,pGroup->dbkey,pGroup->required_percent);
          return;                   
@@ -554,7 +554,7 @@ void cmd_cast( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' )
     {
-	send_to_actor( "Cast which what where?\n\r", ch );
+	to_actor( "Cast which what where?\n\r", ch );
 	return;
     }
 
@@ -563,7 +563,7 @@ void cmd_cast( PLAYER *ch, char *argument )
      */
     pSpell = find_spell( arg1 );
     if ( !pSpell || !has_spell( ch->spells, pSpell->dbkey ) ) { 
-     send_to_actor( "What spell is that?\n\r", ch ); return; }
+     to_actor( "What spell is that?\n\r", ch ); return; }
 
     for ( pInstance = pSpell->instances;  pInstance != NULL;  pInstance = pInstance->next )
      { /* start */
@@ -571,7 +571,7 @@ void cmd_cast( PLAYER *ch, char *argument )
      SCRIPT *pScript;
 
     pScript = pInstance->script;
-    if ( !pScript ) { send_to_actor( "No such spell.\n\r", ch ); return; }
+    if ( !pScript ) { to_actor( "No such spell.\n\r", ch ); return; }
 
     /*
      * Check to see if spell is known.
@@ -583,17 +583,17 @@ void cmd_cast( PLAYER *ch, char *argument )
           if ( pSpellBook->dbkey == pSpell->dbkey ) break;
 
           if ( pSpellBook == NULL ) {
-              send_to_actor( "You don't know of that spell.\n\r", ch );
+              to_actor( "You don't know of that spell.\n\r", ch );
           }
     }
 
     if ( ch->position < pSpell->minimum_position )
     {
-        send_to_actor( "It is impossible to concentrate enough in this position.\n\r", ch );
+        to_actor( "It is impossible to concentrate enough in this position.\n\r", ch );
 	return;
     }
 
-    if ( pSpell->mana_cost == 0 ) { mana = 0; send_to_actor( "You prepare the spell.\n\r", ch ); 
+    if ( pSpell->mana_cost == 0 ) { mana = 0; to_actor( "You prepare the spell.\n\r", ch ); 
      } else  
     mana = NPC(ch) ? 0 : ( get_curr_int(ch)/25 ) * pSpell->mana_cost;
 
@@ -616,7 +616,7 @@ void cmd_cast( PLAYER *ch, char *argument )
 	{
 	    if ( ( victim = ch->fighting ) == NULL )
 	    {
-		send_to_actor( "Cast the spell on whom?\n\r", ch );
+		to_actor( "Cast the spell on whom?\n\r", ch );
 		return;
 	    }
 	}
@@ -624,12 +624,12 @@ void cmd_cast( PLAYER *ch, char *argument )
 	{
 	    if ( ( victim = get_actor_scene( ch, arg2 ) ) == NULL )
 	    {
-		send_to_actor( "They aren't here.\n\r", ch );
+		to_actor( "They aren't here.\n\r", ch );
 		return;
 	    }
 
             if ( IS_SET(victim->flag, ACTOR_GOOD) ) {
-                send_to_actor( "You don't want to fight them.\n\r", ch );
+                to_actor( "You don't want to fight them.\n\r", ch );
                 return;
             }
 	}
@@ -647,7 +647,7 @@ void cmd_cast( PLAYER *ch, char *argument )
 	{
 	    if ( ( victim = get_actor_scene( ch, arg2 ) ) == NULL )
 	    {
-		send_to_actor( "They aren't here.\n\r", ch );
+		to_actor( "They aren't here.\n\r", ch );
 		return;
 	    }
 	}
@@ -659,7 +659,7 @@ void cmd_cast( PLAYER *ch, char *argument )
     case TAR_CHAR_SELF:
     if ( arg2[0] != '\0' && !is_name( arg2, STR(ch, name) ) )
 	{
-	    send_to_actor( "You cannot cast this spell on another.\n\r", ch );
+	    to_actor( "You cannot cast this spell on another.\n\r", ch );
 	    return;
 	}
 
@@ -670,13 +670,13 @@ void cmd_cast( PLAYER *ch, char *argument )
     case TAR_PROP_INV:
 	if ( arg2[0] == '\0' )
 	{
-	    send_to_actor( "What should the spell be cast upon?\n\r", ch );
+	    to_actor( "What should the spell be cast upon?\n\r", ch );
 	    return;
 	}
 
     if ( ( prop = get_prop_carry( ch, arg2 ) ) == NULL )
 	{
-        send_to_actor( "You are not carrying that in your hand.\n\r", ch );
+        to_actor( "You are not carrying that in your hand.\n\r", ch );
 	    return;
 	}
 
@@ -695,11 +695,11 @@ void cmd_cast( PLAYER *ch, char *argument )
     {
         switch ( pSpell->mana_type )
         {
-            default: send_to_actor( "You lack the mana.\n\r", ch ); break;
-     case MANA_FIRE: send_to_actor( "You don't have enough Fire gems.\n\r", ch ); break;
-      case MANA_AIR: send_to_actor( "You don't have enough Air gems.\n\r", ch ); break;
-    case MANA_WATER: send_to_actor( "You don't have enough Water gems.\n\r", ch ); break;
-    case MANA_EARTH: send_to_actor( "You don't have enough Earth gems.\n\r", ch ); break;
+            default: to_actor( "You lack the mana.\n\r", ch ); break;
+     case MANA_FIRE: to_actor( "You don't have enough Fire gems.\n\r", ch ); break;
+      case MANA_AIR: to_actor( "You don't have enough Air gems.\n\r", ch ); break;
+    case MANA_WATER: to_actor( "You don't have enough Water gems.\n\r", ch ); break;
+    case MANA_EARTH: to_actor( "You don't have enough Earth gems.\n\r", ch ); break;
         }
         return;
     }
@@ -716,7 +716,7 @@ void cmd_cast( PLAYER *ch, char *argument )
 
     if ( !NPC(ch) && number_percent( ) > 50 )
     {
-	send_to_actor( "You lost your concentration.\n\r", ch );
+	to_actor( "You lost your concentration.\n\r", ch );
         if ( mana > ch->mana ) {
            ch->mana = 0;
            mana -= ch->mana*2;
@@ -809,10 +809,10 @@ void cmd_mana( PLAYER *ch, char *argument ) {
             find_gem_mana( ch, MANA_EARTH ),
             find_gem_mana( ch, MANA_AIR   )  );
 
-   send_to_actor( buf, ch );
+   to_actor( buf, ch );
 
    snprintf( buf, MAX_STRING_LENGTH, "Personal mana: %d\n\r\n\r", ch->mana );
-   send_to_actor( buf, ch );
+   to_actor( buf, ch );
 
 }
 

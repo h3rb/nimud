@@ -179,14 +179,14 @@ text(0,0, "0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,....
           /* avoid repeated foreground color bashings */
           if ( lastStroke != cpages[x+(y*width)][page] ) {
           lastStroke = cpages[x+(y*width)][page];
-          send_to_actor( color( cpages[x+(y*width)][page] ), ch );
+          to_actor( color( cpages[x+(y*width)][page] ), ch );
           }
 
           /* add check to end of line for spaces here to decrease output */
 
-          send_to_actor( &pages[x+(y*width)][page], ch ); 
+          to_actor( &pages[x+(y*width)][page], ch ); 
      }
-          send_to_actor( "\n\r", ch );
+          to_actor( "\n\r", ch );
      }
      return;
 }
@@ -743,20 +743,20 @@ void goto_xy( PLAYER *ch, int x, int y )
 
    snprintf( buf, MAX_STRING_LENGTH, "\x1b[%d,%dH", x, y );
 /* snprintf( buf, MAX_STRING_LENGTH, "\x1b[%d,%df", x, y ); */
-   send_to_actor( buf, ch ); 
+   to_actor( buf, ch ); 
 }
 
 /*
 int horizline( PLAYER *ch, int length, char c ) {
 
      for ( ; length > 0; length-- )
-     send_to_actor( c, ch ); 
+     to_actor( c, ch ); 
 }
 
 int vertline( PLAYER *ch, int length, char c ) {
      for ( ; length > 0; length++ ) {
-     send_to_actor( c, ch )
-     send_to_actor( "\x1b[1A", ch ); 
+     to_actor( c, ch )
+     to_actor( "\x1b[1A", ch ); 
      }
 }
 */

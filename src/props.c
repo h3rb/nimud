@@ -118,7 +118,7 @@ bool can_wield( PLAYER *ch, PROP *prop, bool fSilent )
     {
         if ( get_eq_char( ch, WEAR_SHIELD ) != NULL )
         {
-            if ( !fSilent ) send_to_actor( "You are already using a shield.", ch );
+            if ( !fSilent ) to_actor( "You are already using a shield.", ch );
             return FALSE;
         }
     }
@@ -203,7 +203,7 @@ bool sheath_prop( PLAYER *ch, PROP *prop, bool fSilent )
 
    if ( get_eq_char( ch, WEAR_WAIST ) == NULL )
    {
-       if ( !fSilent ) send_to_actor( "You need a belt to hold your weapons.\n\r", ch );
+       if ( !fSilent ) to_actor( "You need a belt to hold your weapons.\n\r", ch );
        return TRUE;
    }
 
@@ -216,7 +216,7 @@ bool sheath_prop( PLAYER *ch, PROP *prop, bool fSilent )
 
    if ( belt_empty( ch ) == WEAR_NONE )
    {
-       if ( !fSilent ) send_to_actor( "Remove something from your belt first.\n\r", ch );
+       if ( !fSilent ) to_actor( "Remove something from your belt first.\n\r", ch );
        return TRUE;
    }
 
@@ -253,7 +253,7 @@ bool remove_prop( PLAYER *ch, int iWear, bool fReplace, bool fMsg )
 
     if ( hand_empty( ch ) == WEAR_NONE && !fReplace )
     {
-        send_to_actor( "Your hands are full.\n\r", ch );
+        to_actor( "Your hands are full.\n\r", ch );
         return FALSE;
     }
 
@@ -296,7 +296,7 @@ bool remove_prop( PLAYER *ch, int iWear, bool fReplace, bool fMsg )
     }
     else
     {
-        send_to_actor( "Your hands are full.\n\r", ch );
+        to_actor( "Your hands are full.\n\r", ch );
         return FALSE;
     }
 
@@ -436,7 +436,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	}
 
 	bug( "Wear_prop: no free finger.", 0 );
-	send_to_actor( "You already wear two rings.\n\r", ch );
+	to_actor( "You already wear two rings.\n\r", ch );
 	return;
     }
 
@@ -467,7 +467,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	}
 
     bug( "Wear_prop: no free ankle.", 0 );
-    send_to_actor( "You already wear two items on your ankles.\n\r", ch );
+    to_actor( "You already wear two items on your ankles.\n\r", ch );
 	return;
     }
 
@@ -498,7 +498,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	}
 
     bug( "Wear_prop: no free ear.", 0 );
-    send_to_actor( "You already wear two earrings.\n\r", ch );
+    to_actor( "You already wear two earrings.\n\r", ch );
 	return;
     }
 
@@ -529,7 +529,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	}
 
     bug( "Wear_prop: no free neck.", 0 );
-	send_to_actor( "You already wear two neck items.\n\r", ch );
+	to_actor( "You already wear two neck items.\n\r", ch );
 	return;
     }
 
@@ -743,7 +743,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	}
 
 	bug( "Wear_prop: no free wrist.", 0 );
-	send_to_actor( "You already wear two wrist items.\n\r", ch );
+	to_actor( "You already wear two wrist items.\n\r", ch );
 	return;
     }
 
@@ -778,7 +778,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
         }
 
     bug( "Wear_prop: no free shoulder.", 0 );
-    send_to_actor( "You already wear an items on each shoulder.\n\r", ch );
+    to_actor( "You already wear an items on each shoulder.\n\r", ch );
         return;
     }
 
@@ -819,7 +819,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
         }
 
     bug( "Wear_prop: no free as_belt.", 0 );
-    send_to_actor( "You already wear enough items there.\n\r", ch );
+    to_actor( "You already wear enough items there.\n\r", ch );
         return;
     }
 
@@ -857,7 +857,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
     }
 
     if ( fReplace )
-    send_to_actor( "It is impossible to wear that there.\n\r", ch );
+    to_actor( "It is impossible to wear that there.\n\r", ch );
 
     return;
 }
@@ -881,7 +881,7 @@ void cmd_wear( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' )
     {
-    send_to_actor( "Wear what?\n\r", ch );
+    to_actor( "Wear what?\n\r", ch );
 	return;
     }
 
@@ -906,13 +906,13 @@ void cmd_wear( PLAYER *ch, char *argument )
     {
     if ( ( prop = get_prop_carry( ch, arg1 ) ) == NULL )
 	{
-            send_to_actor( "You do not have that item in your hand.\n\r", ch );
+            to_actor( "You do not have that item in your hand.\n\r", ch );
 	    return;
 	}
 
     if ( (prop->size || ch->size) && (TOO_BIG(ch,prop) || TOO_SMALL(ch,prop)) )
     {
-        send_to_actor( "It doesn't fit you.\n\r", ch );
+        to_actor( "It doesn't fit you.\n\r", ch );
         return;
     }
 
@@ -921,10 +921,10 @@ void cmd_wear( PLAYER *ch, char *argument )
     if ( prop->size && ch->size && oldwear != prop->wear_loc )
     {
         if ( prop->size < ch->size )
-        send_to_actor( "It looks a bit snug.\n\r", ch );
+        to_actor( "It looks a bit snug.\n\r", ch );
         else
         if ( prop->size > ch->size )
-        send_to_actor( "It looks a bit loose.\n\r", ch );
+        to_actor( "It looks a bit loose.\n\r", ch );
     }
     }
 
@@ -958,7 +958,7 @@ void cmd_sheath( PLAYER *ch, char *argument )
     }
 
     if (!sheath_prop( ch, prop1, FALSE ))  
-    send_to_actor( "It is impossible to do that!\n\r", ch );
+    to_actor( "It is impossible to do that!\n\r", ch );
     return;
 }
 
@@ -991,7 +991,7 @@ void cmd_draw( PLAYER *ch, char *argument )
        return;
      }
  
-    if (!draw_prop( ch, prop ))  send_to_actor( "You are unable to draw an item from your belt.\n\r", ch );
+    if (!draw_prop( ch, prop ))  to_actor( "You are unable to draw an item from your belt.\n\r", ch );
     return;
 }
  
@@ -1009,13 +1009,13 @@ void cmd_remove( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Remove what?\n\r", ch );
+	to_actor( "Remove what?\n\r", ch );
 	return;
     }
 
     if ( ( prop = get_prop_wear( ch, arg ) ) == NULL )
     {
-        send_to_actor( "You are not wearing that item.\n\r", ch );
+        to_actor( "You are not wearing that item.\n\r", ch );
 	return;
     }
 
@@ -1038,14 +1038,14 @@ void cmd_wield( PLAYER *ch, char *argument )
 
     if ( ( prop = get_prop_carry( ch, arg ) ) == NULL )
     {
-        send_to_actor( "You are not holding that.\n\r", ch );
+        to_actor( "You are not holding that.\n\r", ch );
         return;
     }
 
     if ( prop->wear_loc == WEAR_WIELD_1
       || prop->wear_loc == WEAR_WIELD_2 )
     {
-	send_to_actor( "It is already being wielded.\n\r", ch );
+	to_actor( "It is already being wielded.\n\r", ch );
     	return;
     }
 
@@ -1078,7 +1078,7 @@ void cmd_hold( PLAYER *ch, char *argument )
 
     if ( ( prop = get_prop_carry( ch, arg ) ) == NULL )
     {
-        send_to_actor( "You are not holding that.\n\r", ch );
+        to_actor( "You are not holding that.\n\r", ch );
         return;
     }
 
@@ -1114,23 +1114,23 @@ void cmd_use( PLAYER *ch, char *argument )
     PROP *prop;
 /*    PROP *target; */
 
-    if ( ch->position == POS_FIGHTING ) { send_to_actor("Not while fighting!\n\r", ch ); return; }
+    if ( ch->position == POS_FIGHTING ) { to_actor("Not while fighting!\n\r", ch ); return; }
 
     argument = one_argument( argument, arg );
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Use what (on what)?\n\r", ch );
+	to_actor( "Use what (on what)?\n\r", ch );
 	return;
     }
 
     if ( ( prop = get_prop_inv( ch, arg ) ) == NULL )
     {
-        send_to_actor( "You are not holding that item.\n\r", ch );
+        to_actor( "You are not holding that item.\n\r", ch );
 	return;
     }
 
-    if ( prop->item_type != ITEM_TOOL ) { send_to_actor( "How?\n\r", ch ); 
+    if ( prop->item_type != ITEM_TOOL ) { to_actor( "How?\n\r", ch ); 
         return; }
 
     argument = one_argument( argument, arg );
@@ -1142,12 +1142,12 @@ void cmd_use( PLAYER *ch, char *argument )
            
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL ) victim = ch;
 
-    if ( victim->position == POS_FIGHTING ) { send_to_actor("Not while fighting!\n\r", ch ); return; }
+    if ( victim->position == POS_FIGHTING ) { to_actor("Not while fighting!\n\r", ch ); return; }
 
     /*
      * Item use decay.
      */
-    if ( prop->value[1]-- <= 0 ) { send_to_actor( "It's all used up.\n\r", ch ); return; }
+    if ( prop->value[1]-- <= 0 ) { to_actor( "It's all used up.\n\r", ch ); return; }
 
     ch->hit = ch->hit + prop->value[3];
     if ( ch->hit > MAXHIT(ch) ) ch->hit = MAXHIT(ch);
@@ -1158,8 +1158,8 @@ void cmd_use( PLAYER *ch, char *argument )
     if ( ch != victim ) {
         act( "$n heals $N with $p.", ch, prop, NULL, TO_ALL );
     }
-    send_to_actor( STR(prop,action_descr), ch );
-    send_to_actor( "You feel better.\n\r", victim );
+    to_actor( STR(prop,action_descr), ch );
+    to_actor( "You feel better.\n\r", victim );
     if ( prop->value[1] == 0 ) extractor_prop(prop);
 
     }
@@ -1299,7 +1299,7 @@ int get_prop( PLAYER *ch, PROP *prop,
            act( buf, ch, NULL, NULL, TO_ACTOR );
            } 
            else {
-              send_to_actor( "Your hands are full.\n\r", ch );
+              to_actor( "Your hands are full.\n\r", ch );
               return FALSE;
            }
         }
@@ -1310,11 +1310,11 @@ int get_prop( PLAYER *ch, PROP *prop,
            */
            if ( fFound ) 
            {
-              send_to_actor( "Your packs are closed.\n\r", ch );
+              to_actor( "Your packs are closed.\n\r", ch );
               return FALSE;
            }
            else {
-              send_to_actor( "Your hands are full.\n\r", ch );
+              to_actor( "Your hands are full.\n\r", ch );
               return FALSE;
            }
         }
@@ -1325,7 +1325,7 @@ int get_prop( PLAYER *ch, PROP *prop,
            * hands, and there is no pack that's closed.
            */
         if ( hand_empty( ch ) == WEAR_NONE && !pack && !fFound ) {
-             send_to_actor( "Your hands are full.\n\r", ch );
+             to_actor( "Your hands are full.\n\r", ch );
              return FALSE;
         }
           /*
@@ -1387,7 +1387,7 @@ int get_prop( PLAYER *ch, PROP *prop,
          /*
           * The player has no free hands.
           */
-        send_to_actor( "Your hands are full.\n\r", ch );
+        to_actor( "Your hands are full.\n\r", ch );
         return FALSE;
 
     }
@@ -1437,7 +1437,7 @@ int get_prop( PLAYER *ch, PROP *prop,
          /*
           * The player has no free hand.
           */
-        send_to_actor( "Your hands are full.\n\r", ch );
+        to_actor( "Your hands are full.\n\r", ch );
         return FALSE;
      }
 
@@ -1469,7 +1469,7 @@ void cmd_get( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' )
     {
-	send_to_actor( "Get what?\n\r", ch );
+	to_actor( "Get what?\n\r", ch );
 	return;
     }
 
@@ -1524,7 +1524,7 @@ void cmd_get( PLAYER *ch, char *argument )
             if ( !found )
             {
                 if ( arg1[3] == '\0' )
-                send_to_actor( "I see nothing here.\n\r", ch );
+                to_actor( "I see nothing here.\n\r", ch );
                 else
                 act( "I see no $T here.", ch, NULL, &arg1[4], TO_ACTOR );
             }
@@ -1534,7 +1534,7 @@ void cmd_get( PLAYER *ch, char *argument )
     {
         if ( !str_cmp( arg2, "all" ) || !str_prefix( "all.", arg2 ) )
         {
-            send_to_actor( "It is impossible to do that.\n\r", ch );
+            to_actor( "It is impossible to do that.\n\r", ch );
             return;
         }
 
@@ -1566,7 +1566,7 @@ void cmd_get( PLAYER *ch, char *argument )
          /*
           * The player has no free hands.
           */
-        send_to_actor( "Your hands are full.\n\r", ch );
+        to_actor( "Your hands are full.\n\r", ch );
         return;
         }
 
@@ -1575,7 +1575,7 @@ void cmd_get( PLAYER *ch, char *argument )
             prop_to_scene( prop, ch->in_scene );
             if ( !get_prop( ch, prop, NULL ) ) {
              act( "$n drops $p.", ch, prop, NULL, TO_SCENE );
-             send_to_actor( "You couldn't retreive the item and ended up dropping it.\n\r", ch );
+             to_actor( "You couldn't retreive the item and ended up dropping it.\n\r", ch );
             }
             else {
              return;
@@ -1586,13 +1586,13 @@ void cmd_get( PLAYER *ch, char *argument )
 
         switch ( container->item_type )
         {
-            default: send_to_actor( "That's not a container.\n\r", ch );
+            default: to_actor( "That's not a container.\n\r", ch );
                      return;
 
             case ITEM_FURNITURE:
              if ( !VAL_SET(container, 1, FURN_PUT) )
              {
-                send_to_actor( "That's not a container.\n\r", ch );
+                to_actor( "That's not a container.\n\r", ch );
                 return;
              }
             case ITEM_CONTAINER:
@@ -1674,13 +1674,13 @@ void cmd_put( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' )
     {
-	send_to_actor( "Put what in what?\n\r", ch );
+	to_actor( "Put what in what?\n\r", ch );
 	return;
     }
 
     if ( !str_cmp( arg2, "all" ) || !str_prefix( "all.", arg2 ) )
     {
-	send_to_actor( "It is impossible to do that.\n\r", ch );
+	to_actor( "It is impossible to do that.\n\r", ch );
 	return;
     }
 
@@ -1693,14 +1693,14 @@ void cmd_put( PLAYER *ch, char *argument )
     if ( container->item_type != ITEM_CONTAINER
       && container->item_type != ITEM_FURNITURE )
     {
-        send_to_actor( "That's not a container.\n\r", ch );
+        to_actor( "That's not a container.\n\r", ch );
         return;
     }
     
     if ( container->item_type == ITEM_FURNITURE 
       && !IS_SET(container->value[1], FURN_PUT) )
     {
-        send_to_actor( "It is impossible to put anything on that.\n\r", ch );
+        to_actor( "It is impossible to put anything on that.\n\r", ch );
         return;
     }
 
@@ -1716,25 +1716,25 @@ void cmd_put( PLAYER *ch, char *argument )
 	/* 'put prop container' */
     if ( ( prop = get_prop_inv( ch, arg1 ) ) == NULL )
 	{
-	    send_to_actor( "You do not have that item.\n\r", ch );
+	    to_actor( "You do not have that item.\n\r", ch );
 	    return;
 	}
 
 	if ( prop == container )
 	{
-	    send_to_actor( "It is impossible to fold it into itself.\n\r", ch );
+	    to_actor( "It is impossible to fold it into itself.\n\r", ch );
 	    return;
 	}
 
 	if ( !can_drop_prop( ch, prop ) )
 	{
-	    send_to_actor( "It is impossible to let go of it.\n\r", ch );
+	    to_actor( "It is impossible to let go of it.\n\r", ch );
 	    return;
 	}
 
     if ( get_prop_weight( prop ) + (get_prop_weight(container) - container->weight) > container->value[0] )
 	{
-	    send_to_actor( "It won't fit.\n\r", ch );
+	    to_actor( "It won't fit.\n\r", ch );
 	    return;
 	}
 
@@ -1806,31 +1806,31 @@ void cmd_dump( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' )
     {
-    send_to_actor( "Dump what (into what)?\n\r", ch );
+    to_actor( "Dump what (into what)?\n\r", ch );
 	return;
     }
 
     if ( (container1 = get_prop_here( ch, arg1 )) == NULL )
     {
-        send_to_actor( "It is impossible to find that here.\n\r", ch );
+        to_actor( "It is impossible to find that here.\n\r", ch );
         return;
     }
 
     if ( arg2[0] != '\0' && (container2 = get_prop_here( ch, arg2 )) == NULL )
     {
-        send_to_actor( "It is impossible to find that here to dump it into.\n\r", ch );
+        to_actor( "It is impossible to find that here to dump it into.\n\r", ch );
         return;
     }
 
     if ( container1->item_type != ITEM_CONTAINER )
     {
-        send_to_actor( "That's not a container that you can dump out.\n\r", ch );
+        to_actor( "That's not a container that you can dump out.\n\r", ch );
         return;
     }
 
     if ( VAL_SET(container1, 1, CONT_CLOSED) )
     {
-        send_to_actor( "It is closed.\n\r", ch );
+        to_actor( "It is closed.\n\r", ch );
         return;
     }
 
@@ -1838,13 +1838,13 @@ void cmd_dump( PLAYER *ch, char *argument )
     {
         if ( container2->item_type != ITEM_CONTAINER )
         {
-            send_to_actor( "That's not a container that you can dump out.\n\r", ch );
+            to_actor( "That's not a container that you can dump out.\n\r", ch );
             return;
         }
 
         if ( VAL_SET(container2, 1, CONT_CLOSED) )
         {
-            send_to_actor( "It is impossible to dump anything into it, it is closed.\n\r", ch );
+            to_actor( "It is impossible to dump anything into it, it is closed.\n\r", ch );
             return;
         }
 
@@ -1854,7 +1854,7 @@ void cmd_dump( PLAYER *ch, char *argument )
 
         if ( get_prop_weight( prop ) + get_prop_weight( container2 ) > container2->value[0] )
         {
-        send_to_actor( "It won't all fit.\n\r", ch );
+        to_actor( "It won't all fit.\n\r", ch );
         act( "$n dumps a portion of the contents of $p into $P.", ch, container1, container2, TO_SCENE );
 	    return;
         } else {
@@ -1909,7 +1909,7 @@ void cmd_drop( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Drop what?\n\r", ch );
+	to_actor( "Drop what?\n\r", ch );
 	return;
     }
 
@@ -1918,7 +1918,7 @@ void cmd_drop( PLAYER *ch, char *argument )
 	/* 'drop prop' */
     if ( ( prop = get_prop_inv( ch, arg ) ) == NULL )
 	{
-        send_to_actor( "You do not have that item.\n\r", ch );
+        to_actor( "You do not have that item.\n\r", ch );
 	    return;
 	}
     else
@@ -1928,13 +1928,13 @@ void cmd_drop( PLAYER *ch, char *argument )
     {
         if ( !remove_prop( ch, prop->wear_loc, FALSE, FALSE ) )
         unequip_char( ch, prop );
-        /*send_to_actor( "You will have to remove it first.\n\r", ch );
+        /*to_actor( "You will have to remove it first.\n\r", ch );
         return;*/
     }
 
 	if ( !can_drop_prop( ch, prop ) )
 	{
-	    send_to_actor( "It is impossible to let go of it.\n\r", ch );
+	    to_actor( "It is impossible to let go of it.\n\r", ch );
 	    return;
 	}
 
@@ -2031,12 +2031,12 @@ void cmd_give( PLAYER *ch, char *argument )
 
 	if ( ( victim = get_actor_scene( ch, arg1 ) ) == NULL )
 	{
-	    send_to_actor( "They aren't here.\n\r", ch );
+	    to_actor( "They aren't here.\n\r", ch );
 	    return;
 	}
 
         if ( tally_coins( ch ) < amount ) {
-            send_to_actor( "You don't have that much.\n\r", ch );
+            to_actor( "You don't have that much.\n\r", ch );
             cmd_money( ch, "" );
             return;
         }
@@ -2052,12 +2052,12 @@ void cmd_give( PLAYER *ch, char *argument )
         p = sub_coins(amount, ch );
         snprintf( buf, MAX_STRING_LENGTH, "You pay %s %s.\n\r",
                  NAME(victim), name_amount( amount ) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         create_amount( amount, victim, NULL, NULL );   
         snprintf( buf, MAX_STRING_LENGTH, "%s pays you %s.\n\r",
                  NAME(ch), name_amount( amount ) );
-        send_to_actor( buf, victim );
+        to_actor( buf, victim );
 
         script_update( victim, TYPE_ACTOR, TRIG_GETS, ch, NULL, "coins", p );
         return;
@@ -2070,19 +2070,19 @@ void cmd_give( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' )
     {
-	send_to_actor( "Give what to whom?\n\r", ch );
+	to_actor( "Give what to whom?\n\r", ch );
 	return;
     }
 
 	if ( ( victim = get_actor_scene( ch, arg2 ) ) == NULL )
 	{
-	    send_to_actor( "They aren't here.\n\r", ch );
+	    to_actor( "They aren't here.\n\r", ch );
 	    return;
 	}
 
     if ( ( prop = get_prop_inv( ch, arg1 ) ) == NULL )
     {
-	send_to_actor( "You do not have that item.\n\r", ch );
+	to_actor( "You do not have that item.\n\r", ch );
 	return;
     }
 
@@ -2101,20 +2101,20 @@ void cmd_give( PLAYER *ch, char *argument )
         }
         else
         {
-            send_to_actor( "You must remove it first.\n\r", ch );
+            to_actor( "You must remove it first.\n\r", ch );
             return;
         }
     }
 
     if ( ( victim = get_actor_scene( ch, arg2 ) ) == NULL )
     {
-	send_to_actor( "They aren't here.\n\r", ch );
+	to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( !can_drop_prop( ch, prop ) )
     {
-	send_to_actor( "It is impossible to let go of it.\n\r", ch );
+	to_actor( "It is impossible to let go of it.\n\r", ch );
 	return;
     }
 
@@ -2183,13 +2183,13 @@ void cmd_fill( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Fill what?\n\r", ch );
+	to_actor( "Fill what?\n\r", ch );
 	return;
     }
 
     if ( ( prop = get_prop_carry( ch, arg ) ) == NULL )
     {
-    send_to_actor( "You do not have that item in your hands.\n\r", ch );
+    to_actor( "You do not have that item in your hands.\n\r", ch );
 	return;
     }
 
@@ -2208,7 +2208,7 @@ void cmd_fill( PLAYER *ch, char *argument )
 
          if ( !found )
          {
-         send_to_actor( "There is no fountain here!\n\r", ch );
+         to_actor( "There is no fountain here!\n\r", ch );
          return;
          }
 
@@ -2217,7 +2217,7 @@ void cmd_fill( PLAYER *ch, char *argument )
 
          if ( prop->value[0] >= prop->value[1] )
          {
-         send_to_actor( "Your container is full.\n\r", ch );
+         to_actor( "Your container is full.\n\r", ch );
          return;
          }
 
@@ -2233,25 +2233,25 @@ void cmd_fill( PLAYER *ch, char *argument )
 
         if ( ( prop2 = get_item_held( ch, ITEM_DRINK_CON ) ) == NULL )
         {
-        send_to_actor( "You don't have anything in your hand to fill it with.\n\r", ch );
+        to_actor( "You don't have anything in your hand to fill it with.\n\r", ch );
         return;
         }
 
         if ( !IS_SET(prop->value[3], LIGHT_FILLABLE) )
         {
-        send_to_actor( "It aren't able be refueled.\n\r", ch );
+        to_actor( "It aren't able be refueled.\n\r", ch );
         return;
         }
 
         if ( prop2->value[2] != LIQ_OIL )
         {
-        send_to_actor( "There's no oil in that container.\n\r", ch );
+        to_actor( "There's no oil in that container.\n\r", ch );
         return;
         }
 
         if ( prop->value[0] != 0 )
         {
-        send_to_actor( "There is already some oil in it.\n\r", ch );
+        to_actor( "There is already some oil in it.\n\r", ch );
         return;
         }
 
@@ -2271,7 +2271,7 @@ void cmd_fill( PLAYER *ch, char *argument )
     }
     else
     {
-    send_to_actor( "It is impossible to fill that.\n\r", ch );
+    to_actor( "It is impossible to fill that.\n\r", ch );
     return;
     }
 
@@ -2297,14 +2297,14 @@ void cmd_pour( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || ( prop1 = get_prop_here( ch, arg1 ) ) == NULL )
 	{
-        send_to_actor( "Pour from what?\n\r", ch );
+        to_actor( "Pour from what?\n\r", ch );
 	    return;
 	}
 	
 	if ( prop1->item_type != ITEM_DRINK_CON
 	  || prop1->value[0] <= 0 )
 	{
-         send_to_actor( "It is impossible to pour anything from that.\n\r", ch );
+         to_actor( "It is impossible to pour anything from that.\n\r", ch );
          return;
     }		
 
@@ -2329,20 +2329,20 @@ void cmd_pour( PLAYER *ch, char *argument )
 
     if ( prop1->item_type != ITEM_DRINK_CON )
     {
-        send_to_actor( "It is impossible to pour anything from that.\n\r", ch );
+        to_actor( "It is impossible to pour anything from that.\n\r", ch );
         return;
     }
 
     if ( prop1->value[0] <= 0 )
     {
-        send_to_actor( "There is nothing to pour from that.\n\r", ch );
+        to_actor( "There is nothing to pour from that.\n\r", ch );
         return;
     }
 
 
     if ( prop2->item_type != ITEM_DRINK_CON )
     {
-        send_to_actor( "It is impossible to pour anything into that.\n\r", ch );
+        to_actor( "It is impossible to pour anything into that.\n\r", ch );
         return;
     }
 
@@ -2405,7 +2405,7 @@ void cmd_drink( PLAYER *ch, char *argument )
 
 	if ( prop == NULL )
 	{
-	    send_to_actor( "Drink what?\n\r", ch );
+	    to_actor( "Drink what?\n\r", ch );
 	    return;
 	}
     }
@@ -2413,14 +2413,14 @@ void cmd_drink( PLAYER *ch, char *argument )
     {
 	if ( ( prop = get_prop_here( ch, arg ) ) == NULL )
 	{
-	    send_to_actor( "It is impossible to find it.\n\r", ch );
+	    to_actor( "It is impossible to find it.\n\r", ch );
 	    return;
 	}
     }
 
     if ( !NPC(ch) && PC(ch,condition[COND_DRUNK]) > IS_DRUNK )
     {
-        send_to_actor( "You fail to reach your mouth.\n\r", ch );
+        to_actor( "You fail to reach your mouth.\n\r", ch );
         act( "$n hiccups loudly.", ch, NULL, NULL, TO_SCENE );
 	return;
     }
@@ -2428,13 +2428,13 @@ void cmd_drink( PLAYER *ch, char *argument )
     switch ( prop->item_type )
     {
         default:
-        send_to_actor( "It is impossible to drink from that.\n\r", ch );
+        to_actor( "It is impossible to drink from that.\n\r", ch );
         break;
 
         case ITEM_FOUNTAIN:
         if ( !NPC(ch) && PC(ch,condition)[COND_THIRST] >= IS_FULL/2 )
         {
-            send_to_actor( "You are not thirsty enough.\n\r", ch );
+            to_actor( "You are not thirsty enough.\n\r", ch );
             return;
         }
 
@@ -2452,10 +2452,10 @@ void cmd_drink( PLAYER *ch, char *argument )
         case ITEM_DRINK_CON:
         if ( prop->value[0] <= 0 )
         {
-            send_to_actor( "It is already empty.\n\r", ch );
+            to_actor( "It is already empty.\n\r", ch );
             if ( IS_SET(prop->value[3], DRINK_TAVERN) )
             {
-                send_to_actor( "You discard it.\n\r", ch );
+                to_actor( "You discard it.\n\r", ch );
                 extractor_prop(prop);
             }
             return;
@@ -2482,7 +2482,7 @@ void cmd_drink( PLAYER *ch, char *argument )
         act( "You drink $T from $p.",
             ch, prop, liq_table[liquid].liq_name, TO_ACTOR );
 
-        send_to_actor( STR(prop,action_descr), ch );
+        to_actor( STR(prop,action_descr), ch );
 
         amount = number_range(3, 10);
         amount = UMIN(amount, prop->value[0]);
@@ -2495,11 +2495,11 @@ void cmd_drink( PLAYER *ch, char *argument )
             amount * liq_table[liquid].liq_bonus[COND_THIRST ] );
 
         if ( !NPC(ch) && PC(ch,condition)[COND_DRUNK]  > IS_DRUNK )
-            send_to_actor( "You feel drunk.\n\r", ch );
+            to_actor( "You feel drunk.\n\r", ch );
         if ( !NPC(ch) && PC(ch,condition)[COND_FULL]   > IS_FULL )
-            send_to_actor( "You are full.\n\r", ch );
+            to_actor( "You are full.\n\r", ch );
         if ( !NPC(ch) && PC(ch,condition)[COND_THIRST] > IS_FULL )
-            send_to_actor( "You are no longer thirsty.\n\r", ch );
+            to_actor( "You are no longer thirsty.\n\r", ch );
 
         if ( IS_SET(prop->value[3], DRINK_POISON) )
         {
@@ -2507,7 +2507,7 @@ void cmd_drink( PLAYER *ch, char *argument )
             BONUS af;
 
             act( "$n chokes and gags.", ch, NULL, NULL, TO_SCENE );
-            send_to_actor( "You choke and gag.\n\r", ch );
+            to_actor( "You choke and gag.\n\r", ch );
             af.type      = skill_dbkey(skill_lookup("poison"));
             af.duration  = 3 * amount;
             af.location  = APPLY_NONE;
@@ -2524,7 +2524,7 @@ void cmd_drink( PLAYER *ch, char *argument )
             REMOVE_BIT(prop->extra_flags, ITEM_INVENTORY);
             if ( IS_SET(prop->value[3], DRINK_TAVERN) )
             {
-                send_to_actor( "You discard it.\n\r", ch );
+                to_actor( "You discard it.\n\r", ch );
                 extractor_prop(prop);
                 return;
             }
@@ -2559,13 +2559,13 @@ void cmd_eat( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Eat what?\n\r", ch );
+	to_actor( "Eat what?\n\r", ch );
 	return;
     }
 
     if ( ( prop = get_prop_inv( ch, arg ) ) == NULL )
     {
-	send_to_actor( "You do not have that item.\n\r", ch );
+	to_actor( "You do not have that item.\n\r", ch );
 	return;
     }
 
@@ -2573,13 +2573,13 @@ void cmd_eat( PLAYER *ch, char *argument )
     {
         if ( prop->item_type != ITEM_FOOD && prop->item_type != ITEM_PILL )
 	{
-	    send_to_actor( "That's not edible.\n\r", ch );
+	    to_actor( "That's not edible.\n\r", ch );
 	    return;
 	}
 
         if ( !NPC(ch) && PC(ch,condition)[COND_FULL] > IS_FULL )
 	{   
-	    send_to_actor( "You are too full to eat more.\n\r", ch );
+	    to_actor( "You are too full to eat more.\n\r", ch );
 	    return;
 	}
     }
@@ -2593,7 +2593,7 @@ void cmd_eat( PLAYER *ch, char *argument )
     act( "You eat $p.", ch, prop, NULL, TO_ACTOR );
 
     if ( prop->item_type == ITEM_FOOD )
-    send_to_actor( STR(prop,action_descr), ch );
+    to_actor( STR(prop,action_descr), ch );
 
     switch ( prop->item_type )
     {
@@ -2607,9 +2607,9 @@ void cmd_eat( PLAYER *ch, char *argument )
             gain_condition( ch, COND_FULL, prop->value[0] );
             
         if ( condition == 0 && PC(ch,condition)[COND_FULL] >= IS_FULL/2 )
-                send_to_actor( "You are satisfied.\n\r", ch );
+                to_actor( "You are satisfied.\n\r", ch );
         else if ( PC(ch,condition)[COND_FULL] > IS_FULL )
-                send_to_actor( "You are full.\n\r", ch );
+                to_actor( "You are full.\n\r", ch );
         }
   
         if ( prop->value[3] != 0 )
@@ -2618,7 +2618,7 @@ void cmd_eat( PLAYER *ch, char *argument )
 	    BONUS af;
 
 	    act( "$n chokes and gags.", ch, 0, 0, TO_SCENE );
-	    send_to_actor( "You choke and gag.\n\r", ch );
+	    to_actor( "You choke and gag.\n\r", ch );
 
 	    af.type      = skill_dbkey(skill_lookup("poison"));
 	    af.duration  = 2 * prop->value[0];
@@ -2665,13 +2665,13 @@ void cmd_quaff( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Quaff what?\n\r", ch );
+        to_actor( "Quaff what?\n\r", ch );
         return;
     }
 
     if ( ( prop = get_prop_inv( ch, arg ) ) == NULL )
     {
-        send_to_actor( "You do not have that potion.\n\r", ch );
+        to_actor( "You do not have that potion.\n\r", ch );
         return;
     }
 
@@ -2684,7 +2684,7 @@ void cmd_quaff( PLAYER *ch, char *argument )
     act( "$n quaffs $p.", ch, prop, NULL, TO_SCENE );
     act( "You quaff $p.", ch, prop, NULL ,TO_ACTOR );
 
-    send_to_actor( STR(prop,action_descr), ch );
+    to_actor( STR(prop,action_descr), ch );
 
     prop_cast_spell( prop, prop->value[1], ch, ch, NULL );
     prop_cast_spell( prop, prop->value[2], ch, ch, NULL );
@@ -2712,25 +2712,25 @@ void cmd_steal( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' )
     {
-        send_to_actor( "Steal what from whom?\n\r", ch );
+        to_actor( "Steal what from whom?\n\r", ch );
         return;
     }
 
     if ( hand_empty( ch ) == WEAR_NONE )
     {
-        send_to_actor( "You'll need to free a hand first.\n\r", ch );
+        to_actor( "You'll need to free a hand first.\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg2 ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
     if ( victim == ch )
     {
-    send_to_actor( "Like a dull sword, that's pointless.\n\r", ch );
+    to_actor( "Like a dull sword, that's pointless.\n\r", ch );
         return;
     }
 
@@ -2746,11 +2746,11 @@ void cmd_steal( PLAYER *ch, char *argument )
          * Failure.
          */
     ch->bounty += 10;
-        send_to_actor( "Oops.\n\r", ch );
+        to_actor( "Oops.\n\r", ch );
         act( "$n tried to steal from you.\n\r", ch, NULL, victim, TO_VICT    );
         act( "$n tried to steal from $N.\n\r",  ch, NULL, victim, TO_NOTVICT );
     snprintf( buf, MAX_STRING_LENGTH, "%s is a bloody thief!", NAME(ch) );
-    send_to_actor( buf, victim );
+    to_actor( buf, victim );
 
         if ( !NPC(ch) )
         {
@@ -2769,19 +2769,19 @@ void cmd_steal( PLAYER *ch, char *argument )
 
     if ( ( prop = get_prop_inv( victim, arg1 ) ) == NULL )
     {
-        send_to_actor( "It is impossible to find it.\n\r", ch );
+        to_actor( "It is impossible to find it.\n\r", ch );
         return;
     }
         
     if ( !can_drop_prop( ch, prop ) || ( !skill_check( ch, skill_lookup( "pickpocket" ), 0 ) ) )
     {
-    send_to_actor( "It is impossible to get it away.\n\r", ch );
+    to_actor( "It is impossible to get it away.\n\r", ch );
         return;
     }
 
     if ( ch->carry_weight + get_prop_weight( prop ) > can_carry_w( ch ) )
     {
-        send_to_actor( "It is impossible to carry that much weight.\n\r", ch );
+        to_actor( "It is impossible to carry that much weight.\n\r", ch );
         return;
     }
 
@@ -2795,7 +2795,7 @@ void cmd_steal( PLAYER *ch, char *argument )
 
     prop_to_actor( prop, ch );
     prop->wear_loc = hand_empty( ch );
-    send_to_actor( "Stolen.\n\r", ch );
+    to_actor( "Stolen.\n\r", ch );
     return;
 }
 
@@ -2824,25 +2824,25 @@ void cmd_light( PLAYER *ch, char *argument )
 
     if ( prop == NULL )
     {
-        send_to_actor( "You don't have the light in your hands.\n\r", ch );
+        to_actor( "You don't have the light in your hands.\n\r", ch );
         return;
     }
 
     if ( IS_LIT( prop ) )
     {
-        send_to_actor( "It's lit already!\n\r", ch );
+        to_actor( "It's lit already!\n\r", ch );
         return;
     }
 
     if ( prop->value[0] <= 0 )
     {
-        send_to_actor( "It's out of fuel.\n\r", ch );
+        to_actor( "It's out of fuel.\n\r", ch );
         return;
     }
 
     if ( prop2 == NULL )
     {
-        send_to_actor( "You don't have anything to light it with!\n\r", ch );
+        to_actor( "You don't have anything to light it with!\n\r", ch );
         return;
     }
 
@@ -2858,7 +2858,7 @@ void cmd_light( PLAYER *ch, char *argument )
     else
     {
         act( "You cannot light $p with $P.", ch, prop, prop2, TO_ACTOR ); 
-        if ( prop2->value[1] <= 0 ) { send_to_actor( "It's all used up.\n\r", ch ); }
+        if ( prop2->value[1] <= 0 ) { to_actor( "It's all used up.\n\r", ch ); }
         return;
     }
 
@@ -2887,17 +2887,17 @@ void cmd_extinguish( PLAYER *ch, char *argument )
 
     if ( prop == NULL )
     {
-        send_to_actor( "You don't have the light in your hands.\n\r", ch );
+        to_actor( "You don't have the light in your hands.\n\r", ch );
         return;
     }
 
     if ( !IS_LIT( prop ) )
     {
-        send_to_actor( "It's extinguished already!\n\r", ch );
+        to_actor( "It's extinguished already!\n\r", ch );
         return;
     }
 
-    send_to_actor( STR(prop,action_descr), ch );
+    to_actor( STR(prop,action_descr), ch );
 
     REMOVE_BIT( prop->value[3], LIGHT_LIT );
     act( "$n extinguishes $p.", ch, prop, NULL, TO_SCENE );
@@ -2946,7 +2946,7 @@ void cmd_swap( PLAYER *ch, char *argument )
 	         ch, prop2, NULL, TO_ALL );
 	    else
 	    {
-	        send_to_actor( "You have nothing in your hands.\n\r", ch );
+	        to_actor( "You have nothing in your hands.\n\r", ch );
     	    return;
 	    }
 
@@ -2987,7 +2987,7 @@ void cmd_swap( PLAYER *ch, char *argument )
 		
 		if ( prop1 == NULL )
 		{
-			send_to_actor( "Swap what?\n\r", ch);
+			to_actor( "Swap what?\n\r", ch);
 			return;
 		}
 				
@@ -3008,14 +3008,14 @@ void cmd_swap( PLAYER *ch, char *argument )
 		
 		if ( prop2 == NULL )
 		{
-			send_to_actor( "Swap what?\n\r", ch );
+			to_actor( "Swap what?\n\r", ch );
 			return;
 		}
 		
 		if ( (con1 == NULL && con2 == NULL) 
 		  || (con1 != NULL && con2 != NULL) )
 		{
-			send_to_actor( "Swap what with what?\n\r", ch );
+			to_actor( "Swap what with what?\n\r", ch );
 			return;
 		}
 		
@@ -3163,13 +3163,13 @@ void cmd_write( PLAYER *ch, char *argument ) {
 
    note = get_prop_carry( ch, argument );
   
-   if ( !note ) { send_to_actor( "You cannot find that to write on.\n\r", ch );  return; }
+   if ( !note ) { to_actor( "You cannot find that to write on.\n\r", ch );  return; }
 
    for ( quill = ch->carrying; quill != NULL; quill = quill->next_content ) {
       if ( quill->item_type == ITEM_QUILL ) break;
    }
 
-   if ( !quill ) { send_to_actor( "You cannot find anything to write with.\n\r", ch ); return; }
+   if ( !quill ) { to_actor( "You cannot find anything to write with.\n\r", ch ); return; }
 
    if ( !note->action_descr ) note->action_descr = str_dup("");
    act( "$n begins writing on $p with $P.", ch, note, quill, TO_SCENE );

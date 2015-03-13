@@ -71,13 +71,13 @@
 #define CREATE_COMMAND(var,hash,new,get,tdbkey) \
     if ( !str_cmp( arg1, "create" ) )\
     {  int iHash;  value = atoi( arg2 ); if ( arg2[0] == '\0'  || value == 0 )\
-        { send_to_actor( "Syntax:  create [dbkey]\n\r", ch ); return; }\
+        { to_actor( "Syntax:  create [dbkey]\n\r", ch ); return; }\
         if ( get( value ) != NULL )\
-        {  send_to_actor( "Vnum is already in use.\n\r", ch );  return;  }\
+        {  to_actor( "Vnum is already in use.\n\r", ch );  return;  }\
         var = new(); var->dbkey = value; if ( value > tdbkey ) tdbkey = value;\
         iHash = value % MAX_KEY_HASH; var->next = hash[iHash];\
         hash[iHash]  = var; ch->desc->pEdit = (void *)var;\
-        send_to_actor( "Created.\n\r", ch ); return;    }
+        to_actor( "Created.\n\r", ch ); return;    }
 
 /*
  * With zone checking.
@@ -86,14 +86,14 @@
 #define CREATE_COMMANDZ(var,hash,new,get,tdbkey) \
 if ( !str_cmp( arg1, "create" ) )\
  {value = atoi( arg2 );  if ( arg2[0] == '\0'  || value == 0 ) {\
-  send_to_actor( "Syntax:  create [dbkey]\n\r", ch ); return; }\
+  to_actor( "Syntax:  create [dbkey]\n\r", ch ); return; }\
   pZone = get_dbkey_zone( value ); if ( pZone == NULL ) { \
-  send_to_actor( "That dbkey is not assigned an zone.\n\r", ch ); return; }\
-  if ( !IS_BUILDER( ch, pZone ) ) { send_to_actor( "Vnum is outside your zone.\n\r", ch ); return; }\
-  if ( get( value ) != NULL ) { send_to_actor( "Vnum already exists.\n\r", ch ); return; }\
+  to_actor( "That dbkey is not assigned an zone.\n\r", ch ); return; }\
+  if ( !IS_BUILDER( ch, pZone ) ) { to_actor( "Vnum is outside your zone.\n\r", ch ); return; }\
+  if ( get( value ) != NULL ) { to_actor( "Vnum already exists.\n\r", ch ); return; }\
   var = new(); var->zone = pZone; var->dbkey = value; if ( value > tdbkey ) tdbkey = value;  iHash = value % MAX_KEY_HASH;  \
   var->next = hash[iHash]; hash[iHash]  = var; ch->desc->pEdit = (void *)var;\
-  SET_BIT( pZone->zone_flags, ZONE_CHANGED ); send_to_actor( "Created.\n\r", ch ); return;  }
+  SET_BIT( pZone->zone_flags, ZONE_CHANGED ); to_actor( "Created.\n\r", ch ); return;  }
 
 
 
@@ -103,8 +103,8 @@ if ( !str_cmp( arg1, "create" ) )\
 #define EDIT_VALUE(sname,desc,var,conv)\
     if ( !str_cmp( arg1, sname )  )\
     {  value = conv( arg2 ); var = value;\
-       send_to_actor( desc, ch );\
-       send_to_actor( "\n\r", ch );\
+       to_actor( desc, ch );\
+       to_actor( "\n\r", ch );\
        return;   }
 
 /*
@@ -113,8 +113,8 @@ if ( !str_cmp( arg1, "create" ) )\
 #define DEF_VALUE(bitconv, var, notfound, desc)\
     if ( bitconv( arg1 ) != notfound )    {\
         TOGGLE_BIT(var, bitconv( arg1 ));\
-        send_to_actor( desc, ch );\
-        send_to_actor( "\n\r", ch );\
+        to_actor( desc, ch );\
+        to_actor( "\n\r", ch );\
         return;    }
 
 /*
@@ -123,15 +123,15 @@ if ( !str_cmp( arg1, "create" ) )\
 #define STR_EDIT_VALUE(sdesc,var)\
     if ( !str_cmp( arg1, sdesc ) )    {\
         if ( arg2[0] == '\0' )        {\
-            send_to_actor( "Syntax:  ", ch );\
-            send_to_actor( sdesc, ch );\
-            send_to_actor(" [", ch );\
-            send_to_actor( sdesc, ch );\
-            send_to_actor( "]\n\r", ch );\
+            to_actor( "Syntax:  ", ch );\
+            to_actor( sdesc, ch );\
+            to_actor(" [", ch );\
+            to_actor( sdesc, ch );\
+            to_actor( "]\n\r", ch );\
             return;        }\
         free_string( var );  var = str_dup( arg2 );\
-        send_to_actor( capitalize(sdesc), ch );\
-        send_to_actor( " set.\n\r", ch );\
+        to_actor( capitalize(sdesc), ch );\
+        to_actor( " set.\n\r", ch );\
         return;    }
 
 /*------------------------------------------------------------*/
@@ -223,12 +223,12 @@ void spedit( PLAYER *ch, char *argument )
 
         pGroup = skill_lookup( arg2 );
         if ( !pGroup ) {
-        send_to_actor( "Invalid group.\n\r", ch );
+        to_actor( "Invalid group.\n\r", ch );
         return; 
         }
 
         pSpell->group_code = pGroup->dbkey;
-        send_to_actor("Group set.\n\r", ch );
+        to_actor("Group set.\n\r", ch );
         return;
     }
 
@@ -248,13 +248,13 @@ void spedit( PLAYER *ch, char *argument )
             }
 
             pSpell->instances = NULL;
-            send_to_actor( "Scripts cleared.\n\r", ch );
+            to_actor( "Scripts cleared.\n\r", ch );
             return;
         }
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
+            to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
 
@@ -264,7 +264,7 @@ void spedit( PLAYER *ch, char *argument )
         pTrig->next    = pSpell->instances;
         pSpell->instances = pTrig;
 
-        send_to_actor( "Script added.\n\r", ch );
+        to_actor( "Script added.\n\r", ch );
         return;
     }
 
@@ -296,7 +296,7 @@ void cmd_spedit( PLAYER *ch, char *argument )
     if ( is_number( arg1 ) ) {
         pSpell = get_spell_index( atoi(arg1) ); 
         if ( !pSpell ) {
-            send_to_actor( "Spell not exist.\n\r", ch );
+            to_actor( "Spell not exist.\n\r", ch );
             return;
         }
         ch->desc->connected = NET_SPEDITOR;
@@ -311,7 +311,7 @@ void cmd_spedit( PLAYER *ch, char *argument )
 
         if ( ( pSpell = (SPELL *)ch->desc->pEdit ) == NULL )
         {
-        send_to_actor( "Spells:  You are not editing that spell.\n\r", ch );
+        to_actor( "Spells:  You are not editing that spell.\n\r", ch );
         return;
         }
 
@@ -322,11 +322,11 @@ void cmd_spedit( PLAYER *ch, char *argument )
                      pSpell->level,
                      pSpell->name,
                      target_bit_name( pSpell->target ) ); 
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             snprintf( buf, MAX_STRING_LENGTH, "        Mana  [^B%5d^N]  %s\n\r", 
                      pSpell->mana_cost, 
                      mana_bit_name( pSpell->mana_type ) );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             snprintf( buf, MAX_STRING_LENGTH, "        Group [^B%5d^N]  ^B%s^N - Delay [^B%d^N] Position [^B%s^N]\n\r",
                      pSpell->group_code, 
@@ -334,14 +334,14 @@ void cmd_spedit( PLAYER *ch, char *argument )
                      pSpell->delay, 
                      position_name(pSpell->minimum_position) );
 
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             for ( pInstance = pSpell->instances; pInstance != NULL;  
                   pInstance = pInstance->next ) {
               snprintf( buf, MAX_STRING_LENGTH, "Script [^B%s^N] %d\n\r",
                        pInstance->script->name, 
                        pInstance->script->dbkey );
-              send_to_actor( buf, ch );
+              to_actor( buf, ch );
             }
         return;
 
@@ -354,7 +354,7 @@ void cmd_spedit( PLAYER *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  spedit create [dbkey]\n\r", ch );
+                to_actor( "Syntax:  spedit create [dbkey]\n\r", ch );
                 return;
             }
   CREATE_COMMAND(pSpell,spell__hash,
@@ -379,12 +379,12 @@ void cmd_spedit( PLAYER *ch, char *argument )
                      pSpell->dbkey,
                      pSpell->level,
                      pSpell->name);
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             snprintf( buf, MAX_STRING_LENGTH, "Group [^B%5d^N]  Target [^B%s^N]\n\r",
   pSpell->group_code, 
   target_bit_name( pSpell->target ) ); 
 
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         return;
     }
@@ -520,12 +520,12 @@ void skedit( PLAYER *ch, char *argument )
 
         pGroup = skill_lookup( arg2 );
         if ( !pGroup ) {
-        send_to_actor( "Invalid group.\n\r", ch );
+        to_actor( "Invalid group.\n\r", ch );
         return; 
         }
 
         pSkill->group_code = pGroup->dbkey;
-        send_to_actor("Group set.\n\r", ch );
+        to_actor("Group set.\n\r", ch );
         return;
     }
 
@@ -564,7 +564,7 @@ void cmd_skedit( PLAYER *ch, char *argument )
 
         if ( ( pSkill = (SKILL *)ch->desc->pEdit ) == NULL )
         {
-        send_to_actor( "Skills:  You are not editing that skill.\n\r", ch );
+        to_actor( "Skills:  You are not editing that skill.\n\r", ch );
         return;
         }
 
@@ -575,7 +575,7 @@ void cmd_skedit( PLAYER *ch, char *argument )
                  pSkill->level,
                  pSkill->name,
                  target_bit_name( pSkill->target ) ); 
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
  
         snprintf( buf, MAX_STRING_LENGTH, "        Str [^B%3d^N] Int [^B%3d^N] Wis [^B%3d^N] Dex [^B%3d^N] Con [^B%3d^N]\n\r", 
                  pSkill->req_str, 
@@ -583,19 +583,19 @@ void cmd_skedit( PLAYER *ch, char *argument )
                  pSkill->req_wis,
                  pSkill->req_dex, 
                  pSkill->req_con );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         snprintf( buf, MAX_STRING_LENGTH, "        Group [^B%5d^N]  %s - Delay [^B%d^N] Position [^B%s^N]\n\r",
                  pSkill->group_code, 
                  pGroup ? pGroup->name : (pSkill->group_code == 0 ? "GROUP" : "INVALID GROUPING"),
                  pSkill->delay, 
                  position_name(pSkill->minimum_position) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         snprintf( buf, MAX_STRING_LENGTH, "        Cost  [^B%3d^N]  Rate [^B%3d^N] Practice [^B%3d^N] Learn [^B%3d^N]  Required [^B%3d^N]\n\r", 
                  pSkill->cost, pSkill->learn_rate, pSkill->max_prac,
                  pSkill->max_learn, pSkill->required_percent );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return;
 
     }
@@ -605,7 +605,7 @@ void cmd_skedit( PLAYER *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  skedit create [dbkey]\n\r", ch );
+                to_actor( "Syntax:  skedit create [dbkey]\n\r", ch );
                 return;
             }
     CREATE_COMMAND(pSkill,skill__hash,
@@ -627,18 +627,18 @@ void cmd_skedit( PLAYER *ch, char *argument )
                      pSkill->dbkey,
                      pSkill->level,
                      pSkill->name);
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             snprintf( buf, MAX_STRING_LENGTH, "Group [^B%5d^N]\n\r", pSkill->group_code ); 
 
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         return;
     }
     else
     if ( (pSkill = skill_lookup(arg1)) != NULL ) {
-        send_to_actor( "Editing ", ch ); 
-        send_to_actor( pSkill->name, ch );
-        send_to_actor( ".\n\r", ch );
+        to_actor( "Editing ", ch ); 
+        to_actor( pSkill->name, ch );
+        to_actor( ".\n\r", ch );
         ch->desc->connected = NET_SKEDITOR;
         ch->desc->pEdit = (void *)pSkill;
         return;        
@@ -646,7 +646,7 @@ void cmd_skedit( PLAYER *ch, char *argument )
     else
     if ( (pSkill = get_skill_index( atoi(arg1) )) ) { 
         if ( !pSkill ) {
-            send_to_actor( "Skill not exist.\n\r", ch );
+            to_actor( "Skill not exist.\n\r", ch );
             return;
         }
         ch->desc->connected = NET_SKEDITOR;
@@ -654,7 +654,7 @@ void cmd_skedit( PLAYER *ch, char *argument )
         return;
     }
 
-    send_to_actor( "No such skill.\n\r", ch );
+    to_actor( "No such skill.\n\r", ch );
     return;
 }
 
@@ -735,7 +735,7 @@ void zedit( PLAYER *ch, char *argument )
 
     if ( !IS_BUILDER( ch, pZone ) )
     {
-        send_to_actor( "ZEdit:  Insufficient security to modify zone.\n\r", ch );
+        to_actor( "ZEdit:  Insufficient security to modify zone.\n\r", ch );
     }
 
 
@@ -793,7 +793,7 @@ void zedit( PLAYER *ch, char *argument )
     {
         TOGGLE_BIT(pZone->zone_flags, value);
 
-        send_to_actor( "Flag toggled.\n\r", ch );
+        to_actor( "Flag toggled.\n\r", ch );
         return;
     }
 
@@ -815,7 +815,7 @@ void zedit( PLAYER *ch, char *argument )
             {
                 if ( pNewzone->next == NULL )
                 {
-                    send_to_actor( pNewzone->name, ch );
+                    to_actor( pNewzone->name, ch );
                     pNewzone->next = new_zone();          /* Clip on end */
                     pNewzone       = pNewzone->next;      /* Goto end    */
                     break;
@@ -826,7 +826,7 @@ void zedit( PLAYER *ch, char *argument )
         ch->desc->pEdit    =   (void *)pNewzone;
 
         SET_BIT( pNewzone->zone_flags, ZONE_ADDED );
-        send_to_actor( "zone Created.\n\r", ch );
+        to_actor( "zone Created.\n\r", ch );
         return;
     }
 
@@ -835,7 +835,7 @@ void zedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-               send_to_actor( "Syntax:   name [$name]\n\r", ch );
+               to_actor( "Syntax:   name [$name]\n\r", ch );
                return;
         }
 
@@ -843,7 +843,7 @@ void zedit( PLAYER *ch, char *argument )
         pZone->name = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Name set.\n\r", ch );
+        to_actor( "Name set.\n\r", ch );
         return;
     }
 
@@ -852,8 +852,8 @@ void zedit( PLAYER *ch, char *argument )
     {
         if ( argument[0] == '\0' )
         {
-            send_to_actor( "Syntax:  filename [$file]\n\r", ch );
-            send_to_actor( "or       file     [$file]\n\r", ch );
+            to_actor( "Syntax:  filename [$file]\n\r", ch );
+            to_actor( "or       file     [$file]\n\r", ch );
             return;
         }
 
@@ -864,7 +864,7 @@ void zedit( PLAYER *ch, char *argument )
         pZone->filename = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Filename set.\n\r", ch );
+        to_actor( "Filename set.\n\r", ch );
         return;
     }
 
@@ -873,14 +873,14 @@ void zedit( PLAYER *ch, char *argument )
     {
         if ( !is_number( arg2 ) || arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  age [#age]\n\r", ch );
+            to_actor( "Syntax:  age [#age]\n\r", ch );
             return;
         }
 
         pZone->age = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Age set.\n\r", ch );
+        to_actor( "Age set.\n\r", ch );
         return;
     }
 
@@ -901,8 +901,8 @@ void zedit( PLAYER *ch, char *argument )
             return;
         }
 
-        send_to_actor( "Syntax:  repop    - line edit\n\r", ch );
-        send_to_actor( "         repop +  - line append\n\r",ch );
+        to_actor( "Syntax:  repop    - line edit\n\r", ch );
+        to_actor( "         repop +  - line append\n\r",ch );
         return;
     }
 
@@ -911,7 +911,7 @@ void zedit( PLAYER *ch, char *argument )
     {
         if ( !is_number( arg2 ) || arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  security [#level]\n\r", ch );
+            to_actor( "Syntax:  security [#level]\n\r", ch );
             return;
         }
 
@@ -922,11 +922,11 @@ void zedit( PLAYER *ch, char *argument )
             if ( GET_PC(ch,security,9) != 9 )
             {
                 snprintf( buf, MAX_STRING_LENGTH, "Valid security range is %d-9.\n\r", PC(ch,security) );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
             }
             else
             {
-                send_to_actor( "Valid security is 9 only.\n\r", ch );
+                to_actor( "Valid security is 9 only.\n\r", ch );
             }
             return;
         }
@@ -934,7 +934,7 @@ void zedit( PLAYER *ch, char *argument )
         pZone->security = value;
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
 
-        send_to_actor( "Security set.\n\r", ch );
+        to_actor( "Security set.\n\r", ch );
         return;
     }
 
@@ -945,7 +945,7 @@ void zedit( PLAYER *ch, char *argument )
 
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  builder [$name]\n\r", ch );
+            to_actor( "Syntax:  builder [$name]\n\r", ch );
             return;
         }
 
@@ -957,7 +957,7 @@ void zedit( PLAYER *ch, char *argument )
             pZone->builders = string_unpad( pZone->builders );
 
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-            send_to_actor( "Builder removed.\n\r", ch );
+            to_actor( "Builder removed.\n\r", ch );
             return;
         }
         else
@@ -973,7 +973,7 @@ void zedit( PLAYER *ch, char *argument )
             pZone->builders = string_proper( str_dup( buf ) );
 
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-            send_to_actor( "Builder added.\n\r", ch );
+            to_actor( "Builder added.\n\r", ch );
             return;
         }
     }
@@ -983,7 +983,7 @@ void zedit( PLAYER *ch, char *argument )
     {
         if ( !is_number( arg2 ) || arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  ldbkey [#lower]\n\r", ch );
+            to_actor( "Syntax:  ldbkey [#lower]\n\r", ch );
             return;
         }
         value = atoi( arg2 );
@@ -991,14 +991,14 @@ void zedit( PLAYER *ch, char *argument )
         if ( get_dbkey_zone( value ) != NULL
           && get_dbkey_zone( value ) != pZone )
         {
-            send_to_actor( "ZEdit:  Vnum range already assigned.\n\r", ch );
+            to_actor( "ZEdit:  Vnum range already assigned.\n\r", ch );
             return;
         }
 
         pZone->ldbkey = value;
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
 
-        send_to_actor( "Lower dbkey set.\n\r", ch );
+        to_actor( "Lower dbkey set.\n\r", ch );
         return;
     }
 
@@ -1007,7 +1007,7 @@ void zedit( PLAYER *ch, char *argument )
     {
         if ( !is_number( arg2 ) || arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  udbkey [#upper]\n\r", ch );
+            to_actor( "Syntax:  udbkey [#upper]\n\r", ch );
             return;
         }
 
@@ -1016,14 +1016,14 @@ void zedit( PLAYER *ch, char *argument )
         if ( get_dbkey_zone( value ) != NULL
           && get_dbkey_zone( value ) != pZone )
         {
-            send_to_actor( "ZEdit:  Vnum range already assigned.\n\r", ch );
+            to_actor( "ZEdit:  Vnum range already assigned.\n\r", ch );
             return;
         }
 
         pZone->udbkey = value;
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
 
-        send_to_actor( "Upper dbkey set.\n\r", ch );
+        to_actor( "Upper dbkey set.\n\r", ch );
         return;
     }
 
@@ -1036,7 +1036,7 @@ void zedit( PLAYER *ch, char *argument )
        if ( !is_number( arg1 ) || arg1[0] == '\0'
          || !is_number( arg2 ) || arg2[0] == '\0' )
        {
-            send_to_actor( "Syntax:  dbkey [#lower] [#upper]\n\r", ch );
+            to_actor( "Syntax:  dbkey [#lower] [#upper]\n\r", ch );
             return;
         }
 
@@ -1045,24 +1045,24 @@ void zedit( PLAYER *ch, char *argument )
         if ( get_dbkey_zone( value ) != NULL
           && get_dbkey_zone( value ) != pZone )
         {
-            send_to_actor( "ZEdit:  Lower dbkey already assigned.\n\r", ch );
+            to_actor( "ZEdit:  Lower dbkey already assigned.\n\r", ch );
             return;
         }
 
         pZone->ldbkey = value;
-        send_to_actor( "Lower dbkey set.\n\r", ch );
+        to_actor( "Lower dbkey set.\n\r", ch );
 
         value = atoi( arg2 );
 
         if ( get_dbkey_zone( value ) != NULL
           && get_dbkey_zone( value ) != pZone )
         {
-            send_to_actor( "ZEdit:   Upper dbkey already assigned.\n\r", ch );
+            to_actor( "ZEdit:   Upper dbkey already assigned.\n\r", ch );
             return;
         }
 
         pZone->udbkey = value;
-        send_to_actor( "Upper dbkey set.\n\r", ch );
+        to_actor( "Upper dbkey set.\n\r", ch );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         return;
@@ -1096,7 +1096,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
     {
         if ( pScene->exit[door] == NULL )
         {
-            send_to_actor( "Cannot delete a non-existant exit.\n\r", ch );
+            to_actor( "Cannot delete a non-existant exit.\n\r", ch );
             return TRUE;
         }
 
@@ -1111,7 +1111,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         pScene->exit[door] = NULL;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exit unlinked.\n\r", ch );
+        to_actor( "Exit unlinked.\n\r", ch );
         return TRUE;
     }
 
@@ -1125,13 +1125,13 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         {
             if ( (ozone = get_dbkey_zone( value )) == NULL )
             {
-                send_to_actor( "Vnum does not fall within an zone define.\n\r", ch );
+                to_actor( "Vnum does not fall within an zone define.\n\r", ch );
                 return TRUE;
             }
 
             if ( !IS_BUILDER( ch, ozone ) )
             {
-            send_to_actor( "Cannot dig a scene in a zone of which you are not a builder.\n\r", ch );
+            to_actor( "Cannot dig a scene in a zone of which you are not a builder.\n\r", ch );
             return TRUE;
             }
             else
@@ -1140,7 +1140,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
                     || IS_SET(pZone->zone_flags, ZONE_STATIC) )
                   && to_scene->zone != pZone )
                 {
-                send_to_actor( "You cannot link static zones to other zones.\n\r", ch );
+                to_actor( "You cannot link static zones to other zones.\n\r", ch );
                 return TRUE;
                 }
                 else
@@ -1163,14 +1163,14 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
 
         if ( !IS_BUILDER( ch, to_scene->zone ) )
         {
-            send_to_actor( "Return exit not created.\n\r", ch );
+            to_actor( "Return exit not created.\n\r", ch );
             ozone = NULL;
         }
         else ozone = to_scene->zone;
 
         if ( to_scene->exit[rev_dir[door]] != NULL )
         {
-            send_to_actor( "Return exit already exists.\n\r", ch );
+            to_actor( "Return exit already exists.\n\r", ch );
             return TRUE;
         }
 
@@ -1192,7 +1192,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         }
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exit linked.\n\r", ch );
+        to_actor( "Exit linked.\n\r", ch );
         return TRUE;
     }
         
@@ -1200,7 +1200,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  [direction] scene [dbkey]\n\r", ch );
+            to_actor( "Syntax:  [direction] scene [dbkey]\n\r", ch );
             return TRUE;
         }
 
@@ -1213,7 +1213,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
 
         if ( get_scene( value ) == NULL )
         {
-            send_to_actor( "Cannot link to non-existant scene.\n\r", ch );
+            to_actor( "Cannot link to non-existant scene.\n\r", ch );
             return TRUE;
         }
 
@@ -1221,7 +1221,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         pScene->exit[door]->dbkey = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exit destination set.\n\r", ch );
+        to_actor( "Exit destination set.\n\r", ch );
         return TRUE;
     }
 
@@ -1230,7 +1230,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  [direction] key [dbkey]\n\r", ch );
+            to_actor( "Syntax:  [direction] key [dbkey]\n\r", ch );
             return TRUE;
         }
 
@@ -1243,14 +1243,14 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
 
         if ( get_prop_template( value ) == NULL )
         {
-            send_to_actor( "Cannot use a non-existant prop as a key.\n\r", ch );
+            to_actor( "Cannot use a non-existant prop as a key.\n\r", ch );
             return TRUE;
         }
 
         pScene->exit[door]->key = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exit key set.\n\r", ch );
+        to_actor( "Exit key set.\n\r", ch );
         return TRUE;
     }
 
@@ -1259,7 +1259,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  [direction] name [string]\n\r", ch );
+            to_actor( "Syntax:  [direction] name [string]\n\r", ch );
             return TRUE;
         }
 
@@ -1272,7 +1272,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         pScene->exit[door]->keyword = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exit name set.\n\r", ch );
+        to_actor( "Exit name set.\n\r", ch );
         return TRUE;
     }
 
@@ -1295,26 +1295,26 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
     {
         if ( (pexit = pScene->exit[door]) == NULL )
         {
-            send_to_actor( "Exit does not exist.\n\r", ch );
+            to_actor( "Exit does not exist.\n\r", ch );
             return TRUE;
         }
 
         if ( pScene->exit[door]->to_scene == NULL )
         {
-            send_to_actor( "Exit does not lead anywhere.\n\r", ch );
+            to_actor( "Exit does not lead anywhere.\n\r", ch );
             return TRUE;
         }
 
         ozone = pScene->exit[door]->to_scene->zone;
         if ( (oexit = pScene->exit[door]->to_scene->exit[rev_dir[door]]) == NULL )
         {
-            send_to_actor( "No return exit.\n\r", ch );
+            to_actor( "No return exit.\n\r", ch );
             return TRUE;
         }
 
         if ( !IS_BUILDER( ch, ozone ) )
         {
-            send_to_actor( "You are not a builder of the return exit.\n\r", ch );
+            to_actor( "You are not a builder of the return exit.\n\r", ch );
             return TRUE;
         }
 
@@ -1322,7 +1322,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         SET_BIT( pexit->exit_flags, EXIT_ISDOOR );
         SET_BIT( oexit->rs_flags, EXIT_ISDOOR );
         SET_BIT( oexit->exit_flags, EXIT_ISDOOR );
-        send_to_actor( "Door copied to reverse side.\n\r", ch );
+        to_actor( "Door copied to reverse side.\n\r", ch );
 
         if ( arg2[0] != '\0' )
         {
@@ -1349,13 +1349,13 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
 
         if ( flag == EXIT_NONE )
         {
-            send_to_actor( "Syntax:  [direction] flag [exit flag]\n\r", ch );
+            to_actor( "Syntax:  [direction] flag [exit flag]\n\r", ch );
             return TRUE;
         }
 
         if ( pScene->exit[door] == NULL )
         {
-            send_to_actor( "Exit does not exist.\n\r", ch );
+            to_actor( "Exit does not exist.\n\r", ch );
             return TRUE;
         }
 
@@ -1363,7 +1363,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         TOGGLE_BIT(pScene->exit[door]->exit_flags, flag);
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exit flag toggled.\n\r", ch );
+        to_actor( "Exit flag toggled.\n\r", ch );
         return TRUE;
     }
 
@@ -1371,17 +1371,17 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
     {
         if ( (pexit = pScene->exit[door]) == NULL )
         {
-            send_to_actor( "Exit does not exist.\n\r", ch );
+            to_actor( "Exit does not exist.\n\r", ch );
             return TRUE;
         }
 
         if ( pScene->exit[door]->to_scene == NULL )
-        send_to_actor( "Exit does not lead anywhere.\n\r", ch );
+        to_actor( "Exit does not lead anywhere.\n\r", ch );
         else
         {
             ozone = pScene->exit[door]->to_scene->zone;
             if ( (oexit = pScene->exit[door]->to_scene->exit[rev_dir[door]]) == NULL )
-            send_to_actor( "No return exit.\n\r", ch );
+            to_actor( "No return exit.\n\r", ch );
         }
 
         TOGGLE_BIT(pexit->rs_flags, value);
@@ -1394,7 +1394,7 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
         }
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exit flag toggled.\n\r", ch );
+        to_actor( "Exit flag toggled.\n\r", ch );
         return TRUE;
     }
 
@@ -1428,7 +1428,7 @@ void redit( PLAYER *ch, char *argument )
 
     if ( !IS_BUILDER( ch, pZone ) )
     {
-        send_to_actor( "ZEdit:  Insufficient security to modify scene.\n\r", ch );
+        to_actor( "ZEdit:  Insufficient security to modify scene.\n\r", ch );
     }
 
 
@@ -1469,13 +1469,13 @@ void redit( PLAYER *ch, char *argument )
         argument = one_argument( argument, arg1 );
 
         if ( !is_number( arg1 ) ) {
-            send_to_actor( "Copies basic item information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
+            to_actor( "Copies basic item information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
             return;
         }
 
         pScene_from = get_scene( atoi( arg1 ) );
         if ( !pScene_from ) {
-            send_to_actor( "Invalid scene dbkey to copy from.\n\r", ch );
+            to_actor( "Invalid scene dbkey to copy from.\n\r", ch );
             return;
         }
 
@@ -1494,7 +1494,7 @@ void redit( PLAYER *ch, char *argument )
         pScene->terrain     = pScene_from->terrain;
         pScene->wagon       = pScene_from->wagon;
 
-        send_to_actor( "Basic information copied to this scene.\n\r", ch );
+        to_actor( "Basic information copied to this scene.\n\r", ch );
         return;        
     }
 
@@ -1517,7 +1517,7 @@ void redit( PLAYER *ch, char *argument )
         TOGGLE_BIT(pScene->scene_flags, scene_name_bit( arg1 ));
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Scene flag toggled.\n\r", ch );
+        to_actor( "Scene flag toggled.\n\r", ch );
         return;
     }
 
@@ -1527,7 +1527,7 @@ void redit( PLAYER *ch, char *argument )
         pScene->move  = move_number( arg1 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Sector type set.\n\r", ch );
+        to_actor( "Sector type set.\n\r", ch );
         return;
     }
 
@@ -1545,10 +1545,10 @@ void redit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  ed add [keyword]\n\r", ch );
-            send_to_actor( "         ed delete [keyword]\n\r", ch );
-            send_to_actor( "         ed edit [keyword]\n\r", ch );
-            send_to_actor( "         ed format [keyword]\n\r", ch );
+            to_actor( "Syntax:  ed add [keyword]\n\r", ch );
+            to_actor( "         ed delete [keyword]\n\r", ch );
+            to_actor( "         ed edit [keyword]\n\r", ch );
+            to_actor( "         ed format [keyword]\n\r", ch );
             return;
         }
 
@@ -1559,7 +1559,7 @@ void redit( PLAYER *ch, char *argument )
         {
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed add [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed add [keyword]\n\r", ch );
                 return;
             }
 
@@ -1571,7 +1571,7 @@ void redit( PLAYER *ch, char *argument )
 
             if ( ed != NULL )
             {
-                send_to_actor( "Extra description keyword exists.\n\r", ch );
+                to_actor( "Extra description keyword exists.\n\r", ch );
                 return;
             }
 
@@ -1592,7 +1592,7 @@ void redit( PLAYER *ch, char *argument )
         {
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed edit [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed edit [keyword]\n\r", ch );
                 return;
             }
 
@@ -1604,7 +1604,7 @@ void redit( PLAYER *ch, char *argument )
 
             if ( ed == NULL )
             {
-                send_to_actor( "Extra description keyword not found.\n\r", ch );
+                to_actor( "Extra description keyword not found.\n\r", ch );
                 return;
             }
 
@@ -1621,7 +1621,7 @@ void redit( PLAYER *ch, char *argument )
 
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed delete [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed delete [keyword]\n\r", ch );
                 return;
             }
 
@@ -1636,7 +1636,7 @@ void redit( PLAYER *ch, char *argument )
 
             if ( ed == NULL )
             {
-                send_to_actor( "Extra description keyword not found.\n\r", ch );
+                to_actor( "Extra description keyword not found.\n\r", ch );
                 return;
             }
 
@@ -1651,7 +1651,7 @@ void redit( PLAYER *ch, char *argument )
 
             free_extra_descr( ed );
 
-            send_to_actor( "Extra description deleted.\n\r", ch );
+            to_actor( "Extra description deleted.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -1667,7 +1667,7 @@ void redit( PLAYER *ch, char *argument )
 
         if ( value == 0 )
         {
-             send_to_actor( "Cleared template reference.\n\r", ch);
+             to_actor( "Cleared template reference.\n\r", ch);
              pScene->template = 0;
              return;
         }
@@ -1677,13 +1677,13 @@ void redit( PLAYER *ch, char *argument )
         if ( template == NULL 
           || !IS_SET(template->scene_flags, SCENE_TEMPLATE) )
         {
-              send_to_actor( "Invalid dbkey for template.\n\r", ch);
+              to_actor( "Invalid dbkey for template.\n\r", ch);
               return;
         }
  
         pScene->template = value;
 
-        send_to_actor( "Scene template set.\n\r", ch );
+        to_actor( "Scene template set.\n\r", ch );
         return;
     }
 
@@ -1703,13 +1703,13 @@ void redit( PLAYER *ch, char *argument )
             }
 
             pScene->instances = NULL;
-            send_to_actor( "Scripts cleared.\n\r", ch );
+            to_actor( "Scripts cleared.\n\r", ch );
             return;
         }
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
+            to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -1720,7 +1720,7 @@ void redit( PLAYER *ch, char *argument )
         pTrig->next    = pScene->instances;
         pScene->instances = pTrig;
 
-        send_to_actor( "Script set.\n\r", ch );
+        to_actor( "Script set.\n\r", ch );
         return;
     }
 
@@ -1733,7 +1733,7 @@ void redit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  name [name]\n\r", ch );
+            to_actor( "Syntax:  name [name]\n\r", ch );
             return;
         }
 
@@ -1741,7 +1741,7 @@ void redit( PLAYER *ch, char *argument )
         pScene->name = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Name set.\n\r", ch );
+        to_actor( "Name set.\n\r", ch );
         return;
     }
 
@@ -1754,19 +1754,19 @@ void redit( PLAYER *ch, char *argument )
 
         if ( fScene == NULL )
         {
-        send_to_actor( "Syntax:  strcpy [dbkey]\n\r", ch );
+        to_actor( "Syntax:  strcpy [dbkey]\n\r", ch );
         return;
         }
 
         if ( !IS_BUILDER(ch, fScene->zone) )
         {
-        send_to_actor( "You are not allowed to copy from other zones.\n\r", ch );
+        to_actor( "You are not allowed to copy from other zones.\n\r", ch );
         return;
         }
 
         free_string( pScene->description );
         pScene->description = str_dup( fScene->description );
-        send_to_actor( "Description copied.\n\r *** This is frowned upon by zone reviewers! ***\n\r", ch );
+        to_actor( "Description copied.\n\r *** This is frowned upon by zone reviewers! ***\n\r", ch );
         return;
     }
 
@@ -1784,7 +1784,7 @@ void redit( PLAYER *ch, char *argument )
         pScene->description = format_string( pScene->description );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "String formatted.\n\r", ch );
+        to_actor( "String formatted.\n\r", ch );
         return;
     }
 
@@ -1793,7 +1793,7 @@ void redit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  light [number]\n\r", ch );
+            to_actor( "Syntax:  light [number]\n\r", ch );
             return;
         }
 
@@ -1801,7 +1801,7 @@ void redit( PLAYER *ch, char *argument )
         pScene->light = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Light set.\n\r", ch);
+        to_actor( "Light set.\n\r", ch);
         return;
     }
 
@@ -1809,7 +1809,7 @@ void redit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  wagonref [prop dbkey]\n\r", ch );
+            to_actor( "Syntax:  wagonref [prop dbkey]\n\r", ch );
             return;
         }
 
@@ -1817,7 +1817,7 @@ void redit( PLAYER *ch, char *argument )
         pScene->wagon = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Wagon prop dbkey reference set.\n\r", ch);
+        to_actor( "Wagon prop dbkey reference set.\n\r", ch);
         return;
     }
 
@@ -1851,7 +1851,7 @@ void oedit( PLAYER *ch, char *argument )
 
     if ( !IS_BUILDER( ch, pZone ) )
     {
-        send_to_actor( "Prop: Edit:  Insufficient security to modify prop.\n\r", ch );
+        to_actor( "Prop: Edit:  Insufficient security to modify prop.\n\r", ch );
     }
 
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
@@ -1897,13 +1897,13 @@ void oedit( PLAYER *ch, char *argument )
         argument = one_argument( argument, arg1 );
 
         if ( !is_number( arg1 ) ) {
-            send_to_actor( "Copies basic item information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
+            to_actor( "Copies basic item information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
             return;
         }
 
         pProp_from = get_prop_template( atoi( arg1 ) );
         if ( !pProp_from ) {
-            send_to_actor( "Invalid prop to copy from.\n\r", ch );
+            to_actor( "Invalid prop to copy from.\n\r", ch );
             return;
         }
 
@@ -1933,7 +1933,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->count     = pProp_from->count;
         pProp->extra_flags = pProp_from->extra_flags;
         pProp->wear_flags  = pProp_from->wear_flags;
-        send_to_actor( "Basic information copied to this prop.\n\r", ch );
+        to_actor( "Basic information copied to this prop.\n\r", ch );
         return;        
     }
 
@@ -1948,7 +1948,7 @@ void oedit( PLAYER *ch, char *argument )
         if ( arg1[0] == '\0' || arg2[0] == '\0' || !is_number( arg2 )
           || arg3[0] == '\0' || !is_number( arg3 ) )
         {
-            send_to_actor( "Syntax:  bonus [location] [#mod] [#duration]\n\r", ch );
+            to_actor( "Syntax:  bonus [location] [#mod] [#duration]\n\r", ch );
             return;
         }
 
@@ -1962,7 +1962,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->bonus  =   pAf;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Bonus added.\n\r", ch);
+        to_actor( "Bonus added.\n\r", ch);
         return;
     }
 
@@ -1973,7 +1973,7 @@ void oedit( PLAYER *ch, char *argument )
 
         if ( pAf == NULL )
         {
-            send_to_actor( "Prop: Edit:  No affect to remove.\n\r", ch );
+            to_actor( "Prop: Edit:  No affect to remove.\n\r", ch );
             return;
         }
 
@@ -1981,7 +1981,7 @@ void oedit( PLAYER *ch, char *argument )
         free_bonus( pAf );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Bonus removed.\n\r", ch);
+        to_actor( "Bonus removed.\n\r", ch);
         return;
     }
 
@@ -1990,14 +1990,14 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  timer [number]\n\r", ch );
+            to_actor( "Syntax:  timer [number]\n\r", ch );
             return;
         }
 
         pProp->timer = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Timer set.\n\r", ch);
+        to_actor( "Timer set.\n\r", ch);
         return;
     }
 
@@ -2007,7 +2007,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->item_type = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Type set.\n\r", ch);
+        to_actor( "Type set.\n\r", ch);
         return;
     }
 
@@ -2017,7 +2017,7 @@ void oedit( PLAYER *ch, char *argument )
         TOGGLE_BIT(pProp->extra_flags, value);
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Extra flag toggled.\n\r", ch);
+        to_actor( "Extra flag toggled.\n\r", ch);
         return;
     }
 
@@ -2027,7 +2027,7 @@ void oedit( PLAYER *ch, char *argument )
         TOGGLE_BIT(pProp->wear_flags, value);
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Wear flag toggled.\n\r", ch);
+        to_actor( "Wear flag toggled.\n\r", ch);
         return;
     }
 
@@ -2037,7 +2037,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  name [string]\n\r", ch );
+            to_actor( "Syntax:  name [string]\n\r", ch );
             return;
         }
 
@@ -2045,7 +2045,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->name = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Name set.\n\r", ch);
+        to_actor( "Name set.\n\r", ch);
         return;
     }
 
@@ -2053,7 +2053,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  plural [string]\n\r", ch );
+            to_actor( "Syntax:  plural [string]\n\r", ch );
             return;
         }
 
@@ -2061,7 +2061,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->short_descr_plural = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Plural set.\n\r", ch);
+        to_actor( "Plural set.\n\r", ch);
         return;
     }
 
@@ -2069,14 +2069,14 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  plurallong [string]\n\r", ch );
+            to_actor( "Syntax:  plurallong [string]\n\r", ch );
             return;
         }
 
         strcat( arg2, "\n\r" );
         if ( !strstr( arg2, "%s" ) )
         {
-            send_to_actor( "String must contain %s in place of numeric.\n\r", ch );
+            to_actor( "String must contain %s in place of numeric.\n\r", ch );
             return;
         }
 
@@ -2084,7 +2084,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->description_plural = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Plural long description set.\n\r", ch);
+        to_actor( "Plural long description set.\n\r", ch);
         return;
     }
 
@@ -2093,7 +2093,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  short [string]\n\r", ch );
+            to_actor( "Syntax:  short [string]\n\r", ch );
             return;
         }
 
@@ -2101,7 +2101,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->short_descr = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Short description set.\n\r", ch);
+        to_actor( "Short description set.\n\r", ch);
         return;
     }
 
@@ -2132,7 +2132,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  long [string]\n\r", ch );
+            to_actor( "Syntax:  long [string]\n\r", ch );
             return;
         }
         
@@ -2142,7 +2142,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->description = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Long description set.\n\r", ch);
+        to_actor( "Long description set.\n\r", ch);
         return;
     }
 
@@ -2150,14 +2150,14 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  level [number]\n\r", ch );
+            to_actor( "Syntax:  level [number]\n\r", ch );
             return;
         }
 
         pProp->level = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Level set.\n\r", ch);
+        to_actor( "Level set.\n\r", ch);
         return;
     }
 
@@ -2165,8 +2165,8 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  value1 [number|flag]\n\r", ch );
-            send_to_actor( "or       v1 [number|flag]\n\r", ch );
+            to_actor( "Syntax:  value1 [number|flag]\n\r", ch );
+            to_actor( "or       v1 [number|flag]\n\r", ch );
             return;
         }
 
@@ -2175,7 +2175,7 @@ void oedit( PLAYER *ch, char *argument )
         else TOGGLE_BIT(pProp->value[0],item_valflag( arg2 ));
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Value 1 set.\n\r", ch);
+        to_actor( "Value 1 set.\n\r", ch);
         return;
     }
 
@@ -2184,8 +2184,8 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  value2 [number|flag]\n\r", ch );
-            send_to_actor( "or       v1 [number|flag]\n\r", ch ); 
+            to_actor( "Syntax:  value2 [number|flag]\n\r", ch );
+            to_actor( "or       v1 [number|flag]\n\r", ch ); 
             return;
         }
 
@@ -2194,7 +2194,7 @@ void oedit( PLAYER *ch, char *argument )
         else TOGGLE_BIT( pProp->value[1], item_valflag( arg2 ) );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Value 2 set.\n\r", ch);
+        to_actor( "Value 2 set.\n\r", ch);
         return;
     }
 
@@ -2203,8 +2203,8 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  value3 [number|flag]\n\r", ch );
-            send_to_actor( "or       v3 [number|flag]\n\r", ch );
+            to_actor( "Syntax:  value3 [number|flag]\n\r", ch );
+            to_actor( "or       v3 [number|flag]\n\r", ch );
             return;
         }
 
@@ -2214,7 +2214,7 @@ void oedit( PLAYER *ch, char *argument )
         else TOGGLE_BIT( pProp->value[2], item_valflag( arg2 ));
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Value 3 set.\n\r", ch);
+        to_actor( "Value 3 set.\n\r", ch);
         return;
     }
 
@@ -2223,8 +2223,8 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  value4 [number|flag]\n\r", ch );
-            send_to_actor( "or       v4 [number|flag]\n\r", ch );
+            to_actor( "Syntax:  value4 [number|flag]\n\r", ch );
+            to_actor( "or       v4 [number|flag]\n\r", ch );
             return;
         }
 
@@ -2233,7 +2233,7 @@ void oedit( PLAYER *ch, char *argument )
         else TOGGLE_BIT(pProp->value[3], item_valflag( arg2 ));
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Value 4 set.\n\r", ch);
+        to_actor( "Value 4 set.\n\r", ch);
         return;
     }
                            
@@ -2242,7 +2242,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  material [type]\n\r", ch );
+            to_actor( "Syntax:  material [type]\n\r", ch );
             return;
         }
 
@@ -2250,7 +2250,7 @@ void oedit( PLAYER *ch, char *argument )
 /*        pProp->material = value;  */
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Material set.\n\r", ch);
+        to_actor( "Material set.\n\r", ch);
         return;
     }
 
@@ -2258,7 +2258,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  size [number]\n\r", ch );
+            to_actor( "Syntax:  size [number]\n\r", ch );
             return;
         }
 
@@ -2266,7 +2266,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->size = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Size set.\n\r", ch);
+        to_actor( "Size set.\n\r", ch);
         return;
     }
 
@@ -2276,7 +2276,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  weight [number]\n\r", ch );
+            to_actor( "Syntax:  weight [number]\n\r", ch );
             return;
         }
 
@@ -2284,7 +2284,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->weight = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Weight set.\n\r", ch);
+        to_actor( "Weight set.\n\r", ch);
         return;
     }
 
@@ -2293,7 +2293,7 @@ void oedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  cost [number]\n\r", ch );
+            to_actor( "Syntax:  cost [number]\n\r", ch );
             return;
         }
 
@@ -2301,7 +2301,7 @@ void oedit( PLAYER *ch, char *argument )
         pProp->cost = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Cost set.\n\r", ch);
+        to_actor( "Cost set.\n\r", ch);
         return;
     }
 
@@ -2321,13 +2321,13 @@ void oedit( PLAYER *ch, char *argument )
             }
 
             pProp->instances = NULL;
-            send_to_actor( "Scripts cleared.\n\r", ch );
+            to_actor( "Scripts cleared.\n\r", ch );
             return;
         }
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
+            to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -2338,7 +2338,7 @@ void oedit( PLAYER *ch, char *argument )
         pTrig->next    = pProp->instances;
         pProp->instances = pTrig;
 
-        send_to_actor( "Script set.\n\r", ch );
+        to_actor( "Script set.\n\r", ch );
         return;
     }
 
@@ -2351,10 +2351,10 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  ed add [keyword]\n\r", ch );
-            send_to_actor( "         ed delete [keyword]\n\r", ch );
-            send_to_actor( "         ed edit [keyword]\n\r", ch );
-            send_to_actor( "         ed format [keyword]\n\r", ch );
+            to_actor( "Syntax:  ed add [keyword]\n\r", ch );
+            to_actor( "         ed delete [keyword]\n\r", ch );
+            to_actor( "         ed edit [keyword]\n\r", ch );
+            to_actor( "         ed format [keyword]\n\r", ch );
             return;
         }
 
@@ -2365,7 +2365,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
         {
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed add [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed add [keyword]\n\r", ch );
                 return;
             }
 
@@ -2385,7 +2385,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
         {
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed edit [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed edit [keyword]\n\r", ch );
                 return;
             }
 
@@ -2397,7 +2397,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
 
             if ( ed == NULL )
             {
-                send_to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
+                to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
                 return;
             }
 
@@ -2412,7 +2412,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
         {
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed edit [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed edit [keyword]\n\r", ch );
                 return;
             }
 
@@ -2424,7 +2424,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
 
             if ( ed == NULL )
             {
-                send_to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
+                to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
                 return;
             }
 
@@ -2441,7 +2441,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
 
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed delete [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed delete [keyword]\n\r", ch );
                 return;
             }
 
@@ -2456,7 +2456,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
 
             if ( ed == NULL )
             {
-                send_to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
+                to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
                 return;
             }
 
@@ -2471,7 +2471,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
 
             free_extra_descr( ed );
 
-            send_to_actor( "Extra description deleted.\n\r", ch );
+            to_actor( "Extra description deleted.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2483,7 +2483,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
 
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  ed format [keyword]\n\r", ch );
+                to_actor( "Syntax:  ed format [keyword]\n\r", ch );
                 return;
             }
 
@@ -2498,13 +2498,13 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
 
             if ( ed == NULL )
             {
-                send_to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
+                to_actor( "Prop: Edit:  Extra description keyword not found.\n\r", ch );
                 return;
             }
 
             ed->description = format_string( ed->description );
 
-            send_to_actor( "Extra description formatted.\n\r", ch );
+            to_actor( "Extra description formatted.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2540,7 +2540,7 @@ void aedit( PLAYER *ch, char *argument )
  
     if ( !IS_BUILDER( ch, pZone ) )
     {
-         send_to_actor( "Actor: Edit:  Insufficient security to modify actor.\n\r", ch );
+         to_actor( "Actor: Edit:  Insufficient security to modify actor.\n\r", ch );
     }
 
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
@@ -2571,13 +2571,13 @@ void aedit( PLAYER *ch, char *argument )
         argument = one_argument( argument, arg1 );
 
         if ( !is_number( arg1 ) ) {
-            send_to_actor( "Copies basic actor information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
+            to_actor( "Copies basic actor information TO this record:\n\rcopy [dbkey-to-copy-from]\n\r", ch );
             return;
         }
 
         pActor_from = get_actor_template( atoi( arg1 ) );
         if ( !pActor_from ) {
-            send_to_actor( "Invalid actor dbkey to copy from.\n\r", ch );
+            to_actor( "Invalid actor dbkey to copy from.\n\r", ch );
             return;
         }
 
@@ -2622,7 +2622,7 @@ void aedit( PLAYER *ch, char *argument )
         }
         }
 
-        send_to_actor( "Basic information copied to this actor.\n\r", ch );
+        to_actor( "Basic information copied to this actor.\n\r", ch );
         return;        
     }
 
@@ -2633,7 +2633,7 @@ void aedit( PLAYER *ch, char *argument )
          if ( !str_cmp( arg2, "clear" ) ) {
          clear_spell_book( pActor->pSpells );
          pActor->pSpells = NULL;
-         send_to_actor( "Actor spell list cleared.\n\r", ch );  
+         to_actor( "Actor spell list cleared.\n\r", ch );  
          return; 
          }  
 
@@ -2643,20 +2643,20 @@ void aedit( PLAYER *ch, char *argument )
               pSpellBook->dbkey = pSpell->dbkey;
               pSpellBook->next = pActor->pSpells; 
               pActor->pSpells = pSpellBook;
-              send_to_actor( "Spell added to actor's book.\n\r", ch );
+              to_actor( "Spell added to actor's book.\n\r", ch );
               return;
          }  
 
         snprintf( buf, MAX_STRING_LENGTH, "%s's spell knowledge:\n\r", pActor->short_descr );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         for ( pSpellBook = pActor->pSpells;  pSpellBook != NULL;  pSpellBook = pSpellBook->next )
         {
              pSpell = get_spell_index ( pSpellBook->dbkey ); 
              if ( pSpell != NULL )   {
-             send_to_actor( pSpell->name, ch );
-             send_to_actor( "\n\r", ch );
+             to_actor( pSpell->name, ch );
+             to_actor( "\n\r", ch );
              }
-             else send_to_actor( "Invalid spell.\n\r", ch );
+             else to_actor( "Invalid spell.\n\r", ch );
         }
         return; 
     }       
@@ -2672,15 +2672,15 @@ void aedit( PLAYER *ch, char *argument )
             snprintf( buf, MAX_STRING_LENGTH, "%20s/%3d ",
                      trunc_fit( pSkill->name, 20 ),
                      pSkill->skill_level );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             if ( col % 3 == 0 )
             {
-                send_to_actor( "\n\r", ch );
+                to_actor( "\n\r", ch );
                 col = 0;
             }
         }
 
-        if ( col % 3 != 0 )  send_to_actor( "\n\r", ch );
+        if ( col % 3 != 0 )  to_actor( "\n\r", ch );
         return;
     }
 
@@ -2708,17 +2708,17 @@ void aedit( PLAYER *ch, char *argument )
 
         if ( arg1[0] == '\0' )
         {
-            send_to_actor( "Syntax:  shop hours [#opening] [#closing]\n\r", ch );
-            send_to_actor( "         shop profit [#buying%] [#selling%]\n\r", ch );
-            send_to_actor( "         shop type [#] [item type]\n\r", ch );
-//            send_to_actor( "         shop buy #-goods-index\n\r", ch );
-//            send_to_actor( "         shop sell #-goods-index\n\r", ch );
-//            send_to_actor( "         shop comp #-components-index\n\r", ch );
-            send_to_actor( "         shop rate [cost]\n\r", ch );
-            send_to_actor( "         shop trades [number] [1=will buy]\n\r", ch );
-            send_to_actor( "         shop [str1..str4] [string]\n\r", ch );
-            send_to_actor( "         shop [trader|peddler|repair|components|credits|bucks]\n\r", ch );
-            send_to_actor( "         shop delete\n\r", ch );
+            to_actor( "Syntax:  shop hours [#opening] [#closing]\n\r", ch );
+            to_actor( "         shop profit [#buying%] [#selling%]\n\r", ch );
+            to_actor( "         shop type [#] [item type]\n\r", ch );
+//            to_actor( "         shop buy #-goods-index\n\r", ch );
+//            to_actor( "         shop sell #-goods-index\n\r", ch );
+//            to_actor( "         shop comp #-components-index\n\r", ch );
+            to_actor( "         shop rate [cost]\n\r", ch );
+            to_actor( "         shop trades [number] [1=will buy]\n\r", ch );
+            to_actor( "         shop [str1..str4] [string]\n\r", ch );
+            to_actor( "         shop [trader|peddler|repair|components|credits|bucks]\n\r", ch );
+            to_actor( "         shop delete\n\r", ch );
             return;
         }
 
@@ -2728,14 +2728,14 @@ void aedit( PLAYER *ch, char *argument )
         {
             if ( !str_cmp( arg1, "delete" ) )
             {
-                send_to_actor( "No shop to delete.\n\r", ch );
+                to_actor( "No shop to delete.\n\r", ch );
                 return;
             }
 
             pActor->pShop         = new_shop();
             pActor->pShop->keeper = pActor->dbkey;
             shop_last->next     = pActor->pShop;
-            send_to_actor( "Shop created.\n\r", ch );
+            to_actor( "Shop created.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         }
 
@@ -2744,7 +2744,7 @@ void aedit( PLAYER *ch, char *argument )
         if ( (value = shop_name_bit( arg1 )) != -1 )
         {
             TOGGLE_BIT(pShop->shop_flags, value);
-            send_to_actor( "Shop flag toggled.\n\r", ch );
+            to_actor( "Shop flag toggled.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2753,7 +2753,7 @@ void aedit( PLAYER *ch, char *argument )
         {
             free_string( pShop->no_such_item );
             pShop->no_such_item = str_dup( arg2 );
-            send_to_actor( "Str1 set.\n\r", ch );
+            to_actor( "Str1 set.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2762,7 +2762,7 @@ void aedit( PLAYER *ch, char *argument )
         {
             free_string( pShop->cmd_not_buy );
             pShop->cmd_not_buy = str_dup( arg2 );
-            send_to_actor( "Str2 set.\n\r", ch );
+            to_actor( "Str2 set.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2771,7 +2771,7 @@ void aedit( PLAYER *ch, char *argument )
         {
             free_string( pShop->list_header );
             pShop->list_header = str_dup( arg2 );
-            send_to_actor( "Str3 set.\n\r", ch );
+            to_actor( "Str3 set.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2780,7 +2780,7 @@ void aedit( PLAYER *ch, char *argument )
         {
             free_string( pShop->hours_excuse );
             pShop->hours_excuse = str_dup( arg2 );
-            send_to_actor( "Str4 set.\n\r", ch );
+            to_actor( "Str4 set.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2811,12 +2811,12 @@ void aedit( PLAYER *ch, char *argument )
         {
             if ( !is_number( arg2 ) )
             {
-                send_to_actor( "Syntax:  shop rate [#]\n\r", ch );
+                to_actor( "Syntax:  shop rate [#]\n\r", ch );
                 return;
             }
 
             pShop->repair_rate = atoi( arg2 );
-            send_to_actor( "Shop repair rate set.\n\r", ch );
+            to_actor( "Shop repair rate set.\n\r", ch );
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
             return;
         }
@@ -2829,7 +2829,7 @@ void aedit( PLAYER *ch, char *argument )
             if ( arg1[0] == '\0' || !is_number(arg1)
               || arg2[0] == '\0' || !is_number(arg2) )
             {
-                send_to_actor( "Syntax:  shop hours [#opening] [#closing]\n\r", ch );
+                to_actor( "Syntax:  shop hours [#opening] [#closing]\n\r", ch );
                 return;
             }
 
@@ -2837,7 +2837,7 @@ void aedit( PLAYER *ch, char *argument )
             pShop->close_hour = atoi( arg2 );
 
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-            send_to_actor( "Shop hours set.\n\r", ch);
+            to_actor( "Shop hours set.\n\r", ch);
             return;
         }
 
@@ -2850,7 +2850,7 @@ void aedit( PLAYER *ch, char *argument )
             if ( arg1[0] == '\0' || !is_number( arg1 )
               || arg2[0] == '\0' || !is_number( arg2 ) )
             {
-                send_to_actor( "Syntax:  shop profit [#buying%] [#selling%]\n\r", ch );
+                to_actor( "Syntax:  shop profit [#buying%] [#selling%]\n\r", ch );
                 return;
             }
 
@@ -2858,7 +2858,7 @@ void aedit( PLAYER *ch, char *argument )
             pShop->profit_sell    = atoi( arg2 );
 
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-            send_to_actor( "Shop profit set.\n\r", ch);
+            to_actor( "Shop profit set.\n\r", ch);
             return;
         }
 
@@ -2872,22 +2872,22 @@ void aedit( PLAYER *ch, char *argument )
             if ( arg1[0] == '\0' || !is_number( arg1 )
               || arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  shop type [#] [item type]\n\r", ch );
+                to_actor( "Syntax:  shop type [#] [item type]\n\r", ch );
                 return;
             }
 
             if ( atoi(arg1)-1 > MAX_TRADE )
             {
                 snprintf( buf, MAX_STRING_LENGTH, "%d", MAX_TRADE );
-                send_to_actor( "Shop keepers may only sell ", ch );
-                send_to_actor( buf, ch );
-                send_to_actor( " items max.\n\r", ch );
+                to_actor( "Shop keepers may only sell ", ch );
+                to_actor( buf, ch );
+                to_actor( " items max.\n\r", ch );
                 return;
             }
 
             if ( ( value = item_name_type(arg2) ) == ITEM_NONE )
             {
-                send_to_actor( "Actor: Edit:  That type of item is not known.\n\r", ch );
+                to_actor( "Actor: Edit:  That type of item is not known.\n\r", ch );
                 return;
             }
 
@@ -2895,14 +2895,14 @@ void aedit( PLAYER *ch, char *argument )
 
             if ( iTrade < 0 || iTrade >= MAX_TRADE )
             {
-                send_to_actor( "Syntax:  shop type [#] [item type]\n\r", ch );
+                to_actor( "Syntax:  shop type [#] [item type]\n\r", ch );
                 return;
             }
 
             pShop->buy_type[iTrade] = item_name_type( arg2 );
 
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-            send_to_actor( "Shop type set.\n\r", ch);
+            to_actor( "Shop type set.\n\r", ch);
             return;
         }
 
@@ -2915,16 +2915,16 @@ void aedit( PLAYER *ch, char *argument )
             if ( arg1[0] == '\0' || !is_number( arg1 )
               || arg2[0] == '\0' )
             {
-                send_to_actor( "Syntax:  shop trades [#] [1-100, 0=off]\n\r", ch );
+                to_actor( "Syntax:  shop trades [#] [1-100, 0=off]\n\r", ch );
                 return;
             }
 
             if ( atoi(arg1)-1 > MAX_TRADE )
             {
                 snprintf( buf, MAX_STRING_LENGTH, "%d", MAX_TRADE );
-                send_to_actor( "Shop keepers may only sell ", ch );
-                send_to_actor( buf, ch );
-                send_to_actor( " goods types.\n\r", ch );
+                to_actor( "Shop keepers may only sell ", ch );
+                to_actor( buf, ch );
+                to_actor( " goods types.\n\r", ch );
                 return;
             }
 
@@ -2932,14 +2932,14 @@ void aedit( PLAYER *ch, char *argument )
 
             if ( iTrade < 0 || iTrade >= MAX_TRADE )
             {
-                send_to_actor( "Syntax:  shop trades [#] [1-100+, 0=off]\n\r", ch );
+                to_actor( "Syntax:  shop trades [#] [1-100+, 0=off]\n\r", ch );
                 return;
             }
 
             pShop->trades[iTrade] = atoi( arg2 );
 
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-            send_to_actor( "Shop type set.\n\r", ch);
+            to_actor( "Shop type set.\n\r", ch);
             return;
         }
 
@@ -2948,7 +2948,7 @@ void aedit( PLAYER *ch, char *argument )
         {
             if ( pShop == NULL )
             {
-                send_to_actor( "Cannot delete a shop that is non-existant.\n\r", ch );
+                to_actor( "Cannot delete a shop that is non-existant.\n\r", ch );
                 return;
             }
 
@@ -2956,11 +2956,11 @@ void aedit( PLAYER *ch, char *argument )
             pActor->pShop = NULL;
 
             SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-            send_to_actor( "Shop deleted.\n\r", ch);
+            to_actor( "Shop deleted.\n\r", ch);
             return;
         }
 
-        send_to_actor( "Type 'shop' alone for help.\n\r", ch );
+        to_actor( "Type 'shop' alone for help.\n\r", ch );
         return;
     }
 
@@ -2969,7 +2969,7 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  name [string]\n\r", ch );
+            to_actor( "Syntax:  name [string]\n\r", ch );
             return;
         }
 
@@ -2977,7 +2977,7 @@ void aedit( PLAYER *ch, char *argument )
         pActor->name = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Name set.\n\r", ch);
+        to_actor( "Name set.\n\r", ch);
         return;
     }
 
@@ -2988,7 +2988,7 @@ void aedit( PLAYER *ch, char *argument )
         pActor->perm_int = URANGE( 0, atoi( arg2 ), 100 );
         pActor->perm_wis = URANGE( 0, atoi( arg2 ), 100 );
         pActor->perm_dex = URANGE( 0, atoi( arg2 ), 25 );
-        send_to_actor( "Attributes set.\n\r", ch );
+        to_actor( "Attributes set.\n\r", ch );
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
         return;
     }
@@ -2996,35 +2996,35 @@ void aedit( PLAYER *ch, char *argument )
     if ( !str_cmp( arg1, "strength" ) || !str_cmp( arg1, "str" ) )
     {
         pActor->perm_str = URANGE( 0, atoi( arg2 ), 25 );
-        send_to_actor( "Strength set.\n\r", ch );
+        to_actor( "Strength set.\n\r", ch );
         return;
     }
 
     if ( !str_cmp( arg1, "intelligence" ) || !str_cmp( arg1, "int" ) )
     {
         pActor->perm_int = URANGE( 0, atoi( arg2 ), 25 );
-        send_to_actor( "Intelligence set.\n\r", ch );
+        to_actor( "Intelligence set.\n\r", ch );
         return;
     }
 
     if ( !str_cmp( arg1, "wisdom" ) || !str_cmp( arg1, "wis" ) )
     {
         pActor->perm_wis = URANGE( 0, atoi( arg2 ), 25 );
-        send_to_actor( "Wisdom set.\n\r", ch );
+        to_actor( "Wisdom set.\n\r", ch );
         return;
     }
 
     if ( !str_cmp( arg1, "dexterity" ) || !str_cmp( arg1, "dex" ) )
     {
         pActor->perm_dex = URANGE( 0, atoi( arg2 ), 25 );
-        send_to_actor( "Dexterity set.\n\r", ch );
+        to_actor( "Dexterity set.\n\r", ch );
         return;
     }
 
     if ( !str_cmp( arg1, "constitution" ) || !str_cmp( arg1, "con" ) )
     {
         pActor->perm_con = URANGE( 0, atoi( arg2 ), 25 );
-        send_to_actor( "Constitution set.\n\r", ch );
+        to_actor( "Constitution set.\n\r", ch );
         return;
     }
 
@@ -3033,7 +3033,7 @@ void aedit( PLAYER *ch, char *argument )
         pActor->size = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Size set.\n\r", ch);
+        to_actor( "Size set.\n\r", ch);
         return;
     }
 
@@ -3043,7 +3043,7 @@ void aedit( PLAYER *ch, char *argument )
 
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  race [name]\n\r", ch );
+            to_actor( "Syntax:  race [name]\n\r", ch );
             return;
         }
 
@@ -3062,7 +3062,7 @@ void aedit( PLAYER *ch, char *argument )
         pActor->race = rn;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Race set.\n\r", ch);
+        to_actor( "Race set.\n\r", ch);
         return;
     }
 
@@ -3075,15 +3075,15 @@ void aedit( PLAYER *ch, char *argument )
 
         if ( arg1[0] == '\0' || arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  skill [skill] [percentage]\n\r", ch );
-            send_to_actor( "Once a skill is added it can only be manipulated.\n\rSkills of 0 don't save\n\r", ch );
+            to_actor( "Syntax:  skill [skill] [percentage]\n\r", ch );
+            to_actor( "Once a skill is added it can only be manipulated.\n\rSkills of 0 don't save\n\r", ch );
             return;
         }
 
         pSkill = skill_lookup( arg1 );
         if ( !pSkill && str_cmp( arg1, "all" ) )
         {
-            send_to_actor( "Invalid skill.\n\r", ch );
+            to_actor( "Invalid skill.\n\r", ch );
             return;
         }
 
@@ -3123,7 +3123,7 @@ void aedit( PLAYER *ch, char *argument )
         }
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Skill set.\n\r", ch);
+        to_actor( "Skill set.\n\r", ch);
         return;
     }
 
@@ -3131,7 +3131,7 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  short [string]\n\r", ch );
+            to_actor( "Syntax:  short [string]\n\r", ch );
             return;
         }
 
@@ -3139,7 +3139,7 @@ void aedit( PLAYER *ch, char *argument )
         pActor->short_descr = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Short description set.\n\r", ch);
+        to_actor( "Short description set.\n\r", ch);
         return;
     }
 
@@ -3148,7 +3148,7 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  long [string]\n\r", ch );
+            to_actor( "Syntax:  long [string]\n\r", ch );
             return;
         }
 
@@ -3157,7 +3157,7 @@ void aedit( PLAYER *ch, char *argument )
         pActor->long_descr = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Long description set.\n\r", ch);
+        to_actor( "Long description set.\n\r", ch);
         return;
     }
 
@@ -3178,8 +3178,8 @@ void aedit( PLAYER *ch, char *argument )
             return;
         }
 
-        send_to_actor( "Syntax:  desc    - line edit\n\r", ch );
-        send_to_actor( "         desc +  - line append\n\r",ch );
+        to_actor( "Syntax:  desc    - line edit\n\r", ch );
+        to_actor( "         desc +  - line append\n\r",ch );
         return;
     }
 
@@ -3189,7 +3189,7 @@ void aedit( PLAYER *ch, char *argument )
         pActor->sex = get_actor_sex_number( arg1 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Sex set.\n\r", ch);
+        to_actor( "Sex set.\n\r", ch);
         return;
     }
 
@@ -3197,14 +3197,14 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  timer [ticks]\n\r", ch );
+            to_actor( "Syntax:  timer [ticks]\n\r", ch );
             return;
         }
 
         pActor->timer = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Timer set.\n\r", ch);
+        to_actor( "Timer set.\n\r", ch);
         return;
     }
 
@@ -3212,14 +3212,14 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  timer [ticks]\n\r", ch );
+            to_actor( "Syntax:  timer [ticks]\n\r", ch );
             return;
         }
 
         pActor->exp = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Exp set.\n\r", ch);
+        to_actor( "Exp set.\n\r", ch);
         return;
     }
 
@@ -3227,14 +3227,14 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  karma [ticks]\n\r", ch );
+            to_actor( "Syntax:  karma [ticks]\n\r", ch );
             return;
         }
 
         pActor->karma = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Karma set.\n\r", ch);
+        to_actor( "Karma set.\n\r", ch);
         return;
     }
 
@@ -3245,7 +3245,7 @@ void aedit( PLAYER *ch, char *argument )
         SET_BIT( pActor->flag, ACTOR_NPC );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Act flag toggled.\n\r", ch);
+        to_actor( "Act flag toggled.\n\r", ch);
         return;
     }
 
@@ -3255,7 +3255,7 @@ void aedit( PLAYER *ch, char *argument )
         TOGGLE_BIT(pActor->bonuses, value);
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Bonus flag toggled.\n\r", ch);
+        to_actor( "Bonus flag toggled.\n\r", ch);
         return;
     }
 
@@ -3270,8 +3270,8 @@ void aedit( PLAYER *ch, char *argument )
 
         if ( !is_number( arg1 )  )
         {
-            send_to_actor( "Syntax:  attack [num] [weapon type] [min dam] [max dam]\n\r", ch );
-            send_to_actor( "         attack [num] delete\n\r",                            ch );
+            to_actor( "Syntax:  attack [num] [weapon type] [min dam] [max dam]\n\r", ch );
+            to_actor( "         attack [num] delete\n\r",                            ch );
             return;
         }
 
@@ -3286,12 +3286,12 @@ void aedit( PLAYER *ch, char *argument )
             {
                  free_attack( pActor->attacks[i] );
                  pActor->attacks[i] = NULL;
-                 send_to_actor( "Attack deleted.\n\r", ch );
+                 to_actor( "Attack deleted.\n\r", ch );
                  return;
             }
             else
             {
-                send_to_actor( "Attack does not exist already.\n\r", ch );
+                to_actor( "Attack does not exist already.\n\r", ch );
                 return;
             }
         }
@@ -3304,18 +3304,18 @@ void aedit( PLAYER *ch, char *argument )
 
         if ( iType >= MAX_ATTACK )
         {
-            send_to_actor( "Invalid weapon type (see 'table attack').\n\r", ch );
+            to_actor( "Invalid weapon type (see 'table attack').\n\r", ch );
             return;
         }
 
         if ( pActor->attacks[i] == NULL )
         {
-            send_to_actor( "Attack added.\n\r", ch );
+            to_actor( "Attack added.\n\r", ch );
             pActor->attacks[i] = new_attack( );
         }
         else
         {
-            send_to_actor( "Attack modified.\n\r", ch );
+            to_actor( "Attack modified.\n\r", ch );
         }
 
         pActor->attacks[i]->next = NULL;
@@ -3349,13 +3349,13 @@ void aedit( PLAYER *ch, char *argument )
 
             pActor->instances = NULL;
 
-            send_to_actor( "Scripts cleared.\n\r", ch );
+            to_actor( "Scripts cleared.\n\r", ch );
             return;
         }
 
         if ( (script = get_script_index(atoi(arg2))) == NULL )
         {
-            send_to_actor( "Syntax:  script [dbkey]\n\r", ch );
+            to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
         }
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
@@ -3366,7 +3366,7 @@ void aedit( PLAYER *ch, char *argument )
         pTrig->next    = pActor->instances;
         pActor->instances = pTrig;
 
-        send_to_actor( "Script set.\n\r", ch );
+        to_actor( "Script set.\n\r", ch );
         return;
     }
 
@@ -3374,14 +3374,14 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  money [amount in copper]\n\r", ch );
+            to_actor( "Syntax:  money [amount in copper]\n\r", ch );
             return;
         }
 
         pActor->money = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Monetary amount set.\n\r", ch);
+        to_actor( "Monetary amount set.\n\r", ch);
         return;
     }
 
@@ -3389,14 +3389,14 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  credits [#monetary units]\n\r", ch );
+            to_actor( "Syntax:  credits [#monetary units]\n\r", ch );
             return;
         }
 
         pActor->credits = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Credit (MU) amount set.\n\r", ch);
+        to_actor( "Credit (MU) amount set.\n\r", ch);
         return;
     }
 
@@ -3404,14 +3404,14 @@ void aedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' || !is_number( arg2 ) )
         {
-            send_to_actor( "Syntax:  bucks [#dollars]\n\r", ch );
+            to_actor( "Syntax:  bucks [#dollars]\n\r", ch );
             return;
         }
 
         pActor->bucks = atoi( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Buck$ set.\n\r", ch);
+        to_actor( "Buck$ set.\n\r", ch);
         return;
     }
     
@@ -3422,7 +3422,7 @@ void aedit( PLAYER *ch, char *argument )
         value = atoi( arg2 );
         if ( arg2[0] == '\0' || value == 0 )
         {
-            send_to_actor( "Syntax:  aedit create [dbkey]\n\r", ch );
+            to_actor( "Syntax:  aedit create [dbkey]\n\r", ch );
             return;
         }
             ch->desc->connected=NET_AEDITOR;
@@ -3461,7 +3461,7 @@ void sedit( PLAYER *ch, char *argument )
  
     if ( pZone == NULL || !IS_BUILDER( ch, pZone ) )
     {
-         send_to_actor( "Script: Edit:  Insufficient security to modify script.\n\r", ch );
+         to_actor( "Script: Edit:  Insufficient security to modify script.\n\r", ch );
     }
 
     /*
@@ -3471,13 +3471,13 @@ void sedit( PLAYER *ch, char *argument )
     {
         if ( ch->userdata->trace != NULL )
         {
-            send_to_actor( "Trace deactivated.\n\r", ch );
+            to_actor( "Trace deactivated.\n\r", ch );
             ch->userdata->trace = NULL;
             ch->userdata->trace_wait = 0;
         }
         else
         {
-            send_to_actor( "Trace activated.\n\r", ch );
+            to_actor( "Trace activated.\n\r", ch );
             ch->userdata->trace = script;
             ch->userdata->trace_wait = value;
         }
@@ -3517,7 +3517,7 @@ void sedit( PLAYER *ch, char *argument )
     {
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Syntax:  name [string]\n\r", ch );
+            to_actor( "Syntax:  name [string]\n\r", ch );
             return;
         }
 
@@ -3525,7 +3525,7 @@ void sedit( PLAYER *ch, char *argument )
         script->name = str_dup( arg2 );
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Name set.\n\r", ch);
+        to_actor( "Name set.\n\r", ch);
         return;
     }
 
@@ -3541,7 +3541,7 @@ void sedit( PLAYER *ch, char *argument )
         script->type  = value;
 
         SET_BIT( pZone->zone_flags, ZONE_CHANGED );
-        send_to_actor( "Type set.\n\r", ch);
+        to_actor( "Type set.\n\r", ch);
         return;
     }
 
@@ -3574,7 +3574,7 @@ void cmd_zedit( PLAYER *ch, char *argument )
         value = atoi( argument );
         if ( ( pZone = get_zone( value ) ) == NULL )
         {
-            send_to_actor( "That zone dbkey does not exist.\n\r", ch );
+            to_actor( "That zone dbkey does not exist.\n\r", ch );
             return;
         }
     }
@@ -3622,7 +3622,7 @@ void cmd_redit( PLAYER *ch, char *argument )
         value = atoi( arg1 );
         if ( ( pScene = get_scene( value ) ) == NULL )
         {
-            send_to_actor( "Scene Edit:  That dbkey does not exist.\n\r", ch );
+            to_actor( "Scene Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
     }
@@ -3631,7 +3631,7 @@ void cmd_redit( PLAYER *ch, char *argument )
         if ( !str_cmp( arg1, "reset" ) )
         {
             spawn_scene( pScene );
-            send_to_actor( "Scene cued.\n\r", ch );
+            to_actor( "Scene cued.\n\r", ch );
             return;
         }
         else 
@@ -3640,7 +3640,7 @@ void cmd_redit( PLAYER *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  redit create [dbkey]\n\r", ch );
+                to_actor( "Syntax:  redit create [dbkey]\n\r", ch );
                 return;
             }
 CREATE_COMMANDZ(pScene,scene_hash,
@@ -3683,7 +3683,7 @@ void cmd_oedit( PLAYER *ch, char *argument )
         value = atoi( arg1 );
         if ( ( pProp = get_prop_template( value ) ) == NULL )
         {
-            send_to_actor( "Prop: Edit:  That dbkey does not exist.\n\r", ch );
+            to_actor( "Prop: Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -3699,7 +3699,7 @@ CREATE_COMMANDZ(pProp,prop_template_hash,
                       top_dbkey_prop);
     }
 
-    send_to_actor( "Prop: Edit:  There is no default prop to edit.\n\r", ch );
+    to_actor( "Prop: Edit:  There is no default prop to edit.\n\r", ch );
     return;
 }
 
@@ -3728,7 +3728,7 @@ void cmd_aedit( PLAYER *ch, char *argument )
         value = atoi( arg1 );
         if ( ( pActor = get_actor_template( value ) ) == NULL )
         {
-            send_to_actor( "Actor: Edit:  That dbkey does not exist.\n\r", ch );
+            to_actor( "Actor: Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -3743,7 +3743,7 @@ void cmd_aedit( PLAYER *ch, char *argument )
             value = atoi( arg2 );
             if ( arg2[0] == '\0' || value == 0 )
             {
-                send_to_actor( "Syntax:  aedit create [dbkey]\n\r", ch );
+                to_actor( "Syntax:  aedit create [dbkey]\n\r", ch );
                 return;
             }
             ch->desc->connected=NET_AEDITOR;
@@ -3754,7 +3754,7 @@ void cmd_aedit( PLAYER *ch, char *argument )
         }
     }
 
-    send_to_actor( "Actor: Edit:  There is no default actor to edit.\n\r", ch );
+    to_actor( "Actor: Edit:  There is no default actor to edit.\n\r", ch );
     return;
 }
 
@@ -3783,7 +3783,7 @@ void cmd_sedit( PLAYER *ch, char *argument )
         value = atoi( arg1 );
         if ( ( script = get_script_index( value ) ) == NULL )
         {
-            send_to_actor( "Script: Edit:  That dbkey does not exist.\n\r", ch );
+            to_actor( "Script: Edit:  That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -3801,7 +3801,7 @@ void cmd_sedit( PLAYER *ch, char *argument )
             return;
     }
 
-    send_to_actor( "Script: Edit:  There is no default script to edit.\n\r", ch );
+    to_actor( "Script: Edit:  There is no default script to edit.\n\r", ch );
     return;
 }
 
@@ -3824,24 +3824,24 @@ void cmd_aindex( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Mindex whom?\n\r", ch );
+    to_actor( "Mindex whom?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_template( atoi( arg ) ) ) == NULL )
     {
-    send_to_actor( "Invalid actor index VNUM.\n\r", ch );
+    to_actor( "Invalid actor index VNUM.\n\r", ch );
         return;
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "Name:   [^B%s^N]\n\r", victim->name );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Vnum:     [^B%5d^N]  Zone:   [^B%5d^N] %s\n\r",
             victim->dbkey,
     victim->zone == NULL ? -1        : victim->zone->dbkey,
     victim->zone == NULL ? "No zone" : victim->zone->name );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     if ( !str_cmp( arg2, "skills" )  )
     {
@@ -3850,7 +3850,7 @@ void cmd_aindex( PLAYER *ch, char *argument )
         {
                 snprintf( buf, MAX_STRING_LENGTH, "Skill: ^B%s^M at ^B%d%%^N\n\r", pSkill->name, 
                               pSkill->skill_level );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
         }
         return;
     }
@@ -3858,14 +3858,14 @@ void cmd_aindex( PLAYER *ch, char *argument )
     snprintf( buf, MAX_STRING_LENGTH, "Short:  [^B%s^N]\n\rLong:\n\r%s",
     victim->short_descr,
     victim->long_descr );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Act:    [^B%s^N]\n\r", actor_bit_name( victim->flag ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Bonus: [^B%s^N]\n\r",
                   bonus_bit_name( victim->bonuses ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     {
         int race = race_lookup( victim->race );
@@ -3876,11 +3876,11 @@ void cmd_aindex( PLAYER *ch, char *argument )
             victim->sex == SEX_MALE    ? "male"   :
             victim->sex == SEX_FEMALE  ? "female" : "neutral",
             victim->karma, victim->exp );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "Money:  [^B%5d^N]  Credits:  [^B%5d^N]   Bucks:  [$^B%5d^N]\n\r", victim->money, victim->credits, victim->bucks );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Attrib { Str: [^B%2d^N]  Int: [^B%2d^N]  Wis: [^B%2d^N]  Dex: [^B%2d^N]  Con: [^B%2d^N]\n\r",
         victim->perm_str,
@@ -3888,10 +3888,10 @@ void cmd_aindex( PLAYER *ch, char *argument )
         victim->perm_wis,
         victim->perm_dex,
         victim->perm_con );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Description:\n\r%s", victim->description );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     for ( iAtt = 0; iAtt < MAX_ATTACK; iAtt++ )
     {
@@ -3902,7 +3902,7 @@ void cmd_aindex( PLAYER *ch, char *argument )
                           victim->attacks[iAtt]->dam1,
                           victim->attacks[iAtt]->dam2 );
             buf[0] = UPPER(buf[0]);
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
     }
 
@@ -3910,7 +3910,7 @@ void cmd_aindex( PLAYER *ch, char *argument )
     for ( pTrig = victim->instances; pTrig != NULL; pTrig = pTrig->next )
     {
         snprintf( buf, MAX_STRING_LENGTH, "[^4%5d^N] %s\n\r", pTrig->script->dbkey, pTrig->script->name );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
 
 
@@ -3924,20 +3924,20 @@ void cmd_aindex( PLAYER *ch, char *argument )
         snprintf( buf, MAX_STRING_LENGTH, "Shop data (for %d):\n\r    Will buy at %d%%, and sell at %d%%.  Opened %d-%d.\n\r",
                       pShop->keeper, pShop->profit_buy, pShop->profit_sell,
                       pShop->open_hour, pShop->close_hour );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         snprintf( buf, MAX_STRING_LENGTH, "    Flags: [^B%s^N]\n\r", shop_bit_name(pShop->shop_flags) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         if ( IS_SET(pShop->shop_flags, SHOP_REPAIR) )
         {
         snprintf( buf, MAX_STRING_LENGTH, "    Repair Rate: [^B%5d^N]\n\r", pShop->repair_rate );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         }
 
 //        snprintf( buf, MAX_STRING_LENGTH, "Buy Index: ^B%d^N   Sell Index:  ^B%d^N   Component Index:  ^B%d^N\n\r",
 //                 pShop->buy_index, pShop->sell_index, pShop->comp_index );
-//        send_to_actor( buf, ch );
+//        to_actor( buf, ch );
 
         if ( IS_SET(pShop->shop_flags, SHOP_PEDDLER)
           || IS_SET(pShop->shop_flags, SHOP_TRADER) )
@@ -3946,15 +3946,15 @@ void cmd_aindex( PLAYER *ch, char *argument )
             snprintf( buf, MAX_STRING_LENGTH, " [##] Type %-24s", " " );
             else
             snprintf( buf, MAX_STRING_LENGTH, "^B%-35s^N", " " );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             if ( IS_SET(pShop->shop_flags, SHOP_TRADER) )
             {
             snprintf( buf, MAX_STRING_LENGTH, "  [##] %15s", "Trading Item? 1=yes" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             }
 
-            send_to_actor( "\n\r", ch );
+            to_actor( "\n\r", ch );
 
             for ( iTrade = 0;
                   iTrade < UMAX(MAX_TRADE,
@@ -3979,7 +3979,7 @@ void cmd_aindex( PLAYER *ch, char *argument )
                 if ( !fNothing 
                   || (iTrade < 10 
                    && IS_SET(pShop->shop_flags, SHOP_TRADER)) )
-                send_to_actor( buf2, ch );
+                to_actor( buf2, ch );
 
                 if ( iTrade < 10
                   && IS_SET(pShop->shop_flags, SHOP_TRADER) )
@@ -3987,37 +3987,37 @@ void cmd_aindex( PLAYER *ch, char *argument )
                     snprintf( buf, MAX_STRING_LENGTH, "  [^N%2d^B] ^N%15s^B %3d",
                                   iTrade+1,
                                   name_good_code(iTrade), pShop->trades[iTrade] );
-                    send_to_actor( buf, ch );
+                    to_actor( buf, ch );
                     fNothing = FALSE;
                 }
 
-                if ( !fNothing ) send_to_actor( "\n\r", ch );
+                if ( !fNothing ) to_actor( "\n\r", ch );
             }
         }
 
 
         snprintf( buf, MAX_STRING_LENGTH, "Str1 [no_such_item]:\n\r%s says, \"%s\"\n\r",
                       capitalize(victim->short_descr), pShop->no_such_item );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         if ( IS_SET(pShop->shop_flags, SHOP_PEDDLER)
           || IS_SET(pShop->shop_flags, SHOP_TRADER) )
         {
             snprintf( buf, MAX_STRING_LENGTH, "Str2 [cmd_not_buy]:\n\r%s says, \"%s\"\n\r",
                            capitalize(victim->short_descr), pShop->cmd_not_buy );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
 
         if ( IS_SET(pShop->shop_flags, SHOP_PEDDLER) )
         {
             snprintf( buf, MAX_STRING_LENGTH, "Str3 [list_header]:\n\r%s\n\r",
                      pShop->list_header );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
 
         snprintf( buf, MAX_STRING_LENGTH, "Str4 [hours_excuse]:\n\r%s says, \"%s\"\n\r",
                       capitalize(victim->short_descr), pShop->hours_excuse );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
     }
 
@@ -4042,31 +4042,31 @@ void cmd_sindex( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Sindex what?\n\r", ch );
+        to_actor( "Sindex what?\n\r", ch );
         return;
     }
 
     if ( ( script = get_script_index( atoi( arg ) ) ) == NULL )
     {
-        send_to_actor( "Invalid script index VNUM.\n\r", ch );
+        to_actor( "Invalid script index VNUM.\n\r", ch );
         return;
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [^B%5d^N]  Name:   [^B%s^N]\n\r", script->dbkey, script->name );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     if( !script->zone ) script->zone = get_dbkey_zone(script->dbkey);
 
     snprintf( buf, MAX_STRING_LENGTH, "zone:   [^B%5d^N] ^B%s^N\n\r",
              script->zone == NULL ? -1        : script->zone->dbkey,
              script->zone == NULL ? "No zone" : script->zone->name );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Type: ^B%s^N\n\r", show_script_type( script->type ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Script:\n\r%s", script->commands );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     return;
 }
@@ -4080,21 +4080,21 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
 
     switch ( type )
     {
-          default: send_to_actor( "Values currently unused.\n\r", ch ); break;
+          default: to_actor( "Values currently unused.\n\r", ch ); break;
   case ITEM_LIGHT:
         {
             if ( v2 >= 0 )
             {
                 snprintf( buf, MAX_STRING_LENGTH, "^B%d^N (v1) of ^B%d^N (v2) hours of light.\n\r", v1, v2 );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
             }
             else
-            send_to_actor( "Provides light infinitely.\n\r", ch );
+            to_actor( "Provides light infinitely.\n\r", ch );
 
             snprintf( buf, MAX_STRING_LENGTH, "Light bits (v4): [^B%s%s^N]\n\r",
                           IS_SET(v4, LIGHT_LIT) ? "lit " : "",
                           IS_SET(v4, LIGHT_FILLABLE) ? "fillable" : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_POTION:
@@ -4107,7 +4107,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      v3 > 0 ? skill_name(v3) : "nothing",
                      v4 > 0 ? skill_name(v4) : "nothing",
                      v1 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_WEAPON:
@@ -4118,7 +4118,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      (UMIN(v2,v3)+UMAX(v2,v3))/2,
                      v4 >= 0 && v4 < MAX_ATTACK ? attack_table[v4].name : "INVALID",
                      v1 ? " and causes poison" : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_RANGED_WEAPON: {
@@ -4127,7 +4127,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      UMAX(v2,v3),
                      (UMIN(v2,v3)+UMAX(v2,v3))/2,
                      v1 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         } break;
   case ITEM_AMMO:
         {
@@ -4135,7 +4135,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      v2,
                      v1, v3,
                      v4 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_CLOTHING: 
@@ -4150,28 +4150,28 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         {
             snprintf( buf, MAX_STRING_LENGTH, "Can be hit ^B%d^N/^B%d^N (v2/v3) times, with an armor class bonus of ^B%d^N (v1) .\n\r",
                      v2, v3, v1 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_FURNITURE:
         {
             snprintf( buf, MAX_STRING_LENGTH, "Can maintain up to ^B%d^N (v1) halfstones (^B%d^N people)",
                      v1, v1/100 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             if ( get_prop_template( v3 ) != NULL )
             {
                 snprintf( buf, MAX_STRING_LENGTH, ", requires key ^B%d^N (v3)", v3 );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
             }
 
             if ( get_scene( v4 ) != NULL )
             {
                 snprintf( buf, MAX_STRING_LENGTH, ", and leads to %d (v4)", v4 );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
             }
 
-            send_to_actor( ".\n\r", ch );
+            to_actor( ".\n\r", ch );
 
             snprintf( buf, MAX_STRING_LENGTH, "Furn bits (v2): [^B%s%s%s%s%s%s%s%s%s%s%s%s^N]\n\r",
                      IS_SET(v2,FURN_CLOSEABLE) ? "closeable " : "",
@@ -4187,28 +4187,28 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      IS_SET(v2,FURN_NOSHOW)    ? "noshow "    : "",
                      IS_SET(v2,FURN_HOME)      ? "home"       : "" );
  
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_CONTAINER:
         {
             snprintf( buf, MAX_STRING_LENGTH, "Holds up to ^B%d^N (v1) halfstones of weight", v1 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             if ( get_prop_template( v3 ) != NULL )
             {
                 snprintf( buf, MAX_STRING_LENGTH, ", and requires key %d (v3)", v3 );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
             }
 
-            send_to_actor( ".\n\r", ch );
+            to_actor( ".\n\r", ch );
 
             snprintf( buf, MAX_STRING_LENGTH, "Container bits (v2): [^B%s%s%s%s^N]\n\r",
                      IS_SET(v2,CONT_CLOSEABLE) ? "closeable " : "",
                      IS_SET(v2,CONT_PICKPROOF) ? "pickproof " : "",
                      IS_SET(v2,CONT_CLOSED)    ? "closed "    : "",
                      IS_SET(v2,CONT_LOCKED)    ? "locked"    : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_DRINK_CON:
@@ -4217,23 +4217,23 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      v1, v2, v1/10, v1/3,
                      v3 >= 0 && v3 < LIQ_MAX ? liq_table[v3].liq_name : "INVALID LIQUID",
                      IS_SET(v4,DRINK_POISON) ? " and is laced with poison (v4)" : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             if ( IS_SET(v4,DRINK_TAVERN) )
-            send_to_actor( "This drink container disappears when empty. (v4)\n\r", ch );
+            to_actor( "This drink container disappears when empty. (v4)\n\r", ch );
         }
         break;
   case ITEM_FOOD:
         {
             snprintf( buf, MAX_STRING_LENGTH, "Food lasts for ^B%d^N (v1) minutes (^B%d^N game hours).\n\r",
                      v1, v1 / 5 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_MONEY:
         {
             snprintf( buf, MAX_STRING_LENGTH, "Worth ^B%d^N ^B%s^N coins. (v1)\n\r",
                      v1, v2 >= 0 && v2 < MAX_COIN ? coin_table[v2].long_name : "invalid" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_GEM:
@@ -4244,7 +4244,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      IS_SET(v1,MA) || IS_SET(v1,MF) ? "fire "  : "",
                      IS_SET(v1,MA) || IS_SET(v1,MW) ? "water " : "",
                      IS_SET(v1,MA) || IS_SET(v1,MA) ? "air"   : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_VEHICLE:
@@ -4254,14 +4254,14 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      move_name( v2 ),
                      move_name( v3 ),
                      move_name( v4 ) );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
   case ITEM_TOOL:
         {
             snprintf( buf, MAX_STRING_LENGTH, "Has ^B%d^N of ^B%d^N uses remaining. (v2/v3)\n\r",
                      v2, v3 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             snprintf( buf, MAX_STRING_LENGTH, "Tool flags (v1): [^B%s%s%s%s%s^N]\n\r",
                      IS_SET(v1,TOOL_TINDERBOX) ? "tinderbox " : "",
@@ -4269,16 +4269,16 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
                      IS_SET(v1,TOOL_BOUNTY)    ? "bounty"    : "",
                      IS_SET(v1,TOOL_BANDAGES)  ? "bandages" : "",
                      IS_SET(v1,TOOL_REPAIR)    ? "repair" : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             if ( IS_SET(v1,TOOL_BANDAGES) ) {
             snprintf( buf, MAX_STRING_LENGTH, "Heals for ^B%d^N (v4) worth of damage per use.\n\r", v4 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             }
 
             if ( IS_SET(v1,TOOL_REPAIR) ) {
             snprintf( buf, MAX_STRING_LENGTH, "Repairs at ^B%d%%^N (v4) efficiency.\n\r", v4 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             }
         }
         break;
@@ -4287,7 +4287,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
   case ITEM_GOODS:
         {
             snprintf( buf, MAX_STRING_LENGTH, "Has ^B%s^N index of ^B%d^N (v1).\n\r", item_type_name(type), v1 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         break;
     }
@@ -4314,13 +4314,13 @@ void cmd_pindex( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Prop: index what?\n\r", ch );
+    to_actor( "Prop: index what?\n\r", ch );
         return;
     }
 
     if ( ( prop = get_prop_template( atoi( arg ) ) ) == NULL )
     {
-    send_to_actor( "Invalid VNUM reference.\n\r", ch );
+    to_actor( "Invalid VNUM reference.\n\r", ch );
         return;
     }
 
@@ -4328,24 +4328,24 @@ void cmd_pindex( PLAYER *ch, char *argument )
     prop->name,
     prop->zone == NULL ? -1        : prop->zone->dbkey,
     prop->zone == NULL ? "No zone" : prop->zone->name );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
 
     snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [^B%5d^N]     Type:  [^B%s^N]\n\r",
     prop->dbkey,
     item_type_name( prop->item_type ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Short:  [^B%s^N]\n\r", prop->short_descr );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Plural: [^B%s^N]\n\r", pluralize( prop->short_descr ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     {
         char buf2[MAX_STRING_LENGTH];
         snprintf( buf, MAX_STRING_LENGTH, "Long:\n\r%s", prop->description );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         
         snprintf( buf2, MSL, "%s %s are here.\n\r", 
           numberize( 2 ), 
@@ -4354,31 +4354,31 @@ void cmd_pindex( PLAYER *ch, char *argument )
              prop->description_plural == NULL
           || prop->description_plural[0] == '\0' ? capitalize(buf2)
                                                 : prop->description_plural );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
   
     snprintf( buf, MAX_STRING_LENGTH, "Action:\n\r%s", prop->action_descr );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Description:\n\r%s", prop->real_description );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Wear flags:  [^B%s^N]\n\rExtra flags: [^B%s^N]\n\r",
     wear_bit_name( prop->wear_flags ),
     extra_bit_name( prop->extra_flags ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Weight: [^B%5d^N]  Cost:     [^B%5d^N]  Timer: [^B%5d^N]  Level: [^B%5d^N]\n\r",
              prop->weight, prop->cost, prop->timer, prop->level );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Size:   [^B%5d^N]  Material: [^B%5d^N]\n\r",
              prop->size, prop->material );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Values: [^B%5d^N] [^B%5d^N] [^B%5d^N] [^B%5d^N]\n\r",
     prop->value[0],    prop->value[1],    prop->value[2],    prop->value[3] );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     value_breakdown( prop->item_type,
                      prop->value[0],
@@ -4391,31 +4391,31 @@ void cmd_pindex( PLAYER *ch, char *argument )
     {
         EXTRA_DESCR *ed;
 
-        send_to_actor( "ED keywords: [", ch );
+        to_actor( "ED keywords: [", ch );
 
         for ( ed = prop->extra_descr; ed != NULL; ed = ed->next )
         {
         char arg2[MAX_STRING_LENGTH];
         
         one_argument( ed->keyword, arg2 );
-        send_to_actor( arg2, ch );
-        if ( ed->next != NULL ) send_to_actor( " ", ch );
+        to_actor( arg2, ch );
+        if ( ed->next != NULL ) to_actor( " ", ch );
         }
   
-        send_to_actor( "]\n\r", ch );
+        to_actor( "]\n\r", ch );
     }
 
     for ( paf = prop->bonus; paf != NULL; paf = paf->next )
     {
        snprintf( buf, MAX_STRING_LENGTH, "Bonuses ^B%s^N by ^B%d^N.\n\r", bonus_loc_name( paf->location ),
                                               paf->modifier );
-       send_to_actor( buf, ch );
+       to_actor( buf, ch );
     }
 
     for ( pTrig = prop->instances; pTrig != NULL; pTrig = pTrig->next )
     {
         snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] ^B%s^N\n\r", pTrig->script->dbkey, pTrig->script->name );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
 
     return;
@@ -4448,7 +4448,7 @@ void display_spawns( PLAYER *ch )
     for ( pSpawn = pScene->spawn_first; pSpawn != NULL; pSpawn = pSpawn->next )
     {
 
-    send_to_actor( final, ch );
+    to_actor( final, ch );
     final[0] = '\0';
     sprintf( final, "%2d- ", ++iSpawn );
 
@@ -4626,7 +4626,7 @@ void display_spawns( PLAYER *ch )
         break;
        }
     }
-    send_to_actor( final, ch );
+    to_actor( final, ch );
     final[0] = '\0';
 
     return;
@@ -4699,22 +4699,22 @@ void cmd_spawns( PLAYER *ch, char *argument )
     {
         if ( ch->in_scene->spawn_first != NULL )
         {
-        send_to_actor( "Cues:\n\r", ch );
+        to_actor( "Cues:\n\r", ch );
         display_spawns( ch );
         }
         else
-        send_to_actor( "No cues in this scene.\n\r", ch );
+        to_actor( "No cues in this scene.\n\r", ch );
     }
 
     if ( !str_cmp( arg1, "here" ) || !str_cmp( arg1, "scene" )  ) {
          spawn_scene( ch->in_scene );
-         send_to_actor( "Scene cued.\n\r", ch );
+         to_actor( "Scene cued.\n\r", ch );
   	return;
     }
 
     if ( !IS_BUILDER( ch, ch->in_scene->zone ) )
     {
-        send_to_actor( "Warning: Invalid security for editing this scene.\n\r",
+        to_actor( "Warning: Invalid security for editing this scene.\n\r",
                       ch );
         return;
     }
@@ -4729,7 +4729,7 @@ void cmd_spawns( PLAYER *ch, char *argument )
 
         if ( ch->in_scene->spawn_first == NULL )
         {
-            send_to_actor( "No resets in this scene.\n\r", ch );
+            to_actor( "No resets in this scene.\n\r", ch );
             return;
         }
 
@@ -4753,7 +4753,7 @@ void cmd_spawns( PLAYER *ch, char *argument )
 
             if ( pSpawn == NULL )
             {
-                send_to_actor( "Cue not defined.\n\r", ch );
+                to_actor( "Cue not defined.\n\r", ch );
                 return;
             }
 
@@ -4767,7 +4767,7 @@ void cmd_spawns( PLAYER *ch, char *argument )
 
         SET_BIT( pScene->zone->zone_flags, ZONE_CHANGED );
         free_spawn( pSpawn );
-        send_to_actor( "Cue scratched.\n\r", ch );
+        to_actor( "Cue scratched.\n\r", ch );
         }
         else
         if ( (!str_prefix( arg2, "actor" ) && is_number( arg3 ))
@@ -4829,22 +4829,22 @@ void cmd_spawns( PLAYER *ch, char *argument )
             pSpawn->num     = !is_number(arg6) ? 1 : atoi( arg6 );
 
             add_spawn( ch->in_scene, pSpawn, atoi( arg1 ) );
-            send_to_actor( "Cue added.\n\r", ch );
+            to_actor( "Cue added.\n\r", ch );
         }
         else
         {
-        send_to_actor( "Syntax: CUE <number> GOOD <num> <location> [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> GOOD <num> SCENE [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> GOOD <num> IN|ON [chance] [num to load]\n\r", ch );
-        send_to_actor( "Syntax: CUE <number> COMPONENT <num> <location> [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> COMPONENT <num> SCENE [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> COMPONENT <num> IN|ON [chance] [num to load]\n\r", ch );
-        send_to_actor( "Syntax: CUE <number> PROP <dbkey> <location> [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> PROP <dbkey> SCENE [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> PROP <dbkey> IN|ON [chance] [num to load]\n\r", ch );
-        send_to_actor( "        CUE <number> ACTOR <dbkey> [<max #> <chance> <num to load>]\n\r", ch );
-        send_to_actor( "        CUE <number> DELETE\n\r", ch );
-        send_to_actor( "        CUE HERE\n\r", ch );
+        to_actor( "Syntax: CUE <number> GOOD <num> <location> [chance] [num to load]\n\r", ch );
+        to_actor( "        CUE <number> GOOD <num> SCENE [chance] [num to load]\n\r", ch );
+        to_actor( "        CUE <number> GOOD <num> IN|ON [chance] [num to load]\n\r", ch );
+        to_actor( "Syntax: CUE <number> COMPONENT <num> <location> [chance] [num to load]\n\r", ch );
+        to_actor( "        CUE <number> COMPONENT <num> SCENE [chance] [num to load]\n\r", ch );
+        to_actor( "        CUE <number> COMPONENT <num> IN|ON [chance] [num to load]\n\r", ch );
+        to_actor( "Syntax: CUE <number> PROP <dbkey> <location> [chance] [num to load]\n\r", ch );
+        to_actor( "        CUE <number> PROP <dbkey> SCENE [chance] [num to load]\n\r", ch );
+        to_actor( "        CUE <number> PROP <dbkey> IN|ON [chance] [num to load]\n\r", ch );
+        to_actor( "        CUE <number> ACTOR <dbkey> [<max #> <chance> <num to load>]\n\r", ch );
+        to_actor( "        CUE <number> DELETE\n\r", ch );
+        to_actor( "        CUE HERE\n\r", ch );
         }
     }
 
@@ -4876,28 +4876,28 @@ void cmd_astat( PLAYER *ch, char *argument )
 
     snprintf( buf, MAX_STRING_LENGTH, "Name:     [%5d] %s\n\r",
              pZone->dbkey, pZone->name );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "File:     [%s]\n\r",
              pZone->filename );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Age:      [%5d]\n\rPlayers:  [%5d]\n\r",
              pZone->age, pZone->nplayer );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Security: [%5d]\n\rBuilders: [%s]\n\r",
              pZone->security, pZone->builders );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Vnums:    [%d-%d]\n\r", pZone->ldbkey, pZone->udbkey );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Repop:\n\r%s", pZone->repop );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Flags:    [%s]\n\r", zone_bit_name( pZone->zone_flags ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     return;
 }
@@ -5652,28 +5652,28 @@ void cmd_hstat( PLAYER *ch, char *argument )
 
    if ( pHelp ) {
          snprintf( buf, MAX_STRING_LENGTH, "Name:     %s\n\r", pHelp->name );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Class:    %d (%s)\n\r", pHelp->class, help_class_table[pHelp->class].name );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Level:    %d\n\r", pHelp->level );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Keywords: %s\n\r", pHelp->keyword );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Syntax:   %s\n\r", pHelp->syntax );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Text:\n%s\n\r", pHelp->text );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Immtext:\n%s\n\r", pHelp->immtext );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Example:\n%s\n\r", pHelp->example );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "Seealso:  %s\n\r", pHelp->seealso );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          return;
       }
 
    snprintf( buf, MAX_STRING_LENGTH, "There is no document for %s\n", arg1);
-   send_to_actor( buf, ch );
+   to_actor( buf, ch );
 }
 
 /* Locke's improved documentation system.
@@ -5696,7 +5696,7 @@ void cmd_hedit( PLAYER *ch, char *argument )
         value = atoi( arg1 );
         if ( ( pHelp = get_help_index( value ) ) == NULL )
         {
-            send_to_actor( "Edit: That dbkey does not exist.\n\r", ch );
+            to_actor( "Edit: That dbkey does not exist.\n\r", ch );
             return;
         }
 
@@ -5711,7 +5711,7 @@ void cmd_hedit( PLAYER *ch, char *argument )
             return;
     }
 
-   send_to_actor( "Edit:  There is no default help to edit.\n\r", ch );
+   to_actor( "Edit:  There is no default help to edit.\n\r", ch );
    return;
 }
 
@@ -5737,7 +5737,7 @@ void hedit( PLAYER *ch, char *argument )
 
     if ( !IS_IMMORTAL( ch ) )
     {
-        send_to_actor( "Help:  Insufficient security to modify help file.\n\r", ch );
+        to_actor( "Help:  Insufficient security to modify help file.\n\r", ch );
     }
 
     if ( pHelp == NULL ) {
@@ -5779,8 +5779,8 @@ void hedit( PLAYER *ch, char *argument )
                      pHelp->dbkey,
                      pHelp->name );
 
-            if ( tdbkey % 2 == 0 ) send_to_actor("\n\r", ch );
-            send_to_actor( buf, ch );
+            if ( tdbkey % 2 == 0 ) to_actor("\n\r", ch );
+            to_actor( buf, ch );
         }
         return;
     }
@@ -5797,7 +5797,7 @@ void hedit( PLAYER *ch, char *argument )
        FILE *fp = fopen( arg2, "r" );
 
        if ( !fp ) {
-         send_to_actor( "File not found.\n\r", ch );
+         to_actor( "File not found.\n\r", ch );
          return; }
        pHelp = NULL;
 
@@ -5837,7 +5837,7 @@ void hedit( PLAYER *ch, char *argument )
    }
 
    fclose(fp);
-   send_to_actor( "Imported.\n\r", ch );
+   to_actor( "Imported.\n\r", ch );
    return;
        
     }
@@ -5866,7 +5866,7 @@ void hedit( PLAYER *ch, char *argument )
 
    if ( !str_cmp( arg1, "level" ) ) {
       if ( !is_number( arg2 ) || arg2[0] == '\0' ) {
-         send_to_actor( "Syntax:  level [number]\n\r", ch );
+         to_actor( "Syntax:  level [number]\n\r", ch );
          return;
       }
 
@@ -5874,12 +5874,12 @@ void hedit( PLAYER *ch, char *argument )
 
       if ( (value < -1) || (value > MAX_LEVEL) ) {
          snprintf( buf, MAX_STRING_LENGTH, "Hedit:  Valid level range is from -1 to %d.\n", MAX_LEVEL);
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          return;
       }
 
       pHelp->level = value;
-      send_to_actor( "Level set.\n\r", ch );
+      to_actor( "Level set.\n\r", ch );
       return;
    }
 
@@ -5893,12 +5893,12 @@ void hedit( PLAYER *ch, char *argument )
 
       if ( (value < 0) || (value > MAX_HELP_CLASS-1) ) {
          snprintf( buf, MAX_STRING_LENGTH, "Hedit:  Valid class range is from 0 to %d.\n", MAX_HELP_CLASS);
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          return;
       }
 
       pHelp->class = value;
-      send_to_actor( "Help class has been set.\n\r", ch );
+      to_actor( "Help class has been set.\n\r", ch );
       return;
    }
 
@@ -5924,40 +5924,40 @@ void hedit( PLAYER *ch, char *argument )
 
    if ( !str_cmp( arg1, "keywords" )) {
       if(arg2[0] == '\0') {
-         send_to_actor(" Syntax: keywords [keywords]\n\r",ch);
+         to_actor(" Syntax: keywords [keywords]\n\r",ch);
          return;
       }
 
       free_string( pHelp->keyword );
       pHelp->keyword = str_dup( arg2 );
 
-      send_to_actor( "Keyword(s) Set.\n\r", ch);
+      to_actor( "Keyword(s) Set.\n\r", ch);
       return;
    }
 
    if ( !str_cmp( arg1, "name" )) {
       if(arg2[0] == '\0') {
-         send_to_actor(" Syntax: name [title]\n\r",ch);
+         to_actor(" Syntax: name [title]\n\r",ch);
          return;
       }
 
       free_string( pHelp->name );
       pHelp->name = str_dup( one_argument( arg, arg1 ) );
 
-      send_to_actor( "Name set.\n\r", ch);
+      to_actor( "Name set.\n\r", ch);
       return;
    }
 
    if ( !str_cmp( arg1, "seealso" )) {
       if(arg2[0] == '\0') {
-         send_to_actor(" Syntax: seealso [list]\n\r",ch);
+         to_actor(" Syntax: seealso [list]\n\r",ch);
          return;
       }
 
       free_string( pHelp->seealso );
       pHelp->seealso = str_dup( one_argument( arg, arg1 ) );
 
-      send_to_actor( "SeeAlso set.\n\r", ch);
+      to_actor( "SeeAlso set.\n\r", ch);
       return;
    }
 
@@ -5994,6 +5994,6 @@ void cmd_zsave( PLAYER *ch, char *argument )
         save_contents();
         save_helps();
 
-    send_to_actor( "You saved the world.\n\r", ch );
+    to_actor( "You saved the world.\n\r", ch );
     return;
 }

@@ -248,15 +248,15 @@ void gain_condition( PLAYER *ch, int iCond, int value )
     {
       switch ( iCond )
       {
-      case COND_FULL:   send_to_actor( "You are hungry.\n\r",  ch );   break;
-      case COND_THIRST: send_to_actor( "You are thirsty.\n\r", ch );   break;
+      case COND_FULL:   to_actor( "You are hungry.\n\r",  ch );   break;
+      case COND_THIRST: to_actor( "You are thirsty.\n\r", ch );   break;
       }
     }
 */
 
     if ( iCond == COND_DRUNK
       && condition == 5 )
-        send_to_actor( "You sober up.\n\r", ch );
+        to_actor( "You sober up.\n\r", ch );
 
     if ( PC(ch,condition[iCond]) < 0 )
     {
@@ -264,18 +264,18 @@ void gain_condition( PLAYER *ch, int iCond, int value )
       {
       case COND_FULL:
           if ( condition < -80 )
-          send_to_actor( "You are dying of starvation; you require sustinence.\n\r", ch );
+          to_actor( "You are dying of starvation; you require sustinence.\n\r", ch );
      else if ( condition < -60 )
-          send_to_actor( "You begin to feel the effects of lack of food; you are weak and dizzy.\n\r", ch );
+          to_actor( "You begin to feel the effects of lack of food; you are weak and dizzy.\n\r", ch );
      else if ( condition < -40 )
-          send_to_actor( "You feel faint from lack of food, you are starving.\n\r",  ch );
+          to_actor( "You feel faint from lack of food, you are starving.\n\r",  ch );
      else if ( condition < -20 )
-          send_to_actor( "Your stomach is growling, you should really eat something.\n\r", ch );
+          to_actor( "Your stomach is growling, you should really eat something.\n\r", ch );
 
           if ( PC(ch,condition[iCond]) <= -100
             && ch->position > POS_SLEEPING )
           {
-              send_to_actor(  "You collapse due to lack of food...", ch );
+              to_actor(  "You collapse due to lack of food...", ch );
               act( "$n collapses!", ch, NULL, NULL, TO_SCENE );
               ch->position = POS_SLEEPING;
           }
@@ -283,17 +283,17 @@ void gain_condition( PLAYER *ch, int iCond, int value )
 
       case COND_THIRST:
           if ( condition < -80 )
-          send_to_actor( "You are dying of dehydration; you need fluid.\n\r", ch );
+          to_actor( "You are dying of dehydration; you need fluid.\n\r", ch );
      else if ( condition < -60 )
-          send_to_actor( "Having gone without liquid, you are now feeling weak and dehydrated.\n\r", ch );
+          to_actor( "Having gone without liquid, you are now feeling weak and dehydrated.\n\r", ch );
      else if ( condition < -40 )
-          send_to_actor( "You feel faint and sickly, you are dehydrating.\n\r",  ch );
+          to_actor( "You feel faint and sickly, you are dehydrating.\n\r",  ch );
      else if ( condition < -20 )
-          send_to_actor( "You are really thirsty and your lips are quite parched.\n\r", ch );
+          to_actor( "You are really thirsty and your lips are quite parched.\n\r", ch );
 
           if ( PC(ch,condition[iCond]) <= -100 )
           {
-              send_to_actor(  "You are dying of dehydration!", ch );
+              to_actor(  "You are dying of dehydration!", ch );
               act( "$n are dying of dehydration!", ch, NULL, NULL, TO_SCENE );
               ch->hit = ch->hit - ch->hit/4;
               if ( ch->hit <= 0 ) ch->hit = 1; 
@@ -725,7 +725,7 @@ void weather_update( void )
             if ( d->connected == NET_PLAYING
               && IS_OUTSIDE(d->character)
               && IS_AWAKE(d->character) )
-            send_to_actor( buf, d->character );
+            to_actor( buf, d->character );
         }
     }
 
@@ -919,8 +919,8 @@ void everybody_update( bool fEach )
 		{
 		    if ( paf->type > 0 && paf->msg_off )
 		    {
-			send_to_actor( paf->msg_off, ch );
-			send_to_actor( "\n\r", ch );
+			to_actor( paf->msg_off, ch );
+			to_actor( "\n\r", ch );
 		    }
 		}
 	  
@@ -936,7 +936,7 @@ void everybody_update( bool fEach )
 	if ( IS_AFFECTED(ch, BONUS_POISON) )
 	{
 	    act( "$n shivers and suffers.", ch, NULL, NULL, TO_SCENE );
-	    send_to_actor( "You shiver and suffer.\n\r", ch );
+	    to_actor( "You shiver and suffer.\n\r", ch );
         damage( ch, ch, 2 );
 	}
 	else if ( ch->position == POS_INCAP )
@@ -1607,7 +1607,7 @@ void scene_update( void )
           && pScene->zone->repop[0] != '\0' )
         {
         for ( pch = pScene->people; pch != NULL; pch = pch->next_in_scene )
-            send_to_actor( pScene->zone->repop, pch );
+            to_actor( pScene->zone->repop, pch );
         }
     }
 
@@ -1876,10 +1876,10 @@ void show_player_statistics( PLAYER *ch ) {
     char buf[MSL];
 
     display_interp( ch, "^B" );
-    send_to_actor( "\n\r", ch );
-    send_to_actor( "Game Statistics\n\r", ch );
+    to_actor( "\n\r", ch );
+    to_actor( "Game Statistics\n\r", ch );
     display_interp( ch, "^4" );
-    send_to_actor( "---------------\n\r", ch );
+    to_actor( "---------------\n\r", ch );
     display_interp( ch, "^N" );
 
     if ( ps_top_rank ) {
@@ -1916,7 +1916,7 @@ void show_player_statistics( PLAYER *ch ) {
        display_interp( ch, buf );
     }
 
-    send_to_actor( "\n\r", ch );
+    to_actor( "\n\r", ch );
 
     if ( ps_top_str ) {
        snprintf( buf, MSL, "^2 Strongest: ^N^B%s^N with ^B%d^N strength\n\r",
@@ -1948,7 +1948,7 @@ void show_player_statistics( PLAYER *ch ) {
        display_interp( ch, buf );
     }
 
-    send_to_actor( "\n\r", ch );
+    to_actor( "\n\r", ch );
 
     if ( ps_top_bad && ps_top_good ) {
        snprintf( buf, MSL, "^2   Nicest: ^N^B%s^N with ^B%d^N karma\n\r",

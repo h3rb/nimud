@@ -61,24 +61,24 @@ void cmd_bite( PLAYER *ch, char *argument ) {
 
     if ( !IS_LYCANTHROPIC(ch) 
       && !IS_VAMPIRE(ch) ) {
-       send_to_actor( "You bite your nails, silly you.\n\r", ch );
+       to_actor( "You bite your nails, silly you.\n\r", ch );
        return;
     }
 
     vict = get_actor_scene( ch, argument );
 
     if ( !vict ) {
-       send_to_actor( "Who?\n\r", ch );
+       to_actor( "Who?\n\r", ch );
        return;
     }
 
     if ( IS_VAMPIRE(ch) && IS_VAMPIRE(vict) ) {
-       send_to_actor( "Ah, but you are both already vampires...\n\r", ch );
+       to_actor( "Ah, but you are both already vampires...\n\r", ch );
        return;
     }
 
     if ( !NPC(vict) && vict->position != POS_SLEEPING ) {
-       send_to_actor( "You may only bite other players while they are sleeping.\n\r", ch );
+       to_actor( "You may only bite other players while they are sleeping.\n\r", ch );
        return;
     }
 
@@ -96,7 +96,7 @@ void cmd_bite( PLAYER *ch, char *argument ) {
                char buf[MAX_STRING_LENGTH];
 
             display_interp( vict, "^B" ); 
-            send_to_actor( "You feel different.\n\r", ch );
+            to_actor( "You feel different.\n\r", ch );
 
             /* Transfer of the problem.. */
             if ( IS_VAMPIRE(ch) ) {
@@ -118,7 +118,7 @@ void cmd_bite( PLAYER *ch, char *argument ) {
 
             display_interp( ch, "^2" );
             act( "$n chokes and gags.", vict, NULL, NULL, TO_SCENE );
-            send_to_actor( "You choke and gag.\n\r", vict );
+            to_actor( "You choke and gag.\n\r", vict );
             af.type      = skill_dbkey(skill_lookup("poison"));
             af.duration  = 5;
             af.location  = APPLY_CON;
@@ -126,7 +126,7 @@ void cmd_bite( PLAYER *ch, char *argument ) {
             af.bitvector = BONUS_POISON;
             bonus_join( vict, &af );
         }
-        send_to_actor( "Your teeth sink deep into tasty flesh.\n\r", ch );
+        to_actor( "Your teeth sink deep into tasty flesh.\n\r", ch );
 
         if ( IS_VAMPIRE(ch) && !IS_VAMPIRE(vict) ) {
 
@@ -139,7 +139,7 @@ void cmd_bite( PLAYER *ch, char *argument ) {
 	af.bitvector = BONUS_METAMORPH;
 	bonus_join( ch, &af );
 
-        send_to_actor( "You draw your life's energy from the blood you taste.\n\r", ch );
+        to_actor( "You draw your life's energy from the blood you taste.\n\r", ch );
         }
         
     }
@@ -177,7 +177,7 @@ void change_lycanthropes( bool fWere ) {
 
 		display_interp( ch, "^B" );
 		act( "$n grows claws and teeth because of $s disease.", ch, NULL, NULL, TO_SCENE );
-		send_to_actor( "You growl and snarl, growing long teeth and fur.\n\r", ch );
+		to_actor( "You growl and snarl, growing long teeth and fur.\n\r", ch );
 
 		af.type      = skill_dbkey(skill_lookup("lycanthropy"));
 		af.duration  = 10;
@@ -199,7 +199,7 @@ void change_lycanthropes( bool fWere ) {
         ch->short_descr = NULL;
 	ch->long_descr = NULL;
 
-        send_to_actor( "You return to human form.\n\r", ch );
+        to_actor( "You return to human form.\n\r", ch );
   	act( "$n returns to human form.", ch, NULL, NULL, TO_SCENE );
         }
      }

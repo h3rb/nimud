@@ -44,7 +44,7 @@
 
 void spell_null( int sn, int level, PLAYER *ch, void *vo )
 {
-    send_to_actor( "That's not a spell!\n\r", ch );
+    to_actor( "That's not a spell!\n\r", ch );
     return;
 }
 

@@ -261,39 +261,39 @@ void print_stat_menu( PLAYER *ch )
     char buf[MAX_STRING_LENGTH];
 
     if ( ch->exp_level > 0 && PC(ch,stat_points) == 0 ) {
-        send_to_actor( "You have spent all of your hero points.\n\rHit return: ", ch );
+        to_actor( "You have spent all of your hero points.\n\rHit return: ", ch );
         DC(ch->desc) = NET_HERO_RECON;
         return;
     }
    
     if ( ch->exp_level == 0 ) cmd_help( ch, "NEWBIE_STAT_MENU_HEADER" ); 
     else 
-    send_to_actor( "You have hero points left unspent!\n\r\n\r", ch );
+    to_actor( "You have hero points left unspent!\n\r\n\r", ch );
    
     snprintf( buf, MAX_STRING_LENGTH, "[S]trength:     %s\n\r", name_stat_range(get_curr_str(ch)) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     snprintf( buf, MAX_STRING_LENGTH, "[I]ntelligence: %s\n\r", name_stat_range(get_curr_int(ch)) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     snprintf( buf, MAX_STRING_LENGTH, "[W]isdom:       %s\n\r", name_stat_range(get_curr_wis(ch)) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     snprintf( buf, MAX_STRING_LENGTH, "[D]exterity:    %s\n\r", name_stat_range(get_curr_dex(ch)) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     snprintf( buf, MAX_STRING_LENGTH, "[C]onstitution: %s\n\r", name_stat_range(get_curr_con(ch)) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     if ( ch->exp_level == 0 ) {
     snprintf( buf, MAX_STRING_LENGTH, "[A]ge:          %d years\n\r", GET_AGE(ch) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     snprintf( buf, MAX_STRING_LENGTH, "[H]eight:       %d units\n\r", ch->size );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "You have %d point%s to distribute.\n\r", 
           PC(ch,stat_points), PC(ch,stat_points) == 1 ? "" : "s" );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "Hit return to continue, or, %s, type a letter: ",
              capitalize(ch->name) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     return;
 }
@@ -350,11 +350,11 @@ void stat_menu( PLAYER *ch, char *argument )
         race = race_lookup( ch->race );
         snprintf( buf, MAX_STRING_LENGTH, "%s live to be a maximum of %d years.",     
                  RACE(race,race_name), RACE(race,base_age) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         snprintf( buf, MAX_STRING_LENGTH, "%s is currently %d years old.\n\r",
                  NAME(ch), GET_AGE(ch) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         write_to_buffer( d, "What age would you like to be? ", 0 );
     }
@@ -372,11 +372,11 @@ void stat_menu( PLAYER *ch, char *argument )
         snprintf( buf, MAX_STRING_LENGTH, "Members of your race are from %d to %d units tall.\n\r",
                 RACE(race,size)-4,
                 RACE(race,size)+4 );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         snprintf( buf, MAX_STRING_LENGTH, "You are currently %d units in size.\n\r[Units are six inches or approximately 18cm]\n\r",
                  ch->size );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         write_to_buffer( d, "How many units tall? ", 0 );
     }
@@ -384,7 +384,7 @@ void stat_menu( PLAYER *ch, char *argument )
    default:
         if ( PC(ch,stat_points) != 0 && ch->exp_level <1 )
         {
-            send_to_actor( "NOTE: You still have hero points to distribute.\n\r", ch );
+            to_actor( "NOTE: You still have hero points to distribute.\n\r", ch );
             print_stat_menu( ch );
             break;
         }
@@ -415,7 +415,7 @@ void stat_menu( PLAYER *ch, char *argument )
     cmd_help( ch, "WELCOME" );
     DC(d) = NET_READ_MOTD;
           } else {  DC(d) = NET_HERO_RENET_ABORT;  
-           send_to_actor( "Congratulations!  You may spend any additional hero points\n\rnext time you log in. Hit return to continue: ", ch ); 
+           to_actor( "Congratulations!  You may spend any additional hero points\n\rnext time you log in. Hit return to continue: ", ch ); 
            }
 
        break;
@@ -454,7 +454,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                 {
                     if ( PC(ch,stat_points) == 0 )
                     {
-                        send_to_actor( "You don't have a stat point to distribute.\n\r", ch );
+                        to_actor( "You don't have a stat point to distribute.\n\r", ch );
 
                         if ( ch->exp_level == 0 )
                         write_to_buffer( d, "Do you want to decrease (-) this stat? ", 0 );
@@ -470,7 +470,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                       || (DC(d) == NET_STAT_DEX && ch->perm_dex >= 25)
                       || (DC(d) == NET_STAT_CON && ch->perm_con >= 25)) && (ch->exp_level == 0) )
                     {
-                        send_to_actor( "It is impossible to add any more to that stat.\n\r", ch );
+                        to_actor( "It is impossible to add any more to that stat.\n\r", ch );
                         DC(d) = NET_STAT_MENU;
                         return;
                     }
@@ -481,7 +481,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                     if ( DC(d) == NET_STAT_WIS ) ch->perm_wis++;
                     if ( DC(d) == NET_STAT_DEX ) ch->perm_dex++;
                     if ( DC(d) == NET_STAT_CON ) ch->perm_con++;
-                    send_to_actor( "Added.\n\r", ch );
+                    to_actor( "Added.\n\r", ch );
                     print_stat_menu( ch );
                     DC(d) = NET_STAT_MENU;
                 }
@@ -495,7 +495,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                       || (DC(d) == NET_STAT_DEX && ch->perm_dex <= 3)
                       || (DC(d) == NET_STAT_CON && ch->perm_con <= 3) )
                     {
-                        send_to_actor( "It is impossible to subtract any more from that stat.\n\r", ch );
+                        to_actor( "It is impossible to subtract any more from that stat.\n\r", ch );
                         DC(d) = NET_STAT_MENU;
                         return;
                     }
@@ -509,7 +509,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                     print_stat_menu( ch );
                     DC(d) = NET_STAT_MENU;
                 } else {
-                   send_to_actor( "You cannot decrease a stat, only increase (+).\n\r", ch );
+                   to_actor( "You cannot decrease a stat, only increase (+).\n\r", ch );
                    print_stat_menu( ch );
                    DC(d) = NET_STAT_MENU;
                 }
@@ -527,7 +527,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
      URANGE(15,value,RACE(race,base_age));
          
           if ( PC(ch,birth_year) != weather.year - value )
-              send_to_actor( "Invalid age.\n\r", ch );
+              to_actor( "Invalid age.\n\r", ch );
 
           print_stat_menu( ch );
           DC(d) = NET_STAT_MENU;
@@ -540,7 +540,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
 
           ch->size = URANGE(RACE(race,size)-4,value,RACE(race,size+4));
           if ( ch->size !=  value )
-          send_to_actor( "Invalid height.\n\r", ch );
+          to_actor( "Invalid height.\n\r", ch );
 
           print_stat_menu( ch );
           DC(d) = NET_STAT_MENU;
@@ -669,7 +669,7 @@ void actor_gen( PLAYER *ch, char *argument )
 
             if ( !check_parse_name( fix_string( arg ) ) || fOld )
             {
-                send_to_actor( "Invalid name, try again.\n\rName: ", ch );
+                to_actor( "Invalid name, try again.\n\rName: ", ch );
                 DC(d) = NET_CHAR_GEN_NAME;
                 return;
             }
@@ -698,7 +698,7 @@ void actor_gen( PLAYER *ch, char *argument )
 
         free_string( PC(ch,email) );
         PC(ch,email) = str_dup( fix_string( argument ) );
-        send_to_actor( "Do you want to help write the world? ", ch );
+        to_actor( "Do you want to help write the world? ", ch );
         DC(d) = NET_CHAR_GEN_BUILDER;
         break;
 
@@ -709,20 +709,20 @@ void actor_gen( PLAYER *ch, char *argument )
 #if !defined(APPLY_BUILDER) 
             PC(ch,level) = LEVEL_BUILDER;
             cmd_help( ch, "BUILDING" );
-            send_to_actor( "\n\r", ch );
-            send_to_actor( "You have been given limited building access.\n\r", ch );
+            to_actor( "\n\r", ch );
+            to_actor( "You have been given limited building access.\n\r", ch );
             send_to-char( "Do you feel confident with programming languages? ", ch );
             DC(d) = NET_CHAR_GEN_WRITER;
 #else
-//            send_to_actor( "Ok.\n\r", ch );
-            send_to_actor( "Do you feel confident with programming languages? ", ch );
+//            to_actor( "Ok.\n\r", ch );
+            to_actor( "Do you feel confident with programming languages? ", ch );
             DC(d) = NET_CHAR_GEN_WRITER;
 #endif
         }
         else {
 
-        send_to_actor( "Please visit our website for documentation:\n\rhttp://nimud.divineright.org\n\r\n\r", ch );
-        send_to_actor( "Do you want to use color (y/n)? ", ch );
+        to_actor( "Please visit our website for documentation:\n\rhttp://nimud.divineright.org\n\r\n\r", ch );
+        to_actor( "Do you want to use color (y/n)? ", ch );
         DC(d) = NET_CHAR_GEN_COLOR;
         }
 
@@ -735,18 +735,18 @@ void actor_gen( PLAYER *ch, char *argument )
 #if !defined(APPLY_BUILDER)
            PC(ch,level) = LEVEL_WRITER;
            cmd_help( ch, "SCRIPTING" );
-           send_to_actor( "\n\r", ch );
-           send_to_actor( "Do you want to use color (y/n)? ", ch );
+           to_actor( "\n\r", ch );
+           to_actor( "Do you want to use color (y/n)? ", ch );
            DC(d) = NET_CHAR_GEN_COLOR;
         }
 #else
         }
            DC(d) = NET_CHAR_GEN_APPLY_BUILDER;
         
-send_to_actor("\n\r", ch );
-send_to_actor("--------------------------------[Application]--------------------------------\n\r", ch );
-send_to_actor("Enter a few lines describing your experience mudding and your intentions as a\n\r", ch );
-send_to_actor("contributer to this software. Your message will be read as a resume of sorts.\n\r\n\r", ch );
+to_actor("\n\r", ch );
+to_actor("--------------------------------[Application]--------------------------------\n\r", ch );
+to_actor("Enter a few lines describing your experience mudding and your intentions as a\n\r", ch );
+to_actor("contributer to this software. Your message will be read as a resume of sorts.\n\r\n\r", ch );
 actor_to_scene( ch, get_scene( SCENE_VNUM_APPLY ) );
 cmd_note( ch, "enter" );
 actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
@@ -763,7 +763,7 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
            cmd_note( ch, "to immortal" );
            cmd_note( ch, "post" );
            actor_from_scene( ch );
-           send_to_actor("Do you want to use color (y/n)? ", ch );
+           to_actor("Do you want to use color (y/n)? ", ch );
            DC(d) = NET_CHAR_GEN_COLOR;
            }
         break;
@@ -781,11 +781,11 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
             cmd_prompt( ch, "colors" );
             else cmd_prompt( ch, "immortal" );
 
-            send_to_actor( "What gender (m/f/n)? ", ch );
+            to_actor( "What gender (m/f/n)? ", ch );
             DC(d) = NET_CHAR_GEN_SEX;
             break;
         case 'n': case 'N':
-            send_to_actor( "What gender (m/f/n)? ", ch );
+            to_actor( "What gender (m/f/n)? ", ch );
             DC(d) = NET_CHAR_GEN_SEX;
             break;
 
@@ -802,23 +802,23 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
                 case 'F':
                    ch->sex = SEX_FEMALE;
                     cmd_help( ch, "RACES" );
-              send_to_actor( "What race are you? ", ch );
+              to_actor( "What race are you? ", ch );
                     DC(d) = NET_CHAR_GEN_RACE;
                   break;
                 case 'M':
                    ch->sex = SEX_MALE;
                     cmd_help( ch, "RACES" );
-              send_to_actor( "What race are you? ", ch );
+              to_actor( "What race are you? ", ch );
                     DC(d) = NET_CHAR_GEN_RACE;
                   break;
                 case 'N':
                    ch->sex = SEX_NEUTRAL;
                     cmd_help( ch, "RACES" );
-              send_to_actor( "What race are you? ", ch );
+              to_actor( "What race are you? ", ch );
                     DC(d) = NET_CHAR_GEN_RACE;
                   break;
                  default:
-                   send_to_actor( "Invalid selection.\n\rWhich sex (m/f/n)? ", ch );
+                   to_actor( "Invalid selection.\n\rWhich sex (m/f/n)? ", ch );
                   break;
             }
         }
@@ -836,16 +836,16 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
               ch->race = race_lookup( race );
               if ( race < MAX_RACE ) {
                    cmd_help( ch, RACE(race,race_name) );
-                   send_to_actor( "Is this ok? ", ch );
+                   to_actor( "Is this ok? ", ch );
               }
               else {
                   if ( *argument == '\0' ) { 
                      cmd_help( ch, "RACES" ); 
-                     send_to_actor( "Which race? ", ch ); 
+                     to_actor( "Which race? ", ch ); 
                      DC(d) = NET_CHAR_GEN_RACE;
                      return; 
                    }
-                   send_to_actor( "I'm sorry, I don't know of that race.\n\rWhich? ", ch );
+                   to_actor( "I'm sorry, I don't know of that race.\n\rWhich? ", ch );
                    DC(d) = NET_CHAR_GEN_RACE;
                    return;
               }
@@ -857,7 +857,7 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
               switch ( *argument ) {
                 case 'n': case 'N':
                    cmd_help( ch, "RACES" );
-                   send_to_actor( "Which race? ", ch );
+                   to_actor( "Which race? ", ch );
                    DC(d) = NET_CHAR_GEN_RACE;
                   break;
                 case 'y': case 'Y':
@@ -865,7 +865,7 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
                     print_stat_menu( ch );
                     DC(d) = NET_STAT_MENU;
                   break;
-               default:  send_to_actor( "Please type Yes or No. Is this race ok? ", ch ); break;                              
+               default:  to_actor( "Please type Yes or No. Is this race ok? ", ch ); break;                              
               }
         }
        break;
@@ -1288,7 +1288,7 @@ void newbie_check( CONNECTION *d )
 
 
     if ( DC(d) == NET_DOC_MENU && d->pager_point == NULL )
-    send_to_actor( "> ", d->character );
+    to_actor( "> ", d->character );
 
     return;
 }
@@ -1299,37 +1299,37 @@ bool  apply_ok( PLAYER *ch )
 {
     if ( !str_cmp( ch->name, "guest" ) )
 	{
-/*        send_to_actor( "You need to choose your name.\n\r", ch );*/
+/*        to_actor( "You need to choose your name.\n\r", ch );*/
 		return FALSE;
 	}
 
     if ( SMT(ch->short_descr) )
 	{
-/*        send_to_actor( "You need to set your short description.\n\r", ch );*/
+/*        to_actor( "You need to set your short description.\n\r", ch );*/
 		return FALSE;
 	}
 
     if ( SMT(ch->long_descr) )
 	{
-/*        send_to_actor( "You need to set your long description.\n\r", ch );*/
+/*        to_actor( "You need to set your long description.\n\r", ch );*/
 		return FALSE;
 	}
 
     if ( SMT(ch->description) )
 	{
-/*        send_to_actor( "You need to set your description.\n\r", ch );*/
+/*        to_actor( "You need to set your description.\n\r", ch );*/
 		return FALSE;
 	}
 
     if ( SMT(PC(ch,email)) )
 	{
-/*        send_to_actor( "You need to set your email.\n\r", ch );*/
+/*        to_actor( "You need to set your email.\n\r", ch );*/
 		return FALSE;
 	}
 
     if ( SMT(ch->keywords) )
 	{
-/*        send_to_actor( "You need to set your extended keywords.\n\r", ch );*/
+/*        to_actor( "You need to set your extended keywords.\n\r", ch );*/
 		return FALSE;
 	}
 
@@ -1465,7 +1465,7 @@ bool check_reconnect( CONNECTION *d, char *name, bool fConn )
 		ch->desc	 = d;
 		ch->timer	 = 0;
                 if ( !sendcli( d, "CONNECTED RECONNECT" ) )
-		send_to_actor( "Reconnecting.\n\r", ch );
+		to_actor( "Reconnecting.\n\r", ch );
 		act( "$n has reconnected.", ch, NULL, NULL, TO_SCENE );
 		sprintf( log_buf, "%s@%s reconnected.", ch->name, d->host );
 		log_string( log_buf );

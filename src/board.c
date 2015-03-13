@@ -466,19 +466,19 @@ void cmd_note( PLAYER *ch, char *argument )
  
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Syntax: note list            \n\r", ch );
-        send_to_actor( "        note <num>           \n\r", ch );
-        send_to_actor( "        note remove <num>    \n\r", ch );
-        send_to_actor( "        note delete <num>    \n\r\n\r", ch );
-        send_to_actor( "Syntax: note to <person(s)|all|immort>\n\r", ch );
-        send_to_actor( "        note subject <text>  \n\r", ch );
-        send_to_actor( "        note write           \n\r", ch );
-        send_to_actor( "        note post            \n\r", ch );
-        send_to_actor( "        note show            \n\r", ch );
-        send_to_actor( "        note clear           \n\r", ch );
-        send_to_actor( "        note anonymous       \n\r", ch );
+        to_actor( "Syntax: note list            \n\r", ch );
+        to_actor( "        note <num>           \n\r", ch );
+        to_actor( "        note remove <num>    \n\r", ch );
+        to_actor( "        note delete <num>    \n\r\n\r", ch );
+        to_actor( "Syntax: note to <person(s)|all|immort>\n\r", ch );
+        to_actor( "        note subject <text>  \n\r", ch );
+        to_actor( "        note write           \n\r", ch );
+        to_actor( "        note post            \n\r", ch );
+        to_actor( "        note show            \n\r", ch );
+        to_actor( "        note clear           \n\r", ch );
+        to_actor( "        note anonymous       \n\r", ch );
         if ( IS_IMMORTAL(ch) )
-        send_to_actor( "        note digest - make a digest of notes\n\r", ch );
+        to_actor( "        note digest - make a digest of notes\n\r", ch );
         return;
     }
    
@@ -492,7 +492,7 @@ void cmd_note( PLAYER *ch, char *argument )
     
     if ( prop == NULL ) 
     {
-        send_to_actor( "There is no board here.\n\r", ch );
+        to_actor( "There is no board here.\n\r", ch );
         return;
     }
     bnum = prop->value[0];
@@ -501,7 +501,7 @@ void cmd_note( PLAYER *ch, char *argument )
     {
         if ( !is_number( argument ) )
         {
-            send_to_actor( "Note remove which number?\n\r", ch );
+            to_actor( "Note remove which number?\n\r", ch );
             return;
         }
  
@@ -514,12 +514,12 @@ void cmd_note( PLAYER *ch, char *argument )
                 note_remove( ch, pnote, bnum ); 
                 save_board( bnum );
                 act( "$n tears a note off $p and crumples it up.", ch, prop, NULL, TO_SCENE );
-                send_to_actor( "Note removed.\n\r", ch );
+                to_actor( "Note removed.\n\r", ch );
                 return;
         }
         }
  
-        send_to_actor( "No such note.\n\r", ch );
+        to_actor( "No such note.\n\r", ch );
         return;
     }
 
@@ -528,7 +528,7 @@ void cmd_note( PLAYER *ch, char *argument )
         dbkey = 1;
         snprintf( buf, MAX_STRING_LENGTH, "The following notes are on the %s board:\n\r", 
                       board_table[bnum].name );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         for ( pnote = note_list[bnum]; pnote != NULL; pnote = pnote->next )
           {
             if ( is_note_to( ch, bnum, pnote ) )
@@ -544,7 +544,7 @@ void cmd_note( PLAYER *ch, char *argument )
     }
     }
         if ( buf1[0] == '\0' ) sprintf( buf1, "None.\n\r" );
-        send_to_actor( buf1, ch );
+        to_actor( buf1, ch );
         act( "$n looks over the notes on $p.", ch, prop, NULL, TO_SCENE );
         return;
     }
@@ -590,18 +590,18 @@ void cmd_note( PLAYER *ch, char *argument )
                     strcat( buf1, pnote->text );
 
                     PC(ch,last_note) = UMAX( PC(ch,last_note ), pnote->date_stamp );
-                    send_to_actor( buf1, ch );
+                    to_actor( buf1, ch );
                     act( "$n studies a note on $p for a while.", ch, prop, NULL, TO_SCENE );
                     return;
                 }
                 else dbkey++;
             }
-            send_to_actor( "You have no unread notes.\n\r", ch );
+            to_actor( "You have no unread notes.\n\r", ch );
             return;
         }
         else
         {
-            send_to_actor( "Note read which number?\n\r", ch );
+            to_actor( "Note read which number?\n\r", ch );
             return;
         }
  
@@ -627,7 +627,7 @@ void cmd_note( PLAYER *ch, char *argument )
             }
         }
  
-        send_to_actor( "No such note.\n\r", ch );
+        to_actor( "No such note.\n\r", ch );
         return;
     }
  
@@ -685,7 +685,7 @@ void cmd_note( PLAYER *ch, char *argument )
 
         if (buf1[0] == '\0')
         {
-            send_to_actor( "No notes to digest.\n\r", ch );
+            to_actor( "No notes to digest.\n\r", ch );
             return;
         }
 
@@ -706,7 +706,7 @@ void cmd_note( PLAYER *ch, char *argument )
 
         ch->pnote       = NULL;
         save_board( bnum );
-        send_to_actor( "Digested.\n\r", ch );
+        to_actor( "Digested.\n\r", ch );
         return;
     }
 
@@ -723,7 +723,7 @@ void cmd_note( PLAYER *ch, char *argument )
         note_attach( ch );
         free_string( ch->pnote->subject );
         ch->pnote->subject = str_dup( argument );
-        if ( ch->desc->connected <= NET_PLAYING ) send_to_actor( "Ok.\n\r", ch );
+        if ( ch->desc->connected <= NET_PLAYING ) to_actor( "Ok.\n\r", ch );
         return;
     }
  
@@ -732,7 +732,7 @@ void cmd_note( PLAYER *ch, char *argument )
         note_attach( ch );
         free_string( ch->pnote->to_list );
         ch->pnote->to_list = string_proper( str_dup(argument) );
-        if ( ch->desc->connected <= NET_PLAYING ) send_to_actor( "Ok.\n\r", ch );
+        if ( ch->desc->connected <= NET_PLAYING ) to_actor( "Ok.\n\r", ch );
         return;
     }
  
@@ -750,7 +750,7 @@ void cmd_note( PLAYER *ch, char *argument )
             ch->pnote           = NULL;
         }
  
-        send_to_actor( "Ok.\n\r", ch );
+        to_actor( "Ok.\n\r", ch );
         return;
     }
  
@@ -758,7 +758,7 @@ void cmd_note( PLAYER *ch, char *argument )
     {
         if ( ch->pnote == NULL )
         {
-            send_to_actor( "You have no note in progress.\n\r", ch );
+            to_actor( "You have no note in progress.\n\r", ch );
             return;
         }
  
@@ -767,21 +767,21 @@ void cmd_note( PLAYER *ch, char *argument )
                                                           : ch->pnote->sender,
             ch->pnote->subject,
             ch->pnote->to_list );
-        send_to_actor( buf, ch );
-        send_to_actor( ch->pnote->text, ch );
+        to_actor( buf, ch );
+        to_actor( ch->pnote->text, ch );
         return;
     }
   
     if ( IS_IMMORTAL(ch) && !str_prefix( arg, "email" ) ) {
         if ( ch->pnote == NULL )
         {
-            send_to_actor( "You have no note in progress.\n\r", ch );
+            to_actor( "You have no note in progress.\n\r", ch );
             return;
         }
  
         if ( !str_cmp( ch->pnote->to_list, "" ) )
         {
-            send_to_actor(
+            to_actor(
               "You need to provide an email recipient (who@domain).\n\r",
                          ch );
             return;
@@ -789,14 +789,14 @@ void cmd_note( PLAYER *ch, char *argument )
  
         if ( !str_cmp( ch->pnote->subject, "" ) )
         {
-            send_to_actor( "You need to provide a subject.\n\r", ch );
+            to_actor( "You need to provide a subject.\n\r", ch );
             return;
         }
 
         EMAIL(ch->pnote->to_list, ch->pnote->subject, ch->pnote->text);
-        send_to_actor( "Your email has been sent to ", ch );
-        send_to_actor( ch->pnote->to_list, ch );
-        send_to_actor( ".\n\r", ch );
+        to_actor( "Your email has been sent to ", ch );
+        to_actor( ch->pnote->to_list, ch );
+        to_actor( ".\n\r", ch );
         cmd_note( ch, "clear" );
         return; 
     }
@@ -807,19 +807,19 @@ void cmd_note( PLAYER *ch, char *argument )
 
         if ( !CAN_WRITE(ch, bnum) )
         {
-           send_to_actor( "It is impossible to to write any notes here.\n\r", ch );
+           to_actor( "It is impossible to to write any notes here.\n\r", ch );
            return;
         }
  
         if ( ch->pnote == NULL )
         {
-            send_to_actor( "You have no note in progress.\n\r", ch );
+            to_actor( "You have no note in progress.\n\r", ch );
             return;
         }
  
         if ( !str_cmp( ch->pnote->to_list, "" ) )
         {
-            send_to_actor(
+            to_actor(
               "You need to provide a recipient (name, all, or immortal).\n\r",
                          ch );
             return;
@@ -827,7 +827,7 @@ void cmd_note( PLAYER *ch, char *argument )
  
         if ( !str_cmp( ch->pnote->subject, "" ) )
         {
-            send_to_actor( "You need to provide a subject.\n\r", ch );
+            to_actor( "You need to provide a subject.\n\r", ch );
             return;
         }
  
@@ -850,13 +850,13 @@ void cmd_note( PLAYER *ch, char *argument )
         pnote           = ch->pnote;
         ch->pnote       = NULL;
         save_board( bnum );
-        if ( ch->desc->connected <= NET_PLAYING ) send_to_actor( "Ok.\n\r", ch );
+        if ( ch->desc->connected <= NET_PLAYING ) to_actor( "Ok.\n\r", ch );
         act( "$n tacks a note up on $p.", ch, prop, NULL, TO_SCENE );
         return;
     }
  
  
-    send_to_actor( "Huh?  Type 'help note' for usage.\n\r", ch );
+    to_actor( "Huh?  Type 'help note' for usage.\n\r", ch );
     return;
 }
 

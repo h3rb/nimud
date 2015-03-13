@@ -292,7 +292,7 @@ bool advance_skill( PLAYER *ch, SKILL *pSkill,
         if ( number_range( 0, 5 ) == 2 ) { exp_gain( ch, number_range( (ch->exp_level*2)/2, 100+ch->exp_level )/3, FALSE  ); }
 
         if ( number_range( 0, 30 ) == 2 ) { 
-                   send_to_actor( "Super skill bonus: ", ch );
+                   to_actor( "Super skill bonus: ", ch );
                    exp_gain( ch, number_range( (ch->exp_level*2) / 2, 100+ch->exp_level)/2, TRUE ); }
 
         /* Update group listing - check for slot lookup problems */
@@ -336,7 +336,7 @@ bool has_prereq( PLAYER *ch, SKILL *pSkill, bool fTell )
                 sprintf( buf,
                       "You have not yet achieved enough knowledge of %s.\n\r",
                       pSkill->name );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
             }
             ok = FALSE;
         }
@@ -346,35 +346,35 @@ bool has_prereq( PLAYER *ch, SKILL *pSkill, bool fTell )
     if ( get_curr_str( ch ) < pSkill->req_str )
     {
         if (fTell)
-        send_to_actor( "You are too feeble to train this skill.\n\r", ch );
+        to_actor( "You are too feeble to train this skill.\n\r", ch );
         ok = FALSE;
     }
 
     if ( get_curr_int( ch ) < pSkill->req_int )
     {
         if (fTell)
-        send_to_actor( "You fail to decipher the secrets of this skill.\n\r", ch );
+        to_actor( "You fail to decipher the secrets of this skill.\n\r", ch );
         ok = FALSE;
     }
 
     if ( get_curr_wis( ch ) < pSkill->req_wis )
     {
         if (fTell)
-        send_to_actor( "You lack the basic, logical understandings to study this skill.\n\r", ch );
+        to_actor( "You lack the basic, logical understandings to study this skill.\n\r", ch );
         ok = FALSE;
     }
 
     if ( get_curr_dex( ch ) < pSkill->req_dex )
     {
         if (fTell)
-        send_to_actor( "You are not quite agile enough to train this skill.\n\r", ch );
+        to_actor( "You are not quite agile enough to train this skill.\n\r", ch );
         ok = FALSE;
     }
 
     if ( get_curr_con( ch ) < pSkill->req_con )
     {
         if (fTell)
-        send_to_actor( "The rigorous training and practice of this skill would overcome your frailty.\n\r", ch );
+        to_actor( "The rigorous training and practice of this skill would overcome your frailty.\n\r", ch );
         ok = FALSE;
     }
 
@@ -477,7 +477,7 @@ void display_skills( PLAYER *ch, int group )
 
         }
         else
-        send_to_actor( "You do not know of that skill group.\n\r", ch );
+        to_actor( "You do not know of that skill group.\n\r", ch );
         return;
     }
 
@@ -545,7 +545,7 @@ void show_skills_list( PLAYER *ch, SKILL *pSkill ) {
             }
         }
 
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 }
 
 void show_skills( PLAYER *ch, SKILL *pSkill ) {
@@ -563,15 +563,15 @@ void show_skills( PLAYER *ch, SKILL *pSkill ) {
             sprintf( arg, "%20s/%3d ",
                      trunc_fit( pSkill->name, 20 ),
                      pSkill->skill_level );
-            send_to_actor( arg, ch );
+            to_actor( arg, ch );
             if ( col % 3 == 0 )
             {
-                send_to_actor( "\n\r", ch );
+                to_actor( "\n\r", ch );
                 col = 0;
             }
         }
 
-        if ( col % 3 != 0 )  send_to_actor( "\n\r", ch );
+        if ( col % 3 != 0 )  to_actor( "\n\r", ch );
         return;
 }
 
@@ -617,7 +617,7 @@ void cmd_skills( PLAYER *ch, char * argument )
         }
 
         if ( !rch ) {
-            send_to_actor( 
+            to_actor( 
 
 "You do not know anyone to teach you that here.\n\r", ch );
 
@@ -630,20 +630,20 @@ void cmd_skills( PLAYER *ch, char * argument )
 
 "You are an adept of %s.\n\r", pSkill->name );
 
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             return;
         }
 
         snprintf( buf, MAX_STRING_LENGTH, "You are %s in %s.\n\r",
                        skill_level(pSkill),
                        pSkill->name );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         snprintf( buf, MAX_STRING_LENGTH, 
 
 "You are apprenticed to %s.\n\r", NAME(rch) );
 
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         if ( pSkill->skill_time > 0 )
         {
@@ -653,10 +653,10 @@ void cmd_skills( PLAYER *ch, char * argument )
                  pSkill->skill_time > 10 ? "many" :
                  pSkill->skill_time > 5  ? "several" :
                  pSkill->skill_time > 2  ? "a few" : "a couple of" );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         }
         else
-        send_to_actor( 
+        to_actor( 
 
 "You may now learn more about that skill.\n\r", ch );
 
@@ -717,7 +717,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
 
         if ( !rch )
         {
-        send_to_actor( "There is no one here to teach you.\n\r", ch );
+        to_actor( "There is no one here to teach you.\n\r", ch );
         return;
         }
 
@@ -725,7 +725,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
 
         sprintf( buf2, "%s is offering the following apprenticeships:\n\r\n\r", 
                  capitalize(NAME(rch)) );
-        send_to_actor( buf2, ch );
+        to_actor( buf2, ch );
 
 
         /* crossreference - dont display where student is present */
@@ -739,18 +739,18 @@ void cmd_learn( PLAYER *ch,  char *argument )
         if ( !fFound && pSkill->cost != 0 ) {
         snprintf( buf, MAX_STRING_LENGTH, "     %s at %s per lesson.\n\r", 
                  capitalize(pSkill->name), name_amount(pSkill->cost) ); 
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         }
 
         }
 
-        send_to_actor( "\n\r", ch );
+        to_actor( "\n\r", ch );
 
         /* Show active apprenticeships. */
 
         sprintf( buf2, "  %s is teaching you:\n\r",
                  capitalize(HE_SHE(rch)) );
-        send_to_actor( buf2, ch );
+        to_actor( buf2, ch );
 
         /* Scan through list on player determining active apprenticeships */ 
 
@@ -761,7 +761,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
         if ( pSkill->skill_level >= pSkill->max_learn ) continue;
         snprintf( buf, MAX_STRING_LENGTH, "     %s at %s per lesson.\n\r", 
                  capitalize(pSkill->name), name_amount(pSkill->cost) ); 
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         fFound = TRUE;
         }
 
@@ -769,7 +769,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
 	{
         snprintf( buf, MAX_STRING_LENGTH, "  You are not yet apprenticed to %s.\n\r",
                  NAME(rch) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 		return;
 	}
         return;
@@ -781,7 +781,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
     
     if ( !( pSkill = skill_lookup( argument ) ) )
     {
-        send_to_actor( "There is no such skill.\n\r", ch );
+        to_actor( "There is no such skill.\n\r", ch );
         return;
     }
 
@@ -799,7 +799,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
 
     if ( !rch || !pTSkill )
     {
-    	send_to_actor( "There is no one here to teach you that here.\n\r", ch );
+    	to_actor( "There is no one here to teach you that here.\n\r", ch );
     	return;
     }
 
@@ -810,7 +810,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
 
     if ( tally_coins( ch ) < amount )
     {
-	send_to_actor( "You don't have enough money to learn that skill.\n\r", ch );
+	to_actor( "You don't have enough money to learn that skill.\n\r", ch );
 	return;
     }
 
@@ -824,7 +824,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
 
         if ( total >= RACE(race,max_skills) )
         {
-            send_to_actor( "You have achieved the maximum number of skills for your race.\n\r", ch );
+            to_actor( "You have achieved the maximum number of skills for your race.\n\r", ch );
             return;
         }
     }
@@ -848,7 +848,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
     * Can the student learn more from this instructor?
     */
     if ( pSSkill->skill_level > pTSkill->skill_level ) {
-         send_to_actor( "You can learn no more from this instructor.\n\r", ch );
+         to_actor( "You can learn no more from this instructor.\n\r", ch );
          return;
     }
 
@@ -863,7 +863,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
                  pSkill->skill_time > 10 ? "many" :
                  pSkill->skill_time > 5  ? "several" :
                  pSkill->skill_time > 2  ? "a few" : "a couple of" );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return;
         }
 
@@ -873,7 +873,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
      */
     snprintf( buf, MAX_STRING_LENGTH, "You receive %s in change.\n\r",
                  sub_coins( amount, ch ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
 
 
@@ -886,23 +886,23 @@ void cmd_learn( PLAYER *ch,  char *argument )
         pSSkill = update_skill(ch, pSkill->dbkey, 3);
         pSSkill->teacher = rch->pIndexData->dbkey;
         display_interp( ch, "^B" );
-        send_to_actor( "New skill bonus.\n\r", ch );
+        to_actor( "New skill bonus.\n\r", ch );
         display_interp( ch, "^N" );
     snprintf( buf, MAX_STRING_LENGTH, "You are now apprenticed in %s with %s.\n\r",
              pSSkill->name, NAME(rch) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     }
     else       /* If changing tutor... */
     if ( pSSkill->teacher != rch->pIndexData->dbkey )
     {
         snprintf( buf, MAX_STRING_LENGTH, "You have left the apprenticeship of your old mentor.\n\r" );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         pSSkill->teacher = rch->pIndexData->dbkey;
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "You learn %s from %s.\n\r",
              pSSkill->name, NAME(rch) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     /* improve the skill */
     update_skill( ch, pSkill->dbkey, 
        pSSkill->skill_level + number_range( 2, get_curr_wis(ch)/2 ) );
@@ -942,31 +942,31 @@ void cmd_train( PLAYER *ch, char *argument )
 
     if ( MTD( argument ) )
     {
-	send_to_actor( "Train who in which skill?\n\r", ch );
+	to_actor( "Train who in which skill?\n\r", ch );
 	return;
     }
     /* Huge amount of sanity checks... */
     argument = one_argument( argument, arg );
     if ( ( who = get_actor_scene( ch, arg ) ) == NULL )
     {
-	send_to_actor( "You can see no such creature here.\n\r", ch );
+	to_actor( "You can see no such creature here.\n\r", ch );
 	return;
     }
     if ( ( who == ch ) )
     {
-        send_to_actor( "Teaching yourself?\n\r", ch );
+        to_actor( "Teaching yourself?\n\r", ch );
         return;
     }
     /* Valid skill? */
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Train which skill?\n\r", ch );
+	to_actor( "Train which skill?\n\r", ch );
 	return;
     }
     if ( !(pSkill = skill_lookup( arg )) )
     {
-	send_to_actor( "There is no such skill.\n\r", ch );
+	to_actor( "There is no such skill.\n\r", ch );
 	return;
     }
 
@@ -977,7 +977,7 @@ void cmd_train( PLAYER *ch, char *argument )
     {
 	sprintf( arg, "You are not skilled enough in %s!\n\r",
 		pSkill->name );
-	send_to_actor( arg, ch );
+	to_actor( arg, ch );
 	return;
     }
 

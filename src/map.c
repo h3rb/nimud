@@ -1123,7 +1123,7 @@ void cmd_map (PLAYER *ch, char *argument)
 	
 	make_map (ch, x, y); // Create your map - most important part
 	show_map (ch, x, y); // Use the show_map routine to display it - can create different routines to suit taste or need
-        send_to_actor( "\n\r", ch );
+        to_actor( "\n\r", ch );
 	return;
 }
 
@@ -1247,23 +1247,23 @@ void show_map (PLAYER *ch, int xx, int yy)
 	mp->col = TRUE;
 	if (mp->border)  // draw top
 	{
-                send_to_actor( "     ", ch ); 
+                to_actor( "     ", ch ); 
                                 display_interp( ch, "^4" );
                                 display_interp( ch, "^-" );
-                send_to_actor( "+", ch );
+                to_actor( "+", ch );
                                 display_interp( ch, "^0" );
 		for (x = x_from; x <= x_to; x++)
-			send_to_actor ("-", ch);
+			to_actor ("-", ch);
                                 display_interp( ch, "^4" );
-		send_to_actor ("+", ch);
+		to_actor ("+", ch);
                                 display_interp( ch, "^N" );
 
 		if (mp->text) {
-                        send_to_actor( get_map_text(), ch );
-                        send_to_actor( "\n\r", ch );
+                        to_actor( get_map_text(), ch );
+                        to_actor( "\n\r", ch );
                     }
 		else
-			send_to_actor ("\n\r", ch);
+			to_actor ("\n\r", ch);
 	}
 
 	for (y = y_from; y <= y_to; y++)		
@@ -1318,42 +1318,42 @@ void show_map (PLAYER *ch, int xx, int yy)
 		{
 			if (mp->col == TRUE)
                              {
-                                send_to_actor( "     ", ch );
+                                to_actor( "     ", ch );
                                 display_interp( ch, "^-" );
                                 display_interp( ch, "^0" );
-                                send_to_actor( ">", ch );
-                                send_to_actor( buf, ch );
+                                to_actor( ">", ch );
+                                to_actor( buf, ch );
                                 display_interp( ch, "^N" );
                              }
 			else
                              {
-                                send_to_actor( "     ", ch );
+                                to_actor( "     ", ch );
                                 display_interp( ch, "^-" );
                                 display_interp( ch, "^0" );                              
-                                send_to_actor( ">", ch );
-                                send_to_actor( buf, ch );
+                                to_actor( ">", ch );
+                                to_actor( buf, ch );
                                 display_interp( ch, "^N" );
                              }
 
 			mp->col = TRUE;
 		}
-		else         {  send_to_actor( buf, ch );
+		else         {  to_actor( buf, ch );
                              }
 		// draw right
-		if (mp->text) { send_to_actor( get_map_text(), ch );
+		if (mp->text) { to_actor( get_map_text(), ch );
                                 display_interp( ch, "^-" );
                                 display_interp( ch, "^0" );
-			send_to_actor ( mp->border ? "<" : "", ch );
+			to_actor ( mp->border ? "<" : "", ch );
                                 display_interp( ch, "^N" );
-                        send_to_actor( "\n\r", ch );
+                        to_actor( "\n\r", ch );
                              }
 		else {
                                 display_interp( ch, "^-" );
                                 display_interp( ch, "^0" );
-                        if ( !HAS_ANSI(ch) ) send_to_actor( " ", ch ); 
-			send_to_actor ( mp->border ? "<" : "", ch );
+                        if ( !HAS_ANSI(ch) ) to_actor( " ", ch ); 
+			to_actor ( mp->border ? "<" : "", ch );
                                 display_interp( ch, "^N" );
-                        send_to_actor( "\n\r", ch );
+                        to_actor( "\n\r", ch );
                      }
 		
 		sprintf (buf, "%c", '\0');
@@ -1361,30 +1361,30 @@ void show_map (PLAYER *ch, int xx, int yy)
 	
 	if (mp->border)  // draw bottom
         {
-                send_to_actor ( "     ", ch );
+                to_actor ( "     ", ch );
                                 display_interp( ch, "^-" );
                                 display_interp( ch, "^4" );
-                send_to_actor( "+", ch );
+                to_actor( "+", ch );
                                 display_interp( ch, "^0" );
 		for (x = x_from; x <= x_to; x++)
-			send_to_actor ("-", ch);
+			to_actor ("-", ch);
 
                                 display_interp( ch, "^N" );
 		if (mp->text)
-			{ send_to_actor ( get_map_text(), ch);
-                          //send_to_actor ( "     ", ch );
+			{ to_actor ( get_map_text(), ch);
+                          //to_actor ( "     ", ch );
                                 display_interp( ch, "^-" );
                                 display_interp( ch, "^4" );
-                          send_to_actor( "+", ch );
+                          to_actor( "+", ch );
                                 display_interp( ch, "^N" );
-                          send_to_actor( "\n\r", ch ); 
+                          to_actor( "\n\r", ch ); 
                         }
 		else {
                                 display_interp( ch, "^-" );
                                 display_interp( ch, "^4" );
-			send_to_actor ("+", ch);
+			to_actor ("+", ch);
                                 display_interp( ch, "^N" );
-                          send_to_actor( "\n\r", ch ); 
+                          to_actor( "\n\r", ch ); 
                      }
 
 	}
@@ -1392,8 +1392,8 @@ void show_map (PLAYER *ch, int xx, int yy)
 	if (mp->text)
 	{
                                 display_interp( ch, "^N" );
-           send_to_actor( finish_map_text(), ch );
-           send_to_actor( "\n\r", ch );
+           to_actor( finish_map_text(), ch );
+           to_actor( "\n\r", ch );
 	}
                                 display_interp( ch, "^N" );
 	// We're done, so free the visits ( I know, it's done twice, but it's safer this way )

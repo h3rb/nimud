@@ -80,7 +80,7 @@ void cmd_smote( PLAYER *ch, char *argument )
 
     if ( MTD(argument) )
     {
-        send_to_actor( "Rp what?\n\r", ch );
+        to_actor( "Rp what?\n\r", ch );
         return;
     }
 
@@ -115,7 +115,7 @@ void cmd_smote( PLAYER *ch, char *argument )
 
     if ( MTD(argument) && MTP(p) )
     {
-	send_to_actor( "Invalid or missing argument.\n\r", ch );
+	to_actor( "Invalid or missing argument.\n\r", ch );
 	return;
     }
 	    
@@ -208,8 +208,8 @@ void cmd_immtalk( PLAYER *ch, char *argument )
         TOGGLE_BIT(ch->flag2, CHANNEL_IMMTALK);
 
         if ( IS_SET(ch->flag2, CHANNEL_IMMTALK) )
-             send_to_actor( "Immtalk on.\n\r", ch );
-        else send_to_actor( "Immtalk off.\n\r", ch );
+             to_actor( "Immtalk on.\n\r", ch );
+        else to_actor( "Immtalk off.\n\r", ch );
         return;
     }
 
@@ -243,7 +243,7 @@ void cmd_immtalk( PLAYER *ch, char *argument )
                    och==ch ? "You" :
                      can_see(och, ch) ? STR(ch,name) : "Someone", message,
                    HAS_ANSI(och) ? ANSI_NORMAL : "" );
-            send_to_actor( buf, och );
+            to_actor( buf, och );
         }
     }
 
@@ -270,8 +270,8 @@ void cmd_chat( PLAYER *ch, char *argument )
         TOGGLE_BIT(ch->flag2, CHANNEL_CHAT);
 
         if ( IS_SET(ch->flag2, CHANNEL_CHAT) )
-             send_to_actor( "Chat on.\n\r", ch );
-        else send_to_actor( "Chat off.\n\r", ch );
+             to_actor( "Chat on.\n\r", ch );
+        else to_actor( "Chat off.\n\r", ch );
         return;
     }
 
@@ -306,7 +306,7 @@ void cmd_chat( PLAYER *ch, char *argument )
                    och==ch ? "You" :
                      can_see(och, ch) ? STR(ch,name) : "Someone", message,
                    HAS_ANSI(och) ? ANSI_NORMAL : "" );
-            send_to_actor( buf, och );
+            to_actor( buf, och );
         }
     }
 
@@ -332,17 +332,17 @@ void cmd_reply(PLAYER *ch, char *argument )
     if ( arg[0] == '\0' )
     {
         if ( ch->reply ) {
-        send_to_actor( "Reply what to ", ch );
-        send_to_actor( NAME(ch->reply), ch );
-        send_to_actor( "?\n\r", ch );
+        to_actor( "Reply what to ", ch );
+        to_actor( NAME(ch->reply), ch );
+        to_actor( "?\n\r", ch );
         } else 
-        send_to_actor( "There is no one to reply to.  Use 'tell' to establish communication.\n\r", ch );
+        to_actor( "There is no one to reply to.  Use 'tell' to establish communication.\n\r", ch );
         return;
     }
 
     if ( ch->reply == NULL )
     {
-        send_to_actor( "There is no one to reply to.\n\r", ch );
+        to_actor( "There is no one to reply to.\n\r", ch );
         return;
     }
 
@@ -394,7 +394,7 @@ void cmd_tell( PLAYER *ch, char *argument )
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL  )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
@@ -449,13 +449,13 @@ void cmd_whisper( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' || argument[0] == '\0' )
     {
-        send_to_actor( "Whisper to whom what?\n\r", ch );
+        to_actor( "Whisper to whom what?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
@@ -507,8 +507,8 @@ void cmd_wish( PLAYER *ch, char *argument )
         TOGGLE_BIT(ch->flag2, CHANNEL_WISHES);
 
         if ( IS_SET(ch->flag2, CHANNEL_WISHES) )
-             send_to_actor( "Wishes on.\n\r", ch );
-        else send_to_actor( "Wishes off.\n\r", ch );
+             to_actor( "Wishes on.\n\r", ch );
+        else to_actor( "Wishes off.\n\r", ch );
         return;
     }
 
@@ -533,7 +533,7 @@ void cmd_wish( PLAYER *ch, char *argument )
                        och==ch ? ""    : "es",
                            message,
                     HAS_ANSI(och) ? ANSI_NORMAL : "" );
-                    send_to_actor( buf, och );
+                    to_actor( buf, och );
         }
     }
 
@@ -578,7 +578,7 @@ void shout( PLAYER *ch, PLAYER *rch, char *message, int dir )
                      check_speech( rch, ch, lang_table[ch->speaking].pgsn ) ),
                  HAS_ANSI(rch) ? ANSI_NORMAL : "" );
 
-    send_to_actor( buf, rch );
+    to_actor( buf, rch );
 
     return;
 }
@@ -597,7 +597,7 @@ void cmd_shout( PLAYER *ch, char *argument )
 
     if ( *argument == '\0' )
     {
-        send_to_actor( "Shout what?\n\r", ch );
+        to_actor( "Shout what?\n\r", ch );
         return;
     }
 
@@ -625,7 +625,7 @@ void say_to( PLAYER *ch, PLAYER *victim, char *argument )
 
     if ( argument[0] == '\0' )
     {
-        send_to_actor( "Say what?\n\r", ch );
+        to_actor( "Say what?\n\r", ch );
         return;
     }
 
@@ -768,7 +768,7 @@ void cmd_talk( PLAYER *ch, char *argument )
 
     if ( argument[0] == '\0' )
     {
-        send_to_actor( "Talk by saying what?\n\r", ch );
+        to_actor( "Talk by saying what?\n\r", ch );
         return;
     }
     /*
@@ -783,7 +783,7 @@ void cmd_talk( PLAYER *ch, char *argument )
 
     if ( ch->furniture == NULL )
     {
-        send_to_actor( "You aren't sitting at or on anything.\n\r", ch );
+        to_actor( "You aren't sitting at or on anything.\n\r", ch );
         cmd_say( ch, argument );
         return;
     }
@@ -909,12 +909,12 @@ void cmd_speak( PLAYER *ch, char *argument )
 
     if ( MTD(argument) )
     {
-        send_to_actor( "You know of the following languages:\n\r", ch );
+        to_actor( "You know of the following languages:\n\r", ch );
         for ( x = 0;  x < MAX_LANGUAGE; x++ )
         {
               if ( learned(ch,lang_table[x].pgsn) > 0 )
-{              send_to_actor( lang_table[x].name, ch );
-              send_to_actor( "\n\r", ch );}
+{              to_actor( lang_table[x].name, ch );
+              to_actor( "\n\r", ch );}
         }
         return;
     }
@@ -925,14 +925,14 @@ void cmd_speak( PLAYER *ch, char *argument )
           && (NPC(ch) || learned(ch,lang_table[x].pgsn) > 0) )
         {
             ch->speaking = x;
-            send_to_actor( "You now speak ", ch );
-            send_to_actor( lang_table[x].name, ch );
-            send_to_actor( ".\n\r", ch );
+            to_actor( "You now speak ", ch );
+            to_actor( lang_table[x].name, ch );
+            to_actor( ".\n\r", ch );
             return;
         }
     }
 
-    send_to_actor( "You know not of that language.\n\r", ch );
+    to_actor( "You know not of that language.\n\r", ch );
     return;
 }
 
@@ -947,13 +947,13 @@ void cmd_emote( PLAYER *ch, char *argument )
 
     if ( !NPC(ch) && IS_SET(ch->flag2, PLR_NO_EMOTE) )
     {
-        send_to_actor( "It is impossible to show your emotions.\n\r", ch );
+        to_actor( "It is impossible to show your emotions.\n\r", ch );
         return;
     }
 
     if ( argument[0] == '\0' )
     {
-        send_to_actor( "Emote what?\n\r", ch );
+        to_actor( "Emote what?\n\r", ch );
         return;
     }
 
@@ -989,7 +989,7 @@ void cmd_bug( PLAYER *ch, char *argument )
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
     append_file( ch, BUG_FILE, argument );
-    send_to_actor( "Ok.  Thanks.\n\r", ch );
+    to_actor( "Ok.  Thanks.\n\r", ch );
     return;
 }
 
@@ -1006,7 +1006,7 @@ void cmd_idea( PLAYER *ch, char *argument )
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
     append_file( ch, IDEA_FILE, argument );
-    send_to_actor( "Ok.  Thanks.\n\r", ch );
+    to_actor( "Ok.  Thanks.\n\r", ch );
     return;
 }
 
@@ -1023,7 +1023,7 @@ void cmd_typo( PLAYER *ch, char *argument )
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
     append_file( ch, TYPO_FILE, argument );
-    send_to_actor( "Ok.  Thanks.\n\r", ch );
+    to_actor( "Ok.  Thanks.\n\r", ch );
     return;
 }
 
@@ -1031,7 +1031,7 @@ void cmd_typo( PLAYER *ch, char *argument )
 
 void cmd_qui( PLAYER *ch, char *argument )
 {
-    send_to_actor( "If you want to QUIT, you have to spell it out.\n\r", ch );
+    to_actor( "If you want to QUIT, you have to spell it out.\n\r", ch );
     return;
 }
 
@@ -1052,13 +1052,13 @@ void cmd_quit( PLAYER *ch, char *argument )
 
     if ( ch->position == POS_FIGHTING )
     {
-        send_to_actor( "No way! You are fighting.\n\r", ch );
+        to_actor( "No way! You are fighting.\n\r", ch );
         return;
     }
 
     if ( ch->position  < POS_STUNNED  )
     {
-        send_to_actor( "You're not DEAD yet.\n\r", ch );
+        to_actor( "You're not DEAD yet.\n\r", ch );
         return;
     }
 
@@ -1068,7 +1068,7 @@ void cmd_quit( PLAYER *ch, char *argument )
     if ( IS_IMMORTAL( ch ) )
     {
         cmd_memory( ch, "" );
-        send_to_actor( "Closing connection . . .\n\r", ch );
+        to_actor( "Closing connection . . .\n\r", ch );
     }
 
     stop_idling( ch );
@@ -1107,11 +1107,11 @@ void cmd_save( PLAYER *ch, char *argument )
     save_contents();
     save_actor_prop( ch );
     if ( str_cmp( argument, "internal" ) ) {
-      send_to_actor( "Saved ", ch );
-      send_to_actor( NAME(ch), ch );
-      send_to_actor( ".\n\r", ch );
-      send_to_actor( "By the way, every time you type anything into the mud,\n\r", ch );
-      send_to_actor( "your character file is saved.\n\r", ch );
+      to_actor( "Saved ", ch );
+      to_actor( NAME(ch), ch );
+      to_actor( ".\n\r", ch );
+      to_actor( "By the way, every time you type anything into the mud,\n\r", ch );
+      to_actor( "your character file is saved.\n\r", ch );
      }
     return;
 }
@@ -1129,13 +1129,13 @@ void cmd_follow( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Follow whom?\n\r", ch );
+        to_actor( "Follow whom?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
@@ -1146,7 +1146,7 @@ void cmd_follow( PLAYER *ch, char *argument )
     }
 
     if ( ch->master == victim ) {
-       send_to_actor( "You are already following them.\n\r", ch );
+       to_actor( "You are already following them.\n\r", ch );
        return;
     }
 
@@ -1154,7 +1154,7 @@ void cmd_follow( PLAYER *ch, char *argument )
     {
         if ( ch->master == NULL )
         {
-            send_to_actor( "You already follow yourself.\n\r", ch );
+            to_actor( "You already follow yourself.\n\r", ch );
             return;
         }
         stop_follower( ch );
@@ -1319,13 +1319,13 @@ void cmd_order( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' || argument[0] == '\0' )
     {
-        send_to_actor( "Order whom to do what?\n\r", ch );
+        to_actor( "Order whom to do what?\n\r", ch );
         return;
     }
 
     if ( IS_AFFECTED( ch, BONUS_CHARM ) )
     {
-        send_to_actor( "You feel like taking, not giving, orders.\n\r", ch );
+        to_actor( "You feel like taking, not giving, orders.\n\r", ch );
         return;
     }
 
@@ -1339,20 +1339,20 @@ void cmd_order( PLAYER *ch, char *argument )
         fAll   = FALSE;
         if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
         {
-            send_to_actor( "They aren't here.\n\r", ch );
+            to_actor( "They aren't here.\n\r", ch );
             return;
         }
 
         if ( victim == ch )
         {
-            send_to_actor( "Aye aye, right away!\n\r", ch );
+            to_actor( "Aye aye, right away!\n\r", ch );
             return;
         }
 
         if ( ( !IS_AFFECTED(victim, BONUS_CHARM) && !IS_SET(victim->flag,ACTOR_PET) )
            || victim->master != ch )
         {
-            send_to_actor( "Do it yourself!\n\r", ch );
+            to_actor( "Do it yourself!\n\r", ch );
             return;
         }
     }
@@ -1411,7 +1411,7 @@ void cmd_order( PLAYER *ch, char *argument )
       && str_prefix( arg_cmd, "wield"  )
       && str_prefix( arg_cmd, "hold"   ) )
     {
-        send_to_actor( "It is impossible to order them to do that.\n\r", ch );
+        to_actor( "It is impossible to order them to do that.\n\r", ch );
         return;
     }
 
@@ -1431,9 +1431,9 @@ void cmd_order( PLAYER *ch, char *argument )
     }
 
     if ( found )
-    send_to_actor( "Ok.\n\r", ch );
+    to_actor( "Ok.\n\r", ch );
     else
-    send_to_actor( "You have no followers here.\n\r", ch );
+    to_actor( "You have no followers here.\n\r", ch );
     return;
 }
 
@@ -1455,7 +1455,7 @@ void cmd_monitor( PLAYER *ch, char *argument )
 
    if ( arg[0] == '\0' ) {
        if ( ch->monitor == NULL ) {
-           send_to_actor( "You aren't monitoring anybody.\n\r", ch );
+           to_actor( "You aren't monitoring anybody.\n\r", ch );
            display_interp( ch, "^N" );
            return;
        }
@@ -1474,18 +1474,18 @@ void cmd_monitor( PLAYER *ch, char *argument )
 
    victim = get_actor_scene( ch, arg );
    if ( victim == ch ) {
-       send_to_actor( "You already monitor yourself.\n\r", ch );
+       to_actor( "You already monitor yourself.\n\r", ch );
        display_interp( ch, "^N" );
        return;
    }
    if ( victim == NULL )
    {
-       send_to_actor( "Monitor who?\n\r", ch );
+       to_actor( "Monitor who?\n\r", ch );
        display_interp( ch, "^N" );
        return;
    }
    if ( !in_group( ch, victim ) ) {
-            send_to_actor( "You aren't grouped with them.\n\r", ch );
+            to_actor( "You aren't grouped with them.\n\r", ch );
             display_interp( ch, "^N" );
             return;
         }
@@ -1513,7 +1513,7 @@ void cmd_gtell( PLAYER *ch, char *argument )
 
    if ( *argument == '\0' )
    {
-        send_to_actor( "Gtell what?\n\r", ch );
+        to_actor( "Gtell what?\n\r", ch );
         return;
    }
 
@@ -1589,18 +1589,18 @@ void cmd_group( PLAYER *ch, char *argument )
         }
 
         if ( fGroup ) {
-            if ( ch->leader == NULL ) send_to_actor( "Your group:\n\r\n\r", ch );
+            if ( ch->leader == NULL ) to_actor( "Your group:\n\r\n\r", ch );
             else act( "$n's group:\n\r", ch->leader, NULL, ch, TO_VICT );
-            send_to_actor( arg, ch );
+            to_actor( arg, ch );
         }
-        else send_to_actor( "You are grouped with no one.\n\r", ch );
+        else to_actor( "You are grouped with no one.\n\r", ch );
         display_interp( ch, "^N" );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         display_interp( ch, "^N" );
         return;
     }
@@ -1672,13 +1672,13 @@ void cmd_dismiss( PLAYER *ch, char *argument ) {
 
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Dismiss whom?\n\r", ch );
+        to_actor( "Dismiss whom?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 

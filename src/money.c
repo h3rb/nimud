@@ -516,9 +516,9 @@ void cmd_money( PLAYER *ch, char *argument )
      int worth=tally_coins(ch);
 
      if ( worth > 0 ) {
-      send_to_actor( "You have ", ch );
-      send_to_actor( name_amount( worth ), ch );
-      send_to_actor( ".\n\r", ch );
+      to_actor( "You have ", ch );
+      to_actor( name_amount( worth ), ch );
+      to_actor( ".\n\r", ch );
      }
      if ( ch->credits > 0 )
      var_to_actor( "Your ^6St^1^Bar^1^N^Bcard^N still has %d credits on it.\n\r", ch, ch->credits );

@@ -321,7 +321,7 @@ VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
    if ( t->type == TYPE_ACTOR ) {
         a=ACTOR(t->value);
         if ( a ) {
-            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
             return NULL;
         }
    }
@@ -330,7 +330,7 @@ VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
         s=SCENE(t->value);
         if ( s ) {
             for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
         }
    }
    else
@@ -340,11 +340,11 @@ VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
         } else
         if ( t ) {
             a=o->carried_by;
-            if ( a ) { send_to_actor( buf, a ); return NULL; }
+            if ( a ) { to_actor( buf, a ); return NULL; }
             s=o->in_scene;
             if ( s ) { 
              for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
             }
             o = o->in_prop;
             if ( o ) {
@@ -355,11 +355,11 @@ VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
                                                   LOWER(*_b) == 'r' ? ",right" : " ", SOUND_WEB, _n, "^N" );
 
              a=o->carried_by;
-             if ( a ) { send_to_actor( buf, a ); return NULL; }
+             if ( a ) { to_actor( buf, a ); return NULL; }
              s=o->in_scene;
              if ( s ) { 
                for ( a = s->people; a!=NULL; a=a->next ) 
-                 if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+                 if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
               }
             }
         }
@@ -371,7 +371,7 @@ VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
       } else
       if ( !str_cmp(_t,"me") ) {
         if (type==TYPE_ACTOR) {
-             send_to_actor( buf, a );
+             to_actor( buf, a );
         }
       } else
       if ( !str_cmp(_t,"all") ) {
@@ -410,7 +410,7 @@ VARIABLE *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
    if ( t->type == TYPE_ACTOR ) {
         a=ACTOR(t->value);
         if ( a ) {
-            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
             return NULL;
         }
    }
@@ -419,7 +419,7 @@ VARIABLE *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
         s=SCENE(t->value);
         if ( s ) {
             for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
         }
    }
    else
@@ -429,11 +429,11 @@ VARIABLE *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
         } else
         if ( t ) {
             a=o->carried_by;
-            if ( a ) { send_to_actor( buf, a ); return NULL; }
+            if ( a ) { to_actor( buf, a ); return NULL; }
             s=o->in_scene;
             if ( s ) { 
              for ( a = s->people; a!=NULL; a=a->next ) 
-            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+            if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
             }
             o = o->in_prop;
             if ( o ) {
@@ -444,11 +444,11 @@ VARIABLE *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
                                                   LOWER(*_b) == 'r' ? ",right" : " ", SOUND_WEB, _n, NTEXT );
 
              a=o->carried_by;
-             if ( a ) { send_to_actor( buf, a ); return NULL; }
+             if ( a ) { to_actor( buf, a ); return NULL; }
              s=o->in_scene;
              if ( s ) { 
                for ( a = s->people; a!=NULL; a=a->next ) 
-                 if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) send_to_actor( buf, a );
+                 if ( !NPC(a) && IS_SET(a->flag2,PLR_MSP) ) to_actor( buf, a );
               }
             }
         }
@@ -1318,11 +1318,11 @@ VARIABLE *func_echo( void * owner, int type, VARIABLE *target,
 
     if ( rch ) {
       display_interp( rch, capitalize(p) );
-      send_to_actor( "\n\r", rch );
+      to_actor( "\n\r", rch );
     } else
     if ( pScene ) 
     for ( rch = pScene->people; rch != NULL; rch = rch->next_in_scene ) 
-     { display_interp( rch, capitalize(p) ); send_to_actor( "\n\r", rch ); } 
+     { display_interp( rch, capitalize(p) ); to_actor( "\n\r", rch ); } 
     return NULL;
 }
 
@@ -1364,7 +1364,7 @@ VARIABLE *func_oecho( void * owner, int type, VARIABLE *target,
           rch != NULL;
           rch = rch->next_in_scene ) {
      if ( rch != nch ) { display_interp( rch, p ); 
-                        send_to_actor( "\n\r", rch ); }
+                        to_actor( "\n\r", rch ); }
     }
     return NULL;
 }
@@ -1561,7 +1561,7 @@ VARIABLE *func_broadcast( void * owner, int type, VARIABLE *out )
     if ( p->pIndexData->dbkey != dbkey ) continue;
 
     if ( p->carried_by != NULL ) {
-         send_to_actor( _out, p->carried_by );
+         to_actor( _out, p->carried_by );
          return NULL;
     }
 
@@ -1570,7 +1570,7 @@ VARIABLE *func_broadcast( void * owner, int type, VARIABLE *out )
            for ( rch = pScene->people;
                  rch != NULL;
                  rch = rch->next_in_scene )
-             send_to_actor( _out, rch );
+             to_actor( _out, rch );
     }
 
     }
@@ -1740,8 +1740,8 @@ VARIABLE *func_dream( void * owner, int type, VARIABLE *out )
           && d->character->in_scene->zone == pZone 
           && d->character->position == POS_SLEEPING )
         {
-            send_to_actor( _out, d->character );
-            send_to_actor( "\n\r",   d->character );
+            to_actor( _out, d->character );
+            to_actor( "\n\r",   d->character );
         }
     }
 }
@@ -2260,7 +2260,7 @@ VARIABLE *func_hurt( void * owner, int type, VARIABLE *target,
                      dam,
                      rch != ch ? STR(ch,name)[0] : '*',
                      rch != ch ? STR(ch,name)[1] : '*' );
-            send_to_actor( buf, rch );
+            to_actor( buf, rch );
         }
     }
 
@@ -2660,7 +2660,7 @@ VARIABLE *func_charge( void * owner, int type, VARIABLE *target,
     snprintf( buf, MAX_STRING_LENGTH, "You pay.\n\r" );
     else
     snprintf( buf, MAX_STRING_LENGTH, "You pay and receive %s in change.\n\r", p );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     RETURNS(TYPE_STRING,str_dup("1"));
 }

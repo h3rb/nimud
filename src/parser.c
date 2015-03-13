@@ -470,7 +470,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s | %dk %dgp %dxp\n\r", 
                          pActor->dbkey, pActor->short_descr,
                          pActor->karma, pActor->money, pActor->exp );
-              send_to_actor( buf, ch );
+              to_actor( buf, ch );
            }
         }
     }
@@ -485,7 +485,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
               snprintf( buf, MAX_STRING_LENGTH, "A[%d] %s (%s)\n\r", 
                          pActor->dbkey, pActor->short_descr, 
                          pActor->instances->script->name );
-              send_to_actor( buf, ch );
+              to_actor( buf, ch );
            }
         }
     }
@@ -501,7 +501,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
               snprintf( buf, MAX_STRING_LENGTH, "P[%d] %s (%s)\n\r", 
                          pProp->dbkey, pProp->short_descr, 
                          pProp->instances->script->name );
-              send_to_actor( buf, ch );
+              to_actor( buf, ch );
            }
         }
     }
@@ -516,7 +516,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to AC bonus) %s\n\r", 
                          pProp->dbkey, pProp->short_descr, pProp->value[1],
                          wear_bit_name(pProp->wear_flags) );
-              send_to_actor( buf, ch );
+              to_actor( buf, ch );
            }
         }
     }
@@ -531,7 +531,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to AC bonus) %s\n\r", 
                          pProp->dbkey, pProp->short_descr, pProp->value[0],
                          wear_bit_name(pProp->wear_flags) );
-              send_to_actor( buf, ch );
+              to_actor( buf, ch );
            }
         }
     }
@@ -546,7 +546,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
               snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to %d) %s\n\r", 
                          pProp->dbkey, pProp->short_descr, pProp->value[1],
                          pProp->value[2], attack_table[pProp->value[3]].name );
-              send_to_actor( buf, ch );
+              to_actor( buf, ch );
            }
         }
     }
@@ -570,10 +570,10 @@ void cmd_comlist( PLAYER *ch, char *argument )
     {
         if ( command_table[cmd].level == -2 )
         {
-             send_to_actor( "\n\r", ch );
+             to_actor( "\n\r", ch );
              display_interp( ch, "^B" );
-             send_to_actor( command_table[cmd].name, ch );
-             send_to_actor( "\n\r", ch );
+             to_actor( command_table[cmd].name, ch );
+             to_actor( "\n\r", ch );
              display_interp( ch, "^N" );
         }
         else {
@@ -619,7 +619,7 @@ void interpret( PLAYER *ch, char *argument )
      */
     if ( !NPC(ch) && IS_SET(ch->flag, PLR_FREEZE) )
     {
-    send_to_actor( "You are encased in a solid block of ice.\n\r", ch );
+    to_actor( "You are encased in a solid block of ice.\n\r", ch );
 	return;
     }
 
@@ -647,7 +647,7 @@ void interpret( PLAYER *ch, char *argument )
 
         if ( strlen( buf ) + strlen( cmmnd ) >= ( MAX_STRING_LENGTH - 4 ) )
         {
-            send_to_actor( "Script too long, truncating.\n\r", ch );
+            to_actor( "Script too long, truncating.\n\r", ch );
             strncat( buf, cmmnd, MAX_STRING_LENGTH );
             free_string( trace->commands );
             trace->commands = str_dup( buf );
@@ -658,8 +658,8 @@ void interpret( PLAYER *ch, char *argument )
             strcat( buf, cmmnd );
             free_string( trace->commands );
             trace->commands = str_dup( buf );
-            send_to_actor( "TRACE --->  ", ch );
-            send_to_actor( cmmnd, ch );
+            to_actor( "TRACE --->  ", ch );
+            to_actor( cmmnd, ch );
         }
     }
 
@@ -852,16 +852,16 @@ void interpret( PLAYER *ch, char *argument )
    	&&   !imc_command_hook( ch, command, argument ) 
 #endif
            ) {
-          send_to_actor( original, ch );
-          send_to_actor( ": ", ch );
+          to_actor( original, ch );
+          to_actor( ": ", ch );
          switch( number_range(0,6) ) {
-	case 0:   send_to_actor( "I don't understand.\n\r", ch ); break;
-	case 1:   send_to_actor( "Perhaps you typed a myth-nomer?\n\r", ch ); break;
-	case 2:   send_to_actor( "What?\n\r", ch ); break;
-	case 3:   send_to_actor( "Please explain in a different way.\n\r", ch ); break;
-	case 4:   send_to_actor( "Qu'est-ce-que c'est?\n\r", ch ); break;
-        case 5:   send_to_actor( "Huh?\n\r", ch ); break;
-          default:  send_to_actor( "I don't think I can do that.\n\r", ch ); break;
+	case 0:   to_actor( "I don't understand.\n\r", ch ); break;
+	case 1:   to_actor( "Perhaps you typed a myth-nomer?\n\r", ch ); break;
+	case 2:   to_actor( "What?\n\r", ch ); break;
+	case 3:   to_actor( "Please explain in a different way.\n\r", ch ); break;
+	case 4:   to_actor( "Qu'est-ce-que c'est?\n\r", ch ); break;
+        case 5:   to_actor( "Huh?\n\r", ch ); break;
+          default:  to_actor( "I don't think I can do that.\n\r", ch ); break;
              }
 	}
         return;
@@ -874,29 +874,29 @@ void interpret( PLAYER *ch, char *argument )
 	switch( ch->position )
 	{
 	case POS_DEAD:
-            send_to_actor( "You're dead, you aren't able move.\n\r", ch );
+            to_actor( "You're dead, you aren't able move.\n\r", ch );
 	    break;
 
 	case POS_MORTAL:
 	case POS_INCAP:
-	    send_to_actor( "You are hurt far too bad for that.\n\r", ch );
+	    to_actor( "You are hurt far too bad for that.\n\r", ch );
 	    break;
 
 	case POS_STUNNED:
-	    send_to_actor( "You are too stunned to do that.\n\r", ch );
+	    to_actor( "You are too stunned to do that.\n\r", ch );
 	    break;
 
 	case POS_SLEEPING:
-            send_to_actor( "You are asleep, off in dreamland.\n\r", ch );
+            to_actor( "You are asleep, off in dreamland.\n\r", ch );
 	    break;
 
     case POS_SITTING:
 	case POS_RESTING:
-            send_to_actor( "You'll have to stand up first.\n\r", ch);
+            to_actor( "You'll have to stand up first.\n\r", ch);
 	    break;
 
 	case POS_FIGHTING:
-            send_to_actor( "You are in the middle of combat!\n\r", ch);
+            to_actor( "You are in the middle of combat!\n\r", ch);
 	    break;
 
 	}
@@ -940,23 +940,23 @@ bool check_social( PLAYER *ch, char *command, char *argument )
 
     if ( !NPC(ch) && IS_SET(ch->flag2, PLR_NO_EMOTE) )
     {
-	send_to_actor( "You are anti-social!\n\r", ch );
+	to_actor( "You are anti-social!\n\r", ch );
 	return TRUE;
     }
 
     switch ( ch->position )
     {
     case POS_DEAD:
-        send_to_actor( "You're dead, you aren't able move.\n\r", ch );
+        to_actor( "You're dead, you aren't able move.\n\r", ch );
 	return TRUE;
 
     case POS_INCAP:
     case POS_MORTAL:
-	send_to_actor( "You are hurt far too bad for that.\n\r", ch );
+	to_actor( "You are hurt far too bad for that.\n\r", ch );
 	return TRUE;
 
     case POS_STUNNED:
-	send_to_actor( "You are too stunned to do that.\n\r", ch );
+	to_actor( "You are too stunned to do that.\n\r", ch );
     return TRUE;
 
     case POS_SLEEPING:
@@ -966,7 +966,7 @@ bool check_social( PLAYER *ch, char *command, char *argument )
 	 */
 	if ( !str_cmp( social_table[cmd].name, "snore" ) )
 	    break;
-        send_to_actor( "You are asleep, off in dreamland.\n\r", ch );
+        to_actor( "You are asleep, off in dreamland.\n\r", ch );
 	return TRUE;
 
     }
@@ -980,7 +980,7 @@ bool check_social( PLAYER *ch, char *command, char *argument )
     }
     else if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-	send_to_actor( "They aren't here.\n\r", ch );
+	to_actor( "They aren't here.\n\r", ch );
     }
     else if ( victim == ch )
     {

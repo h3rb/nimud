@@ -256,7 +256,7 @@ void cmd_events( PLAYER *ch, char *argument ) {
     char buf[MAX_STRING_LENGTH];
     EVENT *pEvent;
 
-    send_to_actor( "Current events:\n\r", ch );
+    to_actor( "Current events:\n\r", ch );
     for ( pEvent = event_queue;   pEvent != NULL;   pEvent = pEvent->next ) {
 
           pActor = NULL;
@@ -277,7 +277,7 @@ void cmd_events( PLAYER *ch, char *argument ) {
                (pProp ? STR(pProp,short_descr) : 
                (pScene ? pScene->name : "" )), pEvent->instance->script->name );
  
-          send_to_actor( buf, ch );
+          to_actor( buf, ch );
     } 
 
     return;

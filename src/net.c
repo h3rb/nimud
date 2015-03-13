@@ -133,7 +133,7 @@ time_t          current_time;           /* Time of this pulse            */
 int             packet[60];             /* Communication packet info     */
 int             byte_count;             /* Bytes sent.                   */
 int             packet_count;           /* Packets sent.                 */
-bool            QUIET_STC = FALSE;      /* If true, send_to_actors abort  */
+bool            QUIET_STC = FALSE;      /* If true, to_actors abort  */
 
 extern int num_hour;
 
@@ -1381,35 +1381,35 @@ void read_from_buffer( CONNECTION *d )
 void gen_bar_graph( PLAYER *ch, int percent ) {
    int filler = percent-100;
 
-   if ( HAS_ANSI(ch) ) send_to_actor( INVERSE, ch );
-   send_to_actor( "[ ", ch );
+   if ( HAS_ANSI(ch) ) to_actor( INVERSE, ch );
+   to_actor( "[ ", ch );
    
    while ( percent > 0 ) { 
       percent -= 10;   
       if ( HAS_ANSI(ch) ) {
-      if ( percent > 80 ) { send_to_actor( RED, ch ); }
+      if ( percent > 80 ) { to_actor( RED, ch ); }
       else if ( percent > 60 ) 
-                          { send_to_actor( RED, ch ); }
+                          { to_actor( RED, ch ); }
       else if ( percent > 40 )
-                          { send_to_actor( YELLOW, ch );  }
+                          { to_actor( YELLOW, ch );  }
       else if ( percent > 20 )
-                          { send_to_actor( CYAN, ch ); }
-      else                { send_to_actor( BLUE, ch ); }
+                          { to_actor( CYAN, ch ); }
+      else                { to_actor( BLUE, ch ); }
       }
-      send_to_actor( "  ", ch );
+      to_actor( "  ", ch );
    }
 
-   if ( HAS_ANSI(ch) ) send_to_actor( NTEXT, ch );
-   if ( HAS_ANSI(ch) ) send_to_actor( INVERSE, ch );
+   if ( HAS_ANSI(ch) ) to_actor( NTEXT, ch );
+   if ( HAS_ANSI(ch) ) to_actor( INVERSE, ch );
 
    while ( filler < 0 ) {
-      if ( HAS_ANSI(ch) ) send_to_actor( "  ", ch );
-      else send_to_actor( "[]", ch );
+      if ( HAS_ANSI(ch) ) to_actor( "  ", ch );
+      else to_actor( "[]", ch );
       filler +=10;
    }
 
-   send_to_actor( "]", ch );
-   if ( HAS_ANSI(ch) ) send_to_actor( NTEXT, ch );
+   to_actor( "]", ch );
+   if ( HAS_ANSI(ch) ) to_actor( NTEXT, ch );
    return;   
 }
 
@@ -1423,7 +1423,7 @@ void display_interp(PLAYER *ch, const char * str )
    const char *i="";
    char *p;
 
-   if ( NPC(ch) ) { /*send_to_actor( str, ch );*/ return; }
+   if ( NPC(ch) ) { /*to_actor( str, ch );*/ return; }
 
 //   ansi_color( NTEXT, ch );
 //   ansi_color( default_color_variable_di, ch );  /* NEEDS FIXED */
@@ -1610,7 +1610,7 @@ void display_prompt( PLAYER *ch )
 {
    if( ch->prompt == NULL || ch->prompt[0] == '\0' )
    {
-      send_to_actor( "\n\r\n\r", ch );
+      to_actor( "\n\r\n\r", ch );
       return;
    }
 
@@ -1957,7 +1957,7 @@ void stop_idling( PLAYER *ch )
 /*
  * Write to one char.
  */
-void send_to_actor( const char *txt, PLAYER *ch )
+void to_actor( const char *txt, PLAYER *ch )
 {
     if ( QUIET_STC != TRUE
       && txt != NULL
@@ -2147,7 +2147,7 @@ void clrscr( PLAYER *ch )
 
       if ( IS_SET(ch->flag2,PLR_CLRSCR ) )
       {
-     send_to_actor( CLRSCR, ch );
+     to_actor( CLRSCR, ch );
      return;
       }
     return;
@@ -2168,8 +2168,8 @@ void global( char *buf, int level, int toggler, int toggler2 )
         && IS_SET(d->character->flag, toggler)
         && IS_SET(d->character->flag, toggler2) )
       {
-         send_to_actor( buf, d->character );
-         send_to_actor( "\n\r", d->character );
+         to_actor( buf, d->character );
+         to_actor( "\n\r", d->character );
       }
     }
 }
@@ -2191,7 +2191,7 @@ void cmd_global( PLAYER *ch, char *argument )
 {
     if ( argument[0] == '\0' )
     {
-	send_to_actor( "Global what?\n\r", ch );
+	to_actor( "Global what?\n\r", ch );
 	return;
     }
 
@@ -2361,7 +2361,7 @@ void act( const char *format, PLAYER *ch, const void *arg1, const void *arg2, in
     {
         char *z;
         z = format_string( str_dup( ansi_uppercase( buf ) ) );
-        send_to_actor( z, to ); 
+        to_actor( z, to ); 
         free_string( z );
     }
 
@@ -2425,5 +2425,5 @@ void var_to_actor (char * fmt, PLAYER *ch, ...)
         vsprintf (buf, fmt, args);
         va_end (args);
 
-        send_to_actor (buf, ch);
+        to_actor (buf, ch);
 }

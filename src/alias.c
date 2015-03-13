@@ -106,21 +106,21 @@ void cmd_alias( PLAYER *ch, char *argument )
      if ( !IS_SET(ch->flag2, PLR_ALIASES) )
      {
      SET_BIT(ch->flag2,PLR_ALIASES);
-     send_to_actor( "Aliases enabled.\n\r", ch );
+     to_actor( "Aliases enabled.\n\r", ch );
      }
 
      if ( arg[0] == '\0' || !str_cmp( arg, "list" ) ) {
      int count=0;
-     send_to_actor("Aliased commands:\n\r", ch );
+     to_actor("Aliased commands:\n\r", ch );
      for ( alias=PC(ch,aliases); alias!=NULL; alias=alias->next ) {
-          send_to_actor( alias->name, ch );
-          send_to_actor( " -> ", ch );
-          send_to_actor( alias->exp, ch );
-          send_to_actor( "\n\r", ch ); count++;
+          to_actor( alias->name, ch );
+          to_actor( " -> ", ch );
+          to_actor( alias->exp, ch );
+          to_actor( "\n\r", ch ); count++;
      }
      snprintf( arg, MAX_STRING_LENGTH, "%d aliases\n\r", count );
-     if ( count == 0 ) send_to_actor( "none\n\r", ch );
-       else send_to_actor( arg, ch );
+     if ( count == 0 ) to_actor( "none\n\r", ch );
+       else to_actor( arg, ch );
      return;
      }
   
@@ -128,19 +128,19 @@ void cmd_alias( PLAYER *ch, char *argument )
        ALIAS *alias_next;
        for ( alias=PC(ch,aliases); alias!=NULL; alias=alias_next ) { alias_next = alias->next; free_alias(alias); }
        PC(ch,aliases)=NULL;
-       send_to_actor( "Cleared.\n\r", ch );
+       to_actor( "Cleared.\n\r", ch );
        return;
      }
 
      if ( !str_cmp( arg, "off" ) ) {
-     send_to_actor( "Aliases disabled.\n\r", ch );
+     to_actor( "Aliases disabled.\n\r", ch );
      REMOVE_BIT(ch->flag2,PLR_ALIASES);
      return;
      }
 
      if ( (alias = find_alias( ch, arg ) ) == NULL ) {
      add_alias( ch, arg, argument );     
-     send_to_actor( "Alias added.\n\r", ch );
+     to_actor( "Alias added.\n\r", ch );
      return;
      }
 
@@ -149,7 +149,7 @@ void cmd_alias( PLAYER *ch, char *argument )
      {
         ALIAS *prev;
         alias = find_alias(ch,arg);
-        if ( !alias ) send_to_actor( "Couldn't find that alias.\n\r", ch );
+        if ( !alias ) to_actor( "Couldn't find that alias.\n\r", ch );
         else {
             ALIAS *a;
             if ( alias == PC(ch,aliases) ) { PC(ch,aliases)=PC(ch,aliases)->next;  free_alias(alias); return; }
@@ -157,7 +157,7 @@ void cmd_alias( PLAYER *ch, char *argument )
             a=prev->next;
             while ( alias != a ) { a=a->next; prev=prev->next; }
             prev->next=prev->next->next; free_alias(a);
-            send_to_actor("Removed.\n\r", ch);
+            to_actor("Removed.\n\r", ch);
         }
         return;
      }
@@ -165,7 +165,7 @@ void cmd_alias( PLAYER *ch, char *argument )
      if ( (alias = find_alias( ch, arg ) ) != NULL ) {
         ALIAS *prev;
         alias = find_alias(ch,arg);
-        if ( !alias ) send_to_actor( "No such alias, creating new.\n\r", ch );
+        if ( !alias ) to_actor( "No such alias, creating new.\n\r", ch );
         else {
             ALIAS *a;
             if ( alias == PC(ch,aliases) ) { PC(ch,aliases)=PC(ch,aliases)->next;  free_alias(alias); return; }
@@ -173,7 +173,7 @@ void cmd_alias( PLAYER *ch, char *argument )
             a=prev->next;
             while ( alias != a ) { a=a->next; prev=prev->next; }
             prev->next=prev->next->next; free_alias(a);
-           send_to_actor( "Alias revised.\n\r", ch );
+           to_actor( "Alias revised.\n\r", ch );
         }
      add_alias( ch, arg, argument );     
      }

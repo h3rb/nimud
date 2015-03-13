@@ -60,21 +60,21 @@ void cmd_translate( PLAYER *ch, char *argument ) {
      if ( *argument != '\0' ) {
      t = find_language( argument );
      if ( t == -1 ) { 
-     send_to_actor( "Language not found or in list of supported languages.\n\r", ch );
+     to_actor( "Language not found or in list of supported languages.\n\r", ch );
      return;
      }
      if ( t != ch->desc->lingua ) {
-          send_to_actor( "Language translation set to ", ch );
-          send_to_actor( lingua_table[t].name, ch );
-          send_to_actor( ".\n\r", ch );
+          to_actor( "Language translation set to ", ch );
+          to_actor( lingua_table[t].name, ch );
+          to_actor( ".\n\r", ch );
           return;
      }
      }
 
      t = ch->desc->lingua;
-     send_to_actor( "Language: ", ch );
-     send_to_actor( lingua_table[t].name, ch );
-     send_to_actor( ".\n\r", ch );
+     to_actor( "Language: ", ch );
+     to_actor( lingua_table[t].name, ch );
+     to_actor( ".\n\r", ch );
      return;
 }
 

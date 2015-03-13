@@ -286,15 +286,15 @@ void cmd_hunt( PLAYER *ch, char *argument )
      }
 
      if ( arg[0] == '\0' ) {
-        send_to_actor( "You have stopped hunting", ch );
+        to_actor( "You have stopped hunting", ch );
 
         if ( MTD(ch->hunting) ) {
-        send_to_actor( " ", ch );
-        send_to_actor( ch->hunting, ch );
-        send_to_actor( ".\n\r", ch );
+        to_actor( " ", ch );
+        to_actor( ch->hunting, ch );
+        to_actor( ".\n\r", ch );
         }
         else {
-        send_to_actor( ".\n\r", ch );
+        to_actor( ".\n\r", ch );
         }
 
         free_string( ch->hunting );
@@ -326,14 +326,14 @@ void cmd_track ( PLAYER *ch, char *argument )
 
    if ( arg[0] == '\0' && MTD(ch->tracking) )
    {
-      send_to_actor( "Track whom?\n\r", ch);
+      to_actor( "Track whom?\n\r", ch);
       return;
    }
      
       if ( !str_cmp( arg, "stop" ) ) {
          free_string( ch->tracking );
          ch->tracking = str_dup( arg );
-         send_to_actor( "You stop tracking your prey.\n\r", ch );
+         to_actor( "You stop tracking your prey.\n\r", ch );
       }
 
    if ( ( arg[0] == '\0' && !MTD(ch->tracking) )
@@ -341,7 +341,7 @@ void cmd_track ( PLAYER *ch, char *argument )
    {
       if ( ( vict = get_actor_world( ch, arg ) ) == NULL )
       {
-         send_to_actor( "There is no path that leads there.\n\r", ch );
+         to_actor( "There is no path that leads there.\n\r", ch );
          free_string( ch->tracking );
          ch->tracking = str_dup( "" );
          return;
@@ -349,7 +349,7 @@ void cmd_track ( PLAYER *ch, char *argument )
 
       if ( ch == vict && !MTD(ch->tracking) )
       {
-         send_to_actor( "You stop tracking your prey.\n\r", ch );
+         to_actor( "You stop tracking your prey.\n\r", ch );
          free_string( ch->tracking );
          ch->tracking = str_dup( "" );
          return;
@@ -359,7 +359,7 @@ void cmd_track ( PLAYER *ch, char *argument )
 
    if ( MTD(ch->tracking) && arg[0]== '\0' )
    {
-      send_to_actor( "You are not tracking anyone.\n\r", ch );
+      to_actor( "You are not tracking anyone.\n\r", ch );
       free_string( ch->tracking );
       ch->tracking = str_dup( "" );
       return;
@@ -367,7 +367,7 @@ void cmd_track ( PLAYER *ch, char *argument )
 
    if( ( vict = get_actor_world( ch, ch->tracking ) ) == NULL )
    {
-      send_to_actor("You cannot find your prey.\n\r", ch);
+      to_actor("You cannot find your prey.\n\r", ch);
       free_string( ch->tracking );
       ch->tracking = str_dup( "" );
       return;
@@ -387,7 +387,7 @@ void cmd_track ( PLAYER *ch, char *argument )
          break;
       case BFS_NO_PATH:
          snprintf( buf, MAX_STRING_LENGTH, "The trail to %s leads nowhere.\n\r", HIM_HER(vict) );
-         send_to_actor(buf, ch);
+         to_actor(buf, ch);
          free_string( ch->tracking );
          ch->tracking = str_dup( "" );
          break;
@@ -401,7 +401,7 @@ void cmd_track ( PLAYER *ch, char *argument )
 
          sprintf(buf, "The trail leads off to %s.\n\r",
                       dir_rev[rev_dir[dir]] );
-         send_to_actor(buf, ch);
+         to_actor(buf, ch);
          if ( !MTD(ch->hunting) ) {
              interpret( ch, dir_name[dir] );   /* WATCH FOR RECURSION */
          }

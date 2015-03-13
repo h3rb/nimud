@@ -114,13 +114,13 @@ void cmd_mount( PLAYER *ch, char *argument )
 
     if ( buf[0] == '\0' )
     {
-        send_to_actor( "Ride whom?\n\r", ch );
+        to_actor( "Ride whom?\n\r", ch );
         return;
     }
 
     if ( !str_cmp( buf, "show" ) && IS_IMMORTAL(ch) )
     {
-        send_to_actor( "Characters with masters:\n\r", ch );
+        to_actor( "Characters with masters:\n\r", ch );
         for ( victim = actor_list; victim != NULL; victim = victim->next )
         {
             if ( victim->master == NULL )
@@ -131,7 +131,7 @@ void cmd_mount( PLAYER *ch, char *argument )
                      STR(victim,short_descr),
                      victim->master ? NAME(victim->master) : "none",
                      victim->rider  ? NAME(victim->rider) : "none" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
 
         return;
@@ -140,7 +140,7 @@ void cmd_mount( PLAYER *ch, char *argument )
 
     if ( ( victim = get_actor_scene( ch, buf ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
     
@@ -159,7 +159,7 @@ void cmd_mount( PLAYER *ch, char *argument )
     if ( (NPC(victim) && !IS_SET( victim->flag, ACTOR_MOUNT ))
       && !IS_IMMORTAL(ch) )
     {
-        send_to_actor( "You cannot ride that.\n\r", ch );
+        to_actor( "You cannot ride that.\n\r", ch );
         return;
     }
 
@@ -214,7 +214,7 @@ void cmd_dismount( PLAYER *ch, char *argument )
 {
     if ( ch->riding == NULL )
     {
-        send_to_actor( "You're not riding anything.\n\r", ch );
+        to_actor( "You're not riding anything.\n\r", ch );
         return;
     }
 

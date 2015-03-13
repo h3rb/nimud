@@ -70,31 +70,31 @@ void cmd_advance( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' || !is_number( arg2 ) )
     {
-        send_to_actor( "Syntax: advance <char> <level> [constellation].\n\r", ch );
+        to_actor( "Syntax: advance <char> <level> [constellation].\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_world( ch, arg1 ) ) == NULL )
     {
-        send_to_actor( "That player is not here.\n\r", ch);
+        to_actor( "That player is not here.\n\r", ch);
         return;
     }
 
     if ( NPC(victim) )
     {
-        send_to_actor( "Not on NPC's.\n\r", ch );
+        to_actor( "Not on NPC's.\n\r", ch );
         return;
     }
 
     if ( ( level = atoi( arg2 ) ) < 1 || level > MAX_LEVEL )
     {
         snprintf( buf, MAX_STRING_LENGTH, "Level must be 1 to %d.\n\r", MAX_LEVEL );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return;
     }
 
     if ( PC(ch,level) != MAX_LEVEL )
-    send_to_actor( "Limited to your trust level, changing constellation only.\n\r", ch );
+    to_actor( "Limited to your trust level, changing constellation only.\n\r", ch );
     else
     {
         PC(victim,level)    = level;
@@ -169,13 +169,13 @@ void cmd_restore( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Restore whom?\n\r", ch );
+        to_actor( "Restore whom?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
@@ -203,39 +203,39 @@ void cmd_freeze( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Freeze whom?\n\r", ch );
+    to_actor( "Freeze whom?\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( NPC(victim) )
     {
-    send_to_actor( "Not on NPC's.\n\r", ch );
+    to_actor( "Not on NPC's.\n\r", ch );
 	return;
     }
 
     if ( get_trust( victim ) >= get_trust( ch ) )
     {
-    send_to_actor( "You failed.\n\r", ch );
+    to_actor( "You failed.\n\r", ch );
 	return;
     }
 
     if ( IS_SET(victim->flag, PLR_FREEZE) )
     {
 	REMOVE_BIT(victim->flag, PLR_FREEZE);
-    send_to_actor( "You can play again.\n\r", victim );
-    send_to_actor( "FREEZE removed.\n\r", ch );
+    to_actor( "You can play again.\n\r", victim );
+    to_actor( "FREEZE removed.\n\r", ch );
     }
     else
     {
 	SET_BIT(victim->flag, PLR_FREEZE);
-    send_to_actor( "The gods have revoked your freedoms, you are frozen!\n\r", victim );
-    send_to_actor( "FREEZE set.\n\r", ch );
+    to_actor( "The gods have revoked your freedoms, you are frozen!\n\r", victim );
+    to_actor( "FREEZE set.\n\r", ch );
     }
 
     save_actor_prop( victim );
@@ -262,7 +262,7 @@ void cmd_log( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Log whom?\n\r", ch );
+    to_actor( "Log whom?\n\r", ch );
 	return;
     }
 
@@ -271,12 +271,12 @@ void cmd_log( PLAYER *ch, char *argument )
 	if ( fLogAll )
 	{
 	    fLogAll = FALSE;
-        send_to_actor( "Log ALL off.\n\r", ch );
+        to_actor( "Log ALL off.\n\r", ch );
 	}
 	else
 	{
 	    fLogAll = TRUE;
-        send_to_actor( "Log ALL on.\n\r", ch );
+        to_actor( "Log ALL on.\n\r", ch );
 	}
 	return;
     }
@@ -297,13 +297,13 @@ void cmd_log( PLAYER *ch, char *argument )
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( NPC(victim) )
     {
-    send_to_actor( "Not on NPC's.\n\r", ch );
+    to_actor( "Not on NPC's.\n\r", ch );
 	return;
     }
 
@@ -313,12 +313,12 @@ void cmd_log( PLAYER *ch, char *argument )
     if ( IS_SET(victim->flag, PLR_LOG) )
     {
 	REMOVE_BIT(victim->flag, PLR_LOG);
-    send_to_actor( "LOG removed.\n\r", ch );
+    to_actor( "LOG removed.\n\r", ch );
     }
     else
     {
 	SET_BIT(victim->flag, PLR_LOG);
-    send_to_actor( "LOG set.\n\r", ch );
+    to_actor( "LOG set.\n\r", ch );
     }
 
     return;
@@ -339,39 +339,39 @@ void cmd_noemote( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Noemote whom?\n\r", ch );
+    to_actor( "Noemote whom?\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( NPC(victim) )
     {
-    send_to_actor( "Not on NPC's.\n\r", ch );
+    to_actor( "Not on NPC's.\n\r", ch );
 	return;
     }
 
     if ( get_trust( victim ) >= get_trust( ch ) )
     {
-    send_to_actor( "You failed.\n\r", ch );
+    to_actor( "You failed.\n\r", ch );
 	return;
     }
 
     if ( IS_SET(victim->flag2, PLR_NO_EMOTE) )
     {
     REMOVE_BIT(victim->flag2, PLR_NO_EMOTE);
-    send_to_actor( "You can emote again.\n\r", victim );
-    send_to_actor( "NO_EMOTE removed.\n\r", ch );
+    to_actor( "You can emote again.\n\r", victim );
+    to_actor( "NO_EMOTE removed.\n\r", ch );
     }
     else
     {
     SET_BIT(victim->flag2, PLR_NO_EMOTE);
-    send_to_actor( "You are no longer allowed to emote!\n\r", victim );
-    send_to_actor( "NO_EMOTE set.\n\r", ch );
+    to_actor( "You are no longer allowed to emote!\n\r", victim );
+    to_actor( "NO_EMOTE set.\n\r", ch );
     }
 
     return;
@@ -392,11 +392,11 @@ void cmd_peace( PLAYER *ch, char *argument )
         if ( rch->fighting != NULL )
         {
             if ( !str_cmp( argument, "silent" ) )
-            send_to_actor( "You stop fighting.\n\r", ch );
+            to_actor( "You stop fighting.\n\r", ch );
             else
             {
                 act( "$n waves a white flag.", rch, 0, 0, TO_SCENE );
-                send_to_actor( "You wave a white flag.\n\r", rch );
+                to_actor( "You wave a white flag.\n\r", rch );
             }
 
             rch->fighting = NULL;
@@ -436,7 +436,7 @@ void cmd_ban( PLAYER *ch, char *argument )
 	    strcat( buf, pban->name );
         strcat( buf, "\n\r" );
 	}
-	send_to_actor( buf, ch );
+	to_actor( buf, ch );
 	return;
     }
 
@@ -444,7 +444,7 @@ void cmd_ban( PLAYER *ch, char *argument )
     {
 	if ( !str_cmp( arg, pban->name ) )
 	{
-        send_to_actor( "That site is already banned!\n\r", ch );
+        to_actor( "That site is already banned!\n\r", ch );
 	    return;
 	}
     }
@@ -462,7 +462,7 @@ void cmd_ban( PLAYER *ch, char *argument )
     pban->name	= str_dup( arg );
     pban->next	= ban_list;
     ban_list	= pban;
-    send_to_actor( "Ok.\n\r", ch );
+    to_actor( "Ok.\n\r", ch );
     return;
 }
 
@@ -482,7 +482,7 @@ void cmd_allow( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Remove which site from the ban list?\n\r", ch );
+    to_actor( "Remove which site from the ban list?\n\r", ch );
 	return;
     }
 
@@ -499,12 +499,12 @@ void cmd_allow( PLAYER *ch, char *argument )
 	    free_string( curr->name );
 	    curr->next	= ban_free;
 	    ban_free	= curr;
-        send_to_actor( "Ok.\n\r", ch );
+        to_actor( "Ok.\n\r", ch );
 	    return;
 	}
     }
 
-    send_to_actor( "Site is not banned.\n\r", ch );
+    to_actor( "Site is not banned.\n\r", ch );
     return;
 }
 
@@ -520,9 +520,9 @@ void cmd_wizlock( PLAYER *ch, char *argument )
     wizlock = !wizlock;
 
     if ( wizlock )
-    send_to_actor( "Game wizlocked.\n\r", ch );
+    to_actor( "Game wizlocked.\n\r", ch );
     else
-    send_to_actor( "Game un-wizlocked.\n\r", ch );
+    to_actor( "Game un-wizlocked.\n\r", ch );
 
     return;
 }
@@ -541,7 +541,7 @@ void cmd_force( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' || argument[0] == '\0' )
     {
-    send_to_actor( "Force whom to do what?\n\r", ch );
+    to_actor( "Force whom to do what?\n\r", ch );
 	return;
     }
 
@@ -571,19 +571,19 @@ void cmd_force( PLAYER *ch, char *argument )
 
 	if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
 	{
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
 	    return;
 	}
 
 	if ( victim == ch )
 	{
-        send_to_actor( "Aye aye, right away!\n\r", ch );
+        to_actor( "Aye aye, right away!\n\r", ch );
 	    return;
 	}
 
 	if ( !NPC(ch) && get_trust( victim ) >= get_trust( ch ) )
 	{
-        send_to_actor( "Do it yourself!\n\r", ch );
+        to_actor( "Do it yourself!\n\r", ch );
 	    return;
 	}
 
@@ -596,7 +596,7 @@ void cmd_force( PLAYER *ch, char *argument )
 	interpret( victim, argument );
     }
 
-    send_to_actor( "Ok.\n\r", ch );
+    to_actor( "Ok.\n\r", ch );
     return;
 }
 
@@ -637,13 +637,13 @@ void cmd_invis( PLAYER *ch, char *argument )
     if ( PC(ch,wizinvis) < oldinvis && PC(ch,wizinvis) == 0 )
     {
     act( "$n slowly fades into existence.", ch, NULL, NULL, TO_SCENE );
-    send_to_actor( "You slowly fade back into existence.\n\r", ch );
+    to_actor( "You slowly fade back into existence.\n\r", ch );
     }
     else
     if ( PC(ch,wizinvis) >= LEVEL_IMMORTAL && PC(ch,wizinvis) > oldinvis )
     {
     act( "$n slowly fades into thin air.", ch, NULL, NULL, TO_SCENE );
-    send_to_actor( "You slowly vanish into thin air.\n\r", ch );
+    to_actor( "You slowly vanish into thin air.\n\r", ch );
     }
 
     return;
@@ -666,25 +666,25 @@ void cmd_bounty( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' || !is_number( arg2 ) )
     {
-    send_to_actor( "Syntax: bounty <character> <bounty>.\n\r", ch );
+    to_actor( "Syntax: bounty <character> <bounty>.\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_world( ch, arg1 ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( NPC(victim) )
     {
-    send_to_actor( "Not on NPC's.\n\r", ch );
+    to_actor( "Not on NPC's.\n\r", ch );
 	return;
     }
 
     victim->bounty =  atoi( arg2 );
 
-    send_to_actor( "Bounty set.\n\r", ch );
+    to_actor( "Bounty set.\n\r", ch );
     return;
 }
 
@@ -702,17 +702,17 @@ void cmd_wizify( PLAYER *ch, char *argument )
     argument = one_argument( argument, arg1  );
     if ( arg1[0] == '\0' )
     {
-	send_to_actor( "Syntax: wizify <name>\n\r" , ch );
+	to_actor( "Syntax: wizify <name>\n\r" , ch );
 	return;
     }
     if ( ( victim = get_actor_world( ch, arg1 ) ) == NULL )
     {
-	send_to_actor( "They aren't here.\n\r" , ch );
+	to_actor( "They aren't here.\n\r" , ch );
 	return;
     }
     if ( NPC( victim ) )
     {
-	send_to_actor( "Not on actors.\n\r", ch );
+	to_actor( "Not on actors.\n\r", ch );
 	return;
     }
 
@@ -744,7 +744,7 @@ void cmd_bamfin( PLAYER *ch, char *argument )
 	smash_tilde( argument );
     free_string( PC(ch,bamfin) );
     PC(ch,bamfin) = str_dup( argument );
-    send_to_actor( "Ok.\n\r", ch );
+    to_actor( "Ok.\n\r", ch );
     }
     return;
 }
@@ -761,7 +761,7 @@ void cmd_bamfout( PLAYER *ch, char *argument )
 	smash_tilde( argument );
     free_string( PC(ch,bamfout) );
     PC(ch,bamfout) = str_dup( argument );
-    send_to_actor( "Ok.\n\r", ch );
+    to_actor( "Ok.\n\r", ch );
     }
     return;
 }
@@ -779,31 +779,31 @@ void cmd_deny( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Deny whom?\n\r", ch );
+    to_actor( "Deny whom?\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( NPC(victim) )
     {
-    send_to_actor( "Not on NPC's.\n\r", ch );
+    to_actor( "Not on NPC's.\n\r", ch );
 	return;
     }
 
     if ( get_trust( victim ) >= get_trust( ch ) )
     {
-    send_to_actor( "You failed.\n\r", ch );
+    to_actor( "You failed.\n\r", ch );
 	return;
     }
 
     SET_BIT(victim->flag, PLR_DENY);
-    send_to_actor( "You are denied access!\n\r", victim );
-    send_to_actor( "OK.\n\r", ch );
+    to_actor( "You are denied access!\n\r", victim );
+    to_actor( "OK.\n\r", ch );
     cmd_quit( victim, "" );
 
     return;
@@ -824,13 +824,13 @@ void cmd_disconnect( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Disconnect whom?\n\r", ch );
+    to_actor( "Disconnect whom?\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
@@ -845,13 +845,13 @@ void cmd_disconnect( PLAYER *ch, char *argument )
 	if ( d == victim->desc )
 	{
 	    close_socket( d );
-        send_to_actor( "Ok.\n\r", ch );
+        to_actor( "Ok.\n\r", ch );
 	    return;
 	}
     }
 
     bug( "Cmd_disconnect: desc not found.", 0 );
-    send_to_actor( "Connection not found!\n\r", ch );
+    to_actor( "Connection not found!\n\r", ch );
     return;
 }
 
@@ -865,7 +865,7 @@ void cmd_system( PLAYER *ch, char *argument )
     
     if ( argument[0] == '\0' )
     {
-    send_to_actor( "Echo what?\n\r", ch );
+    to_actor( "Echo what?\n\r", ch );
 	return;
     }
 
@@ -873,9 +873,9 @@ void cmd_system( PLAYER *ch, char *argument )
     {
         if ( d->connected <= NET_PLAYING )
 	{
-        send_to_actor( "SYSTEM:\07 ", d->character );
-	    send_to_actor( argument, d->character );
-        send_to_actor( "\n\r",   d->character );
+        to_actor( "SYSTEM:\07 ", d->character );
+	    to_actor( argument, d->character );
+        to_actor( "\n\r",   d->character );
 	}
     }
 
@@ -892,7 +892,7 @@ void cmd_echo( PLAYER *ch, char *argument )
     
     if ( argument[0] == '\0' )
     {
-    send_to_actor( "Echo what?\n\r", ch );
+    to_actor( "Echo what?\n\r", ch );
 	return;
     }
 
@@ -900,8 +900,8 @@ void cmd_echo( PLAYER *ch, char *argument )
     {
 	if ( d->connected == NET_PLAYING )
 	{
-	    send_to_actor( argument, d->character );
-        send_to_actor( "\n\r",   d->character );
+	    to_actor( argument, d->character );
+        to_actor( "\n\r",   d->character );
 	}
     }
 
@@ -923,7 +923,7 @@ void cmd_recho( PLAYER *ch, char *argument )
         
     if ( argument[0] == '\0' )
     {
-    send_to_actor( "Recho what?\n\r", ch );
+    to_actor( "Recho what?\n\r", ch );
 	return;
     }
 
@@ -940,8 +940,8 @@ void cmd_recho( PLAYER *ch, char *argument )
 	if ( d->connected == NET_PLAYING
 	&&   d->character->in_scene == pOldScene )
 	{
-	    send_to_actor( argument, d->character );
-        send_to_actor( "\n\r",   d->character );
+	    to_actor( argument, d->character );
+        to_actor( "\n\r",   d->character );
 	}
     }
 
@@ -993,7 +993,7 @@ void cmd_transfer( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' )
     {
-    send_to_actor( "Transfer whom (and where)?\n\r", ch );
+    to_actor( "Transfer whom (and where)?\n\r", ch );
 	return;
     }
 
@@ -1025,26 +1025,26 @@ void cmd_transfer( PLAYER *ch, char *argument )
     {
 	if ( ( location = find_location( ch, arg2 ) ) == NULL )
 	{
-        send_to_actor( "No such location.\n\r", ch );
+        to_actor( "No such location.\n\r", ch );
 	    return;
 	}
 
 	if ( scene_is_private( location ) )
 	{
-        send_to_actor( "That scene is private right now.\n\r", ch );
+        to_actor( "That scene is private right now.\n\r", ch );
 	    return;
 	}
     }
 
     if ( ( victim = get_actor_world( ch, arg1 ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( victim->in_scene == NULL )
     {
-    send_to_actor( "They are in limbo.  [extracting]\n\r", ch );
+    to_actor( "They are in limbo.  [extracting]\n\r", ch );
      }
 
     if ( victim->fighting != NULL )
@@ -1061,7 +1061,7 @@ void cmd_transfer( PLAYER *ch, char *argument )
     act( "$n has transferred you.", ch, NULL, victim, TO_VICT );
     cmd_look( victim, "auto" );
     if ( ch->in_scene != victim->in_scene )
-    send_to_actor( "Transferred.\n\r", ch );
+    to_actor( "Transferred.\n\r", ch );
 }
 
 
@@ -1080,20 +1080,20 @@ void cmd_at( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' || argument[0] == '\0' )
     {
-    send_to_actor( "At where what?\n\r", ch );
+    to_actor( "At where what?\n\r", ch );
         return;
     }
 
     if ( ( location = find_location( ch, arg ) ) == NULL )
     {
-    send_to_actor( "No such location.\n\r", ch );
+    to_actor( "No such location.\n\r", ch );
         return;
     }
 
 #if defined(IMMORTAL_PRIVACY)
     if ( scene_is_private( location ) )
     {
-    send_to_actor( "That scene is private right now.\n\r", ch );
+    to_actor( "That scene is private right now.\n\r", ch );
     return;
     }
 #endif
@@ -1134,20 +1134,20 @@ void cmd_as( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' || argument[0] == '\0' )
     {
-    send_to_actor( "As who what?\n\r", ch );
+    to_actor( "As who what?\n\r", ch );
         return;
     }
     
     if ( (wch = get_actor_world( ch, arg )) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
 
     if ( NPC(wch) || IS_IMMORTAL(wch) )
     {
-        send_to_actor( "Only mortal PCs.\n\r", ch );
+        to_actor( "Only mortal PCs.\n\r", ch );
         return;
     }
     
@@ -1158,7 +1158,7 @@ void cmd_as( PLAYER *ch, char *argument )
     if ( strstr( argument, "quit" )
       || !str_prefix( argument, "quit" ) )
     {
-        send_to_actor( "No thanks.\n\r", ch );
+        to_actor( "No thanks.\n\r", ch );
         return;
     }
     
@@ -1183,20 +1183,20 @@ void cmd_goto( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Goto where?\n\r", ch );
+    to_actor( "Goto where?\n\r", ch );
 	return;
     }
 
     if ( ( location = find_location( ch, arg ) ) == NULL )
     {
-    send_to_actor( "No such location.\n\r", ch );
+    to_actor( "No such location.\n\r", ch );
 	return;
     }
 
 #if defined(IMMORTAL_PRIVACY)
     if ( scene_is_private( location ) )
     {
-    send_to_actor( "That scene is private right now.\n\r", ch );
+    to_actor( "That scene is private right now.\n\r", ch );
 	return;
     }
 #endif
@@ -1226,7 +1226,7 @@ void cmd_goto( PLAYER *ch, char *argument )
 
 void cmd_reboo( PLAYER *ch, char *argument )
 {
-    send_to_actor( "If you want to REBOOT, spell it out.\n\r", ch );
+    to_actor( "If you want to REBOOT, spell it out.\n\r", ch );
     return;
 }
 
@@ -1259,7 +1259,7 @@ void cmd_reboot( PLAYER *ch, char *argument )
 
 void cmd_shutdow( PLAYER *ch, char *argument )
 {
-    send_to_actor( "If you want to SHUTDOWN, spell it out.\n\r", ch );
+    to_actor( "If you want to SHUTDOWN, spell it out.\n\r", ch );
     return;
 }
 
@@ -1300,7 +1300,7 @@ void cmd_snoop( PLAYER *ch, char *argument )
 
     if ( NPC(ch) )
     {
-        send_to_actor( "Bad actor!  Don't ever do that again!\n\r", ch );
+        to_actor( "Bad actor!  Don't ever do that again!\n\r", ch );
         return;
     }
 
@@ -1308,19 +1308,19 @@ void cmd_snoop( PLAYER *ch, char *argument )
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( victim->desc == NULL )
     {
-        send_to_actor( "No connection to snoop.\n\r", ch );
+        to_actor( "No connection to snoop.\n\r", ch );
 	return;
     }
 
     if ( victim == ch )
     {
-    send_to_actor( "Cancelling all snoops.\n\r", ch );
+    to_actor( "Cancelling all snoops.\n\r", ch );
 	for ( d = connection_list; d != NULL; d = d->next )
 	{
             if ( d->snoop_by == ch->desc )
@@ -1332,13 +1332,13 @@ void cmd_snoop( PLAYER *ch, char *argument )
     if ( victim->desc->snoop_by == ch->desc )
     {
         victim->desc->snoop_by = NULL;
-        send_to_actor( "Cancelled.\n\r", ch );
+        to_actor( "Cancelled.\n\r", ch );
         return;
     }
 
     if ( victim->desc->snoop_by != NULL )
     {
-        send_to_actor( "Busy already.\n\r", ch );
+        to_actor( "Busy already.\n\r", ch );
 	return;
     }
 
@@ -1354,14 +1354,14 @@ void cmd_snoop( PLAYER *ch, char *argument )
 	{
 	    if ( d->character == victim || d->original == victim )
 	    {
-                send_to_actor( "No snoop loops.\n\r", ch );
+                to_actor( "No snoop loops.\n\r", ch );
 		return;
 	    }
 	}
     }
 
     victim->desc->snoop_by = ch->desc;
-    send_to_actor( "Snooped.\n\r", ch );
+    to_actor( "Snooped.\n\r", ch );
     return;
 }
 
@@ -1380,7 +1380,7 @@ void cmd_switch( PLAYER *ch, char *argument )
     
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Switch into whom?\n\r", ch );
+        to_actor( "Switch into whom?\n\r", ch );
 	return;
     }
 
@@ -1389,25 +1389,25 @@ void cmd_switch( PLAYER *ch, char *argument )
     
     if ( ch->desc->original != NULL )
     {
-        send_to_actor( "You are already switched.\n\r", ch );
+        to_actor( "You are already switched.\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_world( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
     if ( victim == ch )
     {
-        send_to_actor( "Ok.\n\r", ch );
+        to_actor( "Ok.\n\r", ch );
 	return;
     }
 
     if ( victim->desc != NULL || !NPC(victim) )
     {
-        send_to_actor( "Character in use.\n\r", ch );
+        to_actor( "Character in use.\n\r", ch );
 	return;
     }
 
@@ -1415,7 +1415,7 @@ void cmd_switch( PLAYER *ch, char *argument )
     ch->desc->original  = ch;
     victim->desc        = ch->desc;
     ch->desc            = NULL;
-    send_to_actor( "Ok.\n\r", victim );
+    to_actor( "Ok.\n\r", victim );
     return;
 }
 
@@ -1431,11 +1431,11 @@ void cmd_return( PLAYER *ch, char *argument )
 
     if ( ch->desc->original == NULL )
     {
-        send_to_actor( "You aren't switched.\n\r", ch );
+        to_actor( "You aren't switched.\n\r", ch );
 	return;
     }
 
-    send_to_actor( "You return to your original body.\n\r", ch );
+    to_actor( "You return to your original body.\n\r", ch );
     ch->desc->character       = ch->desc->original;
     ch->desc->original        = NULL;
     ch->desc->character->desc = ch->desc; 
@@ -1469,9 +1469,9 @@ void cmd_charload( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "cload <character> <action>\n\r", ch );
-        send_to_actor( "deny allow approve reject show unload save\n\r", ch );
-        send_to_actor( "Characters not logged in are loaded into the scene they were last in.\n\r", ch );
+        to_actor( "cload <character> <action>\n\r", ch );
+        to_actor( "deny allow approve reject show unload save\n\r", ch );
+        to_actor( "Characters not logged in are loaded into the scene they were last in.\n\r", ch );
         return;
     }
 
@@ -1488,7 +1488,7 @@ void cmd_charload( PLAYER *ch, char *argument )
         if ( !fOld )
         {
             free_char( nch );
-            send_to_actor( "That character does not exist.\n\r", ch );
+            to_actor( "That character does not exist.\n\r", ch );
             return;
         }
 
@@ -1499,7 +1499,7 @@ void cmd_charload( PLAYER *ch, char *argument )
         
         nch->next = actor_list;
         actor_list = nch;
-        send_to_actor( "Character loaded.\n\r", ch );
+        to_actor( "Character loaded.\n\r", ch );
     }
     else
     {
@@ -1509,14 +1509,14 @@ void cmd_charload( PLAYER *ch, char *argument )
 
     if ( !str_cmp( arg2, "unload" ) )
     {
-        send_to_actor( "Saved and unloaded.\n\r", ch );
+        to_actor( "Saved and unloaded.\n\r", ch );
         cmd_quit( nch, "" );
         return;
     }
 
     if ( !str_cmp( arg2, "save" ) )
     {
-        send_to_actor( "Saved.\n\r", ch );
+        to_actor( "Saved.\n\r", ch );
         cmd_save( nch, "internal" );
         return;
     }
@@ -1532,13 +1532,13 @@ void cmd_charload( PLAYER *ch, char *argument )
         pRace = race_lookup( ch->race );
         if ( pRace == NULL )
         {
-            send_to_actor( "Invalid race.\n\r", ch );
+            to_actor( "Invalid race.\n\r", ch );
             return;
         }
 
         actor_from_scene( nch );
         actor_to_scene( nch, get_scene( pRace->start_scene ) );
-        send_to_actor( "Approved.\n\r", ch );
+        to_actor( "Approved.\n\r", ch );
         free_string( PC(nch,denial) );
         PC(nch,denial) = str_dup( "" );
         return;
@@ -1564,7 +1564,7 @@ void cmd_charload( PLAYER *ch, char *argument )
         actor_to_scene( nch, get_scene( SCENE_VNUM_APPLY ) );
         string_append( ch, &PC(nch,denial)  );
         PC(nch,denial) = str_dup( argument );
-        send_to_actor( "Rejecting.\n\r", ch );
+        to_actor( "Rejecting.\n\r", ch );
         return;
     }
  */
@@ -1582,7 +1582,7 @@ void cmd_charload( PLAYER *ch, char *argument )
     if ( !str_cmp( arg2, "deny" ) )
     {
         SET_BIT( nch->flag, PLR_DENY );
-        send_to_actor( "Denied.\n\r", ch );
+        to_actor( "Denied.\n\r", ch );
         save_actor_prop( nch );
         cmd_quit( nch, "" );
         return;
@@ -1591,7 +1591,7 @@ void cmd_charload( PLAYER *ch, char *argument )
     if ( !str_cmp( arg2, "allow" ) )
     {
         REMOVE_BIT( nch->flag, PLR_DENY );
-        send_to_actor( "Allowed.\n\r", ch );
+        to_actor( "Allowed.\n\r", ch );
         return;
     }
 
@@ -1621,7 +1621,7 @@ void cmd_shell( PLAYER *ch, char *argument )
         {
             if ( buf[0] != '&' ) continue;
             pf = format_string( str_dup( buf ) );
-            send_to_actor( pf, ch );
+            to_actor( pf, ch );
             free_string( pf );
         }
             
@@ -1692,14 +1692,14 @@ void cmd_purge( PLAYER *ch, char *argument )
         if ( NPC(ch) ) return;
 
         act( "$n cleanses the scene with righteous fire!", ch, NULL, NULL, TO_SCENE);
-        send_to_actor( "You cleanse the scene with righteous fire!\n\r", ch );
+        to_actor( "You cleanse the scene with righteous fire!\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL
       && ( prop    = get_prop_here( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
@@ -1707,7 +1707,7 @@ void cmd_purge( PLAYER *ch, char *argument )
     {
     if ( !NPC(victim) || victim->desc != NULL )
     {
-    send_to_actor( "Not on PC's or switched PC's.\n\r", ch );
+    to_actor( "Not on PC's or switched PC's.\n\r", ch );
 	return;
     }
 
@@ -1749,7 +1749,7 @@ void cmd_hotboot (PLAYER *ch, char * argument)
 	
 	if (!fp)
 	{
-		send_to_actor ("Hotboot file not writeable, aborted.\n\r",ch);
+		to_actor ("Hotboot file not writeable, aborted.\n\r",ch);
 		wtf_logf ("Could not write to hotboot file: %s", HOTBOOT_FILE);
 		perror ("cmd_hotboot:fopen");
 		return;
@@ -1807,7 +1807,7 @@ void cmd_hotboot (PLAYER *ch, char * argument)
 	/* Failed - sucessful exec will not return */
 	
 	perror ("cmd_hotboot: execl");
-	send_to_actor ("Hotboot FAILED!\n\r",ch);
+	to_actor ("Hotboot FAILED!\n\r",ch);
 	
 	/* Here you might want to reopen fpReserve */
 	fpReserve = fopen (NULL_FILE, "r");

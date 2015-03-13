@@ -1822,7 +1822,7 @@ void cmd_script( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Tracking stopped.\n\r", ch );
+        to_actor( "Tracking stopped.\n\r", ch );
         ch->userdata->trackscr = NULL;
         ch->userdata->trackscr_type = TYPE_STRING;
 	return;
@@ -1835,7 +1835,7 @@ void cmd_script( PLAYER *ch, char *argument )
         for ( pVar = mud_var_list;  pVar != NULL;  pVar = pVar->next_master_var )
         {
             snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             switch ( pVar->type )
             {
@@ -1851,7 +1851,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
  break;
                        default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
             }
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         
         return;
@@ -1867,7 +1867,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
         prop = get_prop_here( ch, arg );
 
         if ( !prop || !prop->pIndexData ) {
-            send_to_actor( "They, or that, isn't here.\n\r", ch );
+            to_actor( "They, or that, isn't here.\n\r", ch );
             return;
         } 
 
@@ -1879,7 +1879,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
                  prop->in_scene->name
               : (prop->in_prop  ? STR((prop->in_prop),short_descr) 
               : (prop->carried_by ? NAME(prop->carried_by) : NULL) ) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         for ( pTrig = prop->instances; pTrig != NULL;  pTrig = pTrig->next )
         {
@@ -1889,12 +1889,12 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
                      pTrig->script->dbkey, pTrig->script->name,
                      pTrig->wait, pTrig->autowait,
                      pTrig->location ? pTrig->location : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
             {
             snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             switch ( pVar->type )
             {
@@ -1910,11 +1910,11 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
  break;
                        default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
             }
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             }
         }
         if ( !fFound )
-        send_to_actor( "No variables.\n\r", ch );
+        to_actor( "No variables.\n\r", ch );
         return;            
         
     }
@@ -1930,7 +1930,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
 
         snprintf( buf, MAX_STRING_LENGTH, "Tracking %s in %s, scripts:\n\r", NAME(victim),
                                                        victim->in_scene->name );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         for ( pTrig = victim->instances; pTrig != NULL;  pTrig = pTrig->next )
         {
@@ -1940,12 +1940,12 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
                      pTrig->script->dbkey, pTrig->script->name,
                      pTrig->wait, pTrig->autowait,
                      pTrig->location ? pTrig->location : "" );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
             {
             snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
 
             switch ( pVar->type )
             {
@@ -1961,11 +1961,11 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
  break;
                        default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
             }
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             }
         }
         if ( !fFound )
-        send_to_actor( "No variables.\n\r", ch );
+        to_actor( "No variables.\n\r", ch );
     }
 
     return;
@@ -1990,9 +1990,9 @@ void cmd_gspeak( PLAYER *ch, char *argument )
       if ( arg[0] == '\0' || *p == '\0' ) {
            INSTANCE *pInst, *pInstNext;
 
-           send_to_actor( "Any scripts running on yourself are now halted.\n\r", ch );
-           send_to_actor( "To test an expression, try .expression()\n\r", ch );
-           send_to_actor( "To run a script on yourself, type .run dbkey\n\r", ch );
+           to_actor( "Any scripts running on yourself are now halted.\n\r", ch );
+           to_actor( "To test an expression, try .expression()\n\r", ch );
+           to_actor( "To run a script on yourself, type .run dbkey\n\r", ch );
 
            for ( pInst = ch->instances;  pInst != NULL;  pInst = pInstNext )
            { pInstNext = pInst->next;  free_instance( pInst ); }
@@ -2005,8 +2005,8 @@ void cmd_gspeak( PLAYER *ch, char *argument )
 
            pScript = get_script_index( atoi(arg1) );
            if ( pScript == NULL ) {
-                send_to_actor( p, ch );
-                send_to_actor( " is not a valid script.\n\r", ch );
+                to_actor( p, ch );
+                to_actor( " is not a valid script.\n\r", ch );
                 return;
            }
 /*
@@ -2048,17 +2048,17 @@ void cmd_gspeak( PLAYER *ch, char *argument )
 
       var = eval_function( ch, TYPE_ACTOR, p );
       if ( var != NULL ) {
-       send_to_actor( "Expression:\n\r\n\r", ch );
-       send_to_actor( p, ch );
-       send_to_actor( "\n\r\n\rEvaluates to:\n\r\n\r", ch );
-       send_to_actor( var->type == TYPE_STRING ? var->value : 
+       to_actor( "Expression:\n\r\n\r", ch );
+       to_actor( p, ch );
+       to_actor( "\n\r\n\rEvaluates to:\n\r\n\r", ch );
+       to_actor( var->type == TYPE_STRING ? var->value : 
                      var->type == TYPE_ACTOR ? STR((PLAYER *)(var->value),name) : 
                      var->type == TYPE_PROP ? STR((PROP *)(var->value), short_descr) :
                      var->type == TYPE_SCENE ? ((SCENE *)(var->value))->name :
                       "(unknown)", ch );
-       send_to_actor( "\n\r", ch ); 
+       to_actor( "\n\r", ch ); 
        free_variable( var );
-      } else send_to_actor( "Evaluated to NULL\n\r", ch );
+      } else to_actor( "Evaluated to NULL\n\r", ch );
       return;
 }
 
@@ -2297,15 +2297,15 @@ void instance_track( INSTANCE *instance, void * owner ) {
             p = instance->script->commands;
             while ( p != instance->location ) {
                 snprintf( buf, MAX_STRING_LENGTH, "%c", *p++ );
-                send_to_actor( buf, bch );
+                to_actor( buf, bch );
             }
 
             display_interp( bch, "^7" );
             display_interp( bch, "^F" );
-            send_to_actor("_", bch );  /* cursor location */
+            to_actor("_", bch );  /* cursor location */
             display_interp( bch, "^N" );
             display_interp( bch, "^2" );
-            send_to_actor( instance->location, bch );
+            to_actor( instance->location, bch );
             display_interp( bch, "^6" );
 
             snprintf( buf, MAX_STRING_LENGTH, 
@@ -2314,17 +2314,17 @@ void instance_track( INSTANCE *instance, void * owner ) {
                      instance->script->name,
                      instance->wait, instance->autowait, 
                      instance->last_conditional );
-            send_to_actor( buf, bch );
+            to_actor( buf, bch );
             display_interp( bch, "^N" );
             display_interp( bch, "^4" );
 
             if ( !instance->locals )
-            send_to_actor( "No local variables defined.\n\r", bch );
+            to_actor( "No local variables defined.\n\r", bch );
 
             for ( pVar = instance->locals;  pVar != NULL;  pVar = pVar->next )
             {
                 snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
-                send_to_actor( buf, bch );
+                to_actor( buf, bch );
 
                 switch ( pVar->type )
                 {
@@ -2339,7 +2339,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
                     default:          
 snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
                 }
-                send_to_actor( buf, bch );
+                to_actor( buf, bch );
             }
             display_interp( bch, "^N" );
    }

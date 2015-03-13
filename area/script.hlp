@@ -1163,8 +1163,8 @@ maxpeople(v#)      Returns the scene's max occupancy
 setmaxpeople(v#,n) Sets the scene's max occupancy
 setlight(v#,n)     Sets the light level (# of lights) in a v#
 light(v#)          Returns the # of lights in a scene
-setsector(v#,n)    Sets the scene's sector to n
-sector(v#)         Returns the sector number of a given scene v#
+setmovetype(v#,n)    Sets the scene's move to n
+move(v#)         Returns the move number of a given scene v#
 setterrain(v#,n)   Sets the terrain type of v#
 terrain(v#)        Returns the current terrain index of v#
 setwagon(v#,n)     Sets the wagon reference number of v# (see wagons)

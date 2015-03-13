@@ -2800,7 +2800,7 @@ bool sendcli       args( ( CONNECTION *c, char *buf ) );
 /*
  * Daurven's lazy ass.
  */
-#define STC(arg,ch)         ( send_to_actor(arg,ch) )                
+#define STC(arg,ch)         ( to_actor(arg,ch) )                
 
 extern CONNECTION * connection_list;
 extern FILE *          fpReserve;
@@ -2834,7 +2834,7 @@ bool write_to_connection args( ( int desc, char *txt, int length ) );
 void parse_snoop         args( ( CONNECTION *d, const char *txt ) );
 bool write_to_descr_nice args( ( CONNECTION *d ) );
 void stop_idling         args( ( PLAYER *ch ) );
-void send_to_actor       args( ( const char *txt, PLAYER *ch ) );
+void to_actor       args( ( const char *txt, PLAYER *ch ) );
 void page_to_actor       args( ( const char *txt, PLAYER *ch ) );
 void page_string         args( ( CONNECTION *d, char *input) );
 void ansi_color          args( ( const char *txt, PLAYER *ch ) );

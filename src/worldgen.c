@@ -100,12 +100,12 @@ void cmd_terrain( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Terrain syntax:\n\r", ch );
-        send_to_actor( "   terrain new\n\r", ch );
-        send_to_actor( "   terrain list\n\r", ch );
-        send_to_actor( "   terrain <dbkey> <command|field|movetype> <value>\n\r\n\r", ch );
-        send_to_actor( "Commands:  show\n\r", ch );
-        send_to_actor( "Fields:    winter summer fall spring name map\n\r", ch );
+        to_actor( "Terrain syntax:\n\r", ch );
+        to_actor( "   terrain new\n\r", ch );
+        to_actor( "   terrain list\n\r", ch );
+        to_actor( "   terrain <dbkey> <command|field|movetype> <value>\n\r\n\r", ch );
+        to_actor( "Commands:  show\n\r", ch );
+        to_actor( "Fields:    winter summer fall spring name map\n\r", ch );
         return;
     };
 
@@ -114,7 +114,7 @@ void cmd_terrain( PLAYER *ch, char *argument )
         for ( pTerrain = terrain_list;  pTerrain != NULL;  pTerrain = pTerrain->next )
         {
             sprintf( arg, "[%3d] %c %s\n\r", pTerrain->dbkey, pTerrain->map_char, pTerrain->name );
-            send_to_actor( arg, ch );
+            to_actor( arg, ch );
         }
 
         return;
@@ -125,7 +125,7 @@ void cmd_terrain( PLAYER *ch, char *argument )
         pTerrain = new_terrain( );
         pTerrain->next = terrain_list;
         terrain_list = pTerrain;
-        send_to_actor( "Terrain created.\n\r", ch );
+        to_actor( "Terrain created.\n\r", ch );
         return;
     }
 
@@ -141,7 +141,7 @@ void cmd_terrain( PLAYER *ch, char *argument )
 
     if ( pTerrain == NULL )
     {
-        send_to_actor( "Terrain not found.\n\r", ch );
+        to_actor( "Terrain not found.\n\r", ch );
         return;
     }
 
@@ -149,7 +149,7 @@ void cmd_terrain( PLAYER *ch, char *argument )
     {
         free_string( pTerrain->name );
         pTerrain->name = str_dup( argument );
-        send_to_actor( "Terrain name set.\n\r", ch );
+        to_actor( "Terrain name set.\n\r", ch );
         return;
     }
 
@@ -180,34 +180,34 @@ void cmd_terrain( PLAYER *ch, char *argument )
     if ( !str_cmp( arg, "map" ) )
     {
         pTerrain->map_char = *argument;
-        send_to_actor( "Map character set.\n\r", ch );
+        to_actor( "Map character set.\n\r", ch );
         return;
     }
 
     if ( move_number( arg ) != MOVE_MAX )
     {
          pTerrain->move  = move_number( arg );
-         send_to_actor( "Sector type set.\n\r", ch );
+         to_actor( "Sector type set.\n\r", ch );
          return;
     }
 
     /* Otherwise, show... */
 
     sprintf( arg, "Name:  [%s]\n\r", pTerrain->name );
-    send_to_actor( arg, ch );
+    to_actor( arg, ch );
 
     sprintf( arg, "Vnum:  [%3d]   Sector:  [%s]    Map char: [%c]\n\r",
              pTerrain->dbkey,
              move_name( pTerrain->move ),
              pTerrain->map_char );
-    send_to_actor( arg, ch );
+    to_actor( arg, ch );
 
     sprintf( arg, "Spring:\n\r%sSummer:\n\r%sFall:\n\r%sWinter:\n\r%s",
              pTerrain->spring,
              pTerrain->summer,
              pTerrain->fall,
              pTerrain->winter );
-    send_to_actor( arg, ch );
+    to_actor( arg, ch );
 
     return;
 };
@@ -264,7 +264,7 @@ void show_terrain( PLAYER *ch, SCENE *pScene )
 
     if ( description == NULL ) return;
 
-    send_to_actor( description, ch );
+    to_actor( description, ch );
     return;
 }
 
@@ -313,11 +313,11 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
 
     if ( pScene == NULL )
     {
-        send_to_actor( "No map scene.\n\r", ch );
+        to_actor( "No map scene.\n\r", ch );
         return;
     }
 
-    send_to_actor( "[Generating Landscape]\n\r", ch );
+    to_actor( "[Generating Landscape]\n\r", ch );
 
     y = 0;
     x = 0;
@@ -330,7 +330,7 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
         if ( *map == '\n' )
         {
             y++;
-            send_to_actor( "\n\r", ch );
+            to_actor( "\n\r", ch );
             map++;
 
             if ( *map == '\r' ) map++;
@@ -345,7 +345,7 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
             if ( y >= MAX_Y )
             {
                 maxY = MAX_Y;
-                send_to_actor( "\n\r << clipped\n\r", ch );
+                to_actor( "\n\r << clipped\n\r", ch );
                 break;
             }
         }
@@ -364,13 +364,13 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
          */
         if ( x >= MAX_X )
         {
-            send_to_actor( "\n\r << wrapped\n\r", ch );
+            to_actor( "\n\r << wrapped\n\r", ch );
             x = 0;
             y++;
             if ( y >= MAX_Y )
             {
                 maxY = MAX_Y;
-                send_to_actor( "\n\r << clipped\n\r", ch );
+                to_actor( "\n\r << clipped\n\r", ch );
                 break;
             }
         }
@@ -387,11 +387,11 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
         if ( pTerrain != NULL )
         {
             snprintf( buf, MAX_STRING_LENGTH, "%c", *map );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
         }
         else
         {
-            send_to_actor( "?", ch );
+            to_actor( "?", ch );
             x++;  /* continue moving */
             continue;
         }
@@ -440,7 +440,7 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
      * Connect scenes.
      */
     snprintf( buf, MAX_STRING_LENGTH, "(end)\n\r[Map Size %d, %d]\n\r[Connecting Scenes]\n\r", maxX, maxY );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     for ( y = 0; y < maxY; y++ )
     {
@@ -488,11 +488,11 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
                pScene->exit[door]->to_scene = get_scene( to_dbkey );
                pScene->exit[door]->dbkey = to_dbkey;
             }
-            send_to_actor( "+", ch );
+            to_actor( "+", ch );
         }
-        send_to_actor( "\n\r", ch );
+        to_actor( "\n\r", ch );
     }
 
-    send_to_actor( "[Generation complete]\n\r", ch );
+    to_actor( "[Generation complete]\n\r", ch );
     return;
 };

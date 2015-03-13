@@ -697,7 +697,7 @@ void violence_update( void )
 	else if ( ch->position < POS_FIGHTING )
 	{
 	    if ( ch->position == POS_SLEEPING && !IS_AFFECTED(ch, BONUS_SLEEP) )
-	    	send_to_actor( "You jolt awake and rejoin the fray.\n\r", ch );
+	    	to_actor( "You jolt awake and rejoin the fray.\n\r", ch );
 	    cmd_stand( ch, "" );
 	}
 
@@ -1237,7 +1237,7 @@ void exp_gain( PLAYER *ch, int gain, bool fMessage )
     if ( fMessage == TRUE ) {
         display_interp( ch, "^3" ); 
         snprintf( buf, MAX_STRING_LENGTH, "You gain %d experience point%s.\n\r", gain, gain > 1 ? "s" : "" );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         display_interp( ch, "^N" ); 
     }       
 
@@ -1262,26 +1262,26 @@ void exp_gain( PLAYER *ch, int gain, bool fMessage )
         snprintf( buf, MAX_STRING_LENGTH, "You raised %s level%s", gained_levels == 1 ? "a" : 
                          capitalize(numberize(gained_levels)), 
                       gained_levels > 1 ? "s!" : "!" );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         display_interp( ch, "^N" );
         display_interp( ch, "^B" );
-        send_to_actor( " You are now level ", ch );
-        send_to_actor( capitalize(numberize(ch->exp_level)), ch );
-        send_to_actor( ".\n\r", ch );
+        to_actor( " You are now level ", ch );
+        to_actor( capitalize(numberize(ch->exp_level)), ch );
+        to_actor( ".\n\r", ch );
       
         if ( !NPC(ch) && !IS_HERO(ch) && ch->exp_level >= MAX_MORTAL_LEVEL ) {
           snprintf( buf, MAX_STRING_LENGTH, "A new star shines in the heavens!\n\r%s has become immortal.", NAME(ch) );
           add_history( ch, buf );
           write_global( buf );
-          send_to_actor( "You are now a hero and may commission a castle.\n\r", ch );
+          to_actor( "You are now a hero and may commission a castle.\n\r", ch );
           PC(ch,level) = LEVEL_HERO;         
         } else if ( fgain > 0 && !NPC(ch) ) {
             if (fgain == 1)
-            send_to_actor( "You gain a hero point.\n\r", ch ); 
-            else { send_to_actor( "You gain ", ch ); 
-                   send_to_actor( itoa(fgain), ch );
-                   send_to_actor( " hero points.\n\r", ch ); 
+            to_actor( "You gain a hero point.\n\r", ch ); 
+            else { to_actor( "You gain ", ch ); 
+                   to_actor( itoa(fgain), ch );
+                   to_actor( " hero points.\n\r", ch ); 
                  }
            if ( PC(ch,stat_points) > 0 ) {
             snprintf( buf, MAX_STRING_LENGTH, "%s gains new status amongst his peers.\n\r",
@@ -1321,7 +1321,7 @@ void damage( PLAYER *ch, PLAYER *victim, int dam )
                          dam,
                          rch != victim ? STR(victim,name)[0] : '*',
                          rch != victim ? STR(victim,name)[1] : '*' );
-                send_to_actor( buf, rch );
+                to_actor( buf, rch );
             }
         }
  
@@ -1415,14 +1415,14 @@ void damage( PLAYER *ch, PLAYER *victim, int dam )
     if ( victim->position == POS_STUNNED )
     {
         act( "$n is mortally wounded!", victim, NULL, NULL, TO_SCENE );
-        send_to_actor("You are badly wounded, but will probably recover.\n\r", victim );
+        to_actor("You are badly wounded, but will probably recover.\n\r", victim );
     }
     else if ( victim->position == POS_DEAD )
     {
-        send_to_actor( "** You have been killed. **\n\r\n\r", victim );
+        to_actor( "** You have been killed. **\n\r\n\r", victim );
         if ( IS_IMMORTAL(victim) )
         {
-            send_to_actor( "But you are immortal, so you rise again.\n\r", victim );
+            to_actor( "But you are immortal, so you rise again.\n\r", victim );
             victim->hit = 50;
             victim->position = POS_STANDING;
             return;
@@ -1891,7 +1891,7 @@ SCENE_VNUM_DEATH;
         PC(victim,condition)[COND_FULL]    = 20;
         PC(victim,condition)[COND_THIRST]  = 20;
         cmd_restore( victim, "me" );
-/*        send_to_actor( "For the first ten hours, you are given another 
+/*        to_actor( "For the first ten hours, you are given another 
 chance.\n\r", victim ); */
     }
     else {
@@ -1924,19 +1924,19 @@ void cmd_kill( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Kill whom?\n\r", ch );
+        to_actor( "Kill whom?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
     if ( victim == ch )
     {
-        send_to_actor( "You hit yourself.\n\r", ch );
+        to_actor( "You hit yourself.\n\r", ch );
         oroc( ch, ch );
         return;
     }
@@ -1958,7 +1958,7 @@ void cmd_kill( PLAYER *ch, char *argument )
 
     if ( ch->position == POS_FIGHTING )
     {
-        send_to_actor( "You do the best you can!\n\r", ch );
+        to_actor( "You do the best you can!\n\r", ch );
         return;
     }
 
@@ -1988,7 +1988,7 @@ void cmd_fight( PLAYER *ch, char *argument )
 	one_argument( argument, arg );
 	if ( ( fmode = fight_mode_lookup( arg ) ) < 0 )
 	{
-	    send_to_actor( "That is not a valid combat tactic.\n\r", ch );
+	    to_actor( "That is not a valid combat tactic.\n\r", ch );
 	    return;
 	}
 	ch->fmode = fmode;
@@ -1998,7 +1998,7 @@ void cmd_fight( PLAYER *ch, char *argument )
 
     sprintf( arg, "Your combat tactic is %s.\n\r",
 	fight_mode_table[ch->fmode].name );
-    send_to_actor( arg, ch );
+    to_actor( arg, ch );
     return;
 }
 
@@ -2010,7 +2010,7 @@ void cmd_fight( PLAYER *ch, char *argument )
  */
 void cmd_throw( PLAYER *ch, char *argument )
 {
-	send_to_actor( "Not yet implemented.\n\r", ch );
+	to_actor( "Not yet implemented.\n\r", ch );
 	return;
 }
 
@@ -2035,7 +2035,7 @@ void cmd_shoot( PLAYER *ch, char *argument )
 
     if ( ( prop = get_item_held( ch, ITEM_RANGED_WEAPON ) ) == NULL )
     {
-    send_to_actor( "You need to wield a ranged weapon.\n\r", ch );
+    to_actor( "You need to wield a ranged weapon.\n\r", ch );
     return;
     }
 
@@ -2050,7 +2050,7 @@ void cmd_shoot( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Shoot who (where)?\n\r", ch );
+    to_actor( "Shoot who (where)?\n\r", ch );
     return;
     }
 
@@ -2065,12 +2065,12 @@ void cmd_shoot( PLAYER *ch, char *argument )
          */
 
         if ( ch->fighting != NULL ) {
-             send_to_actor( "You cannot aim that far while fighting.\n\r", ch );
+             to_actor( "You cannot aim that far while fighting.\n\r", ch );
              return;
         }
 
         if ( rch->exit[dir] == NULL ) {
-           send_to_actor( "That direction is blocked.\n\r", ch );
+           to_actor( "That direction is blocked.\n\r", ch );
            return;
         }
 
@@ -2091,7 +2091,7 @@ void cmd_shoot( PLAYER *ch, char *argument )
          * Watch the setting of ch->in_scene here.
          */
         if ( !pScene ) {
-           send_to_actor( "Shoot where?\n\r", ch );
+           to_actor( "Shoot where?\n\r", ch );
            return;
         }
 
@@ -2128,7 +2128,7 @@ void cmd_shoot( PLAYER *ch, char *argument )
 
     if ( victim == ch )
     {
-    send_to_actor( "You misfire.\n\r", ch );
+    to_actor( "You misfire.\n\r", ch );
     if ( ch->in_scene != rch ) {
     actor_from_scene( ch );
     actor_to_scene( ch, rch );
@@ -2138,7 +2138,7 @@ void cmd_shoot( PLAYER *ch, char *argument )
 
     if ( victim != NULL && is_safe( ch, victim ) )
     {
-      send_to_actor( "It is impossible to concentrate on fighting here.n\r", ch );
+      to_actor( "It is impossible to concentrate on fighting here.n\r", ch );
     if ( ch->in_scene != rch ) {
     actor_from_scene( ch );
     actor_to_scene( ch, rch );
@@ -2152,7 +2152,7 @@ void cmd_shoot( PLAYER *ch, char *argument )
     actor_from_scene( ch );
     actor_to_scene( ch, rch );
     }
-    send_to_actor( "It is impossible to shoot someone in melee with you!\n\r", ch );
+    to_actor( "It is impossible to shoot someone in melee with you!\n\r", ch );
     return;
     }
     if ( NPC(ch) && victim == NULL ) {
@@ -2176,7 +2176,7 @@ if (!NPC(ch))    prop->value[3]--;                  /* ammo decrease */
 
     if ( victim == NULL || rch == NULL )
     {
-    send_to_actor( "You miss.\n\r", ch );
+    to_actor( "You miss.\n\r", ch );
     if ( pScene && pPropIndex ) 
 	prop_to_scene( create_prop( pPropIndex, 0 ), pScene );
     if ( ch->in_scene != rch ) {
@@ -2186,7 +2186,7 @@ if (!NPC(ch))    prop->value[3]--;                  /* ammo decrease */
     return;
     }
 
-    send_to_actor( STR(prop,action_descr), ch );
+    to_actor( STR(prop,action_descr), ch );
 
 
     pPropIndex = get_prop_template( prop->value[0] );
@@ -2250,19 +2250,19 @@ else {
 
     if ( victim == ch )
     {
-    send_to_actor( "You misfire.\n\r", ch );
+    to_actor( "You misfire.\n\r", ch );
     return;
     }
 
     if ( victim != NULL && is_safe( ch, victim ) )
     {
-      send_to_actor( "It is impossible to concentrate on fighting here.n\r", ch );
+      to_actor( "It is impossible to concentrate on fighting here.n\r", ch );
       return;
     }
 
     if ( victim != NULL && victim->fighting == ch )
     {
-    send_to_actor( "It is impossible to shoot someone in melee with you!\n\r", ch );
+    to_actor( "It is impossible to shoot someone in melee with you!\n\r", ch );
     return;
     }
 
@@ -2276,7 +2276,7 @@ else {
      return; }
 
     prop->value[3]--;                            /* ammo decrease */
-    send_to_actor( STR(prop,action_descr), ch );
+    to_actor( STR(prop,action_descr), ch );
 
     { SKILL *pSkill=skill_lookup( "ranged" );
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
@@ -2284,7 +2284,7 @@ else {
 
     if ( victim == NULL )
     {
-    send_to_actor( "You miss and lose a round.\n\r", ch );
+    to_actor( "You miss and lose a round.\n\r", ch );
     return;
     }
 
@@ -2341,7 +2341,7 @@ void cmd_reload( PLAYER *ch, char *argument )
 
     if ( ( prop = get_item_held( ch, ITEM_RANGED_WEAPON ) ) == NULL )
     {
-    send_to_actor( "You need to wield a ranged weapon.\n\r", ch );
+    to_actor( "You need to wield a ranged weapon.\n\r", ch );
     return;
     }
 
@@ -2374,12 +2374,12 @@ void cmd_reload( PLAYER *ch, char *argument )
 
 
     if ( ammo == NULL ) {
-       send_to_actor( "You are out of ammunition.\n\r", ch );
+       to_actor( "You are out of ammunition.\n\r", ch );
        return;
     }
 
     snprintf( buf, MAX_STRING_LENGTH, "You ready your %s.\n\r", smash_article(STR(prop,short_descr)) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     prop->value[3] = ammo->value[0];
     extractor_prop( ammo );
     return;
@@ -2400,19 +2400,19 @@ void cmd_backstab( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-    send_to_actor( "Backstab whom?\n\r", ch );
+    to_actor( "Backstab whom?\n\r", ch );
     return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
     return;
     }
 
     if ( victim == ch )
     {
-    send_to_actor( "How can you sneak up on yourself?\n\r", ch );
+    to_actor( "How can you sneak up on yourself?\n\r", ch );
     return;
     }
 
@@ -2421,7 +2421,7 @@ void cmd_backstab( PLAYER *ch, char *argument )
 
     if ( ( prop = get_item_held( ch, ITEM_WEAPON ) ) == NULL )
     {
-    send_to_actor( "You need to wield a weapon.\n\r", ch );
+    to_actor( "You need to wield a weapon.\n\r", ch );
     return;
     }
 
@@ -2429,13 +2429,13 @@ void cmd_backstab( PLAYER *ch, char *argument )
 
     if ( attack_table[dt].hit_type != TYPE_PIERCE )
     {
-    send_to_actor( "You need to wield a piercing weapon.\n\r", ch );
+    to_actor( "You need to wield a piercing weapon.\n\r", ch );
     return;
     }
 
     if ( victim->fighting != NULL )
     {
-    send_to_actor( "It is impossible to backstab a fighting person.\n\r", ch );
+    to_actor( "It is impossible to backstab a fighting person.\n\r", ch );
     return;
     }
 
@@ -2490,7 +2490,7 @@ void cmd_backstab( PLAYER *ch, char *argument )
 
 void cmd_sla( PLAYER *ch, char *argument )
 {
-    send_to_actor( "If you want to SLAY, spell it out.\n\r", ch );
+    to_actor( "If you want to SLAY, spell it out.\n\r", ch );
     return;
 }
 
@@ -2507,25 +2507,25 @@ void cmd_slay( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Slay whom?\n\r", ch );
+        to_actor( "Slay whom?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
     if ( ch == victim )
     {
-        send_to_actor( "Suicide is a mortal sin.\n\r", ch );
+        to_actor( "Suicide is a mortal sin.\n\r", ch );
         return;
     }
 
     if ( get_trust(victim) > get_trust(ch) )
     {
-        send_to_actor( "You failed.\n\r", ch );
+        to_actor( "You failed.\n\r", ch );
         return;
     }
 
@@ -2580,12 +2580,12 @@ void cmd_retreat( PLAYER *ch, char *argument )
 {
     if ( ch->fighting == NULL )
     {
-	send_to_actor( "Calm down, you're not fighting!\n\r", ch );
+	to_actor( "Calm down, you're not fighting!\n\r", ch );
 	return;
     }
     if ( LEARNED(ch, "flee") <= 0 )
     {
-	send_to_actor( "If you want out of combat, FLEE!\n\r", ch );
+	to_actor( "If you want out of combat, FLEE!\n\r", ch );
 	return;
     }
     retreat(ch);
@@ -2697,13 +2697,13 @@ void cmd_flee( PLAYER *ch, char *argument )
 /*
     if ( ch->fighting == NULL )
     {
-	send_to_actor( "Calm down, you're not fighting!\n\r", ch );
+	to_actor( "Calm down, you're not fighting!\n\r", ch );
 	return;
     }
 
     if ( LEARNED(ch, "flee") <= 0 )
     {
-    send_to_actor( "It is impossible to to do that.\n\r", ch );
+    to_actor( "It is impossible to to do that.\n\r", ch );
 	return;
     }
  */
@@ -2725,37 +2725,37 @@ void cmd_rescue( PLAYER *ch, char *argument )
     one_argument( argument, arg );
     if ( arg[0] == '\0' )
     {
-        send_to_actor( "Rescue whom?\n\r", ch );
+        to_actor( "Rescue whom?\n\r", ch );
         return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
     if ( victim == ch )
     {
-        send_to_actor( "What about fleeing instead?\n\r", ch );
+        to_actor( "What about fleeing instead?\n\r", ch );
         return;
     }
 
     if ( !NPC(ch) && NPC(victim) )
     {
-        send_to_actor( "Doesn't need your help!\n\r", ch );
+        to_actor( "Doesn't need your help!\n\r", ch );
         return;
     }
 
     if ( ch->fighting == victim )
     {
-        send_to_actor( "Too late.\n\r", ch );
+        to_actor( "Too late.\n\r", ch );
         return;
     }
 
     if ( ( fch = victim->fighting ) == NULL )
     {
-        send_to_actor( "That person is not fighting right now.\n\r", ch );
+        to_actor( "That person is not fighting right now.\n\r", ch );
         return;
     }
 
@@ -2764,7 +2764,7 @@ void cmd_rescue( PLAYER *ch, char *argument )
     WAIT_STATE( ch, pSkill ? pSkill->delay : 0 );
     if ( skill_check( ch, pSkill, 0 ) )
     {
-        send_to_actor( "You fail the rescue.\n\r", ch );
+        to_actor( "You fail the rescue.\n\r", ch );
         return;
     }
     }
@@ -2922,7 +2922,7 @@ bool hit_poison( PLAYER *ch, PLAYER *victim, int hit, int dam )
             display_interp( ch, "^2" );
             display_interp( victim, "^2" );
             act( "$n chokes and gags.", victim, NULL, NULL, TO_SCENE );
-            send_to_actor( "You choke and gag.\n\r", victim );
+            to_actor( "You choke and gag.\n\r", victim );
             display_interp( ch, "^N" );
             display_interp( victim, "^N" );
 
@@ -3445,14 +3445,14 @@ void cmd_assist( PLAYER *ch, char *argument )
             if ( in_group( ch, victim ) && victim->fighting != NULL )
              break;
         }
-        if ( !victim ) { send_to_actor( "Assist whom?\n\r", ch ); return; }
+        if ( !victim ) { to_actor( "Assist whom?\n\r", ch ); return; }
     }
     else {
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
         if ( ch->master ) victim=ch->master->fighting;
         if ( !victim ) {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
         }
     }
@@ -3465,18 +3465,18 @@ void cmd_assist( PLAYER *ch, char *argument )
     }
 
     if ( ch->in_scene != victim->in_scene ) {
-        send_to_actor( "They aren't nearby.\n\r", ch );
+        to_actor( "They aren't nearby.\n\r", ch );
         return; 
     }
 
     if ( ch->fighting == victim || ch->fighting != NULL )    {
-        send_to_actor( "Too late.\n\r", ch );
+        to_actor( "Too late.\n\r", ch );
         return;
     }
 
     if ( ( fch = victim->fighting ) == NULL )
     {
-        send_to_actor( "That person is not fighting right now.\n\r", ch );
+        to_actor( "That person is not fighting right now.\n\r", ch );
         return;
     }
 
@@ -3500,12 +3500,12 @@ void cmd_mercy( PLAYER *ch, char *argument )
     PLAYER *fch;
 
     if ( ch->fighting == NULL ) {
-        send_to_actor( "You are not fighting right now.\n\r", ch );
+        to_actor( "You are not fighting right now.\n\r", ch );
         return;
     }
 
     if ( ch->fighting->fighting != ch ) {
-        send_to_actor( "You cower in fear.", ch );
+        to_actor( "You cower in fear.", ch );
         act( "$n cowers in fear from $N.", ch, NULL, ch->fighting, TO_SCENE );
         stop_fighting( ch, TRUE );
         return;
@@ -3537,7 +3537,7 @@ void cmd_stop( PLAYER *ch, char *argument )
     PLAYER *fch;
 
     if ( ch->fighting == NULL ) {
-        send_to_actor( "You are not fighting right now.\n\r", ch );
+        to_actor( "You are not fighting right now.\n\r", ch );
         return;
     }
 

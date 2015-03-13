@@ -580,7 +580,7 @@ PLAYER *find_keeper( PLAYER *ch, char *arg, bool Report )
         if ( (keeper = get_actor_scene( ch, arg )) != NULL
           && (pShop = keeper->pIndexData->pShop) == NULL )
         {
-            if ( Report ) send_to_actor( "They aren't here.\n\r", ch );
+            if ( Report ) to_actor( "They aren't here.\n\r", ch );
             return NULL;
         }
     }
@@ -596,7 +596,7 @@ PLAYER *find_keeper( PLAYER *ch, char *arg, bool Report )
 
     if ( pShop == NULL )
     {
-        if ( Report ) send_to_actor( "There is no one to serve you.\n\r", ch );
+        if ( Report ) to_actor( "There is no one to serve you.\n\r", ch );
 	return NULL;
     }
 
@@ -738,7 +738,7 @@ void cmd_repair( PLAYER *ch, char *argument )
     bool AppraiseOnly = FALSE;
 
     if ( ch->position == POS_FIGHTING ) {
-            send_to_actor( "Not while fighting.\n\r", ch );
+            to_actor( "Not while fighting.\n\r", ch );
             return;
        }
     argument = one_argument( argument, arg );
@@ -751,16 +751,16 @@ void cmd_repair( PLAYER *ch, char *argument )
 
     pProp = get_prop_here( ch, arg );
     if ( pProp != NULL && pProp->item_type != ITEM_ARMOR ) {
-       send_to_actor( "That is not a piece of armor.\n\r", ch );
+       to_actor( "That is not a piece of armor.\n\r", ch );
        return;
     }
 
-    if ( pProp == NULL ) { send_to_actor( "Repair what?\n\r", ch); 
+    if ( pProp == NULL ) { to_actor( "Repair what?\n\r", ch); 
             return; }
 
 
         if ( pProp->value[1] == pProp->value[2] ) {
-             send_to_actor( "It's in perfect shape.\n\r", ch );
+             to_actor( "It's in perfect shape.\n\r", ch );
              return;
         }
 
@@ -786,11 +786,11 @@ void cmd_repair( PLAYER *ch, char *argument )
                   act( "$n repairs $p.", ch, pProp, NULL, TO_SCENE );
              }
 
-             send_to_actor( "You perform some repairs on ", ch );
-             send_to_actor( STR(pProp,short_descr), ch );
-             send_to_actor( ".\n\r", ch );
+             to_actor( "You perform some repairs on ", ch );
+             to_actor( STR(pProp,short_descr), ch );
+             to_actor( ".\n\r", ch );
         }            
-        else send_to_actor( "You don't know how to make repairs.\n\r", ch );
+        else to_actor( "You don't know how to make repairs.\n\r", ch );
         return;
     }
 
@@ -838,12 +838,12 @@ void cmd_repair( PLAYER *ch, char *argument )
 
     snprintf( buf, MAX_STRING_LENGTH, "%s repairs %s for %s.\n\r", capitalize(NAME(keeper)), 
              STR(pProp,short_descr), name_amount( cost ) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "You pay %s and receive %s in change.\n\r", 
              NAME(keeper), p );
 
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     act( "$N repairs $p for $n.", ch, pProp, keeper, TO_SCENE );
    
     }
@@ -945,14 +945,14 @@ bool transact( PLAYER *keeper, PROP *prop, PLAYER *ch, int price )
     {
         int diff=price-tally_coins(ch);
         snprintf( buf, MAX_STRING_LENGTH, "You are short %s.\n\r", name_amount( diff ) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return FALSE;
     }
 
 /*
     if ( hand_empty( ch ) == WEAR_NONE )
     {
-        send_to_actor( "You tuck it away for a moment.\n\r", ch );
+        to_actor( "You tuck it away for a moment.\n\r", ch );
         return FALSE;
     }
  */
@@ -971,7 +971,7 @@ bool transact( PLAYER *keeper, PROP *prop, PLAYER *ch, int price )
     else
     snprintf( buf, MAX_STRING_LENGTH, "You buy %s and receive %s in change.\n\r", STR(prop,short_descr), p );
 
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     act( "$n buys $p from $N.", ch, prop, keeper, TO_SCENE );
     return TRUE;
 }
@@ -987,7 +987,7 @@ void buy_ai( PLAYER *ch, PLAYER *keeper, int offer )
 
     if ( (prop = ch->haggling) == NULL )
     {
-        send_to_actor( "You are not trading for anything.\n\r", ch );
+        to_actor( "You are not trading for anything.\n\r", ch );
         return;
     }
 
@@ -999,13 +999,13 @@ void buy_ai( PLAYER *ch, PLAYER *keeper, int offer )
 
     if ( ch->keeper != keeper )
     {
-        send_to_actor( "You are trading with someone else.\n\r", ch );
+        to_actor( "You are trading with someone else.\n\r", ch );
         return;
     }
 
     if ( ch->in_scene != keeper->in_scene )
     {
-        send_to_actor( "You are not in the same scene with the trader.\n\r", ch );
+        to_actor( "You are not in the same scene with the trader.\n\r", ch );
         return;
     }
 
@@ -1145,7 +1145,7 @@ void cmd_trade( PLAYER *ch, char *argument )
         extractor_prop( ch->haggling );
 
         ch->haggling = NULL;
-        send_to_actor( "You stop haggling for the current item.\n\r", ch );
+        to_actor( "You stop haggling for the current item.\n\r", ch );
     }
 
     ch->keeper = keeper;
@@ -1175,7 +1175,7 @@ void cmd_sell( PLAYER *ch, char *argument ) {
     one_argument( argument, arg );
 
     if ( arg[0] == '\0' ) {
-        send_to_actor( "Sell what?\n\r", ch );
+        to_actor( "Sell what?\n\r", ch );
         return;
     }
 
@@ -1191,7 +1191,7 @@ void cmd_sell( PLAYER *ch, char *argument ) {
     }
 
     if ( !can_drop_prop( ch, prop ) ) {
-        send_to_actor( "It is impossible to let go of it.\n\r", ch );
+        to_actor( "It is impossible to let go of it.\n\r", ch );
         return;
     }
 

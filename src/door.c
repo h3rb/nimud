@@ -129,7 +129,7 @@ int find_door( PLAYER *ch, char *arg )
 
     if ( !IS_SET(pexit->exit_flags, EXIT_ISDOOR) )
     {
-       send_to_actor( "You cannot do that.\n\r", ch );
+       to_actor( "You cannot do that.\n\r", ch );
        return MAX_DIR;
     }
 
@@ -153,7 +153,7 @@ void cmd_open( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Open what?\n\r", ch );
+	to_actor( "Open what?\n\r", ch );
 	return;
     }
 
@@ -163,19 +163,19 @@ void cmd_open( PLAYER *ch, char *argument )
          && prop->item_type != ITEM_FURNITURE
          && !IS_SET(prop->value[1], FURN_EXIT) )
        {
-           send_to_actor( "You cannot open that.\n\r", ch );
+           to_actor( "You cannot open that.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_CLOSED) )
        {
-           send_to_actor( "It is not closed.\n\r", ch );
+           to_actor( "It is not closed.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_CLOSEABLE) )
        {
-           send_to_actor( "You cannot do that.\n\r", ch );
+           to_actor( "You cannot do that.\n\r", ch );
            return;
        }
 
@@ -201,19 +201,19 @@ void cmd_open( PLAYER *ch, char *argument )
 
         if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
         {
-            send_to_actor( "It is already open.\n\r",  ch );
+            to_actor( "It is already open.\n\r",  ch );
             return;
         }
 
         if ( IS_SET(pexit->exit_flags, EXIT_LOCKED) )
         {
-            send_to_actor( "It is locked.\n\r", ch );
+            to_actor( "It is locked.\n\r", ch );
             return;
         }
 
         if ( IS_SET(pexit->exit_flags, EXIT_JAMMED) )
         {
-            send_to_actor( "It is jammed shut.\n\r", ch );
+            to_actor( "It is jammed shut.\n\r", ch );
             return;
         }
 
@@ -252,7 +252,7 @@ void cmd_close( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Close what?\n\r", ch );
+	to_actor( "Close what?\n\r", ch );
 	return;
     }
 
@@ -262,19 +262,19 @@ void cmd_close( PLAYER *ch, char *argument )
          && prop->item_type != ITEM_FURNITURE
          && !IS_SET(prop->value[1], FURN_EXIT) )
        {
-           send_to_actor( "You cannot close that.\n\r", ch );
+           to_actor( "You cannot close that.\n\r", ch );
            return;
        }
 
        if ( IS_SET(prop->value[1], CONT_CLOSED) )
        {
-           send_to_actor( "It is already closed.\n\r", ch );
+           to_actor( "It is already closed.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_CLOSEABLE) )
        {
-           send_to_actor( "You cannot do that.\n\r", ch );
+           to_actor( "You cannot do that.\n\r", ch );
            return;
        }
 
@@ -294,13 +294,13 @@ void cmd_close( PLAYER *ch, char *argument )
 
 	if ( IS_SET(pexit->exit_flags, EXIT_CLOSED) )
     {
-        send_to_actor( "It is already closed.\n\r", ch );
+        to_actor( "It is already closed.\n\r", ch );
         return;
     }
 
     if ( IS_SET(pexit->exit_flags, EXIT_JAMMED) )
     {
-        send_to_actor( "It is jammed open.\n\r", ch );
+        to_actor( "It is jammed open.\n\r", ch );
         return;
     }
 
@@ -352,7 +352,7 @@ void cmd_lock( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-       send_to_actor( "Lock what?\n\r", ch );
+       to_actor( "Lock what?\n\r", ch );
        return;
     }
 
@@ -362,31 +362,31 @@ void cmd_lock( PLAYER *ch, char *argument )
          && prop->item_type != ITEM_FURNITURE
          && !IS_SET(prop->value[1], FURN_EXIT) )
        {
-           send_to_actor( "You cannot do that.\n\r", ch );
+           to_actor( "You cannot do that.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_CLOSED) )
        {
-           send_to_actor( "It is not closed.\n\r", ch );
+           to_actor( "It is not closed.\n\r", ch );
            return;
        }
 
        if ( prop->value[2] <= 0 )
        {
-           send_to_actor( "It cannot be locked.\n\r", ch );
+           to_actor( "It cannot be locked.\n\r", ch );
            return;
        }
 
        if ( (key = has_key( ch, prop->value[2] )) == NULL )
        {
-           send_to_actor( "You lack the key.\n\r", ch );
+           to_actor( "You lack the key.\n\r", ch );
            return;
        }
 
        if ( IS_SET(prop->value[1], CONT_LOCKED) )
        {
-           send_to_actor( "It is already locked.\n\r", ch );
+           to_actor( "It is already locked.\n\r", ch );
            return;
        }
 
@@ -410,31 +410,31 @@ void cmd_lock( PLAYER *ch, char *argument )
 
        if ( pexit == NULL )
        {
-           send_to_actor( "There is no door there.\n\r", ch );
+           to_actor( "There is no door there.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
        {
-           send_to_actor( "It is not closed.\n\r", ch );
+           to_actor( "It is not closed.\n\r", ch );
            return;
        }
 
        if ( pexit->key <= 0 )
        {
-           send_to_actor( "It cannot be locked.\n\r", ch );
+           to_actor( "It cannot be locked.\n\r", ch );
            return;
        }
 
        if ( (key = has_key( ch, pexit->key)) == NULL )
        {
-           send_to_actor( "You lack the key.\n\r", ch );
+           to_actor( "You lack the key.\n\r", ch );
            return;
        }
 
        if ( IS_SET(pexit->exit_flags, EXIT_LOCKED) )
        {
-           send_to_actor( "It is already locked.\n\r", ch );
+           to_actor( "It is already locked.\n\r", ch );
            return;
        }
 
@@ -478,7 +478,7 @@ void cmd_unlock( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Unlock what?\n\r", ch );
+	to_actor( "Unlock what?\n\r", ch );
 	return;
     }
 
@@ -488,31 +488,31 @@ void cmd_unlock( PLAYER *ch, char *argument )
          && prop->item_type != ITEM_FURNITURE
          && !IS_SET(prop->value[1], FURN_EXIT) )
        {
-           send_to_actor( "You cannot do that.\n\r", ch );
+           to_actor( "You cannot do that.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_CLOSED) )
        {
-           send_to_actor( "It is not closed.\n\r", ch );
+           to_actor( "It is not closed.\n\r", ch );
            return;
        }
 
        if ( prop->value[2] <= 0 )
        {
-           send_to_actor( "It cannot be unlocked.\n\r", ch );
+           to_actor( "It cannot be unlocked.\n\r", ch );
            return;
        }
 
        if ( (key = has_key( ch, prop->value[2] )) == NULL )
        {
-           send_to_actor( "You lack the key.\n\r", ch );
+           to_actor( "You lack the key.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_LOCKED) )
        {
-           send_to_actor( "It is already unlocked.\n\r", ch );
+           to_actor( "It is already unlocked.\n\r", ch );
            return;
        }
 
@@ -535,31 +535,31 @@ void cmd_unlock( PLAYER *ch, char *argument )
        pexit = ch->in_scene->exit[door];
        if (pexit == NULL)
        {
-             send_to_actor( "It is impossible to go that way.\n\r", ch );
+             to_actor( "It is impossible to go that way.\n\r", ch );
              return;
        }
 
        if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
        {
-           send_to_actor( "It is not closed.\n\r", ch );
+           to_actor( "It is not closed.\n\r", ch );
            return;
        }
 
        if ( pexit->key <= 0 )
        {
-           send_to_actor( "It cannot be unlocked.\n\r", ch );
+           to_actor( "It cannot be unlocked.\n\r", ch );
            return;
        }
 
        if ( (key = has_key( ch, pexit->key)) == NULL )
        {
-           send_to_actor( "You lack the key.\n\r", ch );
+           to_actor( "You lack the key.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(pexit->exit_flags, EXIT_LOCKED) )
        {
-           send_to_actor( "It is already unlocked.\n\r", ch );
+           to_actor( "It is already unlocked.\n\r", ch );
            return;
        }
 
@@ -611,7 +611,7 @@ void cmd_pick( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Pick what?\n\r", ch );
+	to_actor( "Pick what?\n\r", ch );
 	return;
     }
  
@@ -630,7 +630,7 @@ void cmd_pick( PLAYER *ch, char *argument )
 
     if ( !skill_check( ch, skill_lookup( "pick" ), 0 ) )
     {
-	send_to_actor( "You failed.\n\r", ch);
+	to_actor( "You failed.\n\r", ch);
 	return;
     }
 
@@ -638,31 +638,31 @@ void cmd_pick( PLAYER *ch, char *argument )
     {
        if ( prop->item_type != ITEM_CONTAINER )
        {
-           send_to_actor( "That's not a container.\n\r", ch );
+           to_actor( "That's not a container.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_CLOSED) )
        {
-           send_to_actor( "It is not closed.\n\r", ch );
+           to_actor( "It is not closed.\n\r", ch );
            return;
        }
 
        if ( prop->value[2] <= 0 )
        {
-           send_to_actor( "It cannot be unlocked.\n\r", ch );
+           to_actor( "It cannot be unlocked.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(prop->value[1], CONT_LOCKED) )
        {
-           send_to_actor( "It is already unlocked.\n\r", ch );
+           to_actor( "It is already unlocked.\n\r", ch );
            return;
        }
 
        if ( IS_SET(prop->value[1], CONT_PICKPROOF) )
        {
-           send_to_actor( "You cannot decipher the lock.\n\r", ch );
+           to_actor( "You cannot decipher the lock.\n\r", ch );
            return;
        }
 
@@ -681,31 +681,31 @@ void cmd_pick( PLAYER *ch, char *argument )
        pexit = ch->in_scene->exit[door];
    
        if ( !pexit ) {
-           send_to_actor( "You cannot go that way.\n\r", ch );
+           to_actor( "You cannot go that way.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(pexit->exit_flags, EXIT_CLOSED) )
        {
-           send_to_actor( "It is not closed.\n\r", ch );
+           to_actor( "It is not closed.\n\r", ch );
            return;
        }
 
        if ( pexit->key < 0 )
        {
-           send_to_actor( "It cannot be picked.\n\r", ch );
+           to_actor( "It cannot be picked.\n\r", ch );
            return;
        }
 
        if ( !IS_SET(pexit->exit_flags, EXIT_LOCKED) )
        {
-           send_to_actor( "It's already unlocked.\n\r", ch );
+           to_actor( "It's already unlocked.\n\r", ch );
            return;
        }
 
        if ( IS_SET(pexit->exit_flags, EXIT_PICKPROOF) )
        {
-           send_to_actor( "You failed.\n\r", ch );
+           to_actor( "You failed.\n\r", ch );
            return;
        }
 

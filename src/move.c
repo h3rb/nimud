@@ -222,31 +222,31 @@ void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
                       dir_name[door] );
 
     buf[0] = UPPER(buf[0]);
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     if ( ch->in_scene->exit[door]
       && !MTD(ch->in_scene->exit[door]->keyword) )
     {
         if ( !str_cmp( ch->in_scene->exit[door]->keyword, "debris" ) )
-        send_to_actor( " through ", ch );
+        to_actor( " through ", ch );
         else {
          if ( !str_infix( ch->in_scene->exit[door]->keyword, "path" ) )
-         send_to_actor( " down a", ch );        
+         to_actor( " down a", ch );        
          else
          if ( !str_infix( ch->in_scene->exit[door]->keyword, "ledge" ) )
-         send_to_actor( " along a", ch );
+         to_actor( " along a", ch );
          else
-         send_to_actor( " through a", ch );
+         to_actor( " through a", ch );
 
          if ( IS_SET(ch->in_scene->exit[door]->exit_flags, EXIT_ISDOOR) ) 
-         send_to_actor( "n open ", ch );
+         to_actor( "n open ", ch );
          else {if ( IS_VOWEL(ch->in_scene->exit[door]->keyword[0]) )
-                send_to_actor( "n ", ch ); 
-           else send_to_actor( " ", ch );}
+                to_actor( "n ", ch ); 
+           else to_actor( " ", ch );}
         }
-        send_to_actor( ch->in_scene->exit[door]->keyword, ch );
+        to_actor( ch->in_scene->exit[door]->keyword, ch );
     }
-    send_to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", ch );
+    to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", ch );
 
     for ( fch = ch->in_scene->people; fch != NULL; fch = fch_next )
     {
@@ -316,16 +316,16 @@ void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
         }
 
         buf[0] = UPPER(buf[0]);
-        send_to_actor( buf, fch );
+        to_actor( buf, fch );
         if ( buf[0] != '\0' )
         {
             if ( ch->in_scene->exit[door]
              && !MTD(ch->in_scene->exit[door]->keyword) )
             {
-                send_to_actor( " through an open ", fch );
-                send_to_actor( ch->in_scene->exit[door]->keyword, fch );
+                to_actor( " through an open ", fch );
+                to_actor( ch->in_scene->exit[door]->keyword, fch );
             }
-            send_to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", fch );
+            to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", fch );
         }
 
         snprintf( buf, MAX_STRING_LENGTH, "%d", door );
@@ -398,19 +398,19 @@ void arrive_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
     }
 
         buf[0] = UPPER(buf[0]);
-        send_to_actor( buf, fch );
+        to_actor( buf, fch );
         if ( buf[0] != '\0' )
         {
             if ( ch->in_scene->exit[rev_dir[door]]
               && !MTD(ch->in_scene->exit[rev_dir[door]]->keyword) )
             {
-                send_to_actor( " through the ", fch );
+                to_actor( " through the ", fch );
                 if ( IS_SET(ch->in_scene->exit[rev_dir[door]]->exit_flags,EXIT_ISDOOR)
                  && !IS_SET(ch->in_scene->exit[rev_dir[door]]->exit_flags,EXIT_CLOSED) )
-                send_to_actor( "open ", ch );               
-                send_to_actor( cut_to( ch->in_scene->exit[rev_dir[door]]->keyword ), fch );
+                to_actor( "open ", ch );               
+                to_actor( cut_to( ch->in_scene->exit[rev_dir[door]]->keyword ), fch );
             }
-            send_to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", fch );
+            to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", fch );
         }
 
         snprintf( buf, MAX_STRING_LENGTH, "%d", rev_dir[door] );
@@ -440,7 +440,7 @@ bool lose_movement( PLAYER *ch, SCENE *in_scene,
 
         if ( ch->riding->move < move )
         {
-            send_to_actor( "Your mount is too exhausted.\n\r", ch );
+            to_actor( "Your mount is too exhausted.\n\r", ch );
             cmd_emote( ch->riding, "pants and gasps from exhaustion." );
             return FALSE;
         }
@@ -453,7 +453,7 @@ bool lose_movement( PLAYER *ch, SCENE *in_scene,
 
     if ( ch->move < move )
 	{
-	    send_to_actor( "You are too exhausted.\n\r", ch );
+	    to_actor( "You are too exhausted.\n\r", ch );
         return FALSE;
 	}
 
@@ -480,7 +480,7 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
     if ( !ch->instances && NPC(ch) && ( IS_SET(to_scene->scene_flags,SCENE_NO_ACTOR)
                                      || (to_scene->zone != in_scene->zone && IS_SET(ch->flag,ACTOR_STAY_ZONE) )))
     {
-        send_to_actor( "You are an NPC, and restricted from going in this direction due to flag NO_ACTOR or flag STAY_ZONE", ch );
+        to_actor( "You are an NPC, and restricted from going in this direction due to flag NO_ACTOR or flag STAY_ZONE", ch );
         if ( !ch->master )
         return FALSE;
     }
@@ -509,13 +509,13 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
      */
     if ( IS_AFFECTED(ch, BONUS_HOLD) && depth == 0 )
     {
-        send_to_actor( "It is impossible to move.\n\r", ch );
+        to_actor( "It is impossible to move.\n\r", ch );
         return FALSE;
     }
 
     if ( (fRiding && IS_AFFECTED(ch->riding, BONUS_HOLD)) && depth == 0  )
     {
-        send_to_actor( "Your ride aren't able move.\n\r", ch );
+        to_actor( "Your ride aren't able move.\n\r", ch );
         return FALSE;
     }
 
@@ -523,7 +523,7 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
     if ( ( pexit   = in_scene->exit[door] ) == NULL
       || ( to_scene = pexit->to_scene      ) == NULL )
     {
-    send_to_actor( "You cannot go that way.\n\r", ch );
+    to_actor( "You cannot go that way.\n\r", ch );
     return FALSE;
     }
 
@@ -540,7 +540,7 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
             else
             act( "The $T is closed.", ch, NULL, pexit->keyword, TO_ACTOR );
         }
-        else send_to_actor( "You cannot go that way.\n\r", ch );
+        else to_actor( "You cannot go that way.\n\r", ch );
 
         if ( !IS_IMMORTAL(ch) ) 
         return FALSE;
@@ -549,7 +549,7 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
     if ( IS_SET(pexit->exit_flags, EXIT_WINDOW)
       && pexit->key == -1 )
     {
-        send_to_actor( "You cannot go that way.\n\r", ch );
+        to_actor( "You cannot go that way.\n\r", ch );
         return FALSE;
     }
 
@@ -557,19 +557,19 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
       && ch->master != NULL
       && in_scene == ch->master->in_scene )
     {
-    send_to_actor( "And leave your beloved master?\n\r", ch );
+    to_actor( "And leave your beloved master?\n\r", ch );
     return FALSE;
     }
 
     if ( fRiding && ch->riding->position < POS_STANDING )
     {
-        send_to_actor( "Your ride doesn't want to move right now.\n\r", ch );
+        to_actor( "Your ride doesn't want to move right now.\n\r", ch );
         return FALSE;
     }
 
     if ( scene_is_private( to_scene ) )
     {
-    send_to_actor( "It is impossible to enter that scene right now.\n\r", ch );
+    to_actor( "It is impossible to enter that scene right now.\n\r", ch );
     return FALSE;
     }
 
@@ -617,7 +617,7 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
         found = TRUE;
         if ( ch->rider != NULL || ch->riding != NULL )
         {
-            send_to_actor( "It is impossible to swim while riding.\n\r", ch );
+            to_actor( "It is impossible to swim while riding.\n\r", ch );
             return FALSE;
         }
 
@@ -625,7 +625,7 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
           && !IS_AFFECTED( ch, BONUS_BREATHING ) )
         {
             damage( ch, ch, number_fuzzy( 5 ) );
-            send_to_actor( "You gurgle as water laps into your face.\n\r", ch );
+            to_actor( "You gurgle as water laps into your face.\n\r", ch );
             act( "$n gurgles as $e takes a lung full of water.\n\r", ch, NULL, NULL, TO_SCENE );
             return FALSE;
         }
@@ -639,13 +639,13 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
         found = TRUE;
         if ( fRiding )
         {
-            send_to_actor( "It is impossible to climb while riding.\n\r", ch );
+            to_actor( "It is impossible to climb while riding.\n\r", ch );
             return FALSE;
         }
 
         if ( hand_empty( ch ) == WEAR_NONE )
         {
-            send_to_actor( "You need atleast one free hand to climb.\n\r", ch );
+            to_actor( "You need atleast one free hand to climb.\n\r", ch );
             return FALSE;
         }
 
@@ -660,11 +660,11 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
             if ( !skill_check( ch, skill_lookup("climbing"), multiplier ) )
             {
             SET_BIT( ch->bonuses, BONUS_FALLING );
-            send_to_actor( "You lose your grip.\n\r", ch );
+            to_actor( "You lose your grip.\n\r", ch );
             }
             else
             {
-            send_to_actor( "Your hold slips and you nearly fall!\n\r", ch );
+            to_actor( "Your hold slips and you nearly fall!\n\r", ch );
             act( "$n's hold slips!", ch, NULL, NULL, TO_SCENE );
             }
             return FALSE;
@@ -691,7 +691,7 @@ case MOVE_WATER_NOSWIM: snprintf( buf, MAX_STRING_LENGTH, "You need a boat to go
          case MOVE_AIR: snprintf( buf, MAX_STRING_LENGTH, "It is impossible to fly!\n\r" ); break;
         }
             
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return FALSE;
     }
       /* End cant move checks */
@@ -749,7 +749,7 @@ void move_char( PLAYER *ch, int door )
     in_scene = ch->in_scene;
     to_scene = in_scene && in_scene->exit[door] ? in_scene->exit[door]->to_scene : NULL;
 
-    if ( !NPC(ch) && in_scene->exit[door] == NULL ) { send_to_actor( "There is no way to travel in that direction from here.\n\r", ch );
+    if ( !NPC(ch) && in_scene->exit[door] == NULL ) { to_actor( "There is no way to travel in that direction from here.\n\r", ch );
        return; }
 
     if ( !check_move(ch, door, depth, in_scene, to_scene, &prop) )
@@ -767,7 +767,7 @@ void move_char( PLAYER *ch, int door )
 
     if ( in_scene->exit[door] 
       && IS_SET(in_scene->exit[door]->exit_flags, EXIT_NOMOVE) ) {
-      send_to_actor( "You cannot go that way.\n\r", ch );
+      to_actor( "You cannot go that way.\n\r", ch );
       return;
     }
 
@@ -810,7 +810,7 @@ void move_char( PLAYER *ch, int door )
         {
         ch->riding->rider = NULL;
         ch->riding = NULL;
-        send_to_actor( "You are forced to leave your mount behind.\n\r", ch );
+        to_actor( "You are forced to leave your mount behind.\n\r", ch );
         }
         depth--;
     }
@@ -825,18 +825,18 @@ void move_char( PLAYER *ch, int door )
         {
         ch->rider->riding = NULL;
         ch->rider = NULL;
-        send_to_actor( "You are forced to leave your rider behind.\n\r", ch );
+        to_actor( "You are forced to leave your rider behind.\n\r", ch );
         }
         depth--;
     }
 
     if ( !NPC(ch) && IS_SET(ch->flag2, PLR_CLRSCR) ) {
-      send_to_actor( "+--------------------------------------------------------------------+\n\r", ch );
-      send_to_actor( PC(ch,say_last), ch );
-      send_to_actor( PC(ch,tell_last), ch );
-      send_to_actor( PC(ch,chat_last), ch );
-      if ( IS_IMMORTAL(ch) ) send_to_actor( PC(ch,immt_last), ch );
-      send_to_actor( "+--------------------------------------------------------------------+\n\r", ch );
+      to_actor( "+--------------------------------------------------------------------+\n\r", ch );
+      to_actor( PC(ch,say_last), ch );
+      to_actor( PC(ch,tell_last), ch );
+      to_actor( PC(ch,chat_last), ch );
+      if ( IS_IMMORTAL(ch) ) to_actor( PC(ch,immt_last), ch );
+      to_actor( "+--------------------------------------------------------------------+\n\r", ch );
     }
     cmd_look( ch, "auto" );
 
@@ -904,13 +904,13 @@ void cmd_drag( PLAYER *ch, char *argument )
 
     if ( (prop = get_prop_list(ch, arg1, ch->in_scene->contents)) == NULL )
     {
-        send_to_actor( "Drag what where?\n\r", ch );
+        to_actor( "Drag what where?\n\r", ch );
         return;
     }
     
     if ( ( door = get_dir( arg2 ) ) == MAX_DIR )
     {   
-        send_to_actor( "Drag what where?\n\r", ch );
+        to_actor( "Drag what where?\n\r", ch );
         return;
     }
 
@@ -948,19 +948,19 @@ void cmd_hitch( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || (vict = get_actor_scene(ch, arg1)) == NULL )
     {
-        send_to_actor( "Hitch whom to what?\n\r", ch );
+        to_actor( "Hitch whom to what?\n\r", ch );
         return;
     }
 
     if ( arg2[0] == '\0' || (prop = get_prop_list(ch, arg2, ch->in_scene->contents)) == NULL )
     {
-        send_to_actor( "Hitch whom to what?\n\r", ch );
+        to_actor( "Hitch whom to what?\n\r", ch );
         return;
     }
 
     if ( !IS_SET(prop->extra_flags, ITEM_HITCH) )
     {
-        send_to_actor( "It is impossible to hitch anything to that.\n\r", ch );
+        to_actor( "It is impossible to hitch anything to that.\n\r", ch );
         return;
     }
 
@@ -1000,13 +1000,13 @@ void cmd_unhitch( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || (vict = get_actor_scene(ch, arg1)) == NULL )
     {
-        send_to_actor( "Unhitch whom?\n\r", ch );
+        to_actor( "Unhitch whom?\n\r", ch );
         return;
     }
 
     if ( vict->hitched_to == NULL )
     {
-        send_to_actor( "They aren't hitched to anything.", ch );
+        to_actor( "They aren't hitched to anything.", ch );
         return;
     }
 
@@ -1035,14 +1035,14 @@ void cmd_enter( PLAYER *ch, char *argument )
     
     if ( ( prop = get_prop_here( ch, arg ) ) == NULL )
     {
-        send_to_actor( "There is nothing like that to enter.\n\r", ch );
+        to_actor( "There is nothing like that to enter.\n\r", ch );
         return;
     }
     
     if ( ( prop->item_type != ITEM_FURNITURE )
       || !IS_SET(prop->value[1], FURN_EXIT) )
     {
-        send_to_actor( "Now how do you expect to do that.\n\r", ch );
+        to_actor( "Now how do you expect to do that.\n\r", ch );
         return;
     }
     
@@ -1051,19 +1051,19 @@ void cmd_enter( PLAYER *ch, char *argument )
 
     if ( ( dest = get_scene( ddbkey ) ) == NULL )
     {
-        send_to_actor( "It is impossible to go that way.\n\r", ch );
+        to_actor( "It is impossible to go that way.\n\r", ch );
         return;
     }
 
     if ( scene_is_private( dest ) )
     {
-        send_to_actor( "It is impossible to enter that scene right now.\n\r", ch );
+        to_actor( "It is impossible to enter that scene right now.\n\r", ch );
         return;
     }
       
     if ( IS_SET(prop->value[1], EXIT_CLOSED) )
     {
-        send_to_actor( "It's closed.\n\r", ch );
+        to_actor( "It's closed.\n\r", ch );
         return;
     }
 
@@ -1075,7 +1075,7 @@ void cmd_enter( PLAYER *ch, char *argument )
     act( "$n enters $p.", ch, prop, NULL, TO_SCENE );
 
     if ( STR(prop,action_descr) != NULL )
-    send_to_actor( STR(prop,action_descr), ch );
+    to_actor( STR(prop,action_descr), ch );
     else
     act( "You enter $p.", ch, prop, NULL, TO_ACTOR );
 
@@ -1129,7 +1129,7 @@ void cmd_leave( PLAYER *ch, char *argument )
 
     if ( (pScene = ch->in_scene) == NULL )
     {
-        send_to_actor( "There is nothing to get out of.\n\r", ch );
+        to_actor( "There is nothing to get out of.\n\r", ch );
         return;
     }
 
@@ -1146,7 +1146,7 @@ void cmd_leave( PLAYER *ch, char *argument )
         if ( pProp == NULL )
         {
             bug( "Cmd_leave: pProp == NULL.", 0 );
-            send_to_actor( "There is nothing to leave to.\n\r", ch );
+            to_actor( "There is nothing to leave to.\n\r", ch );
             return;
         }
 
@@ -1158,7 +1158,7 @@ void cmd_leave( PLAYER *ch, char *argument )
         return;
     }
 
-    send_to_actor( "There is nothing to leave to.\n\r", ch );
+    to_actor( "There is nothing to leave to.\n\r", ch );
     return;
 }
 
@@ -1175,9 +1175,9 @@ void cmd_stand( PLAYER *ch, char *argument )
     {
     case POS_SLEEPING:
 	if ( IS_AFFECTED(ch, BONUS_SLEEP) )
-	    { send_to_actor( "It is impossible to wake up!\n\r", ch ); return; }
+	    { to_actor( "It is impossible to wake up!\n\r", ch ); return; }
 
-	send_to_actor( "You wake and stand up.\n\r", ch );
+	to_actor( "You wake and stand up.\n\r", ch );
 	act( "$n wakes and stands up.", ch, NULL, NULL, TO_SCENE );
 	ch->position = POS_STANDING;
     set_furn( ch, NULL );
@@ -1185,19 +1185,19 @@ void cmd_stand( PLAYER *ch, char *argument )
 
     case POS_SITTING:
     case POS_RESTING:
-	send_to_actor( "You stand up.\n\r", ch );
+	to_actor( "You stand up.\n\r", ch );
 	act( "$n stands up.", ch, NULL, NULL, TO_SCENE );
 	ch->position = POS_STANDING;
     set_furn( ch, NULL );
 	break;
 
     case POS_STANDING:
-	send_to_actor( "You are already standing.\n\r", ch );
+	to_actor( "You are already standing.\n\r", ch );
     set_furn( ch, NULL );        /* just to be sure */
 	break;
 
     case POS_FIGHTING:
-    send_to_actor( "You are fighting!\n\r", ch );
+    to_actor( "You are fighting!\n\r", ch );
 	break;
     }
 
@@ -1221,21 +1221,21 @@ void cmd_rest( PLAYER *ch, char *argument )
     switch ( ch->position )
     {
     case POS_SLEEPING:
-	send_to_actor( "You are already sleeping.\n\r", ch );
+	to_actor( "You are already sleeping.\n\r", ch );
 	break;
 
     case POS_RESTING:
-	send_to_actor( "You are already resting.\n\r", ch );
+	to_actor( "You are already resting.\n\r", ch );
 	break;
 
     case POS_SITTING:
-    send_to_actor( "You lean back and rest.\n\r", ch );
+    to_actor( "You lean back and rest.\n\r", ch );
     act( "$n leans back and rests.", ch, NULL, NULL, TO_SCENE );
 	ch->position = POS_RESTING;
 	break;
 
     case POS_STANDING:
-    send_to_actor( "You sit down and rest.\n\r", ch );
+    to_actor( "You sit down and rest.\n\r", ch );
     if ( NPC(ch) && IS_SET(ch->flag, ACTOR_MOUNT) )
     act( "$n curls up on the ground.", ch, NULL, NULL, TO_SCENE );
     else
@@ -1244,7 +1244,7 @@ void cmd_rest( PLAYER *ch, char *argument )
 	break;
 
     case POS_FIGHTING:
-	send_to_actor( "You are already fighting!\n\r", ch );
+	to_actor( "You are already fighting!\n\r", ch );
 	break;
     }
 
@@ -1270,31 +1270,31 @@ void cmd_sit( PLAYER *ch, char *argument )
     {
         if ( (prop = get_furn_here(ch, arg)) == NULL )
         {
-            send_to_actor( "Sit on what?\n\r", ch );
+            to_actor( "Sit on what?\n\r", ch );
             return;
         }
 
         if ( ch->furniture != NULL )
         {
-            send_to_actor( "You are already using a piece of furniture.\n\r", ch );
+            to_actor( "You are already using a piece of furniture.\n\r", ch );
             return;
         }
 
         if ( ch->position <= POS_SITTING )
         {
-            send_to_actor( "Get up first.\n\r", ch );
+            to_actor( "Get up first.\n\r", ch );
             return;
         }
 
         if ( !VAL_SET(prop, 1, FURN_SIT) )
         {
-            send_to_actor( "It is impossible to sit on that.\n\r", ch );
+            to_actor( "It is impossible to sit on that.\n\r", ch );
             return;
         }
 
         if ( OCCUPADO(prop) )
         {
-            send_to_actor( "There is someone else already using it.\n\r", ch );
+            to_actor( "There is someone else already using it.\n\r", ch );
             return;
         }
 
@@ -1304,24 +1304,24 @@ void cmd_sit( PLAYER *ch, char *argument )
     switch ( ch->position )
     {
     case POS_SLEEPING:
-    send_to_actor( "You wake and sit up.\n\r", ch );
+    to_actor( "You wake and sit up.\n\r", ch );
     act( "$n wakes and sits up.", ch, NULL, NULL, TO_SCENE );
     ch->position = POS_SITTING;
 	break;
 
     case POS_RESTING:
-    send_to_actor( "You sit up.\n\r", ch );
+    to_actor( "You sit up.\n\r", ch );
     act( "$n sits up.", ch, NULL, NULL, TO_SCENE );
     ch->position = POS_SITTING;
 	break;
 
     case POS_SITTING:
-    send_to_actor( "You are already sitting.\n\r", ch );
+    to_actor( "You are already sitting.\n\r", ch );
     break;
 
     case POS_STANDING:
     if ( !ch->furniture )
-    send_to_actor( "You sit down.\n\r", ch );
+    to_actor( "You sit down.\n\r", ch );
     else
     act( "You sit down on $p.", ch, ch->furniture, NULL, TO_ACTOR );
 
@@ -1333,7 +1333,7 @@ void cmd_sit( PLAYER *ch, char *argument )
 	break;
 
     case POS_FIGHTING:
-    send_to_actor( "You are fighting!\n\r", ch );
+    to_actor( "You are fighting!\n\r", ch );
 	break;
     }
 
@@ -1353,7 +1353,7 @@ void cmd_sleep( PLAYER *ch, char *argument )
 
     if ( ch->riding != NULL )
     {
-        send_to_actor( "You must dismount first.\n\r", ch );
+        to_actor( "You must dismount first.\n\r", ch );
         return;
     }
 
@@ -1362,13 +1362,13 @@ void cmd_sleep( PLAYER *ch, char *argument )
     {
         if ( (prop = get_prop_here(ch, arg)) == NULL )
         {
-            send_to_actor( "Sleep on what?\n\r", ch );
+            to_actor( "Sleep on what?\n\r", ch );
             return;
         }
 
         if ( ch->furniture )
         {
-            send_to_actor( "You are already on something else.\n\r", ch );
+            to_actor( "You are already on something else.\n\r", ch );
             return;
         }
 
@@ -1376,7 +1376,7 @@ void cmd_sleep( PLAYER *ch, char *argument )
         {
             if ( OCCUPADO(prop) )
             {
-                send_to_actor( "There is no more scene on it.\n\r", ch );
+                to_actor( "There is no more scene on it.\n\r", ch );
                 return;
             }
             else
@@ -1388,7 +1388,7 @@ void cmd_sleep( PLAYER *ch, char *argument )
         }
         else
         {
-            send_to_actor( "It is impossible to sleep on that.\n\r", ch );
+            to_actor( "It is impossible to sleep on that.\n\r", ch );
             return;
         }
     }
@@ -1405,7 +1405,7 @@ void cmd_sleep( PLAYER *ch, char *argument )
             }
             else
             {
-            send_to_actor( "You roll onto the floor.\n\r", ch );
+            to_actor( "You roll onto the floor.\n\r", ch );
             set_furn( ch, NULL );
             }
         }
@@ -1415,7 +1415,7 @@ void cmd_sleep( PLAYER *ch, char *argument )
     switch ( ch->position )
     {
     case POS_SLEEPING:
-	send_to_actor( "You are already sleeping.\n\r", ch );
+	to_actor( "You are already sleeping.\n\r", ch );
 	break;
 
     case POS_RESTING:
@@ -1423,9 +1423,9 @@ void cmd_sleep( PLAYER *ch, char *argument )
     case POS_STANDING:
 
     if ( !ch->furniture )
-    send_to_actor( "You lie down and fall asleep.\n\r", ch );
+    to_actor( "You lie down and fall asleep.\n\r", ch );
     else
-    send_to_actor( "You go to sleep.\n\r", ch );
+    to_actor( "You go to sleep.\n\r", ch );
 
     if ( !ch->furniture )
     act( "$n lies down and falls asleep.", ch, NULL, NULL, TO_SCENE );
@@ -1436,7 +1436,7 @@ void cmd_sleep( PLAYER *ch, char *argument )
 	break;
 
     case POS_FIGHTING:
-        send_to_actor( "You are fighting!\n\r", ch );
+        to_actor( "You are fighting!\n\r", ch );
 	break;
     }
 
@@ -1459,10 +1459,10 @@ void cmd_wake( PLAYER *ch, char *argument )
 	{ cmd_stand( ch, argument ); return; }
 
     if ( !IS_AWAKE(ch) )
-	{ send_to_actor( "You are asleep yourself!\n\r",       ch ); return; }
+	{ to_actor( "You are asleep yourself!\n\r",       ch ); return; }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
-	{ send_to_actor( "They aren't here.\n\r",              ch ); return; }
+	{ to_actor( "They aren't here.\n\r",              ch ); return; }
 
     if ( IS_AWAKE(victim) )
 	{ act( "$N is already awake.", ch, NULL, victim, TO_ACTOR ); return; }
@@ -1486,16 +1486,16 @@ void cmd_sneak( PLAYER *ch, char *argument )
     if ( IS_AFFECTED(ch, BONUS_SNEAK) )
     {
     REMOVE_BIT(ch->bonuses, BONUS_SNEAK);
-    send_to_actor( "You stop trying to move silently.\n\r", ch );
+    to_actor( "You stop trying to move silently.\n\r", ch );
     return;
     }
 
     if ( ch->riding != NULL )
     {
-        send_to_actor( "Dismount first.\n\r", ch );
+        to_actor( "Dismount first.\n\r", ch );
         return;
     }
-    send_to_actor( "You try to move silently.\n\r", ch );
+    to_actor( "You try to move silently.\n\r", ch );
     SET_BIT(ch->bonuses, BONUS_SNEAK);
     return;
 }
@@ -1510,18 +1510,18 @@ void cmd_hide( PLAYER *ch, char *argument )
     if ( IS_AFFECTED(ch, BONUS_HIDE) )
     {
     REMOVE_BIT(ch->bonuses, BONUS_HIDE);
-    send_to_actor( "You stop trying to hide your presence.\n\r", ch );
+    to_actor( "You stop trying to hide your presence.\n\r", ch );
     act( "$n stops trying to hide $s presence.", ch, NULL, NULL, TO_SCENE );
     return;
     }
 
     if ( ch->riding != NULL )
     {
-        send_to_actor( "Dismount first.\n\r", ch );
+        to_actor( "Dismount first.\n\r", ch );
         return;
     }
 
-    send_to_actor( "You attempt to hide your presence.\n\r", ch );
+    to_actor( "You attempt to hide your presence.\n\r", ch );
     SET_BIT(ch->bonuses, BONUS_HIDE);
     hide_check( ch, ch->in_scene );
     return;
@@ -1540,17 +1540,17 @@ void cmd_home( PLAYER *ch, char *argument ) {
     if (     !str_cmp( buf, "set" ) ) {
 /*            if ( IS_SET( ch->in_scene, SCENE_SAVING ) ) { */
                  PC(ch,home) = ch->in_scene->dbkey;
-                 send_to_actor( "Home set.\n\r", ch );
+                 to_actor( "Home set.\n\r", ch );
           }
 
     if (     !str_cmp( buf, "reset" ) ) {
 /*            if ( IS_SET( ch->in_scene, SCENE_SAVING ) ) { */
                  PC(ch,home) = SCENE_VNUM_DEFAULT_HOME;
-                 send_to_actor( "Home reset.\n\r", ch );
+                 to_actor( "Home reset.\n\r", ch );
           }
 
     if ( ch->fighting != NULL || ch->position == POS_FIGHTING ) {
-           send_to_actor( "You are in the middle of combat!\n\r", ch  );
+           to_actor( "You are in the middle of combat!\n\r", ch  );
            return; 
          }
 
@@ -1559,7 +1559,7 @@ void cmd_home( PLAYER *ch, char *argument ) {
     if ( pScene == NULL ) {
           PC(ch,home) = SCENE_VNUM_DEFAULT_HOME;
           pScene = get_scene( PC(ch,home) );
-          send_to_actor( "Home recall location set.\n\r", ch );
+          to_actor( "Home recall location set.\n\r", ch );
           return;
     }
 
@@ -1586,7 +1586,7 @@ void cmd_home( PLAYER *ch, char *argument ) {
 
     display_interp( ch, "^B" );
     actor_from_scene( ch );
-    send_to_actor( "You return home.\n\r", ch   );
+    to_actor( "You return home.\n\r", ch   );
     actor_to_scene( ch, pScene );
     display_interp( ch, "^N" );
     cmd_look( ch, "auto" );

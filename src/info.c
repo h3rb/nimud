@@ -520,7 +520,7 @@ void show_list_to_actor( PROP *list, PLAYER *ch, bool fShort, bool fShowNothing 
     for ( iShow = 0; iShow < nShow; iShow++ )
     {
         if ( fShort )
-        send_to_actor( " ", ch );
+        to_actor( " ", ch );
 
         if ( NPC(ch) || IS_SET(ch->flag2, PLR_COMBINE) )
         {
@@ -918,7 +918,7 @@ void show_actor_to_actor_0( PLAYER *victim, PLAYER *ch )
   }
  }
 
-/*    send_to_actor( "ACTOR/PLR ", ch );       */
+/*    to_actor( "ACTOR/PLR ", ch );       */
 
     if ( IS_AFFECTED(victim, BONUS_INVISIBLE)   ) strcat( buf, "(Invisible) "   );
     if ( IS_AFFECTED(victim, BONUS_HIDE)        ) strcat( buf, "(Hiding) "      );
@@ -1312,11 +1312,11 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
 
    if( descr[0] != '\0' )
    {
-      send_to_actor( "\n\r", tch );
-      send_to_actor( "   ", tch );
+      to_actor( "\n\r", tch );
+      to_actor( "   ", tch );
 
       finalstr = format_string( str_dup( descr ) );
-      send_to_actor( finalstr, tch );
+      to_actor( finalstr, tch );
       free_string( finalstr );
 
       descr[0] = '\0';
@@ -1582,11 +1582,11 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    
    if( descr[0] != '\0' )
    {
-      send_to_actor( "\n\r", tch );
-      send_to_actor( "   ", tch );
+      to_actor( "\n\r", tch );
+      to_actor( "   ", tch );
 
       finalstr = format_string( str_dup( descr ) );
-      send_to_actor( finalstr, tch );
+      to_actor( finalstr, tch );
       free_string( finalstr );
    }
 
@@ -1604,7 +1604,7 @@ void show_equipment_table( PLAYER *ch, PLAYER *victim )
 
     if ( ch != victim )
        act( "$N is using:", ch, NULL, victim, TO_ACTOR );
-  else send_to_actor( "You are using:\n\r", ch );
+  else to_actor( "You are using:\n\r", ch );
 
     for ( iWear = 0; iWear < MAX_WEAR; iWear++ )
     {
@@ -1645,11 +1645,11 @@ void show_actor_to_actor_1( PLAYER *victim, PLAYER *ch )
     }
 
     if ( !MTD(STR(victim,description)) )
-    send_to_actor( STR(victim, description), ch );
+    to_actor( STR(victim, description), ch );
 
     show_equipment( victim, ch );
 
-    send_to_actor( "\n\r",   ch );
+    to_actor( "\n\r",   ch );
 
     final[0] = '\0';
 
@@ -1790,12 +1790,12 @@ if ( victim->size )
 	{
 		char *p;
                 p = format_string( str_dup(final) );
-		send_to_actor( "   ", ch );
-		send_to_actor( p, ch );
+		to_actor( "   ", ch );
+		to_actor( p, ch );
 		free_string( p );
 	}
 
-    send_to_actor( "\n\r", ch );
+    to_actor( "\n\r", ch );
 
     if ( (IS_IMMORTAL(ch) && IS_SET(ch->flag2, WIZ_EQUIPMENT)) || 
          (victim->master == ch && NPC(victim)) )
@@ -1844,7 +1844,7 @@ void show_actor_to_actor( PLAYER *list, PLAYER *ch )
 
         snprintf( buf, MAX_STRING_LENGTH, "%s red eyes stare at you from the darkness.\n\r",
                      capitalize( numberize( fDark * 2 ) ) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
     return;
 }
@@ -1857,7 +1857,7 @@ bool check_blind( PLAYER *ch )
 
     if ( IS_AFFECTED(ch, BONUS_BLIND) )
     {
-    send_to_actor( "It is impossible to see a thing!\n\r", ch );
+    to_actor( "It is impossible to see a thing!\n\r", ch );
     return FALSE;
     }
 
@@ -1915,7 +1915,7 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
                        percent <  30 ? "flickering slightly."       :
                        percent <  40 ? "providing ample light."     :
                                        "glowing brightly." );
-                     send_to_actor( buf, ch );
+                     to_actor( buf, ch );
                  }
               break;
 
@@ -1926,7 +1926,7 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
               case ITEM_DRINK_CON:
                  if ( prop->value[1] <= 0 )
                      {
-                         send_to_actor( "It is empty.\n\r", ch );
+                         to_actor( "It is empty.\n\r", ch );
                          break;
                      }
               break;
@@ -1937,9 +1937,9 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
                       snprintf( buf, MAX_STRING_LENGTH, "It has %d round%s ready to fire.\n\r",
                                prop->value[3],
                                prop->value[3] > 1 ? "s" : "" );
-                      send_to_actor( buf, ch );
+                      to_actor( buf, ch );
                   }
-                  else send_to_actor( "It is not readied.\n\r", ch );
+                  else to_actor( "It is not readied.\n\r", ch );
               break;
 
               case ITEM_SPELLBOOK:
@@ -1966,22 +1966,22 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
                         percent <  90 ? "is in fair shape." :
                         percent < 100 ? "is in good shape." :
                                         "looks excellent." );
-                       send_to_actor( buf, ch );
+                       to_actor( buf, ch );
                     }
               case ITEM_CLOTHING:
               		if ( prop->carried_by != ch
               		  || prop->wear_loc <= WEAR_BELT_1 )
               		{
                     if ( TOO_BIG(ch, prop) )
-                    send_to_actor( "It looks too big for you to wear.\n\r", ch );
+                    to_actor( "It looks too big for you to wear.\n\r", ch );
                else if ( TOO_SMALL(ch, prop) )
-                    send_to_actor( "It looks too small for you to wear.\n\r", ch );
-               else send_to_actor( "You could probably wear it.\n\r", ch );
+                    to_actor( "It looks too small for you to wear.\n\r", ch );
+               else to_actor( "You could probably wear it.\n\r", ch );
                     }
               break;
 
-            case ITEM_GOODS:     send_to_actor( "A standard trade good.\n\r", ch ); break;
-            case ITEM_COMPONENT: send_to_actor( "A common spell component.\n\r", ch ); break;
+            case ITEM_GOODS:     to_actor( "A standard trade good.\n\r", ch ); break;
+            case ITEM_COMPONENT: to_actor( "A common spell component.\n\r", ch ); break;
 
             case ITEM_GEM:
              if( prop->value[1] )
@@ -1996,7 +1996,7 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
                          percent <  40 ? "is glowing."            :
                          percent <  50 ? "glows brightly."
                                        : "radiates with energy."    );
-                send_to_actor( buf, ch );
+                to_actor( buf, ch );
              }
             break;
             }
@@ -2034,7 +2034,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_NORTH] != NULL
         && pScene->exit[DIR_NORTH]->to_scene != NULL
         && pScene->exit[DIR_NORTH]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance north:\n\r", ch );
+       to_actor( "You glance north:\n\r", ch );
        cmd_look( ch, "north" );
        fMatch = TRUE;
        }
@@ -2042,7 +2042,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_SOUTH] != NULL
         && pScene->exit[DIR_SOUTH]->to_scene != NULL
         && pScene->exit[DIR_SOUTH]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance south:\n\r", ch );
+       to_actor( "You glance south:\n\r", ch );
        cmd_look( ch, "south" );
        fMatch = TRUE;
        }
@@ -2050,7 +2050,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_EAST] != NULL
         && pScene->exit[DIR_EAST]->to_scene != NULL
         && pScene->exit[DIR_EAST]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance east:\n\r", ch );
+       to_actor( "You glance east:\n\r", ch );
        cmd_look( ch, "east" );
        fMatch = TRUE;
        }
@@ -2058,7 +2058,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_WEST] != NULL
         && pScene->exit[DIR_WEST]->to_scene != NULL
         && pScene->exit[DIR_WEST]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance west:\n\r", ch );
+       to_actor( "You glance west:\n\r", ch );
        cmd_look( ch, "west" );
        fMatch = TRUE;
        }
@@ -2066,7 +2066,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_UP] != NULL
         && pScene->exit[DIR_UP]->to_scene != NULL
         && pScene->exit[DIR_UP]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance up:\n\r", ch );
+       to_actor( "You glance up:\n\r", ch );
        cmd_look( ch, "up" );
        fMatch = TRUE;
        }
@@ -2074,7 +2074,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_DOWN] != NULL
         && pScene->exit[DIR_DOWN]->to_scene != NULL
         && pScene->exit[DIR_DOWN]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance down:\n\r", ch );
+       to_actor( "You glance down:\n\r", ch );
        cmd_look( ch, "down" );
        fMatch = TRUE;
        }
@@ -2082,7 +2082,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_NE] != NULL
         && pScene->exit[DIR_NE]->to_scene != NULL
         && pScene->exit[DIR_NE]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance northeast:\n\r", ch );
+       to_actor( "You glance northeast:\n\r", ch );
        cmd_look( ch, "northeast" );
        fMatch = TRUE;
        }
@@ -2090,7 +2090,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_NW] != NULL
         && pScene->exit[DIR_NW]->to_scene != NULL
         && pScene->exit[DIR_NW]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance northwest:\n\r", ch );
+       to_actor( "You glance northwest:\n\r", ch );
        cmd_look( ch, "northwest" );
        fMatch = TRUE;
        }
@@ -2098,7 +2098,7 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_SE] != NULL
         && pScene->exit[DIR_SE]->to_scene != NULL
         && pScene->exit[DIR_SE]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance southeast:\n\r", ch );
+       to_actor( "You glance southeast:\n\r", ch );
        cmd_look( ch, "southeast" );
        fMatch = TRUE;
        }
@@ -2106,12 +2106,12 @@ void cmd_scan( PLAYER *ch, char *argument )
        if ( pScene->exit[DIR_SW] != NULL
         && pScene->exit[DIR_SW]->to_scene != NULL
         && pScene->exit[DIR_SW]->to_scene->people != NULL  ) {
-       send_to_actor( "You glance southwest:\n\r", ch );
+       to_actor( "You glance southwest:\n\r", ch );
        cmd_look( ch, "southwest" );
        fMatch = TRUE;
        }
 
-       if ( !fMatch ) send_to_actor( "There is no one nearby.\n\r", ch );
+       if ( !fMatch ) to_actor( "There is no one nearby.\n\r", ch );
        display_interp( ch, "^N" );
 };
 
@@ -2143,13 +2143,13 @@ void cmd_look( PLAYER *ch, char *argument )
 
     if ( ch->position < POS_SLEEPING )
     {
-	send_to_actor( "It is impossible to see anything but stars!\n\r", ch );
+	to_actor( "It is impossible to see anything but stars!\n\r", ch );
 	return;
     }
 
     if ( ch->position == POS_SLEEPING )
     {
-	send_to_actor( "It is impossible to see anything, you're sleeping!\n\r", ch );
+	to_actor( "It is impossible to see anything, you're sleeping!\n\r", ch );
 	return;
     }
 
@@ -2198,7 +2198,7 @@ void cmd_look( PLAYER *ch, char *argument )
 
         if (!fLight)
         {
-             send_to_actor( "   You are surrounded by darkness.\n\r", ch );
+             to_actor( "   You are surrounded by darkness.\n\r", ch );
         }
         else
         {
@@ -2258,7 +2258,7 @@ void cmd_look( PLAYER *ch, char *argument )
     if ( isGrey && weather.sky == MOON_RISE && weather.moon_phase != MOON_NEW ) display_interp( ch, "^N" ); 
     display_interp( ch, "^B" );
     snprintf( buf, MSL, "%s", in_scene->name );
-    send_to_actor( string_proper(buf), ch ); /* SEND the TITLE */
+    to_actor( string_proper(buf), ch ); /* SEND the TITLE */
 
     if ( !NPC(ch) && IS_SET(ch->flag2, PLR_AUTOEXIT) )
         display_interp( ch, "^N" ); 
@@ -2275,9 +2275,9 @@ void cmd_look( PLAYER *ch, char *argument )
     }
 
     if ( IS_SET(in_scene->scene_flags, SCENE_SAVE) )
-    send_to_actor( "*", ch );
+    to_actor( "*", ch );
     
-    send_to_actor( "\n\r", ch );
+    to_actor( "\n\r", ch );
 
             DEFCOLOR(ch);
 
@@ -2291,7 +2291,7 @@ void cmd_look( PLAYER *ch, char *argument )
         if ( template != NULL && !MTP( template->description ) )
         {
             /*if ( weather.hour > 5 )*/
-            send_to_actor( "   ", ch );  /*indent*/
+            to_actor( "   ", ch );  /*indent*/
             display_interp( ch, template->description );
         }
     }
@@ -2303,13 +2303,13 @@ void cmd_look( PLAYER *ch, char *argument )
 
     if ( !MTP((in_scene->description)) && !IS_SET(ch->flag2,PLR_BRIEF) )
         {
-        send_to_actor( "   ", ch ); /* indent */
+        to_actor( "   ", ch ); /* indent */
         DEFCOLOR(ch);
         display_interp( ch, in_scene->description );
         }
             if ( !NPC(ch) && IS_SET(ch->flag2,PLR_VERBOSE) ) {
             display_interp( ch, default_color_variable );
-            send_to_actor( "\n\r", ch );
+            to_actor( "\n\r", ch );
             cmd_exits( ch, "" );
             }
             default_color_variable = "^N";
@@ -2317,7 +2317,7 @@ void cmd_look( PLAYER *ch, char *argument )
 
 
     display_interp( ch, "^N" );
-    send_to_actor( "\n\r", ch );
+    to_actor( "\n\r", ch );
     if ( !NPC(ch) ) {
     display_interp( ch, color_table[PC(ch,colors[COLOR_PROP_LIST])].di );
     show_list_to_actor( in_scene->contents, ch, FALSE, FALSE );
@@ -2335,19 +2335,19 @@ void cmd_look( PLAYER *ch, char *argument )
         /* 'look in' */
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Look in what?\n\r", ch );
+            to_actor( "Look in what?\n\r", ch );
             return;
         }
 
         if ( ( prop = get_prop_here( ch, arg2 ) ) == NULL )
         {
-            send_to_actor( "You do not see that here.\n\r", ch );
+            to_actor( "You do not see that here.\n\r", ch );
             return;
         }
 
         switch ( prop->item_type )
         {
-        default: send_to_actor( "That is not a container.\n\r", ch );       
+        default: to_actor( "That is not a container.\n\r", ch );       
             break;
 
         case ITEM_LIGHT:
@@ -2357,7 +2357,7 @@ void cmd_look( PLAYER *ch, char *argument )
 
              if ( prop->value[0] <= 0 )
              {
-                 send_to_actor( "It is empty.\n\r", ch );
+                 to_actor( "It is empty.\n\r", ch );
                  break;
              }
              else
@@ -2367,18 +2367,18 @@ void cmd_look( PLAYER *ch, char *argument )
              percent < 40 ? "contains less than half its capacity of" :
              percent < 70 ? "contains an ample amount of"   :
              percent < 90 ? "is mostly filled with"         : "is full of" );
-             send_to_actor( buf, ch );
+             to_actor( buf, ch );
              }
              }
-             else send_to_actor( "It contains nothing.\n\r", ch );
+             else to_actor( "It contains nothing.\n\r", ch );
         break;
   
-        case ITEM_BOOK: if ( STR(prop,action_descr) ) send_to_actor( "Written herein:\n\r", ch ); send_to_actor( STR(prop,action_descr), ch ); break;
+        case ITEM_BOOK: if ( STR(prop,action_descr) ) to_actor( "Written herein:\n\r", ch ); to_actor( STR(prop,action_descr), ch ); break;
 
         case ITEM_DRINK_CON:
              if ( prop->value[1] <= 0 )
                  {
-                     send_to_actor( "It is empty.\n\r", ch );
+                     to_actor( "It is empty.\n\r", ch );
                      break;
                  }
              else
@@ -2392,7 +2392,7 @@ void cmd_look( PLAYER *ch, char *argument )
                       percent < 70 ? "is near full"           : "full",
                       IS_VOWEL(liq_table[prop->value[2]].liq_color[0]) ? "n" : "",
                       liq_table[prop->value[2]].liq_color );
-             send_to_actor( buf, ch );
+             to_actor( buf, ch );
              }
         break;
 
@@ -2401,7 +2401,7 @@ void cmd_look( PLAYER *ch, char *argument )
         case ITEM_CORPSE_PC:
             if ( IS_SET(prop->value[1], CONT_CLOSED) )
             {
-                send_to_actor( "It is closed.\n\r", ch );
+                to_actor( "It is closed.\n\r", ch );
                 break;
             }
 
@@ -2429,13 +2429,13 @@ void cmd_look( PLAYER *ch, char *argument )
         /* 'look on' */
         if ( arg2[0] == '\0' )
         {
-            send_to_actor( "Look on what?\n\r", ch );
+            to_actor( "Look on what?\n\r", ch );
             return;
         }
 
         if ( (prop = get_prop_here( ch, arg2 )) == NULL )
         {
-            send_to_actor( "You do not see that here.\n\r", ch );
+            to_actor( "You do not see that here.\n\r", ch );
             return;
         }
         
@@ -2448,7 +2448,7 @@ void cmd_look( PLAYER *ch, char *argument )
         else
         snprintf( buf, MAX_STRING_LENGTH, "On %s is ", format_prop_to_actor( prop, ch, TRUE ) );
 
-        send_to_actor( show_list_to_actor2( prop->contains, ch, buf ), ch );
+        to_actor( show_list_to_actor2( prop->contains, ch, buf ), ch );
         }
         
         if ( has_occupant( prop ) )
@@ -2487,7 +2487,7 @@ void cmd_look( PLAYER *ch, char *argument )
 
     if ( ( door = get_dir( arg1 ) ) == MAX_DIR )
     {
-	send_to_actor( "You do not see that here.\n\r", ch );
+	to_actor( "You do not see that here.\n\r", ch );
 	return;
     }
 
@@ -2497,7 +2497,7 @@ void cmd_look( PLAYER *ch, char *argument )
         cmd_time( ch, "internal" );
         snprintf( buf, MAX_STRING_LENGTH, "There is nothing of note %sward from here.\n\r",
                       dir_name[door] );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return;
     }
 
@@ -2506,17 +2506,17 @@ void cmd_look( PLAYER *ch, char *argument )
         if (door!=DIR_DOWN && door!=DIR_UP)
         snprintf( buf, MAX_STRING_LENGTH, "To the %s is darkness.\n\r", dir_name[door] );
         else snprintf( buf, MAX_STRING_LENGTH, "%s is darkness.\n\r", dir_name[door] );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return;
     }
 
-    if ( !MTD(pexit->description) )  send_to_actor( pexit->description, ch );
+    if ( !MTD(pexit->description) )  to_actor( pexit->description, ch );
     else
     if ( MTD(pexit->keyword) || !IS_SET( pexit->exit_flags, EXIT_ISDOOR ) )
     {
         snprintf( buf, MAX_STRING_LENGTH, "There is nothing of note %sward from here.\n\r",
                       dir_name[door] );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
 
     if ( !MTD(pexit->keyword)
@@ -2538,7 +2538,7 @@ void cmd_look( PLAYER *ch, char *argument )
 
         if ( !MTD(pexit->to_scene->description) )
         {
-        send_to_actor( "   ", ch ); /* indent */
+        to_actor( "   ", ch ); /* indent */
         display_interp( ch, pexit->to_scene->description );
         }
 
@@ -2587,7 +2587,7 @@ void cmd_exits( PLAYER *ch, char *argument )
 
     if ( !str_cmp( argument, "clientauto" ) ) {
 
-          send_to_actor( "SHOWEXITS", ch );
+          to_actor( "SHOWEXITS", ch );
           if ( ch->desc ) {
 
           for( door = 0;  door < MAX_DIR; door++ )
@@ -2596,8 +2596,8 @@ void cmd_exits( PLAYER *ch, char *argument )
 		&&   pexit->to_scene != NULL
 	        &&   !IS_SET(pexit->exit_flags, EXIT_CONCEALED) )
                 {
-                        send_to_actor( " ", ch );
-                        send_to_actor( dir_letter[door], ch );
+                        to_actor( " ", ch );
+                        to_actor( dir_letter[door], ch );
                 }
           }
           }
@@ -2608,7 +2608,7 @@ void cmd_exits( PLAYER *ch, char *argument )
     if ( scene_is_dark( ch->in_scene ) && !IS_SET(ch->flag2, WIZ_HOLYLIGHT) )
       {
           if ( !fAuto ) 
-          send_to_actor( "It's too dark to see anything!\n\r", ch );
+          to_actor( "It's too dark to see anything!\n\r", ch );
           return;
 	}
 
@@ -2677,7 +2677,7 @@ void cmd_exits( PLAYER *ch, char *argument )
 		else
 		sprintf( buf2, " (%s)", STR(prop, short_descr) );
  
-    		send_to_actor( buf2, ch );
+    		to_actor( buf2, ch );
     		found = TRUE;
     	}
     }
@@ -2688,7 +2688,7 @@ void cmd_exits( PLAYER *ch, char *argument )
     if ( fAuto )
         strcat( buf, "]" );
 
-    if ( buf[1] != ']' ) send_to_actor( buf, ch );
+    if ( buf[1] != ']' ) to_actor( buf, ch );
     return;
 }
 
@@ -2823,8 +2823,8 @@ void cmd_score( PLAYER *ch, char *argument )
 
     p = format_indent( str_dup(buf2), " ", 76, TRUE );
     display_interp( ch, "^N" );
-    send_to_actor( "\n\r", ch );
-    send_to_actor( p, ch );
+    to_actor( "\n\r", ch );
+    to_actor( p, ch );
     display_interp( ch, "^N" );
     free_string( p );
     }
@@ -2833,9 +2833,9 @@ void cmd_score( PLAYER *ch, char *argument )
     snprintf( buf, MAX_STRING_LENGTH, "\n\rYou are level %d with %d experience points, needing %d for the next.", 
                   ch->exp_level, ch->exp,
                   ((ch->exp_level+1)*EXP_PER_LEVEL)-(ch->exp) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     display_interp( ch, "^+^N" ); 
-    send_to_actor( "\n\r", ch );
+    to_actor( "\n\r", ch );
   
     if ( ch->carry_number != 0 )
     {
@@ -2846,7 +2846,7 @@ void cmd_score( PLAYER *ch, char *argument )
                       ch->carry_number == 1 ? " " : "s ",
                       q,
                       ch->carry_weight == 1 ? "." : "s." );
-        send_to_actor( format_string(buf), ch );
+        to_actor( format_string(buf), ch );
         free_string(p);
         free_string(q);
     }
@@ -2897,10 +2897,10 @@ void cmd_score( PLAYER *ch, char *argument )
     strcat( fbuf, buf );
     
     p = format_indent( str_dup(fbuf), " ", 76, TRUE );
-    send_to_actor( "\n\r^4", ch );
+    to_actor( "\n\r^4", ch );
     cmd_fight( ch, "" );
     display_interp( ch, "^B" );
-    send_to_actor( p, ch );
+    to_actor( p, ch );
     free_string( p );
     }
 
@@ -2923,15 +2923,15 @@ void cmd_score( PLAYER *ch, char *argument )
          (PC(ch,condition[COND_FULL]  ) > -30) ? "hungry"          :
          (PC(ch,condition[COND_FULL]  ) > -50) ? "famished"        :
                                                  "starving" );
-    send_to_actor( buf,  ch );
+    to_actor( buf,  ch );
     }
 
     switch ( ch->position )
     {
-    case POS_DEAD:     send_to_actor( ", and have died.\n\r",              ch ); break;
-    case POS_MORTAL:   send_to_actor( ", and have been mortally wounded.\n\r",  ch ); break;
-    case POS_INCAP:    send_to_actor( ", and have been incapacitated.\n\r",     ch ); break;
-    case POS_STUNNED:  send_to_actor( ", and, unfortunately, stunned.\n\r",     ch ); break;
+    case POS_DEAD:     to_actor( ", and have died.\n\r",              ch ); break;
+    case POS_MORTAL:   to_actor( ", and have been mortally wounded.\n\r",  ch ); break;
+    case POS_INCAP:    to_actor( ", and have been incapacitated.\n\r",     ch ); break;
+    case POS_STUNNED:  to_actor( ", and, unfortunately, stunned.\n\r",     ch ); break;
     case POS_SLEEPING:
     case POS_SITTING:
     case POS_RESTING:
@@ -2943,44 +2943,44 @@ void cmd_score( PLAYER *ch, char *argument )
     else
     snprintf( buf, MAX_STRING_LENGTH, ", and %s.\n\r", position_name(ch->position) );
     
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     break;
     case POS_STANDING:
      if ( ch->riding != NULL )
      {
         snprintf( buf, MAX_STRING_LENGTH, ", and you are riding %s.\n\r", NAME(ch->riding) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
      }
      else
-     send_to_actor( ".\n\r", ch );
+     to_actor( ".\n\r", ch );
     break;
     case POS_FIGHTING:
      if ( ch->riding != NULL )
      {
         snprintf( buf, MAX_STRING_LENGTH, ", and engaged in combat with %s.\n\r", NAME(ch->fighting) );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
      }
      else
-     send_to_actor( ", and fighting.\n\r",          ch );
+     to_actor( ", and fighting.\n\r",          ch );
     break;
     }
 
     display_interp( ch, "^N" );
     display_interp( ch, "^B" );
-     if ( ch->bounty <=   0  ) send_to_actor( "You are a protected citizen", ch );
-else if ( ch->bounty <   500  ) send_to_actor( "You are noted as a troublemaker", ch );
-else if ( ch->bounty <  10000 ) send_to_actor( "You are considered a criminal", ch );
-else if ( ch->bounty < 25000 ) send_to_actor( "You are a fugitive from justice", ch );
-                           else send_to_actor( "You are a feared outlaw", ch );
+     if ( ch->bounty <=   0  ) to_actor( "You are a protected citizen", ch );
+else if ( ch->bounty <   500  ) to_actor( "You are noted as a troublemaker", ch );
+else if ( ch->bounty <  10000 ) to_actor( "You are considered a criminal", ch );
+else if ( ch->bounty < 25000 ) to_actor( "You are a fugitive from justice", ch );
+                           else to_actor( "You are a feared outlaw", ch );
 
     if ( ch->owed > 0 ) {
       if ( ch->owed > 500 )
-    send_to_actor( ", and owed a sizeable reward.\n\r", ch ); 
+    to_actor( ", and owed a sizeable reward.\n\r", ch ); 
      else
-    send_to_actor( ", and owed a reward.\n\r", ch );
+    to_actor( ", and owed a reward.\n\r", ch );
     }
     else
-    send_to_actor( ".\n\r", ch );
+    to_actor( ".\n\r", ch );
 
     display_interp( ch, "^N" );  
 
@@ -2989,39 +2989,39 @@ else if ( ch->bounty < 25000 ) send_to_actor( "You are a fugitive from justice",
     if ( ch->karma < -100 ) { display_interp( ch, "^?" ); }
     else display_interp( ch, "^6" );
 
-     if ( ch->karma  == 0 ) send_to_actor( "Your karma is neutral.", ch );
-else if ( ch->karma < -50 ) send_to_actor( "You've got bad karma written all over you.", ch);
-else if ( ch->karma >  50 ) send_to_actor( "Your karma is ultrapositive.", ch );
-else if ( ch->karma  <  0 ) send_to_actor( "Your karma is negative.", ch );
-                       else send_to_actor( "Your karma is positive.", ch );
+     if ( ch->karma  == 0 ) to_actor( "Your karma is neutral.", ch );
+else if ( ch->karma < -50 ) to_actor( "You've got bad karma written all over you.", ch);
+else if ( ch->karma >  50 ) to_actor( "Your karma is ultrapositive.", ch );
+else if ( ch->karma  <  0 ) to_actor( "Your karma is negative.", ch );
+                       else to_actor( "Your karma is positive.", ch );
     display_interp( ch, "^+^1^N" );
-    send_to_actor( "\n\r", ch );
+    to_actor( "\n\r", ch );
 
-     if ( ch->mana > 100 ) send_to_actor( "You feel energized.\n\r", ch );
-else if ( ch->mana > 75  ) send_to_actor( "Your mind is clear.\n\r", ch );
-else if ( ch->mana > 50  ) send_to_actor( "You feel focused.\n\r", ch );
-else if ( ch->mana > 25  ) send_to_actor( "Your thoughts are blurred.\n\r", ch );
-else if ( ch->mana >  0  ) send_to_actor( "Your mind is weak.\n\r", ch );
-else send_to_actor( "Your mind is unfocused; your thoughts are a cacophony of voices.\n\r", ch );
+     if ( ch->mana > 100 ) to_actor( "You feel energized.\n\r", ch );
+else if ( ch->mana > 75  ) to_actor( "Your mind is clear.\n\r", ch );
+else if ( ch->mana > 50  ) to_actor( "You feel focused.\n\r", ch );
+else if ( ch->mana > 25  ) to_actor( "Your thoughts are blurred.\n\r", ch );
+else if ( ch->mana >  0  ) to_actor( "Your mind is weak.\n\r", ch );
+else to_actor( "Your mind is unfocused; your thoughts are a cacophony of voices.\n\r", ch );
 
     display_interp( ch, "^N" );
 
     snprintf( buf, MAX_STRING_LENGTH, "You are currently speaking %s.\n\r", lang_table[ch->speaking].name );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     if ( IS_AFFECTED(ch,BONUS_HIDE) && IS_AFFECTED(ch,BONUS_SNEAK) )
-    send_to_actor( "You are attempting camoflage and stealth.\n\r", ch );
+    to_actor( "You are attempting camoflage and stealth.\n\r", ch );
     else
     if ( IS_AFFECTED(ch,BONUS_HIDE) )
-    send_to_actor( "You are trying to camoflage yourself.\n\r", ch );
+    to_actor( "You are trying to camoflage yourself.\n\r", ch );
     else
     if ( IS_AFFECTED(ch,BONUS_SNEAK) )
-    send_to_actor( "You are trying to move with stealth.\n\r", ch );
+    to_actor( "You are trying to move with stealth.\n\r", ch );
 
     if ( IS_IMMORTAL(ch) )
     {
     display_interp( ch, "^B" );
-    send_to_actor( "\n\rYou are", ch );
+    to_actor( "\n\rYou are", ch );
 
     switch ( get_trust( ch ) )
     {
@@ -3037,25 +3037,25 @@ case LEVEL_DEMIGOD: snprintf( buf, MAX_STRING_LENGTH, " a demigod." ); break;
     case MAX_LEVEL: snprintf( buf, MAX_STRING_LENGTH, ch->sex == SEX_MALE ? " God." : " Goddess." ); break;
     }
     
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     if ( get_trust( ch ) == LEVEL_BUILDER ) {
     snprintf( buf, MAX_STRING_LENGTH, " with a building security of %d.\n\r", PC(ch,security) );
     }
     else snprintf( buf, MAX_STRING_LENGTH, " [%d]\n\r", PC(ch,security) );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     }
     else if ( ch->exp_level < 5 ) {
        display_interp( ch, "^N^6" );
-       send_to_actor( "You are a lowly newbie.  Behave.\n\r", ch );
+       to_actor( "You are a lowly newbie.  Behave.\n\r", ch );
        return;
     }
 
     display_interp( ch, "^N" );
     if ( PC(ch,flag) != NULL && strlen(PC(ch,flag)) > 0 ) {
-       send_to_actor( "Your kingdom's banner is: ", ch );
-       send_to_actor( PC(ch,flag), ch );
-       send_to_actor( "^+^N\n\r", ch );
+       to_actor( "Your kingdom's banner is: ", ch );
+       to_actor( PC(ch,flag), ch );
+       to_actor( "^+^N\n\r", ch );
     }
 
     cmd_money( ch, NULL );
@@ -3146,7 +3146,7 @@ void cmd_time( PLAYER *ch, char *argument )
 
     if ( !check_blind( ch ) )
     {
-        send_to_actor( "You have no clue what is going on, you are blind!\n\r",
+        to_actor( "You have no clue what is going on, you are blind!\n\r",
                       ch );
         return;
     }
@@ -3287,7 +3287,7 @@ void cmd_time( PLAYER *ch, char *argument )
     {
         char *p;
         p = format_string( str_dup( buf ) );
-        send_to_actor( p, ch );
+        to_actor( p, ch );
         free_string( p );
     }
 
@@ -3301,7 +3301,7 @@ void cmd_time( PLAYER *ch, char *argument )
 
         snprintf( buf, MAX_STRING_LENGTH, "%s\n\rBooted at:   %s\rSystem time: %s\r",
          VERSION_STR,  str_boot_time, (char *) ctime( &current_time )  );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
 
         sprintf( buf,
  "Temp: %4d  Windspd: %4d  Dir:    %4d  Month: %4d  Hour: %4d  Phase: %4d\n\r"
@@ -3316,7 +3316,7 @@ void cmd_time( PLAYER *ch, char *argument )
                weather.sunlight,      num_hour/60,
                pulse_zone,                 pulse_actor,
                pulse_violence,             autosave_counter );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
 
     return;
@@ -3333,7 +3333,7 @@ void help_to_actor( char *t, PLAYER *ch, bool fPage )
   */
    if( t == NULL || *t == '\0' )
    {
-      send_to_actor( "\n\r\n\r", ch );
+      to_actor( "\n\r\n\r", ch );
       return;
    }
 
@@ -3382,9 +3382,9 @@ void cmd_help( PLAYER *ch, char *argument )
             hclass[i] = 0;
 
          snprintf( buf, MAX_STRING_LENGTH, "\nThe following classes of help files are available:\n\n#     Class           Description\n\r" );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
          snprintf( buf, MAX_STRING_LENGTH, "-     -----           -----------\n\r" );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
 
          for ( v=0; v <= top_dbkey_help; v++ ) {
                 pHelp = get_help_index(v); 
@@ -3396,10 +3396,10 @@ void cmd_help( PLAYER *ch, char *argument )
 
          for ( i=0; i < MAX_HELP_CLASS; i++ ) {
             sprintf(buf, "%-5d %-15s %s\n", hclass[i], help_class_table[i].name, help_class_table[i].desc);
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
          }
          snprintf( buf, MAX_STRING_LENGTH, "\nType 'help show [class]' to see available helps for a specific class.\n\r" );
-         send_to_actor( buf, ch );
+         to_actor( buf, ch );
 
          return;
 
@@ -3419,13 +3419,13 @@ void cmd_help( PLAYER *ch, char *argument )
                      strcat( buf, buf2 );
                      if ( col % 3 == 0 ) {
                        strcat( buf, "\n\r" );
-                       send_to_actor( buf, ch );
+                       to_actor( buf, ch );
                        strcpy( buf, "" );
                        strcpy( buf2, "" );
                      }
                   }
                }
-               send_to_actor( buf, ch );
+               to_actor( buf, ch );
                return;
             }
          }
@@ -3440,8 +3440,8 @@ void cmd_help( PLAYER *ch, char *argument )
 
       argument++;
       if ( *argument == '\0' ) { 
-send_to_actor( "No search string entered, try HELP #keyword\n\r", ch ); 
-send_to_actor( "or HELP #'phrase'\n\r", ch ); 
+to_actor( "No search string entered, try HELP #keyword\n\r", ch ); 
+to_actor( "or HELP #'phrase'\n\r", ch ); 
 return; }
 
       snprintf( b, strlen(b), "Related Topics:\n\r" );
@@ -3507,21 +3507,21 @@ return; }
                     pHelp->name, help_class_table[pHelp->class].name );
 
                 if ( HAS_ANSI(ch) ) display_interp( ch, "^B" );
-                send_to_actor( b, ch );
+                to_actor( b, ch );
                 if ( HAS_ANSI(ch) ) display_interp( ch, "^N" );
 		}
-                send_to_actor( "\n\r", ch );
+                to_actor( "\n\r", ch );
 
                 if ( str_cmp( pHelp->syntax, "" ) ) {
                    if ( HAS_ANSI(ch) ) display_interp( ch, "^B" );
-                   send_to_actor( "Syntax:  ", ch );
+                   to_actor( "Syntax:  ", ch );
                    if ( HAS_ANSI(ch) ) display_interp( ch, "^N" );
                    sprintf(b, "%s\n", pHelp->syntax);
-                   send_to_actor( b, ch );
+                   to_actor( b, ch );
                 }
 
 /*
-                send_to_actor( "Description:\n\r", ch );
+                to_actor( "Description:\n\r", ch );
  */
 
                 if ( pHelp->text[0] == '.' )
@@ -3603,22 +3603,22 @@ return; }
                     pHelp->name, help_class_table[pHelp->class].name );
 
                 if ( HAS_ANSI(ch) ) display_interp( ch, "^B" );
-                send_to_actor( b, ch );
+                to_actor( b, ch );
                 if ( HAS_ANSI(ch) ) display_interp( ch, "^N" );
 		}
-                send_to_actor( "\n\r", ch );
+                to_actor( "\n\r", ch );
 
                 if ( str_cmp( pHelp->syntax, "" ) ) {
                    if ( HAS_ANSI(ch) ) display_interp( ch, "^B" );
-                   send_to_actor( "Syntax:  ", ch );
+                   to_actor( "Syntax:  ", ch );
                    if ( HAS_ANSI(ch) ) display_interp( ch, "^N" );
                    sprintf(b, "%s\n", pHelp->syntax);
-                   send_to_actor( b, ch );
+                   to_actor( b, ch );
                 }
 
 /*
                 if ( HAS_ANSI(ch) ) display_interp( ch, "^B" );
-                send_to_actor( "Description:\n\r", ch );
+                to_actor( "Description:\n\r", ch );
                 if ( HAS_ANSI(ch) ) display_interp( ch, "^N" );
  */
 
@@ -3678,7 +3678,7 @@ return; }
     }
 
     { char nf[MSL]; snprintf( nf, MSL, "#%s", argall ); cmd_help( ch, nf ); }
-//    send_to_actor( "No help on that word.\n\r", ch );
+//    to_actor( "No help on that word.\n\r", ch );
     return;
 }
 
@@ -3798,7 +3798,7 @@ void cmd_who( PLAYER *ch, char *argument )
 	    case 1: iLevelLower = atoi( arg ); break;
 	    case 2: iLevelUpper = atoi( arg ); break;
 	    default:
-		send_to_actor( "Only two level numbers allowed.\n\r", ch );
+		to_actor( "Only two level numbers allowed.\n\r", ch );
 		return;
 	    }
 	}
@@ -3918,7 +3918,7 @@ capitalize(numberize(wch->exp_level)),
     }
 
     display_interp( ch, "^B" );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     display_interp( ch, "^N" );
 
     if (nMatch > 0)
@@ -3926,7 +3926,7 @@ capitalize(numberize(wch->exp_level)),
         snprintf( buf, MAX_STRING_LENGTH, "There %s %d visible player%s",
              nMatch > 1 ? "are" : "is",  nMatch,
              nMatch > 1 ? "s" : "" );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
 
     if (gMatch > 0 || fImmortalOnly)
@@ -3939,14 +3939,14 @@ capitalize(numberize(wch->exp_level)),
              gMatch > 1 ? "are" : "is",  gMatch,
              gMatch > 1 ? "s" : "" );
 
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
 
     max = nMatch + gMatch > max ? nMatch + gMatch : max;
     snprintf( buf, MAX_STRING_LENGTH, ", with a high of %d.\n\r", max );
 
     if ( IS_IMMORTAL(ch) ) {
-    if ( max > 0 ) send_to_actor( buf, ch );
+    if ( max > 0 ) to_actor( buf, ch );
 
     if ( num_hour / (60 * PULSE_PER_SECOND) < 60 )
     {
@@ -3960,12 +3960,12 @@ capitalize(numberize(wch->exp_level)),
         num_hour / (60 * PULSE_PER_SECOND * 60)+1,
         num_hour / (60 * PULSE_PER_SECOND * 60)+1 != 1 ? "s" : "" );
     }
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
     }
 
 #if defined(IMC)
     if ( imc_active )
-    send_to_actor( "Feeling lonely? Try typing 'imc' for relayed chat.\n\r", ch );
+    to_actor( "Feeling lonely? Try typing 'imc' for relayed chat.\n\r", ch );
 #endif
     return;
 }
@@ -4042,13 +4042,13 @@ void cmd_title( PLAYER *ch, char *argument )
 
     free_string( PC(ch,title ));
     PC(ch,title) = str_dup( "" );
-    if ( *argument == '\0' ) send_to_actor( "Title cleared.\n\r", ch );
+    if ( *argument == '\0' ) to_actor( "Title cleared.\n\r", ch );
     else { PC(ch,title) = str_dup( argument );  
-           send_to_actor( "You are now known as ", ch );
-           send_to_actor( NAME(ch), ch );
-           send_to_actor( " ", ch );
-           send_to_actor( PC(ch,title), ch );
-           send_to_actor( ".\n\r", ch );
+           to_actor( "You are now known as ", ch );
+           to_actor( NAME(ch), ch );
+           to_actor( " ", ch );
+           to_actor( PC(ch,title), ch );
+           to_actor( ".\n\r", ch );
            snprintf( buf, MAX_STRING_LENGTH, "%s changes %s title to %s %s.\n\r", 
                     NAME(ch), HIS_HER(ch),
                     NAME(ch), PC(ch,title) );
@@ -4138,7 +4138,7 @@ void show_belt( PLAYER *victim, PLAYER *ch )
     if ( buf[0] != '\0' )
     {
         act( "From $N$y belt hangs:", ch, NULL, victim, TO_ACTOR );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
     }
     return;
 }
@@ -4157,7 +4157,7 @@ void cmd_peek( PLAYER *ch, char *argument )
     
     if ( arg[0] == '\0' || (victim = get_actor_scene( ch, arg )) == NULL )
     {
-        send_to_actor( "Peek into whose inventory?\n\r", ch );
+        to_actor( "Peek into whose inventory?\n\r", ch );
         return;
     }
 
@@ -4165,7 +4165,7 @@ void cmd_peek( PLAYER *ch, char *argument )
     {
         act( "$n is caught peeking at $N's inventory!", ch, NULL, victim, TO_NOTVICT );
         act( "You catch $n peeking at your inventory!", ch, NULL, victim, TO_VICT );
-        send_to_actor( "You were caught!\n\r", ch );
+        to_actor( "You were caught!\n\r", ch );
     }
 
     show_inventory( victim, ch, TRUE );
@@ -4221,13 +4221,13 @@ void cmd_compare( PLAYER *ch, char *argument )
     argument = one_argument( argument, arg2 );
     if ( arg1[0] == '\0' )
     {
-	send_to_actor( "Compare what to what?\n\r", ch );
+	to_actor( "Compare what to what?\n\r", ch );
 	return;
     }
 
     if ( ( prop1 = get_prop_inv( ch, arg1 ) ) == NULL )
     {
-	send_to_actor( "You do not have that item.\n\r", ch );
+	to_actor( "You do not have that item.\n\r", ch );
 	return;
     }
 
@@ -4244,7 +4244,7 @@ void cmd_compare( PLAYER *ch, char *argument )
 
 	if ( prop2 == NULL )
 	{
-	    send_to_actor( "You aren't wearing anything comparable.\n\r", ch );
+	    to_actor( "You aren't wearing anything comparable.\n\r", ch );
 	    return;
 	}
     }
@@ -4252,7 +4252,7 @@ void cmd_compare( PLAYER *ch, char *argument )
     {
     if ( ( prop2 = get_prop_inv( ch, arg2 ) ) == NULL )
 	{
-	    send_to_actor( "You do not have that item.\n\r", ch );
+	    to_actor( "You do not have that item.\n\r", ch );
 	    return;
 	}
     }
@@ -4349,13 +4349,13 @@ void cmd_consider( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_actor( "Consider killing whom?\n\r", ch );
+	to_actor( "Consider killing whom?\n\r", ch );
 	return;
     }
 
     if ( ( victim = get_actor_scene( ch, arg ) ) == NULL )
     {
-	send_to_actor( "They're not here.\n\r", ch );
+	to_actor( "They're not here.\n\r", ch );
 	return;
     }
 
@@ -4430,7 +4430,7 @@ void cmd_report( PLAYER *ch, char *argument )
 
     snprintf( buf, MAX_STRING_LENGTH, "You report that you are %s and %s.\n\r",
                   STRING_HITS(ch), STRING_MOVES(ch)  );
-    send_to_actor( buf, ch );
+    to_actor( buf, ch );
 
     snprintf( buf, MAX_STRING_LENGTH, "$n reports that $e is %s and %s.",
                   STRING_HITS(ch), STRING_MOVES(ch) );
@@ -4457,13 +4457,13 @@ void cmd_socials( PLAYER *ch, char *argument )
     for ( iSocial = 0; social_table[iSocial].name[0] != '\0'; iSocial++ )
     {
 	snprintf( buf, MAX_STRING_LENGTH, "%-12s", social_table[iSocial].name );
-	send_to_actor( buf, ch );
+	to_actor( buf, ch );
 	if ( ++col % 6 == 0 )
-	    send_to_actor( "\n\r", ch );
+	    to_actor( "\n\r", ch );
     }
  
     if ( col % 6 != 0 )
-	send_to_actor( "\n\r", ch );
+	to_actor( "\n\r", ch );
     return;
 }
 
@@ -4564,20 +4564,20 @@ void cmd_history( PLAYER *ch, char *argument ) {
         else if ( NPC(pActor) ) {
               sprintf( arg, "%s will most likely die in obscurity.\n\r", 
                        NAME(pActor) );
-              send_to_actor( arg, ch );
+              to_actor( arg, ch );
               return;
         }
     }
 
     if ( NPC(pActor) ) return;
 
-    send_to_actor( "\n\r", ch ); 
+    to_actor( "\n\r", ch ); 
     sprintf( arg, "The History of %s\n\r\n\rAs recorded by Edigzorr the Great\n\r\n\r", 
              NAME(pActor) );
 
-    send_to_actor( arg, ch );
+    to_actor( arg, ch );
 
-    if ( PC(pActor,history) == NULL ) send_to_actor( "No history.\n\r", ch );
+    if ( PC(pActor,history) == NULL ) to_actor( "No history.\n\r", ch );
     else {
        page_to_actor( PC(pActor,history), ch );
        page_to_actor( "\n\r", ch );

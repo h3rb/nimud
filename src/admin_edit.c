@@ -54,13 +54,13 @@ void cmd_mload( PLAYER *ch, char *argument )
 
     if ( arg[0] == '\0' || !is_number(arg) )
     {
-    send_to_actor( "Syntax: mload <dbkey>.\n\r", ch );
+    to_actor( "Syntax: mload <dbkey>.\n\r", ch );
 	return;
     }
 
     if ( ( pActorIndex = get_actor_template( atoi( arg ) ) ) == NULL )
     {
-    send_to_actor( "No actor has that dbkey.\n\r", ch );
+    to_actor( "No actor has that dbkey.\n\r", ch );
 	return;
     }
 
@@ -92,9 +92,9 @@ void cmd_oload( PLAYER *ch, char *argument )
  
     if ( arg1[0] == '\0' )
     {
-        send_to_actor( "Syntax: pload <dbkey> <level>.\n\r", ch );
-        send_to_actor( "        pload good <number>.\n\r", ch );
-        send_to_actor( "        pload comp <number>.\n\r", ch );
+        to_actor( "Syntax: pload <dbkey> <level>.\n\r", ch );
+        to_actor( "        pload good <number>.\n\r", ch );
+        to_actor( "        pload comp <number>.\n\r", ch );
         return;
     }
  
@@ -130,9 +130,9 @@ void cmd_oload( PLAYER *ch, char *argument )
                 return;
             }
 
-            send_to_actor( "Syntax: oload <dbkey> <level>.\n\r", ch );
-            send_to_actor( "        oload good <number>.\n\r", ch );
-            send_to_actor( "        oload comp <number>.\n\r", ch );
+            to_actor( "Syntax: oload <dbkey> <level>.\n\r", ch );
+            to_actor( "        oload good <number>.\n\r", ch );
+            to_actor( "        oload comp <number>.\n\r", ch );
 	    return;
         }
 
@@ -140,14 +140,14 @@ void cmd_oload( PLAYER *ch, char *argument )
 
 	if ( level < 0 || level > get_trust( ch ) )
         {
-        send_to_actor( "Limited to your trust level.\n\r", ch );
+        to_actor( "Limited to your trust level.\n\r", ch );
 	    return;
         }
     }
 
     if ( ( pPropIndex = get_prop_template( atoi( arg1 ) ) ) == NULL )
     {
-    send_to_actor( "No prop has that dbkey.\n\r", ch );
+    to_actor( "No prop has that dbkey.\n\r", ch );
 	return;
     }
 
@@ -181,7 +181,7 @@ void cmd_load( PLAYER *ch, char *argument )
     
      if ( !str_prefix( arg, "actor" ) ) cmd_mload( ch, argument );
 else if ( !str_prefix( arg, "prop" ) ) cmd_oload( ch, argument );
-else send_to_actor( "Syntax: Load <actor|prop> <dbkey>\n\r", ch );
+else to_actor( "Syntax: Load <actor|prop> <dbkey>\n\r", ch );
 
      return;
 }
@@ -210,28 +210,28 @@ void cmd_sset( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0' )
     {
-        send_to_actor( "Syntax: sset <victim> '<skill>' <value|max>\n\r",  ch );
-        send_to_actor( "or:     sset <victim> all       <value|max>\n\r",  ch );
-        send_to_actor( "Skill being any skill or spell.\n\r",              ch );
+        to_actor( "Syntax: sset <victim> '<skill>' <value|max>\n\r",  ch );
+        to_actor( "or:     sset <victim> all       <value|max>\n\r",  ch );
+        to_actor( "Skill being any skill or spell.\n\r",              ch );
         return;
     }
 
     if ( ( victim = get_actor_world( ch, arg1 ) ) == NULL )
     {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
     }
 
     if ( NPC(victim) )
     {
-        send_to_actor( "Not on NPC's.\n\r", ch );
+        to_actor( "Not on NPC's.\n\r", ch );
         return;
     }
 
     fAll = !str_cmp( arg2, "all" );
     if ( !fAll && !( pIndex = skill_lookup( arg2 ) ) )
     {
-        send_to_actor( "No such skill.\n\r", ch );
+        to_actor( "No such skill.\n\r", ch );
         return;
     }
 
@@ -253,24 +253,24 @@ void cmd_sset( PLAYER *ch, char *argument )
                     if ( (pSkill=get_skill_index(sn)) != NULL )
                     update_skill(victim,sn,pSkill->max_learn);
                 }
-                send_to_actor( NAME(ch), victim );
-                send_to_actor( " bestows you with great knowledge.\n\r", victim );
-                send_to_actor( "You bestow great knowledge.\n\r", ch );
+                to_actor( NAME(ch), victim );
+                to_actor( " bestows you with great knowledge.\n\r", victim );
+                to_actor( "You bestow great knowledge.\n\r", ch );
             }
             else update_skill(victim,pIndex->dbkey,pIndex->max_learn);
 
-            send_to_actor( "Skill(s) set to max_learn value.\n\r", ch );
+            to_actor( "Skill(s) set to max_learn value.\n\r", ch );
             return;
         }
 
-        send_to_actor( "Value must be numeric.\n\r", ch );
+        to_actor( "Value must be numeric.\n\r", ch );
         return;
     }
 
     value = atoi( arg3 );
     if ( value <= -1 || value > 100 )
     {
-        send_to_actor( "Value range is 0 (unlearned) to 100.\n\r", ch );
+        to_actor( "Value range is 0 (unlearned) to 100.\n\r", ch );
         return;
     }
 
@@ -287,8 +287,8 @@ void cmd_sset( PLAYER *ch, char *argument )
         }
     }
     else update_skill(victim,pIndex->dbkey,value);
-    if ( !fAll) send_to_actor( pIndex->name, ch );
-    send_to_actor( " adjusted.\n\r", ch );
+    if ( !fAll) to_actor( pIndex->name, ch );
+    to_actor( " adjusted.\n\r", ch );
     return;
 }
 
@@ -312,29 +312,29 @@ void cmd_mset( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' )
     {
-    send_to_actor( "Syntax: mset <victim> <field>  <value>\n\r", ch );
-    send_to_actor( "or:     mset <victim> <string> <value>\n\r", ch );
-    send_to_actor( "\n\r", ch );
-    send_to_actor( "Field being one of:\n\r",                ch );
-    send_to_actor( "  sex    class   race\n\r",              ch );
-    send_to_actor( "  hp     move    timer\n\r",             ch );
-    send_to_actor( "  master  practice\n\r",                 ch );
-    send_to_actor( "  act    affect\n\r",                    ch );
-    send_to_actor( "--For Players:\n\r",                     ch );
-    send_to_actor( "  str int wis dex con security\n\r",     ch );
-    send_to_actor( "  race size app age\n\r",                ch );
-    send_to_actor( "  thirst drunk full\n\r",                ch );
-    send_to_actor( "\n\r", ch );
-    send_to_actor( "String being one of:\n\r",               ch );
-    send_to_actor( "  name short long description\n\r",      ch );
-    send_to_actor( "--For Players:\n\r",                     ch );
-    send_to_actor( "  keywords constellation\n\r",           ch );
+    to_actor( "Syntax: mset <victim> <field>  <value>\n\r", ch );
+    to_actor( "or:     mset <victim> <string> <value>\n\r", ch );
+    to_actor( "\n\r", ch );
+    to_actor( "Field being one of:\n\r",                ch );
+    to_actor( "  sex    class   race\n\r",              ch );
+    to_actor( "  hp     move    timer\n\r",             ch );
+    to_actor( "  master  practice\n\r",                 ch );
+    to_actor( "  act    affect\n\r",                    ch );
+    to_actor( "--For Players:\n\r",                     ch );
+    to_actor( "  str int wis dex con security\n\r",     ch );
+    to_actor( "  race size app age\n\r",                ch );
+    to_actor( "  thirst drunk full\n\r",                ch );
+    to_actor( "\n\r", ch );
+    to_actor( "String being one of:\n\r",               ch );
+    to_actor( "  name short long description\n\r",      ch );
+    to_actor( "--For Players:\n\r",                     ch );
+    to_actor( "  keywords constellation\n\r",           ch );
     return;
     }
 
     if ( ( victim = get_actor_world( ch, arg1 ) ) == NULL )
     {
-    send_to_actor( "They aren't here.\n\r", ch );
+    to_actor( "They aren't here.\n\r", ch );
 	return;
     }
 
@@ -350,7 +350,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 0 || value > 2 )
         {
-            send_to_actor( "Sex range is 0 to 2.\n\r", ch );
+            to_actor( "Sex range is 0 to 2.\n\r", ch );
             return;
         }
         victim->sex = value;
@@ -368,7 +368,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 0 || value > 30000 )
         {
-            send_to_actor( "Timer range is 0 to 30,000.\n\r", ch );
+            to_actor( "Timer range is 0 to 30,000.\n\r", ch );
             return;
         }
         victim->timer = value;
@@ -379,12 +379,12 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 0 || value > 30000 )
         {
-            send_to_actor( "Application time range is from 0 to 30,000.\n\r", ch );
+            to_actor( "Application time range is from 0 to 30,000.\n\r", ch );
             return;
         }
         else if ( NPC(victim) )
         {
-            send_to_actor( "PCs only.\n\r", ch );
+            to_actor( "PCs only.\n\r", ch );
             return;
         }
         PC(victim,app_time) = value;
@@ -401,7 +401,7 @@ void cmd_mset( PLAYER *ch, char *argument )
 
         if ( ( get_actor_world( ch, arg3 ) ) == NULL )
         {
-        send_to_actor( "They aren't here.\n\r", ch );
+        to_actor( "They aren't here.\n\r", ch );
         return;
         }
 
@@ -450,8 +450,8 @@ void cmd_mset( PLAYER *ch, char *argument )
 
     if ( !str_cmp( arg2, "description" ) )
     {
-        send_to_actor( "Entering line editing mode.\n\r", ch );
-        send_to_actor( "Terminate with a ~ on a blank line.\n\r", ch );
+        to_actor( "Entering line editing mode.\n\r", ch );
+        to_actor( "Terminate with a ~ on a blank line.\n\r", ch );
         ch->desc->pString = &victim->description;
         return;
     }
@@ -467,7 +467,7 @@ void cmd_mset( PLAYER *ch, char *argument )
      */
     if ( get_trust( victim ) > get_trust( ch ) )
     {
-    send_to_actor( "They are trusted at a higher level than you.\n\r", ch );
+    to_actor( "They are trusted at a higher level than you.\n\r", ch );
     return;
     }
 
@@ -476,7 +476,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 3 || value > 25 )
         {
-        send_to_actor( "Strength range is 3 to 25.\n\r", ch );
+        to_actor( "Strength range is 3 to 25.\n\r", ch );
 	    return;
         }
 
@@ -488,7 +488,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 3 || value > 25 )
 	{
-        send_to_actor( "Intelligence range is 3 to 25.\n\r", ch );
+        to_actor( "Intelligence range is 3 to 25.\n\r", ch );
 	    return;
 	}
 
@@ -500,7 +500,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 3 || value > 25 )
 	{
-        send_to_actor( "Wisdom range is 3 to 25.\n\r", ch );
+        to_actor( "Wisdom range is 3 to 25.\n\r", ch );
 	    return;
 	}
 
@@ -512,7 +512,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 3 || value > 25 )
 	{
-        send_to_actor( "Dexterity range is 3 to 25.\n\r", ch );
+        to_actor( "Dexterity range is 3 to 25.\n\r", ch );
 	    return;
 	}
 
@@ -524,7 +524,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 3 || value > 25 )
 	{
-        send_to_actor( "Constitution range is 3 to 25.\n\r", ch );
+        to_actor( "Constitution range is 3 to 25.\n\r", ch );
 	    return;
 	}
 
@@ -539,7 +539,7 @@ void cmd_mset( PLAYER *ch, char *argument )
         char buf[MAX_STRING_LENGTH];
 
         snprintf( buf, MAX_STRING_LENGTH, "Race range is 0 to %d.\n", MAX_RACE );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return;
     }
     victim->race = value;
@@ -555,7 +555,7 @@ void cmd_mset( PLAYER *ch, char *argument )
         char buf[MAX_STRING_LENGTH];
 
         snprintf( buf, MAX_STRING_LENGTH, "Race range is 0 to %d.\n", MAX_RACE );
-        send_to_actor( buf, ch );
+        to_actor( buf, ch );
         return;
     }
      PC(ch,birth_year)  = weather.year - value;
@@ -567,13 +567,13 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         if ( value < 1 || value > 9 )
 	{
-        send_to_actor( "Security level is between 1 and 9.\n\r", ch );
+        to_actor( "Security level is between 1 and 9.\n\r", ch );
 	    return;
 	}
 
         if ( PC(victim,security) < PC(ch,security) )
         {
-        send_to_actor( "They have a lower security level than you!\n\r", ch );
+        to_actor( "They have a lower security level than you!\n\r", ch );
         return;
         }
     
@@ -585,7 +585,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
     if ( value < -100 || value > 100 )
 	{
-        send_to_actor( "Thirst range is -100 to 100.\n\r", ch );
+        to_actor( "Thirst range is -100 to 100.\n\r", ch );
 	    return;
 	}
 
@@ -597,7 +597,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
     if ( value < 0 || value > 100 )
 	{
-        send_to_actor( "Drunk range is 0 to 100.\n\r", ch );
+        to_actor( "Drunk range is 0 to 100.\n\r", ch );
 	    return;
 	}
 
@@ -609,7 +609,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
     if ( value < -100 || value > 100 )
 	{
-        send_to_actor( "Full range is -100 to 100.\n\r", ch );
+        to_actor( "Full range is -100 to 100.\n\r", ch );
 	    return;
 	}
 
@@ -658,22 +658,22 @@ void cmd_oset( PLAYER *ch, char *argument )
 
     if ( arg1[0] == '\0' || arg2[0] == '\0' )
     {
-    send_to_actor( "Syntax: oset <prop> <field>  <value>\n\r", ch );
-    send_to_actor( "or:     oset <prop> <string> <value>\n\r", ch );
-    send_to_actor( "\n\r",                                 ch );
-    send_to_actor( "Field being one of:\n\r",              ch );
-    send_to_actor( "  value1, 2, 3, 4               \n\r", ch );
-    send_to_actor( "  extra   wear    level   weight\n\r", ch );
-    send_to_actor( "  cost    type    timer   size\n\r",   ch );
-    send_to_actor( "\n\r",                                 ch );
-    send_to_actor( "String being one of:\n\r",             ch );
-    send_to_actor( "  name    short   long\n\r",           ch );
+    to_actor( "Syntax: oset <prop> <field>  <value>\n\r", ch );
+    to_actor( "or:     oset <prop> <string> <value>\n\r", ch );
+    to_actor( "\n\r",                                 ch );
+    to_actor( "Field being one of:\n\r",              ch );
+    to_actor( "  value1, 2, 3, 4               \n\r", ch );
+    to_actor( "  extra   wear    level   weight\n\r", ch );
+    to_actor( "  cost    type    timer   size\n\r",   ch );
+    to_actor( "\n\r",                                 ch );
+    to_actor( "String being one of:\n\r",             ch );
+    to_actor( "  name    short   long\n\r",           ch );
 	return;
     }
 
     if ( ( prop = get_prop_world( ch, arg1 ) ) == NULL )
     {
-    send_to_actor( "Nothing like that in hell, earth, or heaven.\n\r", ch );
+    to_actor( "Nothing like that in hell, earth, or heaven.\n\r", ch );
 	return;
     }
 
@@ -774,8 +774,8 @@ void cmd_oset( PLAYER *ch, char *argument )
 
     if ( !str_cmp( arg2, "long" ) )
     {           
-        send_to_actor( "Entering line editing mode.\n\r", ch );
-        send_to_actor( "Terminate with a ~ on a blank line.\n\r", ch );
+        to_actor( "Entering line editing mode.\n\r", ch );
+        to_actor( "Terminate with a ~ on a blank line.\n\r", ch );
         ch->desc->pString = &prop->description;
         return;
     }

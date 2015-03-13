@@ -261,7 +261,7 @@ void append_file( PLAYER *ch, char *file, char *str )
     if ( ( fp = fopen( file, "a" ) ) == NULL )
     {
 	perror( file );
-	send_to_actor( "Could not open the file!\n\r", ch );
+	to_actor( "Could not open the file!\n\r", ch );
     }
     else
     {
@@ -999,9 +999,9 @@ char * string_proper( char * argument )
 
 void string_edit( PLAYER *ch, char **pString )
 {
-    send_to_actor( " Entering line editing mode, terminate with a ~ or @ on a blank line.\n\r", ch );
-    send_to_actor( "_________________________________________________________________________\n\r", ch );
-    send_to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );
+    to_actor( " Entering line editing mode, terminate with a ~ or @ on a blank line.\n\r", ch );
+    to_actor( "_________________________________________________________________________\n\r", ch );
+    to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );
 
     if ( *pString == NULL )
     {
@@ -1022,10 +1022,10 @@ void string_edit( PLAYER *ch, char **pString )
 void string_append( PLAYER *ch, char **pString )
 {
     if ( ch->desc->connected <= NET_PLAYING )
-    send_to_actor( "_________________________[Entering APPEND Mode]__________________________\n\r", ch );
-    send_to_actor( " Type \\h on a new line for help, terminate with a ~ or @ on a blank line.\n\r", ch );
-    send_to_actor( "_________________________________________________________________________\n\r", ch );
-    send_to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );
+    to_actor( "_________________________[Entering APPEND Mode]__________________________\n\r", ch );
+    to_actor( " Type \\h on a new line for help, terminate with a ~ or @ on a blank line.\n\r", ch );
+    to_actor( "_________________________________________________________________________\n\r", ch );
+    to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );
 
     ch->desc->pString = pString;
     return;
@@ -1049,7 +1049,7 @@ void string_add( PLAYER *ch, char *argument )
         if ( !str_cmp( arg1, "\\c" ) 
           || !str_cmp( arg1, ".c" ) )
         {
-            send_to_actor( "String cleared.\n\r", ch );
+            to_actor( "String cleared.\n\r", ch );
             free_string( *ch->desc->pString );
             *ch->desc->pString = str_dup( "" );
             return;
@@ -1069,19 +1069,19 @@ void string_add( PLAYER *ch, char *argument )
         fclose(out);
 
         out = popen( "ispell -a -S < .scenedesc", "r" );
-        send_to_actor( "The following words are misspelled:\n\r", ch );
+        to_actor( "The following words are misspelled:\n\r", ch );
 
         while (fgets(buf, MAX_STRING_LENGTH-1, out) != NULL)
         {
             if ( buf[0] != '&' ) continue;
             pf = format_string( str_dup( buf ) );
-            send_to_actor( pf, ch );
+            to_actor( pf, ch );
             free_string( pf );
         }
    
         pclose( out );
 #else
-        send_to_actor( "Unix systems only.\n\r", ch );
+        to_actor( "Unix systems only.\n\r", ch );
 #endif
 */
 
@@ -1101,19 +1101,19 @@ void string_add( PLAYER *ch, char *argument )
         fclose(out);
 
         out = popen( "ispell -a -S < .scenedesc", "r" );
-        send_to_actor( "The following words are misspelled:\n\r", ch );
+        to_actor( "The following words are misspelled:\n\r", ch );
         
         while (fgets(buf, MAX_STRING_LENGTH-1, out) != NULL)
         {
             if ( buf[0] != '&' ) continue;
             pf = format_string( str_dup( buf ) );
-            send_to_actor( pf, ch );
+            to_actor( pf, ch );
             free_string( pf );
         }
             
         pclose( out );
 #else
-        send_to_actor( "Unix systems only.\n\r", ch );
+        to_actor( "Unix systems only.\n\r", ch );
 #endif
         return;
         }
@@ -1121,8 +1121,8 @@ void string_add( PLAYER *ch, char *argument )
         if ( !str_cmp( arg1, "\\s" ) 
           || !str_cmp( arg1, ".s" ) )
         {
-            send_to_actor( "String so far:\n\r", ch );
-            send_to_actor( *ch->desc->pString, ch );
+            to_actor( "String so far:\n\r", ch );
+            to_actor( *ch->desc->pString, ch );
             return;
         }
 
@@ -1131,13 +1131,13 @@ void string_add( PLAYER *ch, char *argument )
         {
             if ( arg2[0] == '\0' )
             {
-                send_to_actor( "usage:  .r \"old string\" \"new string\"\n\r", ch );
+                to_actor( "usage:  .r \"old string\" \"new string\"\n\r", ch );
                 return;
             }
 
             *ch->desc->pString = string_replace( *ch->desc->pString, arg2, arg3 );
             snprintf( buf, MAX_STRING_LENGTH, "'%s' replaced with '%s'.\n\r", arg2, arg3 );
-            send_to_actor( buf, ch );
+            to_actor( buf, ch );
             return;
         }
 
@@ -1152,7 +1152,7 @@ void string_add( PLAYER *ch, char *argument )
              free_string( *ch->desc->pString );
              *ch->desc->pString = b;
              ch->desc->lingua=oldlingua;
-             send_to_actor( "Translated.\n\r", ch );
+             to_actor( "Translated.\n\r", ch );
              return;
         }
 #endif
@@ -1163,27 +1163,27 @@ void string_add( PLAYER *ch, char *argument )
 
              sprintf( buf2, "../export/%s.txt", arg2 );
              save_string_to_file( buf2, *ch->desc->pString );
-             send_to_actor( "File exported to ", ch );
-             send_to_actor( buf2, ch ); send_to_actor( "\n\r", ch );
+             to_actor( "File exported to ", ch );
+             to_actor( buf2, ch ); to_actor( "\n\r", ch );
              return;
         }
 
         if ( ( !str_cmp( arg1, "\\i" ) || !str_cmp( arg1, ".i" ) )
              && IS_IMMORTAL(ch) ) {
              FILE *temp;
-             if ( !(temp = fopen(arg2,"r")) ) { send_to_actor("File not found.\n\r",ch); return;}
+             if ( !(temp = fopen(arg2,"r")) ) { to_actor("File not found.\n\r",ch); return;}
              fclose(temp);
-             send_to_actor( "String cleared.\n\r", ch );
+             to_actor( "String cleared.\n\r", ch );
              free_string( *ch->desc->pString );
              *ch->desc->pString = fread_file( arg2 );
-             send_to_actor( "File imported.\n\r", ch );
+             to_actor( "File imported.\n\r", ch );
              return;
         }
 
         if ( !str_cmp( arg1, "\\f" ) || !str_cmp( arg1, ".f" ) )
         {
             *ch->desc->pString = format_string( *ch->desc->pString );
-            send_to_actor( "String formatted.\n\r", ch );
+            to_actor( "String formatted.\n\r", ch );
             return;
         }
 
@@ -1192,30 +1192,30 @@ void string_add( PLAYER *ch, char *argument )
             if ( IS_IMMORTAL(ch) ) cmd_zsave( ch, "cha" ) ;
             ch->desc->pString = NULL;
             if ( ch->desc->connected > NET_PLAYING ) 
-              send_to_actor( "Press return to continue: ", ch );
+              to_actor( "Press return to continue: ", ch );
             return;
         }
         
         if ( !str_cmp( arg1, "\\h" ) || !str_cmp( arg1, ".h" ) || !str_cmp( arg1, "help" ) )
         {       
 
-            send_to_actor( "Editor help (commands available from the beginning of a new line only):  \n\r", ch );
-            send_to_actor( "\\r 'old string' 'new string'   - replace a substring with a new string  \n\r", ch );
-            send_to_actor( "\\m                             - spell check string (w/ unix spell)     \n\r", ch );
-            send_to_actor( "\\h                             - get sedit help (this)                  \n\r", ch );
-            send_to_actor( "\\s                             - show string so far                     \n\r", ch );
-            send_to_actor( "\\f                             - format (word wrap) string              \n\r", ch );
-            send_to_actor( "\\c                             - clear string so far                    \n\r", ch );
-            send_to_actor( "\\p                             - check spelling of the entire string    \n\r", ch );
-            send_to_actor( "\\p 'word'                      - check spelling of a word               \n\r", ch );
+            to_actor( "Editor help (commands available from the beginning of a new line only):  \n\r", ch );
+            to_actor( "\\r 'old string' 'new string'   - replace a substring with a new string  \n\r", ch );
+            to_actor( "\\m                             - spell check string (w/ unix spell)     \n\r", ch );
+            to_actor( "\\h                             - get sedit help (this)                  \n\r", ch );
+            to_actor( "\\s                             - show string so far                     \n\r", ch );
+            to_actor( "\\f                             - format (word wrap) string              \n\r", ch );
+            to_actor( "\\c                             - clear string so far                    \n\r", ch );
+            to_actor( "\\p                             - check spelling of the entire string    \n\r", ch );
+            to_actor( "\\p 'word'                      - check spelling of a word               \n\r", ch );
 #if defined(TRANSLATE)
-            send_to_actor( "\\t <language>                  - translate into a foriegn language\n\r", ch );
+            to_actor( "\\t <language>                  - translate into a foriegn language\n\r", ch );
 #endif
             if ( IS_IMMORTAL(ch) ) {
-            send_to_actor( "\\x 'filename'                  - exports to export/filename.txt\n\r", ch );
-            send_to_actor( "\\i 'filename'                  - imports from filename.txt\n\r", ch );
+            to_actor( "\\x 'filename'                  - exports to export/filename.txt\n\r", ch );
+            to_actor( "\\i 'filename'                  - imports from filename.txt\n\r", ch );
             }
-            send_to_actor( "\\q              (also: @ or ~) - exit string editor (end string)        \n\r", ch );
+            to_actor( "\\q              (also: @ or ~) - exit string editor (end string)        \n\r", ch );
             return;
         }
 
@@ -1223,13 +1223,13 @@ void string_add( PLAYER *ch, char *argument )
         {
           ch->desc->pString = NULL;
           if ( ch->desc->connected > NET_PLAYING ) 
-            send_to_actor( "Press return to continue: ", ch );
+            to_actor( "Press return to continue: ", ch );
           return;
         }
 
 
-        send_to_actor( "String so far:\n\r", ch );
-        send_to_actor( *ch->desc->pString, ch );
+        to_actor( "String so far:\n\r", ch );
+        to_actor( *ch->desc->pString, ch );
         return;
     }
 
@@ -1237,7 +1237,7 @@ void string_add( PLAYER *ch, char *argument )
     {
         ch->desc->pString = NULL;
           if ( ch->desc->connected > NET_PLAYING ) 
-            send_to_actor( "Press return to continue: ", ch );
+            to_actor( "Press return to continue: ", ch );
         return;
     }
 
@@ -1245,7 +1245,7 @@ void string_add( PLAYER *ch, char *argument )
 
     if ( strlen( buf ) + strlen( argument ) >= ( MAX_STRING_LENGTH - 4 ) )
     {
-        send_to_actor( "String too long, truncating.\n\r", ch );
+        to_actor( "String too long, truncating.\n\r", ch );
         strncat( buf, argument, MAX_STRING_LENGTH );
         free_string( *ch->desc->pString );
         *ch->desc->pString = str_dup( buf );
@@ -1259,10 +1259,10 @@ void string_add( PLAYER *ch, char *argument )
     *ch->desc->pString = str_dup( buf );
 
     if ( IS_SET(ch->flag2,PLR_CLRSCR) ) {
-        send_to_actor( CLRSCR, ch );
-    send_to_actor( "_________________________________________________________________________\n\r", ch );
-    send_to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );        
-        send_to_actor( *ch->desc->pString, ch );
+        to_actor( CLRSCR, ch );
+    to_actor( "_________________________________________________________________________\n\r", ch );
+    to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );        
+        to_actor( *ch->desc->pString, ch );
     }
     return;
 }

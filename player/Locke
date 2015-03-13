@@ -11,7 +11,7 @@ Fi 4
 Credits 3645
 Bucks 0
 alias ga~ get all~
-Logins 1004
+Logins 1006
 Lv 10
 App 0
 HeroP 0
@@ -114,7 +114,7 @@ Locke is born in the year -17.
 Locke gains new status amongst his peers.
 
 ~
-Pl 9961944
+Pl 9961952
 R 5000
 Color 0 15
 Color 1 12
@@ -129,19 +129,19 @@ Color 9 15
 BD 16 0 -17
 H 240 780
 MK 295 3062
-Spell 32 a cloaked necromancer~
-Spell 31 an alchemist~
-Spell 29 Kalxagaar the Fire Mage~
-Spell 30 Kalxagaar the Fire Mage~
-Spell 28 Konith the Great~
-Spell 27 Konith the Great~
-Spell 25 Konith the Great~
-Spell 24 Konith the Great~
-Spell 26 Konith the Great~
-Spell 11 Konith the Great~
-Spell 23 Konith the Great~
-Spell 33 a cloaked necromancer~
 Spell 34 a kltaran cleric~
+Spell 33 a cloaked necromancer~
+Spell 23 Konith the Great~
+Spell 11 Konith the Great~
+Spell 26 Konith the Great~
+Spell 24 Konith the Great~
+Spell 25 Konith the Great~
+Spell 27 Konith the Great~
+Spell 28 Konith the Great~
+Spell 30 Kalxagaar the Fire Mage~
+Spell 29 Kalxagaar the Fire Mage~
+Spell 31 an alchemist~
+Spell 32 a cloaked necromancer~
 A 174587904 A2 1641209349
 AB 0
 Po 8
@@ -162,86 +162,86 @@ K ~
 AP 29 13 15 25 24
 AM 0 0 0 0 0
 C 0 20 20
-Sk 100 'wilderness survival' 0 0
-Sk 100 'nasang' 0 0
-Sk 100 'gana' 0 0
-Sk 100 'dadro' 0 0
-Sk 100 'meditation' 0 0
-Sk 100 'zeich' 0 0
-Sk 100 'kora' 0 0
-Sk 100 'nelse' 0 0
-Sk 100 'san' 0 0
-Sk 100 'cobbling' 0 0
-Sk 100 'coopering' 0 0
-Sk 100 'carpentry' 0 0
-Sk 100 'mining' 0 0
-Sk 100 'panning' 0 0
-Sk 100 'sewing' 0 0
-Sk 100 'gunsmithing' 0 0
-Sk 100 'silversmithing' 0 0
-Sk 100 'bronze smithing' 0 0
-Sk 100 'ironsmithing' 0 0
-Sk 100 'goldsmithing' 0 0
-Sk 100 'fletching' 0 0
-Sk 100 'repair' 0 0
-Sk 100 'craft' 0 0
-Sk 100 'exotic' 0 0
-Sk 100 'sharpshooting' 0 0
-Sk 100 'ranged' 0 0
-Sk 100 'thrown' 0 0
-Sk 100 'whips' 0 0
-Sk 100 'bludgeons' 0 0
-Sk 100 'hafted' 0 0
-Sk 100 'piercing' 0 0
-Sk 100 'edged' 0 0
-Sk 100 'weapon proficiencies' 0 0
-Sk 100 'pickpocketing' 0 0
-Sk 100 'lock picking' 0 0
-Sk 100 'peek' 0 0
-Sk 100 'backstab' 0 0
-Sk 100 'legerdemain' 0 0
-Sk 100 'poison' 0 0
-Sk 100 'lycanthropy' 0 0
-Sk 100 'sleep' 0 0
-Sk 100 'invisibility' 0 0
-Sk 100 'charm' 0 0
-Sk 100 'unknown' 0 0
-Sk 100 'none' 0 0
-Sk 100 'language' 0 0
-Sk 100 'stark' 0 0
-Sk 100 'argot' 0 0
-Sk 100 'french' 0 0
-Sk 100 'russian' 0 0
-Sk 100 'japanese' 0 0
-Sk 100 'german' 0 0
-Sk 100 'gaelic' 0 0
-Sk 100 'brood' 0 0
-Sk 100 'imarind' 0 0
-Sk 1 'offense' 0 0
-Sk 100 'dual wield' 0 0
-Sk 100 'second attack' 0 0
-Sk 100 'third attack' 0 0
-Sk 100 'fourth attack' 0 0
-Sk 100 'fifth attack' 0 0
-Sk 100 'melee' 0 0
-Sk 100 'enhanced damage' 0 0
-Sk 1 'defense' 0 0
-Sk 100 'elusion' 0 0
-Sk 100 'heroism' 0 0
-Sk 100 'dodge' 0 0
-Sk 100 'parry' 0 0
-Sk 100 'disarm' 0 0
-Sk 100 'tracking' 0 0
-Sk 100 'swimming' 0 0
-Sk 100 'fishing' 0 0
-Sk 100 'climbing' 0 0
-Sk 100 'riding' 0 0
-Sk 100 'camoflage' 0 0
-Sk 100 'stealth' 0 0
-Sk 100 'foraging' 0 0
-Sk 100 'zad' 0 0
-Sk 100 'taug' 0 0
 Sk 100 'wodan' 0 0
+Sk 100 'taug' 0 0
+Sk 100 'zad' 0 0
+Sk 100 'foraging' 0 0
+Sk 100 'stealth' 0 0
+Sk 100 'camoflage' 0 0
+Sk 100 'riding' 0 0
+Sk 100 'climbing' 0 0
+Sk 100 'fishing' 0 0
+Sk 100 'swimming' 0 0
+Sk 100 'tracking' 0 0
+Sk 100 'disarm' 0 0
+Sk 100 'parry' 0 0
+Sk 100 'dodge' 0 0
+Sk 100 'heroism' 0 0
+Sk 100 'elusion' 0 0
+Sk 1 'defense' 0 0
+Sk 100 'enhanced damage' 0 0
+Sk 100 'melee' 0 0
+Sk 100 'fifth attack' 0 0
+Sk 100 'fourth attack' 0 0
+Sk 100 'third attack' 0 0
+Sk 100 'second attack' 0 0
+Sk 100 'dual wield' 0 0
+Sk 1 'offense' 0 0
+Sk 100 'imarind' 0 0
+Sk 100 'brood' 0 0
+Sk 100 'gaelic' 0 0
+Sk 100 'german' 0 0
+Sk 100 'japanese' 0 0
+Sk 100 'russian' 0 0
+Sk 100 'french' 0 0
+Sk 100 'argot' 0 0
+Sk 100 'stark' 0 0
+Sk 100 'language' 0 0
+Sk 100 'none' 0 0
+Sk 100 'unknown' 0 0
+Sk 100 'charm' 0 0
+Sk 100 'invisibility' 0 0
+Sk 100 'sleep' 0 0
+Sk 100 'lycanthropy' 0 0
+Sk 100 'poison' 0 0
+Sk 100 'legerdemain' 0 0
+Sk 100 'backstab' 0 0
+Sk 100 'peek' 0 0
+Sk 100 'lock picking' 0 0
+Sk 100 'pickpocketing' 0 0
+Sk 100 'weapon proficiencies' 0 0
+Sk 100 'edged' 0 0
+Sk 100 'piercing' 0 0
+Sk 100 'hafted' 0 0
+Sk 100 'bludgeons' 0 0
+Sk 100 'whips' 0 0
+Sk 100 'thrown' 0 0
+Sk 100 'ranged' 0 0
+Sk 100 'sharpshooting' 0 0
+Sk 100 'exotic' 0 0
+Sk 100 'craft' 0 0
+Sk 100 'repair' 0 0
+Sk 100 'fletching' 0 0
+Sk 100 'goldsmithing' 0 0
+Sk 100 'ironsmithing' 0 0
+Sk 100 'bronze smithing' 0 0
+Sk 100 'silversmithing' 0 0
+Sk 100 'gunsmithing' 0 0
+Sk 100 'sewing' 0 0
+Sk 100 'panning' 0 0
+Sk 100 'mining' 0 0
+Sk 100 'carpentry' 0 0
+Sk 100 'coopering' 0 0
+Sk 100 'cobbling' 0 0
+Sk 100 'san' 0 0
+Sk 100 'nelse' 0 0
+Sk 100 'kora' 0 0
+Sk 100 'zeich' 0 0
+Sk 100 'meditation' 0 0
+Sk 100 'dadro' 0 0
+Sk 100 'gana' 0 0
+Sk 100 'nasang' 0 0
+Sk 100 'wilderness survival' 0 0
 END
 
 

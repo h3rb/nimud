@@ -23,3 +23,5 @@
 [*****] BUG: Char_to_scene: NULL.
 [*****] BUG: Create_money: zero or negative money 0.
 [*****] BUG: Char_to_scene: NULL.
+[*****] BUG: Act: null ch->in_scene
+[*****] BUG: Act: null ch->in_scene
