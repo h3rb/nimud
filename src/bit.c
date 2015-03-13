@@ -143,7 +143,7 @@ char *item_type_name( int item_type )
     case ITEM_QUILL:         return "quill";
     }
 
-    bug( "Item_type_name: unknown type %d.", item_type );
+    wtf_logf( "Item_type_name: unknown type %d.", item_type );
     return "(unknown)";
 }
 
@@ -254,7 +254,7 @@ char *bonus_loc_name( int location )
         return pIndex->name;
     }
 
-    bug( "Bonus_location_name: unknown location %d.", location );
+    wtf_logf( "Bonus_location_name: unknown location %d.", location );
     return "(unknown)";
 
 }

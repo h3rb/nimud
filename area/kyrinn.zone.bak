@@ -54,10 +54,10 @@ S 1
 Sz 24
 K 0 E 1
 O ~
-Spell 28
-Spell 27
-Spell 25
 Spell 24
+Spell 25
+Spell 27
+Spell 28
 AP 18 18 18 18 18
 Shop
  T 0 0
@@ -116,8 +116,8 @@ S 1
 Sz 24
 K 0 E 1
 O ~
-Spell 30
 Spell 11
+Spell 30
 AP 15 15 15 15 15
 At 0 10 19 10
 End
@@ -174,11 +174,11 @@ Wt 0
 C 0
 O ~
 V -100 0 0 0
-ED writing letters~
-It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
-~
 ED treasure~
 Looks like a LOT of coins.  One of them has writing on it.
+~
+ED writing letters~
+It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
 ~
 End
 
@@ -293,14 +293,6 @@ M 0
 W 0
 T 0
 O ~
-ED letters~
-They read "LIBRARY".
-~
-ED runes~
-These runes are utterly strange to you, but you are in luck today: Under
-the runes you can just make out a sentence in Common. It goes : " Stay out,
-if you treasure your life. That is if you are mortal.".
-~
 ED portrait~
 Elemental Magick Spheres:
 San, Fire - Nelse, Water - Kora, Earth - Zeich, Air
@@ -311,6 +303,14 @@ Taug, Illusions and Transmutation - Wodan, Divination
 Nasang, Enchantments
 A well painted rendering of all of the symbols of the various
 schools of magick is hanging from the wall.
+~
+ED runes~
+These runes are utterly strange to you, but you are in luck today: Under
+the runes you can just make out a sentence in Common. It goes : " Stay out,
+if you treasure your life. That is if you are mortal.".
+~
+ED letters~
+They read "LIBRARY".
 ~
 Dr 0 0 -1 22904
 The hallway continues that way. You can see more doorways under the
@@ -355,31 +355,13 @@ M 0
 W 0
 T 0
 O ~
-ED river~
-You see a large and winding river cut through the landscape, starting at an
-enormous inland lake, it seeps through Midgaard and finally ends up in the
-Grand Sea on the West-coast of the land.
+ED chandelier~
+A beautiful quartz chandelier.
 ~
-ED out outside beyond~
-The clouds muster and form the ground on which this entire building is set.
-Through the thinnest of the clouds you can just make out MIDGAARD with all
-it's magnificent activity.
-~
-ED window glass~
-These windows are really BIG! They reach from about 20 inches above the
-floor to approximately 10 inches under the ceiling. If you try and
-"look out", you might see what might lie beyond these windows.
-~
-ED chairs leather arm-chairs~
-These two chair are exactly alike one another. They look incredibly
-comfortable. They're both made from old leather, and yet they seem so worn
-that they can be nothing but a perfect place for a long needed rest.
-~
-ED midgaard town city~
-You see a small speck with woods on the west from it, plains to the east
-from it and mountains to the north from it. To the south from it you can
-see a thin trail lead to a large castle. Finally you notice a rather large
-river pour in from the east and go through Midgaard in the middle.
+ED statues~
+Two obsidian statues dusted with blue indigo calcite.  One depicts a
+mother and the other a father, both human, picking berries.  They are
+wearing only the simplest of clothes.  
 ~
 ED globe world map~
 A large copper and bronze mechanism with a huge point that points
@@ -387,13 +369,31 @@ skyward.  The globe spins very slowly, as if on the power of its own.  It is
 studded with tiny broken pieces of a variety of different crystals, from
 jade to amethyst, ruby and zircon to amber and hiddenite.  
 ~
-ED statues~
-Two obsidian statues dusted with blue indigo calcite.  One depicts a
-mother and the other a father, both human, picking berries.  They are
-wearing only the simplest of clothes.  
+ED midgaard town city~
+You see a small speck with woods on the west from it, plains to the east
+from it and mountains to the north from it. To the south from it you can
+see a thin trail lead to a large castle. Finally you notice a rather large
+river pour in from the east and go through Midgaard in the middle.
 ~
-ED chandelier~
-A beautiful quartz chandelier.
+ED chairs leather arm-chairs~
+These two chair are exactly alike one another. They look incredibly
+comfortable. They're both made from old leather, and yet they seem so worn
+that they can be nothing but a perfect place for a long needed rest.
+~
+ED window glass~
+These windows are really BIG! They reach from about 20 inches above the
+floor to approximately 10 inches under the ceiling. If you try and
+"look out", you might see what might lie beyond these windows.
+~
+ED out outside beyond~
+The clouds muster and form the ground on which this entire building is set.
+Through the thinnest of the clouds you can just make out MIDGAARD with all
+it's magnificent activity.
+~
+ED river~
+You see a large and winding river cut through the landscape, starting at an
+enormous inland lake, it seeps through Midgaard and finally ends up in the
+Grand Sea on the West-coast of the land.
 ~
 Dr 3 2560 0 22906
 The window is set in the stone wall of the school.

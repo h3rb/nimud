@@ -237,21 +237,21 @@ PROP *create_good( int good )
     
    prop = create_prop( get_prop_template(PROP_VNUM_GOODS), 0 );
      
-   snprintf( buf, MAX_STRING_LENGTH, "%s %s", goods_table[good].name,
+   sprintf( buf, "%s %s", goods_table[good].name,
                           goods_table[good].unit );
    free_string( prop->name );
    prop->name = str_dup( buf );
    
-   snprintf( buf, MAX_STRING_LENGTH, "a %s of %s", goods_table[good].unit, 
+   sprintf( buf, "a %s of %s", goods_table[good].unit, 
                                goods_table[good].name );
    free_string( prop->short_descr );
    prop->short_descr = str_dup( buf );
    
-   snprintf( buf, MAX_STRING_LENGTH, "%s was placed here.\n\r", STR(prop,short_descr) );
+   sprintf( buf, "%s was placed here.\n\r", STR(prop,short_descr) );
    free_string( prop->description );
    prop->description = str_dup( buf );
 
-   snprintf( buf, MAX_STRING_LENGTH, "Several %ss of %s are stored here.\n\r",
+   sprintf( buf, "Several %ss of %s are stored here.\n\r",
       goods_table[good].unit, goods_table[good].name );
    free_string( prop->description );
    prop->description = str_dup( buf );
@@ -273,26 +273,26 @@ PROP *create_comp( int comp )
     
    prop = create_prop( get_prop_template(PROP_VNUM_COMP), 0 );
      
-   snprintf( buf, MAX_STRING_LENGTH, "%s %s component",
+   sprintf( buf, "%s %s component",
                  smash_article( smash_arg( comp_table[comp].usage, "of" ) ),
                  comp_table[comp].name );
    free_string( prop->name );
    prop->name = string_unpad( str_dup(buf) );
    
-   snprintf( buf, MAX_STRING_LENGTH, "%s %s", comp_table[comp].usage,
+   sprintf( buf, "%s %s", comp_table[comp].usage,
                           comp_table[comp].name );
    free_string( prop->short_descr );
    prop->short_descr = str_dup( buf );
    
-   snprintf( buf, MAX_STRING_LENGTH, "%s components",   comp_table[comp].name );
+   sprintf( buf, "%s components",   comp_table[comp].name );
    free_string( prop->short_descr_plural );
    prop->short_descr_plural = str_dup( buf );
 
-   snprintf( buf, MAX_STRING_LENGTH, "%s was left here.\n\r", STR(prop,short_descr) );
+   sprintf( buf, "%s was left here.\n\r", STR(prop,short_descr) );
    free_string( prop->description );
    prop->description = str_dup( buf );
 
-   snprintf( buf, MAX_STRING_LENGTH, "%%s %s was left here.\n\r", smash_article(STR(prop,short_descr)) );
+   sprintf( buf, "%%s %s was left here.\n\r", smash_article(STR(prop,short_descr)) );
    free_string( prop->description_plural );
    prop->description_plural = str_dup( buf );
    
@@ -394,7 +394,7 @@ void shop_list_to_actor( PLAYER *keeper, PLAYER *ch )
     {
         if ( lastprop[iShow] == NULL )
         {
-            bug( "Shop_list_to_actor: lastprop == NULL.", 0 );
+            wtf_logf( "Shop_list_to_actor: lastprop == NULL.", 0 );
             continue;
         }
 
@@ -403,7 +403,7 @@ void shop_list_to_actor( PLAYER *keeper, PLAYER *ch )
 
         if ( prgnShow[iShow] > 1
           && !IS_SET(keeper->pIndexData->pShop->shop_flags, SHOP_TAVERN) )
-            snprintf( buf, MAX_STRING_LENGTH, "#%-2d %s for %s each.\n\r",
+            sprintf( buf, "#%-2d %s for %s each.\n\r",
                  vShow,
                  capitalize(
                     pluralize( (lastprop[iShow]->item_type == ITEM_DRINK_CON
@@ -415,7 +415,7 @@ void shop_list_to_actor( PLAYER *keeper, PLAYER *ch )
                  name_amount( get_cost( keeper, lastprop[iShow], TRUE ) )
                   );
 /*
-            snprintf( buf, MAX_STRING_LENGTH, "*%-2d  %s %s for %s each.\n\r",
+            sprintf( buf, "*%-2d  %s %s for %s each.\n\r",
                           iShow+1,
                           capitalize(numberize(prgnShow[iShow])),
                           pluralize( ( lastprop[iShow]->item_type == ITEM_DRINK_CON
@@ -425,7 +425,7 @@ void shop_list_to_actor( PLAYER *keeper, PLAYER *ch )
                           name_amount( get_cost( keeper, lastprop[iShow], TRUE ) ) );
  */
         else
-        snprintf( buf, MAX_STRING_LENGTH, "#%-2d %s for %s.\n\r",
+        sprintf( buf, "#%-2d %s for %s.\n\r",
                  vShow,
                  capitalize( format_prop_to_actor(lastprop[iShow], ch, TRUE) ),
                  name_amount( get_cost( keeper, lastprop[iShow], TRUE ) ) );
@@ -522,7 +522,7 @@ PROP *get_shop_list_prop( PLAYER *keeper, PLAYER *ch, int number )
     {
         if ( lastprop[iShow] == NULL )
         {
-            bug( "Shop_list_to_actor: lastprop == NULL.", 0 );
+            wtf_logf( "Shop_list_to_actor: lastprop == NULL.", 0 );
             continue;
         }
 
@@ -621,7 +621,7 @@ pShop->open_hour,  pShop->open_hour < 12 ? "in the morning" :
 	sprintf( b, "%d %s", pShop->close_hour > 12 ? pShop->close_hour-12 : 
 pShop->close_hour,  pShop->close_hour < 12 ? "in the morning" : 
 "in the evening" );
-        snprintf( buf, MAX_STRING_LENGTH, pShop->hours_excuse, a, b );
+        sprintf( buf, pShop->hours_excuse, a, b );
 	if ( Report ) cmd_smote( keeper, buf );
 	return NULL;
     }
@@ -796,7 +796,7 @@ void cmd_repair( PLAYER *ch, char *argument )
 
     if ( (pShop = keeper->pIndexData->pShop) == NULL )
     {
-        bug( "Find_keeper: returned a NULL pShop.", 0 );
+        wtf_logf( "Find_keeper: returned a NULL pShop.", 0 );
         return;
     }
 
@@ -819,7 +819,7 @@ void cmd_repair( PLAYER *ch, char *argument )
     if ( cost > pProp->cost ) cost = (pProp->cost);
 
     if ( AppraiseOnly ) {
-        snprintf( buf, MAX_STRING_LENGTH, "I will repair %s for %s.", STR(pProp,short_descr), 
+        sprintf( buf, "I will repair %s for %s.", STR(pProp,short_descr), 
                  name_amount( cost ) );
         cmd_smote( keeper, buf );
         return;
@@ -828,7 +828,7 @@ void cmd_repair( PLAYER *ch, char *argument )
     if ( tally_coins( ch ) < cost )
     {
         int diff=cost-tally_coins(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "#remark %s, you are short %s.", NAME(ch), name_amount( diff ) );
+        sprintf( buf, "#remark %s, you are short %s.", NAME(ch), name_amount( diff ) );
         cmd_smote( keeper, buf );
         return;
     }
@@ -836,11 +836,11 @@ void cmd_repair( PLAYER *ch, char *argument )
     pProp->value[1] = pProp->value[2];
     p = sub_coins(cost, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s repairs %s for %s.\n\r", capitalize(NAME(keeper)), 
+    sprintf( buf, "%s repairs %s for %s.\n\r", capitalize(NAME(keeper)), 
              STR(pProp,short_descr), name_amount( cost ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "You pay %s and receive %s in change.\n\r", 
+    sprintf( buf, "You pay %s and receive %s in change.\n\r", 
              NAME(keeper), p );
 
     to_actor( buf, ch );
@@ -870,7 +870,7 @@ void cmd_list( PLAYER *ch, char *argument )
 
     if ( (pShop = keeper->pIndexData->pShop) == NULL )
     {
-        bug( "Find_keeper: returned a NULL pShop.", 0 );
+        wtf_logf( "Find_keeper: returned a NULL pShop.", 0 );
         return;
     }
 
@@ -901,7 +901,7 @@ void cmd_list( PLAYER *ch, char *argument )
 
     if ( IS_SET(pShop->shop_flags, SHOP_PEDDLER) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s is selling:\n\r", capitalize(NAME(keeper)) );
+        sprintf( buf, "%s is selling:\n\r", capitalize(NAME(keeper)) );
         display_interp( ch, "^B" );
         page_to_actor( buf, ch );
         display_interp( ch, "^N" );
@@ -937,14 +937,14 @@ bool transact( PLAYER *keeper, PROP *prop, PLAYER *ch, int price )
 
     if ( prop == NULL )
     {
-        bug( "Transact: NULL prop.", 0 );
+        wtf_logf( "Transact: NULL prop.", 0 );
         return FALSE;
     }
 
     if ( tally_coins( ch ) < price )
     {
         int diff=price-tally_coins(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "You are short %s.\n\r", name_amount( diff ) );
+        sprintf( buf, "You are short %s.\n\r", name_amount( diff ) );
         to_actor( buf, ch );
         return FALSE;
     }
@@ -967,9 +967,9 @@ bool transact( PLAYER *keeper, PROP *prop, PLAYER *ch, int price )
     p = sub_coins(price, ch );
 
     if ( !str_cmp( p, "nothing" ) )
-    snprintf( buf, MAX_STRING_LENGTH, "You buy %s.\n\r", STR(prop,short_descr) );
+    sprintf( buf, "You buy %s.\n\r", STR(prop,short_descr) );
     else
-    snprintf( buf, MAX_STRING_LENGTH, "You buy %s and receive %s in change.\n\r", STR(prop,short_descr), p );
+    sprintf( buf, "You buy %s and receive %s in change.\n\r", STR(prop,short_descr), p );
 
     to_actor( buf, ch );
     act( "$n buys $p from $N.", ch, prop, keeper, TO_SCENE );
@@ -993,7 +993,7 @@ void buy_ai( PLAYER *ch, PLAYER *keeper, int offer )
 
     if ( pShop == NULL )
     {
-        bug( "Buy_ai: No shop on keeper.", 0 );
+        wtf_logf( "Buy_ai: No shop on keeper.", 0 );
         return;
     }
 
@@ -1012,7 +1012,7 @@ void buy_ai( PLAYER *ch, PLAYER *keeper, int offer )
     if ( offer < 0 )
     {
         ch->original_cost = ch->haggled_cost;
-        snprintf( buf, MAX_STRING_LENGTH, "I can offer you %s for %s copper.",
+        sprintf( buf, "I can offer you %s for %s copper.",
                  STR(prop,short_descr), numberize(ch->haggling_cost) );
         say_to( keeper, ch, buf );
         return;
@@ -1025,7 +1025,7 @@ void buy_ai( PLAYER *ch, PLAYER *keeper, int offer )
         SET_BIT( ch->haggle_bits, HAGGLE_ANGRY );
 
         if ( IS_SET(ch->haggle_bits, HAGGLE_ANGRY )
-        snprintf( buf, MAX_STRING_LENGTH, "Your offer is outrageous
+        sprintf( buf, "Your offer is outrageous
 
   */
 }
@@ -1057,7 +1057,7 @@ void cmd_buy( PLAYER *ch, char *argument )
 
         if ( prop == NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, keeper->pIndexData->pShop->no_such_item, NAME(ch) );
+            sprintf( buf, keeper->pIndexData->pShop->no_such_item, NAME(ch) );
             say_to( keeper, ch, buf );
         }
         else
@@ -1092,7 +1092,7 @@ void cmd_buy( PLAYER *ch, char *argument )
 
     if ( prop == NULL )
     {
-        snprintf( buf, MAX_STRING_LENGTH, keeper->pIndexData->pShop->no_such_item, NAME(ch) );
+        sprintf( buf, keeper->pIndexData->pShop->no_such_item, NAME(ch) );
         say_to( keeper, ch, buf );
     }
     else
@@ -1135,7 +1135,7 @@ void cmd_trade( PLAYER *ch, char *argument )
 /*    if ( goods_table[t].code == -1
       && pShop->trade_sell[goods_table[t].code] != 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, keeper->pIndexData->pShop->no_such_item, NAME(ch) );
+        sprintf( buf, keeper->pIndexData->pShop->no_such_item, NAME(ch) );
         say_to( keeper, ch, buf );
     }*/
 
@@ -1221,7 +1221,7 @@ void cmd_sell( PLAYER *ch, char *argument ) {
     }
 
     act( "$n sells $p to $N.", ch, prop, keeper, TO_SCENE );
-    snprintf( buf, MAX_STRING_LENGTH, "You sell $p for %s to $N.", name_amount( cost ) );
+    sprintf( buf, "You sell $p for %s to $N.", name_amount( cost ) );
     act( buf, ch, prop, keeper, TO_ACTOR );
     create_amount( cost, ch, NULL, NULL );
 

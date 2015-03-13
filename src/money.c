@@ -51,7 +51,7 @@ void update_money( PROP *prop )
 
     if ( prop->item_type != ITEM_MONEY )
     {
-        bug( "update_money: item is not of type money.", 0 );
+        wtf_logf( "update_money: item is not of type money.", 0 );
         return;
     }
 
@@ -110,7 +110,7 @@ PROP *create_money( int amount, int type )
 
     if ( amount <= 0 )
     {
-    bug( "Create_money: zero or negative money %d.", amount );
+    wtf_logf( "Create_money: zero or negative money %d.", amount );
     amount = 1;
     }
 
@@ -193,7 +193,7 @@ void merge_money_prop( PROP *prop )
         prop_next = iprop->next_content;
         if ( iprop->item_type == ITEM_MONEY )
         {
-//            bug( "merge_money_prop: here", 0 );
+//            wtf_logf( "merge_money_prop: here", 0 );
             prop_from_prop( iprop );
             extractor_prop( iprop );
         }
@@ -306,7 +306,7 @@ int tally_coins( PLAYER *actor )
         if ( ( prop->value[1] < 0 || prop->value[1] >= MAX_COIN ) 
           && prop->item_type == ITEM_MONEY )
         {
-        bug( "Tally_coins: prop (dbkey %d) bad coinage",
+        wtf_logf( "Tally_coins: prop (dbkey %d) bad coinage",
              prop->pIndexData->dbkey );
         prop->value[1] = URANGE( 0, prop->value[1], MAX_COIN-1 );
         }
@@ -325,7 +325,7 @@ int tally_coins( PLAYER *actor )
                 if ( ( iprop->value[1] < 0 || iprop->value[1] >= MAX_COIN )
                   && iprop->item_type == ITEM_MONEY )
                 {
-                bug( "Tally_coins: iprop (dbkey %d) bad coinage",
+                wtf_logf( "Tally_coins: iprop (dbkey %d) bad coinage",
                      iprop->pIndexData->dbkey );
                 iprop->value[1] = URANGE( 0, iprop->value[1], MAX_COIN-1 );
                 }
@@ -355,7 +355,7 @@ int tally_one_coin( PROP *plist, int type, bool fContents )
         if ( ( prop->value[1] < 0 || prop->value[1] >= MAX_COIN ) 
            && prop->item_type == ITEM_MONEY )
         {
-        bug( "Tally_one_coin: prop (dbkey %d) bad coinage",
+        wtf_logf( "Tally_one_coin: prop (dbkey %d) bad coinage",
              prop->pIndexData->dbkey );
         prop->value[1] = URANGE( 0, prop->value[1], MAX_COIN-1 );
         }
@@ -377,7 +377,7 @@ int tally_one_coin( PROP *plist, int type, bool fContents )
                 if ( ( iprop->value[1] < 0 || iprop->value[1] >= MAX_COIN )
                   && iprop->item_type == ITEM_MONEY )
                 {
-                bug( "Tally_one_coin: iprop (dbkey %d) bad coinage",
+                wtf_logf( "Tally_one_coin: iprop (dbkey %d) bad coinage",
                      iprop->pIndexData->dbkey );
                 iprop->value[1] = URANGE( 0, iprop->value[1], MAX_COIN-1 );
                 }
@@ -400,7 +400,7 @@ char *name_amount( int amount )
 
     if ( amount < 20 && amount != 0 )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "%d copper", amount );
+    sprintf( buf, "%d copper", amount );
     return buf;
     }
 
@@ -420,7 +420,7 @@ char *name_amount( int amount )
     strcat( buf, buf2 );
     amount %= coin_table[type].convert;
     }
-    if ( buf[0] == '\0' ) snprintf( buf, MAX_STRING_LENGTH, "nothing" );
+    if ( buf[0] == '\0' ) sprintf( buf, "nothing" );
 
     return buf;
 }
@@ -471,7 +471,7 @@ char *sub_coins( int amount, PLAYER *ch )
 
     if ( tally_coins( ch ) < amount )
     {
-        bug( "Sub_coins: ch doesn't have enough money (%d)", amount );
+        wtf_logf( "Sub_coins: ch doesn't have enough money (%d)", amount );
         return "nothing";
     }
 

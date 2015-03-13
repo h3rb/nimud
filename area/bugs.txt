@@ -1,27 +1,21 @@
-[*****] BUG: load_config: incorrect keyword Ban
-[*****] BUG: load_config: incorrect keyword Ban
-[*****] BUG: load_config: incorrect keyword Ban
-[*****] BUG: No spaces
-[*****] BUG: No spaces
-[*****] BUG: Act: null ch->in_scene
-[*****] BUG: Create_money: zero or negative money 0.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Act: null ch->in_scene
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Char_to_scene: NULL.
-[*****] BUG: Create_money: zero or negative money 0.
-[*****] BUG: Char_to_scene: NULL.
 [*****] BUG: Act: null ch->in_scene
 [*****] BUG: Act: null ch->in_scene
+[*****] BUG: Act: null ch->in_scene
+[*****] BUG: Act: null ch->in_scene
+[*****] BUG: Act: null ch->in_scene
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Sub_coins: ch doesn't have enough money (50000)
+[*****] BUG: Sub_coins: ch doesn't have enough money (100000)
+[*****] BUG: Act: null ch->in_scene
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.
+[*****] BUG: Obj_from_char: null ch.

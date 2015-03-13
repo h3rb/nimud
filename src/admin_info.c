@@ -80,7 +80,7 @@ void cmd_wizhelp( PLAYER *ch, char *argument )
              col = 0;
         } else {
 
-        snprintf( buf, MAX_STRING_LENGTH, "%10s [%2d]", command_table[cmd].name, command_table[cmd].level );
+        sprintf( buf, "%10s [%2d]", command_table[cmd].name, command_table[cmd].level );
 	    to_actor( buf, ch );
         if ( ++col % 5 == 0 )
         to_actor( "\n\r", ch );
@@ -119,14 +119,14 @@ void cmd_rstat( PLAYER *ch, char *argument )
 	return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Name:  [%s]\n\rVnum: [%5d]   Zone:  [%5d] %s\n\r",
+    sprintf( buf, "Name:  [%s]\n\rVnum: [%5d]   Zone:  [%5d] %s\n\r",
              location->name,
              location->dbkey,
              location->zone->dbkey,
              location->zone->name );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Reference:  [%5d]  Wagon: [%5d]   Sector[%s]\n\rLight: [%5d]  Max People: [%5d]\n\r",
+    sprintf( buf, "Reference:  [%5d]  Wagon: [%5d]   Sector[%s]\n\rLight: [%5d]  Max People: [%5d]\n\r",
              location->template,
              location->wagon,
              move_name( location->move ),
@@ -134,12 +134,12 @@ void cmd_rstat( PLAYER *ch, char *argument )
              location->max_people );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Flags: [%s]\n\rDescription:\n\r%s",
+    sprintf( buf, "Flags: [%s]\n\rDescription:\n\r%s",
              scene_bit_name( location->scene_flags ),
              location->description );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Client:\n\r%s", location->client );
+    sprintf( buf, "Client:\n\r%s", location->client );
     to_actor( buf, ch ); 
 
     if ( location->extra_descr != NULL )
@@ -179,7 +179,7 @@ void cmd_rstat( PLAYER *ch, char *argument )
 
 	if ( ( pexit = location->exit[door] ) != NULL )
 	{
-        snprintf( buf, MAX_STRING_LENGTH, "%5s to [%5d], key [%5d], fl %3d/%3d [%s] '%s'\n\r",
+        sprintf( buf, "%5s to [%5d], key [%5d], fl %3d/%3d [%s] '%s'\n\r",
                  capitalize( dir_name[door] ),
                  pexit->to_scene != NULL ? pexit->to_scene->dbkey : 0,
                  pexit->key,
@@ -196,38 +196,38 @@ void cmd_rstat( PLAYER *ch, char *argument )
     to_actor( "Scene's variables:\n\r", ch );
     for ( pVar = location->globals;  pVar != NULL;  pVar = pVar->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+        sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
         to_actor( buf, ch );
 
         switch ( pVar->type )
         {
-            case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-            case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
-            case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = prop %d (%s)\n\r", 
+            case TYPE_STRING: sprintf( buf, " = \"%s\"\n\r", (char *)pVar->value ); break;
+            case TYPE_ACTOR:    sprintf( buf, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+            case TYPE_PROP:    sprintf( buf, " = prop %d (%s)\n\r", 
                                         ((PROP *)(pVar->value))->pIndexData->dbkey, 
                                         STR(((PROP *)(pVar->value)), short_descr) ); break;
-            case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = scene %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
-            default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
+            case TYPE_SCENE:   sprintf( buf, " = scene %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
+            default:          sprintf( buf, " = <unknown>\n\r" ); break;
         }
         to_actor( buf, ch );
     }
     for ( pTrig = location->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
+        sprintf( buf, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
         to_actor( buf, ch );
 
         for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+            sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
             to_actor( buf, ch );
 
             switch ( pVar->type )
             {
-                case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
-                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = prop %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
-                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = scene %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
-                default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
+                case TYPE_STRING: sprintf( buf, " = \"%s\"\n\r", (char *)pVar->value ); break;
+                case TYPE_ACTOR:    sprintf( buf, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+                case TYPE_PROP:    sprintf( buf, " = prop %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
+                case TYPE_SCENE:   sprintf( buf, " = scene %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
+                default:          sprintf( buf, " = <unknown>\n\r" ); break;
             }
             to_actor( buf, ch );
         }
@@ -289,63 +289,63 @@ bool ostat( PLAYER *ch, char *argument )
     return FALSE;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Name:   [%s]          zone: [%3d] %s\n\r",
+    sprintf( buf, "Name:   [%s]          zone: [%3d] %s\n\r",
     STR(prop, name),
     prop->pIndexData->zone->dbkey,
     prop->pIndexData->zone->name );
     to_actor( buf, ch );
 
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [%5d]   Size:  [%5d]  Type: [%s]\n\r",
+    sprintf( buf, "Vnum:   [%5d]   Size:  [%5d]  Type: [%s]\n\r",
              prop->pIndexData->dbkey,  prop->size,
              item_type_name( prop->item_type ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Short:  [%s]\n\rPlural: [%s]\n\r",
+    sprintf( buf, "Short:  [%s]\n\rPlural: [%s]\n\r",
              STR(prop, short_descr), pluralize( STR(prop, short_descr) ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Long:\n\r%s", STR(prop,description) );
+    sprintf( buf, "Long:\n\r%s", STR(prop,description) );
     to_actor( buf, ch );
 
     if ( MTD(STR(prop,description_plural)) )
-    snprintf( buf, MAX_STRING_LENGTH, "Plural:\n\r%s %s are here.\n\r",
+    sprintf( buf, "Plural:\n\r%s %s are here.\n\r",
              capitalize( numberize( number_range( 0, 100 ) ) ),
              pluralize( STR(prop, short_descr) ) );
     else
     {
         to_actor( "Plural:\n\r", ch );
-        snprintf( buf, MAX_STRING_LENGTH, STR(prop,description_plural),
+        sprintf( buf, STR(prop,description_plural),
                       numberize( number_range( 0, 100 ) ) );
         buf[0] = UPPER(buf[0]);
     }
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Action:\n\r%s", STR(prop, action_descr) );
+    sprintf( buf, "Action:\n\r%s", STR(prop, action_descr) );
     to_actor( buf, ch );
 
     if ( *argument != '\0' && !str_prefix( argument, "description" ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "Description:\n\r%s", STR(prop,real_description) );
+        sprintf( buf, "Description:\n\r%s", STR(prop,real_description) );
         to_actor( buf, ch );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Wear bits:  [%s]\n\rExtra bits: [%s]\n\r",
+    sprintf( buf, "Wear bits:  [%s]\n\rExtra bits: [%s]\n\r",
     wear_bit_name( prop->wear_flags ),
     extra_bit_name( prop->extra_flags ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Number: [%d/%d]  Weight: [%d/%d]  Occupants: [%5d]\n\r",
+    sprintf( buf, "Number: [%d/%d]  Weight: [%d/%d]  Occupants: [%5d]\n\r",
              1,           get_prop_number( prop ),
              prop->weight, get_prop_weight( prop ),
              count_occupants( prop ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Cost:   [%5d]   Timer: [%5d]  Level: [%5d]\n\r",
+    sprintf( buf, "Cost:   [%5d]   Timer: [%5d]  Level: [%5d]\n\r",
              prop->cost, prop->timer, prop->level );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Scene:   [%5d]  Object: [%s] Contents[%s]  Carried: [%s]\n\rHitched: [%s]   Wear_loc: [%s]\n\r",
+    sprintf( buf, "Scene:   [%5d]  Object: [%s] Contents[%s]  Carried: [%s]\n\rHitched: [%s]   Wear_loc: [%s]\n\r",
              prop->in_scene    == NULL    ?        0 : prop->in_scene->dbkey,
              prop->in_prop     == NULL    ? "(none)" : STR(prop->in_prop, short_descr),
              prop->contains     == NULL    ? "(none)" : STR(prop->contains, short_descr),
@@ -356,7 +356,7 @@ bool ostat( PLAYER *ch, char *argument )
 
     show_occupants_to_actor( prop, ch );
     
-    snprintf( buf, MAX_STRING_LENGTH, "Values: [%5d] [%5d] [%5d] [%5d]\n\r",
+    sprintf( buf, "Values: [%5d] [%5d] [%5d] [%5d]\n\r",
     prop->value[0],
     prop->value[1],
     prop->value[2],
@@ -395,14 +395,14 @@ bool ostat( PLAYER *ch, char *argument )
 
     for ( paf = prop->bonus; paf != NULL; paf = paf->next )
     {
-       snprintf( buf, MAX_STRING_LENGTH, "Bonuses %s by %d.\n\r", bonus_loc_name( paf->location ),
+       sprintf( buf, "Bonuses %s by %d.\n\r", bonus_loc_name( paf->location ),
                                               paf->modifier );
        to_actor( buf, ch );
     }
 
     for ( paf = prop->pIndexData->bonus; paf != NULL; paf = paf->next )
     {
-       snprintf( buf, MAX_STRING_LENGTH, "Bonuses %s by %d.\n\r", bonus_loc_name( paf->location ),
+       sprintf( buf, "Bonuses %s by %d.\n\r", bonus_loc_name( paf->location ),
                                               paf->modifier );
        to_actor( buf, ch );
     }
@@ -414,36 +414,36 @@ bool ostat( PLAYER *ch, char *argument )
     to_actor( "Prop's variables:\n\r", ch );
     for ( pVar = prop->globals;  pVar != NULL;  pVar = pVar->next )
     {
-         snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+         sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
          to_actor( buf, ch );
 
          switch ( pVar->type )
          {
-             case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-             case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
-             case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
-             case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
-             default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
+             case TYPE_STRING: sprintf( buf, " = \"%s\"\n\r", (char *)pVar->value ); break;
+             case TYPE_ACTOR:    sprintf( buf, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+             case TYPE_PROP:    sprintf( buf, " = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
+             case TYPE_SCENE:   sprintf( buf, " = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
+             default:          sprintf( buf, " = <unknown>\n\r" ); break;
          }
          to_actor( buf, ch );
      }
     for ( pTrig = prop->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
+        sprintf( buf, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
         to_actor( buf, ch );
 
         for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+            sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
             to_actor( buf, ch );
 
             switch ( pVar->type )
             {
-                case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)pVar->value ); break;
-                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
-                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
-                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, " = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
-                default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
+                case TYPE_STRING: sprintf( buf, " = \"%s\"\n\r", (char *)pVar->value ); break;
+                case TYPE_ACTOR:    sprintf( buf, " = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+                case TYPE_PROP:    sprintf( buf, " = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey ); break;
+                case TYPE_SCENE:   sprintf( buf, " = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
+                default:          sprintf( buf, " = <unknown>\n\r" ); break;
             }
             to_actor( buf, ch );
         }
@@ -476,25 +476,25 @@ bool mstat( PLAYER *ch, char *argument )
     return FALSE;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Name:  [%s]\n\r",   STR(victim, name) );
+    sprintf( buf, "Name:  [%s]\n\r",   STR(victim, name) );
     to_actor( buf, ch );
 
 
     if ( victim->pIndexData != NULL )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:  [%5d]  ", victim->pIndexData->dbkey );
+    sprintf( buf, "Vnum:  [%5d]  ", victim->pIndexData->dbkey );
     to_actor( buf, ch );
     }
 
     if ( victim->pIndexData != NULL && victim->pIndexData->zone != NULL )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "zone:  [%3d] %s\n\r",
+    sprintf( buf, "zone:  [%3d] %s\n\r",
              victim->pIndexData->zone->dbkey,
              victim->pIndexData->zone->name );
     to_actor( buf, ch );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Hp:  [%3d/%3d]  Mana: [%3d/%3d]  Move: [%3d/%3d]  Karma: [%d] Exp: [%d]\n\rDrunk: [%5d/100]  Thirst: [%4d/100]  Full: [%d/100]\n\r",
+    sprintf( buf, "Hp:  [%3d/%3d]  Mana: [%3d/%3d]  Move: [%3d/%3d]  Karma: [%d] Exp: [%d]\n\rDrunk: [%5d/100]  Thirst: [%4d/100]  Full: [%d/100]\n\r",
     victim->hit,         MAXHIT(victim),
     victim->mana,        MAXMANA(victim),
     victim->move,        MAXMOVE(victim),
@@ -504,7 +504,7 @@ bool mstat( PLAYER *ch, char *argument )
     GET_PC(victim,condition[COND_FULL],0) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Size:  [%5d]   Race:  [%5d]   Sex:  [%s]    Scene:  %s [%d]\n\r",
+    sprintf( buf, "Size:  [%5d]   Race:  [%5d]   Sex:  [%s]    Scene:  %s [%d]\n\r",
              victim->size,
              victim->race,
              victim->sex == SEX_MALE    ? "male"   :
@@ -515,7 +515,7 @@ bool mstat( PLAYER *ch, char *argument )
     to_actor( buf, ch );
 
 
-    snprintf( buf, MAX_STRING_LENGTH, "Str:   [%5d]   Int:   [%5d]   Wis:  [%5d]   Dex:    [%5d] Con: [%5d]\n\r",
+    sprintf( buf, "Str:   [%5d]   Int:   [%5d]   Wis:  [%5d]   Dex:    [%5d] Con: [%5d]\n\r",
                   get_curr_str( victim ),
                   get_curr_int( victim ),
                   get_curr_wis( victim ),
@@ -523,13 +523,13 @@ bool mstat( PLAYER *ch, char *argument )
                   get_curr_con( victim ) );
     to_actor( buf, ch );
 	
-    snprintf( buf, MAX_STRING_LENGTH, "Lv: [%5d]  AC: [%5d]  Coins: [%5d] $:[%d] MU:[%d]  Fight:  [%d, %d]\n\r",
+    sprintf( buf, "Lv: [%5d]  AC: [%5d]  Coins: [%5d] $:[%d] MU:[%d]  Fight:  [%d, %d]\n\r",
              GET_PC(victim,level,-1),
              GET_AC(victim),      tally_coins ( victim ),  victim->bucks, victim->credits,
              victim->fmode, victim->fbits );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Wait:  [%5d]   Invis: [%5d] Bounty: [%5d]   Owed:   [%5d]\n\r",
+    sprintf( buf, "Wait:  [%5d]   Invis: [%5d] Bounty: [%5d]   Owed:   [%5d]\n\r",
              victim->wait,        GET_PC(victim,wizinvis,0),
              victim->bounty,      victim->owed );
     to_actor( buf, ch );
@@ -537,7 +537,7 @@ bool mstat( PLAYER *ch, char *argument )
 
     days  = ((int) GET_PC(victim,played,0)) / 24;
     hours = ((int) GET_PC(victim,played,0)) % 24;
-    snprintf( buf, MAX_STRING_LENGTH, "Age:   [%5d]   Timer: [%5d]  Trace: [%5d]   Played: [%d, %d]\n\r",
+    sprintf( buf, "Age:   [%5d]   Timer: [%5d]  Trace: [%5d]   Played: [%d, %d]\n\r",
                   GET_AGE(victim), victim->timer,
                   NPC(ch) ? -1 :
                     (ch->userdata->trace != NULL ? ch->userdata->trace->dbkey : -1),
@@ -545,29 +545,29 @@ bool mstat( PLAYER *ch, char *argument )
     to_actor( buf, ch );
 
     if ( !NPC(victim) ) {
-        snprintf( buf, MAX_STRING_LENGTH, "%d Total Logins- Constellation:\n\r%s\n\r", 
+        sprintf( buf, "%d Total Logins- Constellation:\n\r%s\n\r", 
              PC(victim,logins), PC(victim,constellation) );
         to_actor( buf, ch );
     }
  
-    snprintf( buf, MAX_STRING_LENGTH, "Act:     [%s] %d\n\r",
+    sprintf( buf, "Act:     [%s] %d\n\r",
              NPC(victim) ? actor_bit_name( victim->flag )
                             : plr_bit_name( victim->flag ),
             !NPC(victim) ? PC(victim,app_time) : 0 );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Bonuses: [%s]\n\r", bonus_bit_name(victim->bonuses));
+    sprintf( buf, "Bonuses: [%s]\n\r", bonus_bit_name(victim->bonuses));
     to_actor( buf, ch );
 
 
     for ( paf = victim->bonus; paf != NULL; paf = paf->next )
     {
-       snprintf( buf, MAX_STRING_LENGTH, "Bonuses %s by %d.\n\r", bonus_loc_name( paf->location ),
+       sprintf( buf, "Bonuses %s by %d.\n\r", bonus_loc_name( paf->location ),
                                               paf->modifier );
        to_actor( buf, ch );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Wielding: [%d/%d]  Hitroll/Damroll: [%d/%d]  [%s",
+    sprintf( buf, "Wielding: [%d/%d]  Hitroll/Damroll: [%d/%d]  [%s",
              wield_weight(victim),
              str_app[get_curr_str(victim)].wield,
              GET_HITROLL(victim), GET_DAMROLL(victim),
@@ -576,20 +576,20 @@ bool mstat( PLAYER *ch, char *argument )
 	
     if ( victim->furniture )
     {
-        snprintf( buf, MAX_STRING_LENGTH, " on %s", STR(victim->furniture, short_descr) );
+        sprintf( buf, " on %s", STR(victim->furniture, short_descr) );
         to_actor( buf, ch );
     }
 
     if ( victim->position == POS_FIGHTING )
     {
-        snprintf( buf, MAX_STRING_LENGTH, " with %s",
+        sprintf( buf, " with %s",
                       victim->fighting ? NAME(victim->fighting) : "nobody" );
         to_actor( buf, ch );
     }
 
     to_actor( "]\n\r", ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Carrying %d items of weight %d.\n\r",
+    sprintf( buf, "Carrying %d items of weight %d.\n\r",
 	victim->carry_number, victim->carry_weight );
     to_actor( buf, ch );
 
@@ -597,7 +597,7 @@ bool mstat( PLAYER *ch, char *argument )
 
     if ( victim->master || !MTD(victim->tracking) )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "Master: %s  Hunting: %s\n\r",
+    sprintf( buf, "Master: %s  Hunting: %s\n\r",
              victim->master      ? NAME(victim->master)   : "Nobody",
              MTD(victim->tracking) ? "Nobody" : victim->tracking );
     to_actor( buf, ch );
@@ -606,7 +606,7 @@ bool mstat( PLAYER *ch, char *argument )
     if ( victim->riding
       || victim->rider )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "Riding: [%s]  Mounted by:  [%s]",
+    sprintf( buf, "Riding: [%s]  Mounted by:  [%s]",
              victim->riding      ? NAME(victim->riding)     : "Nobody",
              victim->rider       ? NAME(victim->rider)      : "Nobody" );
     to_actor( buf, ch );
@@ -614,7 +614,7 @@ bool mstat( PLAYER *ch, char *argument )
 
     if ( buf[0] != '\0' ) to_actor( "\n\r", ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Short: [%s]\n\rLong:\n\r%s",
+    sprintf( buf, "Short: [%s]\n\rLong:\n\r%s",
              STR(victim, short_descr),  STR(victim, long_descr) );
     to_actor( buf, ch );
     
@@ -623,13 +623,13 @@ bool mstat( PLAYER *ch, char *argument )
 
     if ( *argument != '\0' && !str_prefix( argument, "description" ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "Description:\n\r%s", STR(victim,description) );
+        sprintf( buf, "Description:\n\r%s", STR(victim,description) );
         to_actor( buf, ch );
     }
 
     if ( !MTD(victim->keywords) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "Extended Keywords: [%s]\n\r", victim->keywords );
+        sprintf( buf, "Extended Keywords: [%s]\n\r", victim->keywords );
         to_actor( buf, ch );
     }
 
@@ -637,13 +637,13 @@ bool mstat( PLAYER *ch, char *argument )
     {
     if ( !MTD(PC(victim,email)) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "Email: %s\n\r", PC(victim,email) );
+        sprintf( buf, "Email: %s\n\r", PC(victim,email) );
         to_actor( buf, ch );
     }
 
     if ( !MTD(PC(victim,denial)) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "Rejection notice:\n\r%s", PC(victim,denial) );
+        sprintf( buf, "Rejection notice:\n\r%s", PC(victim,denial) );
         to_actor( buf, ch );
     }
     }
@@ -652,37 +652,37 @@ bool mstat( PLAYER *ch, char *argument )
     to_actor( "Variables:\n\r", ch );
     for ( pVar = victim->globals;  pVar != NULL;  pVar = pVar->next )
     {
-       snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+       sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
        to_actor( buf, ch );
 
        switch ( pVar->type )
        {
-           case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, "[str] = \"%s\"\n\r", (char *)pVar->value ); break;
-           case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, "[actor] = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
-           case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, "[prop] = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey); break;
-           case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, "[rm ] = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
-             default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
+           case TYPE_STRING: sprintf( buf, "[str] = \"%s\"\n\r", (char *)pVar->value ); break;
+           case TYPE_ACTOR:    sprintf( buf, "[actor] = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+           case TYPE_PROP:    sprintf( buf, "[prop] = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey); break;
+           case TYPE_SCENE:   sprintf( buf, "[rm ] = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
+             default:          sprintf( buf, " = <unknown>\n\r" ); break;
        }
        to_actor( buf, ch );
     }
 
     for ( pTrig = victim->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
+        sprintf( buf, "[%5d] %s (%d,%d)\n\r", pTrig->script->dbkey, pTrig->script->name, pTrig->wait, pTrig->autowait );
         to_actor( buf, ch );
 
         for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+            sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
             to_actor( buf, ch );
 
             switch ( pVar->type )
             {
-                case TYPE_STRING: snprintf( buf, MAX_STRING_LENGTH, "[str] = \"%s\"\n\r", (char *)pVar->value ); break;
-                case TYPE_ACTOR:    snprintf( buf, MAX_STRING_LENGTH, "[actor] = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
-                case TYPE_PROP:    snprintf( buf, MAX_STRING_LENGTH, "[prop] = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey); break;
-                case TYPE_SCENE:   snprintf( buf, MAX_STRING_LENGTH, "[rm ] = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
-                default:          snprintf( buf, MAX_STRING_LENGTH, " = <unknown>\n\r" ); break;
+                case TYPE_STRING: sprintf( buf, "[str] = \"%s\"\n\r", (char *)pVar->value ); break;
+                case TYPE_ACTOR:    sprintf( buf, "[actor] = %s\n\r", STR(((PLAYER *)pVar->value),name) ); break;
+                case TYPE_PROP:    sprintf( buf, "[prop] = %d\n\r", ((PROP  *)pVar->value)->pIndexData->dbkey); break;
+                case TYPE_SCENE:   sprintf( buf, "[rm ] = %d\n\r", ((SCENE *)pVar->value)->dbkey ); break;
+                default:          sprintf( buf, " = <unknown>\n\r" ); break;
             }
             to_actor( buf, ch );
         }
@@ -739,15 +739,15 @@ bool pstat( PLAYER *ch, char *argument )
     return FALSE;
 
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:  [%5d]  Name:  [%s]\n\r", pScript->dbkey,
+    sprintf( buf, "Vnum:  [%5d]  Name:  [%s]\n\r", pScript->dbkey,
              pScript->name  );
     page_to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Type:  [%5d]         [%s]\n\r", pScript->type,
+    sprintf( buf, "Type:  [%5d]         [%s]\n\r", pScript->type,
              show_script_type( pScript->type ) );
     page_to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Script:\n\r%s", pScript->commands );
+    sprintf( buf, "Script:\n\r%s", pScript->commands );
     page_to_actor( buf, ch );
 
     return TRUE;            
@@ -882,7 +882,7 @@ void cmd_afind( PLAYER *ch, char *argument )
           && ( pActorIndex->exp > range1 && pActorIndex->exp < range2 ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s %d xp %d karma\n\r", dbkey, pActorIndex->short_descr,
+            sprintf( buf, "[%5d] %-42s  %s %d xp %d karma\n\r", dbkey, pActorIndex->short_descr,
                                              !fzone ? trunc_fit(pActorIndex->name,20) : "", pActorIndex->exp, pActorIndex->karma );
             to_actor( buf, ch );
         }
@@ -897,7 +897,7 @@ void cmd_afind( PLAYER *ch, char *argument )
           && ( pActorIndex->zone == pZone || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s %d xp %d karma\n\r", dbkey, pActorIndex->short_descr,
+            sprintf( buf, "[%5d] %-42s  %s %d xp %d karma\n\r", dbkey, pActorIndex->short_descr,
                                              !fzone ? trunc_fit(pActorIndex->name,20) : "", pActorIndex->exp, pActorIndex->karma );
             to_actor( buf, ch );
         }
@@ -1019,7 +1019,7 @@ void cmd_pfind( PLAYER *ch, char *argument )
           && ( pPropIndex->zone == pZone || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d %10s] %-42s  %s\n\r", dbkey,
+            sprintf( buf, "[%5d %10s] %-42s  %s\n\r", dbkey,
                                              item_type_name( pPropIndex->item_type ),
                                              pPropIndex->short_descr,
                                              !fzone ? trunc_fit(pPropIndex->zone->name,20) : "" );
@@ -1137,7 +1137,7 @@ void cmd_rfind( PLAYER *ch, char *argument )
           && ( pSceneIndex->zone == pZone         || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-42s  %s\n\r", dbkey,
+            sprintf( buf, "[%5d] %-42s  %s\n\r", dbkey,
                                        trunc_fit( pSceneIndex->name, 42 ),
                                        !fzone ? pSceneIndex->zone->name : "" );
             to_actor( buf, ch );
@@ -1252,7 +1252,7 @@ void cmd_scfind( PLAYER *ch, char *argument )
           && ( pScript->zone == pZone         || !fzone ) )
         {
             found = TRUE;
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d %2d] %-32s  %s\n\r", dbkey, pScript->type,
+            sprintf( buf, "[%5d %2d] %-32s  %s\n\r", dbkey, pScript->type,
                                              pScript->name,
                                              !fzone ? pScript->zone->name : "" );
             to_actor( buf, ch );
@@ -1289,7 +1289,7 @@ bool mwhere( PLAYER *ch, char *argument )
     && ( is_name(arg, NAME(victim)) || fAll ) )
 	{
 	    found = TRUE;
-        snprintf( buf, MAX_STRING_LENGTH, "[%5d] %-28s at [%5d] %s\n\r",
+        sprintf( buf, "[%5d] %-28s at [%5d] %s\n\r",
                  NPC(victim) ? victim->pIndexData->dbkey : 0,
                  NPC(victim) ? STR(victim, short_descr) : STR(victim,name),
                  victim->in_scene->dbkey,
@@ -1331,12 +1331,12 @@ bool owhere( PLAYER *ch, char *argument )
 
 	    if ( in_prop->carried_by != NULL )
 	    {
-		snprintf( buf, MAX_STRING_LENGTH, "[%2d] %s carried by %s.\n\r", prop_counter,
+		sprintf( buf, "[%2d] %s carried by %s.\n\r", prop_counter,
             STR(prop, short_descr), PERS( in_prop->carried_by, ch ) );
 	    }
 	    else
 	    {
-        snprintf( buf, MAX_STRING_LENGTH, "[%2d] %s in %s [%d].\n\r", prop_counter,
+        sprintf( buf, "[%2d] %s in %s [%d].\n\r", prop_counter,
             STR(prop, short_descr), ( in_prop->in_scene == NULL ) ?
             "somewhere" : in_prop->in_scene->name, (in_prop->in_scene == NULL) ?
             0 : in_prop->in_scene->dbkey );
@@ -1365,7 +1365,7 @@ void pwhere( PLAYER *ch )
          && can_see( ch, victim ) )
        {
         found = TRUE;
-        snprintf( buf, MAX_STRING_LENGTH, "%-18s %28s  [%5d]  %s\n\r", STR(victim,name),
+        sprintf( buf, "%-18s %28s  [%5d]  %s\n\r", STR(victim,name),
                                                victim->in_scene->name,
                                                victim->in_scene->dbkey,
                                                trunc_fit(victim->in_scene->zone->name,20) );
@@ -1558,7 +1558,7 @@ void cmd_zones( PLAYER *ch, char *argument )
     ZONE *pZone;
     int total_scenes = 0, total_unfinished = 0, s_scenes = 0, s_unfinished = 0;
 
-    snprintf( buf, MAX_STRING_LENGTH, "[%2s] %-15s S %-6s-%6s %-12s %-3s/%-3s %-18.18s\n\r",
+    sprintf( buf, "[%2s] %-15s S %-6s-%6s %-12s %-3s/%-3s %-18.18s\n\r",
     "#N", "zone Name", "ldbkey", "udbkey", "Filename", "Rm", "NoD", "Builders" );
     to_actor( buf, ch );
 
@@ -1566,7 +1566,7 @@ void cmd_zones( PLAYER *ch, char *argument )
     {
 	
     count_scenes( pZone, &s_scenes, &s_unfinished );
-    snprintf( buf, MAX_STRING_LENGTH, "[%2d] %-15s %1d %6d-%-6d %-12s %3d/%-3d %-15s\n\r",
+    sprintf( buf, "[%2d] %-15s %1d %6d-%-6d %-12s %3d/%-3d %-15s\n\r",
         pZone->dbkey,
         trunc_fit(pZone->name,15),
         pZone->security,
@@ -1580,7 +1580,7 @@ void cmd_zones( PLAYER *ch, char *argument )
 	total_unfinished 	+= s_unfinished;
 	s_scenes = s_unfinished = 0;
     }
-    snprintf( buf, MAX_STRING_LENGTH, "\n\rTotal: %d scenes, %d unfinished (%d%%)\n\r",
+    sprintf( buf, "\n\rTotal: %d scenes, %d unfinished (%d%%)\n\r",
 	total_scenes, total_unfinished,
         total_unfinished * 100 / UMAX(1,total_scenes) );
     to_actor( buf, ch );
@@ -1616,7 +1616,7 @@ void cmd_table( PLAYER *ch, char *argument )
     {
         for ( x = 0;  x <= MAX_POSITION;  x++ )
          {
-                  snprintf( buf, MAX_STRING_LENGTH, "[%3d] %s\n\r", x, position_name( x ) );
+                  sprintf( buf, "[%3d] %s\n\r", x, position_name( x ) );
                   to_actor( buf, ch );
          }
          return;
@@ -1633,7 +1633,7 @@ void cmd_table( PLAYER *ch, char *argument )
         {
             race = race_lookup( x );
 
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %-12s  %3d %3d %3d %5d %3d %2d %2d %2d %2d %2d %s\n\r",
+            sprintf( buf, "[%3d] %-12s  %3d %3d %3d %5d %3d %2d %2d %2d %2d %2d %s\n\r",
                           x,
                           RACE(race,race_name),
                           RACE(race,size),
@@ -1662,7 +1662,7 @@ void cmd_table( PLAYER *ch, char *argument )
 
         for ( x = 0; x < MAX_LANGUAGE; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %12s  %3d\n\r",
+            sprintf( buf, "[%3d] %12s  %3d\n\r",
                           x,
                           lang_table[x].name,
                           lang_table[x].pgsn );
@@ -1676,7 +1676,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Num] Mult Convert  Wgt Short Long\n\r", ch );
         for ( x = 0; x < MAX_COIN; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %4d %7d %4d %5s %s\n\r",
+            sprintf( buf, "[%3d] %4d %7d %4d %5s %s\n\r",
                      x,
                      coin_table[x].multiplier,
                      coin_table[x].convert,
@@ -1699,7 +1699,7 @@ void cmd_table( PLAYER *ch, char *argument )
             to_actor( "[Num] Code   Code Name\n\r", ch );
         for ( x = 0; x < 20; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %sSAMPLE%s %4s %s\n\r",
+            sprintf( buf, "[%3d] %sSAMPLE%s %4s %s\n\r",
                           x,
                           color_table[x].code,
                           NTEXT,
@@ -1715,7 +1715,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Num] Read  Write Filename      Name\n\r", ch );
         for ( x = 0; x < MAX_BOARD; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %5d %5d %-13s %s\n\r",
+            sprintf( buf, "[%3d] %5d %5d %-13s %s\n\r",
                           x,
                           board_table[x].readlevel,
                           board_table[x].writelevel,
@@ -1731,7 +1731,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Num] Slot WpSN Hit_fun Name\n\r", ch );
         for ( x = 0; x < MAX_ATTACK; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %4d %4d %6s  %s\n\r",
+            sprintf( buf, "[%3d] %4d %4d %6s  %s\n\r",
                           x,
                           attack_table[x].wpgsn,
                           attack_table[x].hit_type,
@@ -1747,7 +1747,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Num] Drunk Full Thirst Name            Color\n\r", ch );
         for ( x = 0; x < LIQ_MAX; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %5d %4d %6d %-15s %s\n\r",
+            sprintf( buf, "[%3d] %5d %4d %6d %-15s %s\n\r",
                      x,
                      liq_table[x].liq_bonus[0],
                      liq_table[x].liq_bonus[1],
@@ -1764,7 +1764,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Str] Hit Dam Carry Wield\n\r", ch );
         for ( x = 0; x < 26; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %3d %3d %5d %5d\n\r",
+            sprintf( buf, "[%3d] %3d %3d %5d %5d\n\r",
                           x,
                           str_app[x].tohit,
                           str_app[x].todam,
@@ -1780,7 +1780,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Int] Learn\n\r", ch );
         for ( x = 0; x < 26; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %5d\n\r",
+            sprintf( buf, "[%3d] %5d\n\r",
                           x,
                           int_app[x].learn );
             to_actor( buf, ch );
@@ -1793,7 +1793,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Wis] Practice\n\r", ch );
         for ( x = 0; x < 26; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %8d\n\r",
+            sprintf( buf, "[%3d] %8d\n\r",
                           x,
                           wis_app[x].practice );
             to_actor( buf, ch );
@@ -1806,7 +1806,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Dex] Defensive\n\r", ch );
         for ( x = 0; x < 26; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %9d\n\r",
+            sprintf( buf, "[%3d] %9d\n\r",
                           x,
                           dex_app[x].defensive );
             to_actor( buf, ch );
@@ -1819,7 +1819,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Con] HpDiff Hits Shock Res\n\r", ch );
         for ( x = 0; x < 26; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %6d %4d %5d %3d\n\r",
+            sprintf( buf, "[%3d] %6d %4d %5d %3d\n\r",
                           x,
                           con_app[x].hitp,
                           con_app[x].hitp + 100,
@@ -1835,7 +1835,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "[Gro] Code GSN Name\n\r", ch );
         for ( x = 0; x < MAX_GROUP; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %4d %3d %s\n\r",
+            sprintf( buf, "[%3d] %4d %3d %s\n\r",
                           x,
                           group_table[x].group_code,
                           group_table[x].pgsn,
@@ -1884,7 +1884,7 @@ void cmd_table( PLAYER *ch, char *argument )
 
         for ( x = 0;  comp_table[x].type != -1; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %-23s %-21s [%2d] %5d\n\r",
+            sprintf( buf, "[%3d] %-23s %-21s [%2d] %5d\n\r",
                      x,
                      comp_table[x].name,
                      comp_table[x].usage,
@@ -1906,7 +1906,7 @@ void cmd_table( PLAYER *ch, char *argument )
 
         for ( x = 0;  goods_table[x].code >= 0; x++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] %-20s %-8s %2d [%-6s] [%2d] %5d\n\r",
+            sprintf( buf, "[%3d] %-20s %-8s %2d [%-6s] [%2d] %5d\n\r",
                      x,
                      goods_table[x].name,
                      goods_table[x].unit,

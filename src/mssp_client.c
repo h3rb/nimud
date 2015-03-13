@@ -73,7 +73,7 @@ int recv_sb_mssp(unsigned char *src, int srclen)
 				}
 				*pto = 0;
 
-				printf("%-20s %s\n", var, val);
+				wtf_logf("%-20s %s\n", var, val);
 				break;
 
 			default:

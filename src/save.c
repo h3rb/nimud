@@ -88,7 +88,7 @@ void save_actor_prop( PLAYER *ch )
     sprintf( output, "%s%s", PLAYER_DIR, capitalize( ch->name ) );
     if ( ( fp = fopen( output, "w" ) ) == NULL )
     {
-	bug( "Save_actor_prop: fopen", 0 );
+	wtf_logf( "Save_actor_prop: fopen", 0 );
 	perror( output );
     return;
     }
@@ -498,7 +498,7 @@ bool load_actor_prop( CONNECTION *d, char *name )
 
         if ( letter != '#' )
 	    {
-		bug( "Load_actor_prop: # not found.", 0 );
+		wtf_logf( "Load_actor_prop: # not found.", 0 );
 		break;
 	    }
 
@@ -524,7 +524,7 @@ bool load_actor_prop( CONNECTION *d, char *name )
         else if ( !str_cmp( word, "END"    ) ) break;
 	    else
 	    {
-		bug( "Load_actor_prop: bad section.", 0 );
+		wtf_logf( "Load_actor_prop: bad section.", 0 );
 		break;
 	    }
 	}
@@ -592,7 +592,7 @@ PLAYER *fread_char( PLAYER *ch, FILE *fp )
         paf = new_bonus( );
         pSkill = skill_lookup( fread_word( fp ) );
         if ( !pSkill )
-        bug( "Fread_char: unknown skill.", 0 );
+        wtf_logf( "Fread_char: unknown skill.", 0 );
         else
         paf->type = pSkill->dbkey;
 		paf->duration	= fread_number( fp );
@@ -830,7 +830,7 @@ fread_number(fp); fMatch = TRUE; break; }
                 skill_time = fread_number( fp );
 
                 if ( !pSkill )
-                bugs( "Fread_char: unknown skill '%s'", w );
+                wtf_logf( "Fread_char: unknown skill '%s'", w );
                 else
                 {
                     pSkill=update_skill(ch,pSkill->dbkey,value);
@@ -859,7 +859,7 @@ fread_number(fp); fMatch = TRUE; break; }
 	if ( !fMatch )
 	{
         sprintf( log_buf, "Fread_char: no match (%s).", word );
-        bug( log_buf, 0 );
+        wtf_logf( log_buf, 0 );
         if ( !feof( fp ) ) fread_to_eol( fp );
 	}
     }
@@ -919,7 +919,7 @@ PLAYER *fread_actor ( PLAYER *ch, FILE *fp )
         paf = new_bonus( );
         pSkill = skill_lookup( fread_word( fp ) );
         if ( !pSkill )
-        bug( "Fread_actor: unknown skill.", 0 );
+        wtf_logf( "Fread_actor: unknown skill.", 0 );
         else
         paf->type = pSkill->dbkey;
 		paf->duration	= fread_number( fp );
@@ -965,7 +965,7 @@ PLAYER *fread_actor ( PLAYER *ch, FILE *fp )
         {
             if ( !fVnum )
             {
-                bug( "Fread_actor: Incomplete actor.", 0 );
+                wtf_logf( "Fread_actor: Incomplete actor.", 0 );
                 free_char( ch );
                 return NULL;
             }
@@ -1101,7 +1101,7 @@ PLAYER *fread_actor ( PLAYER *ch, FILE *fp )
 	if ( !fMatch )
 	{
         sprintf( log_buf, "Fread_actor: no match (%s).", word );
-        bug( log_buf, 0 );
+        wtf_logf( log_buf, 0 );
         if ( !feof( fp ) ) fread_to_eol( fp );
 	}
     }
@@ -1177,7 +1177,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 	    {
 		if ( !fNest || !fVnum )
 		{
-		    bug( "Fread_prop: incomplete prop.", 0 );
+		    wtf_logf( "Fread_prop: incomplete prop.", 0 );
 		    free_string( prop->name        );
 		    free_string( prop->description );
             free_string( prop->action_descr );
@@ -1251,7 +1251,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 		iNest = fread_number( fp );
 		if ( iNest < 0 || iNest >= MAX_NEST )
 		{
-		    bug( "Fread_prop: bad nest %d.", iNest );
+		    wtf_logf( "Fread_prop: bad nest %d.", iNest );
 		}
 		else
 		{
@@ -1289,11 +1289,11 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 		pSkill     = skill_lookup( fread_word( fp ) );
 		if ( iValue < 0 || iValue > 3 )
 		{
-		    bug( "Fread_prop: bad iValue %d.", iValue );
+		    wtf_logf( "Fread_prop: bad iValue %d.", iValue );
 		}
 		else if ( !pSkill )
 		{
-		    bug( "Fread_prop: unknown skill.", 0 );
+		    wtf_logf( "Fread_prop: unknown skill.", 0 );
 		}
 		else
 		{
@@ -1344,7 +1344,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 	if ( !fMatch )
 	{
         sprintf( log_buf, "Fread_prop: %s no match.", word );
-        bug( log_buf, 0 );
+        wtf_logf( log_buf, 0 );
 	    fread_to_eol( fp );
 	}
     }

@@ -125,16 +125,16 @@ void cmd_smote( PLAYER *ch, char *argument )
     tailer = ispunct(*c) ? "" : ",";
 
     if ( !MTD(argument) )
-    	snprintf( buf, MAX_STRING_LENGTH, "\"%s%s\" you ", capitalize(argument), tailer );
+    	sprintf( buf, "\"%s%s\" you ", capitalize(argument), tailer );
     else
-	snprintf( buf, MAX_STRING_LENGTH, "You " );
+	sprintf( buf, "You " );
     strcat( buf, smote_table[smote] );
     if ( !MTP(p) )
     	sprintf( &buf[strlen(buf)], ",  \"%s\"", capitalize(p) );
     else
 	strcat( buf, "." );
     message = format_indent( str_dup(buf), "   ", 74, FALSE );
-    snprintf( buf, MAX_STRING_LENGTH, "%sIn %s:\n\r  $t%s",
+    sprintf( buf, "%sIn %s:\n\r  $t%s",
              color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              lang_table[ch->speaking].name,
              HAS_ANSI(ch) ? ANSI_NORMAL : "" );
@@ -147,14 +147,14 @@ void cmd_smote( PLAYER *ch, char *argument )
         {
 	    if ( !MTD(argument) )
 	    {
-	        snprintf( buf, MAX_STRING_LENGTH, "\"%s%s\" %s ",
+	        sprintf( buf, "\"%s%s\" %s ",
 		capitalize(garble_text( argument,
                   check_speech( actor, ch, lang_table[ch->speaking].pgsn )) ),
 		tailer,
 		PERS(ch, actor) );
 	    }
 	    else
-	        snprintf( buf, MAX_STRING_LENGTH, "%s ", capitalize(PERS(ch, actor)) );
+	        sprintf( buf, "%s ", capitalize(PERS(ch, actor)) );
 
     	    strcat( buf, smote_table[smote] );
 	    if ( !MTP(p) )
@@ -167,7 +167,7 @@ void cmd_smote( PLAYER *ch, char *argument )
 		strcat( buf, "s." );
     	    message = format_indent( str_dup(buf), "   ", 74, FALSE );
 
-            snprintf( buf, MAX_STRING_LENGTH, "%sIn %s:\n\r  $t%s",
+            sprintf( buf, "%sIn %s:\n\r  $t%s",
                       color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
                       !NPC(actor) && learned(ch,lang_table[ch->speaking].pgsn) <= 0 ?
                       "a strange, foreign tongue" : lang_table[ch->speaking].name,
@@ -233,11 +233,11 @@ void cmd_immtalk( PLAYER *ch, char *argument )
       strjoin(PC(och,immt_buf), message);
       strjoin(PC(och,immt_buf), "\n\r" );
 
-      snprintf( PC(och,immt_last), MSL, "%s: %s\n\r", NAME(ch), message );
+      sprintf( PC(och,immt_last), "%s: %s\n\r", NAME(ch), message );
 
         if ( och->desc != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "%s%s--\n\r   %s%s\n\r",
+            sprintf( buf, "%s%s--\n\r   %s%s\n\r",
                    HAS_ANSI(och) ?
                        color_table[PC(och,colors)[COLOR_IMMTALK]].code : "",
                    och==ch ? "You" :
@@ -296,11 +296,11 @@ void cmd_chat( PLAYER *ch, char *argument )
       strjoin(PC(och,chat_buf), message);
       strjoin(PC(och,chat_buf), "\n\r" );
 
-      snprintf( PC(och,chat_last), MSL, "%s -- %s\n\r", NAME(ch), argument );
+      sprintf( PC(och,chat_last),  "%s -- %s\n\r", NAME(ch), argument );
 
         if ( och->desc != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "%s%s--\n\r   %s%s\n\r",
+            sprintf( buf, "%s%s--\n\r   %s%s\n\r",
                    HAS_ANSI(och) ?
                        color_table[PC(och,colors)[COLOR_CHAT]].code : "",
                    och==ch ? "You" :
@@ -351,12 +351,12 @@ void cmd_reply(PLAYER *ch, char *argument )
     victim = ch->reply;
     if ( victim != ch )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "%sYou reply to $N:\n\r   \"$t\"$R",
+    sprintf( buf, "%sYou reply to $N:\n\r   \"$t\"$R",
              color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code );
     act( buf, ch, message, victim, TO_ACTOR );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%sYour thoughts unfocus as a message from\n\r$N echos in your mind:\n\r   \"$t\"$R",
+    sprintf( buf, "%sYour thoughts unfocus as a message from\n\r$N echos in your mind:\n\r   \"$t\"$R",
              color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code );
 
     position            = victim->position;
@@ -404,12 +404,12 @@ void cmd_tell( PLAYER *ch, char *argument )
     {
     ch->reply = victim;
     victim->reply = ch;
-    snprintf( buf, MAX_STRING_LENGTH, "%sYour message echoes in $N's mind:\n\r   \"$t\"$R",
+    sprintf( buf, "%sYour message echoes in $N's mind:\n\r   \"$t\"$R",
              color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code );
     act( buf, ch, message, victim, TO_ACTOR );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%sA message from $N echoes in your mind:\n\r   \"$t\"$R",
+    sprintf( buf, "%sA message from $N echoes in your mind:\n\r   \"$t\"$R",
              color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code );
 
     if ( !NPC(victim) ) {
@@ -418,7 +418,7 @@ void cmd_tell( PLAYER *ch, char *argument )
       strjoin(PC(victim,tell_buf), message);
       strjoin(PC(victim,tell_buf), "\n\r" );
 
-      snprintf( PC(victim,tell_last), MSL, "%s told you: %s\n\r", NAME(ch), message );
+      sprintf( PC(victim,tell_last), "%s told you: %s\n\r", NAME(ch), message );
     }
 
     position            = victim->position;
@@ -463,7 +463,7 @@ void cmd_whisper( PLAYER *ch, char *argument )
 
     if ( victim != ch )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "%sYou whisper to $N in %s:\n\r   \"$t\"$R",
+    sprintf( buf, "%sYou whisper to $N in %s:\n\r   \"$t\"$R",
              color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              lang_table[ch->speaking].name );
     act( buf, ch, message, victim, TO_ACTOR );
@@ -471,7 +471,7 @@ void cmd_whisper( PLAYER *ch, char *argument )
 
     act( "$n whispers something to $N.", ch, NULL, victim, TO_SCENE );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s$N whispers to you in %s:\n\r   \"$t\"$R",
+    sprintf( buf, "%s$N whispers to you in %s:\n\r   \"$t\"$R",
              color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code,
              lang_table[ch->speaking].name );
 
@@ -525,7 +525,7 @@ void cmd_wish( PLAYER *ch, char *argument )
               || !IS_SET(och->flag2,CHANNEL_WISHES) )
             continue;
 
-	            snprintf( buf, MAX_STRING_LENGTH, "%s%s wish%s:\n\r%s   %s\n\r",
+	            sprintf( buf, "%s%s wish%s:\n\r%s   %s\n\r",
         	           HAS_ANSI(och) ?
                	           color_table[PC(och,colors)
                            [IS_IMMORTAL(och) ? COLOR_IMMTALK : COLOR_COMM]].code : "",
@@ -550,7 +550,7 @@ void shout( PLAYER *ch, PLAYER *rch, char *message, int dir )
 
     if ( ch == rch )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%sYou shout, in %s:\n\r  \"$t\"$R",
+        sprintf( buf, "%sYou shout, in %s:\n\r  \"$t\"$R",
                  color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
                  lang_table[ch->speaking].name );
         act( buf, ch, message, NULL, TO_ACTOR );
@@ -558,7 +558,7 @@ void shout( PLAYER *ch, PLAYER *rch, char *message, int dir )
     }
 
     if ( rch->in_scene != ch->in_scene )
-        snprintf( buf, MAX_STRING_LENGTH, "%sYou hear %s shout in %s from %s:\n\r   \"%s\"%s\n\r",
+        sprintf( buf, "%sYou hear %s shout in %s from %s:\n\r   \"%s\"%s\n\r",
                  HAS_ANSI(rch) ? color_table[PC(rch,colors[COLOR_COMM])].code : "",
                  (ch->sex == SEX_MALE)   ? "a man"       :
                  (ch->sex == SEX_FEMALE) ? "a woman"     : "someone",
@@ -569,7 +569,7 @@ void shout( PLAYER *ch, PLAYER *rch, char *message, int dir )
                      check_speech( rch, ch, lang_table[ch->speaking].pgsn ) ),
                  HAS_ANSI(rch) ? ANSI_NORMAL : "" );
         else
-        snprintf( buf, MAX_STRING_LENGTH, "%s%s shouts, in %s:\n\r   \"%s\"%s\n\r",
+        sprintf( buf, "%s%s shouts, in %s:\n\r   \"%s\"%s\n\r",
                  HAS_ANSI(rch) ? color_table[PC(rch,colors[COLOR_COMM])].code : "",
                  capitalize(PERS(ch, rch)),
                  learned(rch,lang_table[ch->speaking].pgsn) > 0 ?
@@ -638,7 +638,7 @@ void say_to( PLAYER *ch, PLAYER *victim, char *argument )
 
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%sYou %s to %s in %s:\n\r  \"$t\"%s",
+    sprintf( buf, "%sYou %s to %s in %s:\n\r  \"$t\"%s",
              color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code,
              verb,
              NAME(victim),
@@ -646,7 +646,7 @@ void say_to( PLAYER *ch, PLAYER *victim, char *argument )
              HAS_ANSI(ch) ? ANSI_NORMAL : "" );
     act( buf, ch, message, NULL, TO_ACTOR  );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s%s %ss %syou in %s:\n\r   \"$t\"%s",
+    sprintf( buf, "%s%s %ss %syou in %s:\n\r   \"$t\"%s",
                   color_table[GET_PC(victim,colors[COLOR_COMM],7)].actor_code,
                   capitalize(PERS(ch, victim)),
                   verb,
@@ -705,7 +705,7 @@ void cmd_say( PLAYER *ch, char *argument )
 
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%sYou %s, in %s:\n\r  \"$t\"%s",
+    sprintf( buf, "%sYou %s, in %s:\n\r  \"$t\"%s",
              color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              verb,
              lang_table[ch->speaking].name,
@@ -714,7 +714,7 @@ void cmd_say( PLAYER *ch, char *argument )
 
     for ( actor = ch->in_scene->people;  actor != NULL;  actor = actor->next_in_scene )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s%s %ss, in %s:\n\r   \"$t\"%s",
+        sprintf( buf, "%s%s %ss, in %s:\n\r   \"$t\"%s",
                       color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
                       capitalize(PERS(ch, actor)),
                       verb,
@@ -739,7 +739,7 @@ void cmd_say( PLAYER *ch, char *argument )
                  garble_text( message,
                   check_speech( actor, ch, lang_table[ch->speaking].pgsn ) ) );
       strjoin(PC(actor,say_buf), "\n\r" );
-      snprintf( PC(actor,say_last), MSL, "%s said: %s\n\r", NAME(ch), message );
+      sprintf( PC(actor,say_last), "%s said: %s\n\r", NAME(ch), message );
 
     }
 
@@ -797,7 +797,7 @@ void cmd_talk( PLAYER *ch, char *argument )
 
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%sFrom %s, you %s, in %s:\n\r  \"$t\"%s",
+    sprintf( buf, "%sFrom %s, you %s, in %s:\n\r  \"$t\"%s",
              color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              STR(ch->furniture, short_descr),
              verb,
@@ -807,7 +807,7 @@ void cmd_talk( PLAYER *ch, char *argument )
 
     for ( actor = ch->in_scene->people;  actor != NULL;  actor = actor->next_in_scene )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%sFrom %s, %s %ss, in %s:\n\r   \"$t\"%s",
+        sprintf( buf, "%sFrom %s, %s %ss, in %s:\n\r   \"$t\"%s",
                       STR(ch->furniture, short_descr),
                       color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
                       capitalize(PERS(ch, actor)),
@@ -863,7 +863,7 @@ void cmd_ooc( PLAYER *ch, char *argument )
 
     message = format_indent( str_dup(argument), "   ", 74, FALSE );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%sYou %s, out-of-character:\n\r  \"$t\"%s",
+    sprintf( buf, "%sYou %s, out-of-character:\n\r  \"$t\"%s",
              color_table[GET_PC(ch,colors[COLOR_COMM],7)].actor_code,
              verb,
              HAS_ANSI(ch) ? ANSI_NORMAL : "" );
@@ -871,7 +871,7 @@ void cmd_ooc( PLAYER *ch, char *argument )
 
     for ( actor = ch->in_scene->people;  actor != NULL;  actor = actor->next_in_scene )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s%s %ss, out-of-character:\n\r   \"$t\"%s",
+        sprintf( buf, "%s%s %ss, out-of-character:\n\r   \"$t\"%s",
                       color_table[GET_PC(actor,colors[COLOR_COMM],7)].actor_code,
                       capitalize(PERS(ch, actor)),
                       verb,
@@ -984,7 +984,7 @@ void cmd_bug( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
 
-    snprintf( buf, MAX_STRING_LENGTH, "Notify> BUG: [%5d] %s- %s",
+    sprintf( buf, "Notify> BUG: [%5d] %s- %s",
              ch->in_scene->dbkey, STR(ch,name), argument );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
@@ -1001,7 +1001,7 @@ void cmd_idea( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
 
-    snprintf( buf, MAX_STRING_LENGTH, "Notify> IDEA: [%5d] %s- %s",
+    sprintf( buf, "Notify> IDEA: [%5d] %s- %s",
              ch->in_scene->dbkey, STR(ch,name), argument );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
@@ -1018,7 +1018,7 @@ void cmd_typo( PLAYER *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
 
-    snprintf( buf, MAX_STRING_LENGTH, "Notify> TYPO: [%5d] %s- %s",
+    sprintf( buf, "Notify> TYPO: [%5d] %s- %s",
              ch->in_scene->dbkey, STR(ch,name), argument );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
 
@@ -1076,12 +1076,12 @@ void cmd_quit( PLAYER *ch, char *argument )
     sprintf( log_buf, "%s (%s) has left the game.", ch->name, ch->short_descr );
     log_string( log_buf );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Notify>  %s (%s) has left the game.", ch->name, ch->short_descr );
+    sprintf( buf, "Notify>  %s (%s) has left the game.", ch->name, ch->short_descr );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_LOGIN );
 
     act( "$n has left the game.", ch, NULL, NULL, TO_NOTVICT );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s", STR(ch,name) );
+    sprintf( buf, "%s", STR(ch,name) );
     save_actor_prop( ch );
     d = ch->desc;
 
@@ -1174,7 +1174,7 @@ void add_follower( PLAYER *ch, PLAYER *master )
 {
     if ( ch->master != NULL )
     {
-        bug( "Add_follower: non-null master (already following).", 0 );
+        wtf_logf( "Add_follower: non-null master (already following).", 0 );
         return;
     }
 
@@ -1262,7 +1262,7 @@ void stop_follower( PLAYER *ch )
 {
     if ( ch->master == NULL )
     {
-        bug( "Stop_follower: null master.", 0 );
+        wtf_logf( "Stop_follower: null master.", 0 );
         return;
     }
 
@@ -1576,7 +1576,7 @@ void cmd_group( PLAYER *ch, char *argument )
 
             if ( in_group( ch, victim ) )
             {
-               snprintf( buf, MAX_STRING_LENGTH, "%12s:  %-10s | %-10s | %-10s | %s %s\n\r",
+               sprintf( buf, "%12s:  %-10s | %-10s | %-10s | %s %s\n\r",
                         NAME(victim),
                         STRING_HITS(victim), 
                         STRING_MOVES(victim),
@@ -1643,11 +1643,11 @@ void cmd_group( PLAYER *ch, char *argument )
         act( "You join $N's group.", victim, NULL, ch, TO_ACTOR );
         act( "$N joins your group.", ch, NULL, victim, TO_ACTOR );
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s begins adventuring with a group lead by %s.",
+        sprintf( buf, "%s begins adventuring with a group lead by %s.",
                 NAME(victim), NAME(ch) );
         add_history( victim, buf );
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s takes %s under %s wing.",
+        sprintf( buf, "%s takes %s under %s wing.",
                 NAME(ch), NAME(victim), HIS_HER(ch) );
         add_history( ch, buf );
 

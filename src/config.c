@@ -126,7 +126,7 @@ void cmd_pager ( PLAYER *ch, char *argument )
     }
 
     ch->pagelen = lines;
-    snprintf( buf, MAX_STRING_LENGTH, "Pager set to %d lines.\n\r", lines );
+    sprintf( buf, "Pager set to %d lines.\n\r", lines );
     to_actor( buf, ch );
     return;
 }
@@ -327,35 +327,35 @@ void cmd_ansi( PLAYER *ch, char *argument )
     {
         to_actor( "[Keyword  ]  Color Sample\n\r", ch );
 
-        snprintf( buf, MAX_STRING_LENGTH, "[Scenes    ]  Scene titles appear %s%s%s.\n\r",
+        sprintf( buf, "[Scenes    ]  Scene titles appear %s%s%s.\n\r",
                   color_table[PC(ch,colors[COLOR_SCENE_TITLE])].code,
                   color_table[PC(ch,colors[COLOR_SCENE_TITLE])].name,
                   color_table[19].code );
         to_actor( buf, ch );
         if ( IS_IMMORTAL(ch) )
         {
-        snprintf( buf, MAX_STRING_LENGTH, "[Immtalk  ]  The immortal channel appears in %s%s%s.\n\r",
+        sprintf( buf, "[Immtalk  ]  The immortal channel appears in %s%s%s.\n\r",
                   color_table[PC(ch,colors[COLOR_IMMTALK])].code,
                   color_table[PC(ch,colors[COLOR_IMMTALK])].name,
                   color_table[19].code );
         to_actor( buf, ch );
         }
-        snprintf( buf, MAX_STRING_LENGTH, "[Spoken   ]  Spoken communications are shown in %s%s%s.\n\r",
+        sprintf( buf, "[Spoken   ]  Spoken communications are shown in %s%s%s.\n\r",
                   color_table[PC(ch,colors[COLOR_COMM])].code,
                   color_table[PC(ch,colors[COLOR_COMM])].name,
                   color_table[19].code );
         to_actor( buf, ch );
-        snprintf( buf, MAX_STRING_LENGTH, "[Chats    ]  Chat channel communications are %s%s%s.\n\r",
+        sprintf( buf, "[Chats    ]  Chat channel communications are %s%s%s.\n\r",
                   color_table[PC(ch,colors[COLOR_CHAT])].code,
                   color_table[PC(ch,colors[COLOR_CHAT])].name,
                   color_table[19].code );
         to_actor( buf, ch );
-        snprintf( buf, MAX_STRING_LENGTH, "[Groups   ]  Group info and speech appears %s%s%s.\n\r",
+        sprintf( buf, "[Groups   ]  Group info and speech appears %s%s%s.\n\r",
                   color_table[PC(ch,colors[COLOR_GROUPS])].code,
                   color_table[PC(ch,colors[COLOR_GROUPS])].name,
                   color_table[19].code );
         to_actor( buf, ch );
-        snprintf( buf, MAX_STRING_LENGTH, "[Lists    ]  Object lists appear %s%s%s.\n\r",
+        sprintf( buf, "[Lists    ]  Object lists appear %s%s%s.\n\r",
                   color_table[PC(ch,colors[COLOR_PROP_LIST])].code,
                   color_table[PC(ch,colors[COLOR_PROP_LIST])].name,
                   color_table[19].code );
@@ -368,7 +368,7 @@ void cmd_ansi( PLAYER *ch, char *argument )
         to_actor( "Colors:\n\r", ch );
         for ( c = 0; c < 20; c++ )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%2d] %s%s%s\n\r",
+            sprintf( buf, "[%2d] %s%s%s\n\r",
                           c,
                           c != 0 ? color_table[c].code : "",
                           c == 0 ? "(black)" : color_table[c].name,
@@ -408,13 +408,13 @@ void cmd_ansi( PLAYER *ch, char *argument )
     }
     else c2 = atoi( arg2 );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Invalid color index.\n\r" );
+    sprintf( buf, "Invalid color index.\n\r" );
 
     if ( c2 < 20
       && c2 >= 0 )
     {
         PC(ch,colors[c]) = c2;
-        snprintf( buf, MAX_STRING_LENGTH, "Set to %s%s%s.\n\r",
+        sprintf( buf, "Set to %s%s%s.\n\r",
                  color_table[c2].code,
                  color_table[c2].name, NTEXT );
     };
@@ -547,7 +547,7 @@ void cmd_config( PLAYER *ch, char *argument )
     to_actor( "[ pager    ] You are not using the pager.\n\r", ch );
     else
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[    %-3d   ] You are using the pager.\n\r", ch->pagelen );
+        sprintf( buf, "[    %-3d   ] You are using the pager.\n\r", ch->pagelen );
         to_actor( buf, ch );
     }
 
@@ -555,7 +555,7 @@ void cmd_config( PLAYER *ch, char *argument )
     to_actor( "[ mapping  ] Your automap is default resolution.\n\r", ch );
     else
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[    %-3d  ] Your automapping resolution.\n\r", 
+        sprintf( buf, "[    %-3d  ] Your automapping resolution.\n\r", 
                  PC(ch,mapsize) );
         to_actor( buf, ch );
     }
@@ -678,25 +678,25 @@ if ( IS_IMMORTAL(ch) )
 
         if ( fSet )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Enabled.\n\r" );
+            sprintf( buf, "Enabled.\n\r" );
             SET_BIT    (*actor_var, bit);
         }
         else
         if ( !fSet && arg2[0] == '-' )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Disabled.\n\r" );
+            sprintf( buf, "Disabled.\n\r" );
             REMOVE_BIT (*actor_var, bit);
         }
         else
         {
             if (IS_SET(ch->flag2, bit))
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Disabled.\n\r" );
+            sprintf( buf, "Disabled.\n\r" );
             REMOVE_BIT (*actor_var, bit);
             }
             else
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Enabled.\n\r" );
+            sprintf( buf, "Enabled.\n\r" );
             SET_BIT    (*actor_var, bit);
             }
         }
@@ -786,8 +786,8 @@ void cmd_notify( PLAYER *ch, char *argument )
        }
     }
     else
-    if ( !str_cmp(arg1, "bug")
-      || !str_cmp(arg1, "bugs") )
+    if ( !str_cmp(arg1, "wtf_logf")
+      || !str_cmp(arg1, "wtf_logfs") )
     {
        if ( IS_SET(ch->flag, WIZ_NOTIFY_BUG) )
        {
@@ -867,8 +867,8 @@ void cmd_notify( PLAYER *ch, char *argument )
         , ch );
 
     to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_BUG)
-        ? "[*BUGS     ] You see all bug reports.\n\r"
-        : "[ bugs     ] You are currently ignoring bug reports.\n\r"
+        ? "[*BUGS     ] You see all wtf_logf reports.\n\r"
+        : "[ wtf_logfs     ] You are currently ignoring wtf_logf reports.\n\r"
 	    , ch );
 
     to_actor(  IS_SET(ch->flag, WIZ_NOTIFY_SCRIPT)

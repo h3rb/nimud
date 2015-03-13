@@ -52,6 +52,9 @@ char iac_do_mssp[]          = { IAC, DO,   TELOPT_MSSP, 0 };
 char iac_do_mccp[]          = { IAC, DO,   TELOPT_MCCP, 0 };
 char iac_dont_mccp[]        = { IAC, DONT, TELOPT_MCCP, 0 };
 
+void send_will_mssp( CONNECTION *d );
+void *zlib_alloc( void *opaque, unsigned int items, unsigned int size );
+void zlib_free( void *opaque, void *address );
 
 
 extern int         top_bonus          ;

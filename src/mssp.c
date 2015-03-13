@@ -14,7 +14,7 @@ void wtf_logf(char *fmt, ...)
 
 	va_end(args);
 
-	printf("%s\n", buf);
+	wtf_logf("%s\n", buf);
 
 	return;
 }
@@ -36,11 +36,11 @@ int main(int argc, char **argv)
 
 	d->host = strdup("internal");
 
-	printf("\n\n\033[1;31m-- receiving announce_support\033[0m\n\n");
+	wtf_logf("\n\n\033[1;31m-- receiving announce_support\033[0m\n\n");
 
 	announce_support(d);
 
-	printf("\n\n\033[1;31m-- sending IAC DO MSSP as a broken packet:\033[0m\n\n");
+	wtf_logf("\n\n\033[1;31m-- sending IAC DO MSSP as a broken packet:\033[0m\n\n");
 
 	sprintf(input, "%c%c", IAC, DO);
 

@@ -514,7 +514,7 @@ void cmd_scribe( PLAYER *ch, char *argument ) {
                 pEndPage->next = pNewPage;
               }
 
-         snprintf( buf, MAX_STRING_LENGTH, "You scribed %s from the spellbook of %s.\n\r", 
+         sprintf( buf, "You scribed %s from the spellbook of %s.\n\r", 
                   pSpell->name, pActorIndex->short_descr );
          to_actor( buf, ch );
 
@@ -803,7 +803,7 @@ void cmd_cast( PLAYER *ch, char *argument )
 void cmd_mana( PLAYER *ch, char *argument ) {
    char buf[MAX_STRING_LENGTH];
 
-   snprintf( buf, MAX_STRING_LENGTH, "Fire: %d   Water: %d   Earth: %d   Air: %d\n\r\n\r",
+   sprintf( buf, "Fire: %d   Water: %d   Earth: %d   Air: %d\n\r\n\r",
             find_gem_mana( ch, MANA_FIRE  ),
             find_gem_mana( ch, MANA_WATER ),
             find_gem_mana( ch, MANA_EARTH ),
@@ -811,7 +811,7 @@ void cmd_mana( PLAYER *ch, char *argument ) {
 
    to_actor( buf, ch );
 
-   snprintf( buf, MAX_STRING_LENGTH, "Personal mana: %d\n\r\n\r", ch->mana );
+   sprintf( buf, "Personal mana: %d\n\r\n\r", ch->mana );
    to_actor( buf, ch );
 
 }
@@ -844,7 +844,7 @@ void cmd_reagents( PLAYER *ch, char *argument ) {
         for ( i=0; i<MAX_COMPONENTS; i++ )
           if ( quantities[i] > 0 ) {
              char buf[MSL];
-             snprintf( buf, MSL, "%20s: %d\n\r", comp_table[i].name, quantities[i] );
+             sprintf( buf, "%20s: %d\n\r", comp_table[i].name, quantities[i] );
              page_to_actor( buf, ch );  displayed++;
           }
         if ( !displayed ) page_to_actor( "None.\n\r", ch );

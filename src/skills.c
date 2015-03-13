@@ -401,9 +401,9 @@ char *disp_group( PLAYER *ch, SKILL *pGroup )
     if ( pGroup->group_code == 0 
       || pGroup->group_code == GRO_WP
       || IS_ADEPT(ch,pGroup) )
-    snprintf( buf, MAX_STRING_LENGTH, "%s", pGroup->name );
+    sprintf( buf, "%s", pGroup->name );
     else
-    snprintf( buf, MAX_STRING_LENGTH, "%s - %s", pGroup->name,
+    sprintf( buf, "%s - %s", pGroup->name,
                   skill_level(pGroup) );
 
     sprintf( fub, "%s[ %s%s%s ]%s",
@@ -415,7 +415,7 @@ char *disp_group( PLAYER *ch, SKILL *pGroup )
              trunc_fit( "---------------------------------------",
                30-(strlen(buf)/2) ));
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s\n\r", trunc_fit( fub, HAS_ANSI(ch) ? 60+8 : 60 ) );
+    sprintf( buf, "%s\n\r", trunc_fit( fub, HAS_ANSI(ch) ? 60+8 : 60 ) );
     return buf;
 }
 
@@ -427,7 +427,7 @@ char *disp_skill( PLAYER *ch, SKILL *pSkill )
 {
     static char buf[MAX_STRING_LENGTH];
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s - %s",
+    sprintf( buf, "%s - %s",
              trunc_fit(pSkill->name, 18),
              skill_level(pSkill) );
 
@@ -507,7 +507,7 @@ void display_skills( PLAYER *ch, int group )
                     col++;
                     if ( col % 2 == 0 )
                     {
-                        snprintf( buf, MAX_STRING_LENGTH, "%-27s", disp_skill(ch,pSkill) );
+                        sprintf( buf, "%-27s", disp_skill(ch,pSkill) );
                         strcat( final, "  |  " );
                         strcat( final, buf );
                         strcat( final, "\n\r" );
@@ -515,7 +515,7 @@ void display_skills( PLAYER *ch, int group )
                     }
                     else
                     {
-                        snprintf( buf, MAX_STRING_LENGTH, "%28s", disp_skill(ch,pSkill) );
+                        sprintf( buf, "%28s", disp_skill(ch,pSkill) );
 /*                        strcat( final, "      " );*/
                         strcat( final, buf );
                     }
@@ -626,7 +626,7 @@ void cmd_skills( PLAYER *ch, char * argument )
 
         if ( pSkill->skill_level >= pSkill->max_learn )
         {
-            snprintf( buf, MAX_STRING_LENGTH, 
+            sprintf( buf, 
 
 "You are an adept of %s.\n\r", pSkill->name );
 
@@ -634,12 +634,12 @@ void cmd_skills( PLAYER *ch, char * argument )
             return;
         }
 
-        snprintf( buf, MAX_STRING_LENGTH, "You are %s in %s.\n\r",
+        sprintf( buf, "You are %s in %s.\n\r",
                        skill_level(pSkill),
                        pSkill->name );
         to_actor( buf, ch );
 
-        snprintf( buf, MAX_STRING_LENGTH, 
+        sprintf( buf, 
 
 "You are apprenticed to %s.\n\r", NAME(rch) );
 
@@ -647,7 +647,7 @@ void cmd_skills( PLAYER *ch, char * argument )
 
         if ( pSkill->skill_time > 0 )
         {
-        snprintf( buf, MAX_STRING_LENGTH, 
+        sprintf( buf, 
         "You still have %s game hours left until your next session.\n\r",
 
                  pSkill->skill_time > 10 ? "many" :
@@ -737,7 +737,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
           && pSSkill->dbkey == pSkill->dbkey ) fFound = TRUE;
         
         if ( !fFound && pSkill->cost != 0 ) {
-        snprintf( buf, MAX_STRING_LENGTH, "     %s at %s per lesson.\n\r", 
+        sprintf( buf, "     %s at %s per lesson.\n\r", 
                  capitalize(pSkill->name), name_amount(pSkill->cost) ); 
         to_actor( buf, ch );
         }
@@ -759,7 +759,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
         if ( pSkill->teacher != rch->pIndexData->dbkey 
           || pSkill->group_code == 100 /* language */ ) continue;
         if ( pSkill->skill_level >= pSkill->max_learn ) continue;
-        snprintf( buf, MAX_STRING_LENGTH, "     %s at %s per lesson.\n\r", 
+        sprintf( buf, "     %s at %s per lesson.\n\r", 
                  capitalize(pSkill->name), name_amount(pSkill->cost) ); 
         to_actor( buf, ch );
         fFound = TRUE;
@@ -767,7 +767,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
 
 	if ( !fFound )
 	{
-        snprintf( buf, MAX_STRING_LENGTH, "  You are not yet apprenticed to %s.\n\r",
+        sprintf( buf, "  You are not yet apprenticed to %s.\n\r",
                  NAME(rch) );
         to_actor( buf, ch );
 		return;
@@ -856,7 +856,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
      /* check the skill time */
         if ( pSSkill->skill_time > 0 )
         {
-        snprintf( buf, MAX_STRING_LENGTH, 
+        sprintf( buf, 
 
 "You still have %s game hours left until your next session.\n\r",
 
@@ -871,7 +871,7 @@ void cmd_learn( PLAYER *ch,  char *argument )
     /*
      * Take the tuition. 
      */
-    snprintf( buf, MAX_STRING_LENGTH, "You receive %s in change.\n\r",
+    sprintf( buf, "You receive %s in change.\n\r",
                  sub_coins( amount, ch ) );
     to_actor( buf, ch );
 
@@ -888,19 +888,19 @@ void cmd_learn( PLAYER *ch,  char *argument )
         display_interp( ch, "^B" );
         to_actor( "New skill bonus.\n\r", ch );
         display_interp( ch, "^N" );
-    snprintf( buf, MAX_STRING_LENGTH, "You are now apprenticed in %s with %s.\n\r",
+    sprintf( buf, "You are now apprenticed in %s with %s.\n\r",
              pSSkill->name, NAME(rch) );
     to_actor( buf, ch );
     }
     else       /* If changing tutor... */
     if ( pSSkill->teacher != rch->pIndexData->dbkey )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "You have left the apprenticeship of your old mentor.\n\r" );
+        sprintf( buf, "You have left the apprenticeship of your old mentor.\n\r" );
         to_actor( buf, ch );
         pSSkill->teacher = rch->pIndexData->dbkey;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "You learn %s from %s.\n\r",
+    sprintf( buf, "You learn %s from %s.\n\r",
              pSSkill->name, NAME(rch) );
     to_actor( buf, ch );
     /* improve the skill */
@@ -1028,7 +1028,7 @@ bool skill_check( PLAYER *ch, SKILL *pSkill, int modifier )
     success = URANGE(0,level,130) > roll;
 
     { char buf[MAX_STRING_LENGTH];
-    snprintf( buf, MAX_STRING_LENGTH, "Skill> %s using %s %d+%d%% yielded %d%% r:%1.3f against %d %s",
+    sprintf( buf, "Skill> %s using %s %d+%d%% yielded %d%% r:%1.3f against %d %s",
               NAME(ch), pSkill->name, l, modifier, level, ratio, roll, success ? "success" : "fail" );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_DAMAGE );
     }

@@ -93,6 +93,8 @@ const char    echo_on_str     [] = { IAC, WONT, TELOPT_ECHO, '\0' };
 #define MT(str, d) ( str == NULL || str[0] == '\0' ? d : str )
 #define SMT(str)   ( str == NULL || str[0] == '\0' )
 
+void send_cleartext_mssp( CONNECTION * d);
+
 /*
  * Other local functions (OS-independent).
  */
@@ -270,28 +272,28 @@ void print_stat_menu( PLAYER *ch )
     else 
     to_actor( "You have hero points left unspent!\n\r\n\r", ch );
    
-    snprintf( buf, MAX_STRING_LENGTH, "[S]trength:     %s\n\r", name_stat_range(get_curr_str(ch)) );
+    sprintf( buf, "[S]trength:     %s\n\r", name_stat_range(get_curr_str(ch)) );
     to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "[I]ntelligence: %s\n\r", name_stat_range(get_curr_int(ch)) );
+    sprintf( buf, "[I]ntelligence: %s\n\r", name_stat_range(get_curr_int(ch)) );
     to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "[W]isdom:       %s\n\r", name_stat_range(get_curr_wis(ch)) );
+    sprintf( buf, "[W]isdom:       %s\n\r", name_stat_range(get_curr_wis(ch)) );
     to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "[D]exterity:    %s\n\r", name_stat_range(get_curr_dex(ch)) );
+    sprintf( buf, "[D]exterity:    %s\n\r", name_stat_range(get_curr_dex(ch)) );
     to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "[C]onstitution: %s\n\r", name_stat_range(get_curr_con(ch)) );
+    sprintf( buf, "[C]onstitution: %s\n\r", name_stat_range(get_curr_con(ch)) );
     to_actor( buf, ch );
     if ( ch->exp_level == 0 ) {
-    snprintf( buf, MAX_STRING_LENGTH, "[A]ge:          %d years\n\r", GET_AGE(ch) );
+    sprintf( buf, "[A]ge:          %d years\n\r", GET_AGE(ch) );
     to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "[H]eight:       %d units\n\r", ch->size );
+    sprintf( buf, "[H]eight:       %d units\n\r", ch->size );
     to_actor( buf, ch );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "You have %d point%s to distribute.\n\r", 
+    sprintf( buf, "You have %d point%s to distribute.\n\r", 
           PC(ch,stat_points), PC(ch,stat_points) == 1 ? "" : "s" );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Hit return to continue, or, %s, type a letter: ",
+    sprintf( buf, "Hit return to continue, or, %s, type a letter: ",
              capitalize(ch->name) );
     to_actor( buf, ch );
 
@@ -308,7 +310,7 @@ void stat_menu( PLAYER *ch, char *argument )
     d= ch->desc;
     if ( d==NULL )
     {
-        bug( "Stat_menu: NULL connection.", 0 );
+        wtf_logf( "Stat_menu: NULL connection.", 0 );
         return;
     }
 
@@ -348,11 +350,11 @@ void stat_menu( PLAYER *ch, char *argument )
 /***/   DC(d) = NET_STAT_AGE;
 
         race = race_lookup( ch->race );
-        snprintf( buf, MAX_STRING_LENGTH, "%s live to be a maximum of %d years.",     
+        sprintf( buf, "%s live to be a maximum of %d years.",     
                  RACE(race,race_name), RACE(race,base_age) );
         to_actor( buf, ch );
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s is currently %d years old.\n\r",
+        sprintf( buf, "%s is currently %d years old.\n\r",
                  NAME(ch), GET_AGE(ch) );
         to_actor( buf, ch );
 
@@ -369,12 +371,12 @@ void stat_menu( PLAYER *ch, char *argument )
         race = race_lookup( ch->race );
 /***/   DC(d) = NET_STAT_SIZE;
 
-        snprintf( buf, MAX_STRING_LENGTH, "Members of your race are from %d to %d units tall.\n\r",
+        sprintf( buf, "Members of your race are from %d to %d units tall.\n\r",
                 RACE(race,size)-4,
                 RACE(race,size)+4 );
         to_actor( buf, ch );
 
-        snprintf( buf, MAX_STRING_LENGTH, "You are currently %d units in size.\n\r[Units are six inches or approximately 18cm]\n\r",
+        sprintf( buf, "You are currently %d units in size.\n\r[Units are six inches or approximately 18cm]\n\r",
                  ch->size );
         to_actor( buf, ch );
 
@@ -400,12 +402,12 @@ void stat_menu( PLAYER *ch, char *argument )
     new_char( ch );    
     save_actor_prop( ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s is born in the year %d.", ch->name,
+    sprintf( buf, "%s is born in the year %d.", ch->name,
                PC(ch,birth_year) );  
     add_history( ch, buf );
 
     ch->hit = MAXHIT(ch);
-    snprintf( buf, MAX_STRING_LENGTH, "Notify> New player %s@%s.", ch->name, d->host );
+    sprintf( buf, "Notify> New player %s@%s.", ch->name, d->host );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_LOGIN );
     sprintf( log_buf, "%s@%s new player.", ch->name, d->host );
     log_string( log_buf );
@@ -434,7 +436,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
 
     if ( d == NULL )
     {
-        bug( "Stat_menu_choice:  NULL connection.", 0 );
+        wtf_logf( "Stat_menu_choice:  NULL connection.", 0 );
         return;
     }
 
@@ -563,7 +565,7 @@ void actor_gen( PLAYER *ch, char *argument )
 
     if ( ch == NULL )
 	{
-		bug( "Char_gen: NULL character at function call.", 0 );
+		wtf_logf( "Char_gen: NULL character at function call.", 0 );
 		return;
 	}
 
@@ -676,10 +678,10 @@ void actor_gen( PLAYER *ch, char *argument )
             
             buf[0] = '\0';
 #if defined(MSDOS)
-            snprintf( buf, MAX_STRING_LENGTH, "del %s%s", PLAYER_DIR, capitalize( ch->name ) );
+            sprintf( buf, "del %s%s", PLAYER_DIR, capitalize( ch->name ) );
 #else
 #if defined(unix)
-            snprintf( buf, MAX_STRING_LENGTH, "rm -f %s%s &", PLAYER_DIR, capitalize( ch->name ) );
+            sprintf( buf, "rm -f %s%s &", PLAYER_DIR, capitalize( ch->name ) );
 #endif
 #endif
             if ( str_cmp( ch->name, "guest" ) ) system( buf );
@@ -908,13 +910,13 @@ PLAYER *generate_guest( void )
     nch = new_player( );
     nch->name        = str_dup( "Guest"          );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Guest #%d", guestnumber );
+    sprintf( buf, "Guest #%d", guestnumber );
     nch->short_descr = str_dup( buf );
 
     nch->long_descr  = str_dup( "(OOC) A guest is observing.\n\r" );
     nch->description = str_dup( "OUT OF CHARACTER GUEST\n\r" );
 
-    snprintf( buf, MAX_STRING_LENGTH, "guest %d", guestnumber );
+    sprintf( buf, "guest %d", guestnumber );
     nch->keywords    = str_dup( buf              );
 
     /*
@@ -927,7 +929,7 @@ PLAYER *generate_guest( void )
     nch->flag = ACTOR_NOSCAN | ACTOR_WIMPY;
     nch->in_scene = get_scene( SCENE_VNUM_GUEST );
 
-    snprintf( buf, MAX_STRING_LENGTH, "GUEST CHARACTER CREATED: #%d", guestnumber );
+    sprintf( buf, "GUEST CHARACTER CREATED: #%d", guestnumber );
     log_string( buf );
 
     return nch;
@@ -983,7 +985,7 @@ void newbie( CONNECTION *d, char *argument )
     {
 
     default:
-    bug( "Newbie: bad DC(d) %d.", DC(d) );
+    wtf_logf( "Newbie: bad DC(d) %d.", DC(d) );
 	close_socket( d );
 	return;
 
@@ -1097,7 +1099,7 @@ void newbie( CONNECTION *d, char *argument )
 	{
 	    /* New player */
         if ( !sendcli( d, "CREATE" ) ) {
-        snprintf( buf, MAX_STRING_LENGTH, "\n\rThat character does not exist." );
+        sprintf( buf, "\n\rThat character does not exist." );
 	    write_to_buffer( d, buf, 0 );
           }
 
@@ -1241,7 +1243,7 @@ void newbie( CONNECTION *d, char *argument )
                 }
             }
 
-            if ( prev == NULL ) bug( "Newbie: prev mount not found.", 0 );
+            if ( prev == NULL ) wtf_logf( "Newbie: prev mount not found.", 0 );
 
             wch->next = actor_list;
             actor_list = wch;
@@ -1471,7 +1473,7 @@ bool check_reconnect( CONNECTION *d, char *name, bool fConn )
 		log_string( log_buf );
         DC(d) = NET_PLAYING;
 	
-        snprintf( buf, MAX_STRING_LENGTH, "Notify>  %s", log_buf );
+        sprintf( buf, "Notify>  %s", log_buf );
         NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_LOGIN );
 
 	    }

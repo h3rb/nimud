@@ -1031,17 +1031,19 @@ N lute~
 SD a lute~
 P ~
 D
-A lute.~
+A strung lute rests against one wall.
+~
 A
 ~
 PD
 ~
 DR
+A fine lute crafted in Kess.
 ~
 L 0
-T 13
+T 0
 E 0
-W 1
+W 32769
 Sz 18
 Ti 0
 Wt 1

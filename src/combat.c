@@ -182,7 +182,7 @@ void MSG_weapon_hit( PLAYER *ch, PROP *prop, PLAYER *vi, int dam )
 
     if ( prop->item_type != ITEM_WEAPON )
     {
-        bug( "MSG_weapon_hit: Supplied prop is not a weapon.", 0 );
+        wtf_logf( "MSG_weapon_hit: Supplied prop is not a weapon." );
         return;
     }
 
@@ -211,7 +211,7 @@ void MSG_weapon_hit( PLAYER *ch, PROP *prop, PLAYER *vi, int dam )
     {
     default:
     if ( prop->value[3] > MAX_ATTACK )
-    bug("MSG_weapon_hit: Invalid attack (dbkey %d).", prop->pIndexData->dbkey);
+    wtf_logf("MSG_weapon_hit: Invalid attack (dbkey %d).", prop->pIndexData->dbkey);
     if ( dam >= 100 ) i = "$4$B$n massacre$v $N with $s powerful attack!$R";
     else
     if ( dam < 5 )
@@ -460,7 +460,7 @@ void MSG_weapon_hit( PLAYER *ch, PROP *prop, PLAYER *vi, int dam )
 
 void MSG_weapon_partial_dodge( PLAYER *ch, PROP*prop, PLAYER *victim )
 {
-/*    bug( "MSG_weapon_partial_dodge: msg",0 );    */
+/*    wtf_logf( "MSG_weapon_partial_dodge: msg",0 );    */
     return;
 }
 
@@ -563,7 +563,7 @@ void MSG_actor_hit( PLAYER *ch, int idx, PLAYER *victim, int dam )
         case 13:i = "$4$n $Bgore$v$R$4 $N$t$R"; break;
         case 14:i = "$4$n $Bbite$v$R$4 $N$t$R"; break;
         case 15:i = "$4$n $Btear$v$R$4 $N's flesh with slippery suctions.$R"; break;
-     default: {bug( "MSG_actor_hit: msg",0 ); return;}     break;
+     default: {wtf_logf( "MSG_actor_hit: msg" ); return;}     break;
     }
 
     act( i, ch, w, victim, TO_ALL );
@@ -1225,7 +1225,7 @@ void exp_gain( PLAYER *ch, int gain, bool fMessage )
 
     gain = gain + URANGE(0,number_range( gain/4, gain/2 ),gain); 
 
-    snprintf( buf, MSL, "Experience> %s gains %d exp\n\r", NAME(ch), gain );
+    sprintf( buf, "Experience> %s gains %d exp\n\r", NAME(ch), gain );
     NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_DEATH );
 
     /*
@@ -1236,7 +1236,7 @@ void exp_gain( PLAYER *ch, int gain, bool fMessage )
     ch->exp +=gain;
     if ( fMessage == TRUE ) {
         display_interp( ch, "^3" ); 
-        snprintf( buf, MAX_STRING_LENGTH, "You gain %d experience point%s.\n\r", gain, gain > 1 ? "s" : "" );
+        sprintf( buf, "You gain %d experience point%s.\n\r", gain, gain > 1 ? "s" : "" );
         to_actor( buf, ch );
         display_interp( ch, "^N" ); 
     }       
@@ -1259,7 +1259,7 @@ void exp_gain( PLAYER *ch, int gain, bool fMessage )
         display_interp( ch, "^3" ); 
         display_interp( ch, "^B" );
 
-        snprintf( buf, MAX_STRING_LENGTH, "You raised %s level%s", gained_levels == 1 ? "a" : 
+        sprintf( buf, "You raised %s level%s", gained_levels == 1 ? "a" : 
                          capitalize(numberize(gained_levels)), 
                       gained_levels > 1 ? "s!" : "!" );
         to_actor( buf, ch );
@@ -1271,7 +1271,7 @@ void exp_gain( PLAYER *ch, int gain, bool fMessage )
         to_actor( ".\n\r", ch );
       
         if ( !NPC(ch) && !IS_HERO(ch) && ch->exp_level >= MAX_MORTAL_LEVEL ) {
-          snprintf( buf, MAX_STRING_LENGTH, "A new star shines in the heavens!\n\r%s has become immortal.", NAME(ch) );
+          sprintf( buf, "A new star shines in the heavens!\n\r%s has become immortal.", NAME(ch) );
           add_history( ch, buf );
           write_global( buf );
           to_actor( "You are now a hero and may commission a castle.\n\r", ch );
@@ -1284,10 +1284,10 @@ void exp_gain( PLAYER *ch, int gain, bool fMessage )
                    to_actor( " hero points.\n\r", ch ); 
                  }
            if ( PC(ch,stat_points) > 0 ) {
-            snprintf( buf, MAX_STRING_LENGTH, "%s gains new status amongst his peers.\n\r",
+            sprintf( buf, "%s gains new status amongst his peers.\n\r",
                      NAME(ch) );
             } else {
-            snprintf( buf, MAX_STRING_LENGTH, "%s is given heroic stature.  %s is known as a %sfamous adventurer.\n\r",
+            sprintf( buf, "%s is given heroic stature.  %s is known as a %sfamous adventurer.\n\r",
                      NAME(ch), ch->sex == SEX_MALE ? "He" : 
                              ( ch->sex == SEX_FEMALE ? "She" : "It" ),
                      ch->karma > 0 ? "" : "in" );
@@ -1309,13 +1309,14 @@ void damage( PLAYER *ch, PLAYER *victim, int dam )
     if ( dam != 0 )
     {
         PLAYER *rch;
-        char buf[12];
+//        char buf[12];
 
         for( rch = ch->in_scene->people; rch != NULL; rch = rch->next_in_scene )
         {
+/*
             if ( IS_IMMORTAL(rch) && IS_SET(rch->flag,WIZ_NOTIFY_DAMAGE))
             {
-                snprintf( buf, MAX_STRING_LENGTH, "[%c%c%3d->%c%c] ",
+                sprintf( buf, "[%c%c%3d->%c%c] ",
                          rch != ch ? STR(ch,name)[0] : '*',
                          rch != ch ? STR(ch,name)[1] : '*',
                          dam,
@@ -1323,6 +1324,7 @@ void damage( PLAYER *ch, PLAYER *victim, int dam )
                          rch != victim ? STR(victim,name)[1] : '*' );
                 to_actor( buf, rch );
             }
+*/
         }
  
    }
@@ -1389,7 +1391,7 @@ void damage( PLAYER *ch, PLAYER *victim, int dam )
             dam -= dam / 4;
 
 /*
- * Fix lightly bug.
+ * Fix lightly wtf_logf.
  */
         if ( dam < 0 )
             dam = 1;
@@ -1451,7 +1453,7 @@ void damage( PLAYER *ch, PLAYER *victim, int dam )
                 victim->in_scene->dbkey );
             log_string( log_buf );
 
-        snprintf( buf, MAX_STRING_LENGTH, "Notify> %s", log_buf );
+        sprintf( buf, "Notify> %s", log_buf );
         NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_DEATH );
         }
 
@@ -1589,7 +1591,7 @@ void set_fighting( PLAYER *ch, PLAYER *victim )
 
     if ( ch->fighting != NULL )
     {
-//        bug( "Set_fighting: already fighting", 0 );
+//        wtf_logf( "Set_fighting: already fighting", 0 );
         return;
     }
 
@@ -1681,19 +1683,19 @@ void make_corpse( PLAYER *ch )
         corpse        = create_prop(get_prop_template(PROP_VNUM_CORPSE_NPC), 0);
         corpse->timer = number_range( 20, 30 ) * 5;
 
-    snprintf( buf, MAX_STRING_LENGTH, "corpse of %s", name );
+    sprintf( buf, "corpse of %s", name );
     free_string( corpse->short_descr );
     corpse->short_descr = str_dup( buf );
 
-    snprintf( buf, MAX_STRING_LENGTH, "A corpse of %s lies here.\n\r", name );
+    sprintf( buf, "A corpse of %s lies here.\n\r", name );
     free_string( corpse->description );
     corpse->description = str_dup( buf );
 
-    snprintf( buf, MAX_STRING_LENGTH, "corpses of %s", name );
+    sprintf( buf, "corpses of %s", name );
     free_string( corpse->short_descr_plural );
     corpse->short_descr_plural = str_dup( buf );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%%s corpses of %s are laying in a heap.\n\r", name );
+    sprintf( buf, "%%s corpses of %s are laying in a heap.\n\r", name );
     free_string( corpse->description_plural );
     corpse->description_plural = str_dup( buf );
 
@@ -1703,19 +1705,19 @@ void make_corpse( PLAYER *ch )
         name            = NAME(ch);
         corpse          = create_prop(get_prop_template(PROP_VNUM_CORPSE_PC), 0);
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s's corpse", name );
+    sprintf( buf, "%s's corpse", name );
     free_string( corpse->short_descr );
     corpse->short_descr = str_dup( buf );
 
-    snprintf( buf, MAX_STRING_LENGTH, "The marred body of %s lies here.\n\r", name );
+    sprintf( buf, "The marred body of %s lies here.\n\r", name );
     free_string( corpse->description );
     corpse->description = str_dup( buf );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s's corpses", NAME(ch) );
+    sprintf( buf, "%s's corpses", NAME(ch) );
     free_string( corpse->short_descr_plural );
     corpse->short_descr_plural = str_dup( buf );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%%s bodies of %s are laying in a heap.\n\t", name );
+    sprintf( buf, "%%s bodies of %s are laying in a heap.\n\t", name );
     free_string( corpse->description_plural );
     corpse->description_plural = str_dup( buf );
     }
@@ -1764,7 +1766,7 @@ void death_cry( PLAYER *ch )
             msg  = "As $n dies, you notice the blood everywhere.";
             if ( prop != NULL && prop->item_type != ITEM_MONEY )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "a bloodied %s",
+            sprintf( buf, "a bloodied %s",
                           smash_article(STR(prop, short_descr)) );
             free_string( prop->short_descr );
             prop->short_descr = str_dup( buf );
@@ -2378,7 +2380,7 @@ void cmd_reload( PLAYER *ch, char *argument )
        return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "You ready your %s.\n\r", smash_article(STR(prop,short_descr)) );
+    sprintf( buf, "You ready your %s.\n\r", smash_article(STR(prop,short_descr)) );
     to_actor( buf, ch );
     prop->value[3] = ammo->value[0];
     extractor_prop( ammo );
@@ -2622,7 +2624,7 @@ TO_VICT );
 TO_NOTVICT );
 	    fch->fbits = 0;
 	    oroc( fch, ch );
-	    /* If the poor bugger died... */
+	    /* If the poor wtf_logfger died... */
 	    if ( ch->position < POS_STANDING )
 		return( FALSE );
 	}
@@ -2824,11 +2826,11 @@ bool hit_vorpal( PLAYER *ch, PLAYER *victim, int hit, int dam )
         prop         = create_prop( get_prop_template( PROP_VNUM_SEVERED_HEAD ), 0 );
         prop->timer  = number_range( 4, 7 );
 
-        snprintf( buf, MAX_STRING_LENGTH, STR(prop, short_descr), NAME(victim) );
+        sprintf( buf, STR(prop, short_descr), NAME(victim) );
         free_string( prop->short_descr );
         prop->short_descr = str_dup( buf );
 
-        snprintf( buf, MAX_STRING_LENGTH, STR(prop, description), NAME(victim) );
+        sprintf( buf, STR(prop, description), NAME(victim) );
         free_string( prop->description );
         prop->description = str_dup( buf );
 

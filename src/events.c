@@ -59,6 +59,8 @@
 
 EVENT *event_queue;
 
+void assign_var_trig( void * owner, int type, INSTANCE *instance, VARIABLE *var, char *name );
+
 void assign_var_trig( void * owner, int type, INSTANCE *instance, 
                       VARIABLE *var, char *name )
 {
@@ -271,7 +273,7 @@ void cmd_events( PLAYER *ch, char *argument ) {
           pScene = (SCENE *)(pEvent->owner);
           if ( pEvent->type == TYPE_STRING ) continue;  
 
-          snprintf( buf, MAX_STRING_LENGTH, "Delay: [%5d]   Caller: [%11s]   Name: [%11s]\n\r",
+          sprintf( buf, "Delay: [%5d]   Caller: [%11s]   Name: [%11s]\n\r",
                 pEvent->time, 
                 pActor ? STR(pActor,short_descr) :
                (pProp ? STR(pProp,short_descr) : 

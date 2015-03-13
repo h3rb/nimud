@@ -160,7 +160,6 @@ const	struct	cmd_type	command_table	[] =
      */
     { "Informative",    NULL,         POS_FIGHTING,   -2,  LOG_NEVER  },
 
-    { "bug",        cmd_bug,          POS_DEAD,        0,  LOG_NORMAL    },
     { "commands",   cmd_commands,     POS_DEAD,        0,  LOG_NORMAL    },
     { "compare",    cmd_compare,      POS_RESTING,     0,  LOG_NORMAL    },
     { "consider",   cmd_consider,     POS_RESTING,     0,  LOG_NORMAL    },
@@ -467,7 +466,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
            if ( pActor 
              && pActor->exp > (level/2) 
              && pActor->exp < (level+level/2) ) {
-              snprintf( buf, MAX_STRING_LENGTH, "[%d] %s | %dk %dgp %dxp\n\r", 
+              sprintf( buf, "[%d] %s | %dk %dgp %dxp\n\r", 
                          pActor->dbkey, pActor->short_descr,
                          pActor->karma, pActor->money, pActor->exp );
               to_actor( buf, ch );
@@ -482,7 +481,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
            char buf[MSL];
            ACTOR_TEMPLATE *pActor = get_actor_template( dbkey );
            if ( pActor && pActor->instances && pActor->instances->script ) {
-              snprintf( buf, MAX_STRING_LENGTH, "A[%d] %s (%s)\n\r", 
+              sprintf( buf, "A[%d] %s (%s)\n\r", 
                          pActor->dbkey, pActor->short_descr, 
                          pActor->instances->script->name );
               to_actor( buf, ch );
@@ -498,7 +497,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
            PROP_TEMPLATE *pProp = get_prop_template( dbkey );
 
            if ( pProp && pProp->instances && pProp->instances->script ) {
-              snprintf( buf, MAX_STRING_LENGTH, "P[%d] %s (%s)\n\r", 
+              sprintf( buf, "P[%d] %s (%s)\n\r", 
                          pProp->dbkey, pProp->short_descr, 
                          pProp->instances->script->name );
               to_actor( buf, ch );
@@ -513,7 +512,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
            char buf[MSL];
            PROP_TEMPLATE *pProp = get_prop_template( dbkey );
            if ( pProp && pProp->item_type == ITEM_CLOTHING ) {
-              snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to AC bonus) %s\n\r", 
+              sprintf( buf, "[%d] %s (%d to AC bonus) %s\n\r", 
                          pProp->dbkey, pProp->short_descr, pProp->value[1],
                          wear_bit_name(pProp->wear_flags) );
               to_actor( buf, ch );
@@ -528,7 +527,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
            char buf[MSL];
            PROP_TEMPLATE *pProp = get_prop_template( dbkey );
            if ( pProp && pProp->item_type == ITEM_ARMOR ) {
-              snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to AC bonus) %s\n\r", 
+              sprintf( buf, "[%d] %s (%d to AC bonus) %s\n\r", 
                          pProp->dbkey, pProp->short_descr, pProp->value[0],
                          wear_bit_name(pProp->wear_flags) );
               to_actor( buf, ch );
@@ -543,7 +542,7 @@ void cmd_library( PLAYER *ch, char *argument ) {
            char buf[MSL];
            PROP_TEMPLATE *pProp = get_prop_template( dbkey );
            if ( pProp && pProp->item_type == ITEM_WEAPON ) {
-              snprintf( buf, MAX_STRING_LENGTH, "[%d] %s (%d to %d) %s\n\r", 
+              sprintf( buf, "[%d] %s (%d to %d) %s\n\r", 
                          pProp->dbkey, pProp->short_descr, pProp->value[1],
                          pProp->value[2], attack_table[pProp->value[3]].name );
               to_actor( buf, ch );
@@ -577,7 +576,7 @@ void cmd_comlist( PLAYER *ch, char *argument )
              display_interp( ch, "^N" );
         }
         else {
-        snprintf( buf, MAX_STRING_LENGTH, "%10s %2d%s", command_table[cmd].name,
+        sprintf( buf, "%10s %2d%s", command_table[cmd].name,
                                     comlist[cmd],
                                     ((cmd+1) % 5 == 0) ? "\n\r" : " " );
         strcat( final, buf );
@@ -643,12 +642,12 @@ void interpret( PLAYER *ch, char *argument )
         sprintf( cmmnd, "do({%s}); wait(%d);\n\r", argument,
                                                    ch->userdata->trace_wait );
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s", trace->commands );
+        sprintf( buf, "%s", trace->commands );
 
         if ( strlen( buf ) + strlen( cmmnd ) >= ( MAX_STRING_LENGTH - 4 ) )
         {
             to_actor( "Script too long, truncating.\n\r", ch );
-            strncat( buf, cmmnd, MAX_STRING_LENGTH );
+            sprintf( buf, "%s%s", buf, cmmnd ); //strncat( buf, cmmnd, MAX_STRING_LENGTH );
             free_string( trace->commands );
             trace->commands = str_dup( buf );
             cmd_sedit( ch, "trace" );
@@ -832,9 +831,9 @@ void interpret( PLAYER *ch, char *argument )
     if ( ch->desc != NULL && ch->desc->snoop_by != NULL )
     {
         char buf[MAX_STRING_LENGTH];
-        snprintf( buf, MAX_STRING_LENGTH, "%s", STR(ch,name) );
+        sprintf( buf, "%s", STR(ch,name) );
         write_to_buffer( ch->desc->snoop_by, buf,     2 );
-        snprintf( buf, MAX_STRING_LENGTH, "%% " );
+        sprintf( buf, "%% " );
         write_to_buffer( ch->desc->snoop_by, buf,     2 );
         write_to_buffer( ch->desc->snoop_by, logline, 0 );
         write_to_buffer( ch->desc->snoop_by, "\n\r",  2 );

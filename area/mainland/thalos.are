@@ -642,7 +642,8 @@ N fountain water~
 SD a large cracked fountain~
 P ~
 D
-Some stagnant water lies in the bottom of the fountain.~
+Some stagnant wanter lies in the bottom of a cracked fountain.
+~
 A
 ~
 PD
@@ -658,7 +659,7 @@ Ti 0
 Wt 0
 C 0
 O ~
-V 10 0 0 0
+V 10 1 0 0
 End
 
 #20221
@@ -3069,14 +3070,14 @@ M 0
 W 0
 T 0
 O ~
-ED skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
-skeletons appear illusionary.
-~
 ED writings writing words~
 This cave along with the valley and darkwood forest is made by Hatchet for any
 Merc Mud.
 copyright 1992
+~
+ED skeleton skeletons~
+Something is strange about these skeletons.  Upon further investigation, these
+skeletons appear illusionary.
 ~
 Dr 0 0 0 20268
 You see more of the cave.

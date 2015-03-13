@@ -601,7 +601,7 @@ void weather_update( void )
     switch ( weather.sky )
     {
     default: 
-        bug( "Weather_update: bad sky %d.", weather.sky );
+        wtf_logf( "Weather_update: bad sky %d.", weather.sky );
         weather.sky = SKY_CLOUDLESS;
        break;
 
@@ -1034,7 +1034,7 @@ void prop_update_pulse( void )
 			EXIT *pExit;
 			char buf[MAX_STRING_LENGTH];
 
-			snprintf( buf, MAX_STRING_LENGTH, "$p %s",
+			sprintf( buf, "$p %s",
 						  pScene->move == MOVE_WATER_NOSWIM ||
 						  pScene->move == MOVE_WATER_SWIM ?
 							  "splashes into the water and disappears." :
@@ -1055,7 +1055,7 @@ void prop_update_pulse( void )
 			{
 				prop_from_scene( prop );
 				pScene = pExit->to_scene;
-				snprintf( buf, MAX_STRING_LENGTH, "$p %s",
+				sprintf( buf, "$p %s",
 						  pScene->move == MOVE_WATER_NOSWIM ||
 						  pScene->move == MOVE_WATER_SWIM ?
 							  "washes in from above." :
@@ -1275,7 +1275,7 @@ void aggr_update( void )
 
 	    if ( victim == NULL )
 	    {
-		bug( "Aggr_update: null victim.", count );
+		wtf_logf( "Aggr_update: null victim.", count );
 		continue;
 	    }
 
@@ -1308,7 +1308,7 @@ bool spawn_scene( SCENE *pScene )
     if ( pScene == NULL ) return FALSE;
     if ( get_scene( pScene->dbkey ) == NULL )
     {
-          bug( "Spawn_scene: invalid scene %d", pScene->dbkey);
+          wtf_logf( "Spawn_scene: invalid scene %d", pScene->dbkey);
           if ( fOldBootDb ) exit( 1 );
           return FALSE;
     }
@@ -1377,14 +1377,14 @@ bool spawn_scene( SCENE *pScene )
 
 	switch ( pSpawn->command )
 	{
-        default: bug( "Spawn_scene: bad command %c.", pSpawn->command );
+        default: wtf_logf( "Spawn_scene: bad command %c.", pSpawn->command );
 	    break;
 
     case 'M':
 
         if ( ( pActorIndex = get_actor_template( pSpawn->rs_dbkey ) ) == NULL )
         {
-            bug( "Spawn_scene: 'M': bad dbkey %d.", pSpawn->rs_dbkey );
+            wtf_logf( "Spawn_scene: 'M': bad dbkey %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             break;
         }
@@ -1404,7 +1404,7 @@ bool spawn_scene( SCENE *pScene )
      case 'O':
         if ( ( pPropIndex = get_prop_template( pSpawn->rs_dbkey ) ) == NULL )
         {
-            bug( "Spawn_scene: 'O': bad dbkey %d.", pSpawn->rs_dbkey );
+            wtf_logf( "Spawn_scene: 'O': bad dbkey %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             continue;
         }
@@ -1463,7 +1463,7 @@ bool spawn_scene( SCENE *pScene )
 	case 'G':  pPropIndex = get_prop_template( PROP_VNUM_TEMPLATE );
         if ( pSpawn->rs_dbkey > MAX_GOODS-1 || pSpawn->rs_dbkey < 0 )
         {
-            bug( "Spawn_scene: 'G': bad good %d.", pSpawn->rs_dbkey );
+            wtf_logf( "Spawn_scene: 'G': bad good %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             continue;
         }
@@ -1520,7 +1520,7 @@ bool spawn_scene( SCENE *pScene )
 	case 'C': pPropIndex = get_prop_template( PROP_VNUM_TEMPLATE );
         if ( pSpawn->rs_dbkey > MAX_COMPONENTS-1 || pSpawn->rs_dbkey < 0 )
         {
-            bug( "Spawn_scene: 'C': bad component %d.", pSpawn->rs_dbkey );
+            wtf_logf( "Spawn_scene: 'C': bad component %d.", pSpawn->rs_dbkey );
             if ( fOldBootDb ) exit( 1 );
             continue;
         }
@@ -1883,35 +1883,35 @@ void show_player_statistics( PLAYER *ch ) {
     display_interp( ch, "^N" );
 
     if ( ps_top_rank ) {
-       snprintf( buf, MSL, "^2Highest ranking player: ^N^B%s^N\n\r", ps_top_rank );
+       sprintf( buf, "^2Highest ranking player: ^N^B%s^N\n\r", ps_top_rank );
        display_interp( ch, buf );
     }
 
     if ( ps_top_landowner ) {
-       snprintf( buf, MSL, "    ^2Greatest landowner:     ^N^B%s^N (%d)\n\r", ps_top_landowner, ps_scene_count );
+       sprintf( buf, "    ^2Greatest landowner:     ^N^B%s^N (%d)\n\r", ps_top_landowner, ps_scene_count );
        display_interp( ch, buf );
     }
 
     if ( ps_longest ) {
-       snprintf( buf, MSL, "^2    Played the longest: ^N^B%s^N with ^B%d^N hours, ^B%d^N logins\n\r",
+       sprintf( buf, "^2    Played the longest: ^N^B%s^N with ^B%d^N hours, ^B%d^N logins\n\r",
              ps_longest, ps_length % 24, ps_logins );
        display_interp( ch, buf );
     }
 
     if ( ps_top_skill ) {
-       snprintf( buf, MSL, "^2 Most diverse skillset: ^N^B%s^N with ^B%d^N skills\n\r",
+       sprintf( buf, "^2 Most diverse skillset: ^N^B%s^N with ^B%d^N skills\n\r",
              ps_top_skill, ps_learned );
        display_interp( ch, buf );
     }
 
     if ( ps_top_mage ) {
-       snprintf( buf, MSL, "^2    Most powerful mage: ^N^B%s^N with ^B%d^N spells\n\r",
+       sprintf( buf, "^2    Most powerful mage: ^N^B%s^N with ^B%d^N spells\n\r",
              ps_top_mage, ps_magery );
        display_interp( ch, buf );
     }
 
     if ( ps_top_exp ) {
-       snprintf( buf, MSL, "^2      Most experienced: ^N^B%s^N with ^B%d^N points\n\r",
+       sprintf( buf, "^2      Most experienced: ^N^B%s^N with ^B%d^N points\n\r",
              ps_top_exp, ps_exp );
        display_interp( ch, buf );
     }
@@ -1919,31 +1919,31 @@ void show_player_statistics( PLAYER *ch ) {
     to_actor( "\n\r", ch );
 
     if ( ps_top_str ) {
-       snprintf( buf, MSL, "^2 Strongest: ^N^B%s^N with ^B%d^N strength\n\r",
+       sprintf( buf, "^2 Strongest: ^N^B%s^N with ^B%d^N strength\n\r",
              ps_top_str, ps_str );
        display_interp( ch, buf );
     }
 
     if ( ps_top_int ) {
-       snprintf( buf, MSL, "^2  Smartest: ^N^B%s^N with ^B%d^N intelligence\n\r",
+       sprintf( buf, "^2  Smartest: ^N^B%s^N with ^B%d^N intelligence\n\r",
              ps_top_int, ps_int );
        display_interp( ch, buf );
     }
 
     if ( ps_top_wis ) {
-       snprintf( buf, MSL, "^2    Wisest: ^N^B%s^N with ^B%d^N wisdom\n\r",
+       sprintf( buf, "^2    Wisest: ^N^B%s^N with ^B%d^N wisdom\n\r",
              ps_top_wis, ps_wis );
        display_interp( ch, buf );
     }
 
     if ( ps_top_dex ) {
-       snprintf( buf, MSL, "^2  Nimblest: ^N^B%s^N with ^B%d^N dexterity\n\r",
+       sprintf( buf, "^2  Nimblest: ^N^B%s^N with ^B%d^N dexterity\n\r",
              ps_top_dex, ps_dex );
        display_interp( ch, buf );
     }
 
     if ( ps_top_con ) {
-       snprintf( buf, MSL, "^2  Toughest: ^N^B%s^N with ^B%d^N constitution\n\r",
+       sprintf( buf, "^2  Toughest: ^N^B%s^N with ^B%d^N constitution\n\r",
              ps_top_con, ps_con );
        display_interp( ch, buf );
     }
@@ -1951,10 +1951,10 @@ void show_player_statistics( PLAYER *ch ) {
     to_actor( "\n\r", ch );
 
     if ( ps_top_bad && ps_top_good ) {
-       snprintf( buf, MSL, "^2   Nicest: ^N^B%s^N with ^B%d^N karma\n\r",
+       sprintf( buf, "^2   Nicest: ^N^B%s^N with ^B%d^N karma\n\r",
              ps_top_good, ps_hkarma );
        display_interp( ch, buf );
-       snprintf( buf, MSL, "^2  Meanest: ^N^B%s^N with ^B%d^N karma\n\r",
+       sprintf( buf, "^2  Meanest: ^N^B%s^N with ^B%d^N karma\n\r",
              ps_top_bad, ps_lkarma );
        display_interp( ch, buf );
     }
@@ -1962,7 +1962,7 @@ void show_player_statistics( PLAYER *ch ) {
 
 /*
     if ( ps_last_1 && ps_last_2 && ps_last_3 && ps_last_4 && ps_last_5 ) {
-       snprintf( buf, MSL, "^2Last logins:     ^N^B%s^N, ^N^B%s^N, ^N^B%s^N, ^N^B%s^N, ^N^B%s^N\n\r", 
+       sprintf( buf, "^2Last logins:     ^N^B%s^N, ^N^B%s^N, ^N^B%s^N, ^N^B%s^N, ^N^B%s^N\n\r", 
               ps_last_1, ps_last_2, ps_last_3, ps_last_4, ps_last_5 );
        display_interp( ch, buf );
     }
@@ -1993,7 +1993,7 @@ void update_player_statistics( void ) {
     // Ignore ., .., .something, something.something because these files are not Players
     if(strstr(dent->d_name,".")) continue;
 
-    snprintf(buf, MSL, "%s%s", PLAYER_DIR, dent->d_name);
+    sprintf(buf,  "%s%s", PLAYER_DIR, dent->d_name);
     if((stat(buf, &stbuf)) == -1)
     {
       perror("stat()");

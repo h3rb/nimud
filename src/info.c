@@ -174,10 +174,10 @@ void show_scene_to_actor( PLAYER *ch, SCENE *pScene,
     
     switch ( dist )
     {
-       case 1: snprintf( buf, MAX_STRING_LENGTH, "Nearby %s you can see", dir_name[dir] ); break;
-       case 2: snprintf( buf, MAX_STRING_LENGTH, "%s of here, you see", capitalize(dir_name[dir]) ); break;
-       case 3: snprintf( buf, MAX_STRING_LENGTH, "In the distance to the %s is", dir_name[dir] ); break;
-       case 4: snprintf( buf, MAX_STRING_LENGTH, "Far away %s from you is",      dir_name[dir] ); break;
+       case 1: sprintf( buf, "Nearby %s you can see", dir_name[dir] ); break;
+       case 2: sprintf( buf, "%s of here, you see", capitalize(dir_name[dir]) ); break;
+       case 3: sprintf( buf, "In the distance to the %s is", dir_name[dir] ); break;
+       case 4: sprintf( buf, "Far away %s from you is",      dir_name[dir] ); break;
       default: break;
     }       
     
@@ -240,7 +240,7 @@ void scan_direction( PLAYER *ch, int dir )
         {
             if ( !IS_SET(pExit->exit_flags, EXIT_CONCEALED) )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "A closed %s%s blocks your view.\n\r",
+                sprintf( buf, "A closed %s%s blocks your view.\n\r",
                          pExit->keyword,
                          dist == 1 ? " nearby"          :
                          dist == 2 ? " close by"        :
@@ -254,7 +254,7 @@ void scan_direction( PLAYER *ch, int dir )
         if ( IS_SET(pExit->exit_flags, EXIT_ISDOOR)
           && !IS_SET(pExit->exit_flags, EXIT_CONCEALED) )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "You can see an opened %s%s.\n\r",
+            sprintf( buf, "You can see an opened %s%s.\n\r",
                      pExit->keyword,
                      dist == 1 ? " nearby"          :
                      dist == 2 ? " close by"        :
@@ -266,7 +266,7 @@ void scan_direction( PLAYER *ch, int dir )
           && !IS_SET(pExit->exit_flags, EXIT_CONCEALED)
           && !MTD(pExit->keyword) )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "You are able to peer through a%s %s.\n\r",
+            sprintf( buf, "You are able to peer through a%s %s.\n\r",
                      IS_VOWEL(pExit->keyword[0]) ? "n" : "",
                      pExit->keyword );
             page_to_actor( buf, ch );
@@ -355,7 +355,7 @@ char *format_prop_to_actor( PROP *prop, PLAYER *ch, bool fShort )
 
         if ( pre[0] != '\0' )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "%s %s%s", IS_VOWEL(pre[0]) ? "an" : "a", pre,
+            sprintf( buf, "%s %s%s", IS_VOWEL(pre[0]) ? "an" : "a", pre,
                      smash_article( STR(prop, short_descr) ) );
         }
         else
@@ -368,7 +368,7 @@ char *format_prop_to_actor( PROP *prop, PLAYER *ch, bool fShort )
             if ( prop->value[2] < 0 || prop->value[2] >= LIQ_MAX )
             {
                 prop->value[2] = 0;
-                bug( "Invalid liquid on prop %d.", prop->pIndexData->dbkey );
+                wtf_logf( "Invalid liquid on prop %d.", prop->pIndexData->dbkey );
             }
 
             strcat( buf, " of " );
@@ -526,7 +526,7 @@ void show_list_to_actor( PROP *list, PLAYER *ch, bool fShort, bool fShowNothing 
         {
             if ( prgnShow[iShow] > 1 )
             {
-                if (fShort) snprintf( buf, MAX_STRING_LENGTH, "%s ", numberize(prgnShow[iShow]) );
+                if (fShort) sprintf( buf, "%s ", numberize(prgnShow[iShow]) );
                 else 
                 {
                     char *pt;
@@ -534,7 +534,7 @@ void show_list_to_actor( PROP *list, PLAYER *ch, bool fShort, bool fShowNothing 
                     pt = STR(lastprop[iShow], description_plural);
                     if ( MTD(pt) )
                     {
-                         snprintf( buf, MAX_STRING_LENGTH, "%s %s are here.\n\r",
+                         sprintf( buf, "%s %s are here.\n\r",
                                        numberize(prgnShow[iShow]),
                                        pluralize(STR(lastprop[iShow],short_descr))  );
                          buf[0] = UPPER(buf[0]);
@@ -556,7 +556,7 @@ void show_list_to_actor( PROP *list, PLAYER *ch, bool fShort, bool fShowNothing 
         {
             if ( buf[0] == '\0' && prgnShow[iShow] > 1 )
             {
-                snprintf( buf, MAX_STRING_LENGTH, STR(lastprop[iShow], description_plural),
+                sprintf( buf, STR(lastprop[iShow], description_plural),
                               numberize(prgnShow[iShow]) );
                 page_to_actor( capitalize(buf), ch );
             }
@@ -807,7 +807,7 @@ void show_peek_to_actor( PROP *list, PLAYER *ch, bool fShort,
 	{
         if ( prgnShow[iShow] > 1 )
 	    {
-        if (fShort) snprintf( buf, MAX_STRING_LENGTH, "%s ", numberize( prgnShow[iShow] ) );
+        if (fShort) sprintf( buf, "%s ", numberize( prgnShow[iShow] ) );
         else
         {
             char *pt;
@@ -815,7 +815,7 @@ void show_peek_to_actor( PROP *list, PLAYER *ch, bool fShort,
 
             if ( pt == NULL || pt[0] == '\0' )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "%s %s are here.\n\r", 
+                sprintf( buf, "%s %s are here.\n\r", 
                 numberize( prgnShow[iShow] ), pluralize( STR(lastprop[iShow],short_descr) ) );
                 buf[0] = UPPER(buf[0]);
             }
@@ -838,7 +838,7 @@ void show_peek_to_actor( PROP *list, PLAYER *ch, bool fShort,
     {
         if ( buf[0] == '\0' && prgnShow[iShow] > 1 )
         {
-            snprintf( buf, MAX_STRING_LENGTH, STR(lastprop[iShow], description_plural), numberize( prgnShow[iShow] ) );
+            sprintf( buf, STR(lastprop[iShow], description_plural), numberize( prgnShow[iShow] ) );
             page_to_actor( capitalize(buf), ch );
         }
         else
@@ -1000,7 +1000,7 @@ void show_actor_to_actor_0( PLAYER *victim, PLAYER *ch )
 
     if ( victim->hitched_to != NULL && can_see_prop( ch, victim->hitched_to ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "  %s has been hitched to %s.\n\r", NAME(victim),
+        sprintf( buf, "  %s has been hitched to %s.\n\r", NAME(victim),
                  STR(victim->hitched_to,short_descr) );
         page_to_actor( buf, ch );
     }
@@ -1012,7 +1012,7 @@ void show_actor_to_actor_0( PLAYER *victim, PLAYER *ch )
 /*
  * Shows the generated prop description to a character.
  * (Once again I must say, Thanks to Kalgen for this AWESOME idea)
- * Thanks to Morgenes for the bug fixes/improvements.
+ * Thanks to Morgenes for the wtf_logf fixes/improvements.
  *                                    - Locke
  * Locations not displayed:
  * on belt (sheathed)
@@ -1049,7 +1049,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !strcmp( (p1 = str_dup(format_prop_to_actor(prop,  ch, TRUE))),
                 (p2 = str_dup(format_prop_to_actor(prop2, ch, TRUE))) ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s is wearing two %s on %s fingers",
+      sprintf( buf, "%s is wearing two %s on %s fingers",
                     HE_SHE( ch ),  pluralize( STR(prop,short_descr) ),   HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1058,7 +1058,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
       if( ( prop = get_eq_char( ch, WEAR_FINGER_L ) ) != NULL
        && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "On %s left hand, %s has placed %s",
+         sprintf( buf, "On %s left hand, %s has placed %s",
           HIS_HER( ch ), HE_SHE( ch ), PERSO(prop, ch) );
          strcat( descr, buf );
          fBool = TRUE;
@@ -1068,10 +1068,10 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
        && can_see_prop( tch, prop ) )
       { 
          if( fBool )
-            snprintf( buf, MAX_STRING_LENGTH, ", while %s encircles a finger on %s right",
+            sprintf( buf, ", while %s encircles a finger on %s right",
              PERSO(prop, ch), HIS_HER( ch ) );
          else
-            snprintf( buf, MAX_STRING_LENGTH, "On %s right hand %s %s",
+            sprintf( buf, "On %s right hand %s %s",
              HIS_HER( ch ), is_are( PERSO(prop, ch) ), PERSO(prop, ch) );
          strcat( descr, buf );
       }
@@ -1086,10 +1086,10 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && can_see_prop( tch, prop ) )
    {
       if( descr[0] != '\0' )
-         snprintf( buf, MAX_STRING_LENGTH, ", with %s covering %s hands.",
+         sprintf( buf, ", with %s covering %s hands.",
           format_prop_to_actor(prop, ch, TRUE), HIS_HER(ch) );
       else
-         snprintf( buf, MAX_STRING_LENGTH, "%s %s worn on %s hands.",
+         sprintf( buf, "%s %s worn on %s hands.",
           format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1101,7 +1101,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_HEAD ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s is wearing %s on %s head.  ",
+      sprintf( buf, "%s is wearing %s on %s head.  ",
        HE_SHE( ch ), format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1109,7 +1109,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_FOREHEAD ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "Around %s forehead, %s has wrapped %s.",
+      sprintf( buf, "Around %s forehead, %s has wrapped %s.",
        HIS_HER(ch), HE_SHE(ch), PERSO(prop, ch) );
       strcat( descr, buf );
    }
@@ -1121,7 +1121,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !str_cmp( (p1 = str_dup(format_prop_to_actor(prop,  ch, TRUE))),
                  (p2 = str_dup(format_prop_to_actor(prop2, ch, TRUE))) ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "Two %s are clasped around %s neck.  ",
+      sprintf( buf, "Two %s are clasped around %s neck.  ",
        pluralize( STR(prop, short_descr) ), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1131,11 +1131,11 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
        && can_see_prop( tch, prop ) )
       {
          if( get_eq_char( ch, WEAR_NECK_2 ) == NULL )
-            snprintf( buf, MAX_STRING_LENGTH, "%s %s worn about %s neck.  ",
+            sprintf( buf, "%s %s worn about %s neck.  ",
              PERSO(prop,ch), is_are( PERSO(prop,ch) ),
              HIS_HER( ch ) );
          else
-            snprintf( buf, MAX_STRING_LENGTH, "%s and ", PERSO(prop,ch) );
+            sprintf( buf, "%s and ", PERSO(prop,ch) );
          strcat( descr, buf );
          fBool = TRUE;
       }
@@ -1144,10 +1144,10 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
        && can_see_prop( tch, prop ) )
       {
          if( fBool )
-            snprintf( buf, MAX_STRING_LENGTH, "%s are worn about %s neck.  ",
+            sprintf( buf, "%s are worn about %s neck.  ",
              PERSO(prop,ch), HIS_HER( ch ) );
          else
-            snprintf( buf, MAX_STRING_LENGTH, "%s %s worn about %s neck.  ",
+            sprintf( buf, "%s %s worn about %s neck.  ",
              PERSO(prop,ch), is_are( PERSO(prop,ch) ), HIS_HER( ch ) );
          strcat( descr, buf );
       }
@@ -1167,7 +1167,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !str_cmp( (p1 = str_dup(format_prop_to_actor(prop,  ch, TRUE))),
                  (p2 = str_dup(format_prop_to_actor(prop2, ch, TRUE))) ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s has a pair of %s on %s ears.",
+      sprintf( buf, "%s has a pair of %s on %s ears.",
        HE_SHE( ch ), pluralize( STR(prop, short_descr) ), HIS_HER( ch ) );
       strcat( descr, buf );
    } 
@@ -1176,7 +1176,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
       if( ( prop = get_eq_char( ch, WEAR_EAR_L ) ) != NULL
        && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "%s pierces %s left ear",
+         sprintf( buf, "%s pierces %s left ear",
           PERSO(prop,ch), HIS_HER( ch ) );
          strcat( descr, buf );
          fBool = TRUE;
@@ -1185,10 +1185,10 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
        && can_see_prop( tch, prop ) )
       {
          if( fBool )
-            snprintf( buf, MAX_STRING_LENGTH, " and %s %s worn on %s right",
+            sprintf( buf, " and %s %s worn on %s right",
              PERSO(prop,ch), is_are( PERSO(prop,ch) ), HIS_HER( ch ) );
          else
-            snprintf( buf, MAX_STRING_LENGTH, "%s right ear is pierced with %s",
+            sprintf( buf, "%s right ear is pierced with %s",
              HIS_HER( ch ), PERSO(prop,ch) );
          strcat( descr, buf );
       }
@@ -1205,7 +1205,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && can_see_prop( tch, prop )
     && get_eq_char( ch, WEAR_FACE ) == NULL )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s %s piercing %s nose.",
+      sprintf( buf, "%s %s piercing %s nose.",
        format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1213,7 +1213,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_FACE ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s covers %s face.", format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
+      sprintf( buf, "%s covers %s face.", format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
 
@@ -1222,24 +1222,24 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_ABOUT ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s %s draped over %s ",
+      sprintf( buf, "%s %s draped over %s ",
        format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
       strcat( descr, buf );
       if( ( prop = get_eq_char( ch, WEAR_BODY ) ) != NULL
        && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "%s.  ",
+         sprintf( buf, "%s.  ",
           smash_article( format_prop_to_actor(prop, ch, TRUE) ) );
       }
       else
       if( ( prop = get_eq_char( ch, WEAR_SHIRT ) ) != NULL
        && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "%s.  ",
+         sprintf( buf, "%s.  ",
           smash_article( format_prop_to_actor(prop, ch, TRUE) ) );
       }
       else
-         snprintf( buf, MAX_STRING_LENGTH, "naked chest.  " );
+         sprintf( buf, "naked chest.  " );
       strcat( descr, buf );
    }
    else if( ( prop = get_eq_char( ch, WEAR_BODY ) ) != NULL 
@@ -1247,7 +1247,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
      || get_eq_char( tch, WEAR_PANTS ) == NULL)
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s %s being worn on %s body.",
+      sprintf( buf, "%s %s being worn on %s body.",
        format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1256,7 +1256,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !get_eq_char( ch, WEAR_ABOUT ) 
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s fits over %s torso.",
+      sprintf( buf, "%s fits over %s torso.",
        format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1264,7 +1264,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_ARMS ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s %s protecting %s arms.  ",
+      sprintf( buf, "%s %s protecting %s arms.  ",
        format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1273,7 +1273,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && can_see_prop( tch, prop )
     && get_eq_char( ch, WEAR_LEGS ) == NULL )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s is wearing %s on %s legs.  ",
+      sprintf( buf, "%s is wearing %s on %s legs.  ",
        HE_SHE( ch ), format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1283,10 +1283,10 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    {
        prop = get_eq_char( ch, WEAR_PANTS );
       if ( prop == NULL )
-      snprintf( buf, MAX_STRING_LENGTH, "%s is wearing %s on %s legs.  ",
+      sprintf( buf, "%s is wearing %s on %s legs.  ",
        HE_SHE( ch ), format_prop_to_actor(prop2, ch, TRUE), HIS_HER( ch ) );
       else
-      snprintf( buf, MAX_STRING_LENGTH, "%s %s worn over %s on %s legs.  ",
+      sprintf( buf, "%s %s worn over %s on %s legs.  ",
        format_prop_to_actor(prop2, ch, TRUE), is_are( format_prop_to_actor(prop2, ch, TRUE) ),
        format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
 
@@ -1297,7 +1297,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && can_see_prop( tch, prop )
     && get_eq_char( ch, WEAR_PANTS ) == NULL )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s has pulled %s onto %s legs.  ",
+      sprintf( buf, "%s has pulled %s onto %s legs.  ",
        HE_SHE( ch ), format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1305,7 +1305,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_FEET ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s wears %s as footwear.  ",
+      sprintf( buf, "%s wears %s as footwear.  ",
        HE_SHE( ch ), format_prop_to_actor(prop, ch, TRUE) );
       strcat( descr, buf );
    }
@@ -1329,7 +1329,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !str_cmp( (p1 = str_dup(format_prop_to_actor(prop,  ch, TRUE))),
                  (p2 = str_dup(format_prop_to_actor(prop2, ch, TRUE))) ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "Two %s are on each wrist.  ", pluralize( STR(prop, short_descr) ) );
+      sprintf( buf, "Two %s are on each wrist.  ", pluralize( STR(prop, short_descr) ) );
       strcat( descr, buf );
    }
    else
@@ -1337,7 +1337,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
       if( ( prop = get_eq_char( ch, WEAR_WRIST_L ) ) != NULL
        && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "Encircling %s left wrist, %s %s",
+         sprintf( buf, "Encircling %s left wrist, %s %s",
           HIS_HER( ch ), is_are( format_prop_to_actor(prop, ch, TRUE) ), format_prop_to_actor(prop, ch, TRUE) );
          strcat( descr, buf );
          fBool = TRUE;
@@ -1347,7 +1347,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
        && can_see_prop( tch, prop ) )
       {
          if( fBool )
-            snprintf( buf, MAX_STRING_LENGTH, " and %s on %s right.  ",
+            sprintf( buf, " and %s on %s right.  ",
              format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
          else
             sprintf( buf,
@@ -1376,7 +1376,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !str_cmp( (p1 = str_dup(format_prop_to_actor(prop,  ch, TRUE))),
                  (p2 = str_dup(format_prop_to_actor(prop2, ch, TRUE))) ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s has two %s fastened around %s ankles.",
+      sprintf( buf, "%s has two %s fastened around %s ankles.",
        HE_SHE( ch ), pluralize( STR(prop, short_descr) ), HIS_HER( ch ) );
       strcat( descr, buf );
    } 
@@ -1385,7 +1385,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
       if( ( prop = get_eq_char( ch, WEAR_ANKLE_L ) ) != NULL
        && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "%s %s fastened around %s left ankle",
+         sprintf( buf, "%s %s fastened around %s left ankle",
           format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
          strcat( descr, buf );
          fBool = TRUE;
@@ -1394,10 +1394,10 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
        && can_see_prop( tch, prop ) )
       {
          if( fBool )
-            snprintf( buf, MAX_STRING_LENGTH, " and %s %s around %s right",
+            sprintf( buf, " and %s %s around %s right",
              format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
          else
-            snprintf( buf, MAX_STRING_LENGTH, "Around %s right ankle %s %s",
+            sprintf( buf, "Around %s right ankle %s %s",
             HIS_HER( ch ), is_are( format_prop_to_actor(prop, ch, TRUE) ), format_prop_to_actor(prop, ch, TRUE) );
          strcat( descr, buf );
       }
@@ -1416,7 +1416,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !str_cmp( (p1 = str_dup(format_prop_to_actor(prop,  ch, TRUE))),
                  (p2 = str_dup(format_prop_to_actor(prop2, ch, TRUE))) ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s has two %s slung over %s shoulders.",
+      sprintf( buf, "%s has two %s slung over %s shoulders.",
        HE_SHE( ch ), pluralize( STR(prop,short_descr) ), HIS_HER( ch ) );
       strcat( descr, buf );
    } 
@@ -1425,7 +1425,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
       if( ( prop = get_eq_char( ch, WEAR_SHOULDER_L ) ) != NULL
        && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "%s %s slung over %s left shoulder",
+         sprintf( buf, "%s %s slung over %s left shoulder",
           format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
          strcat( descr, buf );
          fBool = TRUE;
@@ -1434,10 +1434,10 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
        && can_see_prop( tch, prop ) )
       {
          if( fBool )
-            snprintf( buf, MAX_STRING_LENGTH, " and %s %s slung over %s right",
+            sprintf( buf, " and %s %s slung over %s right",
              format_prop_to_actor(prop, ch, TRUE), is_are( format_prop_to_actor(prop, ch, TRUE) ), HIS_HER( ch ) );
          else
-            snprintf( buf, MAX_STRING_LENGTH, "Over %s right shoulder %s %s",
+            sprintf( buf, "Over %s right shoulder %s %s",
             HIS_HER( ch ), is_are( format_prop_to_actor(prop, ch, TRUE) ), format_prop_to_actor(prop, ch, TRUE) );
          strcat( descr, buf );
       }
@@ -1464,7 +1464,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && !str_cmp( (p1 = str_dup(format_prop_to_actor(prop,  ch, TRUE))),
                  (p2 = str_dup(format_prop_to_actor(prop2, ch, TRUE))) ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "Two %s are %s in %s hands.",
+      sprintf( buf, "Two %s are %s in %s hands.",
                        pluralize( STR(prop, short_descr) ),
                        prop->wear_loc == WEAR_WIELD_1 ? "wielded" : "held",
                        HIS_HER( ch ) );
@@ -1476,7 +1476,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
         && prop->wear_loc == WEAR_WIELD_1
         && IS_SET(prop->wear_flags, ITEM_TWO_HANDED) )
    {
-        snprintf( buf, MAX_STRING_LENGTH, "%s %s gripped in both %s hands.\n\r",
+        sprintf( buf, "%s %s gripped in both %s hands.\n\r",
                       format_prop_to_actor( prop, ch, TRUE ),
                       is_are( format_prop_to_actor( prop, ch, TRUE ) ),
                       HIS_HER( ch ) );
@@ -1487,7 +1487,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
       oType = ITEM_TRASH;
       if( prop != NULL && can_see_prop( tch, prop ) )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "%s %s %s in one hand",
+         sprintf( buf, "%s %s %s in one hand",
              format_prop_to_actor(prop, ch, TRUE),
              is_are( format_prop_to_actor(prop, ch, TRUE) ),
              prop->wear_loc == WEAR_WIELD_1 ? "being wielded" : "held" );
@@ -1500,17 +1500,17 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
          if( fBool )
          {
             if ( prop->wear_loc == (prop2->wear_loc-1) )
-            snprintf( buf, MAX_STRING_LENGTH, ", with %s in the other.",
+            sprintf( buf, ", with %s in the other.",
                      format_prop_to_actor(prop2, ch, TRUE) );
             else
-            snprintf( buf, MAX_STRING_LENGTH, ", and %s %s %s in the other.  ",
+            sprintf( buf, ", and %s %s %s in the other.  ",
                 format_prop_to_actor(prop2, ch, TRUE),
                 is_are( format_prop_to_actor(prop2, ch, TRUE) ),
                 prop2->wear_loc == WEAR_WIELD_2 ? "wielded" : "held" );
          }
          else
          {
-            snprintf( buf, MAX_STRING_LENGTH, "%s %s being %s.  ",
+            sprintf( buf, "%s %s being %s.  ",
                 format_prop_to_actor(prop2, ch, TRUE),
                 is_are( format_prop_to_actor(prop2, ch, TRUE) ),
                 prop2->wear_loc == WEAR_WIELD_2 ? "wielded" : "held" );
@@ -1529,7 +1529,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_BACK ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s is strapped to %s back.  ",
+      sprintf( buf, "%s is strapped to %s back.  ",
         format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1539,7 +1539,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_FLOATING ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s is floating near %s head.  ",
+      sprintf( buf, "%s is floating near %s head.  ",
        format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1549,7 +1549,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && (get_eq_char( ch, WEAR_LOIN ) == NULL 
      && get_eq_char( ch, WEAR_PANTS ) == NULL) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s fits snugly around %s waist.  ",
+      sprintf( buf, "%s fits snugly around %s waist.  ",
        format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1557,7 +1557,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_SHOULDERS ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s is wearing %s.  ",
+      sprintf( buf, "%s is wearing %s.  ",
        format_prop_to_actor(prop, ch, TRUE), HIS_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1566,7 +1566,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
     && can_see_prop( tch, prop2 )
     && get_eq_char( ch, WEAR_PANTS ) == NULL )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s %s wrapped loosely below %s %s.  ",
+      sprintf( buf, "%s %s wrapped loosely below %s %s.  ",
        format_prop_to_actor(prop2, ch, TRUE), is_are( format_prop_to_actor(prop2, ch, TRUE) ),
        HIS_HER( ch ), prop ? smash_article(format_prop_to_actor(prop, ch, TRUE)) : "waist" );
       strcat( descr, buf );
@@ -1575,7 +1575,7 @@ void show_equipment( PLAYER *ch, PLAYER *tch )
    if( ( prop = get_eq_char( ch, WEAR_SHIELD ) ) != NULL
     && can_see_prop( tch, prop ) )
    {
-      snprintf( buf, MAX_STRING_LENGTH, "%s serves to protect %s from attacks.  ",
+      sprintf( buf, "%s serves to protect %s from attacks.  ",
         format_prop_to_actor(prop, ch, TRUE), HIM_HER( ch ) );
       strcat( descr, buf );
    }
@@ -1612,7 +1612,7 @@ void show_equipment_table( PLAYER *ch, PLAYER *victim )
     if ( ( prop = get_eq_char( victim, iWear ) ) == NULL )
         continue;
 
-    snprintf( buf, MAX_STRING_LENGTH, "%-24s %s\n\r", iWear == WEAR_WIELD_1
+    sprintf( buf, "%-24s %s\n\r", iWear == WEAR_WIELD_1
                                && IS_SET(prop->wear_flags, ITEM_TWO_HANDED)
                                  ? "<wielded both hands>" : where_name[iWear],
                                   can_see_prop( ch, prop ) ?
@@ -1653,7 +1653,7 @@ void show_actor_to_actor_1( PLAYER *victim, PLAYER *ch )
 
     final[0] = '\0';
 
-    snprintf( buf, MAX_STRING_LENGTH, "     %s looks %s.\n\r",
+    sprintf( buf, "     %s looks %s.\n\r",
                         capitalize(PERS( victim, ch )),
                                   STRING_HITS(victim) );
     strcat( final, buf );
@@ -1661,55 +1661,55 @@ void show_actor_to_actor_1( PLAYER *victim, PLAYER *ch )
     switch ( victim->position )
     {
         case POS_DEAD:
-          snprintf( buf, MAX_STRING_LENGTH, "%s is dead. ", capitalize(PERS(victim,ch)) );
+          sprintf( buf, "%s is dead. ", capitalize(PERS(victim,ch)) );
           strcat( final, buf );
          break;
         case POS_MORTAL:
-          snprintf( buf, MAX_STRING_LENGTH, "%s has wounds that may bring death. ",
+          sprintf( buf, "%s has wounds that may bring death. ",
                    capitalize(PERS(victim,ch)) );
           strcat( final, buf );
          break;
         case POS_INCAP:
-          snprintf( buf, MAX_STRING_LENGTH, "%s has been rendered incapacitated. ",
+          sprintf( buf, "%s has been rendered incapacitated. ",
                    capitalize(PERS(victim,ch)) );
           strcat( final, buf );
          break;
         case POS_STUNNED:
-          snprintf( buf, MAX_STRING_LENGTH, "%s is stunned. ",
+          sprintf( buf, "%s is stunned. ",
                    capitalize(PERS(victim,ch)) );
           strcat( final, buf );
          break;
         case POS_SLEEPING:
           if ( victim->furniture )
-          snprintf( buf, MAX_STRING_LENGTH, "%s is fast asleep upon %s. ",
+          sprintf( buf, "%s is fast asleep upon %s. ",
                         capitalize(HE_SHE(victim)), PERSO(victim->furniture,ch) );
           else
-          snprintf( buf, MAX_STRING_LENGTH, "%s is fast asleep. ",
+          sprintf( buf, "%s is fast asleep. ",
                         capitalize(HE_SHE(victim)) );
           strcat( final, buf );
          break;
         case POS_SITTING:
           if ( victim->furniture )
-          snprintf( buf, MAX_STRING_LENGTH, "%s is sitting on %s. ",
+          sprintf( buf, "%s is sitting on %s. ",
                         capitalize(HE_SHE(victim)), PERSO(victim->furniture,ch) );
           else
-          snprintf( buf, MAX_STRING_LENGTH, "%s is sitting. ",
+          sprintf( buf, "%s is sitting. ",
                         capitalize(HE_SHE(victim)) );
           strcat( final, buf );
          break;
         case POS_RESTING:
           if ( victim->furniture )
-          snprintf( buf, MAX_STRING_LENGTH, "%s rests on %s. ",
+          sprintf( buf, "%s rests on %s. ",
                         capitalize(HE_SHE(victim)), PERSO(victim->furniture,ch) );
           else
-          snprintf( buf, MAX_STRING_LENGTH, "%s is resting. ",
+          sprintf( buf, "%s is resting. ",
                         capitalize(HE_SHE(victim)) );
           strcat( final, buf );
          break;
         case POS_FIGHTING:
           if ( victim->fighting != NULL )
           {
-          snprintf( buf, MAX_STRING_LENGTH, "     %s is fighting with %s.\n\r",
+          sprintf( buf, "     %s is fighting with %s.\n\r",
                         PERS( victim, ch ),  PERS( victim->fighting, ch ) );
           strcat( final, buf );
           }
@@ -1719,7 +1719,7 @@ void show_actor_to_actor_1( PLAYER *victim, PLAYER *ch )
 
 if ( victim->size )
 {
-    snprintf( buf, MAX_STRING_LENGTH, "%s stands the height of %s %s",
+    sprintf( buf, "%s stands the height of %s %s",
              capitalize(HE_SHE(victim)),
                victim->size >= 4 ? numberize((victim->size*4)/12) : "less than one", 
                victim->size >= 4 ? "feet" : "foot" );
@@ -1729,7 +1729,7 @@ if ( victim->size )
     if ( ch->size != victim->size )
     {
         char *temp = str_dup(numberize( abs(ch->size - victim->size ) ));
-        snprintf( buf, MAX_STRING_LENGTH, ", which is roughly %s handspans %s than you.\n\r",
+        sprintf( buf, ", which is roughly %s handspans %s than you.\n\r",
              temp,
              ch->size - victim->size > 0 ? "shorter" : "taller" );
         strcat( final, buf );
@@ -1757,7 +1757,7 @@ if ( victim->size )
             race_name = RACE(race,race_name);
         }
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s is a%s %s.\n\r",
+        sprintf( buf, "%s is a%s %s.\n\r",
                  capitalize(NAME(victim)),
                  age < 30 ? " young" :
                  age < 40 ? " matured" :
@@ -1770,19 +1770,19 @@ if ( victim->size )
     
     if ( victim->riding != NULL )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "     %s rides atop %s.\n\r", HE_SHE(victim), NAME(victim->riding) );
+        sprintf( buf, "     %s rides atop %s.\n\r", HE_SHE(victim), NAME(victim->riding) );
 	strcat( final, buf );
     }
     else
     if ( victim->rider != NULL )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "     %s is being ridden by %s.\n\r", HE_SHE(victim), capitalize(NAME(victim->rider)) );
+        sprintf( buf, "     %s is being ridden by %s.\n\r", HE_SHE(victim), capitalize(NAME(victim->rider)) );
         strcat( final, buf );
     }
 
     if ( GET_PC(victim,condition[COND_DRUNK],0) > 50 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, " %s looks a bit tipsy and smells of drink.\n\r",
+        sprintf( buf, " %s looks a bit tipsy and smells of drink.\n\r",
                  HE_SHE(victim) );
         strcat( final, buf );
     }
@@ -1842,7 +1842,7 @@ void show_actor_to_actor( PLAYER *list, PLAYER *ch )
     {
         char buf[MAX_STRING_LENGTH];
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s red eyes stare at you from the darkness.\n\r",
+        sprintf( buf, "%s red eyes stare at you from the darkness.\n\r",
                      capitalize( numberize( fDark * 2 ) ) );
         to_actor( buf, ch );
     }
@@ -1906,7 +1906,7 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
                  {
                      int percent = PERCENTAGE( prop->value[0], prop->value[1] );
 
-                     snprintf( buf, MAX_STRING_LENGTH, "\n\r%s %s %s\n\r",
+                     sprintf( buf, "\n\r%s %s %s\n\r",
                                   capitalize( STR(prop, short_descr) ),
                                   is_are( STR(prop, short_descr) ),
                        !IS_LIT(prop)  ? "extinguished."              :
@@ -1934,7 +1934,7 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
               case ITEM_RANGED_WEAPON:
                if ( prop->value[3] > 0 )
                   {
-                      snprintf( buf, MAX_STRING_LENGTH, "It has %d round%s ready to fire.\n\r",
+                      sprintf( buf, "It has %d round%s ready to fire.\n\r",
                                prop->value[3],
                                prop->value[3] > 1 ? "s" : "" );
                       to_actor( buf, ch );
@@ -1953,7 +1953,7 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
                        int percent;
 
                        percent = PERCENTAGE( prop->value[1], prop->value[2] );
-                       snprintf( buf, MAX_STRING_LENGTH, "\n\r%s %s\n\r",
+                       sprintf( buf, "\n\r%s %s\n\r",
                                      capitalize( STR(prop, short_descr) ),
                         percent <  10 ? "is in pieces." :
                         percent <  20 ? "is nearly destroyed." :
@@ -1988,7 +1988,7 @@ bool actor_look_list( PLAYER *ch, PROP *list, char *arg )
              {
                 int percent = PERCENTAGE( prop->value[1], prop->value[2] );
 
-                snprintf( buf, MAX_STRING_LENGTH, "\n\r%s %s\n\r",
+                sprintf( buf, "\n\r%s %s\n\r",
                          capitalize( STR(prop, short_descr) ),
                          percent <  10 ? "is dimly flickering."   :
                          percent <  20 ? "is slowly pulsating."   :
@@ -2257,7 +2257,7 @@ void cmd_look( PLAYER *ch, char *argument )
     //display_interp( ch, default_color_variable );
     if ( isGrey && weather.sky == MOON_RISE && weather.moon_phase != MOON_NEW ) display_interp( ch, "^N" ); 
     display_interp( ch, "^B" );
-    snprintf( buf, MSL, "%s", in_scene->name );
+    sprintf( buf, "%s", in_scene->name );
     to_actor( string_proper(buf), ch ); /* SEND the TITLE */
 
     if ( !NPC(ch) && IS_SET(ch->flag2, PLR_AUTOEXIT) )
@@ -2362,7 +2362,7 @@ void cmd_look( PLAYER *ch, char *argument )
              }
              else
              {
-             snprintf( buf, MAX_STRING_LENGTH, "It %s fuel.\n\r",
+             sprintf( buf, "It %s fuel.\n\r",
              percent < 10 ? "contains a low amount of"      :
              percent < 40 ? "contains less than half its capacity of" :
              percent < 70 ? "contains an ample amount of"   :
@@ -2385,7 +2385,7 @@ void cmd_look( PLAYER *ch, char *argument )
              {
              int percent = PERCENTAGE(prop->value[0], prop->value[1]);
 
-             snprintf( buf, MAX_STRING_LENGTH, "It %s of a%s %s liquid.\n\r",
+             sprintf( buf, "It %s of a%s %s liquid.\n\r",
                       percent < 10 ? "has but a drop"         :
                       percent < 40 ? "is less than half full" :
                       percent < 60 ? "is half full"           :
@@ -2407,14 +2407,14 @@ void cmd_look( PLAYER *ch, char *argument )
 
             if ( prop->item_type == ITEM_CONTAINER )
             {
-                 snprintf( buf, MAX_STRING_LENGTH, "%s contains ",
+                 sprintf( buf, "%s contains ",
                      format_prop_to_actor( prop, ch, TRUE ) );
                  buf[0] = UPPER(buf[0]);
             }
             else
             {
             	act( "$n searches the remains of $p.", ch, prop, NULL, TO_SCENE );
-            	snprintf( buf, MAX_STRING_LENGTH, "Searching the remains of %s reveals ",
+            	sprintf( buf, "Searching the remains of %s reveals ",
                      format_prop_to_actor( prop, ch, TRUE ) );
             }
 
@@ -2444,9 +2444,9 @@ void cmd_look( PLAYER *ch, char *argument )
         else
         {
         if ( prop->contains->next_content != NULL )
-        snprintf( buf, MAX_STRING_LENGTH, "On %s are ", format_prop_to_actor( prop, ch, TRUE ) );
+        sprintf( buf, "On %s are ", format_prop_to_actor( prop, ch, TRUE ) );
         else
-        snprintf( buf, MAX_STRING_LENGTH, "On %s is ", format_prop_to_actor( prop, ch, TRUE ) );
+        sprintf( buf, "On %s is ", format_prop_to_actor( prop, ch, TRUE ) );
 
         to_actor( show_list_to_actor2( prop->contains, ch, buf ), ch );
         }
@@ -2495,7 +2495,7 @@ void cmd_look( PLAYER *ch, char *argument )
     if ( ( pexit = in_scene->exit[door] ) == NULL )
     {
         cmd_time( ch, "internal" );
-        snprintf( buf, MAX_STRING_LENGTH, "There is nothing of note %sward from here.\n\r",
+        sprintf( buf, "There is nothing of note %sward from here.\n\r",
                       dir_name[door] );
         to_actor( buf, ch );
         return;
@@ -2504,8 +2504,8 @@ void cmd_look( PLAYER *ch, char *argument )
     if ( pexit->to_scene != NULL && scene_is_dark( pexit->to_scene ) )
     {
         if (door!=DIR_DOWN && door!=DIR_UP)
-        snprintf( buf, MAX_STRING_LENGTH, "To the %s is darkness.\n\r", dir_name[door] );
-        else snprintf( buf, MAX_STRING_LENGTH, "%s is darkness.\n\r", dir_name[door] );
+        sprintf( buf, "To the %s is darkness.\n\r", dir_name[door] );
+        else sprintf( buf, "%s is darkness.\n\r", dir_name[door] );
         to_actor( buf, ch );
         return;
     }
@@ -2514,7 +2514,7 @@ void cmd_look( PLAYER *ch, char *argument )
     else
     if ( MTD(pexit->keyword) || !IS_SET( pexit->exit_flags, EXIT_ISDOOR ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "There is nothing of note %sward from here.\n\r",
+        sprintf( buf, "There is nothing of note %sward from here.\n\r",
                       dir_name[door] );
         to_actor( buf, ch );
     }
@@ -2726,7 +2726,7 @@ void cmd_score( PLAYER *ch, char *argument )
     if ( race != 0 )
     {
          i = PERCENTAGE(GET_AGE(ch),RACE(race,base_age));
-         snprintf( buf, MAX_STRING_LENGTH, "You are a%s %s of %s named %s%s%s,\n\r",
+         sprintf( buf, "You are a%s %s of %s named %s%s%s,\n\r",
                    i < 30 ? " young" :
                    i < 60 ? " middle-aged" :
                    i < 80 ? "n aging" :
@@ -2740,7 +2740,7 @@ void cmd_score( PLAYER *ch, char *argument )
     else
     {
          i = PERCENTAGE(GET_AGE(ch),100);
-         snprintf( buf, MAX_STRING_LENGTH, "You are a%s %s named %s%s%s,\n\r",
+         sprintf( buf, "You are a%s %s named %s%s%s,\n\r",
                    i < 30 ? " young" :
                    i < 60 ? " middle-aged" :
                    i < 80 ? "n aging" :
@@ -2772,24 +2772,24 @@ void cmd_score( PLAYER *ch, char *argument )
         hours = i % 24;
 
         p = str_dup( numberize(days) );
-        snprintf( smuf, MSL, "%s", p );
-        snprintf( buf, MAX_STRING_LENGTH, " with a total of %s day%s and %s hour%s of play,\n\r",
+        sprintf( smuf, "%s", p );
+        sprintf( buf, " with a total of %s day%s and %s hour%s of play,\n\r",
                       smuf, days == 1 ? "" : "s",
                       numberize( hours ), hours == 1 ? "" : "s" );
         free_string(p);
     }
     else
     {
-        snprintf( buf, MAX_STRING_LENGTH, " with a total of %s hour%s of play,\n\r",
+        sprintf( buf, " with a total of %s hour%s of play,\n\r",
                       numberize( i ), i == 1 ? "" : "s" );
     }
     strcat( buf2, buf );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, " %d inches tall,\n\r",  ch->size*4  );
+    sprintf( buf, " %d inches tall,\n\r",  ch->size*4  );
     strcat( buf2, buf );
     
-    snprintf( buf, MAX_STRING_LENGTH, " you are %s years old,\n\r ", numberize( GET_AGE(ch) ) );
+    sprintf( buf, " you are %s years old,\n\r ", numberize( GET_AGE(ch) ) );
     strcat( buf2, buf );
 
     if ( PC(ch,birth_month) == weather.month )
@@ -2808,13 +2808,13 @@ void cmd_score( PLAYER *ch, char *argument )
         else
         if ( daydist > 1 && daydist < 30 )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " your birthday is in %s days,", numberize(daydist) );
+            sprintf( buf, " your birthday is in %s days,", numberize(daydist) );
             strcat( buf2, buf );
         }
     }
     strcat( buf2, "\n\r" );
     
-    snprintf( buf, MAX_STRING_LENGTH, " and you are currently %s and %s.\n\r\n\r",
+    sprintf( buf, " and you are currently %s and %s.\n\r\n\r",
                   STRING_HITS(ch), STRING_MOVES(ch) );
     strcat( buf2, buf );
 
@@ -2830,7 +2830,7 @@ void cmd_score( PLAYER *ch, char *argument )
     }
 
     display_interp( ch, "^3^:^B" );
-    snprintf( buf, MAX_STRING_LENGTH, "\n\rYou are level %d with %d experience points, needing %d for the next.", 
+    sprintf( buf, "\n\rYou are level %d with %d experience points, needing %d for the next.", 
                   ch->exp_level, ch->exp,
                   ((ch->exp_level+1)*EXP_PER_LEVEL)-(ch->exp) );
     to_actor( buf, ch );
@@ -2841,7 +2841,7 @@ void cmd_score( PLAYER *ch, char *argument )
     {
         char *p=str_dup( numberize( ch->carry_number ) );
         char *q=str_dup( numberize( ch->carry_weight/2+1 ) );
-        snprintf( buf, MAX_STRING_LENGTH, "\n\rYou are carrying %s item%sweighing roughly %s stone%s\n\r",
+        sprintf( buf, "\n\rYou are carrying %s item%sweighing roughly %s stone%s\n\r",
                       p,
                       ch->carry_number == 1 ? " " : "s ",
                       q,
@@ -2907,7 +2907,7 @@ void cmd_score( PLAYER *ch, char *argument )
     if ( ch->userdata )
     {
     display_interp( ch, "^6" );
-    snprintf( buf, MAX_STRING_LENGTH, "You are %s, %s, %s",
+    sprintf( buf, "You are %s, %s, %s",
          (PC(ch,condition[COND_DRUNK] ) > 50) ? "drunk" : 
          (PC(ch,condition[COND_DRUNK] ) > 20) ? "tipsy" : 
                                                 "sober",
@@ -2937,18 +2937,18 @@ void cmd_score( PLAYER *ch, char *argument )
     case POS_RESTING:
     if ( ch->furniture )
     {
-        snprintf( buf, MAX_STRING_LENGTH, ", and %s on %s.\n\r", position_name(ch->position),
+        sprintf( buf, ", and %s on %s.\n\r", position_name(ch->position),
                  STR(ch->furniture,short_descr) );
     } 
     else
-    snprintf( buf, MAX_STRING_LENGTH, ", and %s.\n\r", position_name(ch->position) );
+    sprintf( buf, ", and %s.\n\r", position_name(ch->position) );
     
     to_actor( buf, ch );
     break;
     case POS_STANDING:
      if ( ch->riding != NULL )
      {
-        snprintf( buf, MAX_STRING_LENGTH, ", and you are riding %s.\n\r", NAME(ch->riding) );
+        sprintf( buf, ", and you are riding %s.\n\r", NAME(ch->riding) );
         to_actor( buf, ch );
      }
      else
@@ -2957,7 +2957,7 @@ void cmd_score( PLAYER *ch, char *argument )
     case POS_FIGHTING:
      if ( ch->riding != NULL )
      {
-        snprintf( buf, MAX_STRING_LENGTH, ", and engaged in combat with %s.\n\r", NAME(ch->fighting) );
+        sprintf( buf, ", and engaged in combat with %s.\n\r", NAME(ch->fighting) );
         to_actor( buf, ch );
      }
      else
@@ -3006,7 +3006,7 @@ else to_actor( "Your mind is unfocused; your thoughts are a cacophony of voices.
 
     display_interp( ch, "^N" );
 
-    snprintf( buf, MAX_STRING_LENGTH, "You are currently speaking %s.\n\r", lang_table[ch->speaking].name );
+    sprintf( buf, "You are currently speaking %s.\n\r", lang_table[ch->speaking].name );
     to_actor( buf, ch );
 
     if ( IS_AFFECTED(ch,BONUS_HIDE) && IS_AFFECTED(ch,BONUS_SNEAK) )
@@ -3026,23 +3026,23 @@ else to_actor( "Your mind is unfocused; your thoughts are a cacophony of voices.
     switch ( get_trust( ch ) )
     {
            default: if ( IS_IMMORTAL(ch) )
-                           snprintf( buf, MAX_STRING_LENGTH, " an immortal,"   );
+                           sprintf( buf, " an immortal,"   );
                       else buf[0] = '\0';
                     break;
-   case LEVEL_HERO: snprintf( buf, MAX_STRING_LENGTH, " an avatar." ); break;
-case LEVEL_BUILDER: snprintf( buf, MAX_STRING_LENGTH, " a builder," ); break;
-  case LEVEL_ANGEL: snprintf( buf, MAX_STRING_LENGTH, " an angel."  ); break;
-case LEVEL_SUPREME: snprintf( buf, MAX_STRING_LENGTH, " supreme."   ); break;
-case LEVEL_DEMIGOD: snprintf( buf, MAX_STRING_LENGTH, " a demigod." ); break;
-    case MAX_LEVEL: snprintf( buf, MAX_STRING_LENGTH, ch->sex == SEX_MALE ? " God." : " Goddess." ); break;
+   case LEVEL_HERO: sprintf( buf, " an avatar." ); break;
+case LEVEL_BUILDER: sprintf( buf, " a builder," ); break;
+  case LEVEL_ANGEL: sprintf( buf, " an angel."  ); break;
+case LEVEL_SUPREME: sprintf( buf, " supreme."   ); break;
+case LEVEL_DEMIGOD: sprintf( buf, " a demigod." ); break;
+    case MAX_LEVEL: sprintf( buf, ch->sex == SEX_MALE ? " God." : " Goddess." ); break;
     }
     
     to_actor( buf, ch );
 
     if ( get_trust( ch ) == LEVEL_BUILDER ) {
-    snprintf( buf, MAX_STRING_LENGTH, " with a building security of %d.\n\r", PC(ch,security) );
+    sprintf( buf, " with a building security of %d.\n\r", PC(ch,security) );
     }
-    else snprintf( buf, MAX_STRING_LENGTH, " [%d]\n\r", PC(ch,security) );
+    else sprintf( buf, " [%d]\n\r", PC(ch,security) );
     to_actor( buf, ch );
     }
     else if ( ch->exp_level < 5 ) {
@@ -3184,7 +3184,7 @@ void cmd_time( PLAYER *ch, char *argument )
         case  0: sprintf( descr, "midnight"         ); break;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "It is %s on the day of %s.  The %s of the month of %s, in the year %s. ",
+    sprintf( buf, "It is %s on the day of %s.  The %s of the month of %s, in the year %s. ",
              descr,
              day_name[day % 7],
              day ==  1 ? "first"          :
@@ -3299,7 +3299,7 @@ void cmd_time( PLAYER *ch, char *argument )
         extern int pulse_violence;
         extern int autosave_counter;
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s\n\rBooted at:   %s\rSystem time: %s\r",
+        sprintf( buf, "%s\n\rBooted at:   %s\rSystem time: %s\r",
          VERSION_STR,  str_boot_time, (char *) ctime( &current_time )  );
         to_actor( buf, ch );
 
@@ -3381,9 +3381,9 @@ void cmd_help( PLAYER *ch, char *argument )
          for ( i=0; i < MAX_HELP_CLASS; i++ )
             hclass[i] = 0;
 
-         snprintf( buf, MAX_STRING_LENGTH, "\nThe following classes of help files are available:\n\n#     Class           Description\n\r" );
+         sprintf( buf, "\nThe following classes of help files are available:\n\n#     Class           Description\n\r" );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "-     -----           -----------\n\r" );
+         sprintf( buf, "-     -----           -----------\n\r" );
          to_actor( buf, ch );
 
          for ( v=0; v <= top_dbkey_help; v++ ) {
@@ -3398,7 +3398,7 @@ void cmd_help( PLAYER *ch, char *argument )
             sprintf(buf, "%-5d %-15s %s\n", hclass[i], help_class_table[i].name, help_class_table[i].desc);
             to_actor( buf, ch );
          }
-         snprintf( buf, MAX_STRING_LENGTH, "\nType 'help show [class]' to see available helps for a specific class.\n\r" );
+         sprintf( buf, "\nType 'help show [class]' to see available helps for a specific class.\n\r" );
          to_actor( buf, ch );
 
          return;
@@ -3444,7 +3444,7 @@ to_actor( "No search string entered, try HELP #keyword\n\r", ch );
 to_actor( "or HELP #'phrase'\n\r", ch ); 
 return; }
 
-      snprintf( b, strlen(b), "Related Topics:\n\r" );
+      sprintf( b, "Related Topics:\n\r" );
          for ( dbkey=0; dbkey <= top_dbkey_help; dbkey++ ) {
             pHelp = get_help_index(dbkey); 
 
@@ -3677,7 +3677,7 @@ return; }
         }
     }
 
-    { char nf[MSL]; snprintf( nf, MSL, "#%s", argall ); cmd_help( ch, nf ); }
+    { char nf[MSL]; sprintf( nf,  "#%s", argall ); cmd_help( ch, nf ); }
 //    to_actor( "No help on that word.\n\r", ch );
     return;
 }
@@ -3923,7 +3923,7 @@ capitalize(numberize(wch->exp_level)),
 
     if (nMatch > 0)
     {
-        snprintf( buf, MAX_STRING_LENGTH, "There %s %d visible player%s",
+        sprintf( buf, "There %s %d visible player%s",
              nMatch > 1 ? "are" : "is",  nMatch,
              nMatch > 1 ? "s" : "" );
         to_actor( buf, ch );
@@ -3932,10 +3932,10 @@ capitalize(numberize(wch->exp_level)),
     if (gMatch > 0 || fImmortalOnly)
     {
         if (nMatch > 0)
-        snprintf( buf, MAX_STRING_LENGTH, " and %d visible god%s", gMatch,
+        sprintf( buf, " and %d visible god%s", gMatch,
                       gMatch == 1 ? "" : "s" );
         else
-        snprintf( buf, MAX_STRING_LENGTH, "There %s %d visible god%s",
+        sprintf( buf, "There %s %d visible god%s",
              gMatch > 1 ? "are" : "is",  gMatch,
              gMatch > 1 ? "s" : "" );
 
@@ -3943,20 +3943,20 @@ capitalize(numberize(wch->exp_level)),
     }
 
     max = nMatch + gMatch > max ? nMatch + gMatch : max;
-    snprintf( buf, MAX_STRING_LENGTH, ", with a high of %d.\n\r", max );
+    sprintf( buf, ", with a high of %d.\n\r", max );
 
     if ( IS_IMMORTAL(ch) ) {
     if ( max > 0 ) to_actor( buf, ch );
 
     if ( num_hour / (60 * PULSE_PER_SECOND) < 60 )
     {
-    snprintf( buf, MAX_STRING_LENGTH, "Next reboot will occur in %d minute%s.\n\r",
+    sprintf( buf, "Next reboot will occur in %d minute%s.\n\r",
          num_hour / (60 * PULSE_PER_SECOND),
          num_hour / (60 * PULSE_PER_SECOND) != 1 ? "s" : "" );
     }
     else
     {
-    snprintf( buf, MAX_STRING_LENGTH, "Next reboot will occur in %d hour%s.\n\r",
+    sprintf( buf, "Next reboot will occur in %d hour%s.\n\r",
         num_hour / (60 * PULSE_PER_SECOND * 60)+1,
         num_hour / (60 * PULSE_PER_SECOND * 60)+1 != 1 ? "s" : "" );
     }
@@ -4049,7 +4049,7 @@ void cmd_title( PLAYER *ch, char *argument )
            to_actor( " ", ch );
            to_actor( PC(ch,title), ch );
            to_actor( ".\n\r", ch );
-           snprintf( buf, MAX_STRING_LENGTH, "%s changes %s title to %s %s.\n\r", 
+           sprintf( buf, "%s changes %s title to %s %s.\n\r", 
                     NAME(ch), HIS_HER(ch),
                     NAME(ch), PC(ch,title) );
            add_history( ch, buf );
@@ -4079,7 +4079,7 @@ void cmd_inventory( PLAYER *ch, char *argument )
     if ( h == NULL ) h = get_eq_char( ch, WEAR_WIELD_1 );
     if ( h != NULL )
     {
-        snprintf( buf, MAX_STRING_LENGTH, (get_eq_char( ch, WEAR_WIELD_2 ) == NULL) 
+        sprintf( buf, (get_eq_char( ch, WEAR_WIELD_2 ) == NULL) 
                    && (get_eq_char( ch, WEAR_HOLD_2 )  == NULL) ?
                      "You %s %s in your hands.\n\r"             :
                      "You %s %s in your primary hand.\n\r",
@@ -4092,7 +4092,7 @@ void cmd_inventory( PLAYER *ch, char *argument )
     if ( h == NULL ) h = get_eq_char( ch, WEAR_WIELD_2 );
     if ( h != NULL )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "In your secondary hand, you %s %s.\n\r",
+        sprintf( buf, "In your secondary hand, you %s %s.\n\r",
                  h->wear_loc ==  WEAR_HOLD_2 ? "hold" : "wield",
                  PERSO(h, ch) );
         page_to_actor( buf, ch );
@@ -4428,11 +4428,11 @@ void cmd_report( PLAYER *ch, char *argument )
 {
     char buf[MAX_INPUT_LENGTH];
 
-    snprintf( buf, MAX_STRING_LENGTH, "You report that you are %s and %s.\n\r",
+    sprintf( buf, "You report that you are %s and %s.\n\r",
                   STRING_HITS(ch), STRING_MOVES(ch)  );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "$n reports that $e is %s and %s.",
+    sprintf( buf, "$n reports that $e is %s and %s.",
                   STRING_HITS(ch), STRING_MOVES(ch) );
     act( buf, ch, NULL, NULL, TO_SCENE );
 
@@ -4456,7 +4456,7 @@ void cmd_socials( PLAYER *ch, char *argument )
     col = 0;
     for ( iSocial = 0; social_table[iSocial].name[0] != '\0'; iSocial++ )
     {
-	snprintf( buf, MAX_STRING_LENGTH, "%-12s", social_table[iSocial].name );
+	sprintf( buf, "%-12s", social_table[iSocial].name );
 	to_actor( buf, ch );
 	if ( ++col % 6 == 0 )
 	    to_actor( "\n\r", ch );
@@ -4483,7 +4483,7 @@ void cmd_commands( PLAYER *ch, char *argument )
     clrscr(ch);
  
     col = 0;
-    snprintf( buf, MAX_STRING_LENGTH, "\r\n" );
+    sprintf( buf, "\r\n" );
 
     for ( cmd = 0; command_table[cmd].name[0] != '\0'; cmd++ )
     {
@@ -4598,9 +4598,9 @@ void add_history( PLAYER *ch, char *_out )
     }
 
     if ( PC(ch,history) != NULL )
-    snprintf( buf, MAX_STRING_LENGTH, "%s%s\n\r", PC(ch,history), _out );
+    sprintf( buf, "%s%s\n\r", PC(ch,history), _out );
     else
-    snprintf( buf, MAX_STRING_LENGTH, "%s\n\r", _out );
+    sprintf( buf, "%s\n\r", _out );
 
     if ( PC(ch,history) != NULL ) free_string( PC(ch,history) );
     PC(ch,history) = str_dup( buf );

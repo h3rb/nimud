@@ -1,10 +1,10 @@
 CC      =gcc
-PROF    =-O -g -g3#      -pg -DUSE_MCHECK
+PROF    =-O -g3#      -pg -DUSE_MCHECK
 LIBS    = -lcrypt -lz #-lgd
-L_FLAGS =$(PROF) -ggdb3 -DMALLOC_DEBUG -D_GNU_SOURCE
+L_FLAGS =$(PROF) -ggdb3 -o0  -D_GNU_SOURCE
 E_FLAGS =#            -Lefence/ -lefence -DMALLOC_DEBUG
 O_FLAGS =$(PROF)
-C_FLAGS =-Wall -Wstrict-prototypes -Wpointer-arith -Wno-char-subscripts -Wmissing-declarations -Wmissing-prototypes -Wshadow -Wformat=2 -Waggregate-return -Wall -D_REENTRANT -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -DLARGEFILE_SOURCE=1 -O0 \
+C_FLAGS =-Wall -Wstrict-prototypes -Wpointer-arith -Wno-char-subscripts -Wmissing-declarations -Wmissing-prototypes -Wshadow -Wformat=2 -Waggregate-return -DLARGEFILE_SOURCE=1 -O0 \
          -Winline $(O_FLAGS)
 
 #-Wmissing-prototypes -Wmissing-declarations

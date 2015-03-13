@@ -625,12 +625,12 @@ M 0
 W 0
 T 0
 O ~
-ED pieces~
-You see severed limbs and spongy intestines.
-~
 ED humanoid corpse~
 He looks mangled and shredded.  You see one large gash mark that looks
 like it came from the claw of some huge beast.
+~
+ED pieces~
+You see severed limbs and spongy intestines.
 ~
 R M 23301 2 100 1
 Dr 1 0 -1 23305
@@ -769,11 +769,11 @@ M 0
 W 0
 T 0
 O ~
-ED quicksand~
-It looks deadly to the foolish.
-~
 ED lights ~
 From the stories you have heard, you recognize them as will-o-wisps.
+~
+ED quicksand~
+It looks deadly to the foolish.
 ~
 R M 23301 2 100 1
 Dr 1 0 -1 23307
@@ -841,18 +841,18 @@ M 0
 W 0
 T 0
 O ~
-ED vegetation~
-It looks sentient.
+ED clouds~
+The clouds look dark and foreboding.
+~
+ED beast~
+It looks to be a demon of some foul breed.
 ~
 ED fortress~
 It is surrounded by walls nearly 20 meters high.  In a tall tower on the
 northeast side, a window glows blue with magical energy.
 ~
-ED beast~
-It looks to be a demon of some foul breed.
-~
-ED clouds~
-The clouds look dark and foreboding.
+ED vegetation~
+It looks sentient.
 ~
 R M 23306 2 100 1
 Dr 0 0 -1 23304

@@ -173,10 +173,10 @@ void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
     PLAYER *fch_next;
 
     if ( ch->position == POS_FIGHTING )
-    snprintf( buf, MAX_STRING_LENGTH, "You turn tail and flee %s", dir_name[door] );
+    sprintf( buf, "You turn tail and flee %s", dir_name[door] );
     else
     if ( prop != NULL )
-        snprintf( buf, MAX_STRING_LENGTH, "You use %s to %s %s",
+        sprintf( buf, "You use %s to %s %s",
                       can_see_prop( ch, prop ) ? STR(prop, short_descr) : "something",
                       sect == MOVE_MOUNTAIN       ? "climb" :
                       sect == MOVE_CLIMB         ? "climb" :
@@ -186,38 +186,38 @@ void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
                       dir_name[door] );
     else
     if ( ch->rider != NULL )
-        snprintf( buf, MAX_STRING_LENGTH, "You wander %s, rode by %s", dir_name[door],
+        sprintf( buf, "You wander %s, rode by %s", dir_name[door],
                          PERS(ch->rider, ch) );
     else
     if ( ch->riding != NULL ) {
         if ( ch->desc ) sendcli( ch->desc, "PLAYSOUND hooves.wav");
-        snprintf( buf, MAX_STRING_LENGTH, "You ride %s %s", PERS(ch->riding, ch),
+        sprintf( buf, "You ride %s %s", PERS(ch->riding, ch),
                          dir_name[door] );
         }
     else
     if ( IS_AFFECTED(ch, BONUS_FLYING) )
-        snprintf( buf, MAX_STRING_LENGTH, "You fly %s", dir_name[door] );
+        sprintf( buf, "You fly %s", dir_name[door] );
     else
     if ( IS_AFFECTED(ch, BONUS_SNEAK) )
-        snprintf( buf, MAX_STRING_LENGTH, "You try to sneak %s", dir_name[door] );
+        sprintf( buf, "You try to sneak %s", dir_name[door] );
     else
     if ( sect == MOVE_WATER_SWIM || sect == MOVE_UNDERWATER ) {
         if ( ch->desc ) sendcli( ch->desc, "PLAYSOUND swim.wav" );
-        snprintf( buf, MAX_STRING_LENGTH, "You swim %s", dir_name[door] );
+        sprintf( buf, "You swim %s", dir_name[door] );
       }
     else
     if ( sect == MOVE_CLIMB || fWindow == TRUE ) {
         if ( ch->desc ) sendcli( ch->desc, "PLAYSOUND pick.wav" );
-        snprintf( buf, MAX_STRING_LENGTH, "You climb %s", dir_name[door] );
+        sprintf( buf, "You climb %s", dir_name[door] );
     }
     else
     if ( ch->hitched_to == NULL ) {
         if ( ch->desc ) sendcli( ch->desc, "PLAYSOUND footsteps.wav" );
-        snprintf( buf, MAX_STRING_LENGTH, "You walk %s",  dir_name[door] );
+        sprintf( buf, "You walk %s",  dir_name[door] );
      }
     else
     if ( ch->position == POS_STANDING ) 
-        snprintf( buf, MAX_STRING_LENGTH, "You drag %s %s",
+        sprintf( buf, "You drag %s %s",
                       PERSO(ch->hitched_to, ch),
                       dir_name[door] );
 
@@ -265,11 +265,11 @@ void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
         break;
 
         if ( ch->position == POS_FIGHTING ) {
-         snprintf( buf, MAX_STRING_LENGTH, "%s turns and flees %s", PERS(ch, fch), dir_name[door] );
+         sprintf( buf, "%s turns and flees %s", PERS(ch, fch), dir_name[door] );
          if ( ch->desc ) sendcli( ch->desc, "PLAYSOUND flee.wav" );
         }
    else if ( prop != NULL )
-        snprintf( buf, MAX_STRING_LENGTH, "%s uses %s to %s %s",
+        sprintf( buf, "%s uses %s to %s %s",
                       PERS(ch, fch),
                       can_see_prop(fch, prop) ? STR(prop, short_descr) : "something",
                       sect == MOVE_MOUNTAIN ? "climb" :
@@ -282,35 +282,35 @@ void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
         {
         if ( ch->riding->hitched_to != NULL )
         {
-              snprintf( buf, MAX_STRING_LENGTH, "%s rides %s upon %s, pulling %s behind them",
+              sprintf( buf, "%s rides %s upon %s, pulling %s behind them",
                             PERS(ch, fch), dir_name[door],
                             PERS(ch->riding, fch),
                             PERSO(ch->riding->hitched_to, fch) );
         }
         else
         {
-              snprintf( buf, MAX_STRING_LENGTH, "%s rides %s %s", PERS(ch, fch),
+              sprintf( buf, "%s rides %s %s", PERS(ch, fch),
                             PERS(ch->riding, fch), dir_name[door] );
         }
         }
    else if ( IS_AFFECTED(ch, BONUS_FLYING) && can_see(fch, ch) )
-           snprintf( buf, MAX_STRING_LENGTH, "%s flies %s", PERS(ch, fch), dir_name[door] );
+           sprintf( buf, "%s flies %s", PERS(ch, fch), dir_name[door] );
    else if ( IS_AFFECTED(ch, BONUS_SNEAK) )
         {
             if ( IS_SET(fch->flag2, WIZ_HOLYLIGHT)
               || skill_check(fch, skill_lookup("stealth"), 25) )
-           snprintf( buf, MAX_STRING_LENGTH, "%s tries to sneak %s", PERS(ch, fch), dir_name[door] );
+           sprintf( buf, "%s tries to sneak %s", PERS(ch, fch), dir_name[door] );
            else buf[0] = '\0';
         }
    else if ( sect == MOVE_WATER_SWIM || sect == MOVE_UNDERWATER )
-         snprintf( buf, MAX_STRING_LENGTH, "%s swims %s",  PERS(ch, fch), dir_name[door] );
+         sprintf( buf, "%s swims %s",  PERS(ch, fch), dir_name[door] );
    else if ( sect == MOVE_CLIMB )
-            snprintf( buf, MAX_STRING_LENGTH, "%s climbs %s",  PERS(ch, fch), dir_name[door] );
+            sprintf( buf, "%s climbs %s",  PERS(ch, fch), dir_name[door] );
    else if ( ch->position == POS_STANDING )
         {
         if ( ch->hitched_to == NULL || !can_see_prop(fch, ch->hitched_to) )
-        snprintf( buf, MAX_STRING_LENGTH, "%s walks %s",  PERS(ch, fch), dir_name[door] );
-   else snprintf( buf, MAX_STRING_LENGTH, "%s walks %s dragging %s",
+        sprintf( buf, "%s walks %s",  PERS(ch, fch), dir_name[door] );
+   else sprintf( buf, "%s walks %s dragging %s",
                       PERS(ch, fch), dir_name[door],
                       STR(ch->hitched_to,short_descr) );
         }
@@ -328,7 +328,7 @@ void leave_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
             to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", fch );
         }
 
-        snprintf( buf, MAX_STRING_LENGTH, "%d", door );
+        sprintf( buf, "%d", door );
         if (script_update( fch, TYPE_ACTOR, TRIG_MOVES, ch, NULL, buf, NULL ) == 2)
         return;
     }
@@ -358,9 +358,9 @@ void arrive_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
         break;
 
         if ( ch->position == POS_FIGHTING )
-        snprintf( buf, MAX_STRING_LENGTH, "%s flees from %s", PERS(ch, fch), dir_rev[door] );
+        sprintf( buf, "%s flees from %s", PERS(ch, fch), dir_rev[door] );
    else if ( prop != NULL )
-        snprintf( buf, MAX_STRING_LENGTH, "%s uses %s to %s %s",
+        sprintf( buf, "%s uses %s to %s %s",
                  PERS(ch, fch),
                  PERSO(prop, fch),
                  sect == MOVE_MOUNTAIN     ? "climb" :
@@ -369,30 +369,30 @@ void arrive_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
                  sect == MOVE_UNDERWATER   ? "dive" : "move",
                  dir_name[door] );
    else if ( ch->riding != NULL )
-        snprintf( buf, MAX_STRING_LENGTH, "%s rides %s in from %s", PERS(ch, fch),
+        sprintf( buf, "%s rides %s in from %s", PERS(ch, fch),
                  PERS(ch->riding, fch), dir_rev[door] );
    else if ( IS_AFFECTED(ch, BONUS_FLYING) )
-        snprintf( buf, MAX_STRING_LENGTH, "%s flies in from %s", PERS(ch, fch), dir_rev[door] );
+        sprintf( buf, "%s flies in from %s", PERS(ch, fch), dir_rev[door] );
    else if ( IS_AFFECTED(ch, BONUS_SNEAK) && skill_check( fch, skill_lookup("stealth"), 75 ) )
         {
         if ( IS_SET(fch->flag2, WIZ_HOLYLIGHT)
           || skill_check( fch, skill_lookup("stealth"), 25 ) )
-        snprintf( buf, MAX_STRING_LENGTH, "%s tries to sneak in from %s", PERS(ch, fch), dir_rev[door] );
+        sprintf( buf, "%s tries to sneak in from %s", PERS(ch, fch), dir_rev[door] );
         else buf[0] = '\0';
         }
    else if ( sect == MOVE_WATER_SWIM || sect == MOVE_UNDERWATER )
-        snprintf( buf, MAX_STRING_LENGTH, "%s swims in from %s",  PERS(ch, fch), dir_rev[door] );
+        sprintf( buf, "%s swims in from %s",  PERS(ch, fch), dir_rev[door] );
    else if ( sect == MOVE_CLIMB )
-        snprintf( buf, MAX_STRING_LENGTH, "%s climbs in from %s",  PERS(ch, fch), dir_rev[door] );
+        sprintf( buf, "%s climbs in from %s",  PERS(ch, fch), dir_rev[door] );
    else if ( ch->position == POS_STANDING )
     {
         if ( fWindow ) 
-        snprintf( buf, MAX_STRING_LENGTH, "%s climbs in through an open %s", PERS(ch,fch),
+        sprintf( buf, "%s climbs in through an open %s", PERS(ch,fch),
              ch->in_scene && ch->in_scene->exit[door] ? 
              ch->in_scene->exit[door]->keyword : "window" );
    else if ( ch->hitched_to == NULL || !can_see_prop(fch, ch->hitched_to) )
-        snprintf( buf, MAX_STRING_LENGTH, "%s walks in from %s",  PERS(ch, fch), dir_rev[door] );
-   else snprintf( buf, MAX_STRING_LENGTH, "%s walks in from %s dragging %s",
+        sprintf( buf, "%s walks in from %s",  PERS(ch, fch), dir_rev[door] );
+   else sprintf( buf, "%s walks in from %s dragging %s",
                  PERS(ch, fch), dir_rev[door],
                  STR(ch->hitched_to,short_descr) );
     }
@@ -413,7 +413,7 @@ void arrive_strings( PLAYER *ch, PROP *prop, int sect, int door, bool fWindow )
             to_actor( ch->position == POS_FIGHTING ? "!\n\r" : ".\n\r", fch );
         }
 
-        snprintf( buf, MAX_STRING_LENGTH, "%d", rev_dir[door] );
+        sprintf( buf, "%d", rev_dir[door] );
         script_update( fch, TYPE_ACTOR, TRIG_ENTER, ch, NULL, buf, NULL );
     }
 }
@@ -684,11 +684,11 @@ bool check_move( PLAYER *ch, int door, int depth, SCENE *in_scene,
             
         switch( sect )
         {
-               default: snprintf( buf, MAX_STRING_LENGTH, "You need another form of transportation to go there\n\r" ); break;
-  case MOVE_UNDERWATER: snprintf( buf, MAX_STRING_LENGTH, "It is impossible to hold your breath for long enough.\n\r" ); break;
-    case MOVE_MOUNTAIN: snprintf( buf, MAX_STRING_LENGTH, "Its too steep for you to climb unaided.\n\r" ); break;
-case MOVE_WATER_NOSWIM: snprintf( buf, MAX_STRING_LENGTH, "You need a boat to go there.\n\r" ); break;
-         case MOVE_AIR: snprintf( buf, MAX_STRING_LENGTH, "It is impossible to fly!\n\r" ); break;
+               default: sprintf( buf, "You need another form of transportation to go there\n\r" ); break;
+  case MOVE_UNDERWATER: sprintf( buf, "It is impossible to hold your breath for long enough.\n\r" ); break;
+    case MOVE_MOUNTAIN: sprintf( buf, "Its too steep for you to climb unaided.\n\r" ); break;
+case MOVE_WATER_NOSWIM: sprintf( buf, "You need a boat to go there.\n\r" ); break;
+         case MOVE_AIR: sprintf( buf, "It is impossible to fly!\n\r" ); break;
         }
             
         to_actor( buf, ch );
@@ -714,7 +714,7 @@ void move_char( PLAYER *ch, int door )
 
     if ( door < 0 || door >= MAX_DIR )
     {
-	bug( "Cmd_move: bad door %d.", door );
+	wtf_logf( "Cmd_move: bad door %d.", door );
 	return;
     }
 
@@ -773,7 +773,7 @@ void move_char( PLAYER *ch, int door )
 
     WAIT_STATE( ch, 2 );
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", door );
+    sprintf( buf, "%d", door );
     if (script_update( ch->in_scene, TYPE_SCENE, TRIG_MOVES, ch, NULL, buf, NULL ) == 2)
     return;
 
@@ -1145,7 +1145,7 @@ void cmd_leave( PLAYER *ch, char *argument )
 
         if ( pProp == NULL )
         {
-            bug( "Cmd_leave: pProp == NULL.", 0 );
+            wtf_logf( "Cmd_leave: pProp == NULL.", 0 );
             to_actor( "There is nothing to leave to.\n\r", ch );
             return;
         }

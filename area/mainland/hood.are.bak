@@ -230,8 +230,8 @@ Sz 70
 K 0 E 2500
 O ~
 AP 25 75 75 25 75
-Sc 5012
 Sc 17109
+Sc 5012
 At 0 5 50 16
 At 1 5 10 12
 At 2 10 20 11
@@ -2565,13 +2565,6 @@ M 0
 W 0
 T 0
 O ~
-ED control panel~
-A control panel marked with eight buttons, the first 7 of which have
-numbers 1,2,3,4,5,6,7 and the final one is marked with an asterisk.
- 
-You can press the buttons by typing 'press button one',
-or 'press button 1' -- or 'press button *'
-~
 ED sign~
 The sign, which is really just a note taped to the device, reads:
 "Press button one for coordinate X:L1-Ty439,
@@ -2583,6 +2576,13 @@ The sign, which is really just a note taped to the device, reads:
  
 Someone has scrawled "button 7 has not been tested !!!" at the bottom
 of the note.
+~
+ED control panel~
+A control panel marked with eight buttons, the first 7 of which have
+numbers 1,2,3,4,5,6,7 and the final one is marked with an asterisk.
+ 
+You can press the buttons by typing 'press button one',
+or 'press button 1' -- or 'press button *'
 ~
 Dr 1 0 0 17175
 ~

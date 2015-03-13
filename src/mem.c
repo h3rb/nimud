@@ -985,7 +985,7 @@ ZONE *new_zone( void )
     pZone->age              =   0;
     pZone->nplayer          =   0;
     pZone->dbkey             =   top_zone-1;
-    snprintf( buf, MAX_STRING_LENGTH, "zone-%s%d.zone", pZone->dbkey-1 < 10 ? "00" :
+    sprintf( buf, "zone-%s%d.zone", pZone->dbkey-1 < 10 ? "00" :
                                    pZone->dbkey-1 < 100 ? "0" : "",
                                    pZone->dbkey-1 );
     pZone->filename         =   str_dup( buf );
@@ -1759,7 +1759,7 @@ int fread_number( FILE *fp )
 
     if ( !isdigit(c) )
     {
-	bug( "Fread_number: bad format.", 0 );
+	wtf_logf( "Fread_number: bad format." );
 	exit( 1 );
     }
 
@@ -1829,7 +1829,7 @@ char *fread_string( FILE *fp )
 	    break;
 
 	case EOF:
-	    bug( "Fread_string: EOF", 0 );
+	    wtf_logf( "Fread_string: EOF" );
 	    exit( 1 );
 	    break;
 
@@ -2046,7 +2046,7 @@ char *fread_word( FILE *fp )
 	}
     }
 
-    bug( "Fread_word: word too long.", 0 );
+    wtf_logf( "Fread_word: word too long." );
 //    if ( fBootDb ) exit( 1 );
     return "";
 }
@@ -2073,7 +2073,7 @@ void *alloc_mem( int sMem )
 
     if ( iList == MAX_MEM_LIST )
     {
-	bug( "Alloc_mem: size %d too large.", sMem );
+	wtf_logf( "Alloc_mem: size %d too large.", sMem );
 	exit( 1 );
     }
 
@@ -2108,7 +2108,7 @@ void ofree_mem( void *pMem, int sMem )
 
     if ( iList == MAX_MEM_LIST )
     {
-	bug( "Free_mem: size %d too large.", sMem );
+	wtf_logf( "Free_mem: size %d too large.", sMem );
 	exit( 1 );
     }
 
@@ -2144,7 +2144,7 @@ void *alloc_perm( int sMem )
 	sMem++;
     if ( sMem > MAX_PERM_BLOCK )
     {
-	bug( "Alloc_perm: %d too large.", sMem );
+	wtf_logf( "Alloc_perm: %d too large.", sMem );
 	exit( 1 );
     }
 
@@ -2229,7 +2229,7 @@ void cmd_memory( PLAYER *ch, char *argument )
         VARD *v;
         for( v = mud_var_list; v != NULL; v = v->next )
         { 
-            snprintf( buf, MAX_STRING_LENGTH, "%s\n\r", v->name );
+            sprintf( buf, "%s\n\r", v->name );
             to_actor( buf, ch );
         }
         return;
@@ -2267,53 +2267,53 @@ void cmd_memory( PLAYER *ch, char *argument )
     total += sizeof( NOTE        ) * top_note;
     total += sizeof( TERRAIN     ) * top_dbkey_terrain;
 
-    snprintf( buf, MAX_STRING_LENGTH, "Type    %5s  %7s  [%5s] Top Vnums\n\r", "Num", "Bytes", "Each" );  to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Bonuses %5d  %7d  [%5d]\n\r",    (int) top_bonus,        sizeof( BONUS      ) * top_bonus,     sizeof( BONUS      ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Attacks %5d  %7d  [%5d]\n\r",    (int) top_attack,       sizeof( ATTACK      ) * top_attack,     sizeof( ATTACK      ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Descs   %5d  %7d  [%5d]\n\r",    (int) top_connection,   sizeof( CONNECTION  ) * top_connection, sizeof( CONNECTION  ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "ExDes   %5d  %7d  [%5d]\n\r",    (int) top_ed,           sizeof( EXTRA_DESCR ) * top_ed,         sizeof( EXTRA_DESCR ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Exits   %5d  %7d  [%5d]\n\r",    (int) top_exit,         sizeof( EXIT        ) * top_exit,       sizeof( EXIT        ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Helps   %5d  %7d  [%5d]\n\r",    (int) top_help,         sizeof( HELP        ) * top_help,       sizeof( HELP        ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Notes   %5d  %7d  [%5d]\n\r",    (int) top_note,         sizeof( NOTE        ) * top_note,       sizeof( NOTE        ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Zones   %5d  %7d  [%5d]\n\r",    (int) top_zone,         sizeof( ZONE        ) * top_zone,       sizeof( ZONE        ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "MobIndx %5d  %7d  [%5d] %d\n\r", (int) top_actor_template,  sizeof( ACTOR_TEMPLATE   ) * top_actor_template,  sizeof( ACTOR_TEMPLATE   ), top_dbkey_actor    ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "ObjIndx %5d  %7d  [%5d] %d\n\r", (int) top_prop_template,   sizeof( PROP_TEMPLATE   ) * top_prop_template,  sizeof( PROP_TEMPLATE   ), top_dbkey_prop    ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Scenes  %5d  %7d  [%5d] %d\n\r", (int) top_scene,        sizeof( SCENE  ) * top_scene,       sizeof( SCENE  ), top_dbkey_scene   ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Scripts %5d  %7d  [%5d] %d\n\r", (int) top_script,       sizeof( SCRIPT      ) * top_script,     sizeof( SCRIPT      ), top_dbkey_script ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Cues    %5d  %7d  [%5d]\n\r",    (int) top_spawn,        sizeof( SPAWN       ) * top_spawn,      sizeof( SPAWN       ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Terrain %5d  %7d  [%5d]\n\r",    (int) top_dbkey_terrain, sizeof(TERRAIN   ) * top_dbkey_terrain, sizeof(TERRAIN    ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Spells  %5d  %7d  [%5d] %d\n\r", (int) top_spell,        sizeof( SCENE  ) * top_spell,       sizeof( SPELL  ), top_dbkey_spell   ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Skills  %5d  %7d  [%5d] %d\n\r", (int) top_skill,        sizeof( SKILL  ) * top_skill,       sizeof( SKILL  ), top_dbkey_skill   ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Shops   %5d  %7d  [%5d]\n\r",    (int) top_shop,         sizeof( SHOP        ) * top_shop,       sizeof( SHOP        ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Trigs   %5d  %7d  [%5d]\n\r",    (int) top_instance,     sizeof( INSTANCE     ) * top_instance,    sizeof( INSTANCE     ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Vars    %5d  %7d  [%5d]\n\r",    (int) top_variable,     sizeof( VARIABLE    ) * top_variable,   sizeof( VARIABLE    ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "CharD   %5d  %7d  [%5d]\n\r",    (int) top_player,  sizeof( PLAYER        ) * top_player,  sizeof( PLAYER        ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "ObjD    %5d  %7d  [%5d]\n\r",    (int) top_prop,         sizeof( PROP         ) * top_prop,        sizeof( PROP         ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "PcD     %5d  %7d  [%5d]\n\r",    (int) top_userdata,     sizeof( PLAYER          ) * top_userdata,     sizeof( PLAYER          ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Socials %5d  %7d  [%5d]\n\r",    (int) social_count,     sizeof( struct social_type ) * social_count, sizeof( struct social_type ) ); to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Actors  %5d  %7d  [%5d]*\n\r",   (int) count_actor,      count_actor * sizeof( PLAYER ),             sizeof( PLAYER ) );        to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Objects %5d  %7d  [%5d]*\n\r",   (int) count_prop,       count_prop * sizeof( PROP  ),             sizeof( PROP  ) );        to_actor( buf, ch );
-    snprintf( buf, MAX_STRING_LENGTH, "Players %5d  %7d  [%5d]*\n\r",   (int) count_plr,        count_plr * (sizeof( PLAYER ) + sizeof( PLAYER )), sizeof( PLAYER ) + sizeof( PLAYER ) ); to_actor( buf, ch );
+    sprintf( buf, "Type    %5s  %7s  [%5s] Top Vnums\n\r", "Num", "Bytes", "Each" );  to_actor( buf, ch );
+    sprintf( buf, "Bonuses %5d  %7d  [%5d]\n\r",    (int) top_bonus,        (int) (sizeof( BONUS      ) * top_bonus),    (int)  sizeof( BONUS      ) ); to_actor( buf, ch );
+    sprintf( buf, "Attacks %5d  %7d  [%5d]\n\r",    (int) top_attack,       (int) (sizeof( ATTACK      ) * top_attack),     (int) sizeof( ATTACK      ) ); to_actor( buf, ch );
+    sprintf( buf, "Descs   %5d  %7d  [%5d]\n\r",    (int) top_connection,   (int) (sizeof( CONNECTION  ) * top_connection), (int) sizeof( CONNECTION  ) ); to_actor( buf, ch );
+    sprintf( buf, "ExDes   %5d  %7d  [%5d]\n\r",    (int) top_ed,           (int) (sizeof( EXTRA_DESCR ) * top_ed),         (int) sizeof( EXTRA_DESCR ) ); to_actor( buf, ch );
+    sprintf( buf, "Exits   %5d  %7d  [%5d]\n\r",    (int) top_exit,         (int) (sizeof( EXIT        ) * top_exit),       (int) sizeof( EXIT        ) ); to_actor( buf, ch );
+    sprintf( buf, "Helps   %5d  %7d  [%5d]\n\r",    (int) top_help,         (int) (sizeof( HELP        ) * top_help),       (int) sizeof( HELP        ) ); to_actor( buf, ch );
+    sprintf( buf, "Notes   %5d  %7d  [%5d]\n\r",    (int) top_note,         (int) (sizeof( NOTE        ) * top_note),       (int) sizeof( NOTE        ) ); to_actor( buf, ch );
+    sprintf( buf, "Zones   %5d  %7d  [%5d]\n\r",    (int) top_zone,         (int) (sizeof( ZONE        ) * top_zone),       (int) sizeof( ZONE        ) ); to_actor( buf, ch );
+    sprintf( buf, "MobIndx %5d  %7d  [%5d] %d\n\r", (int) top_actor_template, (int) ( sizeof( ACTOR_TEMPLATE   ) * top_actor_template), (int)  sizeof( ACTOR_TEMPLATE   ), top_dbkey_actor    ); to_actor( buf, ch );
+    sprintf( buf, "ObjIndx %5d  %7d  [%5d] %d\n\r", (int) top_prop_template,  (int) ( sizeof( PROP_TEMPLATE   ) * top_prop_template), (int)  sizeof( PROP_TEMPLATE   ), top_dbkey_prop    ); to_actor( buf, ch );
+    sprintf( buf, "Scenes  %5d  %7d  [%5d] %d\n\r", (int) top_scene,        (int) (sizeof( SCENE  ) * top_scene),      (int)  sizeof( SCENE  ), top_dbkey_scene   ); to_actor( buf, ch );
+    sprintf( buf, "Scripts %5d  %7d  [%5d] %d\n\r", (int) top_script,       (int) (sizeof( SCRIPT      ) * top_script),   (int)   sizeof( SCRIPT      ), top_dbkey_script ); to_actor( buf, ch );
+    sprintf( buf, "Cues    %5d  %7d  [%5d]\n\r",    (int) top_spawn,        (int) (sizeof( SPAWN       ) * top_spawn),     (int)  sizeof( SPAWN       ) ); to_actor( buf, ch );
+    sprintf( buf, "Terrain %5d  %7d  [%5d]\n\r",    (int) top_dbkey_terrain, (int)( sizeof(TERRAIN   ) * top_dbkey_terrain), (int) sizeof(TERRAIN    ) ); to_actor( buf, ch );
+    sprintf( buf, "Spells  %5d  %7d  [%5d] %d\n\r", (int) top_spell,        (int) (sizeof( SCENE  ) * top_spell),     (int)   sizeof( SPELL  ), top_dbkey_spell   ); to_actor( buf, ch );
+    sprintf( buf, "Skills  %5d  %7d  [%5d] %d\n\r", (int) top_skill,        (int) (sizeof( SKILL  ) * top_skill),     (int)   sizeof( SKILL  ), top_dbkey_skill   ); to_actor( buf, ch );
+    sprintf( buf, "Shops   %5d  %7d  [%5d]\n\r",    (int) top_shop,         (int) (sizeof( SHOP        ) * top_shop),     (int)   sizeof( SHOP        ) ); to_actor( buf, ch );
+    sprintf( buf, "Trigs   %5d  %7d  [%5d]\n\r",    (int) top_instance,     (int) (sizeof( INSTANCE     ) * top_instance),  (int)   sizeof( INSTANCE     ) ); to_actor( buf, ch );
+    sprintf( buf, "Vars    %5d  %7d  [%5d]\n\r",    (int) top_variable,     (int) (sizeof( VARIABLE    ) * top_variable), (int)   sizeof( VARIABLE    ) ); to_actor( buf, ch );
+    sprintf( buf, "CharD   %5d  %7d  [%5d]\n\r",    (int) top_player,  (int) (sizeof( PLAYER        ) * top_player), (int)  sizeof( PLAYER        ) ); to_actor( buf, ch );
+    sprintf( buf, "ObjD    %5d  %7d  [%5d]\n\r",    (int) top_prop,         (int) (sizeof( PROP         ) * top_prop),     (int)    sizeof( PROP         ) ); to_actor( buf, ch );
+    sprintf( buf, "PcD     %5d  %7d  [%5d]\n\r",    (int) top_userdata,     (int) (sizeof( PLAYER          ) * top_userdata),   (int)   sizeof( PLAYER          ) ); to_actor( buf, ch );
+    sprintf( buf, "Socials %5d  %7d  [%5d]\n\r",    (int) social_count,     (int) (sizeof( struct social_type ) * social_count), (int) sizeof( struct social_type ) ); to_actor( buf, ch );
+    sprintf( buf, "Actors  %5d  %7d  [%5d]*\n\r",   (int) count_actor,     (int)  (count_actor * sizeof( PLAYER )),           (int)   sizeof( PLAYER ) );        to_actor( buf, ch );
+    sprintf( buf, "Objects %5d  %7d  [%5d]*\n\r",   (int) count_prop,      (int)  (count_prop * sizeof( PROP  )),           (int)   sizeof( PROP  ) );        to_actor( buf, ch );
+    sprintf( buf, "Players %5d  %7d  [%5d]*\n\r",   (int) count_plr,        (int) (count_plr * (sizeof( PLAYER ) + sizeof( PLAYER ))),(int) ( sizeof( PLAYER ) + sizeof( PLAYER )) ); to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Total type allocation is %d bytes.\n\r", total );
+    sprintf( buf, "Total type allocation is %d bytes.\n\r", total );
     to_actor( buf, ch );
 
     {
         VARD *v;
         int i=0;
         for ( v = mud_var_list; v != NULL; v=v->next_master_var ) i++;
-        snprintf( buf, MAX_STRING_LENGTH, "Counted %d variables in the master variable list.\n\r", i );
+        sprintf( buf, "Counted %d variables in the master variable list.\n\r", i );
         to_actor( buf, ch );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d calls to str_dup() since last boot,\n\r", num_str_dup );
+    sprintf( buf, "%d calls to str_dup() since last boot,\n\r", num_str_dup );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Booted with %d strings of %d/%d bytes.\n\r",
+    sprintf( buf, "Booted with %d strings of %d/%d bytes.\n\r",
              nAllocString, sAllocString, MAX_STRING );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Perms %d blocks of %d bytes.\n\rThere were %d guest characters created today.\n\r",
+    sprintf( buf, "Perms %d blocks of %d bytes.\n\rThere were %d guest characters created today.\n\r",
              nAllocPerm, sAllocPerm, guestnumber );
     to_actor( buf, ch );
 

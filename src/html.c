@@ -112,7 +112,7 @@ void html_export_helps( ) {
  
   if (! (ifp = fopen( IFILE, "w") ) )
   {
-     bug( "Export_html: index.html", 0);
+     wtf_logf( "Export_html: index.html", 0);
      perror( IFILE );
   }
 
@@ -141,7 +141,7 @@ void html_export_helps( ) {
 
      if (! (fp = fopen( HFILE, "w") ) )
      {
-         bug( "Export_html: fopen", 0);
+         wtf_logf( "Export_html: fopen", 0);
          perror( HFILE );
      }
 

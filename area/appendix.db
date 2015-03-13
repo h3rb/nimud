@@ -4492,7 +4492,186 @@ C 111
 Va 0 2 0 0
 END
 
+
+#PROP
+Nest 0
+V 4500
+E 65536
+W 4227073
+WL -1
+I 15
+Wt 2
+L 0
+Sz 0
+T -1
+C 18
+Va 50 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N golden beryl gem~
+S a golden beryl~
+D
+A golden beryl sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1000
+Va 6 200 200 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N 213984 platinum coins~
+S 213984 platinum coins~
+D
+A small hill of platinum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 10699
+L 0
+Sz 0
+T -1
+C 2139840000
+Va 213984 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N six electrum coins~
+S six electrum coins~
+D
+A few electrum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 6000
+Va 6 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N six gold coins~
+S six gold coins~
+D
+A few gold coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 600
+Va 6 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N five copper coins~
+S five copper coins~
+D
+A few copper coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 5 4 0 0
+END
+
+
+#PROP
+Nest 0
+V 4003
+E 0
+W 0
+WL -1
+I 12
+Wt 100
+L 0
+Sz 0
+T -1
+C 4608
+Va 200 24576 0 0
+END
+
 Scene 5
+
+#PROP
+Nest 0
+V 6
+S Vicker's corpse~
+SP Vicker's corpses~
+D
+The marred body of Vicker lies here.
+~
+E 0
+W 0
+WL -1
+I 24
+Wt -15536
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 6
+S Vicker's corpse~
+SP Vicker's corpses~
+D
+The marred body of Vicker lies here.
+~
+E 0
+W 0
+WL -1
+I 24
+Wt -15536
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
 Scene 20
 Scene 5171
 
@@ -4512,22 +4691,6 @@ Va 100 24576 0 0
 END
 
 Scene 5172
-
-#PROP
-Nest 0
-V 5100
-E 0
-W 8193
-WL -1
-I 5
-Wt 2
-L 0
-Sz 0
-T -1
-C 44
-Va 0 10 20 8
-END
-
 Scene 5247
 
 #PROP
@@ -5584,6 +5747,190 @@ END
 
 
 #PROP
+Nest 1
+V 20015
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 18
+T -1
+C 10
+Va 10 3 0 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N black-marked moss agate gem~
+S a black-marked moss agate~
+D
+A black-marked moss agate sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 500
+Va 5 100 100 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N jade gem~
+S a jade~
+D
+A jade sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 600
+Va 1 120 120 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N pink fluorspar gem~
+S a pink fluorspar~
+D
+A pink fluorspar sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 4 20 20 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N yellow-red hessonite garnet gem~
+S a yellow-red hessonite garnet~
+D
+A yellow-red hessonite garnet sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 500
+Va 4 100 100 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N reddish spangled sunstone gem~
+S a reddish spangled sunstone~
+D
+A reddish spangled sunstone sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 250
+Va 4 50 50 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N grass-green emerald gem~
+S a grass-green emerald~
+D
+A grass-green emerald sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1400
+Va 1 280 280 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N dark-green opaque plasma stone gem~
+S a dark-green opaque plasma stone~
+D
+A dark-green opaque plasma stone sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 200
+Va 9 40 40 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N common opal gem~
+S a common opal~
+D
+A common opal sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 8 20 20 0
+END
+
+
+#PROP
 Nest 0
 V 5004
 E 0
@@ -5723,7 +6070,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 2147306484 2147483647 0 1
+Va 2146794514 2147483647 0 1
 END
 
 
@@ -5756,22 +6103,6 @@ Sz 0
 T -1
 C 156
 Va 10 4 4 0
-END
-
-
-#PROP
-Nest 0
-V 17105
-E 2
-W 16385
-WL -1
-I 5
-Wt 1
-L 0
-Sz 0
-T -1
-C 921
-Va 0 2 2 11
 END
 
 
@@ -5825,190 +6156,6 @@ END
 
 
 #PROP
-Nest 1
-V 50
-N common opal gem~
-S a common opal~
-D
-A common opal sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 100
-Va 8 20 20 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N dark-green opaque plasma stone gem~
-S a dark-green opaque plasma stone~
-D
-A dark-green opaque plasma stone sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 200
-Va 9 40 40 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N grass-green emerald gem~
-S a grass-green emerald~
-D
-A grass-green emerald sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 1400
-Va 1 280 280 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N reddish spangled sunstone gem~
-S a reddish spangled sunstone~
-D
-A reddish spangled sunstone sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 250
-Va 4 50 50 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N yellow-red hessonite garnet gem~
-S a yellow-red hessonite garnet~
-D
-A yellow-red hessonite garnet sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 500
-Va 4 100 100 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N pink fluorspar gem~
-S a pink fluorspar~
-D
-A pink fluorspar sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 100
-Va 4 20 20 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N jade gem~
-S a jade~
-D
-A jade sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 600
-Va 1 120 120 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N black-marked moss agate gem~
-S a black-marked moss agate~
-D
-A black-marked moss agate sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 500
-Va 5 100 100 0
-END
-
-
-#PROP
-Nest 1
-V 20015
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 18
-T -1
-C 10
-Va 10 3 0 0
-END
-
-
-#PROP
 Nest 0
 V 17245
 E 65
@@ -6042,6 +6189,1078 @@ END
 
 #PROP
 Nest 0
+V 3006
+E 0
+W 513
+WL -1
+I 9
+Wt 0
+L 0
+Sz 0
+T -1
+C 9
+Va 2 20 20 0
+END
+
+
+#PROP
+Nest 0
+V 7001
+E 0
+W 32769
+WL -1
+I 6
+Wt 10
+L 0
+Sz 0
+T -1
+C 188
+Va 7002 20 30 0
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 540
+E 0
+W 1
+WL -1
+I 27
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 4 1 1 5
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 7002
+E 0
+W 1
+WL -1
+I 7
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 1 0 0 -1
+END
+
+
+#PROP
+Nest 0
+V 2550
+E 0
+W 1
+WL -1
+I 34
+Wt 0
+L 0
+Sz 0
+T -1
+C 3
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
 V 16339
 E 65
 W 1
@@ -6053,6 +7272,22 @@ Sz 18
 T -1
 C 8860
 Va 1338 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 17309
+E 708
+W 8193
+WL -1
+I 5
+Wt 9
+L 0
+Sz 0
+T -1
+C 80649
+Va 1 40 1 3
 END
 
 Scene 10033
@@ -6073,6 +7308,1543 @@ Va 100 24576 0 0
 END
 
 Scene 24405
+Scene 8050
+
+#PROP
+Nest 0
+V 12002
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 10 1 0 0
+END
+
+Scene 8051
+
+#PROP
+Nest 0
+V 15142
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 5000 9 15141 0
+END
+
+
+#PROP
+Nest 0
+V 4004
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 2147068036 2147483647 0 1
+END
+
+
+#PROP
+Nest 0
+V 7370
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 20 65536 0 0
+END
+
+
+#PROP
+Nest 0
+V 7371
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 7371
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 7371
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 16402
+E 2
+W 0
+WL -1
+I 15
+Wt 5000
+L 0
+Sz 18
+T -1
+C 1
+Va 500 5 -1 0
+END
+
+Scene 8052
+
+#PROP
+Nest 0
+V 10706
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 200 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 4003
+E 0
+W 0
+WL -1
+I 12
+Wt 100
+L 0
+Sz 0
+T -1
+C 5421
+Va 200 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 4005
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 5000 5 0 0
+END
+
+
+#PROP
+Nest 0
+V 12000
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 300 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 4008
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 20 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 4007
+E 0
+W 1
+WL -1
+I 1
+Wt 10
+L 0
+Sz 0
+T -1
+C 10
+Va 0 -1 0 0
+END
+
+
+#PROP
+Nest 0
+V 4505
+N milky-white duffel bag~
+S a milky-white duffel bag~
+D
+A milky-white duffel bag has been tossed here.
+~
+E 0
+W 4227073
+WL -1
+I 15
+Wt 5
+L 0
+Sz 0
+T -1
+C 36
+Va 100 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 661
+E 0
+W 1
+WL -1
+I 22
+Wt 15
+L 0
+Sz 0
+T -1
+C 45
+Va 5 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 50
+N bright green demantoid garnet gem~
+S a bright green demantoid garnet~
+D
+A bright green demantoid garnet sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 700
+Va 1 100 140 0
+END
+
+
+#PROP
+Nest 1
+V 22908
+E 0
+W 1
+WL -1
+I 33
+Wt 0
+L 0
+Sz 0
+T -1
+C 876
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 16331
+E 0
+W 1
+WL -1
+I 15
+Wt 10
+L 0
+Sz 18
+T -1
+C 5151
+Va 1000 0 -1 0
+END
+
+
+#PROP
+Nest 1
+V 4
+N capful  attar of roses component~
+S a capful of attar of roses~
+SP attar of roses components~
+D
+a capful of attar of roses was left here.
+~
+E 0
+W 1
+WL -1
+I 30
+Wt 1
+L -1
+Sz 0
+T -1
+C 20000
+Va 34 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 16339
+E 65
+W 1
+WL -1
+I 18
+Wt 1
+L 0
+Sz 18
+T -1
+C 10229
+Va 1338 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N eleven platinum coins~
+S eleven platinum coins~
+D
+A small pile of platinum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 110000
+Va 11 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N three electrum coins~
+S three electrum coins~
+D
+A few electrum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 3000
+Va 3 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 2
+N gold coin~
+S one gold coin~
+D
+A single gold coin is on the ground.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 1
+L 0
+Sz 0
+T -1
+C 100
+Va 1 2 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N nineteen silver coins~
+S nineteen silver coins~
+D
+A small pile of silver coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 190
+Va 19 3 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N eight copper coins~
+S eight copper coins~
+D
+A few copper coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 8
+Va 8 4 0 0
+END
+
+
+#PROP
+Nest 0
+V 4006
+E 0
+W 1
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 4883
+Va 200 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 4009
+E 0
+W 1
+WL -1
+I 17
+Wt 15
+L 0
+Sz 0
+T -1
+C 10
+Va 80 100 0 0
+END
+
+Scene 8053
+
+#PROP
+Nest 0
+V 531
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 5004
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 99 65536 0 0
+END
+
+
+#PROP
+Nest 0
+V 5001
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+Scene 8060
+
+#PROP
+Nest 0
+V 12002
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 10 1 0 0
+END
+
+
+#PROP
+Nest 0
+V 4000
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 -1 0 1
+END
+
+
+#PROP
+Nest 0
+V 16308
+E 2
+W 1
+WL -1
+I 0
+Wt 50
+L 0
+Sz 18
+T -1
+C 9
+Va 10000 0 -1 0
+END
+
+Scene 8061
+
+#PROP
+Nest 0
+V 4001
+E 0
+W 1
+WL -1
+I 12
+Wt 50
+L 0
+Sz 0
+T -1
+C 460
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 4006
+E 0
+W 1
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 4530
+Va 200 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 8065
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 999840 1000000 0 1
+END
+
+
+#PROP
+Nest 0
+V 12000
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 300 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 8066
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 50 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 5308
+N turquoise wax taper~
+S a turquoise wax taper~
+D
+A turquoise wax taper burns here.
+~
+E 0
+W 1
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 10 10 0 0
+END
+
+Scene 8062
+
+#PROP
+Nest 0
+V 5004
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 99 65536 0 0
+END
+
+
+#PROP
+Nest 0
+V 4001
+E 0
+W 1
+WL -1
+I 12
+Wt 50
+L 0
+Sz 0
+T -1
+C 506
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 4001
+E 0
+W 1
+WL -1
+I 12
+Wt 50
+L 0
+Sz 0
+T -1
+C 471
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 8065
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 999840 1000000 0 1
+END
+
+
+#PROP
+Nest 0
+V 8065
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 999840 1000000 0 1
+END
+
+Scene 8063
+
+#PROP
+Nest 0
+V 8062
+E 0
+W 0
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 8063
+E 0
+W 0
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 8065
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 999840 1000000 0 1
+END
+
+
+#PROP
+Nest 0
+V 5001
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+Scene 8064
+
+#PROP
+Nest 0
+V 11105
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 32768 0 11100
+END
+
+
+#PROP
+Nest 0
+V 5120
+E 0
+W 1
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 17322
+E 0
+W 16385
+WL -1
+I 2
+Wt 5
+L 0
+Sz 18
+T -1
+C 15943
+Va 30 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 4008
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 20 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 2550
+E 0
+W 1
+WL -1
+I 34
+Wt 0
+L 0
+Sz 0
+T -1
+C 3
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 7371
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 5004
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 99 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 718
+E 0
+W 8193
+WL -1
+I 5
+Wt 1
+L 0
+Sz 1
+T -1
+C 9
+Va 0 5 9 8
+END
+
+
+#PROP
+Nest 1
+V 15612
+E 0
+W 1
+WL -1
+I 19
+Wt 1
+L 0
+Sz 18
+T -1
+C 5
+Va 8 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 8065
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 999844 1000000 0 1
+END
+
+Scene 8065
+
+#PROP
+Nest 0
+V 5019
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 15142
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 5000 9 15141 0
+END
+
+
+#PROP
+Nest 0
+V 4003
+E 0
+W 0
+WL -1
+I 12
+Wt 100
+L 0
+Sz 0
+T -1
+C 5491
+Va 200 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 4005
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 5000 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 16104
+E 1088
+W 1025
+WL -1
+I 9
+Wt 3
+L 0
+Sz 18
+T -1
+C 8856
+Va 7 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 3545
+E 0
+W -2147483647
+WL -1
+I 5
+Wt 15
+L 0
+Sz 0
+T -1
+C 210
+Va 0 2 6 0
+END
+
+
+#PROP
+Nest 0
+V 8065
+E 0
+W 0
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 999840 1000000 0 1
+END
+
+
+#PROP
+Nest 0
+V 8066
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 50 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 5308
+N ochre wax taper~
+S an ochre wax taper~
+D
+An ochre wax taper burns here.
+~
+E 0
+W 1
+WL -1
+I 1
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 10 10 0 0
+END
+
+Scene 8066
+
+#PROP
+Nest 0
+V 20220
+E 0
+W 0
+WL -1
+I 25
+Wt 0
+L 0
+Sz 18
+T -1
+C 10
+Va 10 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 5001
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 4002
+E 0
+W 1
+WL -1
+I 12
+Wt 40
+L 0
+Sz 0
+T -1
+C 1
+Va 100 8192 0 0
+END
+
+Scene 8067
+
+#PROP
+Nest 0
+V 16309
+E 0
+W 0
+WL -1
+I 15
+Wt 10000
+L 0
+Sz 18
+T -1
+C 10
+Va 5000 1 -1 0
+END
+
+
+#PROP
+Nest 1
+V 15604
+E 0
+W 1
+WL -1
+I 19
+Wt 12
+L 0
+Sz 18
+T -1
+C 65
+Va 30 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 15603
+E 0
+W 1
+WL -1
+I 19
+Wt 10
+L 0
+Sz 18
+T -1
+C 44
+Va 23 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 15602
+E 0
+W 1
+WL -1
+I 19
+Wt 10
+L 0
+Sz 18
+T -1
+C 48
+Va 24 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 15601
+E 0
+W 8193
+WL -1
+I 5
+Wt 5
+L 0
+Sz 18
+T -1
+C 167
+Va 0 2 4 3
+END
+
+
+#PROP
+Nest 0
+V 7370
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 20 65536 0 0
+END
+
+
+#PROP
+Nest 1
+V 1005
+E 0
+W 1
+WL -1
+I 17
+Wt 1
+L 0
+Sz 0
+T -1
+C 1
+Va 60 60 0 0
+END
+
+
+#PROP
+Nest 0
+V 5001
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 5001
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 530
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 530
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 4507
+E 0
+W 1
+WL -1
+I 15
+Wt 50
+L 0
+Sz 0
+T -1
+C 5
+Va 200 1 0 0
+END
+
+
+#PROP
+Nest 0
+V 18000
+E 0
+W 1
+WL -1
+I 17
+Wt 65
+L 0
+Sz 18
+T -1
+C 291
+Va 50 50 1 0
+END
+
+
+#PROP
+Nest 0
+V 16652
+E 0
+W 1
+WL -1
+I 17
+Wt 8
+L 0
+Sz 18
+T -1
+C 9
+Va 5 2 3 0
+END
+
+Scene 8088
+
+#PROP
+Nest 0
+V 67
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 10908
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 50 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 531
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 15916
+E 0
+W 32769
+WL -1
+I 0
+Wt 1
+L 0
+Sz 18
+T -1
+C 1
+Va 0 0 0 0
+END
+
+Scene 8089
+
+#PROP
+Nest 0
+V 67
+E 0
+W 0
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 100 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 20308
+E 0
+W 0
+WL -1
+I 15
+Wt 50
+L 0
+Sz 18
+T -1
+C 207
+Va 5000 13 5226 0
+END
+
+
+#PROP
+Nest 0
+V 10908
+E 0
+W 0
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 50 0 0 0
+END
+
 Scene 1981
 
 #PROP

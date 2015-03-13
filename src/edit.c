@@ -168,7 +168,7 @@ void spedit( PLAYER *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pSpell->dbkey );
+        sprintf( buf, "%d", pSpell->dbkey );
         cmd_spedit( ch, "show" );
         return;
     }
@@ -182,7 +182,7 @@ void spedit( PLAYER *ch, char *argument )
 
     if ( is_number( arg1 ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", atoi(arg1) );
+        sprintf( buf, "%d", atoi(arg1) );
         cmd_spedit( ch, buf );
         return;
     }
@@ -317,18 +317,18 @@ void cmd_spedit( PLAYER *ch, char *argument )
 
             pGroup = get_skill_index( pSpell->group_code );
 
-            snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N]  Target [^B%s^N]\n\r", 
+            sprintf( buf, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N]  Target [^B%s^N]\n\r", 
                      pSpell->dbkey,
                      pSpell->level,
                      pSpell->name,
                      target_bit_name( pSpell->target ) ); 
             to_actor( buf, ch );
-            snprintf( buf, MAX_STRING_LENGTH, "        Mana  [^B%5d^N]  %s\n\r", 
+            sprintf( buf, "        Mana  [^B%5d^N]  %s\n\r", 
                      pSpell->mana_cost, 
                      mana_bit_name( pSpell->mana_type ) );
             to_actor( buf, ch );
 
-            snprintf( buf, MAX_STRING_LENGTH, "        Group [^B%5d^N]  ^B%s^N - Delay [^B%d^N] Position [^B%s^N]\n\r",
+            sprintf( buf, "        Group [^B%5d^N]  ^B%s^N - Delay [^B%d^N] Position [^B%s^N]\n\r",
                      pSpell->group_code, 
                      pGroup ? pGroup->name : "INVALID GROUP",
                      pSpell->delay, 
@@ -338,7 +338,7 @@ void cmd_spedit( PLAYER *ch, char *argument )
 
             for ( pInstance = pSpell->instances; pInstance != NULL;  
                   pInstance = pInstance->next ) {
-              snprintf( buf, MAX_STRING_LENGTH, "Script [^B%s^N] %d\n\r",
+              sprintf( buf, "Script [^B%s^N] %d\n\r",
                        pInstance->script->name, 
                        pInstance->script->dbkey );
               to_actor( buf, ch );
@@ -375,12 +375,12 @@ void cmd_spedit( PLAYER *ch, char *argument )
             pSpell = get_spell_index( tdbkey );
             if ( !pSpell ) continue;
 
-            snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N] ", 
+            sprintf( buf, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N] ", 
                      pSpell->dbkey,
                      pSpell->level,
                      pSpell->name);
             to_actor( buf, ch );
-            snprintf( buf, MAX_STRING_LENGTH, "Group [^B%5d^N]  Target [^B%s^N]\n\r",
+            sprintf( buf, "Group [^B%5d^N]  Target [^B%s^N]\n\r",
   pSpell->group_code, 
   target_bit_name( pSpell->target ) ); 
 
@@ -432,7 +432,7 @@ void skedit( PLAYER *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pSkill->dbkey );
+        sprintf( buf, "%d", pSkill->dbkey );
         cmd_skedit( ch, "show" );
         return;
     }
@@ -451,7 +451,7 @@ void skedit( PLAYER *ch, char *argument )
 
     if ( is_number( arg1 ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", atoi(arg1) );
+        sprintf( buf, "%d", atoi(arg1) );
         cmd_skedit( ch, buf );
         return;
     }
@@ -570,14 +570,14 @@ void cmd_skedit( PLAYER *ch, char *argument )
 
         pGroup = get_skill_index( pSkill->group_code );
 
-        snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N]  Target [^B%s^N]\n\r", 
+        sprintf( buf, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N]  Target [^B%s^N]\n\r", 
                  pSkill->dbkey,
                  pSkill->level,
                  pSkill->name,
                  target_bit_name( pSkill->target ) ); 
         to_actor( buf, ch );
  
-        snprintf( buf, MAX_STRING_LENGTH, "        Str [^B%3d^N] Int [^B%3d^N] Wis [^B%3d^N] Dex [^B%3d^N] Con [^B%3d^N]\n\r", 
+        sprintf( buf, "        Str [^B%3d^N] Int [^B%3d^N] Wis [^B%3d^N] Dex [^B%3d^N] Con [^B%3d^N]\n\r", 
                  pSkill->req_str, 
                  pSkill->req_int, 
                  pSkill->req_wis,
@@ -585,14 +585,14 @@ void cmd_skedit( PLAYER *ch, char *argument )
                  pSkill->req_con );
         to_actor( buf, ch );
 
-        snprintf( buf, MAX_STRING_LENGTH, "        Group [^B%5d^N]  %s - Delay [^B%d^N] Position [^B%s^N]\n\r",
+        sprintf( buf, "        Group [^B%5d^N]  %s - Delay [^B%d^N] Position [^B%s^N]\n\r",
                  pSkill->group_code, 
                  pGroup ? pGroup->name : (pSkill->group_code == 0 ? "GROUP" : "INVALID GROUPING"),
                  pSkill->delay, 
                  position_name(pSkill->minimum_position) );
         to_actor( buf, ch );
 
-        snprintf( buf, MAX_STRING_LENGTH, "        Cost  [^B%3d^N]  Rate [^B%3d^N] Practice [^B%3d^N] Learn [^B%3d^N]  Required [^B%3d^N]\n\r", 
+        sprintf( buf, "        Cost  [^B%3d^N]  Rate [^B%3d^N] Practice [^B%3d^N] Learn [^B%3d^N]  Required [^B%3d^N]\n\r", 
                  pSkill->cost, pSkill->learn_rate, pSkill->max_prac,
                  pSkill->max_learn, pSkill->required_percent );
         to_actor( buf, ch );
@@ -623,12 +623,12 @@ void cmd_skedit( PLAYER *ch, char *argument )
             pSkill = get_skill_index( tdbkey );
             if ( !pSkill ) continue;
 
-            snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N] ", 
+            sprintf( buf, "[^B%5d^N] Level [^B%5d^N]  Name [^B%-12s^N] ", 
                      pSkill->dbkey,
                      pSkill->level,
                      pSkill->name);
             to_actor( buf, ch );
-            snprintf( buf, MAX_STRING_LENGTH, "Group [^B%5d^N]\n\r", pSkill->group_code ); 
+            sprintf( buf, "Group [^B%5d^N]\n\r", pSkill->group_code ); 
 
             to_actor( buf, ch );
         }
@@ -742,7 +742,7 @@ void zedit( PLAYER *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pZone->dbkey );
+        sprintf( buf, "%d", pZone->dbkey );
         cmd_astat( ch, buf );
         return;
     }
@@ -777,7 +777,7 @@ void zedit( PLAYER *ch, char *argument )
 
     if ( is_number( arg1 ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", atoi(arg1) );
+        sprintf( buf, "%d", atoi(arg1) );
         cmd_zedit( ch, buf );
         return;
     }
@@ -921,7 +921,7 @@ void zedit( PLAYER *ch, char *argument )
         {
             if ( GET_PC(ch,security,9) != 9 )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "Valid security range is %d-9.\n\r", PC(ch,security) );
+                sprintf( buf, "Valid security range is %d-9.\n\r", PC(ch,security) );
                 to_actor( buf, ch );
             }
             else
@@ -1147,12 +1147,12 @@ bool redit_exit( PLAYER *ch, SCENE *pScene, int door,
                 {
                 char buf[MAX_INPUT_LENGTH];
 
-                snprintf( buf, MAX_STRING_LENGTH, "create %d", value );
+                sprintf( buf, "create %d", value );
                 redit( ch, buf );
                 to_scene = get_scene( value );
                 if ( to_scene == NULL )
                 {
-                    bug( "Redit_exit: NULL after attempted create, dbkey %d.", value );
+                    wtf_logf( "Redit_exit: NULL after attempted create, dbkey %d.", value );
                     return TRUE;
                 }
                 to_scene->move = pScene->move;
@@ -1435,7 +1435,7 @@ void redit( PLAYER *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pScene->dbkey );
+        sprintf( buf, "%d", pScene->dbkey );
         cmd_rstat( ch, buf );
         return;
     }
@@ -1500,7 +1500,7 @@ void redit( PLAYER *ch, char *argument )
 
     if ( is_number( arg1 ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", atoi(arg1) );
+        sprintf( buf, "%d", atoi(arg1) );
         cmd_redit( ch, buf );
         return;
     }
@@ -1857,7 +1857,7 @@ void oedit( PLAYER *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d", pProp->dbkey );
+        sprintf( buf, "%d", pProp->dbkey );
         cmd_pindex( ch, buf );
         return;
     }
@@ -1881,7 +1881,7 @@ void oedit( PLAYER *ch, char *argument )
 
     if ( is_number( arg1 ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", atoi(arg1) );
+        sprintf( buf, "%d", atoi(arg1) );
         cmd_oedit( ch, buf );
         return;
     }
@@ -2546,7 +2546,7 @@ void aedit( PLAYER *ch, char *argument )
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' )
     {
         clrscr(ch);
-        snprintf( buf, MAX_STRING_LENGTH, "%d %s", pActor->dbkey, arg2 );
+        sprintf( buf, "%d %s", pActor->dbkey, arg2 );
         cmd_aindex( ch, buf );
         return;
     }
@@ -2647,7 +2647,7 @@ void aedit( PLAYER *ch, char *argument )
               return;
          }  
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s's spell knowledge:\n\r", pActor->short_descr );
+        sprintf( buf, "%s's spell knowledge:\n\r", pActor->short_descr );
         to_actor( buf, ch );
         for ( pSpellBook = pActor->pSpells;  pSpellBook != NULL;  pSpellBook = pSpellBook->next )
         {
@@ -2669,7 +2669,7 @@ void aedit( PLAYER *ch, char *argument )
         for ( pSkill=pActor->learned; pSkill != NULL; pSkill = pSkill->next )
         {
             col++;
-            snprintf( buf, MAX_STRING_LENGTH, "%20s/%3d ",
+            sprintf( buf, "%20s/%3d ",
                      trunc_fit( pSkill->name, 20 ),
                      pSkill->skill_level );
             to_actor( buf, ch );
@@ -2687,7 +2687,7 @@ void aedit( PLAYER *ch, char *argument )
 
     if ( is_number( arg1 ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", atoi(arg1) );
+        sprintf( buf, "%d", atoi(arg1) );
         cmd_aedit( ch, buf );
         return;
     }
@@ -2878,7 +2878,7 @@ void aedit( PLAYER *ch, char *argument )
 
             if ( atoi(arg1)-1 > MAX_TRADE )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "%d", MAX_TRADE );
+                sprintf( buf, "%d", MAX_TRADE );
                 to_actor( "Shop keepers may only sell ", ch );
                 to_actor( buf, ch );
                 to_actor( " items max.\n\r", ch );
@@ -2921,7 +2921,7 @@ void aedit( PLAYER *ch, char *argument )
 
             if ( atoi(arg1)-1 > MAX_TRADE )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "%d", MAX_TRADE );
+                sprintf( buf, "%d", MAX_TRADE );
                 to_actor( "Shop keepers may only sell ", ch );
                 to_actor( buf, ch );
                 to_actor( " goods types.\n\r", ch );
@@ -3487,7 +3487,7 @@ void sedit( PLAYER *ch, char *argument )
 
     if ( !str_cmp( arg1, "show" ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d %s", script->dbkey, arg2 );
+        sprintf( buf, "%d %s", script->dbkey, arg2 );
         cmd_sindex( ch, buf );
         return;
     }
@@ -3648,7 +3648,7 @@ CREATE_COMMANDZ(pScene,scene_hash,
                        get_scene,
                        top_dbkey_scene);
                if ( get_scene( value ) != NULL ) 
-               { char b[MSL]; snprintf( b, MSL, "%d", value );
+               { char b[MSL]; sprintf( b, "%d", value );
                  cmd_goto( ch,b ); }
                ch->desc->connected = NET_REDITOR;
         }
@@ -3834,10 +3834,10 @@ void cmd_aindex( PLAYER *ch, char *argument )
         return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Name:   [^B%s^N]\n\r", victim->name );
+    sprintf( buf, "Name:   [^B%s^N]\n\r", victim->name );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:     [^B%5d^N]  Zone:   [^B%5d^N] %s\n\r",
+    sprintf( buf, "Vnum:     [^B%5d^N]  Zone:   [^B%5d^N] %s\n\r",
             victim->dbkey,
     victim->zone == NULL ? -1        : victim->zone->dbkey,
     victim->zone == NULL ? "No zone" : victim->zone->name );
@@ -3848,29 +3848,29 @@ void cmd_aindex( PLAYER *ch, char *argument )
         SKILL *pSkill;
         for ( pSkill=victim->learned; pSkill != NULL;  pSkill = pSkill->next )
         {
-                snprintf( buf, MAX_STRING_LENGTH, "Skill: ^B%s^M at ^B%d%%^N\n\r", pSkill->name, 
+                sprintf( buf, "Skill: ^B%s^M at ^B%d%%^N\n\r", pSkill->name, 
                               pSkill->skill_level );
                 to_actor( buf, ch );
         }
         return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Short:  [^B%s^N]\n\rLong:\n\r%s",
+    sprintf( buf, "Short:  [^B%s^N]\n\rLong:\n\r%s",
     victim->short_descr,
     victim->long_descr );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Act:    [^B%s^N]\n\r", actor_bit_name( victim->flag ) );
+    sprintf( buf, "Act:    [^B%s^N]\n\r", actor_bit_name( victim->flag ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Bonus: [^B%s^N]\n\r",
+    sprintf( buf, "Bonus: [^B%s^N]\n\r",
                   bonus_bit_name( victim->bonuses ) );
     to_actor( buf, ch );
 
     {
         int race = race_lookup( victim->race );
 
-        snprintf( buf, MAX_STRING_LENGTH, "Sz: [^B%3d^N]  Race: [^B%s^N]  Sex: [^B%s^N]  Karma: [^B%d^N]  Exp: [^B%d^N]\n\r",
+        sprintf( buf, "Sz: [^B%3d^N]  Race: [^B%s^N]  Sex: [^B%s^N]  Karma: [^B%d^N]  Exp: [^B%d^N]\n\r",
             victim->size,
             RACE(race,race_name),
             victim->sex == SEX_MALE    ? "male"   :
@@ -3879,10 +3879,10 @@ void cmd_aindex( PLAYER *ch, char *argument )
         to_actor( buf, ch );
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Money:  [^B%5d^N]  Credits:  [^B%5d^N]   Bucks:  [$^B%5d^N]\n\r", victim->money, victim->credits, victim->bucks );
+    sprintf( buf, "Money:  [^B%5d^N]  Credits:  [^B%5d^N]   Bucks:  [$^B%5d^N]\n\r", victim->money, victim->credits, victim->bucks );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Attrib { Str: [^B%2d^N]  Int: [^B%2d^N]  Wis: [^B%2d^N]  Dex: [^B%2d^N]  Con: [^B%2d^N]\n\r",
+    sprintf( buf, "Attrib { Str: [^B%2d^N]  Int: [^B%2d^N]  Wis: [^B%2d^N]  Dex: [^B%2d^N]  Con: [^B%2d^N]\n\r",
         victim->perm_str,
         victim->perm_int,
         victim->perm_wis,
@@ -3890,14 +3890,14 @@ void cmd_aindex( PLAYER *ch, char *argument )
         victim->perm_con );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Description:\n\r%s", victim->description );
+    sprintf( buf, "Description:\n\r%s", victim->description );
     to_actor( buf, ch );
 
     for ( iAtt = 0; iAtt < MAX_ATTACK; iAtt++ )
     {
         if ( victim->attacks[iAtt] != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[^B%d^N] ^B%ss^N for [^B%d^N] to [^B%d^N] damage.\n\r", iAtt,
+            sprintf( buf, "[^B%d^N] ^B%ss^N for [^B%d^N] to [^B%d^N] damage.\n\r", iAtt,
                           attack_table[victim->attacks[iAtt]->idx].name,
                           victim->attacks[iAtt]->dam1,
                           victim->attacks[iAtt]->dam2 );
@@ -3909,7 +3909,7 @@ void cmd_aindex( PLAYER *ch, char *argument )
 
     for ( pTrig = victim->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[^4%5d^N] %s\n\r", pTrig->script->dbkey, pTrig->script->name );
+        sprintf( buf, "[^4%5d^N] %s\n\r", pTrig->script->dbkey, pTrig->script->name );
         to_actor( buf, ch );
     }
 
@@ -3921,21 +3921,21 @@ void cmd_aindex( PLAYER *ch, char *argument )
 
         pShop = victim->pShop;
 
-        snprintf( buf, MAX_STRING_LENGTH, "Shop data (for %d):\n\r    Will buy at %d%%, and sell at %d%%.  Opened %d-%d.\n\r",
+        sprintf( buf, "Shop data (for %d):\n\r    Will buy at %d%%, and sell at %d%%.  Opened %d-%d.\n\r",
                       pShop->keeper, pShop->profit_buy, pShop->profit_sell,
                       pShop->open_hour, pShop->close_hour );
         to_actor( buf, ch );
 
-        snprintf( buf, MAX_STRING_LENGTH, "    Flags: [^B%s^N]\n\r", shop_bit_name(pShop->shop_flags) );
+        sprintf( buf, "    Flags: [^B%s^N]\n\r", shop_bit_name(pShop->shop_flags) );
         to_actor( buf, ch );
 
         if ( IS_SET(pShop->shop_flags, SHOP_REPAIR) )
         {
-        snprintf( buf, MAX_STRING_LENGTH, "    Repair Rate: [^B%5d^N]\n\r", pShop->repair_rate );
+        sprintf( buf, "    Repair Rate: [^B%5d^N]\n\r", pShop->repair_rate );
         to_actor( buf, ch );
         }
 
-//        snprintf( buf, MAX_STRING_LENGTH, "Buy Index: ^B%d^N   Sell Index:  ^B%d^N   Component Index:  ^B%d^N\n\r",
+//        sprintf( buf, "Buy Index: ^B%d^N   Sell Index:  ^B%d^N   Component Index:  ^B%d^N\n\r",
 //                 pShop->buy_index, pShop->sell_index, pShop->comp_index );
 //        to_actor( buf, ch );
 
@@ -3943,14 +3943,14 @@ void cmd_aindex( PLAYER *ch, char *argument )
           || IS_SET(pShop->shop_flags, SHOP_TRADER) )
         {
             if ( IS_SET(pShop->shop_flags, SHOP_PEDDLER) )
-            snprintf( buf, MAX_STRING_LENGTH, " [##] Type %-24s", " " );
+            sprintf( buf, " [##] Type %-24s", " " );
             else
-            snprintf( buf, MAX_STRING_LENGTH, "^B%-35s^N", " " );
+            sprintf( buf, "^B%-35s^N", " " );
             to_actor( buf, ch );
 
             if ( IS_SET(pShop->shop_flags, SHOP_TRADER) )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "  [##] %15s", "Trading Item? 1=yes" );
+            sprintf( buf, "  [##] %15s", "Trading Item? 1=yes" );
             to_actor( buf, ch );
             }
 
@@ -3968,7 +3968,7 @@ void cmd_aindex( PLAYER *ch, char *argument )
                   && IS_SET(pShop->shop_flags, SHOP_PEDDLER)
                   && pShop->buy_type[iTrade] != ITEM_NONE )
                 {
-                    snprintf( buf, MAX_STRING_LENGTH, " [^B%2d^N] Peddles ^B%s^N",  iTrade+1,
+                    sprintf( buf, " [^B%2d^N] Peddles ^B%s^N",  iTrade+1,
                              item_type_name( pShop->buy_type[iTrade] ) );
                     fNothing = FALSE;
                 }
@@ -3984,7 +3984,7 @@ void cmd_aindex( PLAYER *ch, char *argument )
                 if ( iTrade < 10
                   && IS_SET(pShop->shop_flags, SHOP_TRADER) )
                 {
-                    snprintf( buf, MAX_STRING_LENGTH, "  [^N%2d^B] ^N%15s^B %3d",
+                    sprintf( buf, "  [^N%2d^B] ^N%15s^B %3d",
                                   iTrade+1,
                                   name_good_code(iTrade), pShop->trades[iTrade] );
                     to_actor( buf, ch );
@@ -3996,26 +3996,26 @@ void cmd_aindex( PLAYER *ch, char *argument )
         }
 
 
-        snprintf( buf, MAX_STRING_LENGTH, "Str1 [no_such_item]:\n\r%s says, \"%s\"\n\r",
+        sprintf( buf, "Str1 [no_such_item]:\n\r%s says, \"%s\"\n\r",
                       capitalize(victim->short_descr), pShop->no_such_item );
         to_actor( buf, ch );
 
         if ( IS_SET(pShop->shop_flags, SHOP_PEDDLER)
           || IS_SET(pShop->shop_flags, SHOP_TRADER) )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Str2 [cmd_not_buy]:\n\r%s says, \"%s\"\n\r",
+            sprintf( buf, "Str2 [cmd_not_buy]:\n\r%s says, \"%s\"\n\r",
                            capitalize(victim->short_descr), pShop->cmd_not_buy );
             to_actor( buf, ch );
         }
 
         if ( IS_SET(pShop->shop_flags, SHOP_PEDDLER) )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Str3 [list_header]:\n\r%s\n\r",
+            sprintf( buf, "Str3 [list_header]:\n\r%s\n\r",
                      pShop->list_header );
             to_actor( buf, ch );
         }
 
-        snprintf( buf, MAX_STRING_LENGTH, "Str4 [hours_excuse]:\n\r%s says, \"%s\"\n\r",
+        sprintf( buf, "Str4 [hours_excuse]:\n\r%s says, \"%s\"\n\r",
                       capitalize(victim->short_descr), pShop->hours_excuse );
         to_actor( buf, ch );
 
@@ -4052,20 +4052,20 @@ void cmd_sindex( PLAYER *ch, char *argument )
         return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [^B%5d^N]  Name:   [^B%s^N]\n\r", script->dbkey, script->name );
+    sprintf( buf, "Vnum:   [^B%5d^N]  Name:   [^B%s^N]\n\r", script->dbkey, script->name );
     to_actor( buf, ch );
 
     if( !script->zone ) script->zone = get_dbkey_zone(script->dbkey);
 
-    snprintf( buf, MAX_STRING_LENGTH, "zone:   [^B%5d^N] ^B%s^N\n\r",
+    sprintf( buf, "zone:   [^B%5d^N] ^B%s^N\n\r",
              script->zone == NULL ? -1        : script->zone->dbkey,
              script->zone == NULL ? "No zone" : script->zone->name );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Type: ^B%s^N\n\r", show_script_type( script->type ) );
+    sprintf( buf, "Type: ^B%s^N\n\r", show_script_type( script->type ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Script:\n\r%s", script->commands );
+    sprintf( buf, "Script:\n\r%s", script->commands );
     to_actor( buf, ch );
 
     return;
@@ -4085,13 +4085,13 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         {
             if ( v2 >= 0 )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "^B%d^N (v1) of ^B%d^N (v2) hours of light.\n\r", v1, v2 );
+                sprintf( buf, "^B%d^N (v1) of ^B%d^N (v2) hours of light.\n\r", v1, v2 );
                 to_actor( buf, ch );
             }
             else
             to_actor( "Provides light infinitely.\n\r", ch );
 
-            snprintf( buf, MAX_STRING_LENGTH, "Light bits (v4): [^B%s%s^N]\n\r",
+            sprintf( buf, "Light bits (v4): [^B%s%s^N]\n\r",
                           IS_SET(v4, LIGHT_LIT) ? "lit " : "",
                           IS_SET(v4, LIGHT_FILLABLE) ? "fillable" : "" );
             to_actor( buf, ch );
@@ -4102,7 +4102,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
   case ITEM_PILL:
   case ITEM_THROWN:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Casts ^B%s^N (v2), ^B%s^N (v3) and ^B%s^N (v4) at level ^B%d^N (v1).\n\r",
+            sprintf( buf, "Casts ^B%s^N (v2), ^B%s^N (v3) and ^B%s^N (v4) at level ^B%d^N (v1).\n\r",
                      v2 > 0 ? skill_name(v2) : "nothing",
                      v3 > 0 ? skill_name(v3) : "nothing",
                      v4 > 0 ? skill_name(v4) : "nothing",
@@ -4112,7 +4112,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         break;
   case ITEM_WEAPON:
         {
-       snprintf( buf, MAX_STRING_LENGTH, "Damages from ^B%d^N (v2) - %d (v3) (average ^B%d^N) of type ^B%s%s^N (v4).\n\r",
+       sprintf( buf, "Damages from ^B%d^N (v2) - %d (v3) (average ^B%d^N) of type ^B%s%s^N (v4).\n\r",
                      UMIN(v2,v3),
                      UMAX(v2,v3),
                      (UMIN(v2,v3)+UMAX(v2,v3))/2,
@@ -4122,7 +4122,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         }
         break;
   case ITEM_RANGED_WEAPON: {
-            snprintf( buf, MAX_STRING_LENGTH, "Damages from ^B%d^N (v2) - ^B%d^N (v3) (average ^B%d^N) using ammo dbkey ^B%d^N (v1).\n\r",
+            sprintf( buf, "Damages from ^B%d^N (v2) - ^B%d^N (v3) (average ^B%d^N) using ammo dbkey ^B%d^N (v1).\n\r",
                      UMIN(v2,v3),
                      UMAX(v2,v3),
                      (UMIN(v2,v3)+UMAX(v2,v3))/2,
@@ -4131,7 +4131,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         } break;
   case ITEM_AMMO:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Damage bonus ^B%d^N (v2) (quantity ^B%d^N (v1)) casts spell ^B%d^N (v3) level ^B%d^N (v4).\n\r",
+            sprintf( buf, "Damage bonus ^B%d^N (v2) (quantity ^B%d^N (v1)) casts spell ^B%d^N (v3) level ^B%d^N (v4).\n\r",
                      v2,
                      v1, v3,
                      v4 );
@@ -4140,40 +4140,40 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         break;
   case ITEM_CLOTHING: 
         {
-            snprintf( buf, MAX_STRING_LENGTH, "With an armor class bonus of ^B%d^N (v1).\n\r", v1 );
+            sprintf( buf, "With an armor class bonus of ^B%d^N (v1).\n\r", v1 );
             STC( buf, ch );
-            snprintf( buf, MAX_STRING_LENGTH, "%s", v2 == 1 ? "Possesses a hood (v2=1)\n\r" : "Set v2 to 1 for a hood\n\r");
+            sprintf( buf, "%s", v2 == 1 ? "Possesses a hood (v2=1)\n\r" : "Set v2 to 1 for a hood\n\r");
             STC( buf, ch );
         } 
         break;
   case ITEM_ARMOR:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Can be hit ^B%d^N/^B%d^N (v2/v3) times, with an armor class bonus of ^B%d^N (v1) .\n\r",
+            sprintf( buf, "Can be hit ^B%d^N/^B%d^N (v2/v3) times, with an armor class bonus of ^B%d^N (v1) .\n\r",
                      v2, v3, v1 );
             to_actor( buf, ch );
         }
         break;
   case ITEM_FURNITURE:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Can maintain up to ^B%d^N (v1) halfstones (^B%d^N people)",
+            sprintf( buf, "Can maintain up to ^B%d^N (v1) halfstones (^B%d^N people)",
                      v1, v1/100 );
             to_actor( buf, ch );
 
             if ( get_prop_template( v3 ) != NULL )
             {
-                snprintf( buf, MAX_STRING_LENGTH, ", requires key ^B%d^N (v3)", v3 );
+                sprintf( buf, ", requires key ^B%d^N (v3)", v3 );
                 to_actor( buf, ch );
             }
 
             if ( get_scene( v4 ) != NULL )
             {
-                snprintf( buf, MAX_STRING_LENGTH, ", and leads to %d (v4)", v4 );
+                sprintf( buf, ", and leads to %d (v4)", v4 );
                 to_actor( buf, ch );
             }
 
             to_actor( ".\n\r", ch );
 
-            snprintf( buf, MAX_STRING_LENGTH, "Furn bits (v2): [^B%s%s%s%s%s%s%s%s%s%s%s%s^N]\n\r",
+            sprintf( buf, "Furn bits (v2): [^B%s%s%s%s%s%s%s%s%s%s%s%s^N]\n\r",
                      IS_SET(v2,FURN_CLOSEABLE) ? "closeable " : "",
                      IS_SET(v2,FURN_PICKPROOF) ? "pickproof " : "",
                      IS_SET(v2,FURN_CLOSED)    ? "closed "    : "",
@@ -4192,18 +4192,18 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         break;
   case ITEM_CONTAINER:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Holds up to ^B%d^N (v1) halfstones of weight", v1 );
+            sprintf( buf, "Holds up to ^B%d^N (v1) halfstones of weight", v1 );
             to_actor( buf, ch );
 
             if ( get_prop_template( v3 ) != NULL )
             {
-                snprintf( buf, MAX_STRING_LENGTH, ", and requires key %d (v3)", v3 );
+                sprintf( buf, ", and requires key %d (v3)", v3 );
                 to_actor( buf, ch );
             }
 
             to_actor( ".\n\r", ch );
 
-            snprintf( buf, MAX_STRING_LENGTH, "Container bits (v2): [^B%s%s%s%s^N]\n\r",
+            sprintf( buf, "Container bits (v2): [^B%s%s%s%s^N]\n\r",
                      IS_SET(v2,CONT_CLOSEABLE) ? "closeable " : "",
                      IS_SET(v2,CONT_PICKPROOF) ? "pickproof " : "",
                      IS_SET(v2,CONT_CLOSED)    ? "closed "    : "",
@@ -4213,7 +4213,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         break;
   case ITEM_DRINK_CON:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Contains ^B%d^N/^B%d^N (v1/v2) (about ^B%d^N-^B%d^M drinks (halfswils)) of (v3) ^B%s%s^N.\n\r",
+            sprintf( buf, "Contains ^B%d^N/^B%d^N (v1/v2) (about ^B%d^N-^B%d^M drinks (halfswils)) of (v3) ^B%s%s^N.\n\r",
                      v1, v2, v1/10, v1/3,
                      v3 >= 0 && v3 < LIQ_MAX ? liq_table[v3].liq_name : "INVALID LIQUID",
                      IS_SET(v4,DRINK_POISON) ? " and is laced with poison (v4)" : "" );
@@ -4224,21 +4224,21 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         break;
   case ITEM_FOOD:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Food lasts for ^B%d^N (v1) minutes (^B%d^N game hours).\n\r",
+            sprintf( buf, "Food lasts for ^B%d^N (v1) minutes (^B%d^N game hours).\n\r",
                      v1, v1 / 5 );
             to_actor( buf, ch );
         }
         break;
   case ITEM_MONEY:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Worth ^B%d^N ^B%s^N coins. (v1)\n\r",
+            sprintf( buf, "Worth ^B%d^N ^B%s^N coins. (v1)\n\r",
                      v1, v2 >= 0 && v2 < MAX_COIN ? coin_table[v2].long_name : "invalid" );
             to_actor( buf, ch );
         }
         break;
   case ITEM_GEM:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Provides ^B%d^N/^B%d^N (v2/v3) mana for ^B%s%s%s%s^M (v1) elements.",
+            sprintf( buf, "Provides ^B%d^N/^B%d^N (v2/v3) mana for ^B%s%s%s%s^M (v1) elements.",
                      v2, v3,
                      IS_SET(v1,MA) || IS_SET(v1,ME) ? "earth " : "",
                      IS_SET(v1,MA) || IS_SET(v1,MF) ? "fire "  : "",
@@ -4249,7 +4249,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         break;
   case ITEM_VEHICLE:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Provides access to ^B%s^N, ^B%s^N, ^B%s^M and ^B%s^M. (v1-4)\n\r",
+            sprintf( buf, "Provides access to ^B%s^N, ^B%s^N, ^B%s^M and ^B%s^M. (v1-4)\n\r",
                      move_name( v1 ),
                      move_name( v2 ),
                      move_name( v3 ),
@@ -4259,11 +4259,11 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
         break;
   case ITEM_TOOL:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Has ^B%d^N of ^B%d^N uses remaining. (v2/v3)\n\r",
+            sprintf( buf, "Has ^B%d^N of ^B%d^N uses remaining. (v2/v3)\n\r",
                      v2, v3 );
             to_actor( buf, ch );
 
-            snprintf( buf, MAX_STRING_LENGTH, "Tool flags (v1): [^B%s%s%s%s%s^N]\n\r",
+            sprintf( buf, "Tool flags (v1): [^B%s%s%s%s%s^N]\n\r",
                      IS_SET(v1,TOOL_TINDERBOX) ? "tinderbox " : "",
                      IS_SET(v1,TOOL_LOCKPICK)  ? "lockpick "  : "",
                      IS_SET(v1,TOOL_BOUNTY)    ? "bounty"    : "",
@@ -4272,12 +4272,12 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
             to_actor( buf, ch );
 
             if ( IS_SET(v1,TOOL_BANDAGES) ) {
-            snprintf( buf, MAX_STRING_LENGTH, "Heals for ^B%d^N (v4) worth of damage per use.\n\r", v4 );
+            sprintf( buf, "Heals for ^B%d^N (v4) worth of damage per use.\n\r", v4 );
             to_actor( buf, ch );
             }
 
             if ( IS_SET(v1,TOOL_REPAIR) ) {
-            snprintf( buf, MAX_STRING_LENGTH, "Repairs at ^B%d%%^N (v4) efficiency.\n\r", v4 );
+            sprintf( buf, "Repairs at ^B%d%%^N (v4) efficiency.\n\r", v4 );
             to_actor( buf, ch );
             }
         }
@@ -4286,7 +4286,7 @@ void value_breakdown( int type, int v1, int v2, int v3, int v4, PLAYER *ch )
   case ITEM_COMPONENT:
   case ITEM_GOODS:
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Has ^B%s^N index of ^B%d^N (v1).\n\r", item_type_name(type), v1 );
+            sprintf( buf, "Has ^B%s^N index of ^B%d^N (v1).\n\r", item_type_name(type), v1 );
             to_actor( buf, ch );
         }
         break;
@@ -4324,59 +4324,59 @@ void cmd_pindex( PLAYER *ch, char *argument )
         return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "Name:   [^B%s^N]\n\rzone:   [^B%5d^N] %s\n\r",
+    sprintf( buf, "Name:   [^B%s^N]\n\rzone:   [^B%5d^N] %s\n\r",
     prop->name,
     prop->zone == NULL ? -1        : prop->zone->dbkey,
     prop->zone == NULL ? "No zone" : prop->zone->name );
     to_actor( buf, ch );
 
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnum:   [^B%5d^N]     Type:  [^B%s^N]\n\r",
+    sprintf( buf, "Vnum:   [^B%5d^N]     Type:  [^B%s^N]\n\r",
     prop->dbkey,
     item_type_name( prop->item_type ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Short:  [^B%s^N]\n\r", prop->short_descr );
+    sprintf( buf, "Short:  [^B%s^N]\n\r", prop->short_descr );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Plural: [^B%s^N]\n\r", pluralize( prop->short_descr ) );
+    sprintf( buf, "Plural: [^B%s^N]\n\r", pluralize( prop->short_descr ) );
     to_actor( buf, ch );
 
     {
         char buf2[MAX_STRING_LENGTH];
-        snprintf( buf, MAX_STRING_LENGTH, "Long:\n\r%s", prop->description );
+        sprintf( buf, "Long:\n\r%s", prop->description );
         to_actor( buf, ch );
         
-        snprintf( buf2, MSL, "%s %s are here.\n\r", 
+        sprintf( buf2, "%s %s are here.\n\r", 
           numberize( 2 ), 
           pluralize( prop->short_descr ) );
-        snprintf( buf, MAX_STRING_LENGTH, "Plural:\n\r%s",
+        sprintf( buf, "Plural:\n\r%s",
              prop->description_plural == NULL
           || prop->description_plural[0] == '\0' ? capitalize(buf2)
                                                 : prop->description_plural );
         to_actor( buf, ch );
     }
   
-    snprintf( buf, MAX_STRING_LENGTH, "Action:\n\r%s", prop->action_descr );
+    sprintf( buf, "Action:\n\r%s", prop->action_descr );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Description:\n\r%s", prop->real_description );
+    sprintf( buf, "Description:\n\r%s", prop->real_description );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Wear flags:  [^B%s^N]\n\rExtra flags: [^B%s^N]\n\r",
+    sprintf( buf, "Wear flags:  [^B%s^N]\n\rExtra flags: [^B%s^N]\n\r",
     wear_bit_name( prop->wear_flags ),
     extra_bit_name( prop->extra_flags ) );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Weight: [^B%5d^N]  Cost:     [^B%5d^N]  Timer: [^B%5d^N]  Level: [^B%5d^N]\n\r",
+    sprintf( buf, "Weight: [^B%5d^N]  Cost:     [^B%5d^N]  Timer: [^B%5d^N]  Level: [^B%5d^N]\n\r",
              prop->weight, prop->cost, prop->timer, prop->level );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Size:   [^B%5d^N]  Material: [^B%5d^N]\n\r",
+    sprintf( buf, "Size:   [^B%5d^N]  Material: [^B%5d^N]\n\r",
              prop->size, prop->material );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Values: [^B%5d^N] [^B%5d^N] [^B%5d^N] [^B%5d^N]\n\r",
+    sprintf( buf, "Values: [^B%5d^N] [^B%5d^N] [^B%5d^N] [^B%5d^N]\n\r",
     prop->value[0],    prop->value[1],    prop->value[2],    prop->value[3] );
     to_actor( buf, ch );
 
@@ -4407,14 +4407,14 @@ void cmd_pindex( PLAYER *ch, char *argument )
 
     for ( paf = prop->bonus; paf != NULL; paf = paf->next )
     {
-       snprintf( buf, MAX_STRING_LENGTH, "Bonuses ^B%s^N by ^B%d^N.\n\r", bonus_loc_name( paf->location ),
+       sprintf( buf, "Bonuses ^B%s^N by ^B%d^N.\n\r", bonus_loc_name( paf->location ),
                                               paf->modifier );
        to_actor( buf, ch );
     }
 
     for ( pTrig = prop->instances; pTrig != NULL; pTrig = pTrig->next )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "[^B%5d^N] ^B%s^N\n\r", pTrig->script->dbkey, pTrig->script->name );
+        sprintf( buf, "[^B%5d^N] ^B%s^N\n\r", pTrig->script->dbkey, pTrig->script->name );
         to_actor( buf, ch );
     }
 
@@ -4462,13 +4462,13 @@ void display_spawns( PLAYER *ch )
 
         if ( ( pActorIndex = get_actor_template( pSpawn->rs_dbkey ) ) == NULL )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Actor - Bad Vnum %d\n\r", pSpawn->rs_dbkey );
+            sprintf( buf, "Load Actor - Bad Vnum %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
 
         pActor = pActorIndex;
-        snprintf( buf, MAX_STRING_LENGTH, "Loads %s (%d) in scene (max %d, %d%% chance) %d times\n\r",
+        sprintf( buf, "Loads %s (%d) in scene (max %d, %d%% chance) %d times\n\r",
                        pActor->short_descr, pSpawn->rs_dbkey,
                        pSpawn->loc, pSpawn->percent, pSpawn->num );
         strcat( final, buf );
@@ -4481,7 +4481,7 @@ void display_spawns( PLAYER *ch )
         case 'O':
         if ( ( pPropIndex = get_prop_template( pSpawn->rs_dbkey ) ) == NULL )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Object - Bad Vnum %d\n\r", pSpawn->rs_dbkey );
+            sprintf( buf, "Load Object - Bad Vnum %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
@@ -4490,28 +4490,28 @@ void display_spawns( PLAYER *ch )
 
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Loads %s (%d) inside %s", prop->short_descr,
+            sprintf( buf, " Loads %s (%d) inside %s", prop->short_descr,
                           pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_ONTOP && LastObj != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Loads %s (%d) on top of %s",
+            sprintf( buf, " Loads %s (%d) on top of %s",
                           prop->short_descr, pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_INSCENE )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Loads %s (%d) in scene",
+            sprintf( buf, "Loads %s (%d) in scene",
                           prop->short_descr, pSpawn->rs_dbkey );
             strcat( final, buf );
             LastObj = prop;
         }
    else if ( LastMob != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Loads %s (%d) on %s of %s",
+            sprintf( buf, " Loads %s (%d) on %s of %s",
                           prop->short_descr, pSpawn->rs_dbkey,
                           wear_loc_name( pSpawn->loc ),
                           LastMob ? LastMob->short_descr : "!NO ACTOR!" );
@@ -4521,7 +4521,7 @@ void display_spawns( PLAYER *ch )
 
         if ( !strstr( final, "Incorrect" ) && !strstr( final, "Drop" ) )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " %d%% chance %d times\n\r", pSpawn->percent,
+            sprintf( buf, " %d%% chance %d times\n\r", pSpawn->percent,
                                                         pSpawn->num );
             strcat( final, buf );
         }
@@ -4533,35 +4533,35 @@ void display_spawns( PLAYER *ch )
         case 'C':
             if ( pSpawn->rs_dbkey >= MAX_COMPONENTS || pSpawn->rs_dbkey<0 )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Component - Bad Component %d\n\r", pSpawn->rs_dbkey );
+            sprintf( buf, "Load Component - Bad Component %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
 
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Component (%d) inside %s", 
+            sprintf( buf, " Component (%d) inside %s", 
                           pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_ONTOP && LastObj != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Component (%d) on top of %s",
+            sprintf( buf, " Component (%d) on top of %s",
                           pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_INSCENE )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Component (%d) in scene",
+            sprintf( buf, " Component (%d) in scene",
                           pSpawn->rs_dbkey );
             strcat( final, buf );
             LastObj = prop;
         }
    else if ( LastMob != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Component (%d) on %s of %s",
+            sprintf( buf, " Component (%d) on %s of %s",
                           pSpawn->rs_dbkey,
                           wear_loc_name( pSpawn->loc ),
                           LastMob ? LastMob->short_descr : "!NO ACTOR!" );
@@ -4571,7 +4571,7 @@ void display_spawns( PLAYER *ch )
 
         if ( !strstr( final, "Incorrect" ) && !strstr( final, "Drop" ) )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " %d%% chance %d times\n\r", pSpawn->percent,
+            sprintf( buf, " %d%% chance %d times\n\r", pSpawn->percent,
                                                         pSpawn->num );
             strcat( final, buf );
         }
@@ -4581,34 +4581,34 @@ void display_spawns( PLAYER *ch )
         case 'G': 
             if ( pSpawn->rs_dbkey >= MAX_GOODS || pSpawn->rs_dbkey<0 )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "Load Goods - Bad Good %d\n\r", pSpawn->rs_dbkey );
+            sprintf( buf, "Load Goods - Bad Good %d\n\r", pSpawn->rs_dbkey );
             strcat( final, buf );
             continue;
             }
 
         if ( pSpawn->loc == SPAWN_LOC_INSIDE && LastObj != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Goods (%d) inside %s", 
+            sprintf( buf, " Goods (%d) inside %s", 
                           pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_ONTOP && LastObj != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Goods (%d) on top of %s",
+            sprintf( buf, " Goods (%d) on top of %s",
                           pSpawn->rs_dbkey,
                           LastObj ? LastObj->short_descr : "!NO OBJ!" );
             strcat( final, buf );
         }
    else if ( pSpawn->loc == SPAWN_LOC_INSCENE )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "Goods (%d) in scene", pSpawn->rs_dbkey );
+            sprintf( buf, "Goods (%d) in scene", pSpawn->rs_dbkey );
             strcat( final, buf );
             LastObj = prop;
         }
    else if ( LastMob != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " Loads (%d) on %s of %s",
+            sprintf( buf, " Loads (%d) on %s of %s",
                           pSpawn->rs_dbkey,
                           wear_loc_name( pSpawn->loc ),
                           LastMob ? LastMob->short_descr : "!NO ACTOR!" );
@@ -4618,7 +4618,7 @@ void display_spawns( PLAYER *ch )
 
         if ( !strstr( final, "Incorrect" ) && !strstr( final, "Drop" ) )
         {
-            snprintf( buf, MAX_STRING_LENGTH, " %d%% chance %d times\n\r", pSpawn->percent,
+            sprintf( buf, " %d%% chance %d times\n\r", pSpawn->percent,
                                                         pSpawn->num );
             strcat( final, buf );
         }
@@ -4874,29 +4874,29 @@ void cmd_astat( PLAYER *ch, char *argument )
     if (!pZone)
       pZone = ch->in_scene->zone;
 
-    snprintf( buf, MAX_STRING_LENGTH, "Name:     [%5d] %s\n\r",
+    sprintf( buf, "Name:     [%5d] %s\n\r",
              pZone->dbkey, pZone->name );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "File:     [%s]\n\r",
+    sprintf( buf, "File:     [%s]\n\r",
              pZone->filename );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Age:      [%5d]\n\rPlayers:  [%5d]\n\r",
+    sprintf( buf, "Age:      [%5d]\n\rPlayers:  [%5d]\n\r",
              pZone->age, pZone->nplayer );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Security: [%5d]\n\rBuilders: [%s]\n\r",
+    sprintf( buf, "Security: [%5d]\n\rBuilders: [%s]\n\r",
              pZone->security, pZone->builders );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Vnums:    [%d-%d]\n\r", pZone->ldbkey, pZone->udbkey );
+    sprintf( buf, "Vnums:    [%d-%d]\n\r", pZone->ldbkey, pZone->udbkey );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Repop:\n\r%s", pZone->repop );
+    sprintf( buf, "Repop:\n\r%s", pZone->repop );
     to_actor( buf, ch );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Flags:    [%s]\n\r", zone_bit_name( pZone->zone_flags ) );
+    sprintf( buf, "Flags:    [%s]\n\r", zone_bit_name( pZone->zone_flags ) );
     to_actor( buf, ch );
 
     return;
@@ -4914,7 +4914,7 @@ void save_zone_list( void )
    int cidx;
 
    if ( ( fp = fopen( ZONE_LIST, "w" ) ) == NULL ) {
-      bug( "Save_zone_list: fopen", 0 );
+      wtf_logf( "Save_zone_list: fopen", 0 );
       perror( "zone.lst" );
    } else {
 
@@ -5036,7 +5036,7 @@ void save_string_to_file( char *fname, char *content )
    FILE *fp;
 
    if ( ( fp = fopen( fname, "w" ) ) == NULL ) {
-      printf( "Save_string_to_file: fopen %s\n",  fname );      
+      wtf_logf( "Save_string_to_file: fopen %s\n",  fname );      
       perror( fname );
    } else {
       fprintf( fp, "%s", content );
@@ -5062,7 +5062,7 @@ void save_config( void )
 
     if ( ( fp = fopen( MUD_FILE, "w" ) ) == NULL )
     {
-    bug( "Save_config: fopen", 0 );
+    wtf_logf( "Save_config: fopen", 0 );
     perror( MUD_FILE );
     }
     else
@@ -5150,7 +5150,7 @@ void save_contents( void )
 
     if ( ( fp = fopen( SCENES_FILE, "w" ) ) == NULL )
     {
-    bug( "Save_contents: fopen", 0 );
+    wtf_logf( "Save_contents: fopen", 0 );
     perror( SCENES_FILE );
     }
     else
@@ -5372,7 +5372,7 @@ void save_scripts( FILE *fp, ZONE *pZone )
 
 	        if (! (ifp = fopen( IFILE, "w") ) )
 		{
-		     bug( "Export_script: script", 0);
+		     wtf_logf( "Export_script: script", 0);
 		     perror( IFILE );
 		}
                 
@@ -5570,7 +5570,7 @@ void save_zone( ZONE *pZone )
     REMOVE_BIT( pZone->zone_flags, ZONE_CHANGED );
     if ( ( fp = fopen( pZone->filename, "w" ) ) == NULL )
     {
-    bug( "Open_zone: fopen", 0 );
+    wtf_logf( "Open_zone: fopen", 0 );
     perror( pZone->filename );
     }
 
@@ -5610,7 +5610,7 @@ void save_helps( void )
 
      if (! (fp = fopen( HFILE, "w") ) )
      {
-         bug( "Open_help: fopen", 0);
+         wtf_logf( "Open_help: fopen", 0);
          perror( HFILE );
      }
 
@@ -5651,28 +5651,28 @@ void cmd_hstat( PLAYER *ch, char *argument )
    pHelp = get_help_index( atoi(arg1) );
 
    if ( pHelp ) {
-         snprintf( buf, MAX_STRING_LENGTH, "Name:     %s\n\r", pHelp->name );
+         sprintf( buf, "Name:     %s\n\r", pHelp->name );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Class:    %d (%s)\n\r", pHelp->class, help_class_table[pHelp->class].name );
+         sprintf( buf, "Class:    %d (%s)\n\r", pHelp->class, help_class_table[pHelp->class].name );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Level:    %d\n\r", pHelp->level );
+         sprintf( buf, "Level:    %d\n\r", pHelp->level );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Keywords: %s\n\r", pHelp->keyword );
+         sprintf( buf, "Keywords: %s\n\r", pHelp->keyword );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Syntax:   %s\n\r", pHelp->syntax );
+         sprintf( buf, "Syntax:   %s\n\r", pHelp->syntax );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Text:\n%s\n\r", pHelp->text );
+         sprintf( buf, "Text:\n%s\n\r", pHelp->text );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Immtext:\n%s\n\r", pHelp->immtext );
+         sprintf( buf, "Immtext:\n%s\n\r", pHelp->immtext );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Example:\n%s\n\r", pHelp->example );
+         sprintf( buf, "Example:\n%s\n\r", pHelp->example );
          to_actor( buf, ch );
-         snprintf( buf, MAX_STRING_LENGTH, "Seealso:  %s\n\r", pHelp->seealso );
+         sprintf( buf, "Seealso:  %s\n\r", pHelp->seealso );
          to_actor( buf, ch );
          return;
       }
 
-   snprintf( buf, MAX_STRING_LENGTH, "There is no document for %s\n", arg1);
+   sprintf( buf, "There is no document for %s\n", arg1);
    to_actor( buf, ch );
 }
 
@@ -5706,7 +5706,7 @@ void cmd_hedit( PLAYER *ch, char *argument )
     }
     else 
     {
-            snprintf( arg1, MAX_STRING_LENGTH, "%s", argument );
+            sprintf( arg1, "%s", argument );
             hedit( ch, arg1 );
             return;
     }
@@ -5754,7 +5754,7 @@ void hedit( PLAYER *ch, char *argument )
              && str_prefix( o, pHelp->name ) )
             continue;   col++;
 
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] Name [%-18s] ", 
+            sprintf( buf, "[%3d] Name [%-18s] ", 
                      pHelp->dbkey,
                      pHelp->name );
 
@@ -5775,7 +5775,7 @@ void hedit( PLAYER *ch, char *argument )
             pHelp = get_help_index( tdbkey );
             if ( !pHelp ) continue;
 
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d] Name [%-18s] ", 
+            sprintf( buf, "[%3d] Name [%-18s] ", 
                      pHelp->dbkey,
                      pHelp->name );
 
@@ -5810,7 +5810,7 @@ void hedit( PLAYER *ch, char *argument )
       int sdbkey;
 
       if ( fread_letter( fp ) != '#' ) {
-         bug( "Load_helpdata: # not found.", 0 );
+         wtf_logf( "Load_helpdata: # not found.", 0 );
       }
 
       hname       = fread_word(fp);
@@ -5845,7 +5845,7 @@ void hedit( PLAYER *ch, char *argument )
 
     if ( !str_cmp( arg1, "show" ) || arg1[0] == '\0' ) {
        clrscr(ch);
-       snprintf( buf, MAX_STRING_LENGTH, "%d", pHelp->dbkey );
+       sprintf( buf, "%d", pHelp->dbkey );
        cmd_hstat( ch, buf ); 
        return;
     }
@@ -5873,7 +5873,7 @@ void hedit( PLAYER *ch, char *argument )
       value = atoi( arg2 );
 
       if ( (value < -1) || (value > MAX_LEVEL) ) {
-         snprintf( buf, MAX_STRING_LENGTH, "Hedit:  Valid level range is from -1 to %d.\n", MAX_LEVEL);
+         sprintf( buf, "Hedit:  Valid level range is from -1 to %d.\n", MAX_LEVEL);
          to_actor( buf, ch );
          return;
       }
@@ -5892,7 +5892,7 @@ void hedit( PLAYER *ch, char *argument )
       value = atoi( arg2 );
 
       if ( (value < 0) || (value > MAX_HELP_CLASS-1) ) {
-         snprintf( buf, MAX_STRING_LENGTH, "Hedit:  Valid class range is from 0 to %d.\n", MAX_HELP_CLASS);
+         sprintf( buf, "Hedit:  Valid class range is from 0 to %d.\n", MAX_HELP_CLASS);
          to_actor( buf, ch );
          return;
       }

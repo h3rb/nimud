@@ -435,7 +435,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	    return;
 	}
 
-	bug( "Wear_prop: no free finger.", 0 );
+	wtf_logf( "Wear_prop: no free finger.", 0 );
 	to_actor( "You already wear two rings.\n\r", ch );
 	return;
     }
@@ -466,7 +466,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	    return;
 	}
 
-    bug( "Wear_prop: no free ankle.", 0 );
+    wtf_logf( "Wear_prop: no free ankle.", 0 );
     to_actor( "You already wear two items on your ankles.\n\r", ch );
 	return;
     }
@@ -497,7 +497,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	    return;
 	}
 
-    bug( "Wear_prop: no free ear.", 0 );
+    wtf_logf( "Wear_prop: no free ear.", 0 );
     to_actor( "You already wear two earrings.\n\r", ch );
 	return;
     }
@@ -528,7 +528,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	    return;
 	}
 
-    bug( "Wear_prop: no free neck.", 0 );
+    wtf_logf( "Wear_prop: no free neck.", 0 );
 	to_actor( "You already wear two neck items.\n\r", ch );
 	return;
     }
@@ -742,7 +742,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
 	    return;
 	}
 
-	bug( "Wear_prop: no free wrist.", 0 );
+	wtf_logf( "Wear_prop: no free wrist.", 0 );
 	to_actor( "You already wear two wrist items.\n\r", ch );
 	return;
     }
@@ -777,7 +777,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
                  return;
         }
 
-    bug( "Wear_prop: no free shoulder.", 0 );
+    wtf_logf( "Wear_prop: no free shoulder.", 0 );
     to_actor( "You already wear an items on each shoulder.\n\r", ch );
         return;
     }
@@ -818,7 +818,7 @@ void wear_prop( PLAYER *ch, PROP *prop, bool fReplace, int loc )
             return;
         }
 
-    bug( "Wear_prop: no free as_belt.", 0 );
+    wtf_logf( "Wear_prop: no free as_belt.", 0 );
     to_actor( "You already wear enough items there.\n\r", ch );
         return;
     }
@@ -1293,7 +1293,7 @@ int get_prop( PLAYER *ch, PROP *prop,
 /*           unequip_char( ch, pProp );*/
            prop_from_actor( pProp );
            prop_to_prop( pProp, pack );
-           snprintf( buf, MAX_STRING_LENGTH, "You stuff %s into %s.\n\r", 
+           sprintf( buf, "You stuff %s into %s.\n\r", 
                  STR(pProp,short_descr),
                  STR(pack,short_descr) );
            act( buf, ch, NULL, NULL, TO_ACTOR );
@@ -1348,13 +1348,13 @@ int get_prop( PLAYER *ch, PROP *prop,
            */
         if ( pack && hand_empty( ch ) == WEAR_NONE ) {
 
-            snprintf( buf, MAX_STRING_LENGTH, "You pick up %s from %s and stow it into %s.", 
+            sprintf( buf, "You pick up %s from %s and stow it into %s.", 
                       STR(prop,short_descr),
                       STR(container,short_descr),
                       STR(pack,short_descr) );
             act( buf, ch, NULL, NULL, TO_ACTOR );
 
-            snprintf( buf, MAX_STRING_LENGTH, "%s gets %s from %s and puts it into %s.", 
+            sprintf( buf, "%s gets %s from %s and puts it into %s.", 
                       capitalize(NAME(ch)),
                       STR(prop,short_descr),
                       STR(container,short_descr),
@@ -1400,12 +1400,12 @@ int get_prop( PLAYER *ch, PROP *prop,
         if ( pack && hand_empty( ch ) == WEAR_NONE ) {
 
 
-            snprintf( buf, MAX_STRING_LENGTH, "You pick up %s and stow it into %s.", 
+            sprintf( buf, "You pick up %s and stow it into %s.", 
                       STR(prop,short_descr),
                       STR(pack,short_descr) );
             act( buf, ch, NULL, NULL, TO_ACTOR );
 
-            snprintf( buf, MAX_STRING_LENGTH, "%s gets %s and puts it into %s.", 
+            sprintf( buf, "%s gets %s and puts it into %s.", 
                       capitalize(NAME(ch)),
                       STR(prop,short_descr),
                       STR(pack,short_descr) );
@@ -2050,12 +2050,12 @@ void cmd_give( PLAYER *ch, char *argument )
         }
 
         p = sub_coins(amount, ch );
-        snprintf( buf, MAX_STRING_LENGTH, "You pay %s %s.\n\r",
+        sprintf( buf, "You pay %s %s.\n\r",
                  NAME(victim), name_amount( amount ) );
         to_actor( buf, ch );
 
         create_amount( amount, victim, NULL, NULL );   
-        snprintf( buf, MAX_STRING_LENGTH, "%s pays you %s.\n\r",
+        sprintf( buf, "%s pays you %s.\n\r",
                  NAME(ch), name_amount( amount ) );
         to_actor( buf, victim );
 
@@ -2358,10 +2358,10 @@ void cmd_pour( PLAYER *ch, char *argument )
 	 */
     prop2->value[2] = prop1->value[2];
 
-    snprintf( buf, MAX_STRING_LENGTH, "$n pours %s from $p into $P.",
+    sprintf( buf, "$n pours %s from $p into $P.",
              liq_table[URANGE(0,prop2->value[2],LIQ_MAX)].liq_name );
     act( buf, ch, prop1, prop2, TO_SCENE );
-    snprintf( buf, MAX_STRING_LENGTH, "You pour %s from $p into $P.",
+    sprintf( buf, "You pour %s from $p into $P.",
              liq_table[URANGE(0,prop2->value[2],LIQ_MAX)].liq_name );
     act( buf, ch, prop1, prop2, TO_ACTOR );
 
@@ -2463,7 +2463,7 @@ void cmd_drink( PLAYER *ch, char *argument )
 
         if ( ( liquid = prop->value[2]) >= LIQ_MAX || liquid < 0 )
         {
-            bug( "Cmd_drink: bad liquid number %d.", prop->pIndexData->dbkey );
+            wtf_logf( "Cmd_drink: bad liquid number %d.", prop->pIndexData->dbkey );
             liquid = prop->value[2] = 0;
         }
 
@@ -2749,7 +2749,7 @@ void cmd_steal( PLAYER *ch, char *argument )
         to_actor( "Oops.\n\r", ch );
         act( "$n tried to steal from you.\n\r", ch, NULL, victim, TO_VICT    );
         act( "$n tried to steal from $N.\n\r",  ch, NULL, victim, TO_NOTVICT );
-    snprintf( buf, MAX_STRING_LENGTH, "%s is a bloody thief!", NAME(ch) );
+    sprintf( buf, "%s is a bloody thief!", NAME(ch) );
     to_actor( buf, victim );
 
         if ( !NPC(ch) )
@@ -3044,7 +3044,7 @@ void cmd_swap( PLAYER *ch, char *argument )
 			prop_to_prop( prop1, con2 );     /* put it in the original */
 		}
 
-        snprintf( buf, MAX_STRING_LENGTH, "$n swap$v $p from %s with $P.",
+        sprintf( buf, "$n swap$v $p from %s with $P.",
                can_see_prop(ch, con1) ? STR(con1,short_descr) : "something" );
         act( buf, ch, prop1, prop2, TO_ALL );
 	}
@@ -3088,7 +3088,7 @@ HOODED ) ) {
     && ( tmp = get_eq_char( ch, WEAR_ABOUT ) ) != NULL
     && tmp->item_type == ITEM_CLOTHING && IS_SET( tmp->value[1], HOODED )
     && IS_SET( tmp->value[1], HOOD_UP ) ) {
-     snprintf( buf, MAX_STRING_LENGTH, "You must first lower the hood on your %s.\n\r",
+     sprintf( buf, "You must first lower the hood on your %s.\n\r",
         smash_article( format_prop_to_actor( tmp, ch, TRUE ) ) );
        STC( buf, ch );
        return;
@@ -3135,7 +3135,7 @@ HOODED ) ) {
     && ( tmp = get_eq_char( ch, WEAR_ABOUT ) ) != NULL
     && tmp->item_type == ITEM_CLOTHING && IS_SET( tmp->value[1], HOODED )
     && IS_SET( tmp->value[1], HOOD_UP ) ) {
-       snprintf( buf, MAX_STRING_LENGTH, "You must first lower the hood on your %s.\n\r",
+       sprintf( buf, "You must first lower the hood on your %s.\n\r",
         smash_article( format_prop_to_actor( tmp, ch, TRUE ) ) );
        STC( buf, ch );
        return;

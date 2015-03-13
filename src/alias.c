@@ -118,7 +118,7 @@ void cmd_alias( PLAYER *ch, char *argument )
           to_actor( alias->exp, ch );
           to_actor( "\n\r", ch ); count++;
      }
-     snprintf( arg, MAX_STRING_LENGTH, "%d aliases\n\r", count );
+     sprintf( arg, "%d aliases\n\r", count );
      if ( count == 0 ) to_actor( "none\n\r", ch );
        else to_actor( arg, ch );
      return;

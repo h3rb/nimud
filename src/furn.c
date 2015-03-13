@@ -143,7 +143,7 @@ void set_furn( PLAYER *ch, PROP *prop )
 
     if ( OCCUPADO(prop) )
     {
-        bug( "set_furn: Occupado.", 0 );
+        wtf_logf( "set_furn: Occupado.", 0 );
         return;
     }
 

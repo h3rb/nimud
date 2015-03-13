@@ -423,7 +423,8 @@ N large stone sarcophagus~
 SD a large stone sarcophagus~
 P ~
 D
-A large stone sarcophagus lies here, the lid fallen on the floor.~
+A large stone sarcophagus lies here, the lid shattered on the floor.
+~
 A
 ~
 PD
@@ -432,14 +433,14 @@ DR
 ~
 L 0
 T 15
-E 0
+E 2048
 W 0
 Sz 18
 Ti 0
 Wt 1000
 C 0
 O ~
-V 1000 1 -1 0
+V 10000 1 -1 0
 End
 
 #19708

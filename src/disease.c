@@ -102,13 +102,13 @@ void cmd_bite( PLAYER *ch, char *argument ) {
             if ( IS_VAMPIRE(ch) ) {
                if ( NPC(vict) ) SET_BIT(ch->flag, ACTOR_VAMPIRE);
                else SET_BIT(ch->flag2, PLR_VAMPIRE);
-               snprintf( buf, MAX_STRING_LENGTH, "%s was bitten and has joined the brood.", NAME(vict) );
+               sprintf( buf, "%s was bitten and has joined the brood.", NAME(vict) );
                add_history( vict, buf );
             }
             else {
                if ( NPC(vict) ) SET_BIT(ch->flag, ACTOR_LYCANTHROPE);
                else SET_BIT(ch->flag2, PLR_LYCANTHROPE);
-               snprintf( buf, MAX_STRING_LENGTH, "%s contracts the disease of lycanthropy.", NAME(vict) );
+               sprintf( buf, "%s contracts the disease of lycanthropy.", NAME(vict) );
                add_history( vict, buf );
             }
             

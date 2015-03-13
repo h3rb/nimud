@@ -202,7 +202,7 @@ int find_first_step( SCENE *src, SCENE *target, int depth )
    int curr_dir;
 
    if ( src == NULL || target == NULL ) {
-      bug("Illegal value passed to find_first_step (graph.c)", 0 );
+      wtf_logf("Illegal value passed to find_first_step (graph.c)" );
       return BFS_ERROR;
    }
 
@@ -378,7 +378,7 @@ void cmd_track ( PLAYER *ch, char *argument )
    switch( dir )
    {
       case BFS_ERROR:
-         bug( "cmd_track: BFS Error", 0 );
+         wtf_logf( "cmd_track: BFS Error" );
          ch->tracking = NULL;
          break;
       case BFS_ALREADY_THERE:
@@ -386,7 +386,7 @@ void cmd_track ( PLAYER *ch, char *argument )
          ch->tracking = str_dup( "" );
          break;
       case BFS_NO_PATH:
-         snprintf( buf, MAX_STRING_LENGTH, "The trail to %s leads nowhere.\n\r", HIM_HER(vict) );
+         sprintf( buf, "The trail to %s leads nowhere.\n\r", HIM_HER(vict) );
          to_actor(buf, ch);
          free_string( ch->tracking );
          ch->tracking = str_dup( "" );

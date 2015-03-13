@@ -266,67 +266,67 @@ void save_copyover( void ) {
 void send_cleartext_mssp( CONNECTION *d ) {
    char buf[MSL];
    write_to_connection( d->connection, "\n\nMSSP-REPLY-START\n", 0 );
-   snprintf( buf, MSL, "NAME\t%s\n", MUD_NAME ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "PLAYERS\t%d\n", number_range(2,20) ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "UPTIME\t%d\n", up_time ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "HOSTNAME\t%s\n", MUD_ADDRESS ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "CODEBASE\tNiMUD\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "CREATED\t%d\n", 1993 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "ICON\thttp://nimud.divineright.org/nimud.ico\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "IP\t12.180.48.166\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "LANGUAGE\tEnglish\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "LOCATION\tUnited States\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MINIMUM AGE\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "WEBSITE\thttp://nimud.divineright.org\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "FAMILY\tDikuMUD\tMerc\tTinyMUD\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "GENRE\tFantasy\n"); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "GAMEPLAY\tRoleplaying\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "STATUS\tLive\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "GAMESYSTEM\tTyselorrd\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "INTERMUD\t0\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "SUBGENRE\tMultiverse\n" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "AREAS\t%d\n", top_zone ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "HELPFILES\t%d\n", top_help ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MOBILES\t%d\n", top_actor_template ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "OBJECTS\t%d\n", top_prop ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "ROOMS\t%d\n", top_scene ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "CLASSES\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "LEVELS\t%d\n", 666 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "RACES\t%d\n", MAX_RACE ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "SKILLS\t%d\n", top_dbkey_skill ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "SPELLS\t%d\n", top_dbkey_spell ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "ANSI\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MCCP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MCP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MSP\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MXP\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "PUEBLO\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "VT100\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "XTERM 256 COLORS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "PAY TO PLAY\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "PAY FOR PERKS\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "HIRING BUILDERS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "HIRING CODERS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "DBSIZE\t%d\n", 10000000 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "EXITS\t%d\n", top_exit ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "EXTRA DESCRIPTIONS\t%d\n", top_ed ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MUDPROGS\t%d\n", top_script ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MUDTRIGS\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "RESETS\t%d\n", top_spawn ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "ADULT MATERIAL\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MULTICLASSING\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "NEWBIE FRIENDLY\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "PLAYER CITIES\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "PLAYER CLANS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "EQUIPMENT SYSTEM\t%s\n", "Skill" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "MULTIPLAYING\t%s\n", "Full" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "PLAYERKILLING\t%s\n", "Full" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "QUEST SYSTEM\t%s\n", "Integrated" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "ROLEPLAYING\t%s\n", "Encouraged" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "TRAINING SYSTEM\t%s\n", "Skill" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "WORLD ORIGINALITY\t%s\n", "All original" ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "SSL\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
-   snprintf( buf, MSL, "ZMP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "NAME\t%s\n", MUD_NAME ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "PLAYERS\t%d\n", number_range(2,20) ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "UPTIME\t%d\n", up_time ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "HOSTNAME\t%s\n", MUD_ADDRESS ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "CODEBASE\tNiMUD\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "CREATED\t%d\n", 1993 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "ICON\thttp://nimud.divineright.org/nimud.ico\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "IP\t12.180.48.166\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "LANGUAGE\tEnglish\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "LOCATION\tUnited States\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MINIMUM AGE\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "WEBSITE\thttp://nimud.divineright.org\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "FAMILY\tDikuMUD\tMerc\tTinyMUD\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "GENRE\tFantasy\n"); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "GAMEPLAY\tRoleplaying\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "STATUS\tLive\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "GAMESYSTEM\tTyselorrd\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "INTERMUD\t0\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "SUBGENRE\tMultiverse\n" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "AREAS\t%d\n", top_zone ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "HELPFILES\t%d\n", top_help ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MOBILES\t%d\n", top_actor_template ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "OBJECTS\t%d\n", top_prop ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "ROOMS\t%d\n", top_scene ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "CLASSES\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "LEVELS\t%d\n", 666 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "RACES\t%d\n", MAX_RACE ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "SKILLS\t%d\n", top_dbkey_skill ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "SPELLS\t%d\n", top_dbkey_spell ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "ANSI\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MCCP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MCP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MSP\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MXP\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "PUEBLO\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "VT100\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "XTERM 256 COLORS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "PAY TO PLAY\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "PAY FOR PERKS\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "HIRING BUILDERS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "HIRING CODERS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "DBSIZE\t%d\n", 10000000 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "EXITS\t%d\n", top_exit ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "EXTRA DESCRIPTIONS\t%d\n", top_ed ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MUDPROGS\t%d\n", top_script ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MUDTRIGS\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "RESETS\t%d\n", top_spawn ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "ADULT MATERIAL\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MULTICLASSING\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "NEWBIE FRIENDLY\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "PLAYER CITIES\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "PLAYER CLANS\t%d\n", 1 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "EQUIPMENT SYSTEM\t%s\n", "Skill" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "MULTIPLAYING\t%s\n", "Full" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "PLAYERKILLING\t%s\n", "Full" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "QUEST SYSTEM\t%s\n", "Integrated" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "ROLEPLAYING\t%s\n", "Encouraged" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "TRAINING SYSTEM\t%s\n", "Skill" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "WORLD ORIGINALITY\t%s\n", "All original" ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "SSL\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
+   sprintf( buf, "ZMP\t%d\n", 0 ); write_to_connection( d->connection, buf, 0 );
    write_to_connection( d->connection, "MSSP-REPLY-END\n", 0 );
 }
 
@@ -443,7 +443,7 @@ int main( int argc, char **argv )
      */
     port = DEF_PORT;
 
-     if ( argc > 4 || !is_number( argv[1] ) || argc < 2 )
+     if ( argc > 4 || (argv[1] && !is_number( argv[1] )) || argc < 2 )
      {
          fprintf( stderr, "Usage: %s [port #]\n", argv[0] );
          fprintf( stderr, "Note: running this application with two numeric arguments (ex. %s 1234 1) is for\n", argv[0] );
@@ -979,7 +979,7 @@ void attach_connection( int c )
 	int addr;
 
 	addr = ntohl( sock.sin_addr.s_addr );
-	snprintf( buf, MAX_STRING_LENGTH, "%d.%d.%d.%d",
+	sprintf( buf, "%d.%d.%d.%d",
 	    ( addr >> 24 ) & 0xFF, ( addr >> 16 ) & 0xFF,
 	    ( addr >>  8 ) & 0xFF, ( addr       ) & 0xFF
 	    );
@@ -1068,7 +1068,7 @@ void close_socket( CONNECTION *dclose )
     if ( dclose->snoop_by != NULL )
     {
         char buf[MAX_STRING_LENGTH];
-        snprintf( buf, MAX_STRING_LENGTH, "*%s*  Lost link.\n\r",
+        sprintf( buf, "*%s*  Lost link.\n\r",
                  dclose->character ? dclose->character->name : "(null)" );
         write_to_buffer( dclose->snoop_by, buf, 0 );
     }
@@ -1129,7 +1129,7 @@ void close_socket( CONNECTION *dclose )
     ;
 
     if ( d != NULL )   d->next = dclose->next;
-    else               bug( "Close_socket: dclose not found.", 0 );
+    else               wtf_logf( "Close_socket: dclose not found.", 0 );
     }
 
     dclose->next = NULL;
@@ -1226,7 +1226,7 @@ bool read_from_connection( CONNECTION *d )
          if ( d != NULL && d->character != NULL
           && str_cmp( d->character->name, "INFO" ) ) {
          wtf_logf( "%s disconnected.", NAME(d->character) );
-         snprintf( buf, MAX_STRING_LENGTH, "Notify> %s has disconnected (EOF).",
+         sprintf( buf, "Notify> %s has disconnected (EOF).",
                       (d != NULL && d->character != NULL)
                                   ? d->character->name : "Guest" );
          NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_LOGIN );
@@ -1810,7 +1810,7 @@ void parse_snoop( CONNECTION *d, const char *txt )
     
     if ( d->character == NULL )
     {
-        bug( "parse_snoop: NULL passed", 0 );
+        wtf_logf( "parse_snoop: NULL passed", 0 );
         return;
     }
     else if ( d->original )
@@ -2223,13 +2223,13 @@ void act( const char *format, PLAYER *ch, const void *arg1, const void *arg2, in
         
     if ( ch == NULL )
     {
-       bug( "Act: null ch", 0 );
+       wtf_logf( "Act: null ch", 0 );
        return;
     }
         
     if ( ch->in_scene == NULL && type != TO_ACTOR && type != TO_VICT )
     {
-       bug( "Act: null ch->in_scene", 0 );
+       wtf_logf( "Act: null ch->in_scene", 0 );
        return;
     }
 
@@ -2238,7 +2238,7 @@ void act( const char *format, PLAYER *ch, const void *arg1, const void *arg2, in
     {
 	if ( vch == NULL )
 	{
-	    bug( "Act: null vch with TO_VICT.", 0 );
+	    wtf_logf( "Act: null vch with TO_VICT.", 0 );
 	    return;
 	}
 	to = vch->in_scene->people;
@@ -2257,7 +2257,7 @@ void act( const char *format, PLAYER *ch, const void *arg1, const void *arg2, in
       && type != TO_VICT
       && type != TO_SCENE
       && type != TO_NOTVICT )
-    bug( "Act: incorrect type (%d) assuming TO_ALL", type );
+    wtf_logf( "Act: incorrect type (%d) assuming TO_ALL", type );
 
     p  = buf;
 	str	= format;
@@ -2273,14 +2273,14 @@ void act( const char *format, PLAYER *ch, const void *arg1, const void *arg2, in
         if ( arg2 == NULL && *str >= 'A' && *str <= 'Z'
                           && *str >= '0' && *str <= '9' )
 	    {
-		bug( "Act: missing arg2 for code %d.", *str );
+		wtf_logf( "Act: missing arg2 for code %d.", *str );
 		i = " <@@@> ";
 	    }
 	    else
 	    {
 		switch ( *str )
 		{
-        default:  bug( "Act: bad code %d.", *str ); i = " <@@@> ";      break;
+        default:  wtf_logf( "Act: bad code %d.", *str ); i = " <@@@> ";      break;
         case '$': i = "$"; break;
 
         case '1': i = ""; if ( IS_SET( to->flag2, PLR_ANSI ) ) i = BLUE; break;

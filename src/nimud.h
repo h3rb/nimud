@@ -182,7 +182,7 @@ typedef bool HIT_FUN    args( ( PLAYER *ch, PLAYER *victim, int hit, int dam ) )
  * String and memory management parameters.
  */
 #define MAX_KEY_HASH         1024
-#define MAX_STRING_LENGTH    131092
+#define MAX_STRING_LENGTH    32768
 #define MAX_INPUT_LENGTH     4096
 #define WORK_STRING_LENGTH   4096
 
@@ -2942,8 +2942,7 @@ RID *   get_scene   args( ( int dbkey ) );
 SCD *   get_script_index args( ( int dbkey ) );
 void    prop_strings      args( ( PROP *prop ) );
 void    actor_strings      args( ( PLAYER *actor ) );
-void    bug              args( ( const char *str, int param ) );
-void    bugs             args( ( const char *str, char *param ) );
+void    printfs             args( ( const char *str, char *param ) );
 void    log_string       args( ( const char *str ) );
 /* Omitted: dump_section_0             */
 /* Omitted: dump_section_s             */
@@ -3406,6 +3405,9 @@ char *  sub_coins          args( ( int amount, PLAYER *ch ) );
 void dismount_char      args( ( PLAYER *ch ) );
 void mount_char         args( ( PLAYER *ch, PLAYER *victim ) );
 
+COMMAND( cmd_gift      );
+COMMAND( cmd_stable    );
+COMMAND( cmd_release   );
 COMMAND( cmd_mount     );
 COMMAND( cmd_rush      );
 COMMAND( cmd_trample   );

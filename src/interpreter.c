@@ -638,6 +638,7 @@ VARIABLE *eval_function( void * owner, int type, char *exp )
     char *original;
     int x;
 
+    if ( strlen(exp) <= 0 ) return NULL;
     if ( *exp == '\0' ) return NULL;
     if ( *exp == '{' || *exp == '['  )
     return new_variable( TYPE_STRING, str_dup( exp ) );
@@ -748,8 +749,7 @@ VARIABLE *eval_function( void * owner, int type, char *exp )
         /*
          * Evaluate each one.
          */
-
-        ppoint[x] = eval_function( owner, type, params[x] );
+        if ( strlen(params[x]) > 0 )  ppoint[x] = eval_function( owner, type, params[x] );
     }
 
 
@@ -815,6 +815,10 @@ switch ( name[0] ) {
  break;
 
  case 'a':
+    FUNC("astr",     func_astr    (owner, type) );
+    else
+    FUNC("actor",    func_actor   (owner, type) );
+    else
     FUNC("aset",     func_aset    (owner, type, ppoint[0], ppoint[1]) );
     else
     FUNC("as",  func_as(owner, type, ppoint[0], ppoint[1], ppoint[2], ppoint[3], ppoint[4], ppoint[5]) );
@@ -837,6 +841,8 @@ switch ( name[0] ) {
  break;
 
  case 'b':
+    FUNC("bstr",     func_bstr    (owner, type) );
+    else
     FUNC("broadcast", func_broadcast( owner, type, ppoint[0] ) );
     else
     FUNC("breed",    func_breed( owner, type, ppoint[0], ppoint[1] ) );
@@ -1045,6 +1051,8 @@ case 'e':
     FUNC("elude",    func_elude   (owner, type) );
     else
     FUNC("echo",     func_echo    (owner, type, ppoint[0], ppoint[1]) );
+    else
+    FUNC("emit",     func_emit    (owner, type, ppoint[0]) );
     else
     FUNC("eat",      func_eat     (owner, type, ppoint[0]) );
     else
@@ -1487,7 +1495,7 @@ void parse_assign( char *l, void * owner, int type )
 
     assign_var( owner, type, value, vname );      /* mem leak? */
     free_variable(value); 
-/*    bug( "assigned var", 0 ); */
+/*    wtf_logf( "assigned var", 0 ); */
     return;
 }
 
@@ -1512,12 +1520,12 @@ void parse_script( INSTANCE *instance, void * owner, int type )
 
     if ( instance == NULL )
     {
-        bug( "Parse_script: NULL instance.", 0 );
+        wtf_logf( "Parse_script: NULL instance.", 0 );
         return;
     }
 
     if ( owner == NULL )  {
-    bug( "Parse_script: NULL owner.", 0 );
+    wtf_logf( "Parse_script: NULL owner.", 0 );
     return;
     }
 
@@ -1547,12 +1555,12 @@ void parse_script( INSTANCE *instance, void * owner, int type )
          rdbkey = scene->dbkey;
         break;
        default:
-         bug( "Parse_script: Invalid requested owner-type.", 0 );
+         wtf_logf( "Parse_script: Invalid requested owner-type.", 0 );
         return;
     }
 
      /*
-      * In-game Debugger Code
+      * In-game Dewtf_logfger Code
       */
     if ( !MTD(instance->location) ) instance_track( instance, owner );
     else {
@@ -1706,7 +1714,7 @@ int script_update( void * owner, int type, int ttype, PLAYER *actor,
 
     if ( trig != NULL && trig->script->type != TRIG_EACH_PULSE ) {
           char buf[MAX_STRING_LENGTH];
-          snprintf( buf, MAX_STRING_LENGTH, "Notify> Script %d, %s triggered by %s%s%s%s%s%s%s%s", 
+          sprintf( buf, "Notify> Script %d, %s triggered by %s%s%s%s%s%s%s%s", 
                    trig->script->dbkey, 
                    trig->script->name, actor ? NAME(actor) : "",
                    catalyst != NULL ? " " : "",
@@ -1834,22 +1842,22 @@ void cmd_script( PLAYER *ch, char *argument )
 
         for ( pVar = mud_var_list;  pVar != NULL;  pVar = pVar->next_master_var )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+            sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
             to_actor( buf, ch );
 
             switch ( pVar->type )
             {
                 case TYPE_STRING:
-snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
+sprintf( buf, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                 case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
+sprintf( buf, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                 case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
+sprintf( buf, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
  break;
                 case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
+sprintf( buf, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
  break;
-                       default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
+                       default:   sprintf( buf, " = <unknown:%d>\n\r", pVar->type ); break;
             }
             to_actor( buf, ch );
         }
@@ -1874,7 +1882,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
         ch->userdata->trackscr = (void *)prop;
         ch->userdata->trackscr_type = TYPE_PROP;
 
-        snprintf( buf, MAX_STRING_LENGTH, "DEBUG %s from %s:\n\r", STR(prop,short_descr),
+        sprintf( buf, "DEBUG %s from %s:\n\r", STR(prop,short_descr),
                  prop->in_scene ? 
                  prop->in_scene->name
               : (prop->in_prop  ? STR((prop->in_prop),short_descr) 
@@ -1885,7 +1893,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
         {
             fFound = TRUE;
 
-            snprintf( buf, MAX_STRING_LENGTH, "-==[WATCHING]==---------[%5d] %s (%d, auto %d)\n\r%s",
+            sprintf( buf, "-==[WATCHING]==---------[%5d] %s (%d, auto %d)\n\r%s",
                      pTrig->script->dbkey, pTrig->script->name,
                      pTrig->wait, pTrig->autowait,
                      pTrig->location ? pTrig->location : "" );
@@ -1893,22 +1901,22 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
 
             for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+            sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
             to_actor( buf, ch );
 
             switch ( pVar->type )
             {
                 case TYPE_STRING:
-snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
+sprintf( buf, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                 case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
+sprintf( buf, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                 case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
+sprintf( buf, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
  break;
                 case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
+sprintf( buf, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
  break;
-                       default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
+                       default:   sprintf( buf, " = <unknown:%d>\n\r", pVar->type ); break;
             }
             to_actor( buf, ch );
             }
@@ -1928,7 +1936,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
         ch->userdata->trackscr = (void *)victim;
         ch->userdata->trackscr_type = TYPE_ACTOR;
 
-        snprintf( buf, MAX_STRING_LENGTH, "Tracking %s in %s, scripts:\n\r", NAME(victim),
+        sprintf( buf, "Tracking %s in %s, scripts:\n\r", NAME(victim),
                                                        victim->in_scene->name );
         to_actor( buf, ch );
 
@@ -1936,7 +1944,7 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
         {
             fFound = TRUE;
 
-            snprintf( buf, MAX_STRING_LENGTH, "-==[WATCHING]==---[%5d] %s (%d, aw:%d)\n\r%s",
+            sprintf( buf, "-==[WATCHING]==---[%5d] %s (%d, aw:%d)\n\r%s",
                      pTrig->script->dbkey, pTrig->script->name,
                      pTrig->wait, pTrig->autowait,
                      pTrig->location ? pTrig->location : "" );
@@ -1944,22 +1952,22 @@ snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey
 
             for ( pVar = pTrig->locals;  pVar != NULL;  pVar = pVar->next )
             {
-            snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+            sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
             to_actor( buf, ch );
 
             switch ( pVar->type )
             {
                 case TYPE_STRING:
-snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
+sprintf( buf, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                 case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
+sprintf( buf, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                 case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
+sprintf( buf, " = p:%d\n\r", ((PROP *)(pVar->value))->pIndexData->dbkey );
  break;
                 case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
+sprintf( buf, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); 
  break;
-                       default:   snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
+                       default:   sprintf( buf, " = <unknown:%d>\n\r", pVar->type ); break;
             }
             to_actor( buf, ch );
             }
@@ -2089,6 +2097,18 @@ void STR_PARAM_parse( VARIABLE *var, char *_val, void *owner, int type ) {
     if ( !var ) strcpy(param_buf,"0" );
     else 
     if ( var->type== TYPE_STRING) {
+    p=(char *) (var->value);
+    if ( *p == '%' ) {
+     VARIABLE *v;
+     char b[256];  i=0;
+     while ( *p != '\0' ) if ( *p != '%' ) b[i++]=*(p++); else p++;
+     b[i]='\0';
+     v=find_variable(owner,type,b);
+     if ( v && v->type == TYPE_STRING ) {
+      strcpy(_val,(char *) (v->value) );
+      return;
+     }
+    }
     p = translate_variables( owner, type,
               strip_curlies((char *)(var->value)) );
     for ( i=0; i < MSL; i++ ) { param_buf[i]=*p; p++; }
@@ -2296,7 +2316,7 @@ void instance_track( INSTANCE *instance, void * owner ) {
 
             p = instance->script->commands;
             while ( p != instance->location ) {
-                snprintf( buf, MAX_STRING_LENGTH, "%c", *p++ );
+                sprintf( buf, "%c", *p++ );
                 to_actor( buf, bch );
             }
 
@@ -2308,7 +2328,7 @@ void instance_track( INSTANCE *instance, void * owner ) {
             to_actor( instance->location, bch );
             display_interp( bch, "^6" );
 
-            snprintf( buf, MAX_STRING_LENGTH, 
+            sprintf( buf, 
 "_______[%5d] %s (%d/aw:%d) Last-If: %d_______________\n\r",
                      instance->script->dbkey, 
                      instance->script->name,
@@ -2323,21 +2343,21 @@ void instance_track( INSTANCE *instance, void * owner ) {
 
             for ( pVar = instance->locals;  pVar != NULL;  pVar = pVar->next )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "  [%2d] %s ", pVar->type, pVar->name );
+                sprintf( buf, "  [%2d] %s ", pVar->type, pVar->name );
                 to_actor( buf, bch );
 
                 switch ( pVar->type )
                 {
                     case TYPE_STRING: 
-snprintf( buf, MAX_STRING_LENGTH, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
+sprintf( buf, " = \"%s\"\n\r", (char *)(pVar->value) ); break;
                     case TYPE_ACTOR:    
-snprintf( buf, MAX_STRING_LENGTH, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
+sprintf( buf, " = a:%s\n\r", NAME( (PLAYER *)(pVar->value) ) ); break;
                     case TYPE_PROP:    
-snprintf( buf, MAX_STRING_LENGTH, " = p:%d\n\r", ((PROP  *)(pVar->value))->pIndexData->dbkey ); break;
+sprintf( buf, " = p:%d\n\r", ((PROP  *)(pVar->value))->pIndexData->dbkey ); break;
                     case TYPE_SCENE:   
-snprintf( buf, MAX_STRING_LENGTH, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); break;
+sprintf( buf, " = s:%d\n\r", ((SCENE *)(pVar->value))->dbkey ); break;
                     default:          
-snprintf( buf, MAX_STRING_LENGTH, " = <unknown:%d>\n\r", pVar->type ); break;
+sprintf( buf, " = <unknown:%d>\n\r", pVar->type ); break;
                 }
                 to_actor( buf, bch );
             }

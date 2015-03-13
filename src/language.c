@@ -60,13 +60,13 @@ char * garble_text( char *t, int prcnt_comp )
 
    if( t == NULL || t[0] == '\0' )
    {
-      bug( "Garble_text: t NULL.", 0 );
+      wtf_logf( "Garble_text: t NULL.", 0 );
       return t;
    }
 
    if( strlen( t ) > MAX_STRING_LENGTH )
    {
-      bug( "Garble_text: Argument to long.", 0 );
+      wtf_logf( "Garble_text: Argument to long.", 0 );
       return t;
    } 
 

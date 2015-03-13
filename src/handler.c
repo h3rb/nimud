@@ -228,7 +228,7 @@ void bonus_modify( PLAYER *ch, BONUS *paf, bool fAdd )
             pSkill = find_skill_pc(ch, paf->location);
             if ( !pSkill ) {
 
-                bug( "Bonus_modify: unknown location %d.", paf->location );
+                wtf_logf( "Bonus_modify: unknown location %d.", paf->location );
                 paf->location = APPLY_NONE;
                 return;
             }
@@ -300,7 +300,7 @@ void bonus_remove( PLAYER *ch, BONUS *paf )
 {
     if ( ch->bonus == NULL )
     {
-	bug( "Bonus_remove: no affect.", 0 );
+	wtf_logf( "Bonus_remove: no affect.", 0 );
 	return;
     }
 
@@ -325,7 +325,7 @@ void bonus_remove( PLAYER *ch, BONUS *paf )
 
 	if ( prev == NULL )
 	{
-	    bug( "Bonus_remove: cannot find paf.", 0 );
+	    wtf_logf( "Bonus_remove: cannot find paf.", 0 );
 	    return;
 	}
     }
@@ -410,7 +410,7 @@ void actor_from_scene( PLAYER *ch )
 
     if ( ch->in_scene == NULL )
     {
-	bug( "Char_from_scene: NULL.", 0 );
+	wtf_logf( "Char_from_scene: NULL.", 0 );
 	return;
     }
 
@@ -443,7 +443,7 @@ void actor_from_scene( PLAYER *ch )
 	}
 
 	if ( prev == NULL )
-	    bug( "Char_from_scene: ch not found.", 0 );
+	    wtf_logf( "Char_from_scene: ch not found.", 0 );
     }
 
     ch->in_scene      = NULL;
@@ -462,7 +462,7 @@ void actor_to_scene( PLAYER *ch, SCENE *pSceneIndex )
 
     if ( pSceneIndex == NULL )
     {
-	bug( "Char_to_scene: NULL.", 0 );
+	wtf_logf( "Char_to_scene: NULL.", 0 );
         pSceneIndex = get_scene( SCENE_VNUM_DEATH );
     }
 
@@ -577,7 +577,7 @@ void prop_from_actor( PROP *prop )
 
     if ( ( ch = prop->carried_by ) == NULL )
     {
-	bug( "Obj_from_char: null ch.", 0 );
+	wtf_logf( "Obj_from_char: null ch.", 0 );
 	return;
     }
 
@@ -609,7 +609,7 @@ void prop_from_actor( PROP *prop )
 	}
 
 	if ( prev == NULL )
-	    bug( "Obj_from_char: prop not in list.", 0 );
+	    wtf_logf( "Obj_from_char: prop not in list.", 0 );
     }
 
     if ( prop->item_type == ITEM_LIGHT
@@ -860,7 +860,7 @@ void equip_char( PLAYER *ch, PROP *prop, int iWear )
       || IS_SET(prop->extra_flags, ITEM_USED)
       || get_eq_char( ch, iWear ) != NULL )
     {
-        bug( "Equip_char: already equipped (%d).", iWear );
+        wtf_logf( "Equip_char: already equipped (%d).", iWear );
         return;
     }
 
@@ -873,7 +873,7 @@ void equip_char( PLAYER *ch, PROP *prop, int iWear )
       || iWear == WEAR_BELT_4
       || iWear == WEAR_BELT_5)
     {
-       bug( "Equip_char: equipped how? (%d)", iWear );
+       wtf_logf( "Equip_char: equipped how? (%d)", iWear );
        return;
     }
 
@@ -919,7 +919,7 @@ void prop_from_scene( PROP *prop )
 
     if ( ( in_scene = prop->in_scene ) == NULL )
     {
-	bug( "prop_from_scene: NULL.", 0 );
+	wtf_logf( "prop_from_scene: NULL.", 0 );
 	return;
     }
 
@@ -942,7 +942,7 @@ void prop_from_scene( PROP *prop )
 
 	if ( prev == NULL )
 	{
-	    bug( "Obj_from_scene: prop not found.", 0 );
+	    wtf_logf( "Obj_from_scene: prop not found.", 0 );
 	    return;
 	}
     }
@@ -1010,7 +1010,7 @@ void prop_from_prop( PROP *prop )
 
     if ( ( prop_from = prop->in_prop ) == NULL )
     {
-	bug( "Prop_from_prop: null prop_from.", 0 );
+	wtf_logf( "Prop_from_prop: null prop_from.", 0 );
 	return;
     }
 
@@ -1033,7 +1033,7 @@ void prop_from_prop( PROP *prop )
 
 	if ( prev == NULL )
 	{
-	    bug( "Prop_from_prop: prop not found.", 0 );
+	    wtf_logf( "Prop_from_prop: prop not found.", 0 );
 	    return;
 	}
     }
@@ -1121,7 +1121,7 @@ void extractor_prop( PROP *prop )
 
 	if ( prev == NULL )
 	{
-	    bug( "Extractor_prop: prop %d not found.", prop->pIndexData->dbkey );
+	    wtf_logf( "Extractor_prop: prop %d not found.", prop->pIndexData->dbkey );
 	    return;
 	}
     }
@@ -1178,7 +1178,7 @@ void extractor_char( PLAYER *ch, bool fPull )
 
     if ( ch->in_scene == NULL )
     {
-	bug( "Extractor_char: NULL in_scene.", 0 );
+	wtf_logf( "Extractor_char: NULL in_scene.", 0 );
 	return;
     }
 
@@ -1291,7 +1291,7 @@ void extractor_char( PLAYER *ch, bool fPull )
 
 	if ( prev == NULL )
 	{
-	    bug( "Extractor_char: char not found.", 0 );
+	    wtf_logf( "Extractor_char: char not found.", 0 );
 	    return;
 	}
     }
@@ -1324,7 +1324,7 @@ void extractor_char( PLAYER *ch, bool fPull )
 
             if ( prev == NULL && wch_next != NULL )
             {
-                bug( "Extractor_char: mount not found.", 0 );
+                wtf_logf( "Extractor_char: mount not found.", 0 );
                 return;
             }
         }

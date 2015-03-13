@@ -177,7 +177,7 @@ void fread_board( int b )
     int count = 0;
     char buf[MAX_STRING_LENGTH];
  
-    snprintf( buf, MAX_STRING_LENGTH, "%s%s", BOARD_PATH, filename );
+    sprintf( buf, "%s%s", BOARD_PATH, filename );
     if ( ( fp = fopen( buf, "r" ) ) == NULL )
       {
         list = NULL;
@@ -250,7 +250,7 @@ void fread_board( int b )
         {
             strcpy( strzone, filename );
             sprintf( log_buf, "load_notes: bad keyword '%s'", word );
-            bug( log_buf, 0 );                                       
+            wtf_logf( log_buf, 0 );                                       
             fclose( fp );
             return;
         }
@@ -322,7 +322,7 @@ void note_remove( PLAYER *ch, NOTE *pnote, int b )
  
         if ( prev == NULL )
           {
-            bug( "Note_remove: pnote not found.", 0 );
+            wtf_logf( "Note_remove: pnote not found.", 0 );
             return;
           }
  
@@ -347,7 +347,7 @@ void save_board( int b )
     FILE *fp;
     
     fclose( fpReserve );
-    snprintf( buf, MAX_STRING_LENGTH, "%s%s", BOARD_PATH, board_table[b].filename );
+    sprintf( buf, "%s%s", BOARD_PATH, board_table[b].filename );
     if ( ( fp = fopen( buf, "w" ) ) == NULL )
       {
         perror( buf );
@@ -526,14 +526,14 @@ void cmd_note( PLAYER *ch, char *argument )
     if ( !str_cmp( arg, "list" ) )
     {
         dbkey = 1;
-        snprintf( buf, MAX_STRING_LENGTH, "The following notes are on the %s board:\n\r", 
+        sprintf( buf, "The following notes are on the %s board:\n\r", 
                       board_table[bnum].name );
         to_actor( buf, ch );
         for ( pnote = note_list[bnum]; pnote != NULL; pnote = pnote->next )
           {
             if ( is_note_to( ch, bnum, pnote ) )
               {
-        snprintf( buf, MAX_STRING_LENGTH, "[%-3d %18s] %s to %s: %s\n\r",
+        sprintf( buf, "[%-3d %18s] %s to %s: %s\n\r",
             dbkey,
             pnote->date,
              IS_SET(pnote->note_flags, NOTE_ANONYMOUS)
@@ -578,7 +578,7 @@ void cmd_note( PLAYER *ch, char *argument )
                     && str_cmp( STR(ch,name), pnote->sender )
                     && PC(ch,last_note) < pnote->date_stamp )
                   {
-                    snprintf( buf, MAX_STRING_LENGTH, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
+                    sprintf( buf, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
                             dbkey,
                             IS_SET(pnote->note_flags, NOTE_ANONYMOUS)
                              && !IS_IMMORTAL(ch)
@@ -610,7 +610,7 @@ void cmd_note( PLAYER *ch, char *argument )
         {
             if ( is_note_to( ch, bnum, pnote ) && ( dbkey++ == anum || fAll ) )
             {
-                snprintf( buf, MAX_STRING_LENGTH, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
+                sprintf( buf, "[%3d] %s: %s\n\r%s\n\rTo: %s\n\r",
                       dbkey - 1,
                       IS_SET(pnote->note_flags, NOTE_ANONYMOUS)
                          && !IS_IMMORTAL(ch)  ? "Anonymous"
@@ -651,15 +651,15 @@ void cmd_note( PLAYER *ch, char *argument )
                 buf3[0] = '\0';
 
         strcat( buf3, "================================================\n\r" );
-        snprintf( buf, MAX_STRING_LENGTH, "From: %s\n\r",    fix_string( pnote->sender ) );
+        sprintf( buf, "From: %s\n\r",    fix_string( pnote->sender ) );
         strcat( buf3, buf );
-        snprintf( buf, MAX_STRING_LENGTH, "To:   %s\n\r",    fix_string( pnote->to_list ) );
+        sprintf( buf, "To:   %s\n\r",    fix_string( pnote->to_list ) );
         strcat( buf3, buf );
-        snprintf( buf, MAX_STRING_LENGTH, "Sent: %s\n\r",    pnote->date );
+        sprintf( buf, "Sent: %s\n\r",    pnote->date );
         strcat( buf3, buf );
-        snprintf( buf, MAX_STRING_LENGTH, "Subject: %s\n\r", fix_string( pnote->subject ) );
+        sprintf( buf, "Subject: %s\n\r", fix_string( pnote->subject ) );
         strcat( buf3, buf );
-        snprintf( buf, MAX_STRING_LENGTH, "Text:\n\r%s\n\r",   fix_string( pnote->text ) );
+        sprintf( buf, "Text:\n\r%s\n\r",   fix_string( pnote->text ) );
         strcat( buf3, buf );
         strcat( buf3, "------------------------------------------------\n\r" );
 
@@ -762,7 +762,7 @@ void cmd_note( PLAYER *ch, char *argument )
             return;
         }
  
-        snprintf( buf, MAX_STRING_LENGTH, "%s: %s\n\rTo: %s\n\r",
+        sprintf( buf, "%s: %s\n\rTo: %s\n\r",
             IS_SET(ch->pnote->note_flags, NOTE_ANONYMOUS) ? "ANONYMOUS"
                                                           : ch->pnote->sender,
             ch->pnote->subject,

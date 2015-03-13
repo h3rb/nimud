@@ -314,7 +314,7 @@ VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
    STR_PARAM(l, _l);
    
    loops = atoi(_l);  if ( loops == 0 ) loops=1; if ( loops < 0 ) loops=-1;
-   snprintf( buf, MSL, "%s\r!!SOUND %s P=%s L=%d T=nimscripts V=%s%s U=%s%s \r%s", 
+   sprintf( buf, "%s\r!!SOUND %s P=%s L=%d T=nimscripts V=%s%s U=%s%s \r%s", 
                        "^N^0", _n, _p, loops, _v, LOWER(*_b) == 'l' ? ",left" : 
                                                  LOWER(*_b) == 'r' ? ",right" : " ", SOUND_WEB, _n, "^N" );
 
@@ -350,7 +350,7 @@ VARIABLE *func_sound( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
             if ( o ) {
              int vol=atoi(_v)/3; // muffled sound
 
-   snprintf( buf, MSL, "%s\r!!SOUND %s P=%s L=%d T=nimscripts V=%d%s U=%s%s \r%s", 
+   sprintf( buf, "%s\r!!SOUND %s P=%s L=%d T=nimscripts V=%d%s U=%s%s \r%s", 
                        "^N^0", _n, _p, loops, vol, LOWER(*_b) == 'l' ? ",left" : 
                                                   LOWER(*_b) == 'r' ? ",right" : " ", SOUND_WEB, _n, "^N" );
 
@@ -403,7 +403,7 @@ VARIABLE *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
    STR_PARAM(l, _l);
    
    loops = atoi(_l);  if ( loops == 0 ) loops=1; if ( loops < 0 ) loops=-1;
-   snprintf( buf, MSL, "%s\r!!MUSIC %s P=%s L=%d T=nimscripts V=%s%s U=%s%s \r%s", 
+   sprintf( buf, "%s\r!!MUSIC %s P=%s L=%d T=nimscripts V=%s%s U=%s%s \r%s", 
                        "^N^0", _n, _p, loops, _v, LOWER(*_b) == 'l' ? ",left" : 
                                                  LOWER(*_b) == 'r' ? ",right" : " ", SOUND_WEB, _n, NTEXT );
 
@@ -439,7 +439,7 @@ VARIABLE *func_music( void *owner, int type, V *n, V *t, V *v, V * p, V *l, V *b
             if ( o ) {
              int vol=atoi(_v)/3; // muffled sound
 
-   snprintf( buf, MSL, "%s\r!!MUSIC %s P=%s L=%d T=nimscripts V=%d%s U=%s%s \r%s", 
+   sprintf( buf, "%s\r!!MUSIC %s P=%s L=%d T=nimscripts V=%d%s U=%s%s \r%s", 
                        "^N^0", _n, _p, loops, vol, LOWER(*_b) == 'l' ? ",left" : 
                                                   LOWER(*_b) == 'r' ? ",right" : " ", SOUND_WEB, _n, NTEXT );
 
@@ -1044,7 +1044,7 @@ VARIABLE *func_call( void * owner, int type, VARIABLE *trigname,
 
     if ( instance == NULL || instance == PARSING(owner,type) ) return NULL;
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", trigger( owner, type, instance ) );
+    sprintf( buf, "%d", trigger( owner, type, instance ) );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -1121,10 +1121,10 @@ VARIABLE *func_cmp( void * owner, int type, VARIABLE *astr,
     STR_PARAM(bstr,_bstr);
 
     if ( is_number(_astr) && is_number(_bstr) ) {
-       snprintf( buf, MAX_STRING_LENGTH, "%d", atoi(_astr) == atoi(_bstr) ? 1 : 0 );
+       sprintf( buf, "%d", atoi(_astr) == atoi(_bstr) ? 1 : 0 );
     }
     else
-    snprintf( buf, MAX_STRING_LENGTH, "%d", (int) !str_cmp( _astr, _bstr ) );
+    sprintf( buf, "%d", (int) !str_cmp( _astr, _bstr ) );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -1144,7 +1144,7 @@ VARIABLE *func_pre( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
     STR_PARAM(astr,_astr);
     STR_PARAM(bstr,_bstr);
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", !str_prefix( _astr, _bstr ) );
+    sprintf( buf, "%d", !str_prefix( _astr, _bstr ) );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -1164,7 +1164,7 @@ VARIABLE *func_in( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
     STR_PARAM(astr,_astr);
     STR_PARAM(bstr,_bstr);
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", ( int ) ( (buf+strlen(buf))-strstr( _astr, _bstr ) ) );
+    sprintf( buf, "%d", ( int ) ( (buf+strlen(buf))-strstr( _astr, _bstr ) ) );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -1185,7 +1185,7 @@ VARIABLE *func_strstr( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
     STR_PARAM(astr,_astr);
     STR_PARAM(bstr,_bstr);
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", ( int ) ( (buf+strlen(buf))-strstr( _astr, _bstr ) ) );
+    sprintf( buf, "%d", ( int ) ( (buf+strlen(buf))-strstr( _astr, _bstr ) ) );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -1233,8 +1233,8 @@ VARIABLE *func_cat( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
     STR_PARAM(astr,_astr);
     STR_PARAM(bstr,_bstr);
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s", strip_curlies(_astr) );
-    snprintf( buf, MAX_STRING_LENGTH, "%s%s", buf, strip_curlies(_bstr) );
+    sprintf( buf, "%s", strip_curlies(_astr) );
+    sprintf( buf, "%s%s", buf, strip_curlies(_bstr) );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -1325,6 +1325,65 @@ VARIABLE *func_echo( void * owner, int type, VARIABLE *target,
      { display_interp( rch, capitalize(p) ); to_actor( "\n\r", rch ); } 
     return NULL;
 }
+
+/*
+ * Emit(text);    // emits to the room
+ * Displays some text.
+ */
+VARIABLE *func_emit( void * owner, int type, 
+                           VARIABLE *out )
+{
+    char _out[MSL];
+    SCENE *pScene=NULL;
+    PLAYER *rch=NULL;
+    PROP *inside=NULL;
+    PLAYER *on=NULL;
+    char *p;
+
+    STR_PARAM(out,_out);
+
+    switch ( type ) {
+     case TYPE_PROP:
+      {
+        PROP *me= PROP(owner);        
+        if ( me->carried_by ) pScene=me->carried_by->in_scene;
+        else if ( me->in_scene ) pScene=me->in_scene;
+        else if ( me->in_prop ) {
+         inside=me->in_prop;
+         while ( inside->in_prop ) inside=inside->in_prop;
+         if ( (on=inside->carried_by) ) pScene=on->in_scene;
+         else pScene=inside->in_scene;         
+        }
+      } break;
+     case TYPE_SCENE: pScene=(SCENE *)owner;
+     break;
+     case TYPE_ACTOR: on=ACTOR(owner); pScene=on->in_scene; 
+     break;
+     default: return NULL;
+   }
+
+   if ( !pScene ) return NULL;
+
+    p = _out;
+    p = translate_variables_noliterals( owner, type, p ); 
+
+    for ( rch = pScene->people; rch != NULL; rch = rch->next_in_scene ) 
+     {
+       if ( inside ) {
+        char b[MSL]; 
+        sprintf( b, "^BFrom inside %s, ^N", STR(inside,short_descr) );
+        display_interp( rch, b ); 
+       }
+       if ( on ) {
+        char b[MSL]; 
+        sprintf( b, "^B%cn %s, ^N", inside ? 'o' : 'O', NAME(on) );
+        display_interp( rch, b ); 
+       }      
+       display_interp( rch, capitalize(p) ); to_actor( "\n\r", rch );
+     } 
+    return NULL;
+}
+
 
 /* -------------------------------------------------------------- */
 /*
@@ -1467,7 +1526,7 @@ VARIABLE *func_transform( void * owner, int type, VARIABLE *target )
     switch ( pMe->item_type ) {
     default:
     if ( pMe->item_type >= ITEM_MAX )
-        bug( "Read_prop: dbkey %d bad type.", pPropIndex->dbkey );
+        wtf_logf( "Read_prop: dbkey %d bad type.", pPropIndex->dbkey );
         break;
 
     case ITEM_SCROLL:
@@ -1691,7 +1750,7 @@ VARIABLE *out )
 
     if ( !NPC(ch) ) {
        if ( PC(ch,history) != NULL )
-       snprintf( buf, MAX_STRING_LENGTH, "%s\n\r%s\n\r", PC(ch,history),  _out );  /* leak? */
+       sprintf( buf, "%s\n\r%s\n\r", PC(ch,history),  _out );  /* leak? */
        else strcpy( _out, buf );
 
        free_string( PC(ch,history) );
@@ -1798,12 +1857,12 @@ VARIABLE * func_strp( void * owner, int type, VARIABLE *value,
 
         if ( *p == '\0' || *_old == '\0' )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "%s", p );
+            sprintf( buf, "%s", p );
             return NULL;
         }
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s", _value );
+    sprintf( buf, "%s", _value );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -2071,12 +2130,12 @@ VARIABLE *func_pset( void * owner, int type, VARIABLE *astr, VARIABLE *bstr )
     if ( !str_cmp( _bstr, "plural"      ) ) p = pluralize( prop->short_descr );
     if ( !str_cmp( _bstr, "dbkey"        ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", prop->pIndexData->dbkey );
+        sprintf( buf, "%d", prop->pIndexData->dbkey );
         p = buf;
     }
     if ( !str_cmp( _bstr, "scene" ) )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", prop->in_scene->dbkey );
+        sprintf( buf, "%d", prop->in_scene->dbkey );
         p = buf;
     }
 
@@ -2242,7 +2301,7 @@ VARIABLE *func_hurt( void * owner, int type, VARIABLE *target,
     dam= atoi(_gain);
 
     /*
-     * Fix lightly bug.
+     * Fix lightly wtf_logf.
      */
     if ( dam  < 0 )  dam = 1;
     if ( dam == 0 ) { wtf_logf( "func_hurt(): dam=0!", 0 ); return NULL; }
@@ -2256,7 +2315,7 @@ VARIABLE *func_hurt( void * owner, int type, VARIABLE *target,
     {
         if ( IS_IMMORTAL(rch) && IS_SET(rch->flag,WIZ_NOTIFY_DAMAGE))
         {
-            snprintf( buf, MAX_STRING_LENGTH, "[%3d->%c%c] ",
+            sprintf( buf, "[%3d->%c%c] ",
                      dam,
                      rch != ch ? STR(ch,name)[0] : '*',
                      rch != ch ? STR(ch,name)[1] : '*' );
@@ -2657,9 +2716,9 @@ VARIABLE *func_charge( void * owner, int type, VARIABLE *target,
     p = sub_coins(cost, ch );
 
     if ( !str_cmp( p, "nothing" ) )
-    snprintf( buf, MAX_STRING_LENGTH, "You pay.\n\r" );
+    sprintf( buf, "You pay.\n\r" );
     else
-    snprintf( buf, MAX_STRING_LENGTH, "You pay and receive %s in change.\n\r", p );
+    sprintf( buf, "You pay and receive %s in change.\n\r", p );
     to_actor( buf, ch );
 
     RETURNS(TYPE_STRING,str_dup("1"));
@@ -3026,7 +3085,7 @@ VARIABLE *func_here( void *owner, int type )
 
    if ( pScene == NULL ) return NULL;
 
-   snprintf( buf, MAX_STRING_LENGTH, "%d", pScene->dbkey );
+   sprintf( buf, "%d", pScene->dbkey );
 
    RETURNS(TYPE_STRING, str_dup(buf) );
 }
@@ -3042,7 +3101,7 @@ VARIABLE *func_here( void *owner, int type )
 VARIABLE *func_moveall( void * owner, int type, VARIABLE *from,
                           VARIABLE *dest, VARIABLE *cmd )
 {
-    PLAYER *ch, *ch_next, *och;
+    PLAYER *ch, *ch_next;//, *och;
     SCENE *pScene, *pDest;
     char _from[MSL];
     char _dest[MSL];
@@ -3548,7 +3607,7 @@ VARIABLE *func_samescene( void * owner, int type, VARIABLE *var )
         default: val = 0;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", val );
+    sprintf( buf, "%d", val );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -3628,7 +3687,7 @@ VARIABLE *func_dbkey( void * owner, int type, VARIABLE *target )
             dbkey = 0);
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", dbkey );
+    sprintf( buf, "%d", dbkey );
 
     RETURNS(TYPE_STRING,str_dup(buf));
 }
@@ -3685,7 +3744,7 @@ VARIABLE *func_rndplr( void * owner, int type, VARIABLE *from )
 
     if (pScene == NULL)
     {
-        snprintf( buf, MAX_STRING_LENGTH, "me" );
+        sprintf( buf, "me" );
     }
     else
     {
@@ -3734,11 +3793,11 @@ VARIABLE *func_rndplr( void * owner, int type, VARIABLE *from )
 
         if ( rch == NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "me" );
+            sprintf( buf, "me" );
         }
         else
         {
-            snprintf( buf, MAX_STRING_LENGTH, "%s", STR(rch, name) );
+            sprintf( buf, "%s", STR(rch, name) );
         }
     }
 
@@ -3924,7 +3983,7 @@ VARIABLE *func_bounty( void * owner, int type, VARIABLE *target )
 
     val = ch == NULL ? -1 : ch->bounty;
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", val );
+    sprintf( buf, "%d", val );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -3954,7 +4013,7 @@ VARIABLE *func_owed( void * owner, int type, VARIABLE *target )
 
     val = ch == NULL ? -1 : ch->owed;
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", val );
+    sprintf( buf, "%d", val );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -3983,7 +4042,7 @@ VARIABLE *func_level( void * owner, int type, VARIABLE *target )
 
     val = ch == NULL ? -1 : ch->exp_level;
 
-    snprintf( buf, MAX_STRING_LENGTH, "%d", val );
+    sprintf( buf, "%d", val );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -4016,7 +4075,7 @@ VARIABLE *func_push( void* owner, int type,  VARIABLE *stack,
     STR_PARAM(stack,_stack);
     STR_PARAM(value,_value);
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s;%s", _value, _stack );
+    sprintf( buf, "%s;%s", _value, _stack );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -4134,7 +4193,7 @@ VARIABLE *func_rshift( void * owner, int type, VARIABLE *stack )
     p = _stack;
     if ( x ) _stack[x]='\0'; 
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s;%s",  p, q );
+    sprintf( buf, "%s;%s",  p, q );
 
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -4174,7 +4233,7 @@ VARIABLE *func_users( void * owner, int type,  VARIABLE *mask )
     buf[0] = '\0';
     for ( ch = actor_list;  ch != NULL;  ch = ch->next ) 
         if ( ch->desc != NULL ) 
-            snprintf( buf, MAX_STRING_LENGTH, "%s %s", buf, NAME(ch) );
+            sprintf( buf, "%s %s", buf, NAME(ch) );
         
     RETURNS(TYPE_STRING,str_dup(buf));    
 }
@@ -4226,7 +4285,7 @@ VARIABLE *func_getdir( void * owner, int type, VARD *loc, VARD *dir ) {
     if ( pScene->exit[door] && pScene->exit[door]->to_scene ) {
         int dbkey = pScene->exit[door]->to_scene->dbkey;
 
-        snprintf( buf, MAX_STRING_LENGTH, "%d", dbkey );
+        sprintf( buf, "%d", dbkey );
         newvar = new_variable( TYPE_STRING, str_dup( buf ) );
     } else newvar=NULL;
 
@@ -4250,7 +4309,7 @@ VARIABLE *func_queue( VARIABLE *mask )
 
     buf[0] = '\0';
     for ( qd = event_queue; qd != NULL;  qd = qd->next ) 
-            snprintf( buf, MAX_STRING_LENGTH, "%s;%s", buf, qd->name );
+            sprintf( buf, "%s;%s", buf, qd->name );
         
     vd = new_var( );
     vd->value = str_dup( buf );
@@ -4295,7 +4354,7 @@ VARIABLE *func_commands( VARIABLE *mask )
 
     buf[0] = '\0';
     for ( cd = command_list; cd != NULL;  cd = cd->next ) 
-            snprintf( buf, MAX_STRING_LENGTH, "%s;%s", buf, cd->name );
+            sprintf( buf, "%s;%s", buf, cd->name );
         
     return new_variable( TYPE_STRING, str_dup(buf) );
 }
@@ -4330,6 +4389,33 @@ VARIABLE *func_foreach( void * owner, int type, VARIABLE
 }
 
 
+VARIABLE *func_astr( void *owner, int type ) {
+ VARIABLE *vd;
+ vd=find_variable(owner,type,"astr");
+ if ( vd && vd->type == TYPE_STRING ) 
+ {      RETURNS(TYPE_STRING,str_dup((char *)(vd->value)));}
+ else return NULL;
+}
+
+VARIABLE *func_bstr( void *owner, int type ) {
+ VARIABLE *vd;
+ vd=find_variable(owner,type,"bstr");
+ if ( vd && vd->type == TYPE_STRING )
+ {      RETURNS(TYPE_STRING,str_dup((char*)(vd->value)));}
+ else return NULL;
+}
+
+VARIABLE *func_actor( void *owner, int type ) {
+ VARIABLE *vd;
+ vd=find_variable(owner,type,"name");
+ if ( vd && vd->type == TYPE_STRING )
+ {      RETURNS(TYPE_STRING,str_dup((char *)(vd->value)));}
+ else return NULL;
+}
+ 
+
+
+
 
 /* -------------------------------------------------------------- */
 /*
@@ -4357,7 +4443,7 @@ VARIABLE *func_each( void * owner, int type, VARIABLE *stack )
         vd = find_variable( var_name );
 
         if ( vd == NULL ) continue;
-        snprintf( buf, MAX_STRING_LENGTH, "%s;%s", buf, vd->value );
+        sprintf( buf, "%s;%s", buf, vd->value );
     }
 
     vd = new_var( );
@@ -4681,7 +4767,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
      int dbkey=atoi((char *)(sdbkey->value));
      bscript = get_script_index( dbkey );
      if ( bscript == NULL || bscript->type != TRIG_BUILDER ) {
-         snprintf( buf, MSL, "Build(): Bad script dbkey %d; does not exist or is not right type\n\r", dbkey );
+         sprintf( buf, "Build(): Bad script dbkey %d; does not exist or is not right type\n\r", dbkey );
          NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
          RETURNS(TYPE_STRING,str_dup("0"));
      }
@@ -4752,8 +4838,8 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
      NOTIFY( "Build(): Unable to locate a suitable owner, aborting\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
      RETURNS(TYPE_STRING,str_dup("0"));
    }
-   if ( NPC(o) ) snprintf( _o, MSL, "%d", o->pIndexData->dbkey );
-   else snprintf( _o, MSL, "%s", o->name );
+   if ( NPC(o) ) sprintf( _o, "%d", o->pIndexData->dbkey );
+   else sprintf( _o, "%s", o->name );
 
    // Duplicate parameters and populate our temporary variable list
    { V *v;
@@ -4844,7 +4930,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
            s->dbkey=tdbkey[TYPE_SCENE]++;        iHash = s->dbkey % MAX_KEY_HASH; 
            s->next = scene_hash[iHash];  scene_hash[iHash]  = s;
            n = new_var();
-           snprintf( buf, MSL, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
+           sprintf( buf, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_SCENE;
            n->value = (void *) s;        n->next = vars; vars=n;
            active = TYPE_SCENE;
@@ -4861,7 +4947,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
            x->dbkey=tdbkey[TYPE_SCENE]++;        iHash = x->dbkey % MAX_KEY_HASH; 
            x->next = scene_hash[iHash];  scene_hash[iHash]  = x;
            n = new_var();
-           snprintf( buf, MSL, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
+           sprintf( buf, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_SCENE;
            n->value = (void *) x;        n->next = vars; vars=n;
            if ( !s->exit[dir] ) s->exit[dir] = new_exit(); s->exit[dir]->to_scene=x; // dig exit
@@ -4921,7 +5007,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
            a->dbkey=tdbkey[TYPE_ACTOR]++;        iHash = s->dbkey % MAX_KEY_HASH; 
            a->next = actor_template_hash[iHash];  actor_template_hash[iHash]  = a;
            n = new_var();
-           snprintf( buf, MSL, "%%actor%d%%", ++created[TYPE_ACTOR] );  // make a new variable
+           sprintf( buf, "%%actor%d%%", ++created[TYPE_ACTOR] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_ACTOR;
            n->value = (void *) a;        n->next = vars; vars=n;
            active = TYPE_ACTOR;
@@ -4949,7 +5035,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
            p->dbkey=tdbkey[TYPE_PROP]++;        iHash = p->dbkey % MAX_KEY_HASH; 
            p->next = prop_template_hash[iHash];   prop_template_hash[iHash]  = p;
            n = new_var();
-           snprintf( buf, MSL, "%%prop%d%%", ++created[TYPE_PROP] );  // make a new variable
+           sprintf( buf, "%%prop%d%%", ++created[TYPE_PROP] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_PROP;
            n->value = (void *) p;        n->next = vars; vars=n;
            active = TYPE_PROP;
@@ -5110,9 +5196,9 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        } else
        if ( !str_cmp( arg, "path" ) ) {  // sets the attributes of the active actor
            k=grab_to_eol(k,arg);
-           snprintf( path_title, MSL, "%s", arg );
+           sprintf( path_title, "%s", arg );
            k=grab_to_at(k,arg);
-           snprintf( path_descr, MSL, "%s", arg );
+           sprintf( path_descr, "%s", arg );
        } else
        if ( !str_cmp( arg, "attrib" ) ) {  // sets the attributes of the active actor
        } else
@@ -5247,7 +5333,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
             x->dbkey=tdbkey[TYPE_SCENE]++;        iHash = x->dbkey % MAX_KEY_HASH;
             x->next = scene_hash[iHash];  scene_hash[iHash]  = x;
             n = new_var();
-            snprintf( buf, MSL, "%%path%d%%", ++created[0] );  // make a new variable, we'll use counter[0] because its a path
+            sprintf( buf, "%%path%d%%", ++created[0] );  // make a new variable, we'll use counter[0] because its a path
             n->name = str_dup( buf );     n->type = TYPE_SCENE;
             n->value = (void *) x;        n->next = vars; vars=n;
             x->name = str_dup( path_title );
@@ -5263,7 +5349,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
          }
         }        
        } else {
-         snprintf( buf, MSL, "Build(): bad command '%s', continuing\n\r", arg );
+         sprintf( buf, "Build(): bad command '%s', continuing\n\r", arg );
          NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
        }
      }

@@ -48,7 +48,7 @@ void tip( PLAYER *ch ) {
      char buf[MAX_STRING_LENGTH];
 
      if ( SHOW_TIPS(ch) ) {
-     snprintf( buf, MAX_STRING_LENGTH, "TIP_%d", number_range( 0, 50 ) );
+     sprintf( buf, "TIP_%d", number_range( 0, 50 ) );
      cmd_help( ch, buf );
      }
 

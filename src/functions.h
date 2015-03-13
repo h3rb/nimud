@@ -291,6 +291,7 @@ dGET_FUNCTION(func_maxpeople);
 dSET_FUNCTION(func_setlight);
 dGET_FUNCTION(func_light);
 dSET_FUNCTION(func_setmove);
+dSET_FUNCTION(func_movetype);
 dGET_FUNCTION(func_move);  
 dSET_FUNCTION(func_setterrain);
 dGET_FUNCTION(func_terrain);
@@ -308,6 +309,7 @@ VARD * func_word     args( ( void * owner, int type, VARD *astr, VARD *value ) )
  * Output functions.
  */
 VARD * func_echo     args( ( void * owner, int type, VARD *target, VARD *out ) );
+VARD * func_emit     args( ( void * owner, int type, VARD *out ) );
 VARD * func_oecho    args( ( void * owner, int type, VARD *target, VARD *out ) );
 VARD * func_dream    args( ( void * owner, int type, VARD *out ) );
 VARD * func_history  args( ( void * owner, int type, VARD *target, VARD *out ) );
@@ -443,6 +445,12 @@ VARD *func_commands args ( ( void * owner, int type, VARD *mask ) );
 VARD *func_foreach  args ( ( void * owner, int type, VARD *stack, VARD *code ) );
 VARD *func_each     args ( ( void * owner, int type, VARD *stack )  );
 
+/*
+ * Work-around for wierd variable translation issues.
+ */
+VARD *func_astr     args ( ( void * owner, int type ) );
+VARD *func_bstr     args ( ( void * owner, int type ) );
+VARD *func_actor    args ( ( void * owner, int type ) );
 
 /*
  * Build function for trigger builder scripts.
@@ -520,4 +528,5 @@ FUNC(fnames,     fname    (owner, type, ppoint[0], ppoint[1]) )
 FUNC(fnames,     fname    (owner, type, ppoint[0], ppoint[1]) )
 #define GET_FUNCTIONSI(fname,fnames)\
 FUNC(fnames,     fname    (owner, type, ppoint[0], ppoint[1]) )
+
 

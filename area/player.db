@@ -18,11 +18,499 @@ End
 
 
 #OBJDATA
+#8050
+N Jeskala key Jeskala's~
+SD Jeskala's key~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 128
+W 5
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#8060
+N Bahamut's key~
+SD Bahamut's key~
+P ~
+D
+Bahamut has left his key here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 18
+E 0
+W 5
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#8062
+N large brass telescope~
+SD a large brass telescope~
+P ~
+D
+A large brass telescope is mounted on a tripod.
+~
+A
+~
+PD
+~
+DR
+The powerful lens sees far into the heavens.
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#8063
+N an astrolab~
+SD an astrolab~
+P ~
+D
+A mechanical astrolab ticks and whirrs as it matches the movements of Tyselorrd and its surrounding planets and moons.
+~
+A
+~
+PD
+~
+DR
+Carefully designed by a master tinker - this astrolab carefully moves in
+accordance with the heavens in a slow, methodical and almost hypnotic way.  
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#8065
+N torch mounted sconce~
+SD a mounted sconce~
+P ~
+D
+A torch burns from its sconce.
+~
+A
+~
+PD
+~
+DR
+A simple sconce bolted to the stone wall.
+~
+L 0
+T 1
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 1000000 1000000 0 1
+End
+
+#8066
+N small round table~
+SD a small round table~
+P ~
+D
+A small round table is set against one wall.
+~
+A
+~
+PD
+~
+DR
+A small round table made of oak.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 50 65536 0 0
+End
+
 #0
 
 
 
 #SCENES
+#8050
+N Short, Winding Path~
+Ref 0
+D
+You are wandering along a short winding path through a few sparse trees
+on the edge of the Viedrad forest.  To the south is the River Kaerbrok and
+the towne of Kess.  
+~
+C
+~
+F 64
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 12002 -5 100 1
+Dr 1 0 0 7404
+~
+~
+Dr 3 519 8050 8051
+~
+thatched door~
+End
+
+#8051
+N Jeskala's Humble Cottage~
+Ref 0
+D
+Built of local timbre, the cottage has a thatched roof and smells of
+cedar.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 15141 1 100 1
+Dr 1 519 0 8050
+~
+thatched door~
+Dr 3 5 0 8053
+~
+back door~
+Dr 4 0 0 8052
+~
+ladder~
+End
+
+#8052
+N the Loft~
+Ref 0
+D
+A planked, cozy loft complete with a small window looking out over the
+backyard.  The boards creak when you walk on them.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 2 3584 0 8053
+A small, quaint window looks out over the back yard.
+~
+shuttered octagonal window~
+Dr 5 0 0 8051
+~
+hole with a ladder~
+End
+
+#8053
+N Back Porch~
+Ref 0
+D
+A stone patio covered by a thatched roof looks out over the window
+Kaerbrok river which is just southwest of here.  
+~
+C
+~
+F 64
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 3584 0 8052
+~
+~
+Dr 1 5 0 8051
+~
+back door~
+End
+
+#8060
+N An Overgrown Thicket~
+Ref 0
+D
+Brown reeds grow around huge granite stones that lay strewn over this
+part of the valley.  To the south, you see the remains of an ancient tower,
+once standing four stories tall overlooking the valley.  You can see the old
+symbols from the Zengalli empire etched in the stones.  
+~
+C
+~
+F 64
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 15302
+~
+~
+Dr 2 519 8060 8061
+~
+heavy iron door~
+End
+
+#8061
+N Bahamut's Tower~
+Ref 0
+D
+This is a stone room situated at the base of a tall watchtower.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 7 8060 8060
+A heavy iron door set in a thick stone wall.
+~
+heavy iron door~
+Dr 1 0 0 8067
+~
+~
+Dr 2 7 8060 8066
+~
+wooden reinforced door~
+Dr 3 0 0 8088
+~
+stone arch~
+Dr 4 0 0 8062
+A short staircase leads up to the second floor.
+~
+spiral staircase~
+Dr 5 7 8060 8064
+~
+trapdoor~
+End
+
+#8062
+N Upper Chamber~
+Ref 0
+D
+A wide stone landing with a vaulted ceiling - this tower was once home to
+a host of guards, now it serves as Bahamut's lair.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 512 0 8060
+~
+archer's slit~
+Dr 2 0 0 8065
+~
+~
+Dr 4 5 0 8063
+~
+trapdoor~
+Dr 5 0 0 8061
+~
+spiral staircase~
+End
+
+#8063
+N Blasted Tower Chamber~
+Ref 0
+D
+A blasted room with no roof - the remains of the tower crumbling here
+from years of neglect before the great war that ended the Zengalli empire.  
+~
+C
+~
+F 64
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 5 5 0 8062
+~
+trapdoor~
+End
+
+#8064
+N Dank Cellar~
+Ref 0
+D
+The dank cellar of Bahamut's tower smells of mildew and is filled with
+cobwebs in the corners.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 4 7 8060 8061
+A trapdoor leads up to the first floor.  
+~
+trapdoor~
+End
+
+#8065
+N Master Bedroom~
+Ref 0
+D
+A fine place to call home - despite the state of this ancient watchtower.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 8062
+~
+~
+End
+
+#8066
+N Rear Courtyard~
+Ref 0
+D
+To the north is Bahamut's tower.  The rear courtyard is filled with
+fallen stones from the tower's fourth story which collapsed ages ago.  Grass
+and moss have overgrown the rocks, creating a eerie feeling of an overgrown
+garden - flowering vines creep along the walls and the tower itself, making
+the area look very isolated and giving you a deep feeling of sentimentality.
+~
+C
+~
+F 64
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 0 7 8060 8061
+~
+wooden reinforced door~
+End
+
+#8067
+N Pantry~
+Ref 0
+D
+Bahamut has refurbished this old kitchen.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 8061
+~
+~
+End
+
+#8088
+N Barracks~
+Ref 0
+D
+A wide, long hall extending west from the tower, filled with bunks and
+footlockers for Bahamut's followers.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 8061
+~
+stone arch~
+Dr 3 0 0 8089
+~
+~
+End
+
+#8089
+N Rustic Quarters~
+Ref 0
+D
+A wide room that serves as the barracks for those who follow Bahamut.  
+~
+C
+~
+F 68
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 8088
+~
+~
+End
+
 #0
 
 

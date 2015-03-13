@@ -925,8 +925,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 18 18 18 18 18
-Sc 5166
 Sc 5167
+Sc 5166
 End
 
 #5173
@@ -983,9 +983,9 @@ Shop
  Str4
  Sorry, we're open from %s to %s.~
 EndShop
-Sk 75 'pickpocketing'
-Sk 20 'legerdemain'
 Sk 35 'lock picking'
+Sk 20 'legerdemain'
+Sk 75 'pickpocketing'
 End
 
 #5174
@@ -1601,9 +1601,9 @@ Sz 24
 K 0 E 1
 O ~
 AP 11 11 11 11 11
-Sc 5221
-Sc 5222
 Sc 5012
+Sc 5222
+Sc 5221
 End
 
 #5245
@@ -1945,13 +1945,13 @@ K 0 E 1
 O ~
 AP 25 25 25 25 25
 Sc 5303
-Sk 35 'exotic'
-Sk 20 'piercing'
-Sk 20 'thrown'
-Sk 20 'heroism'
-Sk 30 'melee'
-Sk 40 'enhanced damage'
 Sk 20 'edged'
+Sk 40 'enhanced damage'
+Sk 30 'melee'
+Sk 20 'heroism'
+Sk 20 'thrown'
+Sk 20 'piercing'
+Sk 35 'exotic'
 End
 
 #5305
@@ -2304,8 +2304,8 @@ Sz 24
 K -1 E 1
 O ~
 AP 15 15 15 15 15
-Sc 5007
 Sc 5005
+Sc 5007
 At 0 10 24 12
 End
 
@@ -2364,8 +2364,8 @@ Shop
  Str4
  Sorry, come back soon.~
 EndShop
-Sc 5004
 Sc 5003
+Sc 5004
 End
 
 #5005
@@ -2522,9 +2522,9 @@ Sz 24
 K 1 E 50
 O ~
 AP 3 3 3 3 3
-Sc 5011
-Sc 5010
 Sc 5012
+Sc 5010
+Sc 5011
 End
 
 #5020
@@ -2546,9 +2546,9 @@ Sz 24
 K 0 E 1
 O ~
 AP 25 25 25 25 25
-Sc 5020
-Sc 5022
 Sc 5023
+Sc 5022
+Sc 5020
 End
 
 #5021
@@ -2653,8 +2653,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 7 7 7 7 7
-Sc 5012
 Sc 5030
+Sc 5012
 End
 
 #5040
@@ -2878,8 +2878,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 15 15 15 15 15
-Sc 5050
 Sc 5051
+Sc 5050
 At 0 10 13 3
 Sk 50 'riding'
 End
@@ -2964,8 +2964,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 15 15 15 15 15
-Sc 5058
 Sc 5059
+Sc 5058
 At 0 10 15 3
 End
 
@@ -8230,14 +8230,14 @@ M 0
 W 0
 T 0
 O ~
-ED mannequins mannequin~
-The mannequins are made of a light-weight wood and plaster compound.
+ED small sign~
+The sign reads 'No Loitering.'
 ~
 ED ribbons~
 The ribbons are various bright colors.
 ~
-ED small sign~
-The sign reads 'No Loitering.'
+ED mannequins mannequin~
+The mannequins are made of a light-weight wood and plaster compound.
 ~
 R M 5245 1 100 1
 R G 18 -1 100 10
@@ -8483,12 +8483,12 @@ M 0
 W 0
 T 0
 O ~
+ED statues~
+Many statues of naked children lie about in gothic poses.  
+~
 ED vines ivy berry~
 Ivy and berry vines have overgrown their wooden trellaces and are hanging
 down from the tops.  
-~
-ED statues~
-Many statues of naked children lie about in gothic poses.  
 ~
 R O 5312 -5 100 1
 R O 5009 -5 100 1

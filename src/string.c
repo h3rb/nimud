@@ -44,7 +44,7 @@
 
 char *itoa( int x ) {
    static char buf[MSL];
-   snprintf( buf, MSL, "%d", x );
+   sprintf( buf, "%d", x );
    return buf;
 }
 
@@ -137,13 +137,13 @@ bool str_prefix( const char *astr, const char *bstr )
 {
     if ( astr == NULL )
     {
-    bug( "Str_prefix: null astr.", 0 );
+    wtf_logf( "Str_prefix: null astr.", 0 );
 	return TRUE;
     }
 
     if ( bstr == NULL )
     {
-    bug( "Str_prefix: null bstr.", 0 );
+    wtf_logf( "Str_prefix: null bstr.", 0 );
 	return TRUE;
     }
 
@@ -174,8 +174,8 @@ bool str_infix( const char *astr, const char *bstr )
     {
         char buf[MAX_STRING_LENGTH];
 
-        snprintf( buf, MAX_STRING_LENGTH, "Str_infix: null astr (compared against '%s').", bstr );
-        bug( buf, 0 );
+        sprintf( buf, "Str_infix: null astr (compared against '%s').", bstr );
+        wtf_logf( buf, 0 );
         return TRUE;
     }
 
@@ -183,8 +183,8 @@ bool str_infix( const char *astr, const char *bstr )
     {
         char buf[MAX_STRING_LENGTH];
 
-        snprintf( buf, MAX_STRING_LENGTH, "Str_infix: null bstr (compared against '%s').", astr );
-        bug( buf, 0 );
+        sprintf( buf, "Str_infix: null bstr (compared against '%s').", astr );
+        wtf_logf( buf, 0 );
         return TRUE;
     }
 
@@ -391,7 +391,7 @@ char *pluralize( char *argument )
     static char buf[MAX_STRING_LENGTH];
     char *v;
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s", smash_article(argument) );
+    sprintf( buf, "%s", smash_article(argument) );
 
     if ( strstr( buf, "some" ) ) return buf;
     if ( strstr( buf, "key" ) ) {
@@ -501,7 +501,7 @@ char *pluralize( char *argument )
 
 
 /*
- * Thanks to Kalgen for the new scriptedure (no more bug!)
+ * Thanks to Kalgen for the new scriptedure (no more wtf_logf!)
  * Original wordwrap() written by Surreality.
  */
 char *format_string( char *oldstring /*, bool fSpace */)
@@ -632,7 +632,7 @@ char *format_string( char *oldstring /*, bool fSpace */)
     }
     else
     {
-      bug ("No spaces", 0);
+      wtf_logf ("No spaces", 0);
       *(rdesc+75)=0;
       strcat(xbuf,rdesc);
       strcat(xbuf,"-\n\r");
@@ -813,7 +813,7 @@ char *format_indent( char *oldstring, char *prefix, int w, bool fEnd )
         }
         else
         {
-            bug ("No spaces", 0);
+            wtf_logf ("No spaces", 0);
             *(rdesc+w-1)=0;
             strcat(xbuf,rdesc);
             strcat(xbuf,"-\n\r");
@@ -1136,7 +1136,7 @@ void string_add( PLAYER *ch, char *argument )
             }
 
             *ch->desc->pString = string_replace( *ch->desc->pString, arg2, arg3 );
-            snprintf( buf, MAX_STRING_LENGTH, "'%s' replaced with '%s'.\n\r", arg2, arg3 );
+            sprintf( buf, "'%s' replaced with '%s'.\n\r", arg2, arg3 );
             to_actor( buf, ch );
             return;
         }
@@ -1241,12 +1241,12 @@ void string_add( PLAYER *ch, char *argument )
         return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s", *ch->desc->pString );
+    sprintf( buf, "%s", *ch->desc->pString );
 
     if ( strlen( buf ) + strlen( argument ) >= ( MAX_STRING_LENGTH - 4 ) )
     {
         to_actor( "String too long, truncating.\n\r", ch );
-        strncat( buf, argument, MAX_STRING_LENGTH );
+        sprintf( buf, "%s%s", buf, argument ); //strncat( buf, argument, MAX_STRING_LENGTH );
         free_string( *ch->desc->pString );
         *ch->desc->pString = str_dup( buf );
         ch->desc->pString = NULL;
@@ -1585,8 +1585,8 @@ char *   const  special_numbers [10] =
 char *numberize( int n )
 {
     static char buf[MAX_STRING_LENGTH];
-    short int    digits[3];
-    int t = abs(n);
+  //  short int    digits[3];
+ //   int t = abs(n);
         
     buf[0] = '\0';
         
@@ -1595,30 +1595,30 @@ char *numberize( int n )
      */
     if ( n == 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "zero" );
+        sprintf( buf, "zero" );
         return buf;
     } else
     if ( n >= 10 && n <= 19 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s", special_numbers[n-10] );
+        sprintf( buf, "%s", special_numbers[n-10] );
         return buf;
     } else     
     if ( n < 10 && n >= 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s", ones_numerals[n] );
+        sprintf( buf, "%s", ones_numerals[n] );
         return buf;
     } else
     if ( n >= 20 && n < 100 ) {
         if ( n % 10 == 0 ) {        
-           snprintf( buf, MSL, "%s", tens_numerals[n/10] );
+           sprintf( buf, "%s", tens_numerals[n/10] );
            return buf;
         } else {
-           snprintf( buf, MSL, "%s-%s", tens_numerals[n/10], ones_numerals[n%10] );
+           sprintf( buf, "%s-%s", tens_numerals[n/10], ones_numerals[n%10] );
            return buf;
         }
     } else
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", n );
+        sprintf( buf, "%d", n );
         return buf;
     }
      
@@ -1637,13 +1637,13 @@ char *numberize_old( int n )
      */
     if ( n >= 10 && n <= 19 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s", special_numbers[n-10] );
+        sprintf( buf, "%s", special_numbers[n-10] );
         return buf;
     }
 
     if ( n < 10 && n >= 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s", ones_numerals[n] );
+        sprintf( buf, "%s", ones_numerals[n] );
         return buf;
     }
 
@@ -1652,7 +1652,7 @@ char *numberize_old( int n )
      */
     if ( n >= 10000 || n < 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%d", n );
+        sprintf( buf, "%d", n );
         return buf;
     }
 
@@ -1667,25 +1667,25 @@ char *numberize_old( int n )
 
     if ( digits[3] > 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s%s", buf, ones_numerals[digits[3]] );
-        snprintf( buf, MAX_STRING_LENGTH, "%s thousand ", buf );
+        sprintf( buf, "%s%s", buf, ones_numerals[digits[3]] );
+        sprintf( buf, "%s thousand ", buf );
     }
 
     if ( digits[2] > 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s%s", buf, ones_numerals[digits[2]] );
-        snprintf( buf, MAX_STRING_LENGTH, "%s hundred ", buf );
+        sprintf( buf, "%s%s", buf, ones_numerals[digits[2]] );
+        sprintf( buf, "%s hundred ", buf );
     }
 
     if ( digits[1] > 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s%s", buf, tens_numerals[digits[1]] );
-        if ( digits[0] > 0 ) snprintf( buf, MAX_STRING_LENGTH, "%s-", buf );
+        sprintf( buf, "%s%s", buf, tens_numerals[digits[1]] );
+        if ( digits[0] > 0 ) sprintf( buf, "%s-", buf );
     }
 
     if ( digits[0] > 0 )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "%s%s", buf, ones_numerals[digits[0]] );
+        sprintf( buf, "%s%s", buf, ones_numerals[digits[0]] );
     }
 
     if ( buf[(t = strlen(buf)-1)] == ' ' )  buf[t] = '\0';
@@ -1876,7 +1876,7 @@ char *gotoxy( int x, int y )
 {
     static char buf[30];
 
-    snprintf( buf, MAX_STRING_LENGTH, "\x1b[%d;%dH", y, x );
+    sprintf( buf, "\x1b[%d;%dH", y, x );
     return buf;
 };
 
@@ -1923,7 +1923,7 @@ char *strip_curlies( char *arg )
     char *p;
     int curlies = 0;
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s", arg );
+    sprintf( buf, "%s", arg );
     arg = skip_spaces( arg );
     if ( *arg++ != '{' ) return buf;
 

@@ -88,7 +88,7 @@ void cmd_advance( PLAYER *ch, char *argument )
 
     if ( ( level = atoi( arg2 ) ) < 1 || level > MAX_LEVEL )
     {
-        snprintf( buf, MAX_STRING_LENGTH, "Level must be 1 to %d.\n\r", MAX_LEVEL );
+        sprintf( buf, "Level must be 1 to %d.\n\r", MAX_LEVEL );
         to_actor( buf, ch );
         return;
     }
@@ -107,22 +107,22 @@ void cmd_advance( PLAYER *ch, char *argument )
             case LEVEL_NEW:
             case LEVEL_MORTAL:
              if ( IS_SET(victim->flag, PLR_APPLIED) ) {
-             snprintf( buf, MAX_STRING_LENGTH, "$n $k now an unvalidated player on this mud.\n\r" );
+             sprintf( buf, "$n $k now an unvalidated player on this mud.\n\r" );
              }
              else {
-             snprintf( buf, MAX_STRING_LENGTH, "$n$y character has been validated.\n\r" ); 
+             sprintf( buf, "$n$y character has been validated.\n\r" ); 
              sprintf( embuf, "Dear %s,\n\r\n\rThis message is being sent from %s %s %d,\n\rletting you know your character is validated and ready for play!\n\r\n\r               Sincerely,\n\r            %s Management\n\r", victim->name, MUD_NAME, MUD_ADDRESS, port, MUD_NAME );
              EMAIL( PC(victim,email), "Your character has been validated!",
                 embuf );
              }
              break;
             case LEVEL_HERO:
-             snprintf( buf, MAX_STRING_LENGTH, "$n $k now an Avatar.\n\r" ); break;
+             sprintf( buf, "$n $k now an Avatar.\n\r" ); break;
             case MAX_LEVEL:
-             snprintf( buf, MAX_STRING_LENGTH, "$n $k now the highest level available on this mud.\n\r" ); break;
+             sprintf( buf, "$n $k now the highest level available on this mud.\n\r" ); break;
             default:
-             if (IS_IMMORTAL(victim)) snprintf( buf, MAX_STRING_LENGTH, "$n $k now immortal.\n\r" );
-                                 else snprintf( buf, MAX_STRING_LENGTH, "$n $k raised a level.\n\r" );
+             if (IS_IMMORTAL(victim)) sprintf( buf, "$n $k now immortal.\n\r" );
+                                 else sprintf( buf, "$n $k raised a level.\n\r" );
             break;
         }
 
@@ -529,7 +529,7 @@ void cmd_wizlock( PLAYER *ch, char *argument )
 
 
 /*
- * Thanks to Grodyn for pointing out bugs in this function.
+ * Thanks to Grodyn for pointing out wtf_logfs in this function.
  * Syntax:  force [person] [action]
  *          force all [action]
  */
@@ -850,7 +850,7 @@ void cmd_disconnect( PLAYER *ch, char *argument )
 	}
     }
 
-    bug( "Cmd_disconnect: desc not found.", 0 );
+    wtf_logf( "Cmd_disconnect: desc not found." );
     to_actor( "Connection not found!\n\r", ch );
     return;
 }
@@ -1007,7 +1007,7 @@ void cmd_transfer( PLAYER *ch, char *argument )
 	    &&   can_see( ch, d->character ) )
 	    {
 		char buf[MAX_STRING_LENGTH];
-                snprintf( buf, MAX_STRING_LENGTH, "%s %s", STR(d->character,name), arg2 );
+                sprintf( buf, "%s %s", STR(d->character,name), arg2 );
                                        cmd_transfer( ch, buf );
 	    }
 	}
@@ -1246,7 +1246,7 @@ void cmd_reboot( PLAYER *ch, char *argument )
     if ( buf[0] == '\0' || atoi(buf) == 0 )
     {
         num_hour = (PULSE_PER_SECOND*2);  /* 2 second delay */
-        snprintf( buf, MAX_STRING_LENGTH, "Reboot initiated by %s.\n\r ", STR(ch,name) );
+        sprintf( buf, "Reboot initiated by %s.\n\r ", STR(ch,name) );
         write_global( buf );
         return;
     }
@@ -1274,7 +1274,7 @@ void cmd_shutdown( PLAYER *ch, char *argument )
     extern bool shut_down;
     extern bool fCopyOverride;
 
-    snprintf( buf, MAX_STRING_LENGTH, "Shutdown by %s. ", STR(ch,name) );
+    sprintf( buf, "Shutdown by %s. ", STR(ch,name) );
     append_file( ch, SHUTDOWN_FILE, buf );
     strcat( buf, "\n\r" );
     write_global( buf );
@@ -1629,7 +1629,7 @@ void cmd_shell( PLAYER *ch, char *argument )
         return;
     }
 
-    snprintf( buf, MAX_STRING_LENGTH, "%s > .shellout &", argument );
+    sprintf( buf, "%s > .shellout &", argument );
     system( buf );
 
     temp = fread_file( ".shellout" );

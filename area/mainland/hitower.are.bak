@@ -8,6 +8,26 @@ End
 
 
 #SCRIPTDATA
+#16308
+N coffeemaker~
+C
+ifgoto ( is(%astr%,{press}), {make}, {dontmake} );
+label(make);
+return(1);
+wait(5);
+emit({The coffee maker dispenses a cup of tea and fills it!});
+dispense(%name%,18101);
+emit({%name% takes the cup of coffee.});
+wait(6);
+goto({end});
+label(dontmake);
+return(0);
+label({end});
+ 
+~
+T 0
+End
+
 #0
 
 
@@ -2304,22 +2324,25 @@ N machine coffee~
 SD a coffee machine~
 P ~
 D
-A coffee machine is here.~
+A coffee machine is here.
+~
 A
 ~
 PD
 ~
 DR
+A shiney new Spense-o-Matic coffee maker!  ('Press button' to activate!)  
 ~
 L 0
-T 15
+T 0
 E 2
-W 0
+W 1
 Sz 18
 Ti 0
-Wt 10000
+Wt 50
 C 10
 O ~
+Sc 16308
 V 10000 0 -1 0
 End
 
@@ -2328,7 +2351,8 @@ N cabinet~
 SD a cabinet~
 P ~
 D
-A cabinet is here.~
+An antique cabinet is here.
+~
 A
 ~
 PD
@@ -2618,7 +2642,8 @@ N cabinet silver~
 SD a silver chased cabinet~
 P ~
 D
-A large cabinet with a silver finish is here.~
+A large cabinet with a silver finish is here.
+~
 A
 ~
 PD

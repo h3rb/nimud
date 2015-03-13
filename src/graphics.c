@@ -741,8 +741,8 @@ void goto_xy( PLAYER *ch, int x, int y )
 
    char buf[MAX_STRING_LENGTH];
 
-   snprintf( buf, MAX_STRING_LENGTH, "\x1b[%d,%dH", x, y );
-/* snprintf( buf, MAX_STRING_LENGTH, "\x1b[%d,%df", x, y ); */
+   sprintf( buf, "\x1b[%d,%dH", x, y );
+/* sprintf( buf, "\x1b[%d,%df", x, y ); */
    to_actor( buf, ch ); 
 }
 

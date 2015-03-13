@@ -78,7 +78,7 @@ void mount_char( PLAYER *ch, PLAYER *victim )
    cmd_sneak( victim, "" );
    
    if ( ch->in_scene != victim->in_scene )
-   bug( "Mount_char: Ch and victim not in same scene.", 0 );
+   wtf_logf( "Mount_char: Ch and victim not in same scene.", 0 );
 
    if ( ch->rider != NULL )
    dismount_char( ch->rider );
@@ -126,7 +126,7 @@ void cmd_mount( PLAYER *ch, char *argument )
             if ( victim->master == NULL )
             continue;
 
-            snprintf( buf, MAX_STRING_LENGTH, "[%5d] %s, master: %s, rider: %s\n\r",
+            sprintf( buf, "[%5d] %s, master: %s, rider: %s\n\r",
                      NPC(victim) ? victim->pIndexData->dbkey : -1,
                      STR(victim,short_descr),
                      victim->master ? NAME(victim->master) : "none",

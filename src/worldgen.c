@@ -386,7 +386,7 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
 
         if ( pTerrain != NULL )
         {
-            snprintf( buf, MAX_STRING_LENGTH, "%c", *map );
+            sprintf( buf, "%c", *map );
             to_actor( buf, ch );
         }
         else
@@ -439,7 +439,7 @@ void generate( PLAYER *ch, int ldbkey, int hdbkey, bool fOverwrite )
     /*
      * Connect scenes.
      */
-    snprintf( buf, MAX_STRING_LENGTH, "(end)\n\r[Map Size %d, %d]\n\r[Connecting Scenes]\n\r", maxX, maxY );
+    sprintf( buf, "(end)\n\r[Map Size %d, %d]\n\r[Connecting Scenes]\n\r", maxX, maxY );
     to_actor( buf, ch );
 
     for ( y = 0; y < maxY; y++ )

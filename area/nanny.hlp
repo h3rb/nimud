@@ -157,9 +157,9 @@ SA ~
 End
 
 #DOC 97
-N NANNY_AGE~
+N NEWBIE_AGE~
 C 10 L 0
-KW NANNY_AGE~
+KW NEWBIE_AGE~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -183,9 +183,9 @@ SA ~
 End
 
 #DOC 98
-N NANNY_APPLY~
+N NEWBIE_APPLY~
 C 10 L 0
-KW NANNY_APPLY NANNY_AWAITING_APPLY~
+KW NEWBIE_APPLY NEWBIE_AWAITING_APPLY~
 SY ~
 TX .
 Submissions for new characters are usually reviewed within 24 hours.
@@ -206,9 +206,9 @@ SA ~
 End
 
 #DOC 99
-N NANNY_CONSTITUTION~
+N NEWBIE_CONSTITUTION~
 C 10 L 0
-KW NANNY_CONSTITUTION~
+KW NEWBIE_CONSTITUTION~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -223,9 +223,9 @@ SA ~
 End
 
 #DOC 100
-N NANNY_DESCRIPTION~
+N NEWBIE_DESCRIPTION~
 C 10 L 0
-KW NANNY_DESCRIPTION~
+KW NEWBIE_DESCRIPTION~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -261,9 +261,9 @@ SA ~
 End
 
 #DOC 101
-N NANNY_DEXTERITY~
+N NEWBIE_DEXTERITY~
 C 10 L 0
-KW NANNY_DEXTERITY~
+KW NEWBIE_DEXTERITY~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -278,9 +278,9 @@ SA ~
 End
 
 #DOC 102
-N NANNY_EMAIL~
+N NEWBIE_EMAIL~
 C 10 L 0
-KW NANNY_EMAIL~
+KW NEWBIE_EMAIL~
 SY ~
 TX .
  
@@ -297,9 +297,9 @@ SA ~
 End
 
 #DOC 103
-N NANNY_GEN_MENU_HEADER~
+N NEWBIE_GEN_MENU_HEADER~
 C 10 L 0
-KW NANNY_GEN_MENU_HEADER~
+KW NEWBIE_GEN_MENU_HEADER~
 SY ~
 TX .
 ******************************
@@ -313,9 +313,9 @@ SA ~
 End
 
 #DOC 104
-N NANNY_HEIGHT~
+N NEWBIE_HEIGHT~
 C 10 L 0
-KW NANNY_HEIGHT~
+KW NEWBIE_HEIGHT~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -336,9 +336,9 @@ SA ~
 End
 
 #DOC 105
-N NANNY_INTELLIGENCE~
+N NEWBIE_INTELLIGENCE~
 C 10 L 0
-KW NANNY_INTELLIGENCE~
+KW NEWBIE_INTELLIGENCE~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -353,9 +353,9 @@ SA ~
 End
 
 #DOC 106
-N NANNY_INTRO~
+N NEWBIE_INTRO~
 C 10 L 0
-KW NANNY_INTRO~
+KW NEWBIE_INTRO~
 SY ~
 TX .
 Welcome to The Path and the world of Tyselorrd.  Please take your time
@@ -369,9 +369,9 @@ SA ~
 End
 
 #DOC 107
-N NANNY_KEYWORDS~
+N NEWBIE_KEYWORDS~
 C 10 L 0
-KW NANNY_KEYWORDS~
+KW NEWBIE_KEYWORDS~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -403,9 +403,9 @@ SA ~
 End
 
 #DOC 108
-N NANNY_LOGIN_MENU_HEADER~
+N NEWBIE_LOGIN_MENU_HEADER~
 C 10 L 0
-KW NANNY_LOGIN_MENU_HEADER~
+KW NEWBIE_LOGIN_MENU_HEADER~
 SY ~
 TX .
  .  
@@ -428,9 +428,9 @@ SA ~
 End
 
 #DOC 109
-N NANNY_LONG~
+N NEWBIE_LONG~
 C 10 L 0
-KW NANNY_LONG~
+KW NEWBIE_LONG~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -461,9 +461,9 @@ SA ~
 End
 
 #DOC 110
-N NANNY_NAME~
+N NEWBIE_NAME~
 C 10 L 0
-KW NANNY_NAME~
+KW NEWBIE_NAME~
 SY ~
 TX .
 ---------------------------------------------------------------------
@@ -482,9 +482,9 @@ SA ~
 End
 
 #DOC 111
-N NANNY_RACES~
+N NEWBIE_RACES~
 C 10 L 0
-KW NANNY_RACES~
+KW NEWBIE_RACES~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -506,9 +506,9 @@ SA ~
 End
 
 #DOC 112
-N NANNY_RESUBMIT~
+N NEWBIE_RESUBMIT~
 C 10 L 0
-KW NANNY_RESUBMIT~
+KW NEWBIE_RESUBMIT~
 SY ~
 TX .
 Your character was deemed unacceptible and has therefore been rejected.
@@ -523,9 +523,9 @@ SA ~
 End
 
 #DOC 113
-N NANNY_RESUBMIT_WARNING~
+N NEWBIE_RESUBMIT_WARNING~
 C 10 L 0
-KW NANNY_RESUBMIT_WARNING~
+KW NEWBIE_RESUBMIT_WARNING~
 SY ~
 TX .
                              ************
@@ -547,9 +547,9 @@ SA ~
 End
 
 #DOC 114
-N NANNY_SEX~
+N NEWBIE_SEX~
 C 10 L 0
-KW NANNY_SEX~
+KW NEWBIE_SEX~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -568,9 +568,9 @@ SA ~
 End
 
 #DOC 115
-N NANNY_SHORT~
+N NEWBIE_SHORT~
 C 10 L 0
-KW NANNY_SHORT~
+KW NEWBIE_SHORT~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -604,9 +604,9 @@ SA ~
 End
 
 #DOC 116
-N NANNY_STAT_MENU_HEADER~
+N NEWBIE_STAT_MENU_HEADER~
 C 10 L 0
-KW NANNY_STAT_MENU_HEADER~
+KW NEWBIE_STAT_MENU_HEADER~
 SY ~
 TX .
  *************
@@ -620,9 +620,9 @@ SA ~
 End
 
 #DOC 117
-N NANNY_STRENGTH~
+N NEWBIE_STRENGTH~
 C 10 L 0
-KW NANNY_STRENGTH~
+KW NEWBIE_STRENGTH~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -637,9 +637,9 @@ SA ~
 End
 
 #DOC 118
-N NANNY_WISDOM~
+N NEWBIE_WISDOM~
 C 10 L 0
-KW NANNY_WISDOM~
+KW NEWBIE_WISDOM~
 SY ~
 TX .
  ------------------------------------------------------------------------------

@@ -962,7 +962,8 @@ N silvery cloak~
 SD a silvery cloak~
 P ~
 D
-A silvery cloak lies here.~
+A silvery cloak lies here.
+~
 A
 ~
 PD
@@ -971,7 +972,7 @@ DR
 ~
 L 0
 T 9
-E 1088
+E 1216
 W 1025
 Sz 18
 Ti 0

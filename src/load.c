@@ -56,7 +56,7 @@ SHOP *     shop_first;
 SHOP *     shop_last;
 
 
-char            bug_buf         [2*MAX_INPUT_LENGTH];
+char            wtf_logf_buf         [2*MAX_INPUT_LENGTH];
 PLAYER *   actor_list;
 char *          help_greeting;
 char            log_buf         [2*MAX_INPUT_LENGTH];
@@ -122,6 +122,7 @@ void    fread_map        args( ( char *filename ) );
 */
 char *  fread_file       args( ( char * filename ) );
 
+void load_functions( void );
 
 /*
  * Local booting scripts.
@@ -175,7 +176,7 @@ void boot_db( int c, bool fCopyOver )
     {
 	if ( ( string_space = calloc( 1, MAX_STRING ) ) == NULL )
 	{
-	    bug( "Boot_db: aren't able alloc %d string space.", MAX_STRING );
+	    wtf_logf( "Boot_db: aren't able alloc %d string space.", (void *) MAX_STRING );
 	    exit( 1 );
 	}
 	top_string	= string_space;
@@ -268,7 +269,7 @@ void boot_db( int c, bool fCopyOver )
 
 		if ( fread_letter( fpZone ) != '#' )
 		{
-		    bug( "Boot_db: # not found.", 0 );
+		    wtf_logf( "Boot_db: # not found." );
 		    exit( 1 );
 		}
 
@@ -305,7 +306,7 @@ void boot_db( int c, bool fCopyOver )
 
 		else
 		{
-		    bug( "Boot_db: bad section name %s.", (int) word );
+		    wtf_logf( "Boot_db: bad section name %s.", word );
 		    exit( 1 );
 		}
 	    }
@@ -528,9 +529,9 @@ void load_zone( FILE *fp )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "Fread_zone: '%s', incorrect keyword: %s",
+           sprintf( buf, "Fread_zone: '%s', incorrect keyword: %s",
                          strzone, word );
-           bug( buf, 0 );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     }
@@ -657,8 +658,8 @@ void load_config( FILE *fp )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "load_config: incorrect keyword %s", word );
-           bug( buf, 0 );
+           sprintf( buf, "load_config: incorrect keyword %s", word );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     }
@@ -684,7 +685,7 @@ void load_terrain( FILE *fp )
     if ( pTerrain->dbkey > top_dbkey_terrain )
     top_dbkey_terrain = pTerrain->dbkey;
 
-/*    bug ( "begin new terrain (%d)", pTerrain->dbkey );      */
+/*    wtf_logf ( "begin new terrain (%d)", pTerrain->dbkey );      */
 
     for ( ; ; )
     {
@@ -729,9 +730,9 @@ void load_terrain( FILE *fp )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "fread_terrain: %d incorrect: %s",
+           sprintf( buf, "fread_terrain: %d incorrect: %s",
                          pTerrain->dbkey, word );
-           bug( buf, 0 );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     };
@@ -817,9 +818,9 @@ void load_spells( FILE *fp )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "fread_spell: %d incorrect: %s",
+           sprintf( buf, "fread_spell: %d incorrect: %s",
                          pSpell->dbkey, word );
-           bug( buf, 0 );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     };
@@ -885,9 +886,9 @@ void load_skills( FILE *fp )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "fread_skill: %d incorrect: %s",
+           sprintf( buf, "fread_skill: %d incorrect: %s",
                          pSkill->dbkey, word );
-           bug( buf, 0 );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     };
@@ -901,7 +902,7 @@ void load_functions( ) {
   FILE *fp;
   char buf[MSL];
 
-  sprintf( buf, MSL, "%sfunctions.c", SOURCE_DIR );
+  sprintf( buf, "%sfunctions.c", SOURCE_DIR );
 
   if ( ( fp = fopen( buf, "r" ) ) == NULL ) return;
 
@@ -955,9 +956,9 @@ void load_doc( FILE *fp )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "fread_help: %d incorrect: %s",
+           sprintf( buf, "fread_help: %d incorrect: %s",
                          pHelp->dbkey, word );
-           bug( buf, 0 );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     };
@@ -988,7 +989,7 @@ void load_contents( FILE *fp )
                 pScene = get_scene( dbkey );
                 if ( pScene == NULL )
                 {
-                bug( "Load_contents: Invalid scene %d.", dbkey );
+                wtf_logf( "Load_contents: Invalid scene %d.", dbkey );
                 pScene = get_scene( SCENE_VNUM_TEMPLATE );
                 }
 
@@ -1043,8 +1044,8 @@ void load_contents( FILE *fp )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "Load_contents: incorrect keyword %s", word );
-           bug( buf, 0 );
+           sprintf( buf, "Load_contents: incorrect keyword %s", word );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     }
@@ -1413,7 +1414,7 @@ void fread_shop( FILE *fp, ACTOR_TEMPLATE *pActorIndex )
             }
             if ( !str_cmp( word, "End" ) )
             {
-                bug( "Fread_shop: incomplete shop %d", pActorIndex->dbkey );
+                wtf_logf( "Fread_shop: incomplete shop %d",  (pActorIndex->dbkey) );
                 free_shop( pShop );
                 pActorIndex->pShop = NULL;
                 return;
@@ -1424,8 +1425,8 @@ void fread_shop( FILE *fp, ACTOR_TEMPLATE *pActorIndex )
         if ( !fMatch )
         {
             char buf[80];
-            snprintf( buf, MAX_STRING_LENGTH, "Fread_shop: incorrect word %s (%%d)", word );
-            bug( buf, pActorIndex->dbkey );
+            sprintf( buf, "Fread_shop: incorrect word %s (%d)", word, pActorIndex->dbkey );
+            wtf_logf( buf );
             fread_to_eol( fp );
         }
     }
@@ -1449,7 +1450,7 @@ void fread_actor2( FILE *fp, int dbkey )
     pActorIndex->dbkey             = dbkey;
     pActorIndex->zone             = zone_last;
 
-/*    bug ( "begin new actor (%d)", dbkey );      */
+/*    wtf_logf ( "begin new actor (%d)", dbkey );      */
 
     for ( ; ; )
     {
@@ -1493,7 +1494,7 @@ void fread_actor2( FILE *fp, int dbkey )
                 num    = fread_number( fp );
                 if ( num >= MAX_ATTACK )
                 {
-                    bug( "Invalid attack index (%d)", num );
+                    wtf_logf( "Invalid attack index (%d)", num );
                 }
                 else
                 {
@@ -1505,7 +1506,7 @@ void fread_actor2( FILE *fp, int dbkey )
                 }
                 else
                 {
-                    bug( "Overwrote pre-existing attack (%d).", num );
+                    wtf_logf( "Overwrote pre-existing attack (%d).", num );
                 }
 
                 attack = pActorIndex->attacks[num];
@@ -1550,7 +1551,7 @@ void fread_actor2( FILE *fp, int dbkey )
             pSkill = skill_lookup( fread_word(fp) );
 
             if ( !pSkill )
-            bug( "Fread_actor2: unknown skill", 0 );
+            wtf_logf( "Fread_actor2: unknown skill" );
             else { 
                 pSkill = skill_copy( pSkill );
                 pSkill->next = pActorIndex->learned;
@@ -1588,9 +1589,9 @@ void fread_actor2( FILE *fp, int dbkey )
        if ( !fMatch )
        {
            char buf[80];
-           snprintf( buf, MAX_STRING_LENGTH, "fread_actor2: %d incorrect: %s",
+           sprintf( buf, "fread_actor2: %d incorrect: %s",
                          dbkey, word );
-           bug( buf, 0 );
+           wtf_logf( buf );
            fread_to_eol( fp );
        }
     };
@@ -1604,7 +1605,7 @@ void load_actors( FILE *fp )
 {
     if ( zone_last == NULL )
     {
-    bug( "Load_actors: no #ZONE seen yet.", 0 );
+    wtf_logf( "Load_actors: no #ZONE seen yet." );
 	exit( 1 );
     }
 
@@ -1616,7 +1617,7 @@ void load_actors( FILE *fp )
 	letter				= fread_letter( fp );
 	if ( letter != '#' )
 	{
-        bug( "Load_actors: '#' not found.", 0 );
+        wtf_logf( "Load_actors: '#' not found." );
 	    exit( 1 );
 	}
 
@@ -1627,7 +1628,7 @@ void load_actors( FILE *fp )
 	fBootDb = FALSE;
 	if ( get_actor_template( dbkey ) != NULL )
 	{
-	    bug( "Load_actors: dbkey %d duplicated.", dbkey );
+	    wtf_logf( "Load_actors: dbkey %d duplicated.", dbkey );
 	    exit( 1 );
 	}
 	fBootDb = TRUE;
@@ -1781,7 +1782,7 @@ void fread_prop_template( FILE *fp, int dbkey )
                {
                   sprintf( log_buf, "fread_prop_template: dbkey %d incorrect:  '%s'",
                                     dbkey, word );
-                  bug( log_buf, 0 );
+                  wtf_logf( log_buf );
                   fread_to_eol( fp );
                }
     };
@@ -1800,7 +1801,7 @@ void load_props( FILE *fp )
 
     if ( zone_last == NULL )
     {
-    bug( "Load_props: no #ZONE seen yet.", 0 );
+    wtf_logf( "Load_props: no #ZONE seen yet." );
 	exit( 1 );
     }
 
@@ -1812,7 +1813,7 @@ void load_props( FILE *fp )
 	letter				= fread_letter( fp );
 	if ( letter != '#' )
 	{
-	    bug( "Load_props: # not found.", 0 );
+	    wtf_logf( "Load_props: # not found." );
 	    exit( 1 );
 	}
 
@@ -1823,7 +1824,7 @@ void load_props( FILE *fp )
 	fBootDb = FALSE;
 	if ( get_prop_template( dbkey ) != NULL )
 	{
-	    bug( "Load_props: dbkey %d duplicated.", dbkey );
+	    wtf_logf( "Load_props: dbkey %d duplicated.", dbkey );
 	    exit( 1 );
 	}
 	fBootDb = TRUE;
@@ -1919,7 +1920,7 @@ void fread_scene( FILE *fp, int dbkey )
 
                if ( door < 0 || door >= MAX_DIR )
                {
-                   bug( "Fread_scenes: dbkey %d has bad door number.", dbkey );
+                   wtf_logf( "Fread_scenes: dbkey %d has bad door number.", dbkey );
                    exit( 1 );
                }
 
@@ -1974,9 +1975,9 @@ void fread_scene( FILE *fp, int dbkey )
                if ( !fMatch )
                {
                   char buf[80];
-                  snprintf( buf, MAX_STRING_LENGTH, "fread_scenes: incorrect titler %s on v%d",
+                  sprintf( buf, "fread_scenes: incorrect titler %s on v%d",
                                 word, dbkey );
-                  bug( buf, 0 );
+                  wtf_logf( buf );
                   fread_to_eol( fp );
                }
     };
@@ -1991,7 +1992,7 @@ void load_scenes( FILE *fp )
 
     if ( zone_last == NULL )
     {
-    bug( "Load_scenes: no #ZONE seen yet.", 0 );
+    wtf_logf( "Load_scenes: no #ZONE seen yet." );
         exit( 1 );
     }
 
@@ -2003,7 +2004,7 @@ void load_scenes( FILE *fp )
         letter                          = fread_letter( fp );
         if ( letter != '#' )
         {
-            bug( "Load_scenes: # not found.", 0 );
+            wtf_logf( "Load_scenes: # not found." );
             exit( 1 );
         }
 
@@ -2014,7 +2015,7 @@ void load_scenes( FILE *fp )
         fBootDb = FALSE;
         if ( get_scene( dbkey ) != NULL )
         {
-            bug( "Load_scenes: dbkey %d duplicated.", dbkey );
+            wtf_logf( "Load_scenes: dbkey %d duplicated.", dbkey );
             exit( 1 );
         }
         fBootDb = TRUE;
@@ -2071,8 +2072,8 @@ void fread_script( FILE *fp, int dbkey )
                if ( !fMatch )
                {
                   char buf[80];
-                  snprintf( buf, MAX_STRING_LENGTH, "fread_script: incorrect '%s'", word );
-                  bug( buf, 0 );
+                  sprintf( buf, "fread_script: incorrect '%s'", word );
+                  wtf_logf( buf );
                   fread_to_eol( fp );
                }
     };
@@ -2086,7 +2087,7 @@ void load_scripts( FILE *fp )
 {
     if ( zone_last == NULL )
     {
-        bug( "Load_scripts: no #ZONE seen yet.", 0 );
+        wtf_logf( "Load_scripts: no #ZONE seen yet." );
         exit( 1 );
     }
 
@@ -2098,7 +2099,7 @@ void load_scripts( FILE *fp )
         letter                          = fread_letter( fp );
         if ( letter != '#' )
         {
-            bug( "Load_scripts: # not found.", 0 );
+            wtf_logf( "Load_scripts: # not found." );
             exit( 1 );
         }
 
@@ -2109,7 +2110,7 @@ void load_scripts( FILE *fp )
         fBootDb = FALSE;
         if ( get_script_index( dbkey ) != NULL )
         {
-            bug( "Load_scripts: dbkey %d duplicated.", dbkey );
+            wtf_logf( "Load_scripts: dbkey %d duplicated.", dbkey );
             exit( 1 );
         }
         fBootDb = TRUE;
@@ -2390,7 +2391,7 @@ a->perm_str=a->perm_int=a->perm_wis=a->perm_con=a->perm_dex=0; }
 void fix_exits( void )
 {
     extern const int rev_dir [];
-    char buf[MAX_STRING_LENGTH];
+//    char buf[MAX_STRING_LENGTH];
     SCENE *pSceneIndex;
     SCENE *to_scene;
     EXIT *pexit;
@@ -2439,12 +2440,12 @@ void fix_exits( void )
 		&&   pexit_rev->to_scene != pSceneIndex )
 		{
 #if defined(FIX_EXITS_REPORTING)
-		    snprintf( buf, MAX_STRING_LENGTH, "Fix_exits: %d:%d -> %d:%d -> %d.",
+		    sprintf( buf, "Fix_exits: %d:%d -> %d:%d -> %d.",
 			pSceneIndex->dbkey, door,
 			to_scene->dbkey,    rev_dir[door],
 			(pexit_rev->to_scene == NULL)
 			    ? 0 : pexit_rev->to_scene->dbkey );
-		    bug( buf, 0 );
+		    wtf_logf( buf );
 #endif
 		}
 	    }
@@ -2466,7 +2467,7 @@ PLAYER *create_actor( ACTOR_TEMPLATE *pActorIndex )
 
     if ( pActorIndex == NULL )
     {
-	bug( "Create_actor: NULL pActorIndex.", 0 );
+	wtf_logf( "Create_actor: NULL pActorIndex." );
     if ( fBootDb ) exit( 1 );
 
 	pActorIndex = get_actor_template( ACTOR_VNUM_TEMPLATE );
@@ -2563,7 +2564,7 @@ PROP *create_prop( PROP_TEMPLATE *pPropIndex, int level )
 
     if ( pPropIndex == NULL )
     {
-	bug( "Create_prop: NULL pPropIndex.", 0 );
+	wtf_logf( "Create_prop: NULL pPropIndex." );
     if ( fBootDb ) exit( 1 );
 
 	pPropIndex = get_prop_template( PROP_VNUM_TEMPLATE );
@@ -2654,7 +2655,7 @@ PROP *create_prop( PROP_TEMPLATE *pPropIndex, int level )
     {
     default:
     if ( prop->item_type >= ITEM_MAX )
-        bug( "Read_prop: dbkey %d bad type.", pPropIndex->dbkey );
+        wtf_logf( "Read_prop: dbkey %d bad type.", pPropIndex->dbkey );
 	break;
 
     case ITEM_SCROLL:
@@ -2740,7 +2741,7 @@ ACTOR_TEMPLATE *get_actor_template( int dbkey )
 
     if ( fBootDb )
     {
-	bug( "Get_actor_template: bad dbkey %d.", dbkey );
+	wtf_logf( "Get_actor_template: bad dbkey %d.", dbkey );
 	exit( 1 );
     }
 
@@ -2769,7 +2770,7 @@ PROP_TEMPLATE *get_prop_template( int dbkey )
 
     if ( fBootDb )
     {
-	bug( "Get_prop_template: bad dbkey %d.", dbkey );
+	wtf_logf( "Get_prop_template: bad dbkey %d.", dbkey );
 	exit( 1 );
     }
 
@@ -2812,7 +2813,7 @@ SPELL *get_spell_index( int dbkey )
 
 //    if ( fBootDb )
 //    {
-  //      bug( "Get_spell_index: bad dbkey %d.", dbkey );
+  //      wtf_logf( "Get_spell_index: bad dbkey %d.", dbkey );
  //       exit( 1 );
  //   }
 
@@ -2841,7 +2842,7 @@ HELP *get_help_index( int dbkey )
 /*
     if ( fBootDb )
     {
-        bug( "Get_help_index: bad dbkey %d.", dbkey );
+        wtf_logf( "Get_help_index: bad dbkey %d.", dbkey );
         exit( 1 );
     }*/
 
@@ -2869,7 +2870,7 @@ SKILL *get_skill_index( int dbkey )
 
     if ( fBootDb )
     {
-/*        bug( "Get_skill_index: bad dbkey %d.", dbkey );  exit(1); */
+/*        wtf_logf( "Get_skill_index: bad dbkey %d.", dbkey );  exit(1); */
     }
     return NULL;
 }
@@ -2898,7 +2899,7 @@ SCENE *get_scene( int dbkey )
 
     if ( fBootDb )
     {
-        bug( "Get_scene: bad dbkey %d.", dbkey );
+        wtf_logf( "Get_scene: bad dbkey %d.", dbkey );
         exit( 1 );
     }
 
@@ -2926,7 +2927,7 @@ SCRIPT *get_script_index( int dbkey )
 
     if ( fBootDb )
     {
-//        bug( "Get_script_index: bad dbkey %d.", dbkey );
+//        wtf_logf( "Get_script_index: bad dbkey %d.", dbkey );
 //        exit( 1 );
     }
 
@@ -3241,7 +3242,7 @@ void prop_strings( PROP *prop )
       switch( pass )
       {
          default: str = STR( prop, short_descr );
-                  bug( "prop_strings: bad pass %d", pass );   break;
+                  wtf_logf( "prop_strings: bad pass %d", pass );   break;
           case 0: str = STR( prop, name );                    break;
           case 1: str = STR( prop, short_descr );             break;
           case 2: str = STR( prop, description );             break;
@@ -3346,7 +3347,7 @@ void prop_strings( PROP *prop )
    p = one_argument( STR( prop, short_descr ), buf );
    if ( !str_cmp( buf, "a" ) && IS_VOWEL(*p) )
    {
-       snprintf( buf, MAX_STRING_LENGTH, "an %s", p );
+       sprintf( buf, "an %s", p );
        free_string( prop->short_descr );
        prop->short_descr = str_dup( buf );
    }
@@ -3354,7 +3355,7 @@ void prop_strings( PROP *prop )
    p = one_argument( STR( prop, short_descr_plural ), buf );
    if ( !str_cmp( buf, "a" ) && IS_VOWEL(*p) )
    {
-       snprintf( buf, MAX_STRING_LENGTH, "an %s", p );
+       sprintf( buf, "an %s", p );
        free_string( prop->short_descr_plural );
        prop->short_descr_plural = str_dup( buf );
    }
@@ -3362,7 +3363,7 @@ void prop_strings( PROP *prop )
    p = one_argument( STR( prop, description ), buf );
    if ( !str_cmp( buf, "a" ) && IS_VOWEL(*p) )
    {
-       snprintf( buf, MAX_STRING_LENGTH, "An %s", p );
+       sprintf( buf, "An %s", p );
        free_string( prop->description );
        prop->description = str_dup( buf );
    }
@@ -3370,7 +3371,7 @@ void prop_strings( PROP *prop )
    p = one_argument( STR( prop, real_description ), buf );
    if ( !str_cmp( buf, "a" ) && IS_VOWEL(*p) )
    {
-       snprintf( buf, MAX_STRING_LENGTH, "An %s", p );
+       sprintf( buf, "An %s", p );
        free_string( prop->real_description );
        prop->description = str_dup( buf );
    }
@@ -3378,7 +3379,7 @@ void prop_strings( PROP *prop )
    p = one_argument( STR( prop, description_plural ), buf );
    if ( !str_cmp( buf, "a" ) && IS_VOWEL(*p) )
    {
-       snprintf( buf, MAX_STRING_LENGTH, "An %s", p );
+       sprintf( buf, "An %s", p );
        free_string( prop->description_plural );
        prop->description = str_dup( buf );
    }
@@ -3405,7 +3406,7 @@ void actor_strings( PLAYER *actor )
    char N_str[WORK_STRING_LENGTH];
    char m_str[WORK_STRING_LENGTH];
    char M_str[WORK_STRING_LENGTH];
-   char T_str[WORK_STRING_LENGTH];   /* title string nyi  */
+//   char T_str[WORK_STRING_LENGTH];   /* title string nyi  */
 
    sprintf(c_str, "%s", color_list[number_range(0,MAX_COLOR_LIST-1)]);
    sprintf(C_str, "%s", fine_color_list[number_range(0,MAX_FINE_COLOR_LIST-1)]);
@@ -3425,7 +3426,7 @@ void actor_strings( PLAYER *actor )
       switch( pass )
       {
          default: str = STR( actor, short_descr );
-                  bug( "Mob_strings: bad pass %d", pass );   break;
+                  wtf_logf( "Mob_strings: bad pass %d", pass );   break;
           case 0: str = STR( actor, name );                    break;
           case 1: str = STR( actor, short_descr );             break;
           case 2: str = STR( actor, long_descr );              break;
@@ -3514,7 +3515,7 @@ void actor_strings( PLAYER *actor )
    p = one_argument( STR( actor, short_descr ), buf );
    if ( !str_cmp( buf, "a" ) && IS_VOWEL(*p) )
    {
-       snprintf( buf, MAX_STRING_LENGTH, "an %s", p );
+       sprintf( buf, "an %s", p );
        free_string( actor->short_descr );
        actor->short_descr = str_dup( buf );
    }
@@ -3522,7 +3523,7 @@ void actor_strings( PLAYER *actor )
    p = one_argument( STR( actor, long_descr ), buf );
    if ( !str_cmp( buf, "a" ) && IS_VOWEL(*p) )
    {
-       snprintf( buf, MAX_STRING_LENGTH, "An %s", p );
+       sprintf( buf, "An %s", p );
        free_string( actor->long_descr );
        actor->long_descr = str_dup( buf );
    }
@@ -3530,129 +3531,6 @@ void actor_strings( PLAYER *actor )
    return;
 }
 
-
-
-
-
-/*
- * Reports a bug.
- */
-void bug( const char *str, int param )
-{
-    char buf[MAX_STRING_LENGTH];
-    FILE *fp;
-
-    if ( fpZone != NULL )
-    {
-	int iLine;
-	int iChar;
-
-	if ( fpZone == stdin )
-	{
-	    iLine = 0;
-	}
-	else
-	{
-	    iChar = ftell( fpZone );
-	    fseek( fpZone, 0, 0 );
-	    for ( iLine = 0; ftell( fpZone ) < iChar; iLine++ )
-	    {
-		while ( getc( fpZone ) != '\n' )
-		    ;
-	    }
-	    fseek( fpZone, iChar, 0 );
-	}
-
-	snprintf( buf, MAX_STRING_LENGTH, "[*****] FILE: %s LINE: %d", strzone, iLine );
-	log_string( buf );
-
-	if ( ( fp = fopen( "shutdown.txt", "a" ) ) != NULL )
-	{
-	    fprintf( fp, "[*****] %s\n", buf );
-	    fclose( fp );
-	}
-    }
-
-    strcpy( buf, "[*****] BUG: " );
-    sprintf( buf + strlen(buf), str, param );
-    if ( !fBootDb )
-    {
-    sprintf( log_buf, "Notify> %s", buf );
-    NOTIFY( log_buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
-    }
-    log_string( buf );
-
-    if ( fBootDb ) fclose( fpReserve );
-    if ( ( fp = fopen( BUG_FILE, "a" ) ) != NULL )
-    {
-	fprintf( fp, "%s\n", buf );
-	fclose( fp );
-    }
-    if ( fBootDb ) fpReserve = fopen( NULL_FILE, "r" );
-
-    return;
-}
-
-
-
-/*
- * Reports a bug.
- */
-void bugs( const char *str, char *param )
-{
-    char buf[MAX_STRING_LENGTH];
-    FILE *fp;
-
-    if ( fpZone != NULL )
-    {
-	int iLine;
-	int iChar;
-
-	if ( fpZone == stdin )
-	{
-	    iLine = 0;
-	}
-	else
-	{
-	    iChar = ftell( fpZone );
-	    fseek( fpZone, 0, 0 );
-	    for ( iLine = 0; ftell( fpZone ) < iChar; iLine++ )
-	    {
-		while ( getc( fpZone ) != '\n' )
-		    ;
-	    }
-	    fseek( fpZone, iChar, 0 );
-	}
-
-	snprintf( buf, MAX_STRING_LENGTH, "[*****] FILE: %s LINE: %d", strzone, iLine );
-	log_string( buf );
-
-	if ( ( fp = fopen( "shutdown.txt", "a" ) ) != NULL )
-	{
-	    fprintf( fp, "[*****] %s\n", buf );
-	    fclose( fp );
-	}
-    }
-
-    strcpy( buf, "[*****] BUG: " );
-    sprintf( buf + strlen(buf), str, param );
-    if ( !fBootDb )
-    {
-    sprintf( log_buf, "Notify> %s", buf );
-    NOTIFY( log_buf, LEVEL_IMMORTAL, WIZ_NOTIFY_BUG );
-    }
-    log_string( buf );
-
-    if ( fBootDb ) fclose( fpReserve );
-    if ( ( fp = fopen( BUG_FILE, "a" ) ) != NULL )
-    {
-	fprintf( fp, "%s\n", buf );
-	fclose( fp );
-    }
-    if ( fBootDb ) fpReserve = fopen( NULL_FILE, "r" );
-
-    return;
-}
 
 
 
@@ -3668,7 +3546,7 @@ void log_string( const char *str )
     strtime[strlen(strtime)-1] = '\0';
     fprintf( stderr, "%s :: %s\n", strtime, str );
 
-    snprintf( buf, MAX_STRING_LENGTH, "Notify> LOG: %s", str );
+    sprintf( buf, "Notify> LOG: %s", str );
     NOTIFY( buf, LOG_LEVEL, WIZ_NOTIFY_LOG );
     return;
 }
@@ -3860,7 +3738,7 @@ void go_mud_go( int p, int c )
         //if ( fCopyOverride ) return;
         sprintf (buf, "%d", p);
         sprintf (buf2, "%d", c);
-        printf( "Copyover: %s, %s\n\r", buf, buf2 );
+        wtf_logf( "Copyover: %s, %s\n\r", buf, buf2 );
         execl (EXE_FILE, "nimud", buf, buf2, (char *) NULL);
          }
 

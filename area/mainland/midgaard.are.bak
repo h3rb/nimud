@@ -888,8 +888,8 @@ Sz 10
 K -200 E 50
 O ~
 AP 4 4 4 4 4
-Sc 501
 Sc 500
+Sc 501
 End
 
 #18063
@@ -959,8 +959,8 @@ Sz 18
 K 400 E 44
 O ~
 AP 15 15 15 15 15
-Sc 5221
 Sc 5222
+Sc 5221
 At 0 10 13 9
 End
 
@@ -1443,7 +1443,8 @@ N barrel beer~
 SD a barrel of beer~
 P ~
 D
-A beer barrel has been left here.~
+A barrel marked 'beer' is here.
+~
 A
 ~
 PD
@@ -1757,13 +1758,13 @@ Wt 4
 C 60
 O ~
 V 0 0 100 0
-ED letters~
-They say, "Use 'hold lantern' to activate."
-~
 ED lantern~
 It is a large and robust but somewhat battered oil lantern made from brass,
 equipped with a handle to make it handy and a hood to protect its flame.
 Some letters have been scratched on its bottom.
+~
+ED letters~
+They say, "Use 'hold lantern' to activate."
 ~
 End
 
@@ -2492,7 +2493,8 @@ N coffee cup~
 SD a cup of coffee~
 P ~
 D
-A cup has been set here.~
+A cup has been set here.
+~
 A
 ~
 PD
@@ -2503,12 +2505,12 @@ L 0
 T 17
 E 0
 W 1
-Sz 18
+Sz 0
 Ti 0
 Wt 3
 C 7
 O ~
-V 2 2 12 0
+V 2 2 11 0
 ED cup~
 It is a small simple cup.
 ~
@@ -3832,10 +3834,6 @@ M 0
 W 0
 T 0
 O ~
-ED writing carving carvings symbols symbol~
-Although it is very hard to understand, you think it looks a lot like beer,
-poems about beer, and small beer-mugs.
-~
 ED sign~
 The sign reads:
 Free instructions provided by the Grunting Boar Inn.
@@ -3843,6 +3841,10 @@ Free instructions provided by the Grunting Boar Inn.
    Buy  - Buy something (drinkable) from the bartender.
    List - The bartender will show you all the different drinks and
           specialties, and tell the price of each.
+~
+ED writing carving carvings symbols symbol~
+Although it is very hard to understand, you think it looks a lot like beer,
+poems about beer, and small beer-mugs.
 ~
 R M 18040 1 100 1
 Dr 3 0 -1 18006
@@ -3890,13 +3892,6 @@ M 0
 W 0
 T 0
 O ~
-ED sign~
-Free instructions provided by the store:
-
-   Buy  - Will buy you some bread or pastry.
-   List - The baker will kindly tell you the price and sort of the bread in
-          his bakery.
-~
 ED danish pastry~
 You see that this is truly delicious pastry.  Must be made by a Dane from
 Denmark (which surely is not the capital of Sweden!).  Former ruler of
@@ -3905,6 +3900,13 @@ Iceland, Estonia etc. etc.
    The sight of those large, wholesome chokoladeboller makes your mouth water
 and your soul sing.
 
+~
+ED sign~
+Free instructions provided by the store:
+
+   Buy  - Will buy you some bread or pastry.
+   List - The baker will kindly tell you the price and sort of the bread in
+          his bakery.
 ~
 R M 18001 1 100 1
 Dr 2 0 -1 18013
@@ -4619,15 +4621,15 @@ M 0
 W 0
 T 0
 O ~
-ED scrolls~
-Each scroll is stored in a leather tube that protects it from moist.
+ED jars bottles~
+Some of them are transparent enabling you to see that some contain colored
+powders while others contain body parts of various animals.
 ~
 ED books~
 Most of them appear to be very old and dusty.
 ~
-ED jars bottles~
-Some of them are transparent enabling you to see that some contain colored
-powders while others contain body parts of various animals.
+ED scrolls~
+Each scroll is stored in a leather tube that protects it from moist.
 ~
 R M 18000 1 100 1
 Dr 2 0 -1 18012
@@ -4653,6 +4655,13 @@ M 0
 W 0
 T 0
 O ~
+ED oil lamps~
+They are made from polished gold and looks as if they are securely fastened
+to the smooth stone walls.
+~
+ED desk~
+Your face is reflected in its surface.
+~
 ED sign~
 The golden letters say :-
 
@@ -4660,13 +4669,6 @@ The golden letters say :-
         'buy <item>' to buy an item,
         'sell <item>' to sell an item and
         'value <item>' to make the jeweller evaluate an item.
-~
-ED desk~
-Your face is reflected in its surface.
-~
-ED oil lamps~
-They are made from polished gold and looks as if they are securely fastened
-to the smooth stone walls.
 ~
 R M 18009 1 100 1
 Dr 0 0 -1 18015
@@ -4693,6 +4695,17 @@ M 0
 W 0
 T 0
 O ~
+ED fireplace~
+It is a rather large fireplace made from heavy granite rocks.
+~
+ED table~
+It is made from solid oak but appears to be very used.  Its surface is
+covered in marks and scratches.  A large burning candle stands directly on
+the table surface, tallow flowing down its sides.
+~
+ED pot~
+Several large pieces of leather hide are boiling in the iron pot.
+~
 ED sign~
 The wooden sign says :-
 
@@ -4700,17 +4713,6 @@ The wooden sign says :-
         'buy <item>' to buy an item,
         'sell <item>' to sell an item and
         'value <item>' to make the leather worker evaluate an item.
-~
-ED pot~
-Several large pieces of leather hide are boiling in the iron pot.
-~
-ED table~
-It is made from solid oak but appears to be very used.  Its surface is
-covered in marks and scratches.  A large burning candle stands directly on
-the table surface, tallow flowing down its sides.
-~
-ED fireplace~
-It is a rather large fireplace made from heavy granite rocks.
 ~
 R M 18010 1 100 1
 Dr 2 0 -1 18044
@@ -4735,22 +4737,22 @@ M 0
 W 0
 T 0
 O ~
-ED wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-ED tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 ED gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-ED bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 R M 18068 2 100 1
 Dr 1 0 -1 18012
@@ -4785,22 +4787,22 @@ M 0
 W 0
 T 0
 O ~
-ED wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-ED tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 ED gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-ED bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 R M 18067 2 100 1
 Dr 1 0 3133 18053
@@ -4861,12 +4863,12 @@ M 0
 W 0
 T 0
 O ~
+ED letters~
+It says 'Who watches the watchmen?'
+~
 ED wall~
 It is built from large grey rocks that have been fastened to each other with
 some kind of mortar.  It is far too high to climb.
-~
-ED letters~
-It says 'Who watches the watchmen?'
 ~
 Dr 0 0 -1 18042
 The road continues further north.
@@ -5074,16 +5076,16 @@ M 0
 W 0
 T 0
 O ~
-ED wall~
+ED bridge~
 It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
+some kind of mortar, just like the wall.
 ~
 ED opening~
 You cannot really see it from here as it is somewhere beneath your feet.
 ~
-ED bridge~
+ED wall~
 It is built from large grey rocks that have been fastened to each other with
-some kind of mortar, just like the wall.
+some kind of mortar.  It is far too high to climb.
 ~
 Dr 0 0 -1 18047
 You see the road.
@@ -5111,22 +5113,22 @@ M 0
 W 0
 T 0
 O ~
-ED wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-ED tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 ED gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-ED bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 Dr 0 0 -1 18900
 The trail continues around the City of Midgaard.
@@ -5158,22 +5160,22 @@ M 0
 W 0
 T 0
 O ~
-ED wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-ED tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 ED gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-ED bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 Dr 1 0 -1 18503
 You see the plains.~
@@ -5200,15 +5202,15 @@ M 0
 W 0
 T 0
 O ~
+ED altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
+~
 ED statue odin king god~
 The statue represents the one-eyed Odin sitting on a his throne.  He has
 long, grey hair and beard and a strict look on his face.  On top of the
 throne, just above his shoulders, his two ravens Hugin and Munin are sitting
 and at his feet are his wolves Gere and Freke.
-~
-ED altar~
-Even though the altar is more than ten feet long it appears to be made from a
-single block of white virgin marble.
 ~
 R O 18010 0 100 1
 Dr 0 0 0 10074
@@ -5803,10 +5805,6 @@ M 0
 W 0
 T 0
 O ~
-ED chain~
-The the chain reaches the clouds high above you.  It must take some really
-powerful magic to hold such a chain in place.
-~
 ED sign~
 The sign points in all directions:
 
@@ -5818,6 +5816,10 @@ The sign points in all directions:
 Someone has added the following with red paint:
 
    Up    - Redferne's Flying Citadel.
+~
+ED chain~
+The the chain reaches the clouds high above you.  It must take some really
+powerful magic to hold such a chain in place.
 ~
 R M 18144 1 100 1
 Dr 0 0 -1 18133
@@ -6039,6 +6041,9 @@ M 0
 W 0
 T 0
 O ~
+ED grate~
+Looks heavy.
+~
 ED sign~
 The sign says :-
 
@@ -6046,9 +6051,6 @@ The sign says :-
 
     Many brave adventurers have found their final resting place here.
           Please show respect and do not desecrate their tombs.
-~
-ED grate~
-Looks heavy.
 ~
 Dr 0 0 -1 18126
 ~

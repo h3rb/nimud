@@ -8,23 +8,23 @@ Sx 1
 Sz 24
 Race 0
 Fi 4
-Credits 3645
+Credits 4899
 Bucks 0
 alias ga~ get all~
-Logins 1006
+Logins 1079
 Lv 10
 App 0
 HeroP 0
-Bou 7630
+Bou 7870
 O 220
 Flag ~
-Exp 676238
-ExpLev 676
+Exp 678776
+ExpLev 678
 Sc 1
 Wi 0
 Death 5
 Home 5000
-Map 8
+Map 2
 History
 Locke is born in the year -17.
 Locke was lost at sea.
@@ -114,8 +114,8 @@ Locke is born in the year -17.
 Locke gains new status amongst his peers.
 
 ~
-Pl 9961952
-R 5000
+Pl 11307302
+R 8060
 Color 0 15
 Color 1 12
 Color 2 15
@@ -127,7 +127,7 @@ Color 7 15
 Color 8 15
 Color 9 15
 BD 16 0 -17
-H 240 780
+H 1 780
 MK 295 3062
 Spell 34 a kltaran cleric~
 Spell 33 a cloaked necromancer~
@@ -142,15 +142,15 @@ Spell 30 Kalxagaar the Fire Mage~
 Spell 29 Kalxagaar the Fire Mage~
 Spell 31 an alchemist~
 Spell 32 a cloaked necromancer~
-A 174587904 A2 1641209349
+A 172490752 A2 1641209349
 AB 0
 Po 8
 ST 0
 Hi 0
 Da 0
-AC -12318
+AC -12930
 De 0
-P ~
+P faggot~
 Pr ^c^I^C^N> ~
 Pg 50
 Title of Lanconshire~
@@ -161,7 +161,7 @@ Em me@where.com~
 K ~
 AP 29 13 15 25 24
 AM 0 0 0 0 0
-C 0 20 20
+C 0 20 37
 Sk 100 'wodan' 0 0
 Sk 100 'taug' 0 0
 Sk 100 'zad' 0 0
@@ -247,85 +247,6 @@ END
 
 #PROP
 Nest 0
-V 2505
-E 98304
-W 2049
-WL 27
-I 15
-Wt 1
-L 0
-Sz 0
-T -1
-C 20
-Va 5 1 0 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N white chalcedony gem~
-S a white chalcedony~
-D
-A white chalcedony sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 200
-Va 2 40 40 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N mocha stone gem~
-S a mocha stone~
-D
-A mocha stone sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 400
-Va 1 80 80 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N reddish spangled aventurine gem~
-S a reddish spangled aventurine~
-D
-A reddish spangled aventurine sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 200
-Va 12 40 40 0
-END
-
-
-#PROP
-Nest 0
 V 5162
 E 98304
 W 65
@@ -342,192 +263,44 @@ END
 
 #PROP
 Nest 0
-V 4500
-E 98304
-W 4227073
-WL 11
-I 15
-Wt 2
-L 0
-Sz 0
-T -1
-C 18
-Va 50 1 0 0
-END
-
-
-#PROP
-Nest 1
-V 50
-N golden beryl gem~
-S a golden beryl~
+V 34
+N thin satin belt~
+S a thin satin belt~
 D
-A golden beryl sits in the dust.
+A thin belt crafted from satin is coiled up on the ground.
 ~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 1000
-Va 6 200 200 0
-END
-
-
-#PROP
-Nest 1
-V 3
-N 213984 platinum coins~
-S 213984 platinum coins~
-D
-A small hill of platinum coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 10699
-L 0
-Sz 0
-T -1
-C 2139840000
-Va 213984 0 0 0
-END
-
-
-#PROP
-Nest 1
-V 3
-N six electrum coins~
-S six electrum coins~
-D
-A few electrum coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 6000
-Va 6 1 0 0
-END
-
-
-#PROP
-Nest 1
-V 3
-N six gold coins~
-S six gold coins~
-D
-A few gold coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 600
-Va 6 2 0 0
-END
-
-
-#PROP
-Nest 1
-V 3
-N five copper coins~
-S five copper coins~
-D
-A few copper coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 5
-Va 5 4 0 0
-END
-
-
-#PROP
-Nest 0
-V 22807
-E 65600
-W -2147475455
-WL 32
-I 5
-Wt 5
-L 0
-Sz 0
-T -1
-C 1097
-Va 0 4 4 7
-END
-
-
-#PROP
-Nest 0
-V 4500
 E 32768
-W 4227073
-WL 37
-I 15
-Wt 2
-L 0
-Sz 0
-T -1
-C 21
-Va 50 1 0 0
-END
-
-
-#PROP
-Nest 1
-V 36
-E 0
-W 1
-WL -1
-I 27
+W 2049
+WL 27
+I 13
 Wt 1
 L 0
 Sz 0
 T -1
-C 3
-Va 1 5 5 0
+C 1
+Va 0 0 0 0
 END
 
 
 #PROP
-Nest 1
-V 10071
+Nest 0
+V 22908
 E 0
 W 1
-WL -1
-I 17
-Wt 2
+WL 35
+I 33
+Wt 0
 L 0
 Sz 0
 T -1
-C 18
-Va 20 20 30 0
+C 1035
+Va 0 0 0 0
 END
 
 
 #PROP
-Nest 1
-V 10070
+Nest 0
+V 18101
 E 0
 W 1
 WL -1
@@ -536,730 +309,134 @@ Wt 3
 L 0
 Sz 0
 T -1
-C 49
-Va 20 20 7 0
+C 7
+Va 2 2 11 0
 END
 
 
 #PROP
-Nest 1
-V 2003
+Nest 0
+V 18101
 E 0
 W 1
 WL -1
-I 19
-Wt 4
-L 0
-Sz 0
-T -1
-C 10
-Va 50 10 0 0
-END
-
-
-#PROP
-Nest 1
-V 5306
-E 0
-W 1
-WL -1
-I 1
-Wt 2
-L 0
-Sz 0
-T -1
-C 22
-Va 100 100 0 30
-END
-
-
-#PROP
-Nest 1
-V 5307
-E 0
-W 1
-WL -1
-I 1
-Wt 2
-L 0
-Sz 0
-T -1
-C 11
-Va 30 30 0 0
-END
-
-
-#PROP
-Nest 1
-V 5307
-E 0
-W 1
-WL -1
-I 1
-Wt 2
-L 0
-Sz 0
-T -1
-C 9
-Va 30 30 0 0
-END
-
-
-#PROP
-Nest 1
-V 5307
-E 0
-W 1
-WL -1
-I 1
-Wt 2
-L 0
-Sz 0
-T -1
-C 10
-Va 30 30 0 0
-END
-
-
-#PROP
-Nest 1
-V 5307
-E 0
-W 1
-WL -1
-I 1
-Wt 2
-L 0
-Sz 0
-T -1
-C 10
-Va 30 30 0 0
-END
-
-
-#PROP
-Nest 1
-V 3
-N three platinum coins~
-S three platinum coins~
-D
-A few platinum coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 30000
-Va 3 0 0 0
-END
-
-
-#PROP
-Nest 1
-V 2
-N electrum coin~
-S one electrum coin~
-D
-A single electrum coin is on the ground.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 1
-L 0
-Sz 0
-T -1
-C 1000
-Va 1 1 0 0
-END
-
-
-#PROP
-Nest 1
-V 2
-N gold coin~
-S one gold coin~
-D
-A single gold coin is on the ground.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 1
-L 0
-Sz 0
-T -1
-C 100
-Va 1 2 0 0
-END
-
-
-#PROP
-Nest 1
-V 2
-N silver coin~
-S one silver coin~
-D
-A single silver coin is on the ground.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 1
-L 0
-Sz 0
-T -1
-C 10
-Va 1 3 0 0
-END
-
-
-#PROP
-Nest 1
-V 3
-N seven copper coins~
-S seven copper coins~
-D
-A few copper coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
+I 17
+Wt 3
 L 0
 Sz 0
 T -1
 C 7
-Va 7 4 0 0
-END
-
-
-#PROP
-Nest 1
-V 2505
-E 0
-W 2049
-WL -1
-I 15
-Wt 1
-L 0
-Sz 0
-T -1
-C 19
-Va 5 1 0 0
-END
-
-
-#PROP
-Nest 2
-V 6007
-E 0
-W 1
-WL -1
-I 19
-Wt 1
-L 0
-Sz 0
-T -1
-C 11
-Va 20 0 0 0
-END
-
-
-#PROP
-Nest 2
-V 6007
-E 0
-W 1
-WL -1
-I 19
-Wt 1
-L 0
-Sz 0
-T -1
-C 9
-Va 20 0 0 0
-END
-
-
-#PROP
-Nest 2
-V 17245
-E 65
-W 16385
-WL -1
-I 5
-Wt 5
-L 0
-Sz 0
-T -1
-C 10414
-Va 25 10 10 0
-END
-
-
-#PROP
-Nest 1
-V 4500
-E 0
-W 4227073
-WL -1
-I 15
-Wt 2
-L 0
-Sz 0
-T -1
-C 21
-Va 50 1 0 0
-END
-
-
-#PROP
-Nest 2
-V 6007
-E 0
-W 1
-WL -1
-I 19
-Wt 1
-L 0
-Sz 0
-T -1
-C 11
-Va 20 0 0 0
-END
-
-
-#PROP
-Nest 2
-V 17105
-S a bloodied phaser blaster~
-E 2
-W 16385
-WL -1
-I 5
-Wt 1
-L 0
-Sz 18
-T -1
-C 927
-Va 0 2 2 11
-END
-
-
-#PROP
-Nest 2
-V 17245
-E 65
-W 16385
-WL -1
-I 5
-Wt 5
-L 0
-Sz 0
-T -1
-C 9385
-Va 25 10 10 0
-END
-
-
-#PROP
-Nest 2
-V 17245
-E 65
-W 16385
-WL -1
-I 5
-Wt 5
-L 0
-Sz 0
-T -1
-C 10693
-Va 25 10 10 0
-END
-
-
-#PROP
-Nest 2
-V 17245
-E 65
-W 16385
-WL -1
-I 5
-Wt 5
-L 0
-Sz 0
-T -1
-C 9675
-Va 25 10 10 0
-END
-
-
-#PROP
-Nest 2
-V 4505
-N maroon duffel bag~
-S a maroon duffel bag~
-D
-A maroon duffel bag has been tossed here.
-~
-E 0
-W 4227073
-WL -1
-I 15
-Wt 5
-L 0
-Sz 0
-T -1
-C 42
-Va 100 1 0 0
-END
-
-
-#PROP
-Nest 3
-V 50
-N flawed pink topaz gem~
-S a flawed pink topaz~
-SP pink topaz~
-D
-A flawed pink topaz sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 1250
-Va 6 150 250 0
-END
-
-
-#PROP
-Nest 3
-V 17245
-E 65
-W 16385
-WL -1
-I 5
-Wt 5
-L 0
-Sz 0
-T -1
-C 10442
-Va 25 10 10 0
-END
-
-
-#PROP
-Nest 3
-V 17245
-E 65
-W 16385
-WL -1
-I 5
-Wt 5
-L 0
-Sz 0
-T -1
-C 10410
-Va 25 10 10 0
-END
-
-
-#PROP
-Nest 3
-V 4505
-N milky-white duffel bag~
-S a milky-white duffel bag~
-D
-A milky-white duffel bag has been tossed here.
-~
-E 0
-W 4227073
-WL -1
-I 15
-Wt 5
-L 0
-Sz 0
-T -1
-C 36
-Va 100 1 0 0
-END
-
-
-#PROP
-Nest 4
-V 661
-E 0
-W 1
-WL -1
-I 22
-Wt 15
-L 0
-Sz 0
-T -1
-C 45
-Va 5 0 0 0
-END
-
-
-#PROP
-Nest 4
-V 16514
-E 0
-W 1
-WL -1
-I 22
-Wt 24
-L 0
-Sz 18
-T -1
-C 1531
-Va 6 7 0 0
-END
-
-
-#PROP
-Nest 4
-V 50
-N red tourmaline gem~
-S a red tourmaline~
-D
-A red tourmaline sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 350
-Va 4 70 70 0
-END
-
-
-#PROP
-Nest 4
-V 50
-N bright green demantoid garnet gem~
-S a bright green demantoid garnet~
-D
-A bright green demantoid garnet sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 700
-Va 1 100 140 0
-END
-
-
-#PROP
-Nest 4
-V 50
-N golden beryl gem~
-S a golden beryl~
-D
-A golden beryl sits in the dust.
-~
-E 0
-W 1
-WL -1
-I 21
-Wt 1
-L 0
-Sz 0
-T -1
-C 1000
-Va 6 200 200 0
-END
-
-
-#PROP
-Nest 4
-V 661
-E 0
-W 1
-WL -1
-I 22
-Wt 15
-L 0
-Sz 0
-T -1
-C 51
-Va 5 0 0 0
-END
-
-
-#PROP
-Nest 4
-V 3
-N thirteen platinum coins~
-S thirteen platinum coins~
-D
-A small pile of platinum coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 130000
-Va 13 0 0 0
-END
-
-
-#PROP
-Nest 4
-V 3
-N seventeen electrum coins~
-S seventeen electrum coins~
-D
-A small pile of electrum coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 17000
-Va 17 1 0 0
-END
-
-
-#PROP
-Nest 4
-V 3
-N seventeen gold coins~
-S seventeen gold coins~
-D
-A small pile of gold coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 1700
-Va 17 2 0 0
-END
-
-
-#PROP
-Nest 4
-V 3
-N twelve silver coins~
-S twelve silver coins~
-D
-A small pile of silver coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 120
-Va 12 3 0 0
-END
-
-
-#PROP
-Nest 4
-V 3
-N thirteen copper coins~
-S thirteen copper coins~
-D
-A small pile of copper coins are on the ground here.
-~
-E 0
-W 1
-WL -1
-I 20
-Wt 0
-L 0
-Sz 0
-T -1
-C 13
-Va 13 4 0 0
+Va 2 2 11 0
 END
 
 
 #PROP
 Nest 0
-V 5100
-E 65536
-W 8193
-WL 30
-I 5
-Wt 2
-L 0
-Sz 0
-T -1
-C 40
-Va 0 10 20 8
-END
-
-
-#PROP
-Nest 0
-V 661
-E 65536
+V 18101
+E 0
 W 1
-WL 35
-I 22
-Wt 15
+WL -1
+I 17
+Wt 3
 L 0
 Sz 0
 T -1
-C 56
-Va 5 0 0 0
+C 7
+Va 2 2 11 0
 END
 
 
 #PROP
 Nest 0
-V 22807
-E 64
-W -2147475455
-WL 36
-I 5
-Wt 5
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
 L 0
 Sz 0
 T -1
-C 1048
-Va 0 4 4 7
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+C 7
+Va 2 2 11 0
 END
 
 #END

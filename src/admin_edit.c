@@ -442,7 +442,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         char buf[MAX_STRING_LENGTH];
 
-        snprintf( buf, MAX_STRING_LENGTH, "%s\n\r", arg3 );
+        sprintf( buf, "%s\n\r", arg3 );
         free_string( victim->long_descr );
         victim->long_descr = str_dup( buf );
         return;
@@ -538,7 +538,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         char buf[MAX_STRING_LENGTH];
 
-        snprintf( buf, MAX_STRING_LENGTH, "Race range is 0 to %d.\n", MAX_RACE );
+        sprintf( buf, "Race range is 0 to %d.\n", MAX_RACE );
         to_actor( buf, ch );
         return;
     }
@@ -554,7 +554,7 @@ void cmd_mset( PLAYER *ch, char *argument )
     {
         char buf[MAX_STRING_LENGTH];
 
-        snprintf( buf, MAX_STRING_LENGTH, "Race range is 0 to %d.\n", MAX_RACE );
+        sprintf( buf, "Race range is 0 to %d.\n", MAX_RACE );
         to_actor( buf, ch );
         return;
     }
