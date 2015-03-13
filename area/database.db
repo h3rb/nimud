@@ -1015,6 +1015,32 @@ O ~
 V 0 0 0 0
 End
 
+#3524
+N doloire~
+SD a doloire~
+P ~
+D
+A long, curved-handle axe has been left here.
+~
+A
+~
+PD
+~
+DR
+It has a long curved handle with a thick, knife-shaped blade at one end.
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 21
+C 225
+O ~
+V 0 0 0 0
+End
+
 #2500
 N $C $l fullcloth~
 SD a $C $l fullcloth~
@@ -1042,19 +1068,19 @@ O ~
 V 0 0 0 0
 End
 
-#3524
-N doloire~
-SD a doloire~
+#3525
+N epsilon axe~
+SD an epsilon axe~
 P ~
 D
-A long, curved-handle axe has been left here.
+A long axe with a semi-circle blade is here.
 ~
 A
 ~
 PD
 ~
 DR
-It has a long curved handle with a thick, knife-shaped blade at one end.
+It looks like a wagon-rut with half of a sawblade at one end.
 ~
 L 0
 T 5
@@ -1062,8 +1088,8 @@ E 0
 W 8193
 Sz 0
 Ti 0
-Wt 21
-C 225
+Wt 8
+C 300
 O ~
 V 0 0 0 0
 End
@@ -1094,19 +1120,19 @@ O ~
 V 0 0 0 0
 End
 
-#3525
-N epsilon axe~
-SD an epsilon axe~
+#3526
+N falx supina~
+SD a falx supina~
 P ~
 D
-A long axe with a semi-circle blade is here.
+A falx supina has been carelessly discarded.
 ~
 A
 ~
 PD
 ~
 DR
-It looks like a wagon-rut with half of a sawblade at one end.
+It looks like a short sickle with a banana-shaped blade.
 ~
 L 0
 T 5
@@ -1114,8 +1140,8 @@ E 0
 W 8193
 Sz 0
 Ti 0
-Wt 8
-C 300
+Wt 6
+C 125
 O ~
 V 0 0 0 0
 End
@@ -1147,19 +1173,21 @@ O ~
 V 0 0 0 0
 End
 
-#3526
-N falx supina~
-SD a falx supina~
+#3527
+N long flail~
+SD a long flail~
 P ~
 D
-A falx supina has been carelessly discarded.
+unset
 ~
 A
 ~
 PD
 ~
 DR
-It looks like a short sickle with a banana-shaped blade.
+It is two poles, one shorter than the other by three fold, with a spiked
+band wrought around the shorter one.  The two poles are connected by a short
+length of chain.  
 ~
 L 0
 T 5
@@ -1167,8 +1195,8 @@ E 0
 W 8193
 Sz 0
 Ti 0
-Wt 6
-C 125
+Wt 25
+C 450
 O ~
 V 0 0 0 0
 End
@@ -1202,30 +1230,27 @@ O ~
 V 0 0 0 0
 End
 
-#3527
-N long flail~
-SD a long flail~
+#3528
+N flat club~
+SD a flat club~
 P ~
 D
-unset
+A long, flat, shaped piece of wood is here.
 ~
 A
 ~
 PD
 ~
 DR
-It is two poles, one shorter than the other by three fold, with a spiked
-band wrought around the shorter one.  The two poles are connected by a short
-length of chain.  
 ~
 L 0
 T 5
 E 0
-W 8193
+W 4202497
 Sz 0
 Ti 0
-Wt 25
-C 450
+Wt 18
+C 40
 O ~
 V 0 0 0 0
 End
@@ -1256,27 +1281,30 @@ O ~
 V 0 0 0 0
 End
 
-#3528
-N flat club~
-SD a flat club~
+#3529
+N woodmans woodman axe~
+SD a woodmans axe~
 P ~
 D
-A long, flat, shaped piece of wood is here.
+A woodmans axe, tinged with a light coat of rust, has been discarded here.
 ~
 A
 ~
 PD
 ~
 DR
+A long wooden handled axe with a red and green handle, this axe looks
+aged.  The slight rust on the blade and the smooth, polished handle is well
+worn with years of use.  As a weapon, it looks to be moderately deadly.  
 ~
 L 0
 T 5
 E 0
-W 4202497
+W -2143289344
 Sz 0
 Ti 0
-Wt 18
-C 40
+Wt 4
+C 30
 O ~
 V 0 0 0 0
 End
@@ -1308,34 +1336,6 @@ O ~
 V 5 1 0 0
 End
 
-#3529
-N woodmans woodman axe~
-SD a woodmans axe~
-P ~
-D
-A woodmans axe, tinged with a light coat of rust, has been discarded here.
-~
-A
-~
-PD
-~
-DR
-A long wooden handled axe with a red and green handle, this axe looks
-aged.  The slight rust on the blade and the smooth, polished handle is well
-worn with years of use.  As a weapon, it looks to be moderately deadly.  
-~
-L 0
-T 5
-E 0
-W -2143289344
-Sz 0
-Ti 0
-Wt 4
-C 30
-O ~
-V 0 0 0 0
-End
-
 #2506
 N $c breeches~
 SD a pair of $c breeches~
@@ -1360,34 +1360,6 @@ Sz 0
 Ti 0
 Wt 2
 C 20
-O ~
-V 0 0 0 0
-End
-
-#2507
-N cannons $C velvet~
-SD a pair of $C velvet cannons~
-P ~
-D
-A fashionable pair of $C cannons have been discarded here.
-~
-A
-~
-PD
-~
-DR
-Cannons are tight-fitting breeches that cover the legs from waist to
-ankles, and provide added flexibility.  There is slim belt and lacings to
-hold up the waist.  
-~
-L 0
-T 13
-E 0
-W 67108865
-Sz 20
-Ti 0
-Wt 2
-C 30
 O ~
 V 0 0 0 0
 End
@@ -1420,29 +1392,30 @@ O ~
 V 0 0 0 0
 End
 
-#2508
-N $l chemise~
-SD a $l chemise~
+#2507
+N cannons $C velvet~
+SD a pair of $C velvet cannons~
 P ~
 D
-A $l chemise is crumpled on the ground.
+A fashionable pair of $C cannons have been discarded here.
 ~
 A
 ~
 PD
 ~
 DR
-The chemise is standard apparel, and appears attractive and durable
-enough to be worn as an overgarment.  
+Cannons are tight-fitting breeches that cover the legs from waist to
+ankles, and provide added flexibility.  There is slim belt and lacings to
+hold up the waist.  
 ~
 L 0
 T 13
 E 0
-W 524289
+W 67108865
 Sz 20
 Ti 0
-Wt 1
-C 20
+Wt 2
+C 30
 O ~
 V 0 0 0 0
 End
@@ -1470,6 +1443,60 @@ Sz 0
 Ti 0
 Wt 8
 C 30
+O ~
+V 0 0 0 0
+End
+
+#2508
+N $l chemise~
+SD a $l chemise~
+P ~
+D
+A $l chemise is crumpled on the ground.
+~
+A
+~
+PD
+~
+DR
+The chemise is standard apparel, and appears attractive and durable
+enough to be worn as an overgarment.  
+~
+L 0
+T 13
+E 0
+W 524289
+Sz 20
+Ti 0
+Wt 1
+C 20
+O ~
+V 0 0 0 0
+End
+
+#3533
+N adze~
+SD an adze~
+P ~
+D
+A strangely shaped blade with a metal reinforced wood handle is here.
+~
+A
+~
+PD
+~
+DR
+The adze is a small metal handle with a straight, inwardly bent blade. 
+On the rear edge is a smaller, sharper blade with less girth.  
+~
+L 0
+T 5
+E 0
+W 8193
+Sz 0
+Ti 0
+Wt 6
+C 90
 O ~
 V 0 0 0 0
 End
@@ -1502,59 +1529,6 @@ O ~
 V 0 0 0 0
 End
 
-#3533
-N adze~
-SD an adze~
-P ~
-D
-A strangely shaped blade with a metal reinforced wood handle is here.
-~
-A
-~
-PD
-~
-DR
-The adze is a small metal handle with a straight, inwardly bent blade. 
-On the rear edge is a smaller, sharper blade with less girth.  
-~
-L 0
-T 5
-E 0
-W 8193
-Sz 0
-Ti 0
-Wt 6
-C 90
-O ~
-V 0 0 0 0
-End
-
-#2510
-N linen codpiece~
-SD a linen codpiece~
-P ~
-D
-A linen codpiece is lying on the ground.
-~
-A
-~
-PD
-~
-DR
-A fairly attractive linen codpiece is here.
-~
-L 0
-T 13
-E 0
-W 2049
-Sz 10
-Ti 0
-Wt 1
-C 30
-O ~
-V 0 0 0 0
-End
-
 #3534
 N anatolian axe~
 SD an anatolian axe~
@@ -1582,25 +1556,25 @@ O ~
 V 0 0 0 0
 End
 
-#2511
-N $C cote~
-SD a $C cote~
+#2510
+N linen codpiece~
+SD a linen codpiece~
 P ~
 D
-A simple $C cote is here.
+A linen codpiece is lying on the ground.
 ~
 A
 ~
 PD
 ~
 DR
-Mate to a chemise, the cote is a sleeved, stylish piece of clothing.
+A fairly attractive linen codpiece is here.
 ~
 L 0
 T 13
 E 0
-W 524289
-Sz 20
+W 2049
+Sz 10
 Ti 0
 Wt 1
 C 30
@@ -1634,29 +1608,28 @@ O ~
 V 0 0 0 0
 End
 
-#2512
-N $c doublet~
-SD a $c doublet~
+#2511
+N $C cote~
+SD a $C cote~
 P ~
 D
-A $c doublet is here.
+A simple $C cote is here.
 ~
 A
 ~
 PD
 ~
 DR
-The doublet is fronted with a row of buttons and contains comfortable
-joints for shoulders and elbows.  
+Mate to a chemise, the cote is a sleeved, stylish piece of clothing.
 ~
 L 0
 T 13
 E 0
-W 9
+W 524289
 Sz 20
 Ti 0
-Wt 2
-C 60
+Wt 1
+C 30
 O ~
 V 0 0 0 0
 End
@@ -1688,18 +1661,20 @@ O ~
 V 0 0 0 0
 End
 
-#2513
-N $C silk gown~
-SD a $C silk gown~
+#2512
+N $c doublet~
+SD a $c doublet~
 P ~
 D
-A $C silk gown is draped on the ground.
+A $c doublet is here.
 ~
 A
 ~
 PD
 ~
 DR
+The doublet is fronted with a row of buttons and contains comfortable
+joints for shoulders and elbows.  
 ~
 L 0
 T 13
@@ -1708,7 +1683,7 @@ W 9
 Sz 20
 Ti 0
 Wt 2
-C 100
+C 60
 O ~
 V 0 0 0 0
 End
@@ -1740,20 +1715,18 @@ O ~
 V 0 0 0 0
 End
 
-#2514
-N $c cloth dress~
-SD a $c cloth dress~
+#2513
+N $C silk gown~
+SD a $C silk gown~
 P ~
 D
-A $c dress made of cloth has been folded up here.
+A $C silk gown is draped on the ground.
 ~
 A
 ~
 PD
 ~
 DR
-The laborwoman's quality dress is finely crafted, though it lacks any
-significant embroidery or ornamentation.  It is durable and well tailored.  
 ~
 L 0
 T 13
@@ -1761,8 +1734,8 @@ E 0
 W 9
 Sz 20
 Ti 0
-Wt 0
-C 0
+Wt 2
+C 100
 O ~
 V 0 0 0 0
 End
@@ -1795,30 +1768,29 @@ O ~
 V 0 0 0 0
 End
 
-#2515
-N $c half-cape half cape~
-SD a $c half-cape~
+#2514
+N $c cloth dress~
+SD a $c cloth dress~
 P ~
 D
-A $c-colored half-cape is balled up on the ground.
+A $c dress made of cloth has been folded up here.
 ~
 A
 ~
 PD
 ~
 DR
-The half-cape flows from the wearer's shoulders to mid-back and provides
-an alternative to the long, flowing capes, which are commonly soiled near
-the bottoms.  
+The laborwoman's quality dress is finely crafted, though it lacks any
+significant embroidery or ornamentation.  It is durable and well tailored.  
 ~
 L 0
 T 13
 E 0
-W 1025
+W 9
 Sz 20
 Ti 0
-Wt 2
-C 15
+Wt 0
+C 0
 O ~
 V 0 0 0 0
 End
@@ -1849,28 +1821,30 @@ O ~
 V 0 0 0 0
 End
 
-#2516
-N $l cap~
-SD a $l cap~
+#2515
+N $c half-cape half cape~
+SD a $c half-cape~
 P ~
 D
-A $l cap is here.
+A $c-colored half-cape is balled up on the ground.
 ~
 A
 ~
 PD
 ~
 DR
-It is a simple, fairly durable cap.
+The half-cape flows from the wearer's shoulders to mid-back and provides
+an alternative to the long, flowing capes, which are commonly soiled near
+the bottoms.  
 ~
 L 0
 T 13
 E 0
-W 17
-Sz 0
+W 1025
+Sz 20
 Ti 0
-Wt 1
-C 10
+Wt 2
+C 15
 O ~
 V 0 0 0 0
 End
@@ -1898,6 +1872,59 @@ Sz 0
 Ti 0
 Wt 3
 C 130
+O ~
+V 0 0 0 0
+End
+
+#2516
+N $l cap~
+SD a $l cap~
+P ~
+D
+A $l cap is here.
+~
+A
+~
+PD
+~
+DR
+It is a simple, fairly durable cap.
+~
+L 0
+T 13
+E 0
+W 17
+Sz 0
+Ti 0
+Wt 1
+C 10
+O ~
+V 0 0 0 0
+End
+
+#3541
+N ay-balta aybalta ay balta~
+SD a razor sharp ay-balta~
+P ~
+D
+A long metallic handled ay-balta combat axe has been left here.
+~
+A
+~
+PD
+~
+DR
+The aybalta is a long axe with a metal blade bracketed to the far end. 
+Its cutting edge is razor sharp and looks to easily sever limbs.  
+~
+L 0
+T 5
+E 0
+W -2147475455
+Sz 0
+Ti 0
+Wt 16
+C 190
 O ~
 V 0 0 0 0
 End
@@ -1930,29 +1957,28 @@ O ~
 V 0 0 0 0
 End
 
-#3541
-N ay-balta aybalta ay balta~
-SD a razor sharp ay-balta~
+#3542
+N baggoro~
+SD a fire-blackened baggoro~
 P ~
 D
-A long metallic handled ay-balta combat axe has been left here.
+A fire-blackened piece of wood is on the ground.
 ~
 A
 ~
 PD
 ~
 DR
-The aybalta is a long axe with a metal blade bracketed to the far end. 
-Its cutting edge is razor sharp and looks to easily sever limbs.  
+It looks like a long wooden club with a handle carved at one end.  
 ~
 L 0
 T 5
 E 0
-W -2147475455
+W 8193
 Sz 0
 Ti 0
-Wt 16
-C 190
+Wt 21
+C 20
 O ~
 V 0 0 0 0
 End
@@ -1987,19 +2013,19 @@ O ~
 V 0 0 0 0
 End
 
-#3542
-N baggoro~
-SD a fire-blackened baggoro~
+#3543
+N wooden barkur~
+SD a wooden barkur~
 P ~
 D
-A fire-blackened piece of wood is on the ground.
+A long wooden club has been discarded here.
 ~
 A
 ~
 PD
 ~
 DR
-It looks like a long wooden club with a handle carved at one end.  
+It has a leather sinew handle and a large flat carved club end.  
 ~
 L 0
 T 5
@@ -2007,8 +2033,8 @@ E 0
 W 8193
 Sz 0
 Ti 0
-Wt 21
-C 20
+Wt 20
+C 40
 O ~
 V 0 0 0 0
 End
@@ -2043,19 +2069,19 @@ O ~
 V 0 0 0 0
 End
 
-#3543
-N wooden barkur~
-SD a wooden barkur~
+#3544
+N baston~
+SD a baston~
 P ~
 D
-A long wooden club has been discarded here.
+A thin metal rod is lying on the ground here.
 ~
 A
 ~
 PD
 ~
 DR
-It has a leather sinew handle and a large flat carved club end.  
+The baston looks like a metal spike that has had its tip sawn off.
 ~
 L 0
 T 5
@@ -2063,8 +2089,8 @@ E 0
 W 8193
 Sz 0
 Ti 0
-Wt 20
-C 40
+Wt 5
+C 30
 O ~
 V 0 0 0 0
 End
@@ -2098,28 +2124,28 @@ O ~
 V 0 0 0 0
 End
 
-#3544
-N baston~
-SD a baston~
+#3545
+N bec-de-corbin bec corbin~
+SD a bec-de-corbin~
 P ~
 D
-A thin metal rod is lying on the ground here.
+A spiked axe is lying here.
 ~
 A
 ~
 PD
 ~
 DR
-The baston looks like a metal spike that has had its tip sawn off.
+It is a fashioned metal handle with a spiked blade attachment.  
 ~
 L 0
 T 5
 E 0
-W 8193
+W -2147483647
 Sz 0
 Ti 0
-Wt 5
-C 30
+Wt 15
+C 230
 O ~
 V 0 0 0 0
 End
@@ -2154,28 +2180,28 @@ O ~
 V 0 0 0 0
 End
 
-#3545
-N bec-de-corbin bec corbin~
-SD a bec-de-corbin~
+#3546
+N bi-teran bi teran~
+SD a bi-teran~
 P ~
 D
-A spiked axe is lying here.
+A wooden bi-teran, slightly worn, is lying here in the dust.
 ~
 A
 ~
 PD
 ~
 DR
-It is a fashioned metal handle with a spiked blade attachment.  
+It looks like a stick that has been carved smooth.
 ~
 L 0
 T 5
 E 0
-W -2147483647
+W 4202497
 Sz 0
 Ti 0
-Wt 15
-C 230
+Wt 3
+C 45
 O ~
 V 0 0 0 0
 End
@@ -2204,32 +2230,6 @@ Wt 1
 C 8
 O ~
 V 1 0 0 0
-End
-
-#3546
-N bi-teran bi teran~
-SD a bi-teran~
-P ~
-D
-A wooden bi-teran, slightly worn, is lying here in the dust.
-~
-A
-~
-PD
-~
-DR
-It looks like a stick that has been carved smooth.
-~
-L 0
-T 5
-E 0
-W 4202497
-Sz 0
-Ti 0
-Wt 3
-C 45
-O ~
-V 0 0 0 0
 End
 
 #2523
@@ -2385,10 +2385,10 @@ Wt 14
 C 2000
 O ~
 V 10 15 15 0
-Af 10005 1 -1 0 0
-Af 10002 -1 -1 0 0
-Af 10001 1 -1 0 0
 Af 10009 30 -1 0 0
+Af 10001 1 -1 0 0
+Af 10002 -1 -1 0 0
+Af 10005 1 -1 0 0
 End
 
 #4701
@@ -2415,8 +2415,8 @@ Wt 6
 C 50
 O ~
 V 30 8 8 0
-Af 10005 1 -1 0 0
 Af 10002 1 -1 0 0
+Af 10005 1 -1 0 0
 End
 
 #4702
@@ -2444,8 +2444,8 @@ Wt 3
 C 45
 O ~
 V 3 35 35 0
-Af 10000 5 -1 0 0
 Af 10009 30 -1 0 0
+Af 10000 5 -1 0 0
 End
 
 #2900

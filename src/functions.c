@@ -1735,7 +1735,7 @@ VARIABLE_DATA *func_dream( void * owner, int type, VARIABLE_DATA *out )
 
     for ( d = connection_list; d; d = d->next )
     {
-        if ( d->connected == CON_PLAYING
+        if ( d->connected == NET_PLAYING
           && d->character->in_scene != NULL
           && d->character->in_scene->zone == pZone 
           && d->character->position == POS_SLEEPING )

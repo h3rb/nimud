@@ -522,7 +522,7 @@ const struct help_class help_class_table [MAX_HELP_CLASS] =
    { "Story",        "story.hlp",       "Background info for the MUD"         },
    { "Script",       "script.hlp",      "Scripting language helps"            },
    { "Immortal",     "immref.hlp",      "Immortal specific helps"             },
-   { "Nanny",        "nanny.hlp",       "Nanny helps"                         },
+   { "Newbie",        "newbie.hlp",       "Newbie helps"                         },
    { "Intermud",     "imc.hlp",         "Intermud Connection Protocol"        },
    { "Tips",         "tips.hlp",        "Helpful Tips"                        }
 };

@@ -71,7 +71,7 @@ PLAYER_DATA *fread_actor   ( PLAYER_DATA *ch, FILE *fp );
 void save_actor_prop( PLAYER_DATA *ch )
 {
     PLAYER_DATA *pet;
-    char strsave[MAX_INPUT_LENGTH];
+    char output[MAX_INPUT_LENGTH];
     FILE *fp;
 
     if (IS_NPC(ch))
@@ -85,11 +85,11 @@ void save_actor_prop( PLAYER_DATA *ch )
 
     PC(ch,save_time) = current_time;
     fclose( fpReserve );
-    sprintf( strsave, "%s%s", PLAYER_DIR, capitalize( ch->name ) );
-    if ( ( fp = fopen( strsave, "w" ) ) == NULL )
+    sprintf( output, "%s%s", PLAYER_DIR, capitalize( ch->name ) );
+    if ( ( fp = fopen( output, "w" ) ) == NULL )
     {
 	bug( "Save_actor_prop: fopen", 0 );
-	perror( strsave );
+	perror( output );
     return;
     }
 
@@ -455,7 +455,7 @@ void fwrite_prop( PROP_DATA *prop, FILE *fp, int iNest )
  */
 bool load_actor_prop( CONNECTION_DATA *d, char *name )
 {
-    char strsave[MAX_INPUT_LENGTH];
+    char output[MAX_INPUT_LENGTH];
     PLAYER_DATA *ch, *actor;
     FILE *fp;
     bool found;
@@ -475,8 +475,8 @@ bool load_actor_prop( CONNECTION_DATA *d, char *name )
 
     found = FALSE;
     fclose( fpReserve );
-    sprintf( strsave, "%s%s", PLAYER_DIR, capitalize( name ) );
-    if ( ( fp = fopen( strsave, "r" ) ) != NULL )
+    sprintf( output, "%s%s", PLAYER_DIR, capitalize( name ) );
+    if ( ( fp = fopen( output, "r" ) ) != NULL )
     {
 	int iNest;
 

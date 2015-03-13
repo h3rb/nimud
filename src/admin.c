@@ -871,7 +871,7 @@ void cmd_system( PLAYER_DATA *ch, char *argument )
 
     for ( d = connection_list; d; d = d->next )
     {
-        if ( d->connected <= CON_PLAYING )
+        if ( d->connected <= NET_PLAYING )
 	{
         send_to_actor( "SYSTEM:\07 ", d->character );
 	    send_to_actor( argument, d->character );
@@ -898,7 +898,7 @@ void cmd_echo( PLAYER_DATA *ch, char *argument )
 
     for ( d = connection_list; d; d = d->next )
     {
-	if ( d->connected == CON_PLAYING )
+	if ( d->connected == NET_PLAYING )
 	{
 	    send_to_actor( argument, d->character );
         send_to_actor( "\n\r",   d->character );
@@ -937,7 +937,7 @@ void cmd_recho( PLAYER_DATA *ch, char *argument )
 
     for ( d = connection_list; d; d = d->next )
     {
-	if ( d->connected == CON_PLAYING
+	if ( d->connected == NET_PLAYING
 	&&   d->character->in_scene == pOldScene )
 	{
 	    send_to_actor( argument, d->character );
@@ -1001,7 +1001,7 @@ void cmd_transfer( PLAYER_DATA *ch, char *argument )
     {
 	for ( d = connection_list; d != NULL; d = d->next )
 	{
-	    if ( d->connected == CON_PLAYING
+	    if ( d->connected == NET_PLAYING
 	    &&   d->character != ch
 	    &&   d->character->in_scene != NULL
 	    &&   can_see( ch, d->character ) )
@@ -1768,7 +1768,7 @@ void cmd_hotboot (PLAYER_DATA *ch, char * argument)
 		PLAYER_DATA * och = CH (d);
 		d_next = d->next; /* We delete from the list , so need to save this */
 		
-		if (!d->character || d->connected > CON_PLAYING) /* drop those logging on */
+		if (!d->character || d->connected > NET_PLAYING) /* drop those logging on */
 		{
 			write_to_connection (d->connection, "\n\rSorry, we are rebooting. Come back in a few minutes.\n\r", 0);
 			close_socket (d); /* throw'em out */
@@ -1855,7 +1855,7 @@ void hotboot_recover ( int control )
 		d->host = str_dup (host);
 		d->next = connection_list;
 		connection_list = d;
-		d->connected = CON_HOTBOOT_RECOVER; /* -15, so close_socket frees the char */
+		d->connected = NET_HOTBOOT_RECOVER; /* -15, so close_socket frees the char */
 		
 	
 		/* Now, find the pfile */
@@ -1882,7 +1882,7 @@ void hotboot_recover ( int control )
 			actor_to_scene (d->character, d->character->in_scene);
 			cmd_look (d->character, "auto");
 			act ("$n materializes!", d->character, NULL, NULL, TO_SCENE);
-			d->connected = CON_PLAYING;
+			d->connected = NET_PLAYING;
 
 			/* Pets are not used in NiMUD like this, so this is not needed. */
 			/*

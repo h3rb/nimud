@@ -721,6 +721,29 @@ End
 
 
 #SCENES
+#23000
+N Crumbling Chamber~
+Ref 0
+D
+A crumbling chamber roof has filled the room with debris.  The walls are
+set into vaulted alcoves.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 7 0 23001
+~
+vaulted door~
+Dr 2 0 0 24501
+~
+~
+End
+
 #23001
 N Entrance to Mega-City One~
 Ref 0
@@ -740,6 +763,9 @@ Dr 2 0 0 23002
 The Megway continues in this direction.
 ~
 ~
+Dr 3 7 0 23000
+~
+vaulted door~
 End
 
 #23002

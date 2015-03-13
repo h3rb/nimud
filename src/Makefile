@@ -17,7 +17,7 @@ C_FLAGS =-Wall -Wstrict-prototypes -Wpointer-arith -Wno-char-subscripts -Wmissin
 O_FILES = alias.o admin.o admin_edit.o admin_info.o bit.o board.o client.o combat.o \
 	config.o def.o door.o edit.o events.o load.o functions.o furn.o \
 	grammar.o graphics.o handler.o html.o disease.o interpreter.o \
-	language.o lists.o magic.o map.o mem.o money.o mount.o nanny.o net.o \
+	language.o lists.o magic.o map.o mem.o money.o mount.o newbie.o net.o \
 	info.o move.o props.o parser.o save.o shop.o skills.o social.o \
 	string.o tips.o translate.o track.o update.o worldgen.o xrand.o \
         mssp_client.o mssp_tables.o telopt.o

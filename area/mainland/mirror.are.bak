@@ -4282,22 +4282,22 @@ M 0
 W 0
 T 0
 O ~
-ED wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-ED tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 ED gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-ED bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 R M 20334 1 100 1
 Dr 1 0 3133 20385
@@ -4325,22 +4325,22 @@ M 0
 W 0
 T 0
 O ~
-ED wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-ED tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
+ED bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
 ~
 ED gate~
 It is a set of very big double doors made from hard wood.  They have been
 reinforced with large iron bands to make them even more sturdy.  One of the
 doors is equipped with a very big lock.
 ~
-ED bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
+ED tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+ED wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
 ~
 Dr 1 0 -1 20364
 You see the plains.~
@@ -4367,15 +4367,15 @@ M 0
 W 0
 T 0
 O ~
+ED altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
+~
 ED statue odin king god~
 The statue represents the one-eyed Odin sitting on a his throne.  He has
 long, grey hair and beard and a strict look on his face.  On top of the
 throne, just above his shoulders, his two ravens Hugin and Munin are sitting
 and at his feet are his wolves Gere and Freke.
-~
-ED altar~
-Even though the altar is more than ten feet long it appears to be made from a
-single block of white virgin marble.
 ~
 Dr 2 0 -1 20379
 You see the southern end of the temple.

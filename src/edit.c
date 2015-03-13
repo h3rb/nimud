@@ -159,7 +159,7 @@ void spedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "done" ) || !pSpell )
     {
         ch->desc->pEdit = NULL;
-        ch->desc->connected = CON_PLAYING;
+        ch->desc->connected = NET_PLAYING;
         cmd_zsave( ch, "world" );
         return;
     }
@@ -299,7 +299,7 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
             send_to_actor( "Spell not exist.\n\r", ch );
             return;
         }
-        ch->desc->connected = CON_SPEDITOR;
+        ch->desc->connected = NET_SPEDITOR;
         ch->desc->pEdit = (void *)pSpell;
         return;
     }
@@ -363,7 +363,7 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
                         top_vnum_spell);
             ch->desc->pEdit = (void *)pSpell;
             if ( ch->desc->pEdit != NULL )
-            ch->desc->connected = CON_SPEDITOR;
+            ch->desc->connected = NET_SPEDITOR;
         } 
 
     if ( !str_prefix( arg1, "list" ) )
@@ -391,7 +391,7 @@ void cmd_spedit( PLAYER_DATA *ch, char *argument )
 
     }
 
-    ch->desc->connected = CON_SPEDITOR;
+    ch->desc->connected = NET_SPEDITOR;
     return;
 }
 
@@ -423,7 +423,7 @@ void skedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "done" ) || !pSkill )
     {
         ch->desc->pEdit = NULL;
-        ch->desc->connected = CON_PLAYING;
+        ch->desc->connected = NET_PLAYING;
         cmd_zsave( ch, "world" );
         return;
     }
@@ -639,7 +639,7 @@ void cmd_skedit( PLAYER_DATA *ch, char *argument )
         send_to_actor( "Editing ", ch ); 
         send_to_actor( pSkill->name, ch );
         send_to_actor( ".\n\r", ch );
-        ch->desc->connected = CON_SKEDITOR;
+        ch->desc->connected = NET_SKEDITOR;
         ch->desc->pEdit = (void *)pSkill;
         return;        
     }
@@ -649,7 +649,7 @@ void cmd_skedit( PLAYER_DATA *ch, char *argument )
             send_to_actor( "Skill not exist.\n\r", ch );
             return;
         }
-        ch->desc->connected = CON_SKEDITOR;
+        ch->desc->connected = NET_SKEDITOR;
         ch->desc->pEdit = (void *)pSkill;
         return;
     }
@@ -751,7 +751,7 @@ void zedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "done" ) )
     {
         ch->desc->pEdit = NULL;
-        ch->desc->connected = CON_PLAYING;
+        ch->desc->connected = NET_PLAYING;
         cmd_zsave( ch, "changed" );
         return;
     }
@@ -1444,7 +1444,7 @@ void redit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "done" ) )
     {
         ch->desc->pEdit = NULL;
-        ch->desc->connected = CON_PLAYING;
+        ch->desc->connected = NET_PLAYING;
         cmd_zsave( ch, "changed" );
         cmd_zsave( ch, "list" );
         return;
@@ -1866,7 +1866,7 @@ void oedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "done" ) )
     {
         ch->desc->pEdit = NULL;
-        ch->desc->connected = CON_PLAYING;
+        ch->desc->connected = NET_PLAYING;
         cmd_zsave( ch, "changed" );
         return;
     }
@@ -2555,7 +2555,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "done" ) )
     {
         ch->desc->pEdit = NULL;
-        ch->desc->connected = CON_PLAYING;
+        ch->desc->connected = NET_PLAYING;
         cmd_zsave( ch, "changed" );
         return;
     }
@@ -3425,7 +3425,7 @@ void aedit( PLAYER_DATA *ch, char *argument )
             send_to_actor( "Syntax:  aedit create [vnum]\n\r", ch );
             return;
         }
-            ch->desc->connected=CON_AEDITOR;
+            ch->desc->connected=NET_AEDITOR;
             CREATE_COMMANDZ(pActor,actor_index_hash,
                                    new_actor_index,
                                    get_actor_index,
@@ -3496,7 +3496,7 @@ void sedit( PLAYER_DATA *ch, char *argument )
     if ( !str_cmp( arg1, "done" ) )
     {
         ch->desc->pEdit = NULL;
-        ch->desc->connected = CON_PLAYING;
+        ch->desc->connected = NET_PLAYING;
         cmd_zsave( ch, "changed" );
         return;
     }
@@ -3590,7 +3590,7 @@ void cmd_zedit( PLAYER_DATA *ch, char *argument )
     }
 
     ch->desc->pEdit = (void *)pZone;
-    ch->desc->connected = CON_ZEDITOR;
+    ch->desc->connected = NET_ZEDITOR;
     return;
 }
 
@@ -3650,11 +3650,11 @@ CREATE_COMMANDZ(pScene,scene_index_hash,
                if ( get_scene_index( value ) != NULL ) 
                { char b[MSL]; snprintf( b, MSL, "%d", value );
                  cmd_goto( ch,b ); }
-               ch->desc->connected = CON_REDITOR;
+               ch->desc->connected = NET_REDITOR;
         }
     }
 
-   ch->desc->connected = CON_REDITOR;
+   ch->desc->connected = NET_REDITOR;
     return;
 }
 
@@ -3688,7 +3688,7 @@ void cmd_oedit( PLAYER_DATA *ch, char *argument )
         }
 
         ch->desc->pEdit = (void *)pProp;
-        ch->desc->connected = CON_OEDITOR;
+        ch->desc->connected = NET_OEDITOR;
         return;
     }
     else
@@ -3733,7 +3733,7 @@ void cmd_aedit( PLAYER_DATA *ch, char *argument )
         }
 
         ch->desc->pEdit = (void *)pActor;
-        ch->desc->connected = CON_AEDITOR;
+        ch->desc->connected = NET_AEDITOR;
         return;
     }
     else
@@ -3746,7 +3746,7 @@ void cmd_aedit( PLAYER_DATA *ch, char *argument )
                 send_to_actor( "Syntax:  aedit create [vnum]\n\r", ch );
                 return;
             }
-            ch->desc->connected=CON_AEDITOR;
+            ch->desc->connected=NET_AEDITOR;
             CREATE_COMMANDZ(pActor,actor_index_hash,
                                    new_actor_index,
                                    get_actor_index,
@@ -3788,12 +3788,12 @@ void cmd_sedit( PLAYER_DATA *ch, char *argument )
         }
 
         ch->desc->pEdit = (void *)script;
-        ch->desc->connected = CON_SEDITOR;
+        ch->desc->connected = NET_SEDITOR;
         return;
     }
     else
     {
-            ch->desc->connected = CON_SEDITOR;
+            ch->desc->connected = NET_SEDITOR;
             CREATE_COMMAND(script,script_index_hash,
                                   new_script,
                                   get_script_index,
@@ -5701,7 +5701,7 @@ void cmd_hedit( PLAYER_DATA *ch, char *argument )
         }
 
         ch->desc->pEdit = (void *)pHelp;
-        ch->desc->connected = CON_HEDITOR;
+        ch->desc->connected = NET_HEDITOR;
         return;
     }
     else 
@@ -5853,7 +5853,7 @@ void hedit( PLAYER_DATA *ch, char *argument )
    if ( !str_cmp( arg1, "done" ) )
    {
        ch->desc->pEdit = NULL;
-       ch->desc->connected = CON_PLAYING;
+       ch->desc->connected = NET_PLAYING;
        cmd_zsave( ch, "helps" );
        return;
    }

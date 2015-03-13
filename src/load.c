@@ -3815,7 +3815,7 @@ void copyover_recover ( void )
                 d->host = str_dup (host);
                 d->next = connection_list;
                 connection_list = d;
-                d->connected = CON_HOTBOOT_RECOVER; /* -15, so close_socket frees the char */
+                d->connected = NET_HOTBOOT_RECOVER; /* -15, so close_socket frees the char */
 
                 /* Now, find the pfile */
 
@@ -3840,7 +3840,7 @@ void copyover_recover ( void )
 
                         actor_to_scene (d->character, d->character->in_scene);
                         cmd_look (d->character, "");
-                        d->connected = CON_PLAYING;
+                        d->connected = NET_PLAYING;
                 }
 
         }

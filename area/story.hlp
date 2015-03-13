@@ -675,7 +675,7 @@ End
 #DOC 292
 N DAKONENNE~
 C 7 L 0
-KW DAKONENNE NANNY_DAKONENNE~
+KW DAKONENNE NEWBIE_DAKONENNE~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -1512,7 +1512,7 @@ End
 #DOC 308
 N HUMAN~
 C 7 L 0
-KW HUMAN NANNY_HUMAN~
+KW HUMAN NEWBIE_HUMAN~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -1636,7 +1636,7 @@ TX .
 
         This text is written solely for the purpose of outline and explaining
     the different aspects of the Tyselorrd game, specifically the parts of
-    the world which are important to playing on The Twilight zone MUD.  The ideas
+    the world which are important to playing on The Isles MUD.  The ideas
     contained herein are solely owned by the author, Herb Gilliland.  He
     reserves the right to modify, omit or remove any of this at any time.
         Foerlin's Tome of the Realms is written in the first person in order
@@ -1740,7 +1740,7 @@ TX .
       demeanor.  I've never met the creature, only seen her, but I have
       nothing good to say for this bane of peace.   
 
-Author's Note:  Some of these are roles played by players of The Twilight zone.
+Author's Note:  Some of these are roles played by players of The Isles.
                 If you wish to play a role that is currently not being
                 played, please contact an admin.
 ~
@@ -1881,7 +1881,7 @@ TX .
       highest quantity of supplies, should one decide on a shopping spree
       in Cape Red.
 
-Author's Note:  Some of these are roles played by players of The Twilight zone.
+Author's Note:  Some of these are roles played by players of The Isles.
                 If you wish to play a role that is currently not being
                 played, please contact an admin.
 ~
@@ -1920,9 +1920,9 @@ SA ~
 End
 
 #DOC 317
-N NANNY_DOC_MENU_HEADER~
+N NEWBIE_DOC_MENU_HEADER~
 C 7 L 0
-KW NANNY_DOC_MENU_HEADER~
+KW NEWBIE_DOC_MENU_HEADER~
 SY ~
 TX .
 --------------------------------------------------------------------------
@@ -2631,7 +2631,7 @@ End
 #DOC 332
 N THILONENNE~
 C 7 L 0
-KW THILONENNE NANNY_THILONENNE ALVAKI~
+KW THILONENNE NEWBIE_THILONENNE ALVAKI~
 SY ~
 TX .
  ------------------------------------------------------------------------------
@@ -2793,7 +2793,7 @@ TX .
       meal and lodging.  Just don't be surprised when you wake up one
       morning to find that your tent is the only one left.
 
-Author's Note:  Some of these are roles played by players of The Twilight zone.
+Author's Note:  Some of these are roles played by players of The Isles.
                 If you wish to play a role that is currently not being
                 played, please contact an admin.
 ~
@@ -2892,7 +2892,7 @@ TX .
         towns and mountainous terrain good for hunting, gathering and
         war.  War is probably the most abundant raw material on the
         Mainland, there are always one or two factions declaring war on
-        another few.  The Twilight zone benifit from their relative peace, while
+        another few.  The Isles benifit from their relative peace, while
         the Land of the Tyrants is in constant conflict with itself.
         Dark magicians, vile knights and evil warmongers seem to populate
         the land more than calm, civilized folk.  The constantly overcast

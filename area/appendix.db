@@ -5547,27 +5547,6 @@ C 11
 Va 1000 0 0 0
 END
 
-
-#PROP
-Nest 0
-V 34
-N thin wool belt~
-S a thin wool belt~
-D
-A thin belt crafted from wool is coiled up on the ground.
-~
-E 0
-W 2049
-WL -1
-I 13
-Wt 1
-L 0
-Sz 20
-T -1
-C 1
-Va 0 0 0 0
-END
-
 Scene 18040
 Scene 15100
 
@@ -5744,7 +5723,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 2147320035 2147483647 0 1
+Va 2147309274 2147483647 0 1
 END
 
 

@@ -1413,35 +1413,35 @@ char *connect_string( int c )
 {
     switch ( c )
     {
-            case CON_ZEDITOR: return "EDITING: zones";
-            case CON_REDITOR: return "EDITING: scenes";
-            case CON_AEDITOR: return "EDITING: actors";
-            case CON_OEDITOR: return "EDITING: objects";
-            case CON_SEDITOR: return "EDITING: scripts";
-            case CON_HEDITOR: return "EDITING: helps";
-            case CON_PLAYING: return "Playing the game.";
-         case CON_SHOW_TITLE: return "At the title screen.";
-          case CON_READ_MOTD: return "Reading the login message.";
-          case CON_STAT_MENU: return "At the Stat Mod menu.";
-           case CON_STAT_STR: return "STAT: Modifying str.";
-           case CON_STAT_INT: return "STAT: Modifying int.";
-           case CON_STAT_WIS: return "STAT: Modifying wis.";
-           case CON_STAT_DEX: return "STAT: Modifying dex.";
-           case CON_STAT_CON: return "STAT: Modifying con.";
-           case CON_STAT_AGE: return "STAT: Selecting new age.";
-          case CON_STAT_SIZE: return "STAT: Selecting a height.";
-   case CON_CONFIRM_NEW_NAME: return "Confirming a new name.";
-   case CON_GET_NEW_PASSWORD: return "Choosing a new password.";
+            case NET_ZEDITOR: return "EDITING: zones";
+            case NET_REDITOR: return "EDITING: scenes";
+            case NET_AEDITOR: return "EDITING: actors";
+            case NET_OEDITOR: return "EDITING: objects";
+            case NET_SEDITOR: return "EDITING: scripts";
+            case NET_HEDITOR: return "EDITING: helps";
+            case NET_PLAYING: return "Playing the game.";
+         case NET_SHOW_TITLE: return "At the title screen.";
+          case NET_READ_MOTD: return "Reading the login message.";
+          case NET_STAT_MENU: return "At the Stat Mod menu.";
+           case NET_STAT_STR: return "STAT: Modifying str.";
+           case NET_STAT_INT: return "STAT: Modifying int.";
+           case NET_STAT_WIS: return "STAT: Modifying wis.";
+           case NET_STAT_DEX: return "STAT: Modifying dex.";
+           case NET_STAT_CON: return "STAT: Modifying con.";
+           case NET_STAT_AGE: return "STAT: Selecting new age.";
+          case NET_STAT_SIZE: return "STAT: Selecting a height.";
+   case NET_CONFIRM_NEW_NAME: return "Confirming a new name.";
+   case NET_GET_NEW_PASSWORD: return "Choosing a new password.";
                         case
-    CON_CONFIRM_NEW_PASSWORD: return "Confirming a new password.";
-         case CON_SHOW_INTRO: return "Reading the gen intro.";
-      case CON_CHAR_GEN_NAME: return "Entering a name.";
-     case CON_CHAR_GEN_EMAIL: return "Entering an email.";
-          case CON_GEN_RACES: return "Choosing race.";
-       case CON_CHAR_GEN_SEX: return "Choosing sex.";
-           case CON_GET_NAME: return "Typing a name.";
-   case CON_GET_OLD_PASSWORD: return "Entering a password.";
-    case CON_CHAR_GEN_RACE_CONFIRM: return "Confirming a race.";
+    NET_CONFIRM_NEW_PASSWORD: return "Confirming a new password.";
+         case NET_SHOW_INTRO: return "Reading the gen intro.";
+      case NET_CHAR_GEN_NAME: return "Entering a name.";
+     case NET_CHAR_GEN_EMAIL: return "Entering an email.";
+          case NET_GEN_RACES: return "Choosing race.";
+       case NET_CHAR_GEN_SEX: return "Choosing sex.";
+           case NET_GET_NAME: return "Typing a name.";
+   case NET_GET_OLD_PASSWORD: return "Entering a password.";
+    case NET_CHAR_GEN_RACE_CONFIRM: return "Confirming a race.";
                      default: return "?? Connection ??";
     }
 }

@@ -1,0 +1,672 @@
+
+
+#DOC 89
+N APPLICATION_NOTE_RHETORIC~
+C 10 L 0
+KW APPLICATION_NOTE_RHETORIC~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  Individual applications vary, but we suggest including some or all of the
+  following items:
+
+   o The reason you want to participate in the The Isles: Dreams of Kltara.
+   o Where you found out about us.
+   o What other mud(s) or bbs(es) you frequent.
+   o If you are an administrator on any muds.                     *REQUIRED*
+   o If you have ever been an immortal on any mud run by Locke.   *REQUIRED*
+   o Comments or suggestions.
+
+ Your application also REQUIRES information specific to how you are planning
+ to develop and play your character.  If this is the first time you have played
+ the The Isles: Dreams of Kltara, you may simply describe certain mannerisms and facets of your
+ character's personality.  If your character has special qualities or any sort
+ of historical background, please include this also..
+
+                  *IMPORTANT TIPS ON WRITING YOUR HISTORY*
+ Your history will no doubt change once you get an idea of how the game works.
+ Just remember that you are not a prince, noble, great warrior, magician or
+ anything!  You start out as a commoner; you must earn your respect and titles!
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 90
+N APPLICATION_REQUIREMENTS~
+C 10 L 0
+KW 'APPLICATION REQUIREMENTS'~
+SY ~
+TX .
+You must fill out all the information required before submitting a
+character for approval.  Submission does not gaurantee approval.
+
+Since your character is not ready for submission, one of the following
+must be incorrectly entered:
+
+ You must choose a name.
+ You must create ALL of your descriptions.
+ You must supply an email address.
+ You must choose your extended keywords.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 91
+N CSEDITS~
+C 10 L 0
+KW -~
+SY ~
+TX .
+The credits command shows you more information about this software.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 92
+N FAREWELL~
+C 10 L -1
+KW FAREWELL~
+SY ~
+TX .
+
+If I wanted realism, I'd go outside.
+--Painkiller, Hidden Worlds
+ 
+Tut, tut, thou art all ice, thy kindness freezeth!
+-- William Shakespeare, King Richard III
+ 
+Fare thee well!
+ 
+--
+nimud.divineright.org:5333
+ 
+ 
+        ()    _      _      _      _      _      _      _      _
+   _____/|___/ )____/ )____/ )____/ )____/ )____/ )____/ )____/ )___
+  <)___  |  / /----/ /----/ /----/ /--- / /----/ /----/ /----/ /-   \
+  \(---\ |_/ /____/ /____/ /____/ /____/ /____/ /____/ /____/ /_____/
+        \|(_/    \_/    \_/    \_/    \_/    \_/    \_/    \_/   \/
+        ()
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 94
+N IMOTD~
+C 10 L 3
+KW IMOTD~
+SY ~
+TX .
+----[IMMORTALS]---------------------------------------------------
+ 
+The immortal bulletin board is in room 2, the bug board in room 1.
+ 
+Areas are backed up weekly.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 95
+N MENU_FAREWELL~
+C 10 L 0
+KW MENU_FAREWELL~
+SY ~
+TX .
+Return again, traveler!
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 96
+N MOTD~
+C 10 L 0
+KW MOTD~
+SY ~
+TX +-------------------------------------------------+
+| _       __________    __________  __  _________ |
+|| |     / / ____/ /   / ____/ __ \/  |/  / ____/ |
+|| | /| / / __/ / /   / /   / / / / /|_/ / __/    |
+|| |/ |/ / /___/ /___/ /___/ /_/ / /  / / /___    |
+||__/|__/_____/_____/\____/\____/_/  /_/_____/    |
++-------------------------------------------------+
+|  Now entering Tyselorrd: Land of the Tyrants    |
++-------------------------------------------------+
+ Please vote for us: 
+ http://www.topmudsites.com/vote-locke27.html
+
+Press return to enter the game:
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 97
+N NEWBIE_AGE~
+C 10 L 0
+KW NEWBIE_AGE~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  Age is merely a time constraint.  Time, on The Isles, is an absolute
+  occurance.  Dates advance at a rate of one game year per 30 real days.
+  An hour of game time is roughly five real minutes, a day is two hours.
+
+  Your age should reflect your descriptions.  If you are battle hardened,
+  you are probably younthful but not young.  If you are full of life, spry
+  and dapper, you are probably just finished with maturing (this is what
+  your character is defaulted to).  If you are decrepit, sickly or greying,
+  you are probably middle-aged or perhaps elderly.  We suggest you play
+  a youthful, vigorous character; but the decision is up to you.
+
+  ** All ages are checked; if you choose unreasonably, it will be changed. **
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 98
+N NEWBIE_APPLY~
+C 10 L 0
+KW NEWBIE_APPLY NEWBIE_AWAITING_APPLY~
+SY ~
+TX .
+Submissions for new characters are usually reviewed within 24 hours.
+If you submit an unacceptible character, your character will be
+rejected with a message and you will be given the opportunity to
+resubmit a revised version.
+ 
+In the meantime, you have 24 in-game hours to review the MUD, go
+through tutorials, and get a general feel for things.
+ 
+Enjoy!
+ 
+Press return:
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 99
+N NEWBIE_CONSTITUTION~
+C 10 L 0
+KW NEWBIE_CONSTITUTION~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  Constitution is how brazen or durable a person is.  It is this endurance
+  which is complemented by resistance to system shocks, attacks and other
+  life draining experiences.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 100
+N NEWBIE_DESCRIPTION~
+C 10 L 0
+KW NEWBIE_DESCRIPTION~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+    The main description is displayed when a person looks at you, and is
+    displayed only to that person.  Following the main description is a
+    generated list of items, in paragraph format, as well as other pertinent
+    information such as position, posture, height and status, so mention
+    NONE of these things in your main description.
+
+Example of a proper description:
+
+   The dwarf is stocky and muscular.  His hair is a flowing mane of reddish
+brown locks, which have been tied up with small strips of leather and cloth
+into exotic braids.  He has grown a haughty beard that is a deep red color,
+much more red than his hair.  He has piercing blue eyes and a thick mustache.
+
+Note:
+
+ * The description is between 4 and 10 lines in length.
+ * It is entirely PHYSICAL, and does not refer to emotions or attitudes.
+ * It contains no measurements, estimated size differences or comparisons.
+ * Nor does the description compare the individual to the onlooker.
+ * It uses correct grammar, spelling and punctuation.
+ * It does not contain mention of clothing such as cloaks, hats, armor or
+   weapons, nor does it refer to jewelry or other items.
+
+   ** Make sure your description is acceptable, or you will be rejected. **
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 101
+N NEWBIE_DEXTERITY~
+C 10 L 0
+KW NEWBIE_DEXTERITY~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  Thieves, vagabonds, weaklings and acrobats can all benefit from the correct
+  amount of aloofness.  Dexterity also effects one's combat ability and is
+  a requirement for certain skills.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 102
+N NEWBIE_EMAIL~
+C 10 L 0
+KW NEWBIE_EMAIL~
+SY ~
+TX .
+ 
+ ------------------------------------------------------------------------------
+        Your email address *MUST* be supplied in order to play here!
+    Since certain rules apply to multiplaying, multiple characters and
+    other similar situations, email addresses are used in verification.
+    Your email address is visible only to the administration, and not to
+    any other players in any fashion.
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 103
+N NEWBIE_GEN_MENU_HEADER~
+C 10 L 0
+KW NEWBIE_GEN_MENU_HEADER~
+SY ~
+TX .
+******************************
+*     C h a r a c t e r      *  You are required to read the documentation
+*    G e n e r a t i o n     *  before submitting a character for approval.
+******************************
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 104
+N NEWBIE_HEIGHT~
+C 10 L 0
+KW NEWBIE_HEIGHT~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  You are now manipulating your height.  Height is measured on The Isles in
+  a unit called handspans.  A handspan is two halfspans.  For convenience,
+  we'll let you know that a halfspan is roughly one quarter of a foot, so
+  three feet would be twelve halfspans.
+
+  Your height should reflect your descriptions.  If you are 'a small drev'
+  don't make yourself tall for a Drev.
+
+   ** Your size will be checked and set accordingly if you are incorrect. **
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 105
+N NEWBIE_INTELLIGENCE~
+C 10 L 0
+KW NEWBIE_INTELLIGENCE~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  Intelligence is the power of the mind, which befits gemmasters and studiers
+  of other arcane lore.  Intelligence also affects a character's overall
+  adeptness at spells, as well as spell effectiveness and magickal ability.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 106
+N NEWBIE_INTRO~
+C 10 L 0
+KW NEWBIE_INTRO~
+SY ~
+TX .
+Welcome to The Path and the world of Tyselorrd.  Please take your time
+getting to know the place.  Multiplaying is discouraged.  Player killing is
+discouraged, but allowed.  Enjoy the game, we have many adventures here,
+some obvious, and some hidden.  
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 107
+N NEWBIE_KEYWORDS~
+C 10 L 0
+KW NEWBIE_KEYWORDS~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+    Your extended keyword set should include all words in your long and
+    short descriptions, your race, or any other pertinent characteristics
+    taken directly from your descriptions.  Exclude words like 'the' 'and'
+    or your actual name from these keywords.  Grammar is not important since
+    this is merely used as a list of optional names which allow your character
+    to be identified and accessed by other characters who do not necessarily
+    know your name.  Do not be misleading.
+
+Example:
+
+You have a short description of "the dark-haired dwarven man".
+Your long description is "A dark-haired male dwarf is standing here."
+
+A good set of extended keywords would be (all inclusive):
+dark dark-haired dwarven man male dwarf
+
+   ** You probably would not be rejected for a bad selection of keywords, **
+   ** however, your keywords would be modified to fit your descriptions   **
+   ** more directly if they are not acceptable.  Please don't be overly   **
+   ** lengthy with this.  Four to six keywords are fine.                  **
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 108
+N NEWBIE_LOGIN_MENU_HEADER~
+C 10 L 0
+KW NEWBIE_LOGIN_MENU_HEADER~
+SY ~
+TX .
+ .  
+[N] create a new character
+[C] connect to your character
+[e] Enter the game
+[w] See who's online
+[d] See a list of connected players
+[r] read the docs
+[x] exit / close connection
+ 
+send comments/questions to theisles@mugs.net
+http://www.nimud.org/isles
+just want to look around? login as 'guest'
+ 
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 109
+N NEWBIE_LONG~
+C 10 L 0
+KW NEWBIE_LONG~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+   Your long description is displayed when a person looks in the room, and
+   is displayed only when you are standing, unmounted.  Your long description
+   should mainly describe your demeanor, and should be given as if your
+   character was NOT sitting, sleeping, riding something, dying, fighting
+   or otherwise occupied.  You should not refer to emotions, attitudes or
+   otherwise. It is used only as a physical description of your character
+   at a quick glance, and a summation of your character's posture.
+
+ DO NOT PERFORM ACTIONS OR REFER TO SPECIFIC OBJECTS IN YOUR LONG DESCRIPTION.
+
+Here are some good examples of long descriptions:
+
+A green-eyed buckawn slouches here.
+A tall dark-haired man of wiry build stands here.
+A pink-skinned drev, who is standing here, scratches himself absently.
+A muscular dwarf leans on the handle of his weapon.
+An old human shifts his weight from foot to cane, alternatively.
+
+ ** Make sure your long description is acceptable, or you will be rejected. **
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 110
+N NEWBIE_NAME~
+C 10 L 0
+KW NEWBIE_NAME~
+SY ~
+TX .
+---------------------------------------------------------------------
+Please choose a name on The Path that is suitable for fiction or
+fantasy.  Names are one word, not two, and should not be obscene or
+insulting, degrading to women, etc.  Characters with names like
+"Snoopy" and "Hercules" offset the mentality of other roleplayers
+when they are used.  For this reason, we strongly caution your choice
+of name.  
+
+ 
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 111
+N NEWBIE_RACES~
+C 10 L 0
+KW NEWBIE_RACES~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+     Choose one of the following races by typing its name, please note that
+        you will receive information about the race when you choose it.
+          Asterisks denote races that are for advanced players only.
+
+        Human Races            Related Races             Unique Races
+       -------------          ---------------          ----------------
+
+           Human                Thilonenne               *Buckawn
+           Dwarf                Trioskenne               *Drev
+           Giant               *Dakonenne
+        
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 112
+N NEWBIE_RESUBMIT~
+C 10 L 0
+KW NEWBIE_RESUBMIT~
+SY ~
+TX .
+Your character was deemed unacceptible and has therefore been rejected.
+The notice above should give you clues to improving, revising and
+resubmitting your character.  Your resubmitted version will be reviewed
+within 24 hours and either rejected or approved.
+
+Press return: ~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 113
+N NEWBIE_RESUBMIT_WARNING~
+C 10 L 0
+KW NEWBIE_RESUBMIT_WARNING~
+SY ~
+TX .
+                             ************
+                             * Warning! *
+                             ************
+
+By answering "yes" to the following question clears your character's skills
+and stats, possessions and standings, starting a BRAND NEW CHARACTER with
+the same basic information.  DO THIS ONLY IF YOU KNOW WHAT YOU ARE DOING
+and want to start a NEW CHARACTER by modifying an existing one.
+
+Don't do this if you just want to tweak a description or update your email:
+                ask an immortal to do this for you!
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 114
+N NEWBIE_SEX~
+C 10 L 0
+KW NEWBIE_SEX~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+    You may be male, female or neuter.  It is not recommended that you
+    choose 'neuter' unless you have a valid reason that is approved by the
+    administration.
+
+   ** If you choose neuter, or you choose an incorrect sex and submit your **
+   ** application, your sex will be altered to correspond with your        **
+   ** descriptions, any history you may supply, and your demeanor.         **
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 115
+N NEWBIE_SHORT~
+C 10 L 0
+KW NEWBIE_SHORT~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+   Your "short" description is displayed in place of your character's name.
+   On many muds, your name is known to everyone, and you are recognized
+   immediately as soon as you enter the room.  Here, however, your name is
+   obscured from those whom you wish it unknown.  If you want to divulge your
+   identity, you may do so, but to add to realism and aid roleplay, short
+   descriptions of your character are used.
+
+ Short Description Creation Checklist:
+
+ * These descriptions should start with 'the' and not with 'a' or 'an'.
+ * You should include your race in your short description if you are nonhuman.
+ * Do not use the words 'elf' or 'elven' if you are a Thilonenne or otherwise.
+ * Do not refer to your occupation, interests, attitudes or emotions.
+ * DO NOT MENTION OBJECTS IN YOUR SHORT DESCRIPTION.
+
+Here are some examples of good short descriptions:
+
+the green eyed dwarf      the tall, thin dakon       the wiry female buckawn
+the ugly drev             the golden-haired man      the gaunt thilonenne
+the short-haired woman    the velvet-skinned drev    the trioskenne maiden
+
+ ** Make sure your short description is acceptable, or you will be rejected. **
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 116
+N NEWBIE_STAT_MENU_HEADER~
+C 10 L 0
+KW NEWBIE_STAT_MENU_HEADER~
+SY ~
+TX .
+ *************
+ * Stat Menu *  You may modify your statistics to suit your character better.
+ *************
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 117
+N NEWBIE_STRENGTH~
+C 10 L 0
+KW NEWBIE_STRENGTH~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  Strength is primarily the requirement of warriors, assassins, soldiers,
+  mercenaries and the like; it also aids dungeoneers in forcing doors and
+  other skills which require brawn.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 118
+N NEWBIE_WISDOM~
+C 10 L 0
+KW NEWBIE_WISDOM~
+SY ~
+TX .
+ ------------------------------------------------------------------------------
+  Wisdom is the will power of the mind, which befits gemmasters and studiers
+  of other arcane lore.  It also affects a character's overall adeptness at
+  spells, as well as spell effectiveness and magickal ability.
+
+~
+IT ~
+EX ~
+SA ~
+End
+
+#DOC 119
+N WELCOME~
+C 10 L 0
+KW WELCOME~
+SY ~
+TX .
+This game is based partially on statistics and mostly on action.
+Be careful not to take actions that turn you into a statistic.
+ 
+Press return to begin:
+~
+IT ~
+EX ~
+SA ~
+End
+#$
+#$

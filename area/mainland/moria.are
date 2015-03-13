@@ -1172,11 +1172,11 @@ Wt 10
 C 3000
 O ~
 V 15 4 2 0
-ED runes~
-The runes says : Funthark.
-~
 ED staff oak~
 You see it has some sort of runes on it.
+~
+ED runes~
+The runes says : Funthark.
 ~
 End
 
@@ -1516,6 +1516,9 @@ M 0
 W 0
 T 0
 O ~
+ED bushes~
+Small crippled bushes desperately trying to grow south.
+~
 ED sign~
 The sign says:
 
@@ -1532,9 +1535,6 @@ The sign says:
                  | |
                  | |
                  | |
-~
-ED bushes~
-Small crippled bushes desperately trying to grow south.
 ~
 Dr 0 0 0 19010
 ~

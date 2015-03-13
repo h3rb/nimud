@@ -722,7 +722,7 @@ void weather_update( void )
     {
         for ( d = connection_list; d != NULL; d = d->next )
         {
-            if ( d->connected == CON_PLAYING
+            if ( d->connected == NET_PLAYING
               && IS_OUTSIDE(d->character)
               && IS_AWAKE(d->character) )
             send_to_actor( buf, d->character );

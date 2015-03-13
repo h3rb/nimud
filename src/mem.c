@@ -45,7 +45,7 @@
 #include "defaults.h"
 
 /*
- * From nanny.c
+ * From newbie.c
  */
 
 extern int guestnumber;
@@ -310,7 +310,7 @@ CONNECTION_DATA *new_connection_data( void )
     *dnew               = connection_zero;
     dnew->host          = str_dup( "" );
     dnew->connection    = -1;
-    dnew->connected     = CON_SHOW_TITLE;
+    dnew->connected     = NET_SHOW_TITLE;
     dnew->lingua        = 0;
     dnew->showstr_head  = NULL;
     dnew->showstr_point = NULL;

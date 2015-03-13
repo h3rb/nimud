@@ -723,7 +723,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
         note_attach( ch );
         free_string( ch->pnote->subject );
         ch->pnote->subject = str_dup( argument );
-        if ( ch->desc->connected <= CON_PLAYING ) send_to_actor( "Ok.\n\r", ch );
+        if ( ch->desc->connected <= NET_PLAYING ) send_to_actor( "Ok.\n\r", ch );
         return;
     }
  
@@ -732,7 +732,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
         note_attach( ch );
         free_string( ch->pnote->to_list );
         ch->pnote->to_list = string_proper( str_dup(argument) );
-        if ( ch->desc->connected <= CON_PLAYING ) send_to_actor( "Ok.\n\r", ch );
+        if ( ch->desc->connected <= NET_PLAYING ) send_to_actor( "Ok.\n\r", ch );
         return;
     }
  
@@ -850,7 +850,7 @@ void cmd_note( PLAYER_DATA *ch, char *argument )
         pnote           = ch->pnote;
         ch->pnote       = NULL;
         save_board( bnum );
-        if ( ch->desc->connected <= CON_PLAYING ) send_to_actor( "Ok.\n\r", ch );
+        if ( ch->desc->connected <= NET_PLAYING ) send_to_actor( "Ok.\n\r", ch );
         act( "$n tacks a note up on $p.", ch, prop, NULL, TO_SCENE );
         return;
     }

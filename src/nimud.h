@@ -596,10 +596,10 @@ struct help_data
 #define HELP_CLASS_INFORMATION     7
 #define HELP_CLASS_BUILDER         8
 #define HELP_CLASS_IMMORTAL        9
-#define HELP_CLASS_NANNY           10
+#define HELP_CLASS_NEWBIE           10
 #define HELP_CLASS_IMC             11
 #define HELP_CLASS_TIPS            12
-#define MAX_HELP_CLASS             HELP_CLASS_NANNY + 3
+#define MAX_HELP_CLASS             HELP_CLASS_NEWBIE + 3
 
 struct help_class
 {
@@ -3421,7 +3421,7 @@ COMMAND( cmd_trample   );
 COMMAND( cmd_dismount  );
 
 /*****************************************************************************
- * Variable and functional declarations for file nanny.c                     *
+ * Variable and functional declarations for file newbie.c                     *
  * Handles all new-connection and new-character code.                        *
  *****************************************************************************/
 
@@ -3431,8 +3431,8 @@ void    stat_menu       args( ( PLAYER_DATA *ch, char *argument ) );
 void    stat_menu_choice  args( ( PLAYER_DATA *ch, char *argument ) );
 void    actor_gen       args( ( PLAYER_DATA *ch, char *argument ) );
 
-void    nanny              args( ( CONNECTION_DATA *d, char *argument ) );
- /* Omitted: nanny_check          */
+void    newbie              args( ( CONNECTION_DATA *d, char *argument ) );
+ /* Omitted: newbie_check          */
  /* Omitted: check_parse_name     */
  /* Omitted: check_playing        */
  /* Omitted: check_reconnect      */

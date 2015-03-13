@@ -3456,7 +3456,7 @@ return; }
            || strstr( pHelp->text, argument )
            || (IS_IMMORTAL(ch) && strstr( pHelp->immtext, argument )) ) {
             if ( !ch->desc || CONNECTED(ch->desc)
-               || ch->desc->connected == CON_DOC_MENU ) {
+               || ch->desc->connected == NET_DOC_MENU ) {
                   fFound = TRUE;
                   strcat( b, pHelp->name );
                   if ( !MTD(pHelp->keyword) ) {
@@ -3492,7 +3492,7 @@ return; }
         if ( !str_cmp( argall, pHelp->name ) )
         {  fShowed=TRUE;
             if ( !ch->desc || CONNECTED(ch->desc)
-              || ch->desc->connected == CON_DOC_MENU )
+              || ch->desc->connected == NET_DOC_MENU )
             {
                 char b[MAX_STRING_LENGTH];
 
@@ -3502,7 +3502,7 @@ return; }
                 first_arg( pHelp->keyword, b, FALSE ); 
 */
 		if ( pHelp->class != HELP_CLASS_TIPS
-                  && pHelp->class != HELP_CLASS_NANNY ) {
+                  && pHelp->class != HELP_CLASS_NEWBIE ) {
                 sprintf(b, "\n%s (%s)\n",
                     pHelp->name, help_class_table[pHelp->class].name );
 
@@ -3588,7 +3588,7 @@ return; }
         if ( is_prename( argall, pHelp->name ) || is_prename( argall, pHelp->keyword )  )
         {
             if ( !ch->desc || CONNECTED(ch->desc)
-              || ch->desc->connected == CON_DOC_MENU )
+              || ch->desc->connected == NET_DOC_MENU )
             {
                 char b[MAX_STRING_LENGTH];
 
@@ -3598,7 +3598,7 @@ return; }
                 first_arg( pHelp->keyword, b, FALSE ); 
 */
 		if ( pHelp->class != HELP_CLASS_TIPS
-                  && pHelp->class != HELP_CLASS_NANNY ) {
+                  && pHelp->class != HELP_CLASS_NEWBIE ) {
                 sprintf(b, "\n%s (%s)\n",
                     pHelp->name, help_class_table[pHelp->class].name );
 
@@ -3830,7 +3830,7 @@ void cmd_who( PLAYER_DATA *ch, char *argument )
         continue;
 
 #ifdef NOWHO_BUILDERS
-    if ( d->connected != CON_PLAYING && !IS_IMMORTAL(ch) ) continue;
+    if ( d->connected != NET_PLAYING && !IS_IMMORTAL(ch) ) continue;
 #endif
 
 	wch   = ( d->original != NULL ) ? d->original : d->character;
@@ -3838,7 +3838,7 @@ void cmd_who( PLAYER_DATA *ch, char *argument )
     if ( IS_NPC(wch) ) continue;
 
 /* editing imms are invis to morts */
-    if ( d->connected != CON_PLAYING && !IS_IMMORTAL(ch) ) continue;
+    if ( d->connected != NET_PLAYING && !IS_IMMORTAL(ch) ) continue;
 
     if ( PC(wch,level) < iLevelLower
         ||   PC(wch,level) > iLevelUpper
@@ -3853,7 +3853,7 @@ void cmd_who( PLAYER_DATA *ch, char *argument )
          char doe[MAX_STRING_LENGTH];
          gMatch++;
 
-         if ( d->connected != CON_PLAYING )
+         if ( d->connected != NET_PLAYING )
          sprintf( doe, " -Creating- " );
          else
          {

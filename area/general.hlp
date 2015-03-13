@@ -534,22 +534,13 @@ N NIMUD~
 C 0 L -1
 KW NIMUD NIM5~
 SY ~
-TX .
-System runs a proprietary server NiM5 on a Debian build.
- 
-NiM5 employs the use of a unique scripting language which
-provides a live development platform and is the basis
-for the main game interaction.
- 
-In compliance with the DikuMUD license:
-Sebastian Hammer (quinn@freja.diku.dk)
-Michael Seifert (seifert@freja.diku.dk)
-Hans Henrik St{rfeldt (bombman@freja.diku.dk)
-Tom Madsen (noop@freja.diku.dk)
-Katja Nyboe (katz@freja.diku.dk)
- 
-Additional contributions:
-See "help thanks"
+TX NiMUD is a periodically updated MUD software that has been in production
+since 1992.  It is released under the Artistic License 2.0 and its
+documentation, help files, NIMscripts and area files are distributed under
+CCA-3.0 BY-SA licenses.  It was chiefly engineered by Locke, the pseudonum
+of Herb Gilliland.  Parts of the editor are (c) 1993 Herb Gilliland and
+Chris Woodward.  A long, long time ago it was based on Merc 2.0c; and is
+released in good faith under its current licensing conditions.  
 ~
 IT ~
 EX ~
@@ -791,8 +782,10 @@ Brandi Dunn, Krista Bucholtz, Susanne Bergh, Becky Gerdel,
 Sarah Kurten, Emilie Duport and Herb Gilliland.
 Elfwood URL: http://elfwood.lysator.liu.se/
  
-To Rogel and Samson of IMC2 v4.24b - Rogel especially for his work on
+To Rogel  of IMC2 v4.24b - Rogel especially for his work on
 the BSD port; the crypt function is fixed.
+ 
+Newt of Imperium Gothique for collaborating on the combat routines.
 ~
 IT ~
 EX ~
@@ -834,12 +827,13 @@ N VERSION~
 C 0 L 0
 KW VERSION SYSTEM NIMUD~
 SY ~
-TX .
-System runs a proprietary server NiM5 on a Debian build.
- 
-NiM5 employs the use of a unique scripting language providing
-a live development platform and is the basic structure of
-the main game interaction.
+TX This version of NiMUD reflects 12800 man-hours of labor since 1993 when
+the project officially began.  Most of the work took place in the 1990s, but
+there have been a few years of work in the following years.  Including
+scripts, its source code is approximately 82,000 lines in length.  The time
+of the last build is usually shared during the login sequence, or is
+viewable by the administrators using "time full" (which displays server
+uptime).  
 ~
 IT ~
 EX ~

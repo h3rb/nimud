@@ -297,8 +297,8 @@ Sz 4
 K 0 E 1
 O ~
 AP 5 1 2 18 4
-Sc 501
 Sc 500
+Sc 501
 End
 
 #501
@@ -419,9 +419,9 @@ Sz 24
 K 0 E 84
 O ~
 AP 15 15 15 15 15
-Sc 500
-Sc 21
 Sc 20
+Sc 21
+Sc 500
 At 0 10 16 10
 End
 
@@ -806,8 +806,8 @@ Shop
  Str4
  Sorry, we open at %s.~
 EndShop
-Sc 544
 Sc 600
+Sc 544
 At 0 10 23 10
 End
 
@@ -1002,9 +1002,9 @@ K 0 E 1
 O ~
 AP 15 15 15 15 15
 At 0 10 11 4
-Sk 10 'dodge'
-Sk 10 'edged'
 Sk 10 'parry'
+Sk 10 'edged'
+Sk 10 'dodge'
 End
 
 #549
@@ -1028,8 +1028,8 @@ Sz 24
 K 0 E 1
 O ~
 AP 15 15 15 15 15
-Sc 550
 Sc 549
+Sc 550
 At 0 10 16 10
 End
 
@@ -1332,8 +1332,8 @@ Shop
  Str4
  Sorry, we're open from %s to %s.~
 EndShop
-Sc 602
 Sc 600
+Sc 602
 At 0 10 25 2
 End
 

@@ -1021,7 +1021,7 @@ void string_edit( PLAYER_DATA *ch, char **pString )
 
 void string_append( PLAYER_DATA *ch, char **pString )
 {
-    if ( ch->desc->connected <= CON_PLAYING )
+    if ( ch->desc->connected <= NET_PLAYING )
     send_to_actor( "_________________________[Entering APPEND Mode]__________________________\n\r", ch );
     send_to_actor( " Type \\h on a new line for help, terminate with a ~ or @ on a blank line.\n\r", ch );
     send_to_actor( "_________________________________________________________________________\n\r", ch );
@@ -1191,7 +1191,7 @@ void string_add( PLAYER_DATA *ch, char *argument )
         {
             if ( IS_IMMORTAL(ch) ) cmd_zsave( ch, "cha" ) ;
             ch->desc->pString = NULL;
-            if ( ch->desc->connected > CON_PLAYING ) 
+            if ( ch->desc->connected > NET_PLAYING ) 
               send_to_actor( "Press return to continue: ", ch );
             return;
         }
@@ -1222,7 +1222,7 @@ void string_add( PLAYER_DATA *ch, char *argument )
         if ( !str_cmp( arg1, "done" ) )
         {
           ch->desc->pString = NULL;
-          if ( ch->desc->connected > CON_PLAYING ) 
+          if ( ch->desc->connected > NET_PLAYING ) 
             send_to_actor( "Press return to continue: ", ch );
           return;
         }
@@ -1236,7 +1236,7 @@ void string_add( PLAYER_DATA *ch, char *argument )
     if ( *argument == '~' || *argument == '@' )
     {
         ch->desc->pString = NULL;
-          if ( ch->desc->connected > CON_PLAYING ) 
+          if ( ch->desc->connected > NET_PLAYING ) 
             send_to_actor( "Press return to continue: ", ch );
         return;
     }

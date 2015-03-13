@@ -172,8 +172,8 @@ bool    write_to_descr_nice   args( ( CONNECTION_DATA *d ) );
 /*
  * Other local functions (OS-independent).
  */
-void    nanny              args( ( CONNECTION_DATA *d, char *argument ) );
-void    nanny_check        args( ( CONNECTION_DATA *d ) );
+void    newbie              args( ( CONNECTION_DATA *d, char *argument ) );
+void    newbie_check        args( ( CONNECTION_DATA *d ) );
 bool    check_parse_name   args( ( char *name ) );
 bool    check_playing      args( ( CONNECTION_DATA *d, char *name ) );
 bool    check_reconnect    args( ( CONNECTION_DATA *d, char *name,
@@ -247,7 +247,7 @@ void save_copyover( void ) {
                 PLAYER_DATA * och = CH (d);
                 d_next = d->next; /* We delete from the list , so need to save this */
 
-                if (!d->character || d->connected > CON_PLAYING) /* drop those logging on */
+                if (!d->character || d->connected > NET_PLAYING) /* drop those logging on */
                 {
                 }
                 else
@@ -389,7 +389,7 @@ int main( int argc, char **argv )
      * New_connection analogue.
      */
     dcon.connection	= 0;
-    dcon.connected  = CON_SHOW_TITLE;
+    dcon.connected  = NET_SHOW_TITLE;
     dcon.host		= str_dup( "localhost" );
     dcon.outsize	= 2000;
     dcon.outbuf		= alloc_mem( dcon.outsize );
@@ -671,16 +671,16 @@ void process_input( void )
              {
              switch ( d->connected )
              {
-                 case CON_PLAYING: interpret( d->character, d->incomm ); break;
-                 case CON_ZEDITOR: zedit( d->character, d->incomm );     break;
-                 case CON_REDITOR: redit( d->character, d->incomm );     break;
-                 case CON_OEDITOR: oedit( d->character, d->incomm );     break;
-                 case CON_AEDITOR: aedit( d->character, d->incomm );     break;
-                 case CON_SEDITOR: sedit( d->character, d->incomm );     break;
-                 case CON_HEDITOR: hedit( d->character, d->incomm );     break;
-                 case CON_SPEDITOR: spedit( d->character, d->incomm );     break;
-                 case CON_SKEDITOR: skedit( d->character, d->incomm );     break;
-                          default: nanny( d, d->incomm );                break;
+                 case NET_PLAYING: interpret( d->character, d->incomm ); break;
+                 case NET_ZEDITOR: zedit( d->character, d->incomm );     break;
+                 case NET_REDITOR: redit( d->character, d->incomm );     break;
+                 case NET_OEDITOR: oedit( d->character, d->incomm );     break;
+                 case NET_AEDITOR: aedit( d->character, d->incomm );     break;
+                 case NET_SEDITOR: sedit( d->character, d->incomm );     break;
+                 case NET_HEDITOR: hedit( d->character, d->incomm );     break;
+                 case NET_SPEDITOR: spedit( d->character, d->incomm );     break;
+                 case NET_SKEDITOR: skedit( d->character, d->incomm );     break;
+                          default: newbie( d, d->incomm );                break;
              }
              }
 
@@ -688,7 +688,7 @@ void process_input( void )
               * Application process stuff.  Kludgy.
               */
              if ( d->character != NULL )
-                 nanny_check( d );
+                 newbie_check( d );
 
         d->incomm[0]    = '\0';
         }
@@ -1284,9 +1284,9 @@ void read_from_buffer( CONNECTION_DATA *d )
                   d->inbuf[0]='\0'; d->showing=0; return;
               }
           } else
-           if ( i >= d->showing && DC(d) != CON_GET_NEW_PASSWORD 
-            &&  DC(d) != CON_CONFIRM_NEW_PASSWORD 
-            &&  DC(d) != CON_GET_OLD_PASSWORD ) { 
+           if ( i >= d->showing && DC(d) != NET_GET_NEW_PASSWORD 
+            &&  DC(d) != NET_CONFIRM_NEW_PASSWORD 
+            &&  DC(d) != NET_GET_OLD_PASSWORD ) { 
 
                 if ( d->inbuf[i] == '\b' || d->inbuf[i] == 127 ) { char b[3]; b[0]='\b'; b[1]=' '; b[2]='\b';
                  write_to_connection( d->connection, b, 3 ); d->showing=i;
@@ -1528,14 +1528,14 @@ void display_interp(PLAYER_DATA *ch, const char * str )
                   {
                       switch (ch->desc->connected)
                       {
-                           case CON_ZEDITOR: sprintf( buf2, "Zone" );  break;
-                           case CON_REDITOR: sprintf( buf2, "Scene" ); break;
-                           case CON_OEDITOR: sprintf( buf2, "Prop" );  break;
-                           case CON_AEDITOR: sprintf( buf2, "Actor" ); break;
-                           case CON_SEDITOR: sprintf( buf2, "Script"); break;
-                           case CON_HEDITOR: sprintf( buf2, "Help" );  break;
-                           case CON_SKEDITOR:sprintf( buf2, "Skill");  break;
-                           case CON_SPEDITOR:sprintf( buf2, "Spell");  break;
+                           case NET_ZEDITOR: sprintf( buf2, "Zone" );  break;
+                           case NET_REDITOR: sprintf( buf2, "Scene" ); break;
+                           case NET_OEDITOR: sprintf( buf2, "Prop" );  break;
+                           case NET_AEDITOR: sprintf( buf2, "Actor" ); break;
+                           case NET_SEDITOR: sprintf( buf2, "Script"); break;
+                           case NET_HEDITOR: sprintf( buf2, "Help" );  break;
+                           case NET_SKEDITOR:sprintf( buf2, "Skill");  break;
+                           case NET_SPEDITOR:sprintf( buf2, "Spell");  break;
                                     default: buf2[0] = '\0';           break;
                       }
                   }
@@ -1552,31 +1552,31 @@ void display_interp(PLAYER_DATA *ch, const char * str )
 
                   switch (ch->desc->connected)
                   {
-                    case CON_ZEDITOR:
+                    case NET_ZEDITOR:
                     {
                         pZone = (ZONE_DATA *)ch->desc->pEdit;
                         sprintf( buf2, "%d", pZone != NULL ? pZone->vnum : 0 );
                         break;
                     }
-                    case CON_REDITOR:
+                    case NET_REDITOR:
                     {
                         pScene = ch->in_scene;
                         sprintf( buf2, "%d", pScene != NULL ? pScene->vnum : 0 );
                         break;
                     }
-                    case CON_AEDITOR:
+                    case NET_AEDITOR:
                     {
                         pActor = (ACTOR_INDEX_DATA *)ch->desc->pEdit;
                         sprintf( buf2, "%d", pActor  != NULL ? pActor->vnum  : 0 );
                         break;
                     }
-                    case CON_OEDITOR:
+                    case NET_OEDITOR:
                     {
                         pProp = (PROP_INDEX_DATA *)ch->desc->pEdit;
                         sprintf( buf2, "%d", pProp  != NULL ? pProp->vnum  : 0 );
                         break;
                     }
-                    case CON_HEDITOR:
+                    case NET_HEDITOR:
                     {
                         pHelp = (HELP_DATA *)ch->desc->pEdit;
                         sprintf( buf2, "%s", pHelp != NULL ? pHelp->name : "No Help Entry Selected - use hedit <vnum|list> to select" );
@@ -1943,7 +1943,7 @@ void stop_idling( PLAYER_DATA *ch )
 {
     if ( ch == NULL
     ||   ch->desc == NULL
-    ||   ch->desc->connected > CON_PLAYING
+    ||   ch->desc->connected > NET_PLAYING
     ||   ch->in_scene != get_scene_index( SCENE_VNUM_LIMBO ) )
 	return;
 

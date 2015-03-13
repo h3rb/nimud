@@ -802,11 +802,11 @@ M 0
 W 0
 T 0
 O ~
-ED smoke~
-The smoke is grey and is coming from the hole.
-~
 ED top of mountain~
 The top of the mountain is a large area with a hole in the middle.
+~
+ED smoke~
+The smoke is grey and is coming from the hole.
 ~
 Dr 0 0 0 17904
 You see the side of the mountain to the north.
@@ -965,15 +965,15 @@ M 0
 W 0
 T 0
 O ~
-ED tables~
-The tables are long and wide.  They are made of stone and obviously too heavy
-to move.
+ED beds~
+The beds are made of metal and rock.
 ~
 ED chairs~
 The chairs are made of stone and look very heavy.
 ~
-ED beds~
-The beds are made of metal and rock.
+ED tables~
+The tables are long and wide.  They are made of stone and obviously too heavy
+to move.
 ~
 R M 17905 6 100 1
 Dr 3 0 0 17910
@@ -997,15 +997,15 @@ M 0
 W 0
 T 0
 O ~
-ED tables~
-The tables are long and wide.  They are made of stone and are obviously to
-heavy to move.
+ED beds~
+The beds are made of metal and rock.
 ~
 ED chairs~
 The chairs are made of stone and look very heavy.
 ~
-ED beds~
-The beds are made of metal and rock.
+ED tables~
+The tables are long and wide.  They are made of stone and are obviously to
+heavy to move.
 ~
 R M 17905 6 100 1
 Dr 1 0 0 17910

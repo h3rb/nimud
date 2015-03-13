@@ -1,0 +1,5 @@
+[  708] Tozan: 'world' in this room should be 'word'
+[ 5223] Tozan: housewife is described as female but is wearing a satin dress 'on his body' and 'he is healthier than' me
+[ 5181] Tozan: the tobacconist shop has 'ceremic' jars, should be ceramic
+[ 7384] Tozan: foilage should be foliage
+[    5] Tozan: A crow's is distracted, but you fail to do it with any real damage.  

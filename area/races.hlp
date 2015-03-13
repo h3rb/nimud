@@ -1,6 +1,6 @@
 #HELPS
 
-0 HUMAN NANNY_HUMAN~
+0 HUMAN NEWBIE_HUMAN~
 .
  ------------------------------------------------------------------------------
    The human is the most average of all the races.  They are also the most
@@ -29,7 +29,7 @@ Humans suffer no penalties to their initial statistics.
 
 ~
 
-0 THILONENNE NANNY_THILONENNE ALVAKI~
+0 THILONENNE NEWBIE_THILONENNE ALVAKI~
 .
  ------------------------------------------------------------------------------
     Thilonenne are civilized forest-dwelling recluses.  They stand slightly
@@ -66,7 +66,7 @@ Thilonenne suffer penalties in strength and constitution.
 
 ~
 
-0 DAKONENNE NANNY_DAKONENNE~
+0 DAKONENNE NEWBIE_DAKONENNE~
 .
  ------------------------------------------------------------------------------
                    THIS RACE IS FOR ADVANCED PLAYERS ONLY.

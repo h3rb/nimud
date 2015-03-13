@@ -553,14 +553,14 @@ Wt 2
 C 2500
 O ~
 V 20 0 0 0
-ED leather~
-The leather wrapped around the potion is old and decayed, originating
-from an, to you, unknown creature.~
 ED potion clear~
 As you examine the potion more, you notice the oddities of this
 potion. When you look through it you notice strange things...
 The clear potion is certainly not of this world.
 ~
+ED leather~
+The leather wrapped around the potion is old and decayed, originating
+from an, to you, unknown creature.~
 End
 
 #15312
@@ -585,15 +585,15 @@ Wt 1
 C 500
 O ~
 V 0 0 0 0
-ED ritual men drawings~
-The drawing pictures people gathered round giant stone formations,
-worshipping a giant worm like creature.
-It seems they are sacrificing some of their own species.
-~
 ED scroll jhyfrdow~
 The scroll is titled 'jhyfrdow' and looks very old.
 As you examine it closer you notice primitive drawings of
 men doing some kind of a ritual.
+~
+ED ritual men drawings~
+The drawing pictures people gathered round giant stone formations,
+worshipping a giant worm like creature.
+It seems they are sacrificing some of their own species.
 ~
 End
 
@@ -1343,12 +1343,12 @@ M 0
 W 0
 T 0
 O ~
-ED pine tree trees pines~
-The all too quiet trees suggest that something roams these woods.
-~
 ED mountains~
 The mountains seems dark and all most alive, as they contrast against
 the sky.
+~
+ED pine tree trees pines~
+The all too quiet trees suggest that something roams these woods.
 ~
 R M 15309 10 100 1
 Dr 0 0 -1 15901
@@ -1728,20 +1728,20 @@ M 0
 W 0
 T 0
 O ~
-ED death rituals worms engraving picture~
-The pictures are depicting evil rituals.
-You see druids pouring blood over herbs on an altar like this one.
-There are people calling giant worms into existence with dark spells.
+ED stones g'harne monolith~
+The stones of G'harne tower fifteen feet over you.
+The giant stones are made of a material you haven't seen before.
+It resembles black marble, but somehow feels different.
 ~
 ED altar sacrifice~
 You move closer to examine the sacrifice altar of G'harne.
 The altar is about 3 feet high, 10 feet long and 4 feet wide.
 It has engraved pictures of death rituals and horrifying worms.
 ~
-ED stones g'harne monolith~
-The stones of G'harne tower fifteen feet over you.
-The giant stones are made of a material you haven't seen before.
-It resembles black marble, but somehow feels different.
+ED death rituals worms engraving picture~
+The pictures are depicting evil rituals.
+You see druids pouring blood over herbs on an altar like this one.
+There are people calling giant worms into existence with dark spells.
 ~
 Dr 3 0 -1 15337
 You see the ancient path and the wooden bridge here.

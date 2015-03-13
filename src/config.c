@@ -191,7 +191,7 @@ else
    if ( ch->exp_level > 0 ) 
    sprintf( buf2, "Prompt set to '%s'.\n\r", ch->prompt );
    else sprintf( buf2, "Prompt set.\n\r" );
-   if ( ch->desc->connected <= CON_PLAYING ) 
+   if ( ch->desc->connected <= NET_PLAYING ) 
    send_to_actor( buf2, ch );
 
    if (!IS_SET(ch->act2, PLR_PROMPT))
@@ -701,7 +701,7 @@ if ( IS_IMMORTAL(ch) )
             }
         }
 
-            if ( ch->desc->connected <= CON_PLAYING ) 
+            if ( ch->desc->connected <= NET_PLAYING ) 
     send_to_actor( buf, ch );
     }
 
