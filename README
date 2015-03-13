@@ -157,20 +157,6 @@ any WARRANTY expressed or implied.
 NiM5 contains hundreds of hours of work and you are benefitting, please
 keep our credits in your respective documentation.
 
-You must keep our contact email in your server software documentation,
-credits and help files; it is theisles@mugs.net or swervez@hotpop.com
-
-You may not release versions of this source code without express consent 
-from its author, Herb "Locke" Gilliland, who can be contacted at 
-the above email addresses; it is an important and relevant issue 
-to mention that NiM5 represents a new paradigm in multi-user gaming 
-terminology and vision, but yet is not a perfect piece of software and may 
-contain bugs which could have adverse effects.  We have done our best to 
-insure that no code contained herein could be considered "malicious" --
-but it is possible, through tampering, that the source could damage your 
-machine in some way.  It certainly hurts the social life (or helps,
-depending on how you look at it).
-
 You are encouraged to read the documentation contained in /NiM5/docs
 for more information on a variety of useful topics related to this 
 software and its functioning, including methods of debugging, extra 
@@ -178,11 +164,6 @@ features not implemented in the standard release, suggestions for
 development and tips for protecting yourself legally should you decide to 
 release a derived version of this software.  I should mention here
 that I am not a lawyer.
-
-Portions of the code are copyright (c) 2003 to Herbert Gilliland, and are 
-considered property under the U.S. department of copyrights registration 
-office.  The structure and contents of the code are registered with this 
-office and are the property of Herbert Gilliland.
 
 Do visit credits.txt for more information on this code's contributers.
 
