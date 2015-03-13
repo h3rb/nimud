@@ -1870,6 +1870,15 @@ int ps_hkarma=-1;
 char *ps_top_good=NULL;
 int ps_lkarma=-1;
 
+char *ps_bounty=NULL;
+int ps_top_bounty=-1;
+char *ps_most_heroic=NULL;
+int ps_heroic=-1;
+char *ps_most_credits=NULL;
+int ps_credits=-1;
+char *ps_most_bucks=NULL;
+int ps_bucks=-1;
+
 int num_players=0;
 
 void show_player_statistics( PLAYER *ch ) {
@@ -1948,14 +1957,36 @@ void show_player_statistics( PLAYER *ch ) {
        display_interp( ch, buf );
     }
 
-    to_actor( "\n\r", ch );
-
     if ( ps_top_bad && ps_top_good ) {
-       sprintf( buf, "^2   Nicest: ^N^B%s^N with ^B%d^N karma\n\r",
+       sprintf( buf, "^2    Nicest: ^N^B%s^N with ^B%d^N karma\n\r",
              ps_top_good, ps_hkarma );
        display_interp( ch, buf );
-       sprintf( buf, "^2  Meanest: ^N^B%s^N with ^B%d^N karma\n\r",
+       sprintf( buf, "^2   Meanest: ^N^B%s^N with ^B%d^N karma\n\r",
              ps_top_bad, ps_lkarma );
+       display_interp( ch, buf );
+    }
+
+    to_actor( "\n\r", ch );
+
+    if ( ps_bounty ) {
+       sprintf( buf, "       ^2Most wanted in the land:     ^N^B%s^N\n\r          Reward: %s\n\r", ps_bounty, name_amount(ps_top_bounty) );
+       display_interp( ch, buf );
+    }
+
+    to_actor( "\n\r", ch );
+
+    if ( ps_heroic ) {
+       sprintf( buf, "    ^2 Greatest heroic potential:     ^N^B%s^N (%d points)\n\r", ps_most_heroic, (ps_heroic) );
+       display_interp( ch, buf );
+    }
+
+    if ( ps_most_credits ) {
+       sprintf( buf, "    ^2    Largest credit account:     ^N^B%s^N's credit line of %d\n\r", ps_most_credits, ps_credits );
+       display_interp( ch, buf );
+    }
+
+    if ( ps_most_bucks ) {
+       sprintf( buf, "^2Wealthiest in the 20th Century:     ^N^B%s^N with ^2$^B%d^N\n\r", ps_most_bucks, ps_bucks );
        display_interp( ch, buf );
     }
 
@@ -2017,11 +2048,17 @@ void update_player_statistics( void ) {
       int dex=0;
       int _int=0;
       int str=0;
+      int bucks=0,credits=0,bounty=0,herop=0;
+      
       name[0]='\0';
       while( *k!='\0' ) {
         k=one_argument(k,arg);
              if ( !str_cmp( arg, "n" ) ) { k=one_argument( k, name ); }
         else if ( !str_cmp( arg, "lv" ) ) { k=one_argument(k,arg); immortal=atoi(arg); }
+        else if ( !str_cmp( arg, "bou" ) ) { k=one_argument(k,arg); bounty=atoi(arg); }
+        else if ( !str_cmp( arg, "bucks" ) ) { k=one_argument(k,arg); bucks=atoi(arg); }
+        else if ( !str_cmp( arg, "credits" ) ) { k=one_argument(k,arg); credits=atoi(arg); }
+        else if ( !str_cmp( arg, "herop" ) ) { k=one_argument(k,arg); herop=atoi(arg); }
         else if ( !str_cmp( arg, "mk" ) ) { k=one_argument(k,arg); k=one_argument(k,arg); karma=atoi(arg); }
         else if ( !str_cmp( arg, "exp" ) ) { k=one_argument(k,arg); exp=atoi(arg); }
         else if ( !str_cmp( arg, "explev" ) ) { k=one_argument(k,arg); level=atoi(arg); }
@@ -2115,10 +2152,28 @@ void update_player_statistics( void ) {
           ps_top_bad = str_dup( capitalize(name) );
       }
 
-      if ( karma > ps_hkarma ) {
-          ps_hkarma = karma;
-          if ( ps_top_good ) free_string(ps_top_good);
-          ps_top_good = str_dup( capitalize(name) );
+      if ( bounty > ps_top_bounty ) {
+          ps_top_bounty = bounty;
+          if ( ps_heroic ) free_string(ps_bounty);
+          ps_bounty = str_dup( capitalize(name) );
+      }
+
+      if ( herop > ps_heroic ) {
+          ps_heroic = herop;
+          if ( ps_most_heroic ) free_string(ps_most_heroic);
+          ps_most_heroic = str_dup( capitalize(name) );
+      }
+
+      if ( bucks > ps_bucks ) {
+          ps_bucks = bucks;
+          if ( ps_most_bucks ) free_string(ps_most_bucks);
+          ps_most_bucks = str_dup( capitalize(name) );
+      }
+
+      if ( credits > ps_credits ) {
+          ps_credits = credits;
+          if ( ps_most_credits ) free_string(ps_most_credits);
+          ps_most_credits = str_dup( capitalize(name) );
       }
 
 
@@ -2145,7 +2200,7 @@ void update_player_statistics( void ) {
 
 
 void cmd_stats( PLAYER *ch, char *argument ) {
-   update_player_statistics();
+   if ( number_range(0,18) < 3 )   update_player_statistics();
    show_player_statistics( ch );
    return;
 }

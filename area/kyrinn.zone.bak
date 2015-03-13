@@ -8,6 +8,23 @@ End
 
 
 #SCRIPTDATA
+#22909
+N alaxar~
+C
+wait(2);
+do({: looks at you sternly as you interrupt his lecture.});
+wait(20);
+do({:refers to his diagram once again much to the chagrin of his students.});
+wait(55);
+do({:spouts off about something obscure with respect to his subject.});
+wait(77);
+do({:argues with a student about proper dress for a gemmaster.});
+wait(22);
+do({:bitches about the weather and how he should change it.});
+~
+T 10
+End
+
 #0
 
 
@@ -97,6 +114,50 @@ EndShop
 Sk 75 'kora'
 End
 
+#22909
+N Master Alaxar Albarnathy~
+SD Master Alaxar~
+LD
+ Alaxar Albarnathy is speaking of air magicks.
+~
+D
+ An aging aristocratic gemmaster, Alaxar Albarnathy has pioneered some of
+the greatest inventions in air magicks known to man.  
+~
+A 1043
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+Spell 114
+AP 20 20 20 20 20
+Sc 22909
+End
+
+#22910
+N $n~
+SD $n, a student of Alaxar~
+LD
+ A student watches Alaxar intently so as not to get poor marks.
+~
+D
+ ~
+A 19
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 1
+Sz 24
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
 #22912
 N kalxagaar fire mage~
 SD Kalxagaar the Fire Mage~
@@ -116,6 +177,7 @@ S 1
 Sz 24
 K 0 E 1
 O ~
+Spell 146
 Spell 11
 Spell 30
 AP 15 15 15 15 15
@@ -488,6 +550,9 @@ O ~
 ED chair arm-chair~
 This is truly a wonderful relic of the past. In it is a large cushion.
 ~
+R M 22910 10 5 3
+R M 22909 1 100 1
+R M 22910 2 100 1
 Dr 1 1 -1 22904
 The door seems to be a very HEAVY door, carved completely from the trunk of
 an Aspen tree.

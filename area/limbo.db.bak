@@ -3,7 +3,7 @@ N Limbo~
 R Memory shifts and time distorts: Limbo is about to regenerate. 
 ~
 B Locke~
-V 1 99
+V 1 499
 S 1
 End
 
@@ -414,6 +414,246 @@ do({:channels the healing properties of water to aid %target%.});
 T 15
 End
 
+#48
+N insta-fort~
+C
+ifgoto( is(%astr%,{activate}), {make}, {dontmake} );
+label(make);
+emit({%name% activates the Insta-Fort and its yellow light starts flashing.});
+return(1);
+wait(5);
+emit({The Insta-fort jolts to life, lowering two ramps.});
+wait(10);
+emit({The Insta-fort is off and rolling.});
+wait(25);
+emit({A cloud of dust obscures the busily working robotic builder.});
+wait(30);
+emit({The noise of construction is deafening.});
+build( 49, here(), %name%, %name%, scenetitle(here()) );
+label(dontmake);
+return(0);
+~
+T 0
+End
+
+#49
+N instafort-build~
+C
+title Insta-Fortress
+|prop1
+prop
+name %1% key %1%'s insta-key
+short %1%'s key to the Insta-fortress at %2%
+long %1% has dropped the key an Insta-fortress.
+description
+A small silver key etched with %1%'s name, with a label that
+reads "Location: %2%"
+|
+|actor1
+actor
+name PFC $n private
+short PFC $n
+attrib 18
+attack 1 pound 20
+flag sentinel
+long PFC $n is a disciplined military officer.
+description
+Private First Class $n is in great shape.
+|
+|actor2
+actor
+name Private $n pvt
+short Pvt. $n
+attrib 16
+attack 1 pound 10
+long Private $n has been sneaking off base at night to party.
+description
+Private $n looks a little disheveled and has a slight scruff of beard.
+|
+|actor3
+actor
+name Cpl Corperal $N
+short Cpl. $N
+attrib 13
+attack 1 pound 5
+attack 2 bite 5
+long Cpl. $N is on the job.
+description
+The corporal is still rather green.
+|
+|actor4
+actor
+name sniper
+short a sniper
+long A sniper stands watch.
+attrib 15
+attack 1 pierce 10 15
+flags sentinel
+long A sniper stands watch.
+description
+The sniper keeps an eye on the area and has a keen sense of direction and
+distance.
+|
+|scene1
+scene
+name Insta-Guardpost
+flags saving
+dig east
+east door wood door
+east closed east locked
+east key %prop1%
+flags enclosed saving
+cue %actor1% %prop1%
+description
+This is a modest guard tower position at the southwestern
+end of the fortress.
+|
+|scene2
+scene %scene2%
+name Insta-fortress Gate at Guardpost
+attach south %location%
+dig north
+description
+A big sign is over the gate which reads "%1%'s fortress" - this is
+a robotically constructed instant fortress deployed near %2%.
+|
+scene %scene3%
+name Insta-fortress Courtyard
+flags buildable
+dig east
+east door metal door with a window
+east transparent
+southwest %scene1%
+dig west
+west name tent flap
+dig north
+north door heavy metal door
+north closed
+north locked
+north key %prop1%
+description
+You are standing in a wide courtyard in the center of the Insta-Fort.
+|
+scene %scene4%
+name Insta-Barracks
+flags enclosed
+description
+The spartan barracks of %1%'s Insta-fortress.
+|
+cue prop 10908
+cue prop 5305
+cue prop 12001
+scene %scene5%
+name Insta-Mess Hall
+flags enclosed
+description
+You are in wide tent filled with rows of tables and chairs.
+|
+cue prop 541
+cue prop 531
+cue prop 531
+cue prop 531
+cue prop 531
+cue prop 5004
+cue actor %actor1%
+cue actor %actor2%
+cue actor %actor3%
+scene %scene6%
+name Armoury
+flags enclosed saving
+description
+This is the Insta-fortress armoury.
+|
+cue actor %actor1%
+scene
+name Conning Tower
+flags saving
+south to %location%
+south window
+south nomove
+south name wide window
+north to %scene3%
+north window
+north nomove
+north name wide window
+east to %scene2%
+east nomove
+east window
+east name wide window
+down %scene1%
+down name a hole with a ladder
+description
+A tall tower overlooking the fortress.
+|
+cue actor %actor4%
+
+~
+T 0
+End
+
+#114
+N deadly-vapor~
+C
+if ( gem({air},{30}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough air mana.});
+goto({end});
+label(cast);
+wait(10);
+do({:hums across a gem, breathing on it.  The breath turns to a deadly vapor!});
+breed({21});
+goto({end});
+label(end);
+wait(5);
+ 
+~
+T 15
+End
+
+#144
+N deadly vapor~
+C
+if ( gem({air},{30}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough air mana.});
+goto({end});
+label(cast);
+wait(10);
+do({:hums across a gem, breathing on it.  The breath turns to a deadly vapor!});
+breed({21});
+goto({end});
+label(end);
+wait(5);
+ 
+~
+T 15
+End
+
+#146
+N hand-of-god~
+C
+if ( gem({fire},{100}), { goto({cast}); }, { goto({failed}); } );
+label(failed);
+echo({me},{You don't have enough fire mana.});
+goto({end});
+label(cast);
+ 
+wait(20);
+do({: slams %target% with the fiery Hand of God!});
+hurt(%name%,500);
+label({end});
+~
+T 15
+End
+
 #0
 
 
@@ -623,7 +863,6 @@ K 0 E 90000
 O ~
 AP 25 100 100 25 100
 At 1 5 10 15
-At 2 50 100 8
 End
 
 #10
@@ -831,6 +1070,29 @@ O ~
 AP 5 5 5 5 5
 Sc 20
 Sc 19
+End
+
+#21
+N a deadly vapor~
+SD a deadly vapor~
+LD
+ A deadly vapor wisps through the air.
+~
+D
+ ~
+A 1
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 50
+K 0 E 1
+O ~
+AP 1 1 1 20 2
+Sc 19
+Sc 20
+At 1 5 50 20
 End
 
 #27
@@ -1669,6 +1931,37 @@ Wt 0
 C 0
 O ~
 V 1000 0 0 0
+End
+
+#48
+N insta-fort~
+SD the Insta-Fort~
+P ~
+D
+A large green robotic device has a big yellow strobe on it.
+~
+A
+~
+PD
+~
+DR
+The device is about fifteen feet high and has big thick treads on it.  A
+yellow strobe flashes when it is in use.  The hydraulics are gun-metal gray
+and the rest is painted jungle-green camo.  The treads are spiked and made
+of a black kevlar.  It has two unfolding ramps and can deploy a variety of
+helper bots to aid it in whatever it is programmed to build.  
+~
+L 0
+T 8
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 1000000
+O ~
+Sc 48
+V 0 0 0 0
 End
 
 #49

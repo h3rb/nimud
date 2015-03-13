@@ -11,15 +11,15 @@ Fi 4
 Credits 4899
 Bucks 0
 alias ga~ get all~
-Logins 1079
+Logins 1123
 Lv 10
 App 0
 HeroP 0
 Bou 7870
-O 220
-Flag ~
-Exp 678776
-ExpLev 678
+O 0
+Flag B-P~
+Exp 828804
+ExpLev 828
 Sc 1
 Wi 0
 Death 5
@@ -113,9 +113,17 @@ Locke is born in the year -17.
 
 Locke gains new status amongst his peers.
 
+
+Locke is rewarded by the king for service to the crown.
+
+Locke visited the Court of King Rygor on day 14 of year 524.
+Locke is given heroic stature.  He is known as a infamous adventurer.
+
+Locke gains new status amongst his peers.
+
 ~
-Pl 11307302
-R 8060
+Pl 11760584
+R 5000
 Color 0 15
 Color 1 12
 Color 2 15
@@ -128,7 +136,8 @@ Color 8 15
 Color 9 15
 BD 16 0 -17
 H 1 780
-MK 295 3062
+MK 295 -6805
+Spell 114 Master Alaxar~
 Spell 34 a kltaran cleric~
 Spell 33 a cloaked necromancer~
 Spell 23 Konith the Great~
@@ -142,26 +151,27 @@ Spell 30 Kalxagaar the Fire Mage~
 Spell 29 Kalxagaar the Fire Mage~
 Spell 31 an alchemist~
 Spell 32 a cloaked necromancer~
+Spell 146 Kalxagaar the Fire Mage~
 A 172490752 A2 1641209349
 AB 0
-Po 8
+Po 5
 ST 0
 Hi 0
 Da 0
-AC -12930
+AC 100
 De 0
 P faggot~
 Pr ^c^I^C^N> ~
-Pg 50
+Pg 300
 Title of Lanconshire~
 Bi  rises from the ground.~
 Bo makes an arcane gesture and sinks into the earth.~
 Co The great fiery constellation that represents Locke is in the heavens.~
 Em me@where.com~
 K ~
-AP 29 13 15 25 24
+AP 29 13 17 25 24
 AM 0 0 0 0 0
-C 0 20 37
+C 0 20 20
 Sk 100 'wodan' 0 0
 Sk 100 'taug' 0 0
 Sk 100 'zad' 0 0
@@ -233,210 +243,13 @@ Sk 100 'mining' 0 0
 Sk 100 'carpentry' 0 0
 Sk 100 'coopering' 0 0
 Sk 100 'cobbling' 0 0
-Sk 100 'san' 0 0
 Sk 100 'nelse' 0 0
 Sk 100 'kora' 0 0
 Sk 100 'zeich' 0 0
 Sk 100 'meditation' 0 0
-Sk 100 'dadro' 0 0
 Sk 100 'gana' 0 0
 Sk 100 'nasang' 0 0
 Sk 100 'wilderness survival' 0 0
-END
-
-
-#PROP
-Nest 0
-V 5162
-E 98304
-W 65
-WL 15
-I 9
-Wt 0
-L 0
-Sz 0
-T -1
-C 89
-Va 10 3 4 0
-END
-
-
-#PROP
-Nest 0
-V 34
-N thin satin belt~
-S a thin satin belt~
-D
-A thin belt crafted from satin is coiled up on the ground.
-~
-E 32768
-W 2049
-WL 27
-I 13
-Wt 1
-L 0
-Sz 0
-T -1
-C 1
-Va 0 0 0 0
-END
-
-
-#PROP
-Nest 0
-V 22908
-E 0
-W 1
-WL 35
-I 33
-Wt 0
-L 0
-Sz 0
-T -1
-C 1035
-Va 0 0 0 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-T -1
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-T -1
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-T -1
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-T -1
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-T -1
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-T -1
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-T -1
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-C 7
-Va 2 2 11 0
-END
-
-
-#PROP
-Nest 0
-V 18101
-E 0
-W 1
-WL -1
-I 17
-Wt 3
-L 0
-Sz 0
-C 7
-Va 2 2 11 0
 END
 
 #END

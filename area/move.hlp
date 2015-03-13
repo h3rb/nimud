@@ -533,5 +533,16 @@ IT ~
 EX ~
 SA ~
 End
+
+#DOC 500
+N KESS~
+C 1 L 5
+KW kess~
+SY ~
+TX ~
+IT ~
+EX ~
+SA ~
+End
 #$
 #$

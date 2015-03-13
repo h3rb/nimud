@@ -134,7 +134,8 @@ void cmd_rstat( PLAYER *ch, char *argument )
              location->max_people );
     to_actor( buf, ch );
 
-    sprintf( buf, "Flags: [%s]\n\rDescription:\n\r%s",
+    sprintf( buf, "Owner: '%s'   Flags: [%s]\n\rDescription:\n\r%s",
+             location->owner,
              scene_bit_name( location->scene_flags ),
              location->description );
     to_actor( buf, ch );
@@ -289,7 +290,7 @@ bool ostat( PLAYER *ch, char *argument )
     return FALSE;
     }
 
-    sprintf( buf, "Name:   [%s]          zone: [%3d] %s\n\r",
+    sprintf( buf, "Name:   [%s]      Zone: [%3d] %s\n\r",
     STR(prop, name),
     prop->pIndexData->zone->dbkey,
     prop->pIndexData->zone->name );
@@ -356,11 +357,11 @@ bool ostat( PLAYER *ch, char *argument )
 
     show_occupants_to_actor( prop, ch );
     
-    sprintf( buf, "Values: [%5d] [%5d] [%5d] [%5d]\n\r",
+    sprintf( buf, "Values: [%5d] [%5d] [%5d] [%5d]\n\rOwner: '%s'\n\r",
     prop->value[0],
     prop->value[1],
     prop->value[2],
-    prop->value[3] );
+    prop->value[3], prop->pIndexData->owner );
     to_actor( buf, ch );
 
     value_breakdown( prop->item_type,
@@ -476,7 +477,7 @@ bool mstat( PLAYER *ch, char *argument )
     return FALSE;
     }
 
-    sprintf( buf, "Name:  [%s]\n\r",   STR(victim, name) );
+    sprintf( buf, "Name:  [%s]      Owner: '%s'\n\r",   STR(victim, name), victim->owner );
     to_actor( buf, ch );
 
 
@@ -730,7 +731,7 @@ bool pstat( PLAYER *ch, char *argument )
     {
         if ( dbkey == search )
         {
-            pScript = get_script_index( dbkey );
+            pScript = get_script( dbkey );
             break;
         }
     }
@@ -1247,7 +1248,7 @@ void cmd_scfind( PLAYER *ch, char *argument )
 
     for ( dbkey = range1; dbkey <= range2; dbkey++ )
     {
-        if ( ( pScript = get_script_index( dbkey ) ) != NULL
+        if ( ( pScript = get_script( dbkey ) ) != NULL
           && ( is_prename( name, pScript->name ) || !fName )
           && ( pScript->zone == pZone         || !fzone ) )
         {
@@ -1608,7 +1609,7 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "Tables to view:\n\r", ch );
         to_actor( "race coin color board attack liquid goods components\n\r", ch );
         to_actor( "str int wis dex con groups skills bits language spells\n\r", ch );
-        to_actor( "positions NYI: spells abilities aliases\n\r", ch );
+        to_actor( "positions\n\r", ch ); //  abilities aliases\n\r", ch );
         return;
     }
 
@@ -1850,23 +1851,30 @@ void cmd_table( PLAYER *ch, char *argument )
         to_actor( "SEDIT/REDIT flags (not scene terrain or move types):\n\r ", ch );
         to_actor( scene_bit_name( -1 ), ch );
         to_actor( "\n\r", ch );
+        to_actor( "\n\r", ch );
         to_actor( "'Affects' also known as bonuses or penalties, AEDIT and bonus():\n\r", ch );
         to_actor( bonus_bit_name( -1 ), ch );
+        to_actor( "\n\r", ch );
         to_actor( "\n\r", ch );
         to_actor( "AEDIT/MEDIT bits:\n\r", ch );
         to_actor( actor_bit_name( -1 ), ch );
         to_actor( "\n\r", ch );
+        to_actor( "\n\r", ch );
         to_actor( "Player bits settable using mset:\n\r", ch );
         to_actor( plr_bit_name( -1 ), ch );
+        to_actor( "\n\r", ch );
         to_actor( "\n\r", ch );
         to_actor( "Extra flags used in PEDIT/OEDIT:\n\r", ch );
         to_actor( extra_bit_name( -1 ), ch );
         to_actor( "\n\r", ch );
+        to_actor( "\n\r", ch );
         to_actor( "Bits which refer to wearable locations on props (PEDIT) including take flag:\n\r", ch );
         to_actor( wear_bit_name( -1 ), ch );
         to_actor( "\n\r", ch );
+        to_actor( "\n\r", ch );
         to_actor( "Bits used on exits (used in SEDIT/REDIT):\n\r", ch );
         to_actor( exit_bit_name( -1 ), ch );
+        to_actor( "\n\r", ch );
         to_actor( "\n\r", ch );
         to_actor( "Bits used in the shop command of the AEDIT/MEDIT:\n\r", ch );
         to_actor( shop_bit_name( -1 ), ch );

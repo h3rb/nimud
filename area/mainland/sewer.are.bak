@@ -1492,7 +1492,7 @@ Dr 2 0 0 10741
 End
 
 #22001
-N Muddy Sewer~
+N a muddy sewer~
 Ref 0
 D
 You are standing in mud to your knees. This is not the kind of place
@@ -1520,7 +1520,7 @@ Dr 3 0 0 22000
 End
 
 #22002
-N Muddy Sewer Junction~
+N a muddy sewer junction~
 Ref 0
 D
 The muddy sewer stretches into the dark to the south. It looks as if 
@@ -1881,10 +1881,10 @@ End
 N A MUDDY intersection~
 Ref 0
 D
-You wouldn't want to know the true feeling of standing in this mud up to 
-your hips. >BWAADR<. All that fills your mind right now is the dream of 
-a hot bath. This is NOT very clean mud you know, remember you're in the
-sewer! The pipes leads north, south and east.
+You wouldn't want to know the true feeling of standing in this mud up to
+your hips.  All that fills your mind right now is the dream of a hot bath. 
+This is not very clean mud you know, remember you're in the sewer!  The
+pipes leads north, south and east.  
 ~
 C
 ~
@@ -1956,7 +1956,7 @@ place.
 End
 
 #22015
-N Old Well~
+N an old well~
 Ref 0
 D
 You are standing by an old and worn well from before this century.  The
@@ -1985,7 +1985,7 @@ Dr 5 0 -1 22105
 Down the well there's even less light than up here, so ... sorry, you can't
 see a thing. There are metal bars in the side leading down into the darkness.
 ~
-~
+rim of an ancient well~
 End
 
 #22016
@@ -2165,8 +2165,7 @@ End
 N Intersection~
 Ref 0
 D
-You have never seen anything so BORING...This is an intersection with pipes
-leading north, south and east.
+Many pipes converge on this spot.
 ~
 C
 ~
@@ -2340,6 +2339,8 @@ W 0
 T 0
 O ~
 R M 22002 3 100 1
+R C 163 11 100 1
+R C 164 5 100 1
 Dr 0 0 -1 22030
 To the north there's a ENORMOUS quadruple sewer junction, all lit up by
 an odd light.
@@ -2484,7 +2485,7 @@ West. You see another junction similar to this one leading north and south.
 End
 
 #22039
-N The Sewer Store Room~
+N a storeroom~
 Ref 0
 D
 You stand in a small room lit by a single torch set in the wall. The only 
@@ -2525,7 +2526,9 @@ ED ladder~
 Firmly set into the wall of the shaft it's impossible to even rock, is your
 estimate.
 ~
+R C 111 -5 20 10
 R M 22001 12 100 1
+R C 110 10 100 1
 Dr 2 0 -1 22043
 To the south you can see the pipe leading further south into darkness.
 ~
@@ -2553,6 +2556,7 @@ M 0
 W 0
 T 0
 O ~
+R C 111 -5 100 1
 Dr 0 0 -1 22041
 To the north you can just make out a huge shaft leading down.
 ~
@@ -2578,6 +2582,7 @@ M 0
 W 0
 T 0
 O ~
+R C 111 -5 100 1
 Dr 0 0 -1 22043
 You see a sewer pipe leading north.
 ~
@@ -2593,7 +2598,7 @@ and west.
 End
 
 #22045
-N The Sewer Room~
+N a huge underground chamber~
 Ref 0
 D
 You are standing in a large room with chairs set in the walls. You have the
@@ -2620,13 +2625,13 @@ To the west you can see the sewers.
 End
 
 #22046
-N Sewer~
+N a bright pipe~
 Ref 0
 D
-This is a Room with walls that glitters like gold though not quite like it.
-This is strange as it looks as if the glitter lights the whole room. It
-looks very bright. To the south the floor is covered with yucky water. The
-North leads to sort of a Guard Room.
+This is a room with walls that glitters like gold though not quite like
+it.  This is strange as it looks as if the glitter lights the whole room. 
+It looks very bright.  To the south the floor is covered with yucky water. 
+  
 ~
 C
 ~
@@ -2647,7 +2652,7 @@ To the south there is nothing but water and an exit leads east from there.
 End
 
 #22047
-N Pool~
+N a pool of water~
 Ref 0
 D
 You stand in water to your waist.  To the north is the entrance to this room.
@@ -2656,7 +2661,7 @@ A single door leads east.
 C
 ~
 F 8
-S 1
+S 6
 M 0
 W 0
 T 0
@@ -2753,7 +2758,7 @@ You can see a room with a lot of light in it. You can't make out any details.
 End
 
 #22051
-N Sewer Pipe~
+N a sewer pipe~
 Ref 0
 D
 You are in what reminds you of a foul sewer, as if you liked being here! 
@@ -2777,7 +2782,7 @@ To the south you can see a strange light flowing from there.
 End
 
 #22052
-N Grand Sewer~
+N the grand sewer~
 Ref 0
 D
 You are in a Grand Sewer Pipe. This stretches toward the south. It's large 
@@ -2806,7 +2811,7 @@ In the south end of the pipe the "floor" is completely covered with water.
 End
 
 #22053
-N South End of Grand Pipe~
+N the southern end of a grand pipe~
 Ref 0
 D
 You stand in water to your knees. A doorway leads west from here. The Pipe
@@ -3009,7 +3014,7 @@ seems to bend and lead south and west.
 C
 ~
 F 9
-S 4
+S 6
 M 0
 W 0
 T 0
@@ -3039,7 +3044,7 @@ seems to lead south and north.
 C
 ~
 F 9
-S 4
+S 6
 M 0
 W 0
 T 0
@@ -3069,7 +3074,7 @@ seems to lead south and north.
 C
 ~
 F 9
-S 4
+S 6
 M 0
 W 0
 T 0
@@ -3099,7 +3104,7 @@ seems to lead into a junction going south, north and east.
 C
 ~
 F 9
-S 4
+S 6
 M 0
 W 0
 T 0
@@ -3134,7 +3139,7 @@ seems to lead south and north.
 C
 ~
 F 9
-S 4
+S 6
 M 0
 W 0
 T 0
@@ -3164,7 +3169,7 @@ seems to lead into a junction that goes north, south and east.
 C
 ~
 F 9
-S 4
+S 6
 M 0
 W 0
 T 0
@@ -3199,7 +3204,7 @@ seems to lead south and north.
 C
 ~
 F 5
-S 5
+S 6
 M 0
 W 0
 T 0
@@ -3229,7 +3234,7 @@ seems to bend and lead west and north.
 C
 ~
 F 9
-S 5
+S 6
 M 0
 W 0
 T 0
@@ -4084,7 +4089,7 @@ O ~
 End
 
 #22190
-N Precipice~
+N a precipice~
 Ref 0
 D
 You're standing at the edge of a deep precipice, looking into the pitch
@@ -4111,7 +4116,7 @@ N The Edge of the Water~
 Ref 0
 D
 The pool side is dimly lit up by your light. You can see absolutely nothing
-else nearby. The darkness her seems enormously oppressive here. The air is
+else nearby. The darkness here seems enormously oppressive here. The air is
 damp and the rock on which you stand is slippery. The pool seems too dark 
 to make anything clear. The rock can be climbed upwards from here.
 ~
@@ -4123,13 +4128,15 @@ M 0
 W 0
 T 0
 O ~
+R M 22041 10 20 1
+R O 50 -1 50 4
 Dr 4 0 -1 22099
 ~
-~
+rock staircase~
 End
 
 #22200
-N The Treasury~
+N the treasury~
 Ref 0
 D
 You are in a small but well equipped treasury.  You can see some writing on
@@ -4159,7 +4166,7 @@ stone door~
 End
 
 #22201
-N Inner Lair~
+N inner lair~
 Ref 0
 D
 You are in a octagonal room with smooth purple stone walls.  The floor is 
@@ -4185,7 +4192,7 @@ stone door~
 End
 
 #22202
-N The Lair~
+N a lair~
 Ref 0
 D
 On the floor you see a lot of human decay, like bones and skulls. You also
@@ -4304,7 +4311,7 @@ wooden door~
 End
 
 #22205
-N Lair~
+N a slimy lair~
 Ref 0
 D
 On the floor you see a lot of human decay, like bones and skulls. You also
@@ -4340,7 +4347,7 @@ You see another part of the lair.
 End
 
 #22206
-N Lair~
+N some lair~
 Ref 0
 D
 On the floor you see a lot of human decay, like bones and skulls. You also
@@ -4379,7 +4386,7 @@ You see another part of the lair.
 End
 
 #22207
-N The lair.~
+N a decaying tunnel~
 Ref 0
 D
 On the floor you see a lot of human decay, like bones and skulls. You also
@@ -4415,7 +4422,7 @@ You see another part of the lair.
 End
 
 #22208
-N Lair Entrance~
+N a lair entrance~
 Ref 0
 D
 You are in a dry part of the sewer. To the north is a wooden door, you 
@@ -4509,7 +4516,7 @@ You are in a collapsed sewer drain, which now is more like a small cave.
 C
 ~
 F 9
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4529,7 +4536,7 @@ You are in a dry sewer drain which bends to the north.
 C
 ~
 F 9
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4553,7 +4560,7 @@ You are in a dry sewer drain which bends to the east.
 C
 ~
 F 9
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4579,7 +4586,7 @@ exit is west.
 C
 ~
 F 9
-S 3
+S 10
 M 0
 W 0
 T 0
@@ -4631,7 +4638,7 @@ above water-level.
 C
 ~
 F 9
-S 6
+S 8
 M 0
 W 0
 T 0
@@ -4642,6 +4649,9 @@ It is hard to see, but it looks like the drain runs slightly upwards.
 drain~
 Dr 2 0 -1 22217
 It is hard to see, but it looks like the drain runs a little bit upwards.
+~
+~
+Dr 4 0 0 23306
 ~
 ~
 End
@@ -4656,7 +4666,7 @@ you see another drain.
 ~
 C
 ~
-F 13
+F 5
 S 2
 M 0
 W 0
@@ -4695,7 +4705,7 @@ You can see above you through a grating that is too high to reach.
 C
 ~
 F 9
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4740,7 +4750,7 @@ You are in yet another sewer drain.
 C
 ~
 F 13
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4765,7 +4775,7 @@ loud echo.
 C
 ~
 F 13
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4848,7 +4858,7 @@ as usual, but west it looks a little strange.
 C
 ~
 F 13
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4878,7 +4888,7 @@ is a sewer drain south.
 C
 ~
 F 13
-S 3
+S 0
 M 0
 W 0
 T 0
@@ -4992,7 +5002,7 @@ drain~
 Dr 1 0 -1 22231
 You see a sewer pipe.
 ~
-debris~
+hole through debris~
 End
 
 #22233
@@ -5032,7 +5042,7 @@ floor. There is a sewer drain west of here.
 C
 ~
 F 13
-S 3
+S 10
 M 0
 W 0
 T 0
@@ -5400,7 +5410,7 @@ To the south tunnel continuing.
 End
 
 #22402
-N Cave room~
+N a large cavern~
 Ref 0
 D
 You are standing in a room. It's much cooler now.
@@ -5633,7 +5643,7 @@ You see a entrance to a small room.
 End
 
 #22410
-N Small Room~
+N a small room~
 Ref 0
 D
 As you look around you notice a small ^Bstatue^N. There are
@@ -5695,7 +5705,7 @@ Dr 4 0 0 22105
 End
 
 #22412
-N The stalagmite tunnel~
+N a stalagmite tunnel~
 Ref 0
 D
 You has entered a small tunnel. Here it is quite dry.
@@ -5743,7 +5753,7 @@ Dr 3 0 -1 22445
 End
 
 #22414
-N Stalagmite T-Junction~
+N a T-junction in a stalagmite cave~
 Ref 0
 D
 You are standing in a cross. To the north you can see
@@ -5823,7 +5833,7 @@ door picture sun moon~
 End
 
 #22417
-N Square Lair~
+N a square foyer~
 Ref 0
 D
 You are standing in the south-east part of the lair.  You can see a
@@ -5889,7 +5899,7 @@ another part of the lair.
 End
 
 #22419
-N Square Lair~
+N northwestern lair~
 Ref 0
 D
 You are standing in the north-west part of the lair. Here's
@@ -5964,7 +5974,7 @@ the eastern part of the lair.
 End
 
 #22421
-N East tunnel~
+N an eastern tunnel~
 Ref 0
 D
 You are standing in dark tunnel, the exits are east
@@ -6072,7 +6082,7 @@ ED blue~
 This looks like a good dragon
 ~
 R M 22046 1 100 1
-Dr 1 0 -1 22425
+Dr 1 1024 -1 22425
 you see nothing special.
 ~
 green head dragon sculpture face~
@@ -6083,7 +6093,7 @@ you see a room far away.
 End
 
 #22425
-N Dusty Tunnel~
+N a dusty tunnel~
 Ref 0
 D
 You are standing in dust. This place has not been
@@ -6104,7 +6114,7 @@ You see a tunnel which leads downwards. It is quite
 dark.
 ~
 ~
-Dr 3 0 -1 22424
+Dr 3 1024 -1 22424
 You can see the outline of a door. Just like in the
 description!
 ~
@@ -6112,7 +6122,7 @@ door~
 End
 
 #22426
-N Crossroads~
+N junction~
 Ref 0
 D
 You are standing in a crossing of hallways. You can leave this place
@@ -6259,7 +6269,7 @@ Dr 3 0 -1 22426
 End
 
 #22431
-N Glittering Room~
+N the glittering room~
 Ref 0
 D
 This room are all bright. In the walls you can see some
@@ -6306,7 +6316,7 @@ Dr 3 0 -1 22431
 You can see a light to the west
 ~
 ~
-Dr 5 0 0 17801
+Dr 5 1024 0 17801
 ~
 crack~
 End
@@ -6364,7 +6374,7 @@ nothing but darkness
 ~
 Dr 5 0 0 17800
 ~
-~
+staircase~
 End
 
 #22435
@@ -6404,7 +6414,7 @@ A tunnel leads north, and east.
 C
 ~
 F 5
-S 2
+S 0
 M 0
 W 0
 T 0
@@ -6433,7 +6443,7 @@ and to the west.
 C
 ~
 F 9
-S 2
+S 0
 M 0
 W 0
 T 0
@@ -6463,7 +6473,7 @@ and west.
 C
 ~
 F 9
-S 2
+S 0
 M 0
 W 0
 T 0
@@ -6495,7 +6505,7 @@ Watch out ... Maybe it is not far away.
 C
 ~
 F 9
-S 2
+S 0
 M 0
 W 0
 T 0
@@ -6553,7 +6563,7 @@ some light in the end. Exits are north and south.
 C
 ~
 F 13
-S 2
+S 0
 M 0
 W 0
 T 0
@@ -6578,7 +6588,7 @@ see that it's a big lake. Light seeps from the water.
 C
 ~
 F 8
-S 4
+S 6
 M 0
 W 0
 T 0

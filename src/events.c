@@ -93,7 +93,7 @@ void add_event( void * owner, int type, int dbkey, int delay,
     INSTANCE *pTrig;
     VARIABLE *var;
 
-    script = get_script_index( dbkey );
+    script = get_script( dbkey );
     if ( script == NULL ) return;
     if ( owner == NULL ) return; 
 

@@ -775,6 +775,7 @@ const	struct	liq_type	liq_table	[LIQ_MAX]	=
     { "apricot wine",   "clear, orange-red",      {  3, 0,  5 } },  /* 32 */
 
     { "mud",            "thick, gritty, brown",   {  0, 1,-10 } },  /* 33 */
+    { "coffee",         "thick, gritty, brown",   {  0, 1,-10 } },  /* 34 */
 };
 
 

@@ -252,7 +252,7 @@ void spedit( PLAYER *ch, char *argument )
             return;
         }
 
-        if ( (script = get_script_index(atoi(arg2))) == NULL )
+        if ( (script = get_script(atoi(arg2))) == NULL )
         {
             to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
@@ -1707,7 +1707,7 @@ void redit( PLAYER *ch, char *argument )
             return;
         }
 
-        if ( (script = get_script_index(atoi(arg2))) == NULL )
+        if ( (script = get_script(atoi(arg2))) == NULL )
         {
             to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
@@ -2325,7 +2325,7 @@ void oedit( PLAYER *ch, char *argument )
             return;
         }
 
-        if ( (script = get_script_index(atoi(arg2))) == NULL )
+        if ( (script = get_script(atoi(arg2))) == NULL )
         {
             to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
@@ -3353,7 +3353,7 @@ void aedit( PLAYER *ch, char *argument )
             return;
         }
 
-        if ( (script = get_script_index(atoi(arg2))) == NULL )
+        if ( (script = get_script(atoi(arg2))) == NULL )
         {
             to_actor( "Syntax:  script [dbkey]\n\r", ch );
             return;
@@ -3547,7 +3547,7 @@ void sedit( PLAYER *ch, char *argument )
 
 CREATE_COMMANDZ(script,script__hash,
                        new_script,
-                       get_script_index,
+                       get_script,
                        top_dbkey_script);
 
     interpret( ch, arg );
@@ -3781,7 +3781,7 @@ void cmd_sedit( PLAYER *ch, char *argument )
     if ( is_number( arg1 ) )
     {
         value = atoi( arg1 );
-        if ( ( script = get_script_index( value ) ) == NULL )
+        if ( ( script = get_script( value ) ) == NULL )
         {
             to_actor( "Script: Edit:  That dbkey does not exist.\n\r", ch );
             return;
@@ -3796,7 +3796,7 @@ void cmd_sedit( PLAYER *ch, char *argument )
             ch->desc->connected = NET_SEDITOR;
             CREATE_COMMAND(script,script__hash,
                                   new_script,
-                                  get_script_index,
+                                  get_script,
                                   top_dbkey_script);
             return;
     }
@@ -4046,7 +4046,7 @@ void cmd_sindex( PLAYER *ch, char *argument )
         return;
     }
 
-    if ( ( script = get_script_index( atoi( arg ) ) ) == NULL )
+    if ( ( script = get_script( atoi( arg ) ) ) == NULL )
     {
         to_actor( "Invalid script index VNUM.\n\r", ch );
         return;
@@ -5181,7 +5181,7 @@ void save_contents( void )
 
              for ( pInstance = pSpell->instances;  pInstance != NULL;  
                       pInstance = pInstance->next )
-              if ( get_script_index( pInstance->script->dbkey ) )
+              if ( get_script( pInstance->script->dbkey ) )
                     fprintf( fp, "Sc %d\n", pInstance->script->dbkey );
 
              fprintf( fp, "End\n" );
@@ -5319,7 +5319,7 @@ void save_actors( FILE *fp, ZONE *pZone )
                 }
 
                 for ( script = pActorIndex->instances;  script != NULL;  script = script->next )
-              if ( script->script && get_script_index( script->script->dbkey ) )
+              if ( script->script && get_script( script->script->dbkey ) )
                     fprintf( fp, "Sc %d\n", script->script->dbkey );
 
                 for ( iAttack = 0;  iAttack < MAX_ATTACK; iAttack++ )
@@ -5429,7 +5429,7 @@ void save_props( FILE *fp, ZONE *pZone )
                 fprintf( fp, "O %s~\n",   pPropIndex->owner );
 
                 for ( script = pPropIndex->instances;  script != NULL;  script = script->next )
-              if ( get_script_index( script->script->dbkey ) )
+                if ( script->script && get_script( script->script->dbkey ) )
                     fprintf( fp, "Sc %d\n", script->script->dbkey );
 
                 switch ( pPropIndex->item_type )

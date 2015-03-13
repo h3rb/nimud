@@ -13,16 +13,3919 @@ End
 
 
 #ACTORS
+#1000000
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 0 0 0 0 0
+End
+
+#1000001
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 0 0 0 0 0
+End
+
+#1000002
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 0 0 0 0 0
+End
+
+#1000003
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 0 0 0 0 0
+End
+
+#1000004
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 20 7
+End
+
+#1000005
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 10 7
+End
+
+#1000006
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 5 7
+At 2 0 5 14
+End
+
+#1000007
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 10 8
+End
+
+#1000008
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 20 7
+End
+
+#1000009
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 10 7
+End
+
+#1000010
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 5 7
+At 2 0 5 14
+End
+
+#1000011
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 10 8
+End
+
+#1000012
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 20 7
+End
+
+#1000013
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 10 7
+End
+
+#1000014
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 5 7
+At 2 0 5 14
+End
+
+#1000015
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 10 8
+End
+
+#1000016
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 20 7
+End
+
+#1000017
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 10 7
+End
+
+#1000018
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 5 7
+At 2 0 5 14
+End
+
+#1000019
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 10 8
+End
+
+#1000020
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 20 7
+End
+
+#1000021
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 10 7
+End
+
+#1000022
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 5 7
+At 2 0 5 14
+End
+
+#1000023
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 10 8
+End
+
+#1000024
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 1 7
+End
+
+#1000025
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 1 7
+End
+
+#1000026
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 1 7
+At 2 0 2 14
+End
+
+#1000027
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 1 8
+End
+
+#1000028
+N pfc $n private~
+SD pfc $n~
+LD
+ pfc $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 1 7
+End
+
+#1000029
+N private $n pvt~
+SD pvt. $n~
+LD
+ private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 1 7
+End
+
+#1000030
+N cpl corperal $n~
+SD cpl. $n~
+LD
+ cpl. $n is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 1 7
+At 2 0 2 14
+End
+
+#1000031
+N sniper~
+SD a sniper~
+LD
+ a sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 1 8
+End
+
+#1000032
+N PFC $n private~
+SD PFC $n~
+LD
+ PFC $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 1 7
+End
+
+#1000033
+N Private $n pvt~
+SD Pvt. $n~
+LD
+ Private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 1 7
+End
+
+#1000034
+N Cpl Corperal $N~
+SD Cpl. $N~
+LD
+ Cpl. $N is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 1 7
+At 2 0 2 14
+End
+
+#1000035
+N sniper~
+SD a sniper~
+LD
+ A sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 1 8
+End
+
+#1000036
+N PFC $n private~
+SD PFC $n~
+LD
+ PFC $n is a disciplined military officer.~
+D
+ Private first class $n is in great shape.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 18 18 18 18 18
+At 1 0 1 7
+End
+
+#1000037
+N Private $n pvt~
+SD Pvt. $n~
+LD
+ Private $n has been sneaking off base at night to party.~
+D
+ Private $n looks a little disheveled and has a slight scruff of beard.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 16 16 16 16 16
+At 1 0 1 7
+End
+
+#1000038
+N Cpl Corperal $N~
+SD Cpl. $N~
+LD
+ Cpl. $N is on the job.~
+D
+ The corporal is still rather green.  
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 13 13 13 13 13
+At 1 0 1 7
+At 2 0 2 14
+End
+
+#1000039
+N sniper~
+SD a sniper~
+LD
+ A sniper stands watch.~
+D
+ The sniper keeps an eye on the area and has a keen sense of direction and
+distance.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O Locke~
+AP 15 15 15 15 15
+At 1 0 1 8
+End
+
 #0
 
 
 
 #OBJDATA
+#1000000
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000001
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000002
+N insta-mess hall~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+You are in wide tent filled with rows of tables and chairs.  
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000003
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000004
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000005
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000006
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000007
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000008
+N armoury~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+This is the insta-fortress armoury.  
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000009
+N %1% key %1%'s insta-key~
+SD %1%'s key to the insta-fortress at %2%~
+P ~
+D
+%1% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %1%'s name, with a label that reads
+"location: %2%" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000010
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000011
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000012
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000013
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000014
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000015
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000016
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000017
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000018
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000019
+N %name% key  %name%'s insta-key~
+SD %name%'s key to the insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+%name% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %name%'s name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000020
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000021
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000022
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000023
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000024
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000025
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000026
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000027
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000028
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000029
+N %name% key  %name%'s insta-key~
+SD %name%'s key to the insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+%name% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %name%'s name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000030
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000031
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000032
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000033
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000034
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000035
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000036
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000037
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000038
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000039
+N %name% key  %name%'s insta-key~
+SD %name%'s key to the insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+%name% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %name%'s name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000040
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000041
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000042
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000043
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000044
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000045
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000046
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000047
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000048
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000049
+N %name% key  %name%'s insta-key~
+SD %name%'s key to the insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+%name% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %name%'s name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000050
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000051
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000052
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000053
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000054
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000055
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000056
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000057
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000058
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000059
+N %name% key  %name%'s insta-key~
+SD %name%'s key to the insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+%name% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %name%'s name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000060
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000061
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000062
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000063
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000064
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000065
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000066
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000067
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000068
+N unset~
+SD unset~
+P ~
+D
+unset
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000069
+N %name% key  %name%'s insta-key~
+SD %name%'s key to the insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+%name% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %name%'s name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000070
+N %name% key  %name%'s insta-key~
+SD %name%'s key to the insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+%name% has dropped the key an insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with %name%'s name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000071
+N Locke key  Locke's insta-key~
+SD Locke's key to the Insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+Locke has dropped the key an Insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with Locke's name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
+#1000072
+N Locke key Locke's insta-key~
+SD Locke's key to the Insta-fortress at Rask's Object Creation Lab~
+P ~
+D
+Locke has dropped the key an Insta-fortress.~
+A
+~
+PD
+~
+DR
+A small silver key etched with Locke's name, with a label that reads
+"location: Rask's Object Creation Lab" 
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O Locke~
+V 0 0 0 0
+End
+
 #0
 
 
 
 #SCENES
+#1000000
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000001
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000000 1 100 1
+End
+
+#1000002
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads "%1%'s fortress" - this is a
+robotically constructed instant fortress deployed near %2%.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000003
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000004
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %1%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000005
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000006
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000007
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000008
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000004 1 100 1
+End
+
+#1000009
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " %name%'s fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000010
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000011
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %name%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000012
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000013
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000014
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000015
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000008 1 100 1
+End
+
+#1000016
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " %name%'s fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000017
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000018
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %name%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000019
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000020
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000021
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000022
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000012 1 100 1
+End
+
+#1000023
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " %name%'s fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000024
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000025
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %name%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000026
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000027
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000028
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000029
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000016 1 100 1
+End
+
+#1000030
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " %name%'s fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000031
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000032
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %name%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000033
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000034
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000035
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000036
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000020 1 100 1
+End
+
+#1000037
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " %name%'s fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000038
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000039
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %name%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000040
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000041
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000042
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000043
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000024 1 100 1
+End
+
+#1000044
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " %name%'s fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000045
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000046
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %name%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R O 12001 1 100 1
+R O 5305 1 100 1
+R O 10908 1 100 1
+End
+
+#1000047
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000026 1 100 1
+R M 1000025 1 100 1
+R M 1000024 1 100 1
+R O 5004 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 541 1 100 1
+End
+
+#1000048
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000024 1 100 1
+End
+
+#1000049
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000027 1 100 1
+End
+
+#1000050
+N insta-guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000028 1 100 1
+End
+
+#1000051
+N insta-fortress gate at guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " %name%'s fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000052
+N insta-fortress courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000053
+N insta-barracks~
+Ref 0
+D
+The spartan barracks of %name%'s insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R O 12001 1 100 1
+R O 5305 1 100 1
+R O 10908 1 100 1
+End
+
+#1000054
+N insta-mess hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000030 1 100 1
+R M 1000029 1 100 1
+R M 1000028 1 100 1
+R O 5004 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 541 1 100 1
+End
+
+#1000055
+N armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000028 1 100 1
+End
+
+#1000056
+N conning tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000031 1 100 1
+End
+
+#1000057
+N Insta-Guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000032 1 100 1
+End
+
+#1000058
+N Insta-fortress Gate at Guardpost~
+Ref 0
+D
+A big sign is over the gate which reads " Locke's fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000059
+N Insta-fortress Courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000060
+N Insta-Barracks~
+Ref 0
+D
+The spartan barracks of Locke's insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R O 12001 1 100 1
+R O 5305 1 100 1
+R O 10908 1 100 1
+End
+
+#1000061
+N Insta-Mess Hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000034 1 100 1
+R M 1000033 1 100 1
+R M 1000032 1 100 1
+R O 5004 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 541 1 100 1
+End
+
+#1000062
+N Armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000032 1 100 1
+End
+
+#1000063
+N Conning Tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000035 1 100 1
+End
+
+#1000064
+N Insta-Guardpost~
+Ref 0
+D
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000036 1 100 1
+End
+
+#1000065
+N Insta-fortress Gate at Guardpost~
+Ref 0
+D
+A big sign is over the gate which reads "Locke's fortress" - this is a
+robotically constructed instant fortress deployed near Rask's Object
+Creation Lab.  
+~
+C
+~
+F 2
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000066
+N Insta-fortress Courtyard~
+Ref 0
+D
+You are standing in a wide courtyard in the center of the insta-fort.  
+~
+C
+~
+F 16386
+S 0
+M 0
+W 0
+T 0
+O Locke~
+End
+
+#1000067
+N Insta-Barracks~
+Ref 0
+D
+The spartan barracks of Locke's insta-fortress.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R O 12001 1 100 1
+R O 5305 1 100 1
+R O 10908 1 100 1
+End
+
+#1000068
+N Insta-Mess Hall~
+Ref 0
+D
+You are in wide tent filled with rows of tables and chairs.  
+~
+C
+~
+F 6
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000038 1 100 1
+R M 1000037 1 100 1
+R M 1000036 1 100 1
+R O 5004 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 531 1 100 1
+R O 541 1 100 1
+End
+
+#1000069
+N Armoury~
+Ref 0
+D
+This is the insta-fortress armoury.  
+~
+C
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000036 1 100 1
+End
+
+#1000070
+N Conning Tower~
+Ref 0
+D
+A tall tower overlooking the fortress.  
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O Locke~
+R M 1000039 1 100 1
+End
+
 #0
 
 

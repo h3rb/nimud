@@ -2286,7 +2286,7 @@ Sc 5002
 End
 
 #5003
-N $n $n citizen~
+N $n $N citizen~
 SD $n $N~
 LD
  $n $N is here.
@@ -12322,7 +12322,7 @@ M 0
 W 0
 T 0
 O ~
-Dr 0 3072 0 10795
+Dr 0 1024 0 10795
 ~
 ~
 Dr 1 0 0 5107
@@ -12381,6 +12381,9 @@ T 0
 O ~
 R M 5108 1 100 1
 R O 5108 -1 100 3
+Dr 0 0 0 10795
+~
+~
 Dr 1 0 0 6200
 ~
 ~
@@ -12437,7 +12440,7 @@ railing~
 Dr 2 0 0 5109
 ~
 ~
-Dr 3 2048 0 10776
+Dr 3 2560 0 10776
 The Caerbrok's source is to the west, in the Andraius Mountains.
 ~
 ~

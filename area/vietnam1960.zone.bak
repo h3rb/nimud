@@ -141,22 +141,22 @@ N radio~
 C
 if (is(%astr%,{radio}),
      {
-          echo({The radio echos a strange static sound.});
+          emit({The radio emits a strange static sound.});
           wait(10);
-          echo({The radio crackles to life:});
-          echo({   "We have your position, Lieutenant."});
+          emit({The radio crackles to life:});
+          emit({   "We have your position, Lieutenant."});
           wait(11);
           if (greater(getdir(%bstr%),0),
               {
-                  echo({From the radio: "Coordinates confirmed."});
+                  emit({From the radio: "Coordinates confirmed."});
                   wait(5);
-                  echo({You hear the sound of an engine overhead.});
+                  emit({You hear the sound of an engine overhead.});
                   wait(15);
-                  echo({Nearby you hear explosions.});
+                  emit({Nearby you hear explosions.});
                   bomb(getdir(%bstr%),50);
-                  echo(getdir(%bstr%),{You are hit with an airstrike!});
+                  emit(getdir(%bstr%),{You are hit with an airstrike!});
               },
-              echo({From the radio: "Say again?  We cannot confirm those coordinates."}));
+              emit({From the radio: "Say again?  We cannot confirm those coordinates."}));
      } );
 ~
 T 0
@@ -166,7 +166,7 @@ End
 N random-static~
 C
 wait(random(5,500));
-oecho({The radio emits a sudden burst of static.});
+emit({The radio emits a sudden burst of static.});
 ~
 T 0
 End
@@ -605,7 +605,6 @@ Ti 0
 Wt 4
 C 500
 O ~
-Sc 7009
 V 4 10 10 10
 End
 

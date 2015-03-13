@@ -62,7 +62,7 @@ const struct board board_table [MAX_BOARD] =
  /* Name of Board           Filename        Write Level     Read Level      */
   { "(OOC) Immortal",       "board1.txt",   LEVEL_IMMORTAL, LEVEL_IMMORTAL   },
   { "(OOC) Announcements",  "board2.txt",   LEVEL_IMMORTAL, LEVEL_MORTAL     },
-  { "(OOC) Public",         "board3.txt",   LEVEL_MORTAL,   LEVEL_MORTAL     },
+  { "(OOC) Public",         "board3.txt",   0, 0  },
   { "(OOC) Bugs",           "board4.txt",   LEVEL_MORTAL,   LEVEL_IMMORTAL   },
   { "(OOC) Building",       "board5.txt",   LEVEL_HERO,     LEVEL_HERO       },
   { "Rules",                "board6.txt",   LEVEL_IMMORTAL, LEVEL_MORTAL     },
@@ -641,7 +641,6 @@ void cmd_note( PLAYER *ch, char *argument )
     if ( !str_cmp( arg, "digest" ) && IS_IMMORTAL(ch) )
     {
         char buf3[MAX_STRING_LENGTH];
-        char *strtime;
         buf1[0] = '\0';
 
         for ( pnote = note_list[bnum]; pnote != NULL; pnote = pnote->next )
@@ -696,9 +695,15 @@ void cmd_note( PLAYER *ch, char *argument )
         ch->pnote->subject = str_dup( "[Digest]" );
         ch->pnote->text = str_dup( buf1 );
         ch->pnote->next                 = NULL;
-        strtime                         = ctime( &current_time );
-        strtime[strlen(strtime)-1]      = '\0';
+        {
+        time_t rawtime;
+        struct tm * timeinfo;
+        char strtime[80];
+        time ( &rawtime );
+        timeinfo = localtime ( &rawtime );
+        strftime( strtime, 80, "%a %b %d %Y %I%p", timeinfo );
         ch->pnote->date                 = str_dup( strtime );
+        }
         ch->pnote->date_stamp           = current_time;
  
         ch->pnote->next   = note_list[bnum];
@@ -731,7 +736,7 @@ void cmd_note( PLAYER *ch, char *argument )
     {
         note_attach( ch );
         free_string( ch->pnote->to_list );
-        ch->pnote->to_list = string_proper( str_dup(argument) );
+        ch->pnote->to_list = str_dup(string_proper(argument));
         if ( ch->desc->connected <= NET_PLAYING ) to_actor( "Ok.\n\r", ch );
         return;
     }
@@ -803,7 +808,6 @@ void cmd_note( PLAYER *ch, char *argument )
  
     if ( !str_cmp( arg, "post" ) || !str_prefix( arg, "send" ) )
     {
-        char *strtime;
 
         if ( !CAN_WRITE(ch, bnum) )
         {
@@ -832,9 +836,15 @@ void cmd_note( PLAYER *ch, char *argument )
         }
  
         ch->pnote->next                 = NULL;
-        strtime                         = ctime( &current_time );
-        strtime[strlen(strtime)-1]      = '\0';
+        {
+        time_t rawtime;
+        struct tm * timeinfo;
+        char strtime[80];
+        time ( &rawtime );
+        timeinfo = localtime ( &rawtime );
+        strftime( strtime, 80, "%a %b %d %Y %I%p", timeinfo );
         ch->pnote->date                 = str_dup( strtime );
+        }
         ch->pnote->date_stamp           = current_time;
  
         if ( note_list[bnum] == NULL )

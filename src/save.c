@@ -792,7 +792,7 @@ fread_number(fp); fMatch = TRUE; break; }
 #if defined(NEVER)
         if ( !str_cmp( word, "Script" ) ) {
            INSTANCE *pInstance = new_instance();
-           pInstance->script = get_script_index( fread_number( fp ) );
+           pInstance->script = get_script( fread_number( fp ) );
            if ( !pInstance->script ) { free_instance(pInstance); break; }
            pInstance->next = ch->instances;
            ch->instances = pInstance;  
@@ -1051,7 +1051,7 @@ PLAYER *fread_actor ( PLAYER *ch, FILE *fp )
 #if defined(NEVER)
         if ( !str_cmp( word, "Script" ) ) {
            INSTANCE *pInstance = new_instance();
-           pInstance->script = get_script_index( fread_number( fp ) );
+           pInstance->script = get_script( fread_number( fp ) );
            if ( !pInstance->script ) { free_instance(pInstance); break; }
            pInstance->next = ch->instances;
            ch->instances = pInstance;  
@@ -1270,7 +1270,7 @@ void fread_prop( void *owner, int owner_type, FILE *fp )
 #if defined(NEVER)
         if ( !str_cmp( word, "Script" ) ) {
            INSTANCE *pInstance = new_instance();
-           pInstance->script = get_script_index( fread_number( fp ) );
+           pInstance->script = get_script( fread_number( fp ) );
            if ( !pInstance->script ) { free_instance(pInstance); break; }
            pInstance->next = prop->instances;
            prop->instances = pInstance;  

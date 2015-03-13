@@ -796,7 +796,7 @@ void load_spells( FILE *fp )
           case 'S':
            if ( !str_cmp( word, "Sc" ) ) {
                SCRIPT *pScript;
-               pScript = get_script_index( fread_number(fp) );
+               pScript = get_script( fread_number(fp) );
                if ( pScript ) {
                INSTANCE *pInstance;
                pInstance = new_instance();
@@ -1564,7 +1564,7 @@ void fread_actor2( FILE *fp, int dbkey )
             if ( !str_cmp( word, "Sc" ) )
             {
                 INSTANCE *pTrig;
-                SCRIPT *pScript = get_script_index( fread_number(fp) );
+                SCRIPT *pScript = get_script( fread_number(fp) );
 
                 if ( pScript ) {
                 pTrig = new_instance( );
@@ -1748,7 +1748,7 @@ void fread_prop_template( FILE *fp, int dbkey )
                 INSTANCE *pTrig;
 
                 pTrig = new_instance( );
-                pTrig->script = get_script_index( fread_number( fp ) );
+                pTrig->script = get_script( fread_number( fp ) );
                 pTrig->next = pPropIndex->instances;
                 pPropIndex->instances = pTrig;
                 fMatch = TRUE;
@@ -1965,7 +1965,7 @@ void fread_scene( FILE *fp, int dbkey )
                 INSTANCE *pTrig;
 
                 pTrig = new_instance( );
-                pTrig->script = get_script_index( fread_number( fp ) );
+                pTrig->script = get_script( fread_number( fp ) );
                 pTrig->next = pSceneIndex->instances;
                 pSceneIndex->instances = pTrig;
                 fMatch = TRUE;
@@ -2108,7 +2108,7 @@ void load_scripts( FILE *fp )
             break;
 
         fBootDb = FALSE;
-        if ( get_script_index( dbkey ) != NULL )
+        if ( get_script( dbkey ) != NULL )
         {
             wtf_logf( "Load_scripts: dbkey %d duplicated.", dbkey );
             exit( 1 );
@@ -2134,7 +2134,7 @@ void fix_mobs( void ) {
       ACTOR_TEMPLATE *a=get_actor_template(v);
       if ( a ) { 
       a->name = strlwr(a->name);
-         if ( a->exp < 30 && a->exp != 1 ) { a->exp = number_range(0,1000); 
+         if ( a->exp < 30 && a->exp != 1 ) { a->exp = abs(number_range(0,1000)); 
 a->perm_str=a->perm_int=a->perm_wis=a->perm_con=a->perm_dex=0; }
          if ( a->perm_str == 0
           &&  a->perm_int == 0
@@ -2911,7 +2911,7 @@ SCENE *get_scene( int dbkey )
 /* Translates virtual number to its script index struct.
  * Hash table lookup.
  */
-SCRIPT *get_script_index( int dbkey )
+SCRIPT *get_script( int dbkey )
 {
     SCRIPT *script;
 

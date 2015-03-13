@@ -614,7 +614,7 @@ struct help_class
 #define SHOP_CREDITS        0x00000020 // shop deals in credits
 #define SHOP_BUCKS          0x00000040 // shop deals in bucks
 
-struct    shop
+struct shop
 {
     SHOP * next;                   /* Next Shop in List            */
     int    keeper;            /* Vnum of shop keeper actor    */
@@ -640,7 +640,7 @@ struct    shop
 /*
  * Race archetypes for actors and players.
  */
-struct    race_type
+struct race_type
 {
    char *   race_name;
    char *   race_name_type;
@@ -1902,9 +1902,9 @@ struct player
  */
 #define LIQ_WATER        0
 #define LIQ_OIL         17
-#define LIQ_MAX         34
+#define LIQ_MAX         35
 
-struct    liq_type
+struct liq_type
 {
     char *    liq_name;
     char *    liq_color;
@@ -1914,7 +1914,7 @@ struct    liq_type
 /*
  * Extra description data for a scene or prop.
  */
-struct    extra_descr
+struct extra_descr
 {
     EXTRA_DESCR *next;    /* Next in list                     */
     char *keyword;              /* Keyword in look/examine          */
@@ -1925,7 +1925,7 @@ struct    extra_descr
 /*
  * Prototype for an prop.         OBJIND
  */
-struct    prop_template
+struct prop_template
 {
     PROP_TEMPLATE *   next;
     EXTRA_DESCR *  extra_descr;
@@ -1962,7 +1962,7 @@ struct    prop_template
 /*
  * One prop.                            OBDAT
  */
-struct    prop
+struct prop
 {
     PROP *         next;
     PROP *         next_content;
@@ -2001,7 +2001,7 @@ struct    prop
 /*
  * Exit data.
  */
-struct    exit
+struct exit
 {
     SCENE *    to_scene;
     EXIT *         next;
@@ -2025,7 +2025,7 @@ struct    exit
 /*
  * zone-reset definition.
  */
-struct    spawn
+struct spawn
 {
     SPAWN *    next;
     char                command; /* M=Mob O=Obj                              */
@@ -2045,7 +2045,7 @@ struct    spawn
 /*
  * zone definition.
  */
-struct    zone
+struct zone
 {
     ZONE *         next;
     char *              name;
@@ -2064,7 +2064,7 @@ struct    zone
 /*
  * Scene type.                                       SCENEIND
  */
-struct    scene
+struct scene
 {
     SCENE *   next;
     SPAWN *         spawn_first;
@@ -2643,10 +2643,10 @@ void add_history         args( ( PLAYER *ch, char *_out ) );
  * Contains movement and positional scripts, and some skill routines.        *
  *****************************************************************************/
  
-extern char *  const   dir_name        [];
-extern char *  const   dir_rev         [];
-extern char *  const   dir_letter      [];
-extern const   int  rev_dir         [];
+extern char *  const   dir_name        [MAX_DIR];
+extern char *  const   dir_rev         [MAX_DIR];
+extern char *  const   dir_letter      [MAX_DIR];
+extern const   int  rev_dir         [MAX_DIR];
 extern const   int  movement_loss   [MOVE_MAX];
 
 void hide_check      args( ( PLAYER *ch, SCENE *in_scene ) );
@@ -2939,7 +2939,7 @@ OD *    create_prop    args( ( PROP_TEMPLATE *pPropIndex, int level ) );
 MID *   get_actor_template    args( ( int dbkey ) );
 OID *   get_prop_template    args( ( int dbkey ) );
 RID *   get_scene   args( ( int dbkey ) );
-SCD *   get_script_index args( ( int dbkey ) );
+SCD *   get_script args( ( int dbkey ) );
 void    prop_strings      args( ( PROP *prop ) );
 void    actor_strings      args( ( PLAYER *actor ) );
 void    printfs             args( ( const char *str, char *param ) );
@@ -3737,9 +3737,10 @@ bool    has_arg         args( ( char *argument, char *item ) );
 char *  trunc_fit       args( ( char *argument, int length ) );
 char *  gotoxy          args( ( int x, int y ) );
 char *  skip_curlies    args( ( char *arg ) );
+char *  strip_percents  args( ( char *arg ) );
 char *  strip_curlies   args( ( char *arg ) );
 char *  grab_to_eol     args( ( char *argument, char *arg_first ) );
-char *  grab_to_at      args( ( char *argument, char *arg_first ) );
+char *  grab_to_at      args( ( char *argument, char *arg_first, char c ) );
 
 /*****************************************************************************
  * Variable and functional declarations for tips.c                           *

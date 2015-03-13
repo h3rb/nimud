@@ -32,7 +32,7 @@ Sz 18
 K -200 E 420
 O ~
 AP 15 15 15 15 15
-At 1 5 15 12
+At 1 5 10 12
 At 2 5 10 14
 At 3 3 5 22
 End
@@ -109,10 +109,10 @@ At 1 5 17 9
 End
 
 #19004
-N orc~
-SD the orc~
+N muidar~
+SD the sick muidar~
 LD
- This muidar is frothing around the mouth.  Better stay away.
+ A sick muidar looks deathly ill and is foaming at the mouth.
 ~
 D
  You notice a slight tinge of madness in his eyes.
@@ -1698,6 +1698,8 @@ W 0
 T 0
 O ~
 R M 19001 2 100 1
+R C 168 -1 100 1
+R C 170 -1 100 2
 Dr 0 0 0 19019
 ~
 ~

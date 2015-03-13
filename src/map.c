@@ -47,9 +47,28 @@
 struct MapData {
  SCENE *s;
 };
-
+                            /*N  E  S   W  U  D  NW NE  SW  SE */
 static int dirx[MAX_DIR] =  { 0, 1, 0, -1, 0, 0, -1, 1, -1, 1 };  
 static int diry[MAX_DIR] =  { 1, 0, -1, 0, 0, 0, 1, 1, -1, -1 };
+
+char EXC( char c, EXIT *e );
+
+char EXC( char c, EXIT *e ) {
+
+ if ( !e ) return '+';
+
+ if ( IS_SET(e->exit_flags,EXIT_TRANSPARENT) ) return '8';
+ if ( IS_SET(e->exit_flags,EXIT_WINDOW) ) return 'O';
+ if ( IS_SET(e->exit_flags,EXIT_NOMOVE) ) return 'X';
+ if ( IS_SET(e->exit_flags,EXIT_SECRET) ) return 'S';
+ if ( IS_SET(e->exit_flags,EXIT_CONCEALED) ) return 'C';
+ if ( IS_SET(e->exit_flags,EXIT_JAMMED) ) return 'J';
+ if ( IS_SET(e->exit_flags,EXIT_BASHPROOF) ) return '#';
+ if ( IS_SET(e->exit_flags,EXIT_EAT_KEY) ) return 'U';
+ if ( IS_SET(e->exit_flags,EXIT_ISDOOR) ) return 'D';
+
+ return c;
+}
 
 void cmd_map( PLAYER *ch, char *argument ) {
  SCENE *start;
@@ -65,12 +84,12 @@ void cmd_map( PLAYER *ch, char *argument ) {
   SCENE *to;
   if ( E == DIR_UP || E == DIR_DOWN ) continue;
   if ( start->exit[E] && (to=start->exit[E]->to_scene) ) {
-   map[(3+dirx[E])+(3+diry[E])*5].s=to;
+   map[(2+dirx[E])+(2+diry[E])*5].s=to;
    for ( E2=0; E2<MAX_DIR; E2++ ) {
     SCENE *to2;
     if ( E2 == DIR_UP || E2 == DIR_DOWN ) continue;
     if ( to->exit[E2] && (to2=to->exit[E2]->to_scene) ) {
-     map[(3+dirx[E]+dirx[E2])+(3+diry[E]+diry[E2])*5].s=to2;
+     map[(2+dirx[E]+dirx[E2])+(2+diry[E]+diry[E2])*5].s=to2;
     }
    }
   }
@@ -96,7 +115,9 @@ void cmd_map( PLAYER *ch, char *argument ) {
    case MOVE_CLIMB:        c="^N^I";     b='-';  break;
     default: c="^N"; break;
   }
-  sprintf( output, "%s%c%c%c%c%c^N  ", c, here->exit[DIR_NW] ? '\\' : '+', b, here->exit[DIR_NORTH] ? '|' : b, b, here->exit[DIR_NE] ? '/' : '+' );
+  sprintf( output, "%s%c%c%c%c%c^N  ", c, here->exit[DIR_NW] ? EXC('\\',here->exit[DIR_NW]) : '+', b, here->exit[DIR_NORTH] 
+? EXC('|',here->exit[DIR_NORTH]) 
+: b, b, here->exit[DIR_NE] ? EXC('/',here->exit[DIR_NE]) : '+' );
   to_actor( output, ch );
  }  else  to_actor( "       ", ch );
  to_actor( "\n\r", ch );
@@ -120,7 +141,11 @@ void cmd_map( PLAYER *ch, char *argument ) {
    case MOVE_CLIMB:        c="^N^I";     b='|';  break;
     default: c="^N"; break;
   }
-  sprintf( output, "%s%c%s%s%s%c%c^N  ", c, here->exit[DIR_WEST] ? '<' : '|', here->exit[DIR_UP] ? "^^" : " ", (x==3&&y==3)?"^B@^N":" ", (x==3&&y==3) ? c : "", here->exit[DIR_DOWN] ? 'v' : ' ', here->exit[DIR_EAST] ? '>' : '|' );
+  sprintf( output, "%s%c%s%s%s%c%c^N  ", c, here->exit[DIR_WEST] ? EXC('<',here->exit[DIR_WEST]) : '|', here->exit[DIR_UP] 
+? "^^" : " ",
+                                            (x==2&&y==2)?"^B@^N":" ", (x==2&&y==2) ? c : "",
+                                            here->exit[DIR_DOWN] ? 'v' : ' ', here->exit[DIR_EAST] ? 
+EXC('>',here->exit[DIR_EAST]) : '|' );
   to_actor( output, ch );
  }  else  to_actor( "       ", ch );
  to_actor( "\n\r", ch );
@@ -144,7 +169,8 @@ void cmd_map( PLAYER *ch, char *argument ) {
    case MOVE_CLIMB:        c="^N^I";     b='-';  break;
     default: c="^N"; break;
   }
-  sprintf( output, "%s%c%c%c%c%c^N  ", c, here->exit[DIR_SW] ? '/' : '+', b, here->exit[DIR_SOUTH] ? '|' : b, b, here->exit[DIR_SE] ? '\\' : '+' );
+  sprintf( output, "%s%c%c%c%c%c^N  ", c, here->exit[DIR_SW] ? EXC('/',here->exit[DIR_SW]) : '+',
+   b, here->exit[DIR_SOUTH] ? EXC('|',here->exit[DIR_SOUTH]) : b, b, here->exit[DIR_SE] ? EXC('\\',here->exit[DIR_SE]) : '+' );
   to_actor( output, ch );
  }  else  to_actor( "       ", ch );
  to_actor( "\n\r", ch );

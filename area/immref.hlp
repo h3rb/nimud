@@ -634,25 +634,6 @@ EX ~
 SA ~
 End
 
-#DOC 500
-N HEDIT~
-C 9 L 5
-KW ~
-SY ~
-TX list <vnum> <vnum>
-list <keyword>
-seealso [list]
-immtext <-enter immtext editor
-text <-enter immtext editor
-keywords [list]
-name [title]
-example <- enter example editor
-~
-IT ~
-EX ~
-SA ~
-End
-
 #DOC 501
 N BUILDING~
 C 9 L 5

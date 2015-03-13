@@ -1547,6 +1547,9 @@ R M 18416 4 100 1
 Dr 0 0 0 18447
 ~
 ~
+Dr 5 0 0 24400
+~
+~
 End
 
 #18449
@@ -2747,7 +2750,7 @@ The stench of death is heavy in these caverns.
 C
 ~
 F 8201
-S 0
+S 10
 M 0
 W 0
 T 0
@@ -2827,7 +2830,7 @@ only a rectangular blemish on the floor of the dusty room.
 C
 ~
 F 9
-S 0
+S 6
 M 0
 W 0
 T 0

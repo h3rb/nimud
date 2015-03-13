@@ -66,7 +66,7 @@ End
 N air jroki~
 SD the ghostly air jroki~
 LD
- The ghostly air jroki.
+ A ghostly jroki made entirely of illuminated air is wandering aimlessly.
 ~
 D
  The air jroki is hard to see.  You know that it is there
@@ -296,12 +296,87 @@ A
 PD
 ~
 DR
+D##           .##j                
+               #.                ;#               
+              #                    W              
+             #                      #             
+            #                        #            
+           #E                        ##           
+          :#                          #           
+          ##                          ##          
+        ###                            ###        
+        ###                            ##f        
+        W##                            ##;        
+        ###                            ##j        
+        ###                            ###        
+        ###          :#:  t#           ###        
+        ###         #.      i#        i###        
+       j###.       #.         #       D###        
+       ####       W#          ##      .####       
+      #####       #            #       #####      
+      ###        ;#            #         ###      
+     ###         t#            #         t###     
+    ####          #            #          ###j    
+    ####          ##          ##          ####    
+   #####          ##i        W#i          #####   
+ #######         L####      ####:         ####### 
+ K######           #####  #####           ######f 
+  ######E           ###j  j###           #######  
+    #####W          ###    ###          ######    
+    .######         t##    ##          ######     
+     W#####f         ##    ##         W#####j     
+      ######         ###  ###         ######      
+       ######         ##  ##         ######       
+       #####          ##  ##          #####       
+       E####           #  #          L####:       
+        #####                        #####        
+        ######  ;                   ######        
+        ####### ;               ,  #######        
+         #######i#              #,#######         
+         #########      W#      #########         
+         ##########     ##     ##########         
+         ##########     ##     ##########         
+         ###########   ####   ###########         
+         ####  ####################  ####         
+         ###     ###############K     ###         
+         ###       ############       ###         
+         ##         ##########         ##         
+        ###         t########          ###        
+        ###          ########          ###        
+         ##          :######           ##         
+         ##           ######           ##         
+          #           ######           #          
+          #           #####K           W          
+           #           ####           #           
+           #           ####           #           
+            #          ####          #            
+             #         ####         #             
+              i        ####        K              
+               G       ####       #               
+                       ####                       
+                       ####                       
+                       ####                       
+                       ####                       
+                       ####                       
+                       f##                        
+                        ##                        
+                        ##                        
+                        ##                        
+                        ##                        
+                        ##                        
+                        ##                        
+                        ##                        
+                        ##                        
+                        W#                        
+                        W#                
+By the looks of this symbol, the parchment is Alvaki.
+You may be able to use this scroll in combat by typing 'invoke'
 ~
 L 0
 T 2
-E 129
+E 1
 W 16385
-Sz 18
+Sz 0
 Ti 0
 Wt 5
 C 100
@@ -684,7 +759,7 @@ The crevice looks a little slippery.
 End
 
 #24115
-N Deep, slippery crevice.~
+N a deep ravine~
 Ref 0
 D
 The crevice is deep and a little dim and it is hard to make your
@@ -712,7 +787,7 @@ Dr 4 0 -1 24114
 End
 
 #24116
-N Incredibly slippery crevice.~
+N a dangerous grade~
 Ref 0
 D
 The crevice is getting more and more slippery.  You are getting
@@ -725,7 +800,7 @@ slide ...
 C
 ~
 F 0
-S 5
+S 12
 M 0
 W 0
 T 0
@@ -741,7 +816,7 @@ Only fools would dare tread here!
 End
 
 #24117
-N Steep mountainside.~
+N a steep mountainside~
 Ref 0
 D
 From here, you can see forever.  Clouds, birds, the forest.
@@ -765,7 +840,7 @@ Dr 4 0 -1 24118
 End
 
 #24118
-N Steep mountainside.~
+N a steep mountainside~
 Ref 0
 D
 From here, you can see forever.  Clouds, birds, the forest.
@@ -788,7 +863,7 @@ Dr 5 0 -1 24117
 End
 
 #24119
-N Treacherous Cliff.~
+N the treacherous cliff~
 Ref 0
 D
 The cliff is rocky and difficult to negotiate.  One wrong slip and
@@ -815,7 +890,7 @@ climbable.
 End
 
 #24120
-N Cliff Face.~
+N a cliff face~
 Ref 0
 D
 You are more than a little nervous climbing on this almost vertical
@@ -825,7 +900,7 @@ ledges to rest on.  You see a small cave here.
 C
 ~
 F 0
-S 5
+S 12
 M 0
 W 0
 T 0
@@ -844,7 +919,7 @@ Dr 5 0 -1 24119
 End
 
 #24121
-N Dank, dark, smelly hole.~
+N a dank, dark smelly hole~
 Ref 0
 D
 This hole must have been used as a lair or nest.  There are
@@ -854,7 +929,7 @@ something disgusting.
 C
 ~
 F 9
-S 5
+S 10
 M 0
 W 0
 T 0
@@ -866,7 +941,7 @@ Dr 3 0 -1 24120
 End
 
 #24122
-N Large, sturdy ledge.~
+N a large, sturdy ledge~
 Ref 0
 D
 You are on a ledge above a steep cliff face.  You can climb down
@@ -885,6 +960,9 @@ R M 24101 40 100 1
 Dr 0 0 -1 24124
 ~
 ~
+Dr 1 0 0 24169
+~
+~
 Dr 3 0 -1 24123
 ~
 ~
@@ -894,7 +972,7 @@ Dr 5 0 -1 24120
 End
 
 #24123
-N Absolutely disgusting lair.~
+N Absolutely Disgusting Lair~
 Ref 0
 D
 The stench in here is quite foul.  There are feathers, bones and
@@ -904,7 +982,7 @@ you have to strain yourself not to lose your lunch.
 C
 ~
 F 9
-S 5
+S 10
 M 0
 W 0
 T 0
@@ -917,7 +995,7 @@ Your only hope to keep your lunch down is to head this way...
 End
 
 #24124
-N Absolutely disgusting lair.~
+N Absolutely Disgusting Lair~
 Ref 0
 D
 The stench in here is quite foul.  There are feathers, bones and
@@ -927,7 +1005,7 @@ you have to strain yourself not to lose your lunch.
 C
 ~
 F 9
-S 5
+S 10
 M 0
 W 0
 T 0
@@ -1867,18 +1945,14 @@ O ~
 Dr 0 0 -1 24157
 ~
 ~
-Dr 4 0 -1 24160
-~
-~
 End
 
 #24160
-N Front gate~
+N a huge front gate~
 Ref 0
 D
-There is a gate here.  It is huge, towering over you.  It creaks
-as it sways in the breeze.  To the south you see a huge lawn.
-There is a rope ladder leading down.
+There is a gate here.  It is huge, towering over you.  It creaks as it
+sways in the breeze.  To the south you see a huge lawn.  
 ~
 C
 ~
@@ -1888,18 +1962,17 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 21100
+~
+~
 Dr 2 0 -1 24161
 You see a huge lawn.
-~
-~
-Dr 5 0 -1 24159
-There is a rope ladder leading down.
 ~
 ~
 End
 
 #24161
-N Lawn~
+N the lawn~
 Ref 0
 D
 The lawn seems to stretch and stretch to the south and to the west.
@@ -1926,7 +1999,7 @@ Dr 3 0 -1 24162
 End
 
 #24162
-N Croquet game~
+N the croquet game~
 Ref 0
 D
 A croquet game has been set up and carelessly left out.  Who ever
@@ -1951,7 +2024,7 @@ Dr 2 0 -1 24164
 End
 
 #24163
-N Huge, gorgeous fountain.~
+N near a huge, gorgeous fountain~
 Ref 0
 D
 An enormous golden fountain is here.  You see swans, angels,
@@ -1966,6 +2039,7 @@ M 0
 W 0
 T 0
 O ~
+R O 5008 -5 100 1
 R M 24103 5 100 1
 Dr 0 0 -1 24161
 ~
@@ -1976,7 +2050,7 @@ Dr 3 0 -1 24164
 End
 
 #24164
-N Patio.~
+N the patio~
 Ref 0
 D
 A huge patio overlooks the lawn area.  There are enough tables and
@@ -2004,7 +2078,7 @@ Dr 4 0 -1 24165
 End
 
 #24165
-N Long stairway.~
+N a long and magical stairway~
 Ref 0
 D
 This stairway is suspended on clouds.  It leads from the house to
@@ -2028,7 +2102,7 @@ Dr 5 0 -1 24164
 End
 
 #24166
-N Front door~
+N the front entry~
 Ref 0
 D
 You stand at the front door of an immense, sprawling mansion made
@@ -2059,7 +2133,7 @@ Dr 5 0 -1 24165
 End
 
 #24167
-N Lawn northwest of house.~
+N the lawn, northwest of the house~
 Ref 0
 D
 You stand just outside the northwest corner of the house.  You try
@@ -2068,7 +2142,7 @@ to peek in a window, but it is a little too high to see anything.
 C
 ~
 F 0
-S 1
+S 2
 M 0
 W 0
 T 0
@@ -2082,7 +2156,7 @@ Dr 2 0 -1 24168
 End
 
 #24168
-N Lawn west of house.~
+N the lawn west of the house~
 Ref 0
 D
 You stand just outside the west corner of the house.  You try to
@@ -2091,7 +2165,7 @@ peek in a window, but it is a little too high to see anything.
 C
 ~
 F 0
-S 1
+S 2
 M 0
 W 0
 T 0
@@ -2099,13 +2173,17 @@ O ~
 Dr 0 0 -1 24167
 ~
 ~
+Dr 1 516 0 24180
+You can see the side of the mansion where there is a large window.
+~
+window~
 Dr 2 0 -1 24169
 ~
 ~
 End
 
 #24169
-N Lawn southwest of house.~
+N a lawn southwest of a house~
 Ref 0
 D
 You stand just outside the southwest corner of the house.  You try
@@ -2114,7 +2192,7 @@ to peek in a window, but it is a little too high to see anything.
 C
 ~
 F 0
-S 1
+S 2
 M 0
 W 0
 T 0
@@ -2125,13 +2203,16 @@ Dr 0 0 -1 24168
 Dr 1 0 -1 24170
 ~
 ~
+Dr 3 0 0 24122
+~
+~
 Dr 5 0 -1 24174
 ~
-~
+hole~
 End
 
 #24170
-N Lawn south of house.~
+N a lawn, south of the house~
 Ref 0
 D
 You stand just outside the south corner of the house.  You try to
@@ -2140,11 +2221,15 @@ peek in a window, but it is a little too high to see anything.
 C
 ~
 F 0
-S 1
+S 2
 M 0
 W 0
 T 0
 O ~
+Dr 0 516 0 24184
+You can see the rear side of a large mansion.
+~
+conservatory window~
 Dr 1 0 -1 24171
 ~
 ~
@@ -2154,7 +2239,7 @@ Dr 3 0 -1 24169
 End
 
 #24171
-N Lawn southeast of house.~
+N the lawn, southeast of the house~
 Ref 0
 D
 You stand just outside the southeast corner of the house.  You try
@@ -2163,7 +2248,7 @@ to peek in a window, but it is a little too high to see anything.
 C
 ~
 F 0
-S 1
+S 2
 M 0
 W 0
 T 0
@@ -2177,16 +2262,16 @@ Dr 3 0 -1 24170
 End
 
 #24172
-N Lawn east of house.~
+N the lawn, east of the house~
 Ref 0
 D
-You stand just outside the east corner of the house.  You try to
-peek in a window, but it is a little too high to see anything.
+You stand just outside the east corner of the house.  You can try to peek
+in a window, but it may be a little too high to see anything.  
 ~
 C
 ~
 F 0
-S 1
+S 2
 M 0
 W 0
 T 0
@@ -2197,10 +2282,15 @@ Dr 0 0 -1 24173
 Dr 2 0 -1 24171
 ~
 ~
+Dr 3 1536 0 24185
+You peer in the window and you can see there is an office on this end of
+the building.  
+~
+office window~
 End
 
 #24173
-N Lawn northeast of house.~
+N the lawn, northeast of the house~
 Ref 0
 D
 You stand just outside the northeast corner of the house.  You try
@@ -2209,7 +2299,7 @@ to peek in a window, but it is a little too high to see anything.
 C
 ~
 F 0
-S 1
+S 2
 M 0
 W 0
 T 0
@@ -2223,7 +2313,7 @@ Dr 3 0 -1 24166
 End
 
 #24174
-N Dirty, dusty tunnel.~
+N a dirty, dusty tunnel~
 Ref 0
 D
 This dirty dusty tunnel must lead somewhere.
@@ -2245,7 +2335,7 @@ Dr 4 0 -1 24169
 End
 
 #24175
-N Basement.~
+N Basement~
 Ref 0
 D
 This seems like your average basement.  Old Christmas decorations,
@@ -2269,7 +2359,7 @@ Dr 3 0 -1 24174
 End
 
 #24176
-N Bottom of the stairs.~
+N the bottom of the stairs~
 Ref 0
 D
 You stand at the bottom of a long staircase leading up to the main
@@ -2293,7 +2383,7 @@ Dr 4 0 -1 24177
 End
 
 #24177
-N Foyer.~
+N the foyer~
 Ref 0
 D
 "Magnificent" does not even begin to describe the foyer.  Lavishly
@@ -2324,11 +2414,11 @@ Dr 3 0 -1 24178
 ~
 Dr 5 0 -1 24176
 ~
-~
+staircase~
 End
 
 #24178
-N Elegant hallway.~
+N an elegant hallway~
 Ref 0
 D
 You are in a long, sprawling hallway connecting the eastern and
@@ -2355,7 +2445,7 @@ Dr 3 0 -1 24180
 End
 
 #24179
-N Library~
+N the library~
 Ref 0
 D
 You are overwhelmed by the sheer volumes of books here.  The
@@ -2371,13 +2461,15 @@ M 0
 W 0
 T 0
 O ~
+R O 1100 -5 100 1
+R O 24105 -4 100 1
 Dr 0 0 -1 24178
 ~
 ~
 End
 
 #24180
-N Arboretum.~
+N the arboretum~
 Ref 0
 D
 A small indoor garden so that the residents don't have to go
@@ -2387,7 +2479,7 @@ trees, a small pond and flowers of every kind.
 C
 ~
 F 12
-S 0
+S 2
 M 0
 W 0
 T 0
@@ -2401,7 +2493,7 @@ Dr 2 0 -1 24181
 End
 
 #24181
-N Western tower.~
+N the western tower~
 Ref 0
 D
 You are in the bottom part of a tower.  A draft brings a chill to
@@ -2451,7 +2543,7 @@ Dr 5 0 -1 24181
 End
 
 #24183
-N Elegant hallway.~
+N an elegant hallway~
 Ref 0
 D
 You are in a long, sprawling hallway connecting the eastern and
@@ -2466,9 +2558,9 @@ M 0
 W 0
 T 0
 O ~
-Dr 1 0 -1 24185
+Dr 1 5 -1 24185
 ~
-~
+office door~
 Dr 2 0 -1 24184
 ~
 ~
@@ -2478,7 +2570,7 @@ Dr 3 0 -1 24177
 End
 
 #24184
-N Conservatory~
+N a conservatory~
 Ref 0
 D
 Here was the rehearsal and recital room for the residents of the
@@ -2496,16 +2588,19 @@ O ~
 Dr 0 0 -1 24183
 ~
 ~
+Dr 2 516 0 24170
+~
+conservatory window~
 End
 
 #24185
-N Office~
+N an office~
 Ref 0
 D
-You find yourself in a lavish office.  The desk is absolutely huge,
-at least ten feet by five feet and made of ebony and inlaid with
-mother of pearl.  A grandfather clock towers over the room,
-mechanically ticking and tocking the hours away.
+This appears to be a lavish office.  The ^Bdesk^N is absolutely huge, at
+least ten feet by five feet and made of ebony and inlaid with mother of
+pearl.  A grandfather clock towers over the room, mechanically ticking and
+tocking the hours away.  
 ~
 C
 ~
@@ -2515,16 +2610,24 @@ M 0
 W 0
 T 0
 O ~
+ED desk~
+A massive desk is situated in the room.
+~
+R C 174 -5 100 1
+R O 531 -5 100 1
+Dr 1 1536 0 24172
+~
+the office window~
 Dr 2 0 -1 24186
 ~
 ~
-Dr 3 0 -1 24183
+Dr 3 5 -1 24183
 ~
-~
+office door~
 End
 
 #24186
-N Eastern tower.~
+N the eastern tower~
 Ref 0
 D
 You are in the bottom part of a tower.  A draft brings a chill to
@@ -2574,15 +2677,11 @@ Dr 5 0 -1 24186
 End
 
 #24199
-N Mid-Air.~
+N coming down the mountain~
 Ref 0
 D
-You slide down the moisture covered rock, gaining speed as you
-approach the cliff.  Realizing your foolish error, you madly claw
-at the rock, vainly trying to get a precious hold and save your
-worthless hide.  Next time, heed your conscience.
-
-You've fallen, and you can't get up!!!
+You slide down the moisture covered rock, gaining speed as you approach
+the cliff edge.  You can see a tundra not far below.  
 ~
 C
 ~
@@ -2592,6 +2691,9 @@ M 0
 W 0
 T 0
 O ~
+Dr 5 0 0 17360
+~
+~
 End
 
 #0

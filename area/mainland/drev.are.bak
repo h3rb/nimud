@@ -47,19 +47,19 @@ At 0 10 22 9
 End
 
 #16101
-N ring keeper~
-SD the Keeper of the Ring~
+N $n-$n $N-$N-$N-$N-$N-$n housemaster house master~
+SD $n-$n $N-$N-$N-$N-$N-$n~
 LD
- The Keeper of the Ring is here, guarding his treasure jealously.
+ $n-$n, keeper of the estate, is sneaking a cookie.
 ~
 D
- The Ring Keeper is a rather big but short drev.  His short stature and
-bulbous nose belie his true nature.  An thilonenne sword that glows with a blue
-light hangs from his belt, and on his finger you see the One Ring.  Although
-usually a drev of peace, he will fight you to the death if you attempt
-to take away that which belongs to him.
+ The house master is a rather big but short drev.  His short stature and
+bulbous nose belie his true nature.  An thilonenne sword that glows with a
+blue light hangs from his belt, and he wears a monocle.  Although usually a
+drev of peace, he will fight you to the death if you attempt to take away
+that which belongs to him.  
 ~
-A 67
+A 3
 AB 10
 M 0
 Credits 0
@@ -74,13 +74,13 @@ At 1 5 16 8
 End
 
 #16102
-N farmer gamgee~
-SD Farmer Gamgee~
+N farmer $n $N~
+SD $n $N~
 LD
- Farmer Gamgee sniffs the air, wondering if harvest time is near.
+ the farmer, $n $N, is here.
 ~
 D
- Farmer Gamgee is a short, stout drev of thirty years.  His skin has
+ Farmer $N is a short, stout drev of thirty years.  His skin has
 been tanned from working the fields night and day.  He's quite a jolly
 chap, always ready to befriend an injured bunny rabbit.
 ~
@@ -328,10 +328,10 @@ At 0 10 16 7
 End
 
 #16112
-N thain~
-SD the Thain~
+N sheriff $n~
+SD Sheriff $n~
 LD
- The Thain commands respect from all Shire folk.
+ The sheriff commands respect!
 ~
 D
  A personable yet serious drev, the Thain looks at you and yells a
@@ -511,10 +511,10 @@ At 5 1 35 5
 End
 
 #16119
-N grocer~
-SD the grocer~
+N $n-$n $N-$N-$N-$N-$n grocer~
+SD $n-$n $N-$N-$N-$N-$n the grocer~
 LD
- The grocer offers you the finest breads in all the land.
+ $n-$n the grocer is here.
 ~
 D
  The grocer is a large, jovial drev who knows how to enjoy his pipeweed.
@@ -938,7 +938,8 @@ N pipeweed bread~
 SD a pipeweed bread~
 P ~
 D
-A loaf of pipeweed bread arouses your hunger.~
+A loaf of pipeweed bread arouses your hunger.
+~
 A
 ~
 PD
@@ -1495,7 +1496,7 @@ To the west runs Bywater Road.
 End
 
 #16110
-N guardsman Post of the Eastern Shire~
+N guard post of the Drev city~
 Ref 0
 D
 You are in the guardsman Post which acts as the nucleus for the three guards
@@ -1513,23 +1514,23 @@ T 0
 O ~
 R M 16110 8 100 1
 Dr 1 0 0 16111
-A door offers passage to the office of the Thain.
+A door offers passage to the office of the Sheriff.
 ~
 door~
 Dr 3 0 -1 16109
-To the west you can see Bywater Road.
+To the west you can see the Drev city.
 ~
 ~
 End
 
 #16111
-N Thain's Office~
+N Sheriff's Office~
 Ref 0
 D
-You stand inside the office of the Thain, the police protectorate of the
-great Shire.  The Thain has sworn to protect Drev city from all thieves and
-murderers with his life, and so eyes you suspiciously.  A door to the west
-leads to the guardsman Post.
+You stand inside the office of the Sheriff, the police protectorate of
+the great Drev city.  The Thain has sworn to protect Drev city from all
+thieves and murderers with his life, and so eyes you suspiciously.  A door
+to the west leads to the guardsman Post.  
 ~
 C
 ~
@@ -1709,12 +1710,12 @@ The only exit lies to the west.
 End
 
 #16118
-N Bywater Road~
+N Drev Hollow Entry Road~
 Ref 0
 D
-You stand on Bywater Road, the busiest street in all of Shiredom.  The road
-continues to the east and west.  A large, imposing building lies to the south.
-You catch a glimpse of the Brandywine River to the north.
+You stand on Bywater Road, the busiest street in all of the Drev city. 
+The road continues to the east and west.  A large, imposing building lies to
+the south.  You catch a glimpse of the Kyr River to the north.  
 ~
 C
 ~
@@ -1763,13 +1764,13 @@ The only exit is to the north.
 End
 
 #16120
-N Bywater Road~
+N Delving Road~
 Ref 0
 D
-You stand on Bywater Road, the busiest street in all of Shiredom.  The road
-continues to the east and west.  To the south you spy the Grocer's Delight,
-the premium grocer's shop in all the realm while to the north lies Brandywine
-Bridge.
+You stand on Delving Road, the busiest street in all of the Drev city. 
+The road continues to the east and west.  To the south you spy the Grocer's
+Delight, the premium grocer's shop in all the realm while to the north lies
+Drev Hollow Bridge.  
 ~
 C
 ~
@@ -1823,13 +1824,10 @@ The only exit is to the north.
 End
 
 #16122
-N Bywater Road~
+N Delving Road~
 Ref 0
 D
-You stand on Bywater Road, the busiest street in all of Shiredom.  The road
-continues to the east.  A small hill lies to the west while you can see a
-watermill to the far south.  You catch a glimpse of the Brandywine River to
-the north.
+Delving twists from north south to west south here.  
 ~
 C
 ~
@@ -1854,7 +1852,7 @@ A small hill to the west blocks your view.
 End
 
 #16123
-N Entrance to Watermill~
+N the watermill entrance~
 Ref 0
 D
 You stand at the entrance to a watermill.  You hear the bustle of busy
@@ -1881,7 +1879,7 @@ A watermill meets your gaze.
 End
 
 #16124
-N The Watermill~
+N the watermill~
 Ref 0
 D
 Halfling workers are scattered everywhere, busy at work.  You see the river
@@ -1909,7 +1907,7 @@ door~
 End
 
 #16125
-N Rear of watermill~
+N the rear storage room of the watermill~
 Ref 0
 D
 You stand in a damp, dimly lit room.  Mildew clings to the walls and it
@@ -1929,22 +1927,22 @@ Dr 0 0 -1 16124
 A watermill meets your gaze.
 ~
 ~
-Dr 5 0 -1 16146
+Dr 5 1 -1 16146
 A hidden portal reveals a passageway down.
 ~
-~
+trap door~
 End
 
 #16126
-N Took Hill~
+N Drev Hill~
 Ref 0
 D
-You stand on top of Took Hill, named after the legendary Bandobras Took.
-You feel honored to be standing on a hill named after your hero.  From this
-vantage point you can see all of shiredom.  You get the feeling that with
-one stomp you could eliminate their great city.  You can see the outline of
-Midgaard to the far east.  Sounds of joyful celebration are heard from the
-fields west of here.  The Brandywine flows by lazily nearby.
+You stand on top of Drev Hill, named after the legendary King Drev of the
+ancient Drevdom.  You feel honored to be standing on a hill named after your
+hero.  From this vantage point you can see all of Drev lands.  You get the
+feeling that with one stomp you could eliminate their great city.  You can
+see the outline of Kyrinn to the far east.  Sounds of joyful celebration
+are heard from the fields west of here.  The Kyr flows by lazily nearby.  
 ~
 C
 ~
@@ -2067,11 +2065,11 @@ You see a grassy field.
 End
 
 #16131
-N Brandywine Bridge~
+N Drev Hollow Bridge~
 Ref 0
 D
 You stand on a solidly built bridge.  As you look down you spy gaily
-colored fish swimming with the current of Brandywine River.  The cool water
+colored fish swimming with the current of Kyr River.  The cool water
 looks invitingly refreshing and you get a sudden urge to strip and bathe in
 the river, but you hear the laughter of women nearby and so resist the urge.
 Delving Lane extends to the north while Bywater Road can be seen to the south.
@@ -2088,10 +2086,18 @@ Dr 0 0 -1 16132
 You see Delving Lane.
 ~
 ~
+Dr 1 3584 0 10890
+A tall railing stops people from jumping into the Kyr.
+~
+railing~
 Dr 2 0 -1 16120
 To the south runs Bywater Road.
 ~
 ~
+Dr 3 3584 0 10891
+A tall railing stops people from jumping into the Kyr.
+~
+railing~
 End
 
 #16132
@@ -2099,7 +2105,7 @@ N Delving Lane~
 Ref 0
 D
 Delving Lane runs north and south in this small borough of Drev city.  To 
-the south stands Brandywine Bridge.  The Green Dragon, the undisputed leader
+the south stands Drev Hollow Bridge.  The Green Dragon, the undisputed leader
 in the art of innkeeping, offers rest and comfort to the east.  You hear the
 bray of horses from the west.
 ~
@@ -2160,7 +2166,7 @@ You see a grassy field.
 End
 
 #16134
-N Delving Lane~
+N the northern end of Delving Lane at Drev Hollow~
 Ref 0
 D
 Delving Lane runs north and south in this small borough of Drev city. There
@@ -2175,11 +2181,11 @@ M 0
 W 0
 T 0
 O ~
-Dr 0 0 -1 16135
+Dr 0 5 -1 16135
 A large, magnificent house meets your steady gaze.  Above the round door a
 sign reads 'Bag End'.
 ~
-~
+heavy maple door~
 Dr 2 0 -1 16133
 You see Delving Lane.
 ~
@@ -2187,7 +2193,7 @@ You see Delving Lane.
 End
 
 #16135
-N Bag End~
+N the Drev Hollow common hall~
 Ref 0
 D
 You stand in a comfortably well-equipped house, a palace by humble drev
@@ -2197,53 +2203,53 @@ to the west.
 ~
 C
 ~
-F 8
+F 12
 S 0
 M 0
 W 0
 T 0
 O ~
-Dr 1 0 -1 16137
+Dr 1 1 -1 16137
 Through the keyhole you see what looks like a well stocked pantry.
 ~
-door~
-Dr 2 0 -1 16134
+door with worn paint~
+Dr 2 5 -1 16134
 You see Delving Lane.
 ~
-~
-Dr 3 0 -1 16136
+heavy maple door~
+Dr 3 1 -1 16136
 You see a bedroom.  It looks like the beds have recently been slept in.
 ~
-~
+wooden thatched door~
 End
 
 #16136
-N Bedroom~
+N a bedroom~
 Ref 0
 D
-You stand in the private bedroom of Bag End.  There are two beds to the
-side, neither of which are made.  Portraits of drevs hang on the wall,
-and as you gaze upon them you come to the conclusion that the owner of
-Bag End comes from a long line of distinguished drevs.  A cozy fire
-in the fireplace keeps the room warm and comfortable.
+You stand in the private bedroom of Drev Hollow.  There are two beds to
+the side, neither of which are made.  Portraits of drevs hang on the wall,
+and as you gaze upon them you come to the conclusion that the owner of Drev
+Hollow comes from a long line of distinguished drevs.  A cozy fire in the
+fireplace keeps the room warm and comfortable.  
 ~
 C
 ~
-F 8
+F 12
 S 0
 M 0
 W 0
 T 0
 O ~
 R M 16116 1 100 1
-Dr 1 0 -1 16135
+Dr 1 1 -1 16135
 Through the doorway you see the main room of Bag End.
 ~
-~
+wooden thatched door~
 End
 
 #16137
-N Pantry~
+N the pantry~
 Ref 0
 D
 You are inside the pantry.  Shelves filled with food and drink surround
@@ -2253,25 +2259,24 @@ you spy a trapdoor.
 ~
 C
 ~
-F 8
+F 12
 S 0
 M 0
 W 0
 T 0
 O ~
 R M 16101 1 100 1
-Dr 3 0 -1 16135
-Beyond the door you see the main room of Bag End.
+Dr 3 1 0 16135
 ~
-door~
-Dr 5 0 -1 16156
+door with worn paint~
+Dr 5 5 -1 16156
 It's anyone's guess as to where the trapdoor leads.
 ~
-~
+trap door~
 End
 
 #16138
-N A grassy field~
+N a grassy field~
 Ref 0
 D
 You stand upon a grassy field.  A bull stands grazing not far away and
@@ -2302,7 +2307,7 @@ A rather large pig pen is to the south.
 End
 
 #16139
-N Pig pen~
+N a pig pen~
 Ref 0
 D
 You feel your boots sinking into the mud.  Numerous pigs roam about,
@@ -2329,7 +2334,7 @@ A small path winds its way eastward.
 End
 
 #16140
-N A stony path~
+N a stony path~
 Ref 0
 D
 You walk on a stony path which leads to a small residence to the north.
@@ -2354,7 +2359,7 @@ A rather large pig pen is to the east.
 End
 
 #16141
-N Gamgee Residence~
+N a farmhouse~
 Ref 0
 D
 You stand inside a modest home.  You deduce that this is indeed the home
@@ -2379,7 +2384,7 @@ You see a small path winding its way southward.
 End
 
 #16142
-N A barn~
+N a barn~
 Ref 0
 D
 Animals of every sort fill the small barn.  You feel the hot breath of
@@ -2397,7 +2402,12 @@ M 0
 W 0
 T 0
 O ~
+R M 6012 3 10 1
+R M 15615 1 10 1
+R M 556 1 1 1
+R M 97 2 20 1
 R M 16105 3 100 1
+R C 157 -1 100 1
 Dr 0 0 -1 16143
 You see a chicken coop to the north.
 ~
@@ -2409,7 +2419,7 @@ You see a grassy field.
 End
 
 #16143
-N A chicken coop~
+N a chicken coop~
 Ref 0
 D
 You stand inside a rather crowded chicken coop.  The cackle of hens fill
@@ -2424,6 +2434,7 @@ W 0
 T 0
 O ~
 R M 16107 6 100 1
+R C 127 -1 66 6
 Dr 2 0 -1 16142
 You see a large barn.
 ~
@@ -2480,6 +2491,11 @@ W 0
 T 0
 O ~
 R M 16110 8 100 1
+R O 15618 12 100 1
+R O 22217 10 100 1
+R O 5222 -1 100 1
+R O 3003 24 100 1
+R O 16504 39 100 1
 Dr 3 0 -1 16133
 You see Delving Lane.
 ~
@@ -2506,10 +2522,10 @@ Dr 1 0 -1 16147
 You see a dark tunnel.
 ~
 ~
-Dr 4 0 -1 16125
+Dr 4 1 -1 16125
 You see a portal which leads to a small room.
 ~
-~
+trap door~
 End
 
 #16147
@@ -2611,10 +2627,6 @@ T 0
 O ~
 Dr 3 0 -1 16149
 You see a dark tunnel.
-~
-~
-Dr 4 0 -1 18001
-You hear the din of adventurers.
 ~
 ~
 End
@@ -2755,7 +2767,7 @@ You see a dark tunnel.
 End
 
 #16156
-N End of a dark tunnel~
+N the root cellar~
 Ref 0
 D
 You are at one end of a dark tunnel.  The tunnel continues to the south
@@ -2773,10 +2785,10 @@ Dr 2 0 -1 16152
 You see a dark tunnel.
 ~
 ~
-Dr 4 0 -1 16137
+Dr 4 5 -1 16137
 A trapdoor on the ceiling reveals a passageway.
 ~
-~
+trap door~
 End
 
 #16157

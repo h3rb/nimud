@@ -405,7 +405,7 @@ End
 
 #20017
 N camel~
-SD The rabid camel~
+SD the rabid camel~
 LD
  A very dangerous rabid camel snorts at you.
 ~
@@ -2126,6 +2126,7 @@ W 0
 T 0
 O ~
 R M 20017 1 100 1
+R C 143 -1 77 23
 Dr 0 0 0 20060
 This tent seems to be the temporary abode of the nomad leader. You make a
 mental note to visit it before you leave.~

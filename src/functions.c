@@ -938,7 +938,7 @@ VARIABLE *func_install( void *owner, int type,
    if ( !target || !script ) return NULL;
    STR_PARAM(script,_script);
 
-   if ( !(pScript = get_script_index( atoi(_script) )) ) return NULL;
+   if ( !(pScript = get_script( atoi(_script) )) ) return NULL;
 
    STR_PARAM(target,_target);
    FOREACH( target->type,
@@ -1355,7 +1355,7 @@ VARIABLE *func_emit( void * owner, int type,
          else pScene=inside->in_scene;         
         }
       } break;
-     case TYPE_SCENE: pScene=(SCENE *)owner;
+     case TYPE_SCENE: pScene=SCENE(owner);
      break;
      case TYPE_ACTOR: on=ACTOR(owner); pScene=on->in_scene; 
      break;
@@ -2334,7 +2334,16 @@ VARIABLE *func_hurt( void * owner, int type, VARIABLE *target,
     update_pos( ch );
 
     if ( ch->hit > MAXHIT(ch) ) ch->hit = MAXHIT(ch);
-    if ( ch->position== POS_DEAD ) raw_kill( ch );
+    if ( ch->position== POS_DEAD ) {
+     raw_kill( ch );
+     if ( type == TYPE_ACTOR )
+     exp_gain( ACTOR(owner), ch->exp, TRUE );
+     else if ( type == TYPE_PROP ) {
+      PROP *wand=PROP(owner);
+      PLAYER *castor=wand->carried_by;
+      if ( castor ) exp_gain( castor, ch->exp, TRUE );
+     }
+    }
 
     if ( !IS_AWAKE(ch) )
     stop_fighting( ch, !NPC(ch) ? TRUE : FALSE ); 
@@ -3064,21 +3073,18 @@ VARIABLE *func_here( void *owner, int type )
    char buf[MAX_STRING_LENGTH];
    SCENE *pScene;
 
-   switch( type ) {
-       case TYPE_STRING: pScene = NULL; break;
-       case TYPE_ACTOR: pScene = ((PLAYER *)owner)->in_scene; break;
-       case TYPE_PROP:
-              {   PROP *pProp;
+   if ( !owner ) return NULL;
 
-                      pProp = PROP(owner);
-                      pScene = pProp->in_scene;
-                      if ( !pScene && pProp->carried_by )
-                             pScene = pProp->carried_by->in_scene;
-                      if ( !pScene && pProp->in_prop )
-                             pScene = pProp->in_prop->in_scene;
+   switch( type ) {
+       case TYPE_ACTOR:  pScene = ACTOR(owner)->in_scene; break;
+       case TYPE_PROP:
+              {   PROP *pProp = PROP(owner);
+                  while ( pProp->in_prop ) pProp=pProp->in_prop;
+                  pScene = pProp->in_scene;
+                  if ( !pScene && pProp->carried_by ) pScene = pProp->carried_by->in_scene;
               }
-       case TYPE_SCENE:
-                 pScene = SCENE(owner);
+             break;
+       case TYPE_SCENE:  pScene = SCENE(owner);
               break;
        default: pScene = NULL; break;
    }
@@ -4258,7 +4264,7 @@ VARIABLE *func_rnddir( void * owner, int type )
     doors = number_range(1,doors);
     */
 
-    RETURNS(TYPE_STRING, str_dup( dir_name[URANGE(0,number_range(0,MAX_DIR),MAX_DIR-1)]) );
+    RETURNS(TYPE_STRING, str_dup( dir_name[URANGE(0,number_range(0,MAX_DIR-1),MAX_DIR-1)]) );
 }
 
 /* -------------------------------------------------------------- */
@@ -4467,7 +4473,7 @@ VARIABLE *func_each( void * owner, int type, VARIABLE *stack )
  * permits, and are not necessarily a "mainland"
  *
  * Builder scripts are called in this form:
- * build( script dbkey, location, owner, param1, param2, param3 );
+ * build( script dbkey or script, location, owner, param1, param2, param3 );
  *
  * where: script dbkey is the dbkey of the script to execute,
  *        location in area we are attempting to build in,
@@ -4482,7 +4488,7 @@ VARIABLE *func_each( void * owner, int type, VARIABLE *stack )
  * Builder scripts look like this:
  *
  * * comment
- * # comment
+ * # comment or "end of string" for descriptions
  * title ==> called at the beginning, sets the name of the area
  * actor ==> creates new %actor1,2,3,4,5..n%
  * name <name>
@@ -4492,15 +4498,16 @@ VARIABLE *func_each( void * owner, int type, VARIABLE *stack )
  * flags <flag list>
  * description 
  * <content>
- * @
+ * #
  *
  * prop 
  *
  * scene ==> creates new %scene1,2,3,4...n%
  * name <title>
+ * draw <vnum> // appends to description the content of script <vnum>
  * description
  * <content>
- * @
+ * #
  *
  * <direction> <flags>
  * <direction> to <variable>
@@ -4509,7 +4516,7 @@ VARIABLE *func_each( void * owner, int type, VARIABLE *stack )
  * <direction> key <variable>
  * <direction> description
  * <content>
- * @
+ * |
  * dig <direction> <scene dbkey> ==> creates new scene in %scene2,3,4..n% digs from old scene w/o focus change
  * cue ==> populates 
  *
@@ -4540,18 +4547,18 @@ VARIABLE *func_each( void * owner, int type, VARIABLE *stack )
  *
 Example 1: Generating a Player-Owned Castle
 
-# Map of generator:
-# 
-# Level 1                 Level 2
-#   +-+                    +-+
-#   |x|                    | |   Bottom is a grid, top is a donut
-#   |x|                    | |   + = tower interior | = rampart
-#   |x|                    | |   x = courtyard
-#   A-+                    +=+   A = guardhouse
+| Map of generator:
+| 
+| Level 1                 Level 2
+|   +-+                    +-+
+|   |x|                    | |   Bottom is a grid, top is a donut
+|   |x|                    | |   + = tower interior | = rampart
+|   |x|                    | |   x = courtyard
+|   A-+                    +=+   A = guardhouse
 
 title %owner%'s Castle
 
-#Create a guard named after the player, known as %actor1%
+|Create a guard named after the player, known as %actor1%
 
 actor
 flags sentinel
@@ -4562,24 +4569,24 @@ long %owner%'s guard is standing here, keeping watch.
 description
 %owner%'s guard is a burly, mean-looking ogre with a missing tooth.
 One of his eyes is red and the other is blue!
-@
+|
 
-#Create the guardpost of a larger castle
+|Create the guardpost of a larger castle
 
- # first create the key to the guardpost, %prop1%
+ | first create the key to the guardpost, %prop1%
 prop
 name %owner%'s guardhouse key
 short %owner%'s guardhouse key
 description
 It's the key to the guardhouse of %owner%'s Castle.
 
- # now create the guard post room aka %scene1%, use the key on the door
+ | now create the guard post room aka %scene1%, use the key on the door
 scene
 name Guardpost
 description
 This is a modest guard tower positioned at the southwestern corner
 of %param1%'s castle.
-@
+|
 dig east
 east door wood door
 east closed locked
@@ -4587,13 +4594,13 @@ east key %prop1%
 flags enclosed
 cue %actor1% %prop1% 
 
-# switch to newly created room
-scene %scene2%  # variable was populated with 'dig east' command above
+| switch to newly created room
+scene %scene2%  | variable was populated with 'dig east' command above
 name Gate at Guardpost
-attach south %location%     # attempts to attach south, if south is not available, creates path connector
+attach south %location%     | attempts to attach south, if south is not available, creates path connector
 flags buildable
 
-# generate a room template
+| generate a room template
 scene
 name Castle Ramparts
 flags template
@@ -4602,9 +4609,9 @@ You are standing on the walls of %owner%'s castle, looking
 over the fair lands that surround it.  The walls are made
 of granite ramparts used as a defensive measure against
 seige.
-@
+|
 
-#generate a series of rooms using a template to outline the castle walls
+|generate a series of rooms using a template to outline the castle walls
 scene
 flags saving
 ref %scene3%
@@ -4615,38 +4622,38 @@ dig south
 dig north
 north description
 You can see the wall extend to the north.
-@
+|
 south description
 You can see the wall extend to the south.
-@
+|
 
-# create %prop2%, the master key
+| create %prop2%, the master key
 prop 
 name %owner%'s castle key
 short %owner%'s castle key
 long %owner%'s castle key was foolishly dropped.
 description
 The master key to %owner%'s castle is fashioned from wrought iron.
-@
+|
 
-scene %scene5%         # generated with dig south
+scene %scene5%         | generated with dig south
 name Southwest Ramparts Near Tower
 dig north
 north door iron shod door
 north key %prop2%
 
-scene %scene6%         # generated with dig north
+scene %scene6%         | generated with dig north
 name Northwest Ramparts Near Tower
 description
 You are on the northwest ramparts of %owner%'s castle, near the northwest tower.
-@
+|
 
-scene %scene7%         # dug from %scene5%, so its the tower
+scene %scene7%         | dug from %scene5%, so its the tower
 name Northwest Tower
 flags template enclosed saving
 description
 You are in a tower looking out over the lands that surround %owner%'s castle.
-@
+|
 dig east
 east door iron shod door
 east key %prop2%
@@ -4656,9 +4663,9 @@ down name spiral stair
 scene %scene8%
 name Northern Ramparts
 ref %scene3%
-east dig                   # generates %scene10%
+east dig                   | generates %scene10%
 
-scene %scene9%    # base of the tower
+scene %scene9%    | base of the tower
 flags template enclosed
 description
 
@@ -4720,6 +4727,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
    char _o[MSL];                 // Vnum if Actor, name if Player
    SCENE *loc;        // Location, or next best location, to attach new area
    SCRIPT *bscript;         // The pointer to the demystified "builder script"
+   char *build_script;
    char *k;                      // Pointer to the current location on the builder script
    char buf[MSL];                // General purpose string buffer
    char output[MSL];             // Contains output to NOTIFY/scripts
@@ -4727,6 +4735,10 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
    char title[MSL];              // Holds the "title" component for the building title command
    char path_title[MSL];         // Holds our "path connector" room title
    char path_descr[MSL];         // Holds our "path connector" room description
+   char _p1[MSL]; char *pp1,*pp2,*pp3,*_t;
+   char _p2[MSL];
+   char _p3[MSL];
+   char _target[MSL];
    V *vars=NULL;                 // All variables relevant to execution of the building script
 
    SCENE *s=NULL;     // Pointers to active objects, initially "NULL"  
@@ -4738,14 +4750,51 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
    int created[4];               // Tally of number created
    ZONE *w;                 // The "world" zone, usually "mainland.zone"
 
+   /* rectify vars and the owner's variables */
+   switch ( type ) {
+    case TYPE_PROP:  vars= PROP(owner)->current->locals; break;
+    case TYPE_ACTOR: vars=ACTOR(owner)->current->locals; break;
+    case TYPE_SCENE: vars=SCENE(owner)->current->locals; break;
+   }
+   STR_PARAM(p1,_p1);
+   STR_PARAM(p2,_p2);
+   STR_PARAM(p3,_p3);
+   STR_PARAM(target,_target);
+   pp1=translate_variables(owner,type,_p1);
+   pp1=str_dup(skip_spaces(pp1));
+   pp2=translate_variables(owner,type,_p2);
+   pp2=str_dup(skip_spaces(pp2));
+   pp3=translate_variables(owner,type,_p3);
+   pp3=str_dup(skip_spaces(pp3));
+
+   _t=translate_variables(owner,type,_target);
+
    // init string space
    title[0]='\0';
    output[0]='\0';
+
+   sprintf( buf, "Build(): script=%d '%s', location=%d '%s', target=%d '%s', p1=%d '%s', p2=%d '%s', p3=%d '%s'\n\r",
+    sdbkey ? sdbkey->type:0,     sdbkey   ? (sdbkey->type == TYPE_STRING   ? (char *)(sdbkey->value)   : "") : "",
+    location ? location->type:0, location ? (location->type == TYPE_STRING ? (char *)(location->value) : (location->type == TYPE_SCENE ?(SCENE(location)->name):"prop/actor") ) : "null",
+    target ? target->type :0,    target   ? (target->type == TYPE_STRING   ? (char *)(target->value)   : (target->type==TYPE_ACTOR ? NAME(ACTOR(location)):"scene/prop") ) : "null",
+    p1 ? p1->type : 0, p1 ? ( p1->type==TYPE_STRING ? (char *) (p1->value) : "actor/prop/scene" ) : "null",
+    p2 ? p2->type : 0, p2 ? ( p2->type==TYPE_STRING ? (char *) (p2->value) : "actor/prop/scene" ) : "null",
+    p3 ? p3->type : 0, p3 ? ( p3->type==TYPE_STRING ? (char *) (p3->value) : "actor/prop/scene" ) : "null" );
+  NOTIFY(buf,LEVEL_IMMORTAL,WIZ_NOTIFY_SCRIPT);
+
+   if ( target && target->type == TYPE_STRING ) {
+    VARIABLE  *_tar=find_variable( owner,type, ((char *) (target->value)) );
+    target=_tar;
+   } else 
+   if ( !target ) target=find_variable( owner, type, "%actor%" );
 
    // find our dynamic "world" zone where we've allocated a million plus dbkeys,
    // this is where we're generating the new database entries.
    for ( w = zone_first; w != NULL; w=w->next ) if ( !str_cmp( w->filename, "mainland.zone" ) ) break;
    if ( !w ) { // world zone is missing, i guess this feature is "off"
+     free_string(pp1);
+     free_string(pp2);
+     free_string(pp3);
      NOTIFY( "Build(): No world zone 'mainland.zone' to be found!\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
      RETURNS(TYPE_STRING,str_dup("0"));
    }
@@ -4754,7 +4803,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
    // tdbkey[0] isn't really used and it's initialized to 0
    // start created[] counters at 0
    created[0]=created[1]=created[2]=created[3]=tdbkey[0]=0;
-   for ( tdbkey[TYPE_PROP]=w->ldbkey;  tdbkey[TYPE_PROP]<w->udbkey; tdbkey[TYPE_PROP]++ ) 
+   for ( tdbkey[TYPE_PROP]=w->ldbkey;   tdbkey[TYPE_PROP]<w->udbkey; tdbkey[TYPE_PROP]++ ) 
        if ( get_prop_template( tdbkey[TYPE_PROP] ) == NULL ) break;
    for ( tdbkey[TYPE_ACTOR]=w->ldbkey;  tdbkey[TYPE_ACTOR]<w->udbkey; tdbkey[TYPE_ACTOR]++ ) 
        if ( get_actor_template( tdbkey[TYPE_ACTOR] ) == NULL ) break;
@@ -4762,15 +4811,30 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( get_scene( tdbkey[TYPE_SCENE] ) == NULL ) break;
 
    // locate our script
-   if ( sdbkey->type != TYPE_STRING ) bscript=NULL;
-   else {
-     int dbkey=atoi((char *)(sdbkey->value));
-     bscript = get_script_index( dbkey );
-     if ( bscript == NULL || bscript->type != TRIG_BUILDER ) {
-         sprintf( buf, "Build(): Bad script dbkey %d; does not exist or is not right type\n\r", dbkey );
+   if ( sdbkey->type != TYPE_STRING ) {
+         sprintf( buf, "Build(): Bad script: variable passed is wrong type\n\r" );
+     free_string(pp1);
+     free_string(pp2);
+     free_string(pp3);
          NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
          RETURNS(TYPE_STRING,str_dup("0"));
      }
+   else if ( is_number(skip_spaces((char *)(sdbkey->value))) ) {
+     int dbkey=atoi((char *)(sdbkey->value));
+     bscript = get_script( dbkey );
+     if ( bscript == NULL ) { // bscript->type != TRIG_BUILDER ) {
+         sprintf( buf, "Build(): Bad script dbkey %d; does not exist\n\r", dbkey );
+     free_string(pp1);
+     free_string(pp2);
+     free_string(pp3);
+         NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
+         RETURNS(TYPE_STRING,str_dup("0"));
+     }
+     build_script=bscript->commands;
+   }
+   else {
+    build_script = (char *) (sdbkey->value);
+    bscript=NULL;
    }
 
    // find a suitable location to connect to, requires us to have at least
@@ -4784,16 +4848,19 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
      loc= get_scene( dbkey );
    } else {
      switch ( location->type ) { case TYPE_ACTOR: loc= ACTOR(location->value)->in_scene; break;
-                                 case TYPE_PROP:  loc= PROP(location->value)->in_scene;
-                                 if ( !loc ) loc= PROP(location->value)->carried_by ? 
-                                                  PROP(location->value)->carried_by->in_scene :
-                                                  (PROP(location->value)->in_prop ? 
-                                                   PROP(location->value)->in_prop->in_scene : NULL);
+                                 case TYPE_PROP: {
+                                 PROP *pP=PROP(location->value);
+                                 while( pP->in_prop ) pP=pP->in_prop; loc= pP->in_scene;
+                                 if ( !loc ) loc= pP->carried_by ? pP->carried_by->in_scene : (pP->in_prop ? pP->in_prop->in_scene : NULL);
+                                                 }
                                       break;
                                  default: loc=NULL;
                                }
    }
    if ( !loc ) {
+     free_string(pp1);
+     free_string(pp2);
+     free_string(pp3);
          NOTIFY( "Build(): Unable to find a suitable attachment location with that target\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
          RETURNS(TYPE_STRING,str_dup("0"));
    } else { // determine if exits are available in the default loc
@@ -4817,56 +4884,100 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
          if ( found ) break;
        }
        if ( !loc || !found ) {
+     free_string(pp1);
+     free_string(pp2);
+     free_string(pp3);
          NOTIFY( "Build(): Unable to find an attachment location within the full? area\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
          RETURNS(TYPE_STRING,str_dup("0"));
        }
      }
    }
 
+   // Assign %location% the vnum of the loc
+{ V *n;
+   n = new_var();
+   sprintf( buf, "%%location%%" );  // make a new variable
+   n->name = str_dup( buf );     n->type = TYPE_STRING;
+   sprintf( buf, "%d", loc->dbkey );
+   n->value = (void *) str_dup(buf);        
+   n->next = vars; vars=n; 
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
+}
+
    // Figure out who the new owner is
-   switch ( target->type ) {
-       default: o=NULL; break;
-       case TYPE_ACTOR: o=ACTOR(target->value); break;
+   if ( !target ) {
+    if ( type == TYPE_ACTOR && !NPC(ACTOR(owner)) ) o=ACTOR(owner);
+   } else {
+    switch ( target->type ) {
+     default: o=NULL; break;
+     case TYPE_STRING: o=find_actor_here(owner,type,_t); break;
+     case TYPE_ACTOR: o=ACTOR(target->value); break;
+    }
    }
    if ( !o ) {
-    switch ( type ) {
-       default: o=NULL; break;
-       case TYPE_ACTOR: o=ACTOR(target->value); break;
-    }      
-   }
-   if ( !o ) {
+     target=find_variable( owner, type, "%actor%" );
+    switch ( target->type ) {
+     default: o=NULL; break;
+     case TYPE_STRING: o=find_actor_here(owner,type,_t); break;
+     case TYPE_ACTOR: o=ACTOR(target->value); break;
+    }
+    if ( !o ) {     
+     free_string(pp1);
+     free_string(pp2);
+     free_string(pp3);
      NOTIFY( "Build(): Unable to locate a suitable owner, aborting\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
      RETURNS(TYPE_STRING,str_dup("0"));
+    }
    }
+
    if ( NPC(o) ) sprintf( _o, "%d", o->pIndexData->dbkey );
    else sprintf( _o, "%s", o->name );
 
    // Duplicate parameters and populate our temporary variable list
-   { V *v;
-
+   { 
+     V *v;
    if ( p1 ) { v=new_var(); v->next=vars; vars=v; v->type=p1->type; v->name=str_dup( "%1%" );
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
    switch( p1->type ) {
         case TYPE_ACTOR: case TYPE_SCENE:
          case TYPE_PROP: v->value = p1->value; break;
-       case TYPE_STRING: v->value = (void *) str_dup( (char *) p1->value ); break;
+       case TYPE_STRING: v->value = (void *) str_dup( pp1 ); break;
             default: break;
    }
    }
 
    if ( p2 ) { v=new_var(); v->next=vars; vars=v; v->type=p2->type; v->name=str_dup( "%2%" );
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
    switch( p2->type ) {
         case TYPE_ACTOR: case TYPE_SCENE:
          case TYPE_PROP: v->value = p2->value; break;
-       case TYPE_STRING: v->value = (void *) str_dup( (char *) p2->value ); break;
+       case TYPE_STRING: v->value = (void *) str_dup( pp2 ); break;
             default: break;
    }
    }
 
    if ( p3 ) { v=new_var(); v->next=vars; vars=v; v->type=p3->type; v->name=str_dup( "%3%" );
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
    switch( p3->type ) {
         case TYPE_ACTOR: case TYPE_SCENE:
          case TYPE_PROP: v->value = p3->value; break;
-       case TYPE_STRING: v->value = (void *) str_dup( (char *) p3->value ); break;
+       case TYPE_STRING: v->value = (void *) str_dup( pp3 ); break;
             default: break;
    }
    }
@@ -4879,7 +4990,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
     * Verifier
     * You can add a verifier here between this comment and the next.
     * The verifier will find simple issues within the code such
-    * as too few/many @ for every 'description' call.
+    * as too few/many | for every 'description' call.
     */
    
    // Ok, we've got a suitable attachment "loc" and a valid builder script.
@@ -4887,7 +4998,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
 
    {
    
-     k=bscript->commands;   // let's put cursor k at the home position
+     k=build_script;   // let's put cursor k at the 
      while ( 1 ) {
 
        // Did we fill the space?
@@ -4898,7 +5009,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( *k == '\0' ) break;
 
        // Skip comments
-       while ( *k == '#' || *k == '*' ) { 
+       while ( *k == '|' || *k == '*' ) { 
          while ( *k != '\0' && *k != '\n' ) k++;
          if ( *k == '\0' ) break;
          if ( *k == '\r' ) k++;
@@ -4908,9 +5019,11 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( *k == '\0' ) break;
 
        k=one_argument(k,arg);         // tear off a command
-       
-       if ( !str_cmp( arg, "scene" ) ) {  // creates a new scene or switches focus
 
+       if ( !str_cmp( arg, "title" ) ) {
+           k=grab_to_eol( k, title );         
+       } else       
+       if ( !str_cmp( arg, "scene" ) ) {  // creates a new scene or switches focus
           one_argument( k, arg );
           if ( arg[0] == '%' ) { // then it's scene <variable>, so let's find it
             V *v;
@@ -4928,12 +5041,18 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
            int iHash;  V *n;
            s = new_scene();              s->zone =w;  s->owner = str_dup( _o );
            s->dbkey=tdbkey[TYPE_SCENE]++;        iHash = s->dbkey % MAX_KEY_HASH; 
+           if ( s->dbkey > top_scene ) top_scene=s->dbkey;
            s->next = scene_hash[iHash];  scene_hash[iHash]  = s;
            n = new_var();
            sprintf( buf, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_SCENE;
            n->value = (void *) s;        n->next = vars; vars=n;
            active = TYPE_SCENE;
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
           }
 
        } else
@@ -4950,9 +5069,28 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
            sprintf( buf, "%%scene%d%%", ++created[TYPE_SCENE] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_SCENE;
            n->value = (void *) x;        n->next = vars; vars=n;
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
            if ( !s->exit[dir] ) s->exit[dir] = new_exit(); s->exit[dir]->to_scene=x; // dig exit
-           if ( !x->exit[rev_dir[dir]] ) x->exit[rev_dir[dir]] = new_exit(); x->exit[rev_dir[dir]]->to_scene=s;
+           if ( !x->exit[rev_dir[dir]] ) x->exit[rev_dir[dir]] = new_exit();
+           x->exit[rev_dir[dir]]->to_scene=s;
           } else NOTIFY( "Build(): dig called with no active scene\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
+       } else
+       if ( !str_cmp( arg, "draw" ) ) {
+        int vn;
+        k=one_argument(k,arg);
+        vn=atoi(arg);
+        if ( s ) {
+         SCRIPT *S=get_script( vn );
+         if ( S ) {
+          sprintf( buf, "%s%s", s->description, S->commands );
+          free_string(s->description);
+          s->description=str_dup(buf);
+         }
+        }
        } else
        if ( !str_cmp( arg, "cube" ) ) {   // generates a cube with %cubeW,D,H% variables
        } else
@@ -4965,26 +5103,64 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( !str_cmp( arg, "labyrinth" ) ) { // generates randomized cues in each room using available stuff
        } else
        if ( !str_cmp( arg, "cue" ) ) {    // generates a "simpl3" cue (not like cue command)
-            if ( s ) { 
-              one_argument(k,arg);
-              while( arg[0] == '%' ) {
-               V *v; SPAWN *c; bool fAct=FALSE; bool fCont=FALSE; bool fFurn=FALSE;
-               k=one_argument(k,arg);
-               v=get_variable(vars,arg);
-               if ( v && v->value ) {
-                switch ( v->type ) {
+           V *v; SPAWN *c; bool fAct=FALSE; bool fCont=FALSE; bool fFurn=FALSE;
+           char cc; int dbkey=-1;
+            if ( s ) { //
+              one_argument(k,arg);              
+              if ( arg[0] == '%' ) {  // if
+               while( arg[0] == '%' ) { // while
+                k=one_argument(k,arg);
+                v=get_variable(vars,arg);
+                if ( v && v->value ) { // if
+                 switch ( v->type ) { 
      case TYPE_ACTOR: fAct=TRUE; c=new_spawn(); c->command='M'; c->rs_dbkey=((ACTOR_TEMPLATE *)(v->value))->dbkey; c->loc=1; break;
       case TYPE_PROP: c=new_spawn(); c->command='O'; c->rs_dbkey=((PROP_TEMPLATE *)(v->value))->dbkey; 
       c->loc=fAct ? prop_where((PROP_TEMPLATE *)(v->value)) : (fCont ? SPAWN_LOC_INSIDE : (fFurn ? SPAWN_LOC_ONTOP : SPAWN_LOC_INSCENE)); 
    switch( ((PROP_TEMPLATE *)(v->value))->item_type ) { case ITEM_FURNITURE: fFurn=TRUE; break; case ITEM_CONTAINER: fCont=TRUE; break; default: break; }
                  break;
                    default: c=NULL; break;
-                }
-                if (c) { c->percent = 100; add_spawn( s, c, 1 ); }
-               }
-               one_argument(k,arg);
-              }
-            }          
+                 }
+                 if (c) { c->percent = 100; add_spawn( s, c, 1 ); }
+                } // if
+               k=one_argument(k,arg);
+              } // while
+             } else {
+               k=one_argument(k,arg);
+               if ( !str_cmp( arg, "prop" ) ) { // if
+                dbkey=-1;
+                k=one_argument(k,arg);
+                if ( arg[0] == '%' ) { // if
+                 v=get_variable(vars,arg);
+                 if ( v && v->value ) {  // if
+                  switch ( v->type ) {
+                   case TYPE_ACTOR: dbkey=((ACTOR_TEMPLATE *) (v->value))->dbkey; cc='M'; break;
+                    case TYPE_PROP: dbkey=((PROP_TEMPLATE *) (v->value))->dbkey;  cc='O'; break; 
+                  case TYPE_STRING: dbkey=atoi( (char *) v->value ); break;
+                 } 
+                } // if
+               } else { dbkey=atoi(arg); cc='O'; }
+                c=new_spawn();  c->command=cc; c->rs_dbkey=dbkey; c->loc=1; c->percent=100;
+                add_spawn( s, c, 1 );
+               } else
+               if ( !str_cmp( arg, "actor" ) ) { // if
+                dbkey=-1;
+                k=one_argument(k,arg);
+                if ( arg[0] == '%' ) { // if
+                 v=get_variable(vars,arg);
+                 if ( v && v->value ) { // if
+                  switch ( v->type ) {
+                   case TYPE_ACTOR: dbkey=((ACTOR_TEMPLATE *) (v->value))->dbkey; cc='M'; break;
+                    case TYPE_PROP: dbkey=((PROP_TEMPLATE *) (v->value))->dbkey;  cc='O'; break; 
+                  case TYPE_STRING: dbkey=atoi( (char *) v->value ); break;
+                  }
+                 } // if
+                } else { dbkey=atoi(arg); cc='M'; }
+                c=new_spawn();  c->command=cc; c->rs_dbkey=dbkey; c->loc=1; c->percent=100;
+                add_spawn( s, c, 1 );
+               } // if
+              }// else
+            } // if ( s )
+       
        } else
        if ( !str_cmp( arg, "actor" ) ) {  // creates a new actor or switches focus
 
@@ -5004,12 +5180,18 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
           } else { // it's just the word actor, followed by a different command, so create
            int iHash;  V *n;
            a = new_actor_template();              a->zone =w;    a->owner = str_dup( _o );
-           a->dbkey=tdbkey[TYPE_ACTOR]++;        iHash = s->dbkey % MAX_KEY_HASH; 
+           a->dbkey=tdbkey[TYPE_ACTOR]++;        iHash = a->dbkey % MAX_KEY_HASH; 
+           if ( a->dbkey > top_scene ) top_scene=a->dbkey;
            a->next = actor_template_hash[iHash];  actor_template_hash[iHash]  = a;
            n = new_var();
            sprintf( buf, "%%actor%d%%", ++created[TYPE_ACTOR] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_ACTOR;
            n->value = (void *) a;        n->next = vars; vars=n;
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
            active = TYPE_ACTOR;
           }
 
@@ -5033,11 +5215,17 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
            int iHash;  V *n;
            p = new_prop_template();               p->zone =w;   p->owner = str_dup( _o );
            p->dbkey=tdbkey[TYPE_PROP]++;        iHash = p->dbkey % MAX_KEY_HASH; 
+           if ( p->dbkey > top_scene ) top_scene=p->dbkey;
            p->next = prop_template_hash[iHash];   prop_template_hash[iHash]  = p;
            n = new_var();
            sprintf( buf, "%%prop%d%%", ++created[TYPE_PROP] );  // make a new variable
            n->name = str_dup( buf );     n->type = TYPE_PROP;
            n->value = (void *) p;        n->next = vars; vars=n;
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
            active = TYPE_PROP;
           }
 
@@ -5045,11 +5233,11 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( !str_cmp( arg, "name" ) ) {   // set the name of the active object
            k=grab_to_eol( k, arg );
            switch ( active ) {
-                case TYPE_ACTOR: if ( a ) { if ( a->name ) free_string(a->name); a->name=str_dup(arg); }
+                case TYPE_ACTOR: if ( a ) { if ( a->name ) free_string(a->name); a->name=str_dup( translate_variables(owner,type,arg) ); }
                           break;
-                 case TYPE_PROP: if ( p ) { if ( p->name ) free_string(p->name); p->name=str_dup(arg); }
+                 case TYPE_PROP: if ( p ) { if ( p->name ) free_string(p->name); p->name=str_dup( translate_variables(owner,type,arg) ); }
                           break;
-                case TYPE_SCENE: if ( s ) { if ( s->name ) free_string(s->name); s->name=str_dup(arg); }
+                case TYPE_SCENE: if ( s ) { if ( s->name ) free_string(s->name); s->name=str_dup( translate_variables(owner,type,arg) ); }
                           break;
                  default: NOTIFY( "Build(): name called before object was made active\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                        break;
@@ -5058,9 +5246,9 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( !str_cmp( arg, "short" ) ) {  // sets the short description of the active object
            k=grab_to_eol( k, arg );
            switch ( active ) {
-                case TYPE_ACTOR: if ( a ) { if ( a->short_descr ) free_string(a->short_descr); a->short_descr=str_dup(arg); }
+                case TYPE_ACTOR: if ( a ) { if ( a->short_descr ) free_string(a->short_descr); a->short_descr=str_dup( translate_variables(owner, type, arg) ); }
                           break;
-                 case TYPE_PROP: if ( p ) { if ( p->short_descr ) free_string(p->short_descr); p->short_descr=str_dup(arg); }
+                 case TYPE_PROP: if ( p ) { if ( p->short_descr ) free_string(p->short_descr); p->short_descr=str_dup( translate_variables(owner, type, arg) ); }
                           break;
                  default: NOTIFY( "Build(): short called before object was made active, or on wrong type\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                        break;
@@ -5069,20 +5257,20 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( !str_cmp( arg, "long" ) ) {   // sets the long description of the active object
            k=grab_to_eol( k, arg );
            switch ( active ) {
-                case TYPE_ACTOR: if ( a ) { if ( a->long_descr ) free_string(a->long_descr); a->long_descr=str_dup(arg); }
+                case TYPE_ACTOR: if ( a ) { if ( a->long_descr ) free_string(a->long_descr); a->long_descr=str_dup( translate_variables(owner,type,arg) ); }
                           break;
-                 case TYPE_PROP: if ( p ) { if ( p->description ) free_string(p->description); p->description=str_dup(arg); }
+                 case TYPE_PROP: if ( p ) { if ( p->description ) free_string(p->description); p->description=str_dup( translate_variables(owner,type,arg) ); }
                           break;
                  default: NOTIFY( "Build(): long called before object was made active, or on wrong type\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                       break;
             }
        } else
        if ( !str_cmp( arg, "description" ) || !str_cmp( arg, "desc" ) ) {  // sets the description of the active object
-           k=grab_to_at(k,arg);
+           k=grab_to_at(k,arg,'|');
            switch ( active ) {
-             case TYPE_ACTOR: if ( a ) { if ( a->description ) free_string( a->description ); a->description = format_string( arg ); } break;
-             case TYPE_SCENE: if ( s ) { if ( s->description ) free_string( s->description ); s->description = format_string( arg ); } break;
-              case TYPE_PROP: if ( p ) { if ( p->real_description ) free_string( p->real_description ); p->real_description = format_string( arg ); } break;
+             case TYPE_ACTOR: if ( a ) { if ( a->description ) free_string( a->description ); a->description = format_string( translate_variables(owner,type,arg) ); } break;
+             case TYPE_SCENE: if ( s ) { if ( s->description ) free_string( s->description ); s->description = format_string( translate_variables(owner,type,arg) ); } break;
+              case TYPE_PROP: if ( p ) { if ( p->real_description ) free_string( p->real_description ); p->real_description = format_string( translate_variables(owner,type,arg) ); } break;
                  default: NOTIFY( "Build(): description called on wrong type or no active object\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                       break;
            }
@@ -5090,15 +5278,15 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( !str_cmp( arg, "plural" ) ) {  // sets the description of the active object
            k=grab_to_eol(k,arg);
            switch ( active ) {
-              case TYPE_PROP: if ( p ) { if ( p->short_descr_plural ) free_string( p->short_descr_plural ); p->short_descr_plural = str_dup( arg ); } break;
+              case TYPE_PROP: if ( p ) { if ( p->short_descr_plural ) free_string( p->short_descr_plural ); p->short_descr_plural = str_dup( translate_variables(owner,type,arg) ); } break;
                  default: NOTIFY( "Build(): plural called on wrong type or no active object\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                       break;
            }
        } else
        if ( !str_cmp( arg, "pluraldescription" ) || !str_cmp( arg, "pluraldesc" ) ) {  // sets the description of the active object
-           k=grab_to_at(k,arg);
+           k=grab_to_at(k,arg,'|');
            switch ( active ) {
-             case TYPE_PROP: if ( p ) { if ( p->description_plural ) free_string( p->description_plural ); p->description_plural = format_string( arg ); } break;
+             case TYPE_PROP: if ( p ) { if ( p->description_plural ) free_string( p->description_plural ); p->description_plural = format_string( translate_variables(owner,type,arg) ); } break;
                  default: NOTIFY( "Build(): pluraldesc called on wrong type or no active object\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                       break;
            }
@@ -5108,8 +5296,8 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
           k=grab_to_eol( k, arg );
           ed = new_extra_descr();
           ed->keyword = str_dup( arg );
-          k=grab_to_at( k, arg );
-          ed->description = format_string( arg );
+          k=grab_to_at( k, arg,'|' );
+          ed->description = format_string( translate_variables(owner,type,arg) );
           switch ( active ) {
               case TYPE_SCENE: if ( s ) { ed->next = s->extra_descr; s->extra_descr = ed; } break;
                case TYPE_PROP: if ( a ) { ed->next = p->extra_descr; p->extra_descr = ed; } break;
@@ -5136,9 +5324,9 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
          }
        } else
        if ( !str_cmp( arg, "action" ) ) { // changes the action description on the active object
-           k=grab_to_at(k,arg);
+           k=grab_to_at(k,arg,'|');
            switch ( active ) {
-              case TYPE_PROP: if ( p ) { if ( p->action_descr ) free_string( p->action_descr ); p->action_descr = format_string( arg ); } break;
+              case TYPE_PROP: if ( p ) { if ( p->action_descr ) free_string( p->action_descr ); p->action_descr = format_string( translate_variables(owner,type,arg) ); } break;
                  default: NOTIFY( "Build(): action called on wrong type or no active object\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
                       break;
            }
@@ -5197,10 +5385,38 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( !str_cmp( arg, "path" ) ) {  // sets the attributes of the active actor
            k=grab_to_eol(k,arg);
            sprintf( path_title, "%s", arg );
-           k=grab_to_at(k,arg);
+           k=grab_to_at(k,arg,'|');
            sprintf( path_descr, "%s", arg );
        } else
        if ( !str_cmp( arg, "attrib" ) ) {  // sets the attributes of the active actor
+        int attset;
+        k=one_argument(k,arg); attset=atoi(arg);
+        if ( active == TYPE_ACTOR && a ) {
+         a->perm_wis=a->perm_dex=a->perm_int=a->perm_str=a->perm_con=attset;
+        }
+       } else
+       if ( !str_cmp( arg, "attack" ) ) {  // sets the attributes of the active actor
+        int att,att2=-1,iType;
+        k=one_argument(k,arg);              att=atoi(arg);
+        one_argument(k,arg); if ( is_number(arg) ) { k=one_argument(k,arg); att2=atoi(arg); }
+        if ( att >= MAX_ATTACK || att < 0 ) att=0;
+        k=one_argument(k,arg);
+        if ( active == TYPE_ACTOR && a ) {
+         for ( iType = 0; iType < MAX_ATTACK; iType++ )
+          if ( !str_cmp( arg, attack_table[iType].name ) ) break;
+         if ( iType >= MAX_ATTACK ) iType=0;
+         if ( a->attacks[att] == NULL ) a->attacks[att] = new_attack( );
+         a->attacks[att]->next = NULL;
+         a->attacks[att]->idx     = iType;
+         k = one_argument( k, arg );
+         if ( att2==-1 ) {
+         a->attacks[att]->dam1     = 0;
+         a->attacks[att]->dam2     = att;
+         } else {
+         a->attacks[att]->dam1     = att;
+         a->attacks[att]->dam2     = att2;
+         }
+        }
        } else
        if ( !str_cmp( arg, "money" ) || !str_cmp( arg, "cost" ) ) {  // sets cost or value on actor/prop
           k=one_argument(k,arg);
@@ -5229,7 +5445,7 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
        if ( !str_cmp( arg, "script" ) ) {  // adds a script to the active object
         SCRIPT *script;
         k=one_argument(k,arg);
-        if ( (script = get_script_index(atoi(arg))) == NULL ) NOTIFY( "Build(): script <dbkey>; bad dbkey\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
+        if ( (script = get_script(atoi(arg))) == NULL ) NOTIFY( "Build(): script <dbkey>; bad dbkey\n\r", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
         else {
          INSTANCE *pTrig;
          pTrig = new_instance();
@@ -5257,16 +5473,28 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
           int val;
           int dir = get_dir( arg );
           k=one_argument(k,arg);
-          if ( !str_cmp( arg, "to" ) ) k=one_argument(k,arg);
           if ( active != TYPE_SCENE || !s )
           NOTIFY( "Build(): exit call without a scene", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
           else {
+          if ( !str_cmp( arg, "to" ) ) {
+           SCENE *to=NULL; V *v;
+           k=one_argument(k,arg);
+           v=get_variable(vars,arg);
+           if ( v && v->type == TYPE_SCENE && v->value ) to = SCENE(v->value);
+           else if ( v && v->type == TYPE_STRING && v->value ) to = get_scene( atoi( (char *) (v->value) ) );
+           if ( !to ) NOTIFY( "Build(): 'exit to' call without a valid target; continue", LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
+           else {
+            if ( !s->exit[dir] ) s->exit[dir]=new_exit();
+            s->exit[dir]->to_scene = to;
+           }
+          } else
            if ( arg[0] == '%' ) {
             V *v=get_variable(vars,arg);
             if ( v && v->type == TYPE_SCENE && v->value ) {
                if ( !s->exit[dir] ) {
                 s->exit[dir] = new_exit(); s->exit[dir]->to_scene = SCENE(v->value);
-                if ( !s->exit[dir]->to_scene->exit[rev_dir[dir]] ) s->exit[dir]->to_scene->exit[rev_dir[dir]] = new_exit();
+                if ( !s->exit[dir]->to_scene->exit[rev_dir[dir]] )
+                 s->exit[dir]->to_scene->exit[rev_dir[dir]] = new_exit();
                 s->exit[dir]->to_scene->exit[rev_dir[dir]]->to_scene = s;
                } 
             }             
@@ -5296,20 +5524,27 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
               if ( s->exit[dir]->to_scene && s->exit[dir]->to_scene->exit[rev_dir[dir]] ) { 
                SET_BIT( s->exit[dir]->to_scene->exit[rev_dir[dir]]->rs_flags, EXIT_ISDOOR );
                SET_BIT( s->exit[dir]->to_scene->exit[rev_dir[dir]]->exit_flags, EXIT_ISDOOR );
+               free_string( s->exit[dir]->to_scene->exit[rev_dir[dir]]->keyword );
+               s->exit[dir]->to_scene->exit[rev_dir[dir]]->keyword = str_dup( arg );
               }
+              free_string( s->exit[dir]->keyword );
+              s->exit[dir]->keyword = str_dup( arg );
              }
            } else
-           if ( !str_cmp( arg, "name" ) ) { k=grab_to_eol(k,arg);
-             if ( s->exit[dir] ) { free_string( s->exit[dir]->keyword ); s->exit[dir]->keyword = str_dup(arg); }
-           } else
-           if ( !str_cmp( arg, "desc" ) || !str_cmp(arg, "description") ) { k=grab_to_at(k,arg);
-             if ( s->exit[dir] ) { free_string( s->exit[dir]->description ); s->exit[dir]->description = str_dup(arg); }
-           } else
+           if ( !str_cmp( arg, "name" ) ) { 
+             k=grab_to_eol(k,arg);
+             if ( s->exit[dir] ) { free_string( s->exit[dir]->keyword ); 
+               s->exit[dir]->keyword = str_dup(arg); }
+             } else
+             if ( !str_cmp( arg, "desc" ) || !str_cmp(arg, "description") ) { 
+             k=grab_to_at(k,arg,'|');
+             if ( s->exit[dir] ) { free_string( s->exit[dir]->description ); s->exit[dir]->description = str_dup( translate_variables(owner,type,arg) ); }
+             } else
            if ( (val = exit_name_bit( arg )) != EXIT_NONE ) {
              if ( s->exit[dir] ) {
               SET_BIT(s->exit[dir]->rs_flags, val);
               SET_BIT(s->exit[dir]->exit_flags, val);
-              if ( s->exit[dir]->to_scene && s->exit[dir]->to_scene->exit[rev_dir[dir]] ) {
+              if ( val != EXIT_WINDOW && val != EXIT_NOMOVE &&  s->exit[dir]->to_scene && s->exit[dir]->to_scene->exit[rev_dir[dir]] ) {
                SET_BIT(s->exit[dir]->to_scene->exit[rev_dir[dir]]->rs_flags, val);
                SET_BIT(s->exit[dir]->to_scene->exit[rev_dir[dir]]->exit_flags, val);
               }
@@ -5322,7 +5557,8 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
         int dir; k=one_argument(k,arg); dir = get_dir(arg);
         if ( active == TYPE_SCENE && s ) {
          if ( loc->exit[rev_dir[dir]] != NULL ) { // find an alternative exit (first available), build path room if no available
-           int dir2, f=-1; for( dir2=0; dir2 < MAX_DIR; dir2++ ) if ( s->exit[dir2] == NULL && loc->exit[rev_dir[dir2]] ) f=dir2; 
+           int dir2, f=-1;
+           for( dir2=0; dir2 < MAX_DIR; dir2++ ) if ( s->exit[dir2] == NULL && loc->exit[rev_dir[dir2]] ) f=dir2; 
            if ( f >= 0 && f < MAX_DIR ) { 
              if ( !s->exit[f] ) s->exit[f]=new_exit(); s->exit[f]->to_scene=loc;
              if ( !loc->exit[rev_dir[f]] ) loc->exit[rev_dir[f]]=new_exit(); loc->exit[rev_dir[f]]->to_scene=s;
@@ -5336,6 +5572,12 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
             sprintf( buf, "%%path%d%%", ++created[0] );  // make a new variable, we'll use counter[0] because its a path
             n->name = str_dup( buf );     n->type = TYPE_SCENE;
             n->value = (void *) x;        n->next = vars; vars=n;
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
+
             x->name = str_dup( path_title );
             x->description = format_string( path_descr );
             for ( dir2=0; dir2 < MAX_DIR; dir2++ ) if ( !s->exit[dir2] ) { s->exit[dir2]=new_exit(); s->exit[dir2]->to_scene=x; 
@@ -5353,14 +5595,29 @@ V *func_build( void *owner, int type, V *sdbkey, V *location, V *target, V *p1, 
          NOTIFY( buf, LEVEL_IMMORTAL, WIZ_NOTIFY_SCRIPT );
        }
      }
-
    }
 
    // Dispose of our temporary variables after outputting to the NOTIFY/scripts
+     free_string(pp1);
+     free_string(pp2);
+     free_string(pp3);
+
+   // Clear all variables (build must be the last call in a function)
+  
+   { V *n,*d;
+    for ( d=vars; d; d=n ) { n=d->next; free_variable(d); }
+    vars=NULL;
+   }
+
+   switch ( type ) {
+    case TYPE_PROP:   PROP(owner)->current->locals=vars; break;
+    case TYPE_ACTOR: ACTOR(owner)->current->locals=vars; break;
+    case TYPE_SCENE: SCENE(owner)->current->locals=vars; break;
+   }
+
 
    // Force the DB to save (kooky)
    cmd_zsave( NULL, "" );
-
    RETURNS(TYPE_STRING,str_dup("1"));   // Success?
 }
 

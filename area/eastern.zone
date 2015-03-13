@@ -1185,7 +1185,7 @@ A massive sinkhole has formed behind this boulder.
 C
 (null)~
 F 8192
-S 2
+S 10
 M 0
 W 0
 T 0
@@ -1199,7 +1199,7 @@ Dr 5 0 0 10741
 End
 
 #10741
-N Collapsed Cavern~
+N a collapsed cavern~
 Ref 0
 D
 ~
@@ -1339,7 +1339,7 @@ Dr 3 0 0 10755
 End
 
 #10755
-N ~
+N the Caerbrok~
 Ref 0
 D
 ~
@@ -1360,7 +1360,7 @@ Dr 1 0 0 10754
 End
 
 #10756
-N ~
+N the Caerbrok~
 Ref 0
 D
 ~
@@ -1381,7 +1381,7 @@ Dr 2 0 0 10755
 End
 
 #10757
-N ~
+N the Caerbrok~
 Ref 0
 D
 ~
@@ -1402,7 +1402,7 @@ Dr 2 0 0 10756
 End
 
 #10758
-N ~
+N the Caerbrok River~
 Ref 0
 D
 ~
@@ -1426,7 +1426,7 @@ Dr 6 0 0 10759
 End
 
 #10759
-N ~
+N the Caerbrok River~
 Ref 0
 D
 ~
@@ -1732,7 +1732,7 @@ Dr 2 0 0 10774
 End
 
 #10773
-N ~
+N on the Caerbrok River in Rygor~
 Ref 0
 D
 ~
@@ -1813,7 +1813,7 @@ O ~
 Dr 0 0 0 10773
 ~
 ~
-Dr 1 2048 0 5110
+Dr 1 2560 0 5110
 ~
 ~
 Dr 3 0 0 10786
@@ -1822,7 +1822,7 @@ Dr 3 0 0 10786
 End
 
 #10777
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -1846,7 +1846,7 @@ Dr 3 0 0 10778
 End
 
 #10778
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -1870,7 +1870,7 @@ Dr 3 0 0 10779
 End
 
 #10779
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -1894,7 +1894,7 @@ Dr 3 0 0 10780
 End
 
 #10780
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -1918,7 +1918,7 @@ Dr 3 0 0 10781
 End
 
 #10781
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -1942,7 +1942,7 @@ Dr 3 0 0 10782
 End
 
 #10782
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -1966,7 +1966,7 @@ Dr 3 0 0 10783
 End
 
 #10783
-N ~
+N somewhere on the ocean~
 Ref 0
 D
 ~
@@ -1990,7 +1990,7 @@ Dr 3 0 0 10792
 End
 
 #10784
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2017,7 +2017,7 @@ Dr 3 0 0 10785
 End
 
 #10785
-N ~
+N somewhere on the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2044,7 +2044,7 @@ Dr 3 0 0 10809
 End
 
 #10786
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2071,7 +2071,7 @@ Dr 3 0 0 10787
 End
 
 #10787
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2095,7 +2095,7 @@ Dr 3 0 0 10788
 End
 
 #10788
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2122,7 +2122,7 @@ Dr 3 0 0 10789
 End
 
 #10789
-N ~
+N on the ocean near Rygor~
 Ref 0
 D
 ~
@@ -2146,7 +2146,7 @@ Dr 3 0 0 10790
 End
 
 #10790
-N ~
+N the ocean near Rygor~
 Ref 0
 D
 ~
@@ -2173,7 +2173,7 @@ Dr 3 0 0 10791
 End
 
 #10791
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2200,7 +2200,7 @@ Dr 3 0 0 10784
 End
 
 #10792
-N ~
+N the ocean~
 Ref 0
 D
 ~
@@ -2278,13 +2278,13 @@ O ~
 Dr 0 0 0 10786
 ~
 ~
-Dr 2 3072 0 5106
+Dr 2 0 0 5108
 ~
 ~
 End
 
 #10796
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2302,7 +2302,7 @@ Dr 0 0 0 10788
 End
 
 #10799
-N ~
+N the ocean near Rygor~
 Ref 0
 D
 ~
@@ -2323,7 +2323,7 @@ Dr 3 0 0 10800
 End
 
 #10800
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2347,7 +2347,7 @@ Dr 3 0 0 10804
 End
 
 #10801
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2380,7 +2380,7 @@ O ~
 End
 
 #10804
-N ~
+N the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2401,7 +2401,7 @@ Dr 3 0 0 10805
 End
 
 #10805
-N ~
+N the Kaerbrok River inlet~
 Ref 0
 D
 ~
@@ -2422,7 +2422,7 @@ Dr 3 0 0 10806
 End
 
 #10806
-N ~
+N somewhere on the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2446,7 +2446,7 @@ Dr 3 0 0 10807
 End
 
 #10807
-N ~
+N amidst rocky outcroppings, northwest of Rygor~
 Ref 0
 D
 ~
@@ -2464,7 +2464,7 @@ Dr 1 0 0 10806
 End
 
 #10809
-N ~
+N somewhere on the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2488,7 +2488,7 @@ Dr 3 0 0 10811
 End
 
 #10810
-N ~
+N the ocean~
 Ref 0
 D
 ~
@@ -2515,7 +2515,7 @@ Dr 3 0 0 10813
 End
 
 #10811
-N ~
+N somewhere on the ocean near the Southern Isles of Jharl~
 Ref 0
 D
 ~
@@ -2539,7 +2539,7 @@ Dr 3 0 0 10816
 End
 
 #10812
-N ~
+N the ocean~
 Ref 0
 D
 ~
@@ -2563,7 +2563,7 @@ Dr 3 0 0 10814
 End
 
 #10813
-N ~
+N on the ocean northwest of Rygor Isle~
 Ref 0
 D
 ~
@@ -2590,7 +2590,7 @@ Dr 3 0 0 10820
 End
 
 #10814
-N ~
+N on the ocean north of Rygor Isle~
 Ref 0
 D
 ~
@@ -2614,7 +2614,7 @@ Dr 3 0 0 10815
 End
 
 #10815
-N ~
+N the bay west of the Broken Coast~
 Ref 0
 D
 ~
@@ -2641,7 +2641,7 @@ Dr 3 0 0 10818
 End
 
 #10816
-N ~
+N the ocean~
 Ref 0
 D
 ~
@@ -2659,7 +2659,7 @@ Dr 1 0 0 10811
 End
 
 #10817
-N ~
+N somewhere in the waters northwest of Rygor Isle~
 Ref 0
 D
 ~
@@ -2680,7 +2680,7 @@ Dr 1 0 0 10820
 End
 
 #10818
-N ~
+N Watervoid~
 Ref 0
 D
 ~
@@ -2704,7 +2704,7 @@ Dr 3 0 0 10821
 End
 
 #10820
-N ~
+N Lost at Sea~
 Ref 0
 D
 ~
@@ -2719,16 +2719,13 @@ O ~
 Dr 0 0 0 10815
 ~
 ~
-Dr 1 0 0 10813
-~
-~
 Dr 3 0 0 10817
 ~
 ~
 End
 
 #10821
-N ~
+N Wateroid~
 Ref 0
 D
 ~
@@ -2749,7 +2746,7 @@ Dr 3 0 0 10822
 End
 
 #10822
-N ~
+N Watervoid~
 Ref 0
 D
 ~
@@ -2761,16 +2758,13 @@ M 0
 W 0
 T 0
 O ~
-Dr 1 0 0 10821
-~
-~
 Dr 3 0 0 10823
 ~
 ~
 End
 
 #10823
-N ~
+N the Watervoid~
 Ref 0
 D
 ~
@@ -2782,7 +2776,13 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 10823
+~
+~
 Dr 1 0 0 10822
+~
+~
+Dr 2 0 0 10823
 ~
 ~
 Dr 3 0 0 10824
@@ -2791,7 +2791,7 @@ Dr 3 0 0 10824
 End
 
 #10824
-N ~
+N the Watervoid~
 Ref 0
 D
 ~
@@ -2803,7 +2803,13 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 10824
+~
+~
 Dr 1 0 0 10823
+~
+~
+Dr 2 0 0 10824
 ~
 ~
 Dr 3 0 0 10825
@@ -2812,7 +2818,7 @@ Dr 3 0 0 10825
 End
 
 #10825
-N ~
+N the Watervoid~
 Ref 0
 D
 ~
@@ -2824,7 +2830,13 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 17317
+~
+~
 Dr 1 0 0 10824
+~
+~
+Dr 2 0 0 10825
 ~
 ~
 Dr 3 0 0 10826
@@ -2833,7 +2845,7 @@ Dr 3 0 0 10826
 End
 
 #10826
-N ~
+N the Watervoid~
 Ref 0
 D
 ~
@@ -2851,10 +2863,13 @@ Dr 1 0 0 10825
 Dr 3 0 0 10827
 ~
 ~
+Dr 7 0 0 17317
+~
+~
 End
 
 #10827
-N ~
+N the Watervoid~
 Ref 0
 D
 ~
@@ -2866,7 +2881,13 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 10827
+~
+~
 Dr 1 0 0 10826
+~
+~
+Dr 2 0 0 10827
 ~
 ~
 Dr 3 0 0 10828
@@ -2875,7 +2896,7 @@ Dr 3 0 0 10828
 End
 
 #10828
-N ~
+N the Watervoid~
 Ref 0
 D
 ~
@@ -2887,7 +2908,13 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 10828
+~
+~
 Dr 1 0 0 10827
+~
+~
+Dr 2 0 0 10828
 ~
 ~
 Dr 3 0 0 10829
@@ -2896,7 +2923,7 @@ Dr 3 0 0 10829
 End
 
 #10829
-N ~
+N the Watervoid~
 Ref 0
 D
 ~
@@ -2908,7 +2935,13 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 10829
+~
+~
 Dr 1 0 0 10828
+~
+~
+Dr 2 0 0 10829
 ~
 ~
 Dr 3 0 0 10830
@@ -2917,7 +2950,7 @@ Dr 3 0 0 10830
 End
 
 #10830
-N ~
+N somewhere in the Watervoid~
 Ref 0
 D
 ~
@@ -2932,10 +2965,13 @@ O ~
 Dr 1 0 0 10829
 ~
 ~
+Dr 2 0 0 10830
+~
+~
 End
 
 #10831
-N ~
+N the ocean~
 Ref 0
 D
 ~
@@ -2947,16 +2983,13 @@ M 0
 W 0
 T 0
 O ~
-Dr 2 0 0 10792
-~
-~
 Dr 3 0 0 10812
 ~
 ~
 End
 
 #10869
-N ~
+N on the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -2977,7 +3010,7 @@ Dr 2 0 0 10874
 End
 
 #10870
-N ~
+N the ocean near the coast of Rygor Isle~
 Ref 0
 D
 ~
@@ -2998,7 +3031,7 @@ Dr 3 0 0 10871
 End
 
 #10871
-N ~
+N the ocean between Rygor and Tyselorrd~
 Ref 0
 D
 ~
@@ -3019,18 +3052,21 @@ Dr 3 0 0 10872
 End
 
 #10872
-N ~
+N the ocean between Rygor and Tyselorrd~
 Ref 0
 D
 ~
 C
 ~
 F 1024
-S 6
+S 7
 M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 544
+~
+~
 Dr 1 0 0 10871
 ~
 ~
@@ -3040,14 +3076,14 @@ Dr 2 0 0 10873
 End
 
 #10873
-N ~
+N near the northern shore of Rygor Isle~
 Ref 0
 D
 ~
 C
 ~
 F 1024
-S 7
+S 6
 M 0
 W 0
 T 0
@@ -3064,7 +3100,7 @@ Dr 9 0 0 7701
 End
 
 #10874
-N ~
+N on the ocean near Rygor Isle~
 Ref 0
 D
 ~
@@ -3085,7 +3121,7 @@ Dr 2 0 0 10875
 End
 
 #10875
-N ~
+N floating near the shoreline of Rygor Isle~
 Ref 0
 D
 ~
@@ -3109,7 +3145,7 @@ Dr 2 0 0 10876
 End
 
 #10876
-N ~
+N floating near the shoreline of Rygor Isle~
 Ref 0
 D
 ~
@@ -3130,7 +3166,7 @@ Dr 2 0 0 10877
 End
 
 #10877
-N ~
+N north of the Broken Coast~
 Ref 0
 D
 ~
@@ -3151,7 +3187,7 @@ Dr 3 0 0 10878
 End
 
 #10878
-N ~
+N north of the Broken Coast~
 Ref 0
 D
 ~
@@ -3172,7 +3208,7 @@ Dr 2 0 0 10879
 End
 
 #10879
-N ~
+N west of the Broken Coast~
 Ref 0
 D
 ~
@@ -3193,7 +3229,7 @@ Dr 2 0 0 10880
 End
 
 #10880
-N ~
+N in an inlet northwest of Keveg~
 Ref 0
 D
 ~
@@ -3229,14 +3265,14 @@ O ~
 End
 
 #10882
-N ~
+N the ocean south of Tyselorrd~
 Ref 0
 D
 ~
 C
 ~
 F 1024
-S 6
+S 7
 M 0
 W 0
 T 0
@@ -3250,14 +3286,14 @@ Dr 2 0 0 10897
 End
 
 #10883
-N ~
+N the ocean south of Tyselorrd~
 Ref 0
 D
 ~
 C
 ~
 F 1024
-S 6
+S 7
 M 0
 W 0
 T 0
@@ -3271,7 +3307,7 @@ Dr 2 0 0 10882
 End
 
 #10884
-N ~
+N the polluted ocean near the ruins of Mordel~
 Ref 0
 D
 ~
@@ -3283,13 +3319,16 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 16607
+~
+~
 Dr 2 0 0 10883
 ~
 ~
 End
 
 #10890
-N ~
+N on the Kyr River~
 Ref 0
 D
 ~
@@ -3301,19 +3340,19 @@ M 0
 W 0
 T 0
 O ~
-Dr 1 0 0 10891
+Dr 1 2048 0 10891
 ~
 ~
 Dr 2 0 0 604
 ~
 ~
-Dr 3 0 0 10870
+Dr 3 1024 0 10870
 ~
 ~
 End
 
 #10891
-N ~
+N on the Kyr River~
 Ref 0
 D
 ~
@@ -3325,7 +3364,7 @@ M 0
 W 0
 T 0
 O ~
-Dr 1 0 0 10892
+Dr 1 3072 0 10892
 ~
 ~
 Dr 3 0 0 10890
@@ -3334,7 +3373,7 @@ Dr 3 0 0 10890
 End
 
 #10892
-N ~
+N on the Kyr River~
 Ref 0
 D
 ~
@@ -3355,7 +3394,7 @@ Dr 3 0 0 10891
 End
 
 #10893
-N ~
+N on the Kyr River~
 Ref 0
 D
 ~
@@ -3376,7 +3415,7 @@ Dr 3 0 0 10892
 End
 
 #10894
-N ~
+N on the Kyr River~
 Ref 0
 D
 ~
@@ -3397,7 +3436,7 @@ Dr 3 0 0 10893
 End
 
 #10895
-N ~
+N on the Kyr River~
 Ref 0
 D
 ~
@@ -3418,14 +3457,14 @@ Dr 3 0 0 10894
 End
 
 #10896
-N ~
+N on the Kyr River~
 Ref 0
 D
 ~
 C
 ~
 F 1024
-S 6
+S 7
 M 0
 W 0
 T 0
@@ -3439,14 +3478,14 @@ Dr 3 0 0 10895
 End
 
 #10897
-N ~
+N the ocean between Rygor and Tyselorrd~
 Ref 0
 D
 ~
 C
 ~
 F 1024
-S 6
+S 7
 M 0
 W 0
 T 0

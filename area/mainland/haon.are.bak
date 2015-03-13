@@ -853,6 +853,32 @@ decorations of any kind.
 ~
 End
 
+#21123
+N hollow tube dry bamboo~
+SD a hollow tube of dry bamboo~
+P ~
+D
+A hollow tube of dry bamboo is lying here.
+~
+A
+~
+PD
+~
+DR
+A thin piece of bamboo you could use to go underwater.
+~
+L 0
+T 22
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 20
+O ~
+V 8 7 6 0
+End
+
 #21155
 N morning-star star morning~
 SD the morning star~
@@ -1749,6 +1775,9 @@ Dr 1 0 -1 21004
 The narrow trail leads east to a somewhat lighter part of the forest.
 ~
 ~
+Dr 2 0 0 24160
+~
+~
 Dr 3 0 -1 21101
 The narrow, dusty trail leads west through the forest.
 ~
@@ -1798,7 +1827,7 @@ The narrow, dusty trail leads west through the forest.
 End
 
 #21102
-N A narrow trail through the deep, dark forest~
+N a narrow trail through the deep, dark forest~
 Ref 0
 D
 You are on a dusty trail winding its way east-west between huge, ancient trees
@@ -1836,7 +1865,7 @@ The narrow, dusty trail leads west through the forest.
 End
 
 #21103
-N A narrow trail through the deep, dark forest~
+N a narrow trail through the deep, dark forest~
 Ref 0
 D
 You are where the dusty trail bends, as to avoid conflict with a colossal
@@ -2227,6 +2256,7 @@ ED path~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
 ~
+R O 21123 -5 100 2
 R O 21103 0 100 1
 Dr 2 0 -1 21114
 The narrow path winds its way through the trees to the south.
@@ -2572,12 +2602,16 @@ ED path paths~
 The path seems all too frail.  One of the giant roots could probably crush it
 in a single blow.
 ~
+R O 21123 -5 100 1
 Dr 0 0 -1 21122
 The narrow path winds its way through the trees to the north.
 ~
 ~
 Dr 1 0 -1 21124
 The narrow path winds its way through the trees to the east.
+~
+~
+Dr 2 2048 0 18201
 ~
 ~
 Dr 3 0 -1 21125
@@ -2587,7 +2621,7 @@ The narrow path winds its way through the trees to the west.
 End
 
 #21124
-N A dead end path in the deep, dark forest~
+N a dead end path in the deep dark forest~
 Ref 0
 D
 You are on a narrow path leading through the deep, dark forest.  The ancient
@@ -3167,7 +3201,7 @@ The narrow path winds its way through the trees to the west.
 End
 
 #21150
-N The narrow trail.~
+N a narrow trail~
 Ref 0
 D
 This trail looks much spookier than any other thats you have seen.  The usual
@@ -3193,7 +3227,7 @@ the trail intersects the main forest path.
 End
 
 #21151
-N The narrow trail.~
+N a narrow trail~
 Ref 0
 D
 This area of the trail is also very peculiar.  You can see no signs of animal
@@ -3219,7 +3253,7 @@ the start of the trail.
 End
 
 #21152
-N The circle of trees.~
+N a circle of trees~
 Ref 0
 D
 The trees here seem to form a circle around a HUGE tree that is in the center
@@ -3245,7 +3279,7 @@ the bend on the trail.
 End
 
 #21153
-N Inside the great tree.~
+N inside a great tree~
 Ref 0
 D
 You have stepped inside of this hollowed tree.  From here steps lead down into

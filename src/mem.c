@@ -1722,7 +1722,7 @@ char fread_letter( FILE *fp )
     {
     c = getc( fp );
     }
-    while ( isspace(c) );
+    while ( isspace(c) && !feof(fp) );
 
     return c;
 }
@@ -1738,11 +1738,13 @@ int fread_number( FILE *fp )
     bool sign;
     char c;
 
+    if ( feof(fp) ) return 0;
+
     do
     {
     c = getc( fp );
     }
-    while ( isspace(c) );
+    while ( isspace(c) && !feof(fp) );
 
     number = 0;
 
@@ -1750,11 +1752,13 @@ int fread_number( FILE *fp )
     if ( c == '+' )
     {
 	c = getc( fp );
+        if ( feof(fp) ) return 0;
     }
     else if ( c == '-' )
     {
 	sign = TRUE;
 	c = getc( fp );
+        if ( feof(fp) ) return 0;
     }
 
     if ( !isdigit(c) )
@@ -1763,7 +1767,7 @@ int fread_number( FILE *fp )
 	exit( 1 );
     }
 
-    while ( isdigit(c) )
+    while ( !feof(fp) &&  isdigit(c) )
     {
 	number = number * 10 + c - '0';
 	c      = getc( fp );
@@ -1810,7 +1814,7 @@ char *fread_string( FILE *fp )
     {
 	c = getc( fp );
     }
-    while ( isspace(c) );
+    while ( !feof(fp) && isspace(c) );
 
     if ( ( *plast++ = c ) == '~' )
         return &str_empty[0];
@@ -1994,15 +1998,15 @@ void fread_to_eol( FILE *fp )
     char c;
 
 	c = getc( fp );
-    while ( c != '\n' && c != '\r' ) c = getc( fp );
+    while ( !feof(fp) && c!='\0' && c != '\n' && c != '\r' ) c = getc( fp );
 
     do
     {
 	c = getc( fp );
     }
-    while ( c == '\n' || c == '\r' );
+    while ( !feof(fp) && (c == '\n' || c == '\r') );
 
-    ungetc( c, fp );
+    if ( !feof(fp) ) ungetc( c, fp );
     return;
 }
 
@@ -2036,7 +2040,8 @@ char *fread_word( FILE *fp )
 
     for ( ; pword < word + MAX_INPUT_LENGTH; pword++ )
     {
-	*pword = getc( fp );
+        if ( feof(fp) ) break;
+	*pword = getc( fp );        
 	if ( cEnd == ' ' ? isspace(*pword) : *pword == cEnd )
 	{
 	    if ( cEnd == ' ' )

@@ -553,7 +553,7 @@ End
 
 #SCENES
 #23301
-N Muddy Path~
+N a muddy path through a decrepit swamp~
 Ref 0
 D
 This section of the path is slowly being drowned by the nearby swamp to the
@@ -563,7 +563,7 @@ here, torn apart both by battle and the elements.
 C
 ~
 F 0
-S 2
+S 10
 M 0
 W 0
 T 0
@@ -583,7 +583,7 @@ A broken road leading southward into the marsh.
 End
 
 #23302
-N Swamp's Edge~
+N a swamp's edge~
 Ref 0
 D
 Briars and marsh plants stick to your boots and clothes, and clouds cover the
@@ -594,7 +594,7 @@ the sounds stop.
 C
 ~
 F 0
-S 5
+S 10
 M 0
 W 0
 T 0
@@ -620,7 +620,7 @@ distance.  And feel fear creep into your heart.
 C
 ~
 F 1
-S 5
+S 6
 M 0
 W 0
 T 0
@@ -683,7 +683,7 @@ have you for a feast.
 C
 ~
 F 1
-S 5
+S 6
 M 0
 W 0
 T 0
@@ -712,7 +712,7 @@ boots.  Better stop and check for leeches when you get out of here.
 C
 ~
 F 1
-S 5
+S 6
 M 0
 W 0
 T 0
@@ -725,6 +725,9 @@ Dr 3 0 -1 23305
 You see a large tree limb that looks easily moved.
 ~
 limb~
+Dr 5 0 0 22216
+~
+~
 End
 
 #23307

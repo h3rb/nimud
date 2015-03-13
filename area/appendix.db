@@ -866,6 +866,7 @@ Delay 0
 Mana 0
 Type 0
 Group 1300
+Sc 114
 End
 #SPELL 115
 N forest friends~
@@ -940,8 +941,8 @@ Type 0
 Group 1500
 End
 #SPELL 123
-N ritual of mitor~
-Lvl 96
+N ritual of mitur~
+Lvl 99
 Target 2
 Delay 0
 Mana 0
@@ -1148,12 +1149,13 @@ Group 1700
 End
 #SPELL 146
 N hand of god~
-Lvl 600
-Target 2
+Lvl 666
+Target 1
 Delay 0
 Mana 0
 Type 0
-Group 1700
+Group 800
+Sc 146
 End
 #SPELL 147
 N peace~
@@ -5286,6 +5288,266 @@ C 18
 Va 50 1 0 0
 END
 
+
+#PROP
+Nest 0
+V 4500
+E 0
+W 4227073
+WL -1
+I 15
+Wt 2
+L 0
+Sz 0
+T -1
+C 20
+Va 50 1 0 0
+END
+
+
+#PROP
+Nest 1
+V 36
+E 0
+W 1
+WL -1
+I 27
+Wt 1
+L 0
+Sz 0
+T -1
+C 3
+Va 1 5 5 0
+END
+
+
+#PROP
+Nest 1
+V 10071
+E 0
+W 1
+WL -1
+I 17
+Wt 2
+L 0
+Sz 0
+T -1
+C 22
+Va 20 20 30 0
+END
+
+
+#PROP
+Nest 1
+V 10070
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 48
+Va 20 20 7 0
+END
+
+
+#PROP
+Nest 1
+V 10070
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 46
+Va 20 20 7 0
+END
+
+
+#PROP
+Nest 1
+V 2003
+E 0
+W 1
+WL -1
+I 19
+Wt 4
+L 0
+Sz 0
+T -1
+C 11
+Va 50 10 0 0
+END
+
+
+#PROP
+Nest 1
+V 2003
+E 0
+W 1
+WL -1
+I 19
+Wt 4
+L 0
+Sz 0
+T -1
+C 11
+Va 50 10 0 0
+END
+
+
+#PROP
+Nest 1
+V 2003
+E 0
+W 1
+WL -1
+I 19
+Wt 4
+L 0
+Sz 0
+T -1
+C 11
+Va 50 10 0 0
+END
+
+
+#PROP
+Nest 1
+V 2003
+E 0
+W 1
+WL -1
+I 19
+Wt 4
+L 0
+Sz 0
+T -1
+C 10
+Va 50 10 0 0
+END
+
+
+#PROP
+Nest 1
+V 2003
+E 0
+W 1
+WL -1
+I 19
+Wt 4
+L 0
+Sz 0
+T -1
+C 10
+Va 50 10 0 0
+END
+
+
+#PROP
+Nest 1
+V 17210
+E 64
+W 2049
+WL -1
+I 15
+Wt 25
+L 0
+Sz 18
+T -1
+C 10553
+Va 600 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N pink beryl gem~
+S a pink beryl~
+D
+A pink beryl sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 1000
+Va 4 200 200 0
+END
+
+
+#PROP
+Nest 2
+V 50
+N bright green demantoid garnet gem~
+S a bright green demantoid garnet~
+D
+A bright green demantoid garnet sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 700
+Va 1 140 140 0
+END
+
+
+#PROP
+Nest 1
+V 2
+N platinum coin~
+S one platinum coin~
+D
+A single platinum coin is on the ground.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 1
+L 0
+Sz 0
+T -1
+C 10000
+Va 1 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 3
+N two electrum coins~
+S two electrum coins~
+D
+A few electrum coins are on the ground here.
+~
+E 0
+W 1
+WL -1
+I 20
+Wt 0
+L 0
+Sz 0
+T -1
+C 2000
+Va 2 1 0 0
+END
+
 Scene 16531
 Scene 5320
 
@@ -5710,7 +5972,28 @@ C 11
 Va 1000 0 0 0
 END
 
+Scene 1000000
+Scene 1000006
+Scene 1000007
+Scene 1000013
+Scene 1000014
+Scene 1000020
+Scene 1000021
+Scene 1000027
+Scene 1000028
+Scene 1000034
+Scene 1000035
+Scene 1000041
+Scene 1000042
+Scene 1000048
+Scene 1000049
+Scene 1000055
+Scene 1000056
 Scene 18040
+Scene 1000062
+Scene 1000063
+Scene 1000069
+Scene 1000070
 Scene 15100
 
 #PROP
@@ -6070,7 +6353,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 2146794514 2147483647 0 1
+Va 2146782968 2147483647 0 1
 END
 
 
@@ -7355,7 +7638,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 2147068036 2147483647 0 1
+Va 2147056490 2147483647 0 1
 END
 
 
@@ -7885,52 +8168,36 @@ END
 
 #PROP
 Nest 0
-V 16308
-E 2
-W 1
-WL -1
-I 0
-Wt 50
-L 0
-Sz 18
-T -1
-C 9
-Va 10000 0 -1 0
-END
-
-Scene 8061
-
-#PROP
-Nest 0
-V 4001
+V 8098
 E 0
-W 1
+W 0
 WL -1
-I 12
-Wt 50
-L 0
-Sz 0
-T -1
-C 460
-Va 100 8192 0 0
-END
-
-
-#PROP
-Nest 0
-V 4006
-E 0
-W 1
-WL -1
-I 12
+I 15
 Wt 0
 L 0
 Sz 0
 T -1
-C 4530
-Va 200 24576 0 0
+C 10
+Va 5 0 0 0
 END
 
+
+#PROP
+Nest 1
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+Scene 8061
 
 #PROP
 Nest 0
@@ -7944,7 +8211,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 999840 1000000 0 1
+Va 988294 1000000 0 1
 END
 
 
@@ -7982,6 +8249,22 @@ END
 
 #PROP
 Nest 1
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 1
 V 5308
 N turquoise wax taper~
 S a turquoise wax taper~
@@ -7998,6 +8281,464 @@ Sz 0
 T -1
 C 5
 Va 10 10 0 0
+END
+
+
+#PROP
+Nest 0
+V 16514
+E 0
+W 1
+WL -1
+I 22
+Wt 24
+L 0
+Sz 18
+T -1
+C 1476
+Va 6 7 0 0
+END
+
+
+#PROP
+Nest 0
+V 661
+E 0
+W 1
+WL -1
+I 22
+Wt 15
+L 0
+Sz 0
+T -1
+C 56
+Va 5 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 4006
+E 0
+W 1
+WL -1
+I 12
+Wt 0
+L 0
+Sz 0
+T -1
+C 4530
+Va 200 24576 0 0
+END
+
+
+#PROP
+Nest 0
+V 4001
+E 0
+W 1
+WL -1
+I 12
+Wt 50
+L 0
+Sz 0
+T -1
+C 460
+Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 6012
+E 0
+W 24577
+WL -1
+I 5
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 10 20 1
+END
+
+
+#PROP
+Nest 0
+V 6012
+E 0
+W 24577
+WL -1
+I 5
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 10 20 1
+END
+
+
+#PROP
+Nest 0
+V 6012
+E 0
+W 24577
+WL -1
+I 5
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 10 20 1
+END
+
+
+#PROP
+Nest 0
+V 5308
+N ochre wax taper~
+S an ochre wax taper~
+D
+An ochre wax taper burns here.
+~
+E 0
+W 1
+WL -1
+I 1
+Wt 0
+L 1
+Sz 0
+T -1
+C 5
+Va 10 10 0 0
+END
+
+
+#PROP
+Nest 0
+V 5306
+E 0
+W 1
+WL -1
+I 1
+Wt 2
+L 0
+Sz 0
+T -1
+C 18
+Va 0 100 0 31
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 18
+T -1
+C 7
+Va 0 2 12 0
+END
+
+
+#PROP
+Nest 0
+V 33
+E 0
+W 1
+WL -1
+I 1
+Wt 1
+L 0
+Sz 0
+T -1
+C 2
+Va 0 10 0 30
+END
+
+
+#PROP
+Nest 0
+V 11600
+E 0
+W 1
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 0
+V 50
+N black diamond gem~
+S a black diamond~
+D
+A black diamond sits in the dust.
+~
+E 0
+W 1
+WL -1
+I 21
+Wt 1
+L 0
+Sz 0
+T -1
+C 3000
+Va 3 600 600 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 0 2 34 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 0 2 34 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
+END
+
+
+#PROP
+Nest 0
+V 18101
+E 0
+W 1
+WL -1
+I 17
+Wt 3
+L 0
+Sz 0
+T -1
+C 7
+Va 2 2 11 0
 END
 
 Scene 8062
@@ -8062,7 +8803,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 999840 1000000 0 1
+Va 988294 1000000 0 1
 END
 
 
@@ -8078,7 +8819,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 999840 1000000 0 1
+Va 988294 1000000 0 1
 END
 
 Scene 8063
@@ -8127,7 +8868,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 999840 1000000 0 1
+Va 988294 1000000 0 1
 END
 
 
@@ -8144,6 +8885,54 @@ Sz 0
 T -1
 C 10
 Va 100 8192 0 0
+END
+
+
+#PROP
+Nest 0
+V 16514
+E 0
+W 1
+WL -1
+I 22
+Wt 24
+L 0
+Sz 18
+T -1
+C 1462
+Va 6 7 0 0
+END
+
+
+#PROP
+Nest 0
+V 16514
+E 0
+W 1
+WL -1
+I 22
+Wt 24
+L 0
+Sz 18
+T -1
+C 1321
+Va 6 7 0 0
+END
+
+
+#PROP
+Nest 0
+V 16514
+E 0
+W 1
+WL -1
+I 22
+Wt 24
+L 0
+Sz 18
+T -1
+C 1556
+Va 6 7 0 0
 END
 
 Scene 8064
@@ -8304,7 +9093,23 @@ L 0
 Sz 0
 T -1
 C 10
-Va 999844 1000000 0 1
+Va 988298 1000000 0 1
+END
+
+
+#PROP
+Nest 0
+V 5000
+E 0
+W 0
+WL -1
+I 29
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 2 0 0 0
 END
 
 Scene 8065
@@ -8338,6 +9143,134 @@ Sz 0
 T -1
 C 10
 Va 5000 9 15141 0
+END
+
+
+#PROP
+Nest 1
+V 8099
+E 0
+W 4097
+WL -1
+I 15
+Wt 0
+L 0
+Sz 0
+T -1
+C 5
+Va 0 2 0 0
+END
+
+
+#PROP
+Nest 2
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
+END
+
+
+#PROP
+Nest 2
+V 8060
+E 0
+W 5
+WL -1
+I 18
+Wt 0
+L 0
+Sz 0
+T -1
+C 10
+Va 0 0 0 0
 END
 
 
@@ -8417,7 +9350,7 @@ L 0
 Sz 0
 T -1
 C 10
-Va 999840 1000000 0 1
+Va 988294 1000000 0 1
 END
 
 
@@ -8493,17 +9426,17 @@ END
 
 #PROP
 Nest 0
-V 4002
+V 5307
 E 0
 W 1
 WL -1
-I 12
-Wt 40
+I 1
+Wt 2
 L 0
 Sz 0
 T -1
-C 1
-Va 100 8192 0 0
+C 10
+Va 30 30 0 0
 END
 
 Scene 8067
@@ -8712,7 +9645,7 @@ L 0
 Sz 18
 T -1
 C 291
-Va 50 50 1 0
+Va 4 50 1 0
 END
 
 
@@ -8729,6 +9662,22 @@ Sz 18
 T -1
 C 9
 Va 5 2 3 0
+END
+
+
+#PROP
+Nest 0
+V 16308
+E 2
+W 1
+WL -1
+I 0
+Wt 50
+L 0
+Sz 18
+T -1
+C 9
+Va 10000 0 -1 0
 END
 
 Scene 8088
@@ -8843,6 +9792,38 @@ Sz 0
 T -1
 C 10
 Va 50 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 7006
+E 0
+W 1
+WL -1
+I 0
+Wt 0
+L 0
+Sz 0
+T -1
+C 9
+Va 1 0 0 0
+END
+
+
+#PROP
+Nest 1
+V 7001
+E 0
+W 32769
+WL -1
+I 6
+Wt 10
+L 0
+Sz 0
+T -1
+C 182
+Va 7002 20 30 0
 END
 
 Scene 1981

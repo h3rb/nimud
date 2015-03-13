@@ -1,5 +1,5 @@
 CC      =gcc
-PROF    =-O -g3#      -pg -DUSE_MCHECK
+PROF    =-O0 -g3#      -pg -DUSE_MCHECK
 LIBS    = -lcrypt -lz #-lgd
 L_FLAGS =$(PROF) -ggdb3 -o0  -D_GNU_SOURCE
 E_FLAGS =#            -Lefence/ -lefence -DMALLOC_DEBUG

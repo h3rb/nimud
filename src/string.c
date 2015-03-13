@@ -965,13 +965,17 @@ char * string_unpad( char * argument )
  */
 char * string_proper( char * argument )
 {
+    static char buf[MSL];
     char *s;
 
-    s = argument;
+    if ( !argument ) return NULL;
+    sprintf( buf, "%s", argument );
+    s=&buf;
+    *s=UPPER(*s);
 
     while ( *s != '\0' )
     {
-        if ( *s != ' ' )
+        if ( *s != ' ' && *s != '\0' )
         {
             *s =
                  (*s == 't' && *(s+1) == 'h' && *(s+2) == 'e' && *(s+3) == ' ')   //the
@@ -985,13 +989,13 @@ char * string_proper( char * argument )
             while ( *s != ' ' && *s != '\0' )
                 s++;
         }
-        else
+        else if ( *s != '\0' )
         {
             s++;
         }
     }
 
-    return capitalize(argument);
+    return buf;
 }
 
 
@@ -1046,8 +1050,7 @@ void string_add( PLAYER *ch, char *argument )
         argument = first_arg( argument, arg2, FALSE );
         argument = first_arg( argument, arg3, FALSE );
 
-        if ( !str_cmp( arg1, "\\c" ) 
-          || !str_cmp( arg1, ".c" ) )
+        if ( !str_cmp( arg1, "\\c" ) || !str_cmp( arg1, ".c" ) )
         {
             to_actor( "String cleared.\n\r", ch );
             free_string( *ch->desc->pString );
@@ -1258,11 +1261,13 @@ void string_add( PLAYER *ch, char *argument )
     free_string( *ch->desc->pString );
     *ch->desc->pString = str_dup( buf );
 
+#define write_to(s) (write_to_connection(ch->desc->connection,(s),0))
+
     if ( IS_SET(ch->flag2,PLR_CLRSCR) ) {
-        to_actor( CLRSCR, ch );
-    to_actor( "_________________________________________________________________________\n\r", ch );
-    to_actor( "  0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,..70|\n\r", ch );        
-        to_actor( *ch->desc->pString, ch );
+        write_to( CLRSCR );
+        write_to( "_________________________________________________________________________\n\r" );
+        write_to( "0...5....A....E...|20...,....|30..,....|....,....|....,....|60..,....|70\n\r"  );        
+        write_to( *ch->desc->pString );
     }
     return;
 }
@@ -1954,6 +1959,27 @@ char *strip_curlies( char *arg )
 }
 
 
+char *strip_percents( char *arg )
+{
+    static char buf[MAX_STRING_LENGTH];
+    char *p;
+
+    sprintf( buf, "%s", arg );
+    arg = skip_spaces( arg );
+    if ( *arg++ != '{' ) return buf;
+
+    p = buf;
+    while( *arg != '\0' ) 
+    {
+       if ( *arg == '%' ) { arg++; continue; }
+       *p++ = *arg++;
+    }
+
+    *p = '\0';
+    return buf;
+}
+
+
 
 
 /*
@@ -1976,7 +2002,7 @@ char *grab_to_eol( char *argument, char *arg_first )
 	    argument++;
 	    break;
 	}
-	*arg_first = LOWER(*argument);
+	*arg_first = (*argument);
 	arg_first++;
 	argument++;
     }
@@ -1992,7 +2018,7 @@ char *grab_to_eol( char *argument, char *arg_first )
 /*
  * Skip ahead spaces and grab from first char to \n
  */
-char *grab_to_at( char *argument, char *arg_first )
+char *grab_to_at( char *argument, char *arg_first, char c )
 {
     char cEnd;
 
@@ -2001,7 +2027,7 @@ char *grab_to_at( char *argument, char *arg_first )
     while ( isspace(*argument) )
 	argument++;
 
-    cEnd = '@';
+    cEnd = c;
     while ( *argument != '\0' )
     {
 	if ( *argument == cEnd )

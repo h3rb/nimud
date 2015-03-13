@@ -3688,6 +3688,9 @@ Dr 1 0 0 17318
 Dr 5 0 0 17320
 ~
 ~
+Dr 8 0 0 10826
+~
+~
 End
 
 #17318
@@ -3715,6 +3718,9 @@ Dr 0 0 0 17314
 Dr 1 0 0 17319
 ~
 ~
+Dr 2 2560 0 10830
+~
+bushes~
 Dr 3 0 0 17317
 ~
 ~
@@ -3745,6 +3751,9 @@ R M 17303 4 100 1
 Dr 0 0 0 17315
 ~
 ~
+Dr 2 2560 0 10830
+~
+the bushes~
 Dr 3 0 0 17318
 ~
 ~
@@ -3769,13 +3778,16 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 17317
+~
+~
 Dr 1 0 0 17321
 ~
 ~
-Dr 2 0 0 17323
-~
-~
 Dr 4 0 0 17317
+~
+~
+Dr 8 0 0 10826
 ~
 ~
 End
@@ -3797,6 +3809,9 @@ M 0
 W 0
 T 0
 O ~
+Dr 0 0 0 17317
+~
+~
 Dr 1 0 0 17322
 ~
 ~
@@ -4888,7 +4903,7 @@ Dr 3 0 0 17358
 End
 
 #17360
-N Edge of the Tundra~
+N edge of the tundra~
 Ref 0
 D
 You stand at the base of a steep rocky cliff. To the north, a vast arctic
@@ -4905,6 +4920,9 @@ W 0
 T 0
 O ~
 Dr 0 0 0 17358
+~
+~
+Dr 4 0 0 24120
 ~
 ~
 End

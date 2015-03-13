@@ -1274,6 +1274,7 @@ W 0
 T 0
 O ~
 R M 16502 3 100 1
+R C 209 -5 100 1
 Dr 0 0 -1 16505
 You see a road.
 ~
@@ -1433,6 +1434,7 @@ M 0
 W 0
 T 0
 O ~
+R C 209 -5 100 1
 Dr 0 0 -1 16507
 You see a road.
 ~
@@ -1790,7 +1792,9 @@ M 0
 W 0
 T 0
 O ~
+R C 209 -5 100 1
 R M 16508 2 100 1
+R C 158 -1 66 6
 Dr 0 0 -1 16520
 You see a small stream.
 ~

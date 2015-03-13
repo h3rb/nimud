@@ -41,24 +41,24 @@
 #include "skills.h"
 #include "defaults.h"
 
-char *	const	dir_name	[]		=
+char *	const	dir_name	[MAX_DIR]		=
 {
     "north", "east", "south", "west", "up", "down", 
     "northwest", "northeast", "southwest", "southeast"
 };
 
-char *  const   dir_rev     []      =
+char *  const   dir_rev     [MAX_DIR]      =
 {
     "the south", "the west", "the north", "the east", "below", "above",
     "the southeast", "the southwest", "the northeast", "the northwest"
 };
 
-char *  const   dir_letter     []      =
+char *  const   dir_letter     [MAX_DIR]      =
 {
     "n", "e", "s", "w", "u", "d", "NW", "NE", "SW", "SE"
 };
 
-const   int  rev_dir     []      =
+const   int  rev_dir     [MAX_DIR]      =
 {
     DIR_SOUTH,
     DIR_WEST,

@@ -318,7 +318,7 @@ void stat_menu( PLAYER *ch, char *argument )
     {
     case 's':
         cmd_help( ch, "NEWBIE_STRENGTH" );
-        write_to_buffer( d, "Do you wish to increase or decrease this stat? ", 0 );
+        write_to_buffer( d, "Do you wish to increase + or decrease - this stat? ", 0 );
         DC(d) = NET_STAT_STR;
       break;
     case 'i':
@@ -452,7 +452,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
       {
           switch ( LOWER(argument[0]) )
           {
-             case 'i':
+             case 'i': case '+':
                 {
                     if ( PC(ch,stat_points) == 0 )
                     {
@@ -465,7 +465,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                         
                         return;
                     }
-
+/*
                     if (((DC(d) == NET_STAT_STR && ch->perm_str >= 25)
                       || (DC(d) == NET_STAT_INT && ch->perm_int >= 25)
                       || (DC(d) == NET_STAT_WIS && ch->perm_wis >= 25)
@@ -476,7 +476,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                         DC(d) = NET_STAT_MENU;
                         return;
                     }
-
+*/
                     PC(ch,stat_points)--;
                     if ( DC(d) == NET_STAT_STR ) ch->perm_str++;
                     if ( DC(d) == NET_STAT_INT ) ch->perm_int++;
@@ -488,7 +488,7 @@ void stat_menu_choice( PLAYER *ch, char *argument )
                     DC(d) = NET_STAT_MENU;
                 }
                break;
-             case 'd':
+             case 'd': case '-':
                 if ( ch->exp_level < 1 )
                 {
                     if ( (DC(d) == NET_STAT_STR && ch->perm_str <= 3)
@@ -803,19 +803,22 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
             {
                 case 'F':
                    ch->sex = SEX_FEMALE;
-                    cmd_help( ch, "RACES" );
+//                    cmd_help( ch, "RACES" );
+                cmd_table( ch, "race" );
               to_actor( "What race are you? ", ch );
                     DC(d) = NET_CHAR_GEN_RACE;
                   break;
                 case 'M':
                    ch->sex = SEX_MALE;
-                    cmd_help( ch, "RACES" );
+                cmd_table( ch, "race" );
+//                    cmd_help( ch, "RACES" );
               to_actor( "What race are you? ", ch );
                     DC(d) = NET_CHAR_GEN_RACE;
                   break;
                 case 'N':
                    ch->sex = SEX_NEUTRAL;
-                    cmd_help( ch, "RACES" );
+                cmd_table( ch, "race" );
+//                    cmd_help( ch, "RACES" );
               to_actor( "What race are you? ", ch );
                     DC(d) = NET_CHAR_GEN_RACE;
                   break;
@@ -842,7 +845,8 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
               }
               else {
                   if ( *argument == '\0' ) { 
-                     cmd_help( ch, "RACES" ); 
+                cmd_table( ch, "race" );
+//                     cmd_help( ch, "RACES" ); 
                      to_actor( "Which race? ", ch ); 
                      DC(d) = NET_CHAR_GEN_RACE;
                      return; 
@@ -858,7 +862,8 @@ actor_from_scene( ch ); // must happen or else if the user drops link, bad juju
         {
               switch ( *argument ) {
                 case 'n': case 'N':
-                   cmd_help( ch, "RACES" );
+                cmd_table( ch, "race" );
+//                   cmd_help( ch, "RACES" );
                    to_actor( "Which race? ", ch );
                    DC(d) = NET_CHAR_GEN_RACE;
                   break;

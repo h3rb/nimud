@@ -13,17 +13,17 @@ N coffeemaker~
 C
 ifgoto ( is(%astr%,{press}), {make}, {dontmake} );
 label(make);
+emit({The coffee machine sputters to life.});
 return(1);
 wait(5);
 emit({The coffee maker dispenses a cup of tea and fills it!});
 dispense(%name%,18101);
 emit({%name% takes the cup of coffee.});
 wait(6);
-goto({end});
+
 label(dontmake);
 return(0);
-label({end});
- 
+
 ~
 T 0
 End
@@ -2320,7 +2320,7 @@ A magical flying broomstick?  Nah!  Not here.
 End
 
 #16308
-N machine coffee~
+N machine maker coffee~
 SD a coffee machine~
 P ~
 D

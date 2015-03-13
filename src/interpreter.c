@@ -1547,7 +1547,7 @@ void parse_script( INSTANCE *instance, void * owner, int type )
        case TYPE_ACTOR:
          ch   = (PLAYER *)owner;
          ch->current   = instance;
-         rdbkey = ch->in_scene->dbkey;
+         rdbkey = ch->in_scene ? ch->in_scene->dbkey : 0;
         break;
        case TYPE_SCENE:
          scene = (SCENE *)owner;
@@ -2011,7 +2011,7 @@ void cmd_gspeak( PLAYER *ch, char *argument )
       if ( !str_cmp( arg, "run" ) && ch->instances == NULL ) {
            SCRIPT *pScript;
 
-           pScript = get_script_index( atoi(arg1) );
+           pScript = get_script( atoi(arg1) );
            if ( pScript == NULL ) {
                 to_actor( p, ch );
                 to_actor( " is not a valid script.\n\r", ch );

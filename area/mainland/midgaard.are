@@ -2510,7 +2510,7 @@ Ti 0
 Wt 3
 C 7
 O ~
-V 2 2 11 0
+V 2 2 34 0
 ED cup~
 It is a small simple cup.
 ~
@@ -4281,10 +4281,6 @@ W 0
 T 0
 O ~
 R M 18027 1 100 1
-Dr 0 0 -1 18016
-You see the main street.
-~
-~
 Dr 1 0 -1 18022
 You see the swordsmen's bar, many noises comes from there.
 ~
@@ -6426,11 +6422,10 @@ Dr 1 0 -1 18201
 End
 
 #18201
-N On the River~
+N on the river~
 Ref 0
 D
-North of here you see the miserable buildings of the poor alley.  The
-river flows west towards the bridge.  The riverbanks are too steep to climb.
+The river banks are too steep to climb.
 ~
 C
 ~

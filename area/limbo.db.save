@@ -1,0 +1,2753 @@
+#ZONE 
+N Limbo~
+R Memory shifts and time distorts: Limbo is about to regenerate. 
+~
+B Locke~
+V 1 499
+S 1
+End
+
+
+
+#SCRIPTDATA
+#1
+N panel~
+C
+* zmud graphics window default
+gmode(90,31);
+blank();
+rulers(0);
+stroke(6); popup(2,2,30,30,{Mud Weather Statistics}); stroke(9);
+ text(4,4,{Moon: }); text(11,4,moon);
+~
+T 1
+End
+
+#2
+N testing~
+C
+do ({'Testing the new interpreter.});
+wait(5);
+if ( is(day(),5), 
+      {
+         do({'It's Thursday!});
+      } );
+~
+T 1
+End
+
+#3
+N scrambler~
+C
+wait(1);
+if ( foe(), { goto({end}); } );
+%dir% rnddir();
+do(%dir%);
+label({end});
+~
+T 1
+End
+
+#10
+N spell_find_familiar~
+C
+do({:begins an incantation.});
+wait(50);
+do({:glows with an eerie light!});
+~
+T 15
+End
+
+#11
+N mudman~
+C
+if ( gem({earth},{40}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough earth mana.});
+goto({end});
+label(cast);
+do({:reaches down and grabs a ball of mud.});
+wait(20);
+do({:forms the mud into a small man-shaped figure.});
+wait(20);
+do({:speaks words of power over the mud-man and it comes to life!});
+breed({20});
+goto({end});
+label(end);
+wait(5);
+~
+T 15
+End
+
+#17
+N long_disposer~
+C
+wait(1000);
+do({:fades from this dimension, returning to whence it came.});
+jump(25000);
+elude;
+~
+T 1
+End
+
+#18
+N quick_disposer~
+C
+wait(500);
+do(:fizzles into a point.);
+jump(25000);
+~
+T 1
+End
+
+#19
+N disposer~
+C
+wait(1500);
+ 
+do(:blinks out of existance.);
+jump(25000);
+elude;
+~
+T 1
+End
+
+#20
+N assister~
+C
+wait(20);
+do({assist});
+~
+T 1
+End
+
+#21
+N nogive~
+C
+destroy(%prop%);
+~
+T 5
+End
+
+#23
+N spell-firestream~
+C
+if ( gem({fire},{100}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough fire mana.});
+goto({end});
+label(cast);
+do({:concentrates for a moment.});
+wait({20});
+do({:channels a beam of fire.});
+hurt(%name%,20);
+%here% here();
+oecho(%target%,{%target% is blasted by a stream of mystic fire.});
+goto({end});
+label(end);
+
+~
+T 15
+End
+
+#24
+N spell_waterwall~
+C
+if ( gem({water},{200}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough water mana.});
+goto({end});
+label(cast);
+do({:concentrates for a moment.});
+wait({20});
+do({:invokes a wall of water right above %target%.});
+oecho(%target%,{%target% is crushed by a magic wall of water.});
+hurt(%name%,50);
+goto({end});
+label(end);
+~
+T 15
+End
+
+#25
+N spell_iceblast~
+C
+if ( gem({water},{50}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough water mana.});
+goto({end});
+label(cast);
+do({:concentrates for a moment.});
+wait({20});
+do({:channels a swarm of razor-sharp icicles.});
+oecho(%target%,{%target% is pummeled by a swarm of icicles.});
+hurt(%name%,20);
+goto({end});
+label(end);
+~
+T 15
+End
+
+#26
+N spell_icesword~
+C
+if ( gem({water},{150}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough water mana.});
+goto({end});
+label(cast);
+do({:concentrates for a moment.});
+wait({20});
+do({:forges a sword of ice using the mind.});
+dispense(self(),25);
+goto({end});
+label(end);
+~
+T 15
+End
+
+#27
+N spell_waterspirit~
+C
+if ( gem({water},{75}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough water mana.});
+goto({end});
+label(cast);
+do({:concentrates for a moment.});
+wait({20});
+do({:conjures the spirit of water to aid in battle.});
+breed({27});
+goto({end});
+label(end);
+~
+T 15
+End
+
+#28
+N spell_smartstorm~
+C
+if ( gem({water},{60}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough water mana.});
+goto({end});
+label(cast);
+do({:concentrates for a moment.});
+wait({20});
+do({:invokes a microburst right above %target%.});
+oecho(%target%,{%target% is thrown about by the sudden change in pressure.});
+hurt(%name%,5);
+breed({28});
+goto({end});
+label(end);
+~
+T 15
+End
+
+#29
+N spell_brimstone~
+C
+if ( gem({fire},{100}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough fire mana.});
+goto({end});
+label(cast);
+do({:concentrates for a moment.});
+wait({20});
+do({:calls forth a hail of brimstone.});
+hurt(%name%,40);
+%here% here();
+oecho(%target%,{%target% is buried in a heap of glowing brimstone.});
+goto({end});
+label(end);
+~
+T 15
+End
+
+#30
+N spell_singe~
+C
+if ( gem({fire},{100}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough fire mana.});
+goto({end});
+label(cast);
+do({:concentrates the mana on %target%.});
+hurt(%name%,10);
+%here% here();
+oecho(%target%,{%target%'s flesh is singed by a focused burst of mana.});
+goto({end});
+label(end);
+~
+T 15
+End
+
+#31
+N taug_portal~
+C
+if ( reagents({64 52 49 109}),
+     {
+         goto(mix);
+     },
+     {
+         goto(end);
+     } );
+label(mix);
+wait(20);
+mix({64 52 49 109});
+do({:coats a crystal bead with blue vitriol, then sprinkles it with volcanic ash and amber dust.});
+wait(10);
+do({:casts the bead onto the earth and growing from the crystal bead, a strange portal appears!});
+dispense(here(),11105);
+label(end);
+~
+T 15
+End
+
+#32
+N necro_ethereal_aid~
+C
+if ( reagents({34 42 45 61 91 90 140 135 116 117 210 279 282},{2 1 1 1 2 1 2 2 1 2 1 }),
+     {
+         goto(mix);
+     },
+     {
+         goto(fail);
+     } );
+label(fail);
+echo({me},{You cannot find the right ingredients, or perhaps the right quantities and the spell fails.});
+goto({end});
+label(mix);
+wait(20);
+mix({34 42 45 61 91 90 140 135 116 117 210 279 282},{2 1 1 1 2 1 2 2 1 2 1 });
+do({:carefully forms a mixture of a number of ingredients including blood, bones and rosewater.});
+wait(10);
+do({:speaks an ancient incantation: N'yarlathotep!  The heavens split and in the distance a wolf howls.});
+%type% random(10,16);
+breed({%type%});
+if ( not(random(0, 10)), { breed({%type%}); } );
+label(end);
+ 
+~
+T 15
+End
+
+#33
+N army_of_darkness~
+C
+if ( holds(self(),16331), { goto({mix}); }, {goto(fail2);} );
+if ( reagents({34 42 45 61 91 90 140 135 116 117 25 279 282},{10 10 10 10 10 10 10 10 10 10 10 }),
+     {
+         goto(mix);
+     },
+     {
+         goto(fail);
+     } );
+label(fail2);
+echo({me},{You do not have a cauldron, which is required for this spell.});
+goto({end});
+label(fail);
+echo({me},{You cannot find the right ingredients, or perhaps the right quantities and the spell fails.});
+goto(end);
+label(mix);
+wait(20);
+mix({34 42 45 61 91 90 140 135 116 117 25 279 282},{10 10 10 10 10 10 10 10 10 10 10 });
+do({:consumes a great number of reagents in a massive cauldron.});
+wait(10);
+do({:speaks an ancient incantation: N'yarlathotep!  The heavens split and in the distance a wolf howls.});
+%number% random(10,20);
+label(loop);
+%type% random(10,16);
+breed({%type%});
+if ( random(0, 1), { breed({%type%}); } );
+%number% sub(%number%,1);
+if ( greater(%number%,0), { goto({loop}); }, { goto({end}); } );
+label(end);
+ 
+~
+T 15
+End
+
+#34
+N spell_water_heal~
+C
+if ( gem({water},20), { goto({cast}); }, { goto({fail}); } );
+heal(%target%,random(25,50));
+do({:channels the healing properties of water to aid %target%.});
+~
+T 15
+End
+
+#48
+N insta-fort~
+C
+ifgoto( is(%astr%,{activate}), {make}, {dontmake} );
+label(make);
+emit({%name% activates the Insta-Fort and its yellow light starts flashing.});
+return(1);
+wait(5);
+emit({The Insta-fort jolts to life, lowering two ramps.});
+wait(10);
+emit({The Insta-fort is off and rolling.});
+wait(25);
+emit({A cloud of dust obscures the busily working robotic builder.});
+wait(30);
+emit({The noise of construction is deafening.});
+build( 49, here(), %actor%, %name%, scenetitle(here()) );
+label(dontmake);
+return(0);
+~
+T 0
+End
+
+#49
+N instafort-build~
+C
+title Insta-Fortress
+prop %prop1%
+name %param1% key %param1%'s insta-key
+short %param1%'s key to the Insta-fortress at %param2%
+long %param1% has dropped the key an Insta-fortress.
+description 
+A small silver key etched with %param1%'s name, with a label that
+reads "Location: %param2%"
+|
+actor %actor1%
+name PFC $n private
+short PFC $n
+attrib 18
+attack 1 pound 20
+flag sentinel
+long PFC $n is a disciplined military officer.
+description
+Private First Class $n is in great shape.
+|
+actor %actor2%
+name Private $n pvt
+short Pvt. $n
+attrib 16
+attack 1 pound 10
+long Private $n has been sneaking off base at night to party.
+description
+Private $n looks a little disheveled and has a slight scruff of beard.
+|
+ 
+actor %actor3%
+name Cpl Corperal $N
+short Cpl. $N
+attrib 13
+attack 1 pound 5
+attack 2 bite 5
+long Cpl. $N is on the job.
+description
+The corporal is still rather green.
+|
+actor %actor4%
+name sniper
+short a sniper
+long A sniper stands watch.
+attrib 15
+attack 1 pierce 10 15
+flags sentinel
+long A sniper stands watch.
+description
+The sniper keeps an eye on the area and has a keen sense of direction and
+distance.
+|
+scene %scene1%
+name Insta-Guardpost
+flags saving
+description
+This is a modest guard tower position at the southwestern
+end of the fortress.
+|
+dig east
+east door wood door
+east closed locked
+east key %prop1%
+flags enclosed saving
+cue %actor1% %prop1%
+ 
+scene %scene2%
+name Insta-fortress Gate at Guardpost
+attach south %location%
+dig north
+description
+A big sign is over the gate which reads "%param1%'s fortress" - this is
+a robotically constructed instant fortress deployed near %param2%.
+|
+scene %scene3%
+name Insta-fortress Courtyard
+flags buildable
+dig east
+east door metal door with a window
+east transparent
+southwest %scene1%
+dig west
+west name tent flap
+dig north
+north door heavy metal door
+north closed
+north locked
+north key %prop1%
+description
+You are standing in a wide courtyard in the center of the Insta-Fort.
+|
+ 
+scene %scene4%
+name Insta-Barracks
+flags enclosed
+description
+The spartan barracks of %param1%'s Insta-fortress.
+|
+cue prop 10908
+cue prop 5305
+cue prop 12001
+scene %scene5%
+name Insta-Mess Hall
+flags enclosed 
+description
+You are in wide tent filled with rows of tables and chairs.
+|
+cue prop 541
+cue prop 531
+cue prop 531
+cue prop 531
+cue prop 531
+cue prop 5004
+cue actor %actor1%
+cue actor %actor2%
+cue actor %actor3%
+scene %scene6%
+name Armoury
+flags enclosed saving
+description
+This is the Insta-fortress armoury.
+|
+cue actor %actor1%
+ 
+scene
+name Conning Tower
+flags saving
+south to %location%
+south window
+south nomove
+south name wide window
+north to %scene3%
+north window
+north nomove
+north name wide window
+east to %scene2%
+east nomove
+east window
+east name wide window
+down %scene1%
+down name a hole with a ladder
+description
+A tall tower overlooking the fortress.
+|
+cue actor %actor4%
+ 
+~
+T 0
+End
+
+#114
+N deadly-vapor~
+C
+if ( gem({air},{30}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough air mana.});
+goto({end});
+label(cast);
+wait(10);
+do({:hums across a gem, breathing on it.  The breath turns to a deadly vapor!});
+breed({21});
+goto({end});
+label(end);
+wait(5);
+ 
+~
+T 15
+End
+
+#144
+N deadly vapor~
+C
+if ( gem({air},{30}),
+ { goto ({cast});
+ },
+ { goto ({failed});
+ } );
+label(failed);
+echo({me},{You don't have enough air mana.});
+goto({end});
+label(cast);
+wait(10);
+do({:hums across a gem, breathing on it.  The breath turns to a deadly vapor!});
+breed({21});
+goto({end});
+label(end);
+wait(5);
+ 
+~
+T 15
+End
+
+#146
+N hand-of-god~
+C
+if ( gem({fire},{100}), { goto({cast}); }, { goto({failed}); } );
+label(failed);
+echo({me},{You don't have enough fire mana.});
+goto({end});
+label(cast);
+ 
+wait(20);
+do({: slams %target% with the fiery Hand of God!});
+hurt(%name%,500);
+label({end});
+~
+T 15
+End
+
+#0
+
+
+
+#ACTORS
+#1
+N puff~
+SD puff~
+LD
+ Puff is here, acting like a mobile template should act.
+~
+D
+ Puff is the root of all mobiles; the Gatekeeper to the Eternal Soul.
+She is at once the lord and savior and the angel of death.  Puff just IS.
+~
+A 1027
+AB 0
+M 10000
+Credits 0
+Bucks 0
+S 0
+Sz 5
+K 0 E 197
+O ~
+AP 15 15 15 15 15
+Sc 3
+At 0 10 14 9
+At 1 1 5 17
+At 2 1 5 19
+At 3 1 5 16
+At 4 1 5 18
+End
+
+#2
+N guard~
+SD a guard~
+LD
+ A rather burly looking guard stands here, keeping an eye out for trouble.
+~
+D
+ The guard is muscular and well-built.  He is a gruff looking individual
+with several scars across his body.  He looks about with a mean demeanor,
+eying everyone and everything evilly.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 20
+K 0 E 1
+O ~
+AP 13 13 13 13 13
+End
+
+#3
+N bartender~
+SD the bartender~
+LD
+ A crazy-looking bartender serves all sorts of beverages.
+~
+D
+ He's got a crazy punk hairdo and some really nasty looking spikes growing
+out of his neck.  
+~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 15
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I dunno what your talking about.~
+ Str2
+ I don't want that.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 17 13
+End
+
+#4
+N tall shopkeeper keeper~
+SD a tall shopkeeper~
+LD
+ A tall shopkeeper is standing here.
+~
+D
+ ~
+A 3
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Shop
+ T 0 0
+ Tr 0 0
+ T 1 0
+ Tr 1 0
+ T 2 0
+ Tr 2 0
+ T 3 0
+ Tr 3 0
+ T 4 0
+ Tr 4 0
+ T 5 0
+ Tr 5 0
+ T 6 0
+ Tr 6 0
+ T 7 0
+ Tr 7 0
+ T 8 0
+ Tr 8 0
+ T 9 0
+ Tr 9 0
+ P 100 100
+ H 0 23
+ F 2
+ R 0
+ BI 0  CI 0  SI 0
+ Str1
+ I'm selling no such thing!~
+ Str2
+ I dinna think I want that.~
+ Str3
+ ~
+ Str4
+ Sorry, we're open from %s to %s.~
+EndShop
+At 0 10 17 4
+End
+
+#5
+N the experience monster~
+SD the experience monster~
+LD
+ A monster is here.
+~
+D
+ ~
+A 33
+AB 0
+M 5000
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 2000
+O ~
+AP 13 13 13 13 13
+End
+
+#6
+N eris~
+SD eris~
+LD
+ Eris Esoteric goddess of Discord and Chaos is here.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 2
+Sz 24
+K 0 E 90000
+O ~
+AP 25 100 100 25 100
+At 1 5 10 15
+At 2 50 100 8
+End
+
+#10
+N gate ghost~
+SD a gate ghost~
+LD
+ A wispy, translucent pale-skinned individual floats a few feet off the ground.
+~
+D
+ The ghost is an undetermined sex and age, and could easily be any race or
+creature depending on your point of view.  You can see right through it.
+~
+A 1
+AB 524416
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 3
+K 0 E 1
+O ~
+AP 8 3 3 10 3
+Sc 3
+Sc 17
+Sc 20
+At 1 2 7 18
+At 2 2 4 17
+End
+
+#11
+N gate skeleton~
+SD a gate skeleton~
+LD
+ A bony, animated skeleton wanders around with outstretched limbs.
+~
+D
+ The skeleton has glowing yellow eyes and walks about with a stiff, awkward
+gait.  Bits of flesh and muscle still cling to his bleached bones.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 3
+K 0 E 1
+O ~
+AP 13 3 3 10 8
+Sc 17
+Sc 20
+At 1 3 5 7
+At 2 4 1 13
+End
+
+#12
+N gate zombie corpse~
+SD a gate zombie~
+LD
+ A decomposing corpse staggers about, looking for victims.
+~
+D
+ The zombie is in a state of heavy decay.  Bits of flesh and muscle hang
+from its frame in a slouching and grotesque way.  Its flesh is rubbery and
+possess a blue hue.  Its yellowing eyeballs roll about aimlessly in its
+dry sockets.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 1
+O ~
+AP 13 3 3 10 10
+Sc 17
+Sc 20
+At 1 5 10 7
+At 2 2 3 14
+End
+
+#13
+N gate wight~
+SD a gate wight~
+LD
+ A wight stares blanking from under a mane of black, frizzled hair.
+~
+D
+ Long, wiry strands of black and grey hair frame its drawn and gaunt face.  Its
+skin is drawn taut over its bone structure.  Its hands have transformed into
+yellowed claws that look extremely powerful.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 1
+O ~
+AP 15 3 3 12 12
+Sc 17
+Sc 20
+At 1 1 10 17
+End
+
+#14
+N gate wraith~
+SD a gate wraith~
+LD
+ The glowing outline of a wraith form looks at you with glowing eyespots.
+~
+D
+ A shadowy figure, this wraith is glowing with an intensity unlike any other.
+Its outline crackles with electricity.  Two glowing spots of light, possibly
+a strange pair of eyes, are centered on its head form.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 1
+O ~
+AP 13 3 3 15 14
+Sc 17
+Sc 20
+At 1 1 10 17
+End
+
+#15
+N gate vampire man~
+SD a gate vampire~
+LD
+ A gaunt man with oversized canines stands perfectly still.
+~
+D
+ The vampire watches with calm collectiveness, surveying for its next victim.
+~
+A 65537
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 1
+O ~
+AP 17 14 13 12 15
+Sc 17
+Sc 20
+At 1 1 10 14
+At 2 2 10 13
+End
+
+#16
+N gate daemon~
+SD a gate daemon~
+LD
+ A squatting, unwinged daemon with fiery red skin growls with menace.
+~
+D
+ The daemon is as tall as a human and lashes out with black obsidian claws.
+Its red eyes stare around with intelligent ferver and unmatched intensity.
+~
+A 8449
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 0
+K 0 E 100
+O ~
+AP 18 15 15 10 17
+Sc 17
+Sc 20
+At 1 10 20 14
+At 2 1 10 9
+End
+
+#20
+N mudman mud~
+SD a mudman~
+LD
+ An animated mudman is here.
+~
+D
+ Dirt and grim drips from the mudman.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 5 5 5 5 5
+Sc 19
+Sc 20
+End
+
+#21
+N a deadly vapor~
+SD a deadly vapor~
+LD
+ A deadly vapor wisps through the air.
+~
+D
+ ~
+A 1
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 50
+K 0 E 1
+O ~
+AP 1 1 1 20 2
+Sc 20
+Sc 19
+At 1 5 50 20
+End
+
+#27
+N water spirit~
+SD a water spirit~
+LD
+ A water spirit floats nearby.
+~
+D
+ A water elemental of a lesser variety.
+~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+Sc 19
+Sc 20
+At 0 10 16 9
+End
+
+#28
+N microburst~
+SD a microburst~
+LD
+ A magic storm flashes with lightning.
+~
+D
+ A small cloud of lightning-generating stratevarius.
+~
+A 3
+AB 524288
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 3 3 3 3 3
+Sc 18
+Sc 20
+At 1 3 7 19
+End
+
+#55
+N unset~
+SD unset~
+LD
+ unset
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 17 5
+End
+
+#95
+N $c target~
+SD $c target~
+LD
+ A $c target is standing nearby.
+~
+D
+ ~
+A 1
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 15 15 15 15 15
+At 0 10 12 12
+End
+
+#97
+N pack horse~
+SD a pack horse~
+LD
+ A pack horse is quietly chewing from a feed bag.
+~
+D
+ A pack horse is standing nearby.
+~
+A 8211
+AB 0
+M 0
+Credits 0
+Bucks 0
+S 0
+Sz 24
+K 0 E 1
+O ~
+AP 3 3 3 3 3
+End
+
+#0
+
+
+
+#OBJDATA
+#1
+N object template~
+SD an object template~
+P ~
+D
+An object template is on the ground, awaiting immortal configuration.
+~
+A
+e,
+ with a total of one hundred and twenty-six days and nineteen hours of play,
+ twenty-four halfspans tall,
+ you are ninety years old,
+ 
+ and you are currently fine and fresh.
+
+    ____________________________________DikuMUD_________________________ 
+   |         |         |         |         |         |         |        |
+ Vie1      Silly    Pirate    Circle1   Diku_II   Sequent   Techno   Crimson
+   |         |                   |                   |   
+ Vie2     DaleMUD       ______Circle2______       Copper1
+   |                   |         |         |         |
+ Vie3             Archipelago Circle3  LostLands  Copper2____________
+   |                                                 |               |
+ Vie4                             _________________Merc1_______   Copper3
+   |                             |                   |         |
+ Vie5                         Rom1.0                 |        Vego
+                                 :_________________Merc2________________
+                                 |         |         |         |        |
+           ___________________Rom2.3   TheIsles    Envy1     SMAUG     ACK
+          |         |            |      (NiMUD)      |
+       Sunder   EmberMUD   ___Rom2.4___           _Envy2_
+                          |      |     |         |       |
+                      Anatolia Wurm Oblivion  Mythran   EOS
+
+/*************************************************************************
+ *  Copyright (C) 1990, 1991                                             *
+ *  All Rights Reserved                                                  *
+ *************************************************************************/ 
+
+                     DikuMud License  
+                Program & Concept created by
+
+Sebastian Hammer 
+Prss. Maries Alle 15, 1 
+1908 Frb. C. 
+DENMARK 
+(email quinn@freja.diku.dk) 
+
+Michael Seifert 
+Nr. Soeg. 37C, 1, doer 3 
+1370 Copenhagen K. 
+DENMARK 
+(email seifert@freja.diku.dk) 
+
+Hans Henrik St{rfeldt 
+Langs} 19 
+3500 V{rl|se 
+DENMARK 
+(email bombman@freja.diku.dk) 
+
+Tom Madsen 
+R|de Mellemvej 94B, 64 
+2300 Copenhagen S. 
+DENMARK 
+(email noop@freja.diku.dk) 
+
+Katja Nyboe 
+Kildeg}rdsvej 2 
+2900 Hellerup 
+31 62 82 84 
+DENMARK 
+(email katz@freja.diku.dk) 
+  
+
+This document contains the rules by which you can use, alter or publish 
+parts of DikuMud. DikuMud has been created by the above five listed 
+persons in their spare time, at DIKU (Computer Science Instutute at 
+Copenhagen University). You are legally bound to follow the rules 
+described in this document. 
+
+Rules: 
+
+   !! DikuMud is NOT Public Domain, shareware, careware or the like !! 
+
+   You may under no circumstances make profit on *ANY* part of DikuMud in 
+   any possible way. You may under no circumstances charge money for 
+   distributing any part of dikumud - this includes the usual $5 charge 
+   for "sending the disk" or "just for the disk" etc. 
+   By breaking these rules you violate the agreement between us and the 
+   University, and hence will be sued. 
+
+   You may not remove any copyright notices from any of the documents or 
+   sources given to you. 
+
+   This license must *always* be included "as is" if you copy or give 
+   away any part of DikuMud (which is to be done as described in this 
+   document). 
+
+   If you publish *any* part of dikumud, we as creators must appear in the 
+   article, and the article must be clearly copyrighted subject to this 
+   license. Before publishing you must first send us a message, by 
+   snail-mail or e-mail, and inform us what, where and when you are 
+   publishing (remember to include your address, name etc.) 
+
+   If you wish to setup a version of DikuMud on any computer system, you 
+   must send us a message , by snail-mail or e-mail, and inform us where 
+   and when you are running the game. (remember to include  
+   your address, name etc.) 
+  
+
+   Any running version of DikuMud must include our names in the login 
+   sequence. Furthermore the "credits" command shall always cointain 
+   our name, addresses, and a notice which states we have created DikuMud. 
+
+   You are allowed to alter DikuMud, source and documentation as long as 
+   you do not violate any of the above stated rules. 
+
+					Regards, 
+
+					The DikuMud Group
+ 
+~
+PD
+~
+DR
+The object template is nonchalantly just sitting there.
+~
+L 0
+T 11
+E 0
+W 0
+Sz 0
+Ti 1
+Wt 9999
+C 0
+O ~
+V 0 0 0 0
+End
+
+#2
+N %s coin~
+SD one %s coin~
+P ~
+D
+A single %s coin is on the ground.
+~
+A
+~
+PD
+~
+DR
+The coin has the face of Coranos Rygor embossed on its front.
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#3
+N %s coins~
+SD %s %s coins~
+P ~
+D
+A %s %s coins are on the ground here.
+~
+A
+~
+PD
+~
+DR
+These coins each have the face of Coranos Rygor embossed on them.
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#4
+N generative template~
+SD a generative template~
+P ~
+D
+A generative template is on the ground, awaiting game manipulation.
+~
+A
+~
+PD
+~
+DR
+~
+L -1
+T 13
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#5
+N corpse~
+SD the corpse of %s~
+P corpses~
+D
+The rotting corpse of %s lies in a heap.
+~
+A
+~
+PD
+~
+DR
+The corpse is fetid and rather grotesque.
+~
+L 0
+T 23
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 1000
+C 0
+O ~
+V 0 0 0 0
+End
+
+#6
+N corpse body~
+SD %s's corpse~
+P ~
+D
+The rotting body of %s is here.
+~
+A
+~
+PD
+Two of %s's corpses lie here.
+~
+DR
+The corpse is badly marred and rather disgusting to look at.
+~
+L 0
+T 24
+E 0
+W 0
+Sz 0
+Ti 0
+Wt -15536
+C 0
+O ~
+V 0 0 0 0
+End
+
+#10
+N head %s severed~
+SD the severed head of %s~
+P ~
+D
+The severed head of %s is lying in a pool of blood and gore.
+~
+A
+~
+PD
+~
+DR
+It is a fetid severed head.
+~
+L 0
+T 17
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 4
+C 0
+O ~
+V 2 2 12 0
+End
+
+#14
+N neverending torch~
+SD the neverending torch~
+P ~
+D
+The neverending torch has been dropped here.
+~
+A
+~
+PD
+~
+DR
+A special torch!
+~
+L 0
+T 1
+E 128
+W 2261013
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 99999 99999 0 1
+End
+
+#25
+N ice sword~
+SD an ice sword~
+P ~
+D
+An ice sword lies in the dust.
+~
+A
+~
+PD
+~
+DR
+An icy sword is melting here.
+~
+L 0
+T 5
+E 1
+W 8193
+Sz 0
+Ti 20
+Wt 5
+C 0
+O ~
+V 0 14 32 17
+End
+
+#26
+N pocket watch~
+SD a pocket watch~
+P ~
+D
+A pocket watch with a gold chain is lying on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#27
+N vorpal sword~
+SD a vorpal sword~
+P ~
+D
+A vorpal sword is stuck in the ground.
+~
+A
+~
+PD
+~
+DR
+A vorpal sword is a weapon specialized for decapitation.
+~
+L 0
+T 5
+E 1
+W 8193
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 10 20 6
+End
+
+#29
+N short sword~
+SD a short sword~
+P ~
+D
+A short sword is lying in the dust.
+~
+A
+~
+PD
+~
+DR
+The sword is crafted from poor iron resources.
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 6
+C 8
+O ~
+V 0 8 14 2
+End
+
+#30
+N hand axe~
+SD a hand axe~
+P ~
+D
+A rough looking hand axe juts from the ground.
+~
+A
+~
+PD
+~
+DR
+The axe is crafted from an impure iron resource.  Its handle is made from
+sinew and low quality wood.  It is fairly dull.  
+~
+L 0
+T 5
+E 0
+W 24577
+Sz 0
+Ti 0
+Wt 2
+C 3
+O ~
+V 1 4 11 1
+End
+
+#31
+N $c fullcloth~
+SD a $c fullcloth~
+P $c fullclothes~
+D
+A fullcloth lies in a heap upon the ground.
+~
+A
+~
+PD
+~
+DR
+The fullcloth is a lengthy gown dyed and carefully stitched with twine.  
+~
+L 0
+T 13
+E 0
+W 9
+Sz 0
+Ti 0
+Wt 3
+C 2
+O ~
+V 0 0 0 0
+End
+
+#32
+N a small shoulder pack~
+SD a small shoulder pack~
+P ~
+D
+A small pack with a shoulder strap has been discarded.
+~
+A
+~
+PD
+~
+DR
+The pack is made of a low quality burlap.
+~
+L 0
+T 15
+E 0
+W 4227073
+Sz 0
+Ti 0
+Wt 2
+C 5
+O ~
+V 10 5 0 0
+End
+
+#33
+N old lantern lamp~
+SD an old lantern~
+P ~
+D
+An old lantern is sitting on the ground.
+~
+A
+~
+PD
+~
+DR
+The lantern is made from thin brass.  It is dented and tarnished with
+mishandling.  
+~
+L 0
+T 1
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 2
+O ~
+V 10 10 0 30
+End
+
+#34
+N thin $l belt~
+SD a thin $l belt~
+P ~
+D
+A thin belt crafted from $l is coiled up on the ground.
+~
+A
+~
+PD
+~
+DR
+The belt is rather poorly stitched, but it has an iron buckle.  
+~
+L 0
+T 13
+E 0
+W 2049
+Sz 0
+Ti 0
+Wt 1
+C 1
+O ~
+V 0 0 0 0
+End
+
+#35
+N cloth kite shield~
+SD a cloth kite shield~
+P ~
+D
+A cloth kite shield lies flat on the ground.
+~
+A
+~
+PD
+~
+DR
+The shield is made of thick burlap stretched over a wooden frame.  
+~
+L 0
+T 9
+E 0
+W 513
+Sz 0
+Ti 0
+Wt 2
+C 1
+O ~
+V 2 10 10 0
+End
+
+#36
+N small tinderbox~
+SD a small tinderbox~
+P small tinderboxes~
+D
+A small tinderbox has been discarded here.
+~
+A
+~
+PD
+~
+DR
+The tinderbox is a small wooden box containing flint, steel and shavings
+of balsa wood.  
+~
+L 0
+T 27
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 3
+O ~
+V 1 5 5 0
+End
+
+#37
+N royal sealed letter~
+SD a royal sealed letter~
+P ~
+D
+On the ground is a royal sealed letter.
+~
+A
+~
+PD
+~
+DR
+The letter is addressed rather generically.  Its main text reads:
+  "This letter grants its owner full citizenship to the kingdom
+   of His Most Righteous, Lord and King Coranos Rygor.  All
+   lands and landforms within the borders of this island fall
+   under King Rygor's most just and fair reign.  Within the realm,
+   all laws are punishable by the joint Council of Elders.
+   Murder, transport of contraband, thievery and rogue activities
+   are punished accordingly, and the Royal Guard is justified in
+   whatever force it may use to enforce these laws."
+A wax symbol at the end of the letter bears the royal seal.
+~
+L 0
+T 0
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#38
+N halfstone apples apple~
+SD a halfstone of apples~
+P halfstones of apples~
+D
+Someone has left a halfstone of apples here.
+~
+A
+~
+PD
+~
+DR
+The apples are fresh and shiny red ones from the royal orchards near Kess.  
+~
+L 0
+T 19
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 20 0 0 0
+End
+
+#39
+N wineskin skin~
+SD a wineskin~
+P ~
+D
+A wineskin is lying nearby.
+~
+A
+~
+PD
+~
+DR
+The wineskin is the bladder of some animal, sewn and sealed.  It can
+carry a moderate amount of liquid.  A small strap allows for shoulder
+carrying.  
+~
+L 0
+T 17
+E 0
+W 32769
+Sz 0
+Ti 0
+Wt 1
+C 3
+O ~
+V 10 30 16 0
+End
+
+#40
+N ton wealth~
+SD a ton of wealth~
+P ~
+D
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 20
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 1000 0 0 0
+End
+
+#48
+N insta-fort~
+SD the Insta-Fort~
+P ~
+D
+A large green robotic device has a big yellow strobe on it.
+~
+A
+~
+PD
+~
+DR
+The device is about fifteen feet high and has big thick treads on it.  A
+yellow strobe flashes when it is in use.  The hydraulics are gun-metal gray
+and the rest is painted jungle-green camo.  The treads are spiked and made
+of a black kevlar.  It has two unfolding ramps and can deploy a variety of
+helper bots to aid it in whatever it is programmed to build.  
+~
+L 0
+T 8
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 1000000
+O ~
+Sc 47
+Sc 48
+V 0 0 0 0
+End
+
+#49
+N plastic fornicater~
+SD a plastic fornicator~
+P ~
+D
+A plastic fornicator fucks itself.
+~
+A
+~
+PD
+~
+DR
+A plastic fornicator is a little toy that fucks itself over and over
+again ad infinitum while making a little whirring noise.  
+~
+L 0
+T 0
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#50
+N $g gem~
+SD a $g~
+P ~
+D
+A $g sits in the dust.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 21
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 1
+C 0
+O ~
+V 0 0 0 0
+End
+
+#60
+N applications board~
+SD the applications board~
+P ~
+D
+The applications bulletin board is propped up against one wall.
+~
+A
+~
+PD
+~
+DR
+Tacked to the board are a bunch of applications.
+~
+L 0
+T 29
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 8 0 0 0
+End
+
+#61
+N conference table long~
+SD the conference table~
+P ~
+D
+A long conference table is placed in the center of the room.
+~
+A
+~
+PD
+~
+DR
+The huge oak conference table is the newest in fine furnishings.  Its
+craftsmanship is almost other-worldly in quality, and the shine never
+diminishes.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 99 65536 0 0
+End
+
+#62
+N board death~
+SD the Death board~
+P ~
+D
+A bulletin-board with a bleached bone frame hangs in midair.
+~
+A
+~
+PD
+~
+DR
+Use this bulletin board to complain about wrongful demise.
+~
+L 0
+T 29
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 40 0 0 62
+End
+
+#63
+N yes~
+SD yes~
+P ~
+D
+Yes
+~
+A
+~
+PD
+~
+DR
+There are many commands available on The Isles.  Start by typing
+"commands" to see a list of what's available.  Typing "help <command>"
+on a specific command will give you more information.
+ 
+When you are ready to proceed, type "next" --
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 11110
+End
+
+#64
+N immortal bulletin board~
+SD the immortal bulletin board~
+P ~
+D
+The immortal bulletin board is floating here in mid-air.
+~
+A
+~
+PD
+~
+DR
+This board is for immortal discussion, questions, comments, suggestions,
+bug reports, complaints, policy postings, official banter and related
+things.  
+~
+L 0
+T 29
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 0 0 0
+End
+
+#65
+N no n~
+SD the tutorial..~
+P ~
+D
+No
+~
+A
+~
+PD
+~
+DR
+Type 'next' and hit return to proceed.
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 0 294912 0 700
+End
+
+#66
+N bug board bugs~
+SD the bug board~
+P ~
+D
+A board is here, crawling with nasty insects.
+~
+A
+~
+PD
+~
+DR
+The bug board is to report all sorts of game errors.
+~
+L 0
+T 29
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 3 0 0 0
+End
+
+#67
+N daybed bed~
+SD a daybed~
+P ~
+D
+A daybed is here for folks to sleep on.
+~
+A
+~
+PD
+~
+DR
+A daybed is a smaller bed that pulls out like a drawer, or perhaps like a
+deacon's bench, depending on the style.  This one is more the latter.  
+~
+L 0
+T 12
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 100 24576 0 0
+End
+
+#95
+N sling~
+SD a sling~
+P ~
+D
+A simple sling is here.
+~
+A
+~
+PD
+~
+DR
+A simple sling made from wood and sinew.
+~
+L 0
+T 6
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 96 10 20 0
+End
+
+#96
+N a small rock~
+SD a small rock~
+P ~
+D
+A small rock is here.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 7
+E 0
+W 1
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 1 0 0 -1
+End
+
+#0
+
+
+
+#SCENES
+#1
+N Locke's Quarters~
+Ref 0
+D
+The room is adorned with various photographs, pictures, drawings and
+printouts that cover the walls.  There is a desk in one corner with an
+extravagant computer on it.  
+~
+C
+SIGNPOST cast.jpg
+~
+F 70
+S 0
+M 0
+W 0
+T 0
+O ~
+ED photographs~
+Pictures of his friends.  Lots of pretty girls he knows.  His family.
+~
+R M 2 1 100 1
+R O 30 39 100 1
+Dr 2 5 0 2
+~
+door~
+End
+
+#2
+N Limbo~
+Ref 0
+D
+You are floating in nothingness.
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 64 -5 100 1
+Dr 0 5 0 1
+~
+door~
+Dr 1 0 0 11
+~
+~
+Dr 2 0 0 3
+~
+~
+Dr 4 0 0 12
+~
+~
+Dr 5 0 0 10
+~
+~
+End
+
+#3
+N Club Fantastic~
+Ref 0
+D
+The walls are dark metal, with many rivets.  The lighting is dim, with
+lasers and multi-colored projection lighting directed at the dancefloor.  A
+loud thumping sound pervades the music played here.  There are many
+undulating bodies on the dancefloor, and patrons wander to and fro in
+inebriated dazes.  
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 3 1 100 1
+R O 39 -1 100 1
+R O 50 -1 50 2
+R O 50 -1 4 1
+Dr 0 0 0 2
+~
+~
+End
+
+#4
+N Mortal Sign-Up Room~
+Ref 0
+D
+The room is a small cubicle four spans by six.  On the north wall is a
+mirror.  To the south you see a few objects bolted rather perminantly to the
+wall.  Make sure that the applications board is loaded in this room at ALL
+times.  
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 60 -5 100 1
+Dr 3 7 0 12
+~
+frost-windowed door~
+End
+
+#5
+N The Afterlife~
+Ref 0
+D
+You have died and your character has been placed here.  In the event of an
+incorrectly assigned death, your character may remain safe by staying here,
+and you can contact an immortal if you have any arguments about situations
+pertaining to your death.
+   Please be kind, or you will be sent straight to Hell.
+~
+C
+(null)~
+F 66
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 7 0 12
+~
+obsidian gate~
+Dr 5 0 0 5000
+~
+~
+End
+
+#6
+N Skip the tutorial?~
+Ref 0
+D
+(takes 10-15 minutes)
+~
+C
+(null)~
+F 6
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 65 -5 100 1
+R O 63 -5 100 1
+End
+
+#7
+N Which word best describes your personality?~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+End
+
+#10
+N Roleplay Designer's Lounge~
+Ref 0
+D
+This is the crazy hangout for roleplay designers.
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 4 0 0 2
+~
+~
+End
+
+#11
+N Area Designer's Lounge~
+Ref 0
+D
+You are standing in the Area Designer's lounge.  It looks like
+someone cleaned up recently.
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+R O 67 -5 100 1
+Dr 0 0 0 1000
+To the north lies The Playground, a place for immortals to play around
+with the online creation.
+~
+~
+Dr 3 0 0 2
+To the west is nothingness.
+~
+~
+Dr 5 5 0 2000
+The database development area lies beyond the trapdoor.
+~
+trapdoor~
+End
+
+#12
+N Judicial Lounge~
+Ref 0
+D
+Judges hang out here and talk about roleplay-related stuff.
+~
+C
+(null)~
+F 2
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 7 0 4
+~
+frost-windowed door~
+Dr 3 7 0 5
+~
+obsidian gate~
+Dr 5 0 0 2
+~
+~
+End
+
+#20
+N Shaendra's Room~
+Ref 0
+D
+~
+C
+~
+F 66
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#40
+N Overgrown Garden~
+Ref 0
+D
+A huge manorhouse is just west of here through an overgrown garden of
+great beauty.  Broken pillars are enveloped with crawling ivy, and many
+small flowers adorn filled marble planters.  A green and rocky path leads
+west through unkempt bushes and budding saplings.  
+~
+C
+(null)~
+F 0
+S 2
+M 0
+W 0
+T 0
+O ~
+Dr 3 0 0 42
+~
+~
+End
+
+#41
+N River Floor~
+Ref 0
+D
+~
+C
+(null)~
+F 4
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 5 0 42
+~
+double door~
+End
+
+#42
+N Manorhouse Porch~
+Ref 0
+D
+A decrepit, dark-grey stone manorhouse is amongst the unkempt foliage. 
+There are old oak pillars that hold up the entryway's roof, with ornamented
+carvings on their length.  A set of lanterns are mounted next to the main
+double doors.  
+~
+C
+(null)~
+F 0
+S 1
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 40
+~
+~
+Dr 3 5 0 41
+~
+double door~
+End
+
+#60
+N Portal of Worlds~
+Ref 0
+D
+~
+C
+(null)~
+F 2
+S 0
+M 0
+W 0
+T 0
+O ~
+End
+
+#95
+N Target Range~
+Ref 0
+D
+A series of targets are set up for shooting.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 95 3 100 1
+Dr 3 512 0 96
+~
+window~
+End
+
+#96
+N Shooting Range~
+Ref 0
+D
+The Isles has ranged weapons as well as mounts.  Pick up the sling and
+rock and try shooting a target to the east.  If you need help with the
+commands, try typing 'help shoot' -- 
+~
+C
+(null)~
+F 1024
+S 0
+M 0
+W 0
+T 0
+O ~
+R O 95 -5 100 1
+R O 96 -5 100 3
+Dr 1 512 0 95
+~
+window~
+Dr 2 0 0 97
+~
+~
+End
+
+#97
+N Stable~
+Ref 0
+D
+A stable full of horses is here for you to try your hand at riding.
+Type 'help mount' for more information ---
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+R M 97 1 100 1
+Dr 0 0 0 96
+~
+~
+Dr 2 0 0 98
+~
+~
+End
+
+#98
+N Feature Demonstration~
+Ref 0
+D
+On the Isles, you will encounter mounted warriors, swordsmen, wizards
+and gemmasters.  As you progress in levels, you will be given the
+chance to learn skills and esoteric arts, unlock mysteries of the
+past and forge bonds with other players.  In this room, and the
+rooms to the north, are a series of short demonstrations which show
+some of the fun features which you may be unfamiliar with.
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 0 0 0 97
+~
+~
+Dr 3 0 0 99
+~
+~
+End
+
+#99
+N Guest Quarters~
+Ref 0
+D
+Welcome to the Isles!  We encourage you to create your very own player
+character here.  In the meantime, please feel free to peruse the
+documentation, or visit our Feature Demonstrations section of the Guest
+Area!  Walk around a bit and we'll explain all of the great features and a
+bit about the world you're about to enter.  
+~
+C
+(null)~
+F 0
+S 0
+M 0
+W 0
+T 0
+O ~
+Dr 1 0 0 98
+~
+~
+End
+
+#0
+
+
+
+#$

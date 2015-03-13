@@ -173,6 +173,57 @@ O ~
 V 50 65536 0 0
 End
 
+#8098
+N stone~
+SD a stone~
+P ~
+D
+A pile of rocks nearby catches your attention.
+~
+A
+~
+PD
+~
+DR
+Oh, wait, there's nothing special about those rocks.
+~
+L 0
+T 15
+E 0
+W 0
+Sz 0
+Ti 0
+Wt 0
+C 0
+O ~
+V 5 0 0 0
+End
+
+#8099
+N keyring~
+SD a brass keyring~
+P ~
+D
+A brass keyring is on the ground.
+~
+A
+~
+PD
+~
+DR
+~
+L 0
+T 15
+E 0
+W 4097
+Sz 0
+Ti 0
+Wt 0
+C 5
+O ~
+V 0 2 0 0
+End
+
 #0
 
 
