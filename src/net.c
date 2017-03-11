@@ -721,9 +721,9 @@ void game_loop_mac_msdos( void )
     process_input( );
 
 	/*
-	 * Autonomous game motion.
+	 * Autonomous game motion.  Won't run if no one is connected.
 	 */
- 	update_handler( );
+ 	if ( connection_list ) update_handler( );
 
     connection_output( );
 
@@ -872,7 +872,7 @@ void game_loop_unix( int c )
         imc_loop();   /* IMC2 */
 #endif
 
-        update_handler( );
+        if ( connection_list ) update_handler( );  // run only when someone is connected.
 
     connection_output( );
 
