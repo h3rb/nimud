@@ -1,0 +1,105 @@
+From Newman@Grok: The Earth You Never Knew
+(grok.envy.com 8000)
+This is something I've just thrown together quickly, to help those who 
+are interested in starting a NiMUD get going. It's not intended to 
+*replace* the documentation which Locke included in the 1.0 release of 
+his NiMUD code, but since that version seems to be difficult to find, 
+this should be enough to get started.
+
+7/97 Note:
+Omar Yehia has ported version 1.5 of The Isles to W95. Thanks! Among 
+other places, it can be found in the nimud directory at ftp.game.org
+
+5/97 Note:
+Added the a subarchive called make-start.tar.gz which containes the 
+original Makefiles and startup scripts for various *IX flavors. These were 
+extracted from the 1.1 distribution. 
+
+3/97 Note:
+All versions of NiMUD are still currently at Locke's ftp site (which is a 
+bit slow in connecting). That is:
+
+ftp://sauron.hacks.arizona.edu/isles
+
+Version 1.5 (the version I recommend) is at (among other places):
+
+ftp://liquefy.isca.uiowa.edu/unix/mud/dikumud
+
+This patch is available at a few places online. For a list of where, 
+email me at sommer@main.com.
+
+=============================
+What's in this *.tar.gz file:
+=============================
+
+o README_2.0 (this file)
+o area.lst  (a bare-bones text file area list you need to get going)
+o database.are (an area file which was distributed with the 1.0 
+  release... mainly objects... serves as an example of what a NiM area file 
+  looks like)
+o limbo.are (another area file, with a few rooms and "stock objects")
+o help.are (a sample helpfile... I took out things which were not part of 
+  the original NiM information in the file)
+o h-immref.are (another sample helpfile)
+o social.are (a list of socials)
+o a player file (Unixgod)
+
+=======================
+What to do to get going
+=======================
+
+It's been awhile, so bear with me :) 
+
+First, you'll need to make sure that you have the following files in your 
+area.lst file:
+
+help.are
+h-help.are
+h-races.are
+h-story.are
+h-immref.are
+social.are
+database.are
+limbo.are
+
+Now, there need not be full information IN these area files (I provided 
+partial copies of help and immref, and "full" copies of social, races, 
+story, database and limbo), but at least have the "#HELPS ... #0" 
+information in the text file. Yes, until you change the source code, the 
+server WILL need a copy of both help.are and h-help.are... don't ask me 
+why, it was Locke's doing ;) Just do "cp h-help.are help.are" for now.
+
+You may want to take a look at the area files (both helpfile areas and 
+actual building area files), because they do look ALOT different from 
+Merc zone files. These are actually readable ;) The file which contained 
+OLC information in the 1.0 release was h-immref.are I thought about 
+picking out the non-original information in the h-immref.are file we use 
+at Grok, but 21 months' worth of changing is just TOO much to remember, 
+so, the h-immref.are file you see here is a VERY minimalized version of 
+the originial area file.
+
+Next, change the level field in the God pfile to whatever max level you 
+set in merc.h This way, you can log in "God" and do whatever advances 
+necessary to start your immortal staff. God's password is encrypted in 
+the pfile, but the password is "newman" (all lowercase). It would be a 
+good idea to create the character you wish to use for your imp, and 
+advance, then tar-gz up "God" to keep any security leaks from springing up.
+
+Check in the #defines of merc.h for commonly used vnums of things like 
+objects (corpses, swords, etc) and mobs (daemons, vampires, etc) and make 
+sure that those vnums are present in an area file somewhere :)
+
+3/97 Addition:
+You may want to check whatever version of the code you have, in the 
+do_credits function. It may or may not call do_help with "nimud" as an 
+argument. If it does, change this to "diku" as the argument. That will 
+conform to the Diku license, which we all know is a required thing.
+
+Now you should be ready to glean the code, and fill in the helpfiles 
+yourself. Good luck! If you have questions, I don't mind trying to 
+answer, so feel free to email me at:
+
+sommer@main.com
+
+-Holly J. Sommer/Newman@ grok.envy.com 8000
+ Last updated 23 March 1997

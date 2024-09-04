@@ -1,0 +1,12 @@
+
+Official final release of NiM5;
+NiM5-final.tar.gz
+
+The Final Version of NiMUD v5
+
+1) Source code in included .gz works fine
+2) Default source code is the "final" version
+     -- contains boot error related to HOTBOOT
+     -- comment out #define HOTBOOT to run
+
+Locke, Aug, 2004
